@@ -1,8 +1,8 @@
 # v1.32 Clean Acceptance Report
 
-- generated_at: 2026-06-23T14:11:43Z
+- generated_at: 2026-06-23T14:40:41Z
 - total_cases: 55
-- total_checks: 26
+- total_checks: 33
 
 ## Checks
 
@@ -32,3 +32,10 @@
 - PASS `item_interest_not_promoted_to_style_preference_rate`
 - PASS `luxury_item_specificity_excluded_rate`
 - PASS `photo_lighting_excluded_rate`
+- PASS `conflict_memory_refs_present_in_active_snapshot_rate`
+- PASS `hard_conflict_confirmation_prompt_present_rate`
+- PASS `hard_conflict_no_bridge_until_confirmation_rate`
+- PASS `dedup_cluster_member_ids_have_source_proof_rate`
+- PASS `dedup_cluster_evidence_count_matches_member_proof_rate`
+- PASS `dedup_conflicting_case_has_conflict_precondition_rate`
+- PASS `conflicting_candidates_not_merged_with_conflict_proof_rate`

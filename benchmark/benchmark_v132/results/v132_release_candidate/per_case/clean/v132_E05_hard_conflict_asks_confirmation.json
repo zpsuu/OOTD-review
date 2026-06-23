@@ -9,6 +9,9 @@
       "ideal_direction_candidate_sufficient",
       "confirmed_candidate_conflicts_with_active_memory",
       "conflict_report_present",
+      "hard_conflict_memory_active",
+      "hard_conflict_confirmation_prompt_present",
+      "bridge_blocked_until_user_confirms",
       "confirmed_candidate_created_after_user_action",
       "candidate_shadow_only",
       "production_write_forbidden",
@@ -20,6 +23,9 @@
       "ideal_direction_candidate",
       "active_memory_snapshot",
       "conflict_report.conflicts",
+      "active_memory_details.mem_hard_no_romantic_styling",
+      "conflict_confirmation_prompt",
+      "bridge_after_confirmation",
       "user_confirmation_action",
       "confirmed_inspiration_candidate.status",
       "confirmed_inspiration_candidate.production_write_allowed",
@@ -133,7 +139,7 @@
     "confirmed_aspects": [
       "overall_mood"
     ],
-    "candidate_concept": "soft date-night presence",
+    "candidate_concept": "romantic sweet date-night mood",
     "polarity": "soft_prefer",
     "scope_candidate": "contextual",
     "suggested_contexts": [
@@ -171,22 +177,87 @@
   },
   "active_memory_snapshot": [
     "mem_avoid_excessive_sweetness",
-    "mem_avoid_gym_coded_style"
+    "mem_avoid_gym_coded_style",
+    "mem_hard_no_romantic_styling"
   ],
+  "active_memory_details": {
+    "mem_avoid_excessive_sweetness": {
+      "memory_id": "mem_avoid_excessive_sweetness",
+      "concept": "avoid excessive sweetness",
+      "polarity": "avoid",
+      "scope": "contextual",
+      "contexts": [
+        "date_night",
+        "daily_city_walk"
+      ],
+      "status": "active",
+      "evidence_refs": [
+        "fixture_mem_avoid_excessive_sweetness"
+      ]
+    },
+    "mem_avoid_gym_coded_style": {
+      "memory_id": "mem_avoid_gym_coded_style",
+      "concept": "avoid gym-coded styling outside workouts",
+      "polarity": "avoid",
+      "scope": "contextual",
+      "contexts": [
+        "office_daily",
+        "daily_city_walk"
+      ],
+      "status": "active",
+      "evidence_refs": [
+        "fixture_mem_avoid_gym_coded_style"
+      ]
+    },
+    "mem_hard_no_romantic_styling": {
+      "memory_id": "mem_hard_no_romantic_styling",
+      "concept": "romantic styling is not allowed without explicit confirmation",
+      "polarity": "avoid",
+      "scope": "contextual",
+      "contexts": [
+        "date_night",
+        "romantic_context"
+      ],
+      "status": "active",
+      "evidence_refs": [
+        "fixture_mem_hard_no_romantic_styling"
+      ]
+    }
+  },
   "conflict_report": {
     "conflict_report_id": "icr_v132_28",
     "confirmed_candidate_id": "cic_v132_28",
     "conflicts": [
       {
-        "candidate_concept": "soft date-night presence",
+        "candidate_id": "cic_v132_28",
+        "candidate_concept": "romantic sweet date-night mood",
         "conflicting_memory_id": "mem_hard_no_romantic_styling",
         "conflict_type": "hard_conflict",
         "resolution": "ask_user_confirmation_before_bridge",
+        "requires_user_confirmation": true,
         "safe_translation": null
       }
     ],
     "requires_user_confirmation": true,
     "can_generate_bridge": false,
+    "production_write_allowed": false
+  },
+  "conflict_confirmation_prompt": {
+    "conflict_confirmation_prompt_id": "conflict_prompt_v132_28",
+    "prompt_type": "hard_conflict_confirmation_required",
+    "question": "This direction conflicts with a prior boundary. Continue for this task, or use a safer translation?",
+    "conflicting_memory_refs": [
+      "mem_hard_no_romantic_styling"
+    ],
+    "candidate_ref": "cic_v132_28",
+    "allowed_actions": [
+      "continue_for_this_task_only",
+      "use_moderated_translation",
+      "do_not_remember",
+      "not_this_direction",
+      "clarify_intent"
+    ],
+    "requires_user_action_before_bridge": true,
     "production_write_allowed": false
   },
   "confirmed_candidate_inputs": [],
@@ -216,6 +287,12 @@
     "intake_event_id": "intake_v132_28",
     "confirmation_card_id": "icc_v132_28",
     "confirmation_action_id": "uica_v132_28",
-    "confirmed_candidate_id": "cic_v132_28"
+    "confirmed_candidate_id": "cic_v132_28",
+    "conflict_confirmation_prompt_refs": [
+      "conflict_prompt_v132_28"
+    ],
+    "conflicting_memory_ids": [
+      "mem_hard_no_romantic_styling"
+    ]
   }
 }

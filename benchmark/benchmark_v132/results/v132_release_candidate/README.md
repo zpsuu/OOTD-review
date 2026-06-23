@@ -15,13 +15,13 @@ PASS CANDIDATE pending manual review.
 ## Clean Acceptance
 
 - cases: 55
-- checks: 26
+- checks: 33
 - verdict: pass
 
 ## Mixed Strict
 
-- cases: 65
-- injected defects: 10
+- cases: 69
+- injected defects: 14
 - verdict: fail
 - injected defect detection: pass
 

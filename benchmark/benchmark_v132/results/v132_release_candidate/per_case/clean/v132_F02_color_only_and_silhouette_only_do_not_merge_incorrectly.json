@@ -171,19 +171,23 @@
     "date_night_mapped_to_office": false
   },
   "active_memory_snapshot": [],
+  "active_memory_details": {},
   "conflict_report": null,
+  "conflict_confirmation_prompt": null,
   "confirmed_candidate_inputs": [
     {
       "candidate_id": "cic_v132_30_a",
       "confirmed_aspects": [
-        "low_saturation_palette"
-      ]
+        "color_palette"
+      ],
+      "source_proof_ref": "confirmation_action_color_only"
     },
     {
       "candidate_id": "cic_v132_30_b",
       "confirmed_aspects": [
-        "clean_lines"
-      ]
+        "silhouette"
+      ],
+      "source_proof_ref": "confirmation_action_silhouette_only"
     }
   ],
   "dedup_cluster": {

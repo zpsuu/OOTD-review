@@ -175,11 +175,42 @@
     "mem_avoid_excessive_sweetness",
     "mem_avoid_gym_coded_style"
   ],
+  "active_memory_details": {
+    "mem_avoid_excessive_sweetness": {
+      "memory_id": "mem_avoid_excessive_sweetness",
+      "concept": "avoid excessive sweetness",
+      "polarity": "avoid",
+      "scope": "contextual",
+      "contexts": [
+        "date_night",
+        "daily_city_walk"
+      ],
+      "status": "active",
+      "evidence_refs": [
+        "fixture_mem_avoid_excessive_sweetness"
+      ]
+    },
+    "mem_avoid_gym_coded_style": {
+      "memory_id": "mem_avoid_gym_coded_style",
+      "concept": "avoid gym-coded styling outside workouts",
+      "polarity": "avoid",
+      "scope": "contextual",
+      "contexts": [
+        "office_daily",
+        "daily_city_walk"
+      ],
+      "status": "active",
+      "evidence_refs": [
+        "fixture_mem_avoid_gym_coded_style"
+      ]
+    }
+  },
   "conflict_report": {
     "conflict_report_id": "icr_v132_27",
     "confirmed_candidate_id": "cic_v132_27",
     "conflicts": [
       {
+        "candidate_id": "cic_v132_27",
         "candidate_concept": "soft date-night presence",
         "conflicting_memory_id": "mem_avoid_excessive_sweetness",
         "conflict_type": "soft_conflict",
@@ -191,6 +222,7 @@
     "can_generate_bridge": true,
     "production_write_allowed": false
   },
+  "conflict_confirmation_prompt": null,
   "confirmed_candidate_inputs": [],
   "dedup_cluster": null,
   "bridge_after_confirmation": {

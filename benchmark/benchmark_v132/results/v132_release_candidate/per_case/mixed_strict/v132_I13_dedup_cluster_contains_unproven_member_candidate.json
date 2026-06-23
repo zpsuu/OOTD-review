@@ -1,0 +1,16 @@
+{
+  "case_id": "v132_I13_dedup_cluster_contains_unproven_member_candidate",
+  "version": "v1.32",
+  "defect_type": "dedup_cluster_contains_unproven_member_candidate",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "dedup_cluster_member_ids_have_source_proof_rate",
+    "dedup_cluster_evidence_count_matches_member_proof_rate"
+  ],
+  "failed_check_ids": [
+    "dedup_cluster_member_ids_have_source_proof_rate",
+    "dedup_cluster_evidence_count_matches_member_proof_rate"
+  ],
+  "source_clean_case_id": "v132_A01_card_generated_from_sufficient_ideal_candidate",
+  "failure_reason": "Injected defect detected: dedup_cluster_contains_unproven_member_candidate"
+}

@@ -10,6 +10,8 @@
       "multiple_confirmed_candidates_present",
       "candidate_aspects_compatible",
       "dedup_cluster_governance_present",
+      "all_cluster_members_have_source_proof",
+      "cluster_evidence_count_matches_member_proof",
       "confirmed_candidate_created_after_user_action",
       "candidate_shadow_only",
       "production_write_forbidden",
@@ -21,6 +23,8 @@
       "ideal_direction_candidate",
       "confirmed_candidate_inputs",
       "dedup_cluster",
+      "dedup_cluster.member_source_proof",
+      "dedup_cluster.evidence_count_matches_member_proof",
       "user_confirmation_action",
       "confirmed_inspiration_candidate.status",
       "confirmed_inspiration_candidate.production_write_allowed",
@@ -171,19 +175,31 @@
     "date_night_mapped_to_office": false
   },
   "active_memory_snapshot": [],
+  "active_memory_details": {},
   "conflict_report": null,
+  "conflict_confirmation_prompt": null,
   "confirmed_candidate_inputs": [
     {
       "candidate_id": "cic_v132_33_a",
       "confirmed_aspects": [
         "low_saturation_palette"
-      ]
+      ],
+      "source_proof_ref": "confirmation_action_a"
     },
     {
       "candidate_id": "cic_v132_33_b",
       "confirmed_aspects": [
         "clean_lines"
-      ]
+      ],
+      "source_proof_ref": "confirmation_action_b"
+    },
+    {
+      "candidate_id": "cic_v132_33_c",
+      "confirmed_aspects": [
+        "low_saturation_palette",
+        "clean_lines"
+      ],
+      "source_proof_ref": "confirmation_action_c"
     }
   ],
   "dedup_cluster": {
@@ -200,6 +216,13 @@
     ],
     "conflicting_aspects": [],
     "evidence_count": 3,
+    "member_source_proof": {
+      "cic_v132_33_a": "confirmation_action_a",
+      "cic_v132_33_b": "confirmation_action_b",
+      "cic_v132_33_c": "confirmation_action_c"
+    },
+    "all_member_ids_have_source_proof": true,
+    "evidence_count_matches_member_proof": true,
     "confidence_delta": 0.12,
     "status": "shadow_cluster",
     "production_write_allowed": false

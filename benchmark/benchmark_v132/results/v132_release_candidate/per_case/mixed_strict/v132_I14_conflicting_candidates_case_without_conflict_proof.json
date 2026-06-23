@@ -1,0 +1,16 @@
+{
+  "case_id": "v132_I14_conflicting_candidates_case_without_conflict_proof",
+  "version": "v1.32",
+  "defect_type": "conflicting_candidates_case_without_conflict_proof",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "dedup_conflicting_case_has_conflict_precondition_rate",
+    "conflicting_candidates_not_merged_with_conflict_proof_rate"
+  ],
+  "failed_check_ids": [
+    "dedup_conflicting_case_has_conflict_precondition_rate",
+    "conflicting_candidates_not_merged_with_conflict_proof_rate"
+  ],
+  "source_clean_case_id": "v132_A01_card_generated_from_sufficient_ideal_candidate",
+  "failure_reason": "Injected defect detected: conflicting_candidates_case_without_conflict_proof"
+}

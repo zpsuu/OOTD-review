@@ -1,9 +1,9 @@
 {
   "version": "v1.32",
-  "generated_at": "2026-06-23T14:11:43Z",
+  "generated_at": "2026-06-23T14:40:41Z",
   "verdict": "pass",
-  "seeded_defects": 10,
-  "detected_defects": 10,
+  "seeded_defects": 14,
+  "detected_defects": 14,
   "unexpected_clean_case_failures": [],
   "unexpected_injected_passes": [],
   "detected": [
@@ -164,6 +164,68 @@
         "bridge_does_not_use_rejected_aspects_rate"
       ],
       "raw_artifact_ref": "per_case/mixed_strict/v132_I10_rejected_aspect_used_in_bridge.json"
+    },
+    {
+      "case_id": "v132_I11_conflict_report_references_non_active_memory",
+      "defect_type": "conflict_report_references_non_active_memory",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "conflict_memory_refs_present_in_active_snapshot_rate"
+      ],
+      "expected_failed_check_ids": [
+        "conflict_memory_refs_present_in_active_snapshot_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v132_I11_conflict_report_references_non_active_memory.json"
+    },
+    {
+      "case_id": "v132_I12_hard_conflict_missing_confirmation_prompt",
+      "defect_type": "hard_conflict_missing_confirmation_prompt",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "hard_conflict_confirmation_prompt_present_rate",
+        "hard_conflict_no_bridge_until_confirmation_rate"
+      ],
+      "expected_failed_check_ids": [
+        "hard_conflict_confirmation_prompt_present_rate",
+        "hard_conflict_no_bridge_until_confirmation_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v132_I12_hard_conflict_missing_confirmation_prompt.json"
+    },
+    {
+      "case_id": "v132_I13_dedup_cluster_contains_unproven_member_candidate",
+      "defect_type": "dedup_cluster_contains_unproven_member_candidate",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "dedup_cluster_member_ids_have_source_proof_rate",
+        "dedup_cluster_evidence_count_matches_member_proof_rate"
+      ],
+      "expected_failed_check_ids": [
+        "dedup_cluster_member_ids_have_source_proof_rate",
+        "dedup_cluster_evidence_count_matches_member_proof_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v132_I13_dedup_cluster_contains_unproven_member_candidate.json"
+    },
+    {
+      "case_id": "v132_I14_conflicting_candidates_case_without_conflict_proof",
+      "defect_type": "conflicting_candidates_case_without_conflict_proof",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "dedup_conflicting_case_has_conflict_precondition_rate",
+        "conflicting_candidates_not_merged_with_conflict_proof_rate"
+      ],
+      "expected_failed_check_ids": [
+        "dedup_conflicting_case_has_conflict_precondition_rate",
+        "conflicting_candidates_not_merged_with_conflict_proof_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v132_I14_conflicting_candidates_case_without_conflict_proof.json"
     }
   ]
 }

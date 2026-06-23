@@ -49,7 +49,9 @@
     "date_night_mapped_to_office": false
   },
   "active_memory_snapshot": [],
+  "active_memory_details": {},
   "conflict_report": null,
+  "conflict_confirmation_prompt": null,
   "confirmed_candidate_inputs": [],
   "dedup_cluster": null,
   "bridge_after_confirmation": null,

@@ -11,9 +11,9 @@ Inspiration Confirmation UX & Candidate Governance.
 ## Evidence
 
 - Clean acceptance: 55/55 cases pass
-- Clean checks: 26/26 checks pass
+- Clean checks: 33/33 checks pass
 - Mixed strict: expected fail with injected defects
-- Injected defect detection: 10/10 seeded defects detected
+- Injected defect detection: 14/14 seeded defects detected
 
 ## Boundaries
 

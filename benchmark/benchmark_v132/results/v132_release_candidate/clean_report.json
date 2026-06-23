@@ -1,7 +1,7 @@
 {
   "benchmark_id": "v1.32.inspiration_confirmation_ux_candidate_governance",
   "schema_version": "v1.32",
-  "generated_at": "2026-06-23T14:11:43Z",
+  "generated_at": "2026-06-23T14:40:41Z",
   "verdicts": {
     "clean_acceptance_verdict": "pass",
     "release_candidate_verdict": "pass_candidate"
@@ -10,8 +10,8 @@
     "total_cases": 55,
     "passed_cases": 55,
     "failed_cases": 0,
-    "total_checks": 26,
-    "passed_checks": 26,
+    "total_checks": 33,
+    "passed_checks": 33,
     "failed_checks": 0
   },
   "checks": [
@@ -192,6 +192,55 @@
     },
     {
       "check_id": "photo_lighting_excluded_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "raw v1.32 clean artifacts satisfy this gate"
+    },
+    {
+      "check_id": "conflict_memory_refs_present_in_active_snapshot_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "raw v1.32 clean artifacts satisfy this gate"
+    },
+    {
+      "check_id": "hard_conflict_confirmation_prompt_present_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "raw v1.32 clean artifacts satisfy this gate"
+    },
+    {
+      "check_id": "hard_conflict_no_bridge_until_confirmation_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "raw v1.32 clean artifacts satisfy this gate"
+    },
+    {
+      "check_id": "dedup_cluster_member_ids_have_source_proof_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "raw v1.32 clean artifacts satisfy this gate"
+    },
+    {
+      "check_id": "dedup_cluster_evidence_count_matches_member_proof_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "raw v1.32 clean artifacts satisfy this gate"
+    },
+    {
+      "check_id": "dedup_conflicting_case_has_conflict_precondition_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "raw v1.32 clean artifacts satisfy this gate"
+    },
+    {
+      "check_id": "conflicting_candidates_not_merged_with_conflict_proof_rate",
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,

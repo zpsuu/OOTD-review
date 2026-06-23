@@ -1,0 +1,16 @@
+{
+  "case_id": "v132_I12_hard_conflict_missing_confirmation_prompt",
+  "version": "v1.32",
+  "defect_type": "hard_conflict_missing_confirmation_prompt",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "hard_conflict_confirmation_prompt_present_rate",
+    "hard_conflict_no_bridge_until_confirmation_rate"
+  ],
+  "failed_check_ids": [
+    "hard_conflict_confirmation_prompt_present_rate",
+    "hard_conflict_no_bridge_until_confirmation_rate"
+  ],
+  "source_clean_case_id": "v132_A01_card_generated_from_sufficient_ideal_candidate",
+  "failure_reason": "Injected defect detected: hard_conflict_missing_confirmation_prompt"
+}

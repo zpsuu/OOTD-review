@@ -1,0 +1,14 @@
+{
+  "case_id": "v132_I11_conflict_report_references_non_active_memory",
+  "version": "v1.32",
+  "defect_type": "conflict_report_references_non_active_memory",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "conflict_memory_refs_present_in_active_snapshot_rate"
+  ],
+  "failed_check_ids": [
+    "conflict_memory_refs_present_in_active_snapshot_rate"
+  ],
+  "source_clean_case_id": "v132_A01_card_generated_from_sufficient_ideal_candidate",
+  "failure_reason": "Injected defect detected: conflict_report_references_non_active_memory"
+}

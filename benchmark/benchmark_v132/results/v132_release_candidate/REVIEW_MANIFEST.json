@@ -3,7 +3,7 @@
   "release_candidate_status": "pass_candidate_pending_manual_review",
   "branch": "v132-inspiration-confirmation-ux-candidate-governance",
   "theme": "Inspiration Confirmation UX & Candidate Governance",
-  "generated_at": "2026-06-23T14:11:43Z",
+  "generated_at": "2026-06-23T14:40:41Z",
   "scope": {
     "goals": [
       "Generate confirmation cards only for sufficient inspiration candidates",
@@ -56,7 +56,14 @@
     "conflicting_candidates_not_merged_rate",
     "item_interest_not_promoted_to_style_preference_rate",
     "luxury_item_specificity_excluded_rate",
-    "photo_lighting_excluded_rate"
+    "photo_lighting_excluded_rate",
+    "conflict_memory_refs_present_in_active_snapshot_rate",
+    "hard_conflict_confirmation_prompt_present_rate",
+    "hard_conflict_no_bridge_until_confirmation_rate",
+    "dedup_cluster_member_ids_have_source_proof_rate",
+    "dedup_cluster_evidence_count_matches_member_proof_rate",
+    "dedup_conflicting_case_has_conflict_precondition_rate",
+    "conflicting_candidates_not_merged_with_conflict_proof_rate"
   ],
   "must_review_samples": [
     "sample_artifacts/confirmation_card_low_saturation_city.json",
@@ -66,6 +73,8 @@
     "sample_artifacts/correct_interpretation_deprecates_candidate.json",
     "sample_artifacts/conflict_with_sweetness_boundary_moderated.json",
     "sample_artifacts/repeated_inspiration_dedup_cluster.json",
-    "sample_artifacts/bridge_uses_confirmed_aspects_only.json"
+    "sample_artifacts/bridge_uses_confirmed_aspects_only.json",
+    "per_case/clean/v132_E05_hard_conflict_asks_confirmation.json",
+    "per_case/clean/v132_F03_conflicting_candidates_stay_separate.json"
   ]
 }

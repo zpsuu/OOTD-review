@@ -1,16 +1,16 @@
 {
   "benchmark_id": "v1.32.inspiration_confirmation_ux_candidate_governance.mixed_strict",
   "schema_version": "v1.32",
-  "generated_at": "2026-06-23T14:11:43Z",
+  "generated_at": "2026-06-23T14:40:41Z",
   "verdicts": {
     "mixed_strict_verdict": "fail",
     "injected_defect_detection_verdict": "pass"
   },
   "suite_summary": {
-    "total_cases": 65,
+    "total_cases": 69,
     "clean_cases": 55,
-    "injected_defect_cases": 10,
-    "expected_failed_cases": 10,
+    "injected_defect_cases": 14,
+    "expected_failed_cases": 14,
     "unexpected_clean_case_failures": 0,
     "unexpected_injected_passes": 0
   },
@@ -167,6 +167,48 @@
     },
     {
       "check_id": "photo_lighting_excluded_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "conflict_memory_refs_present_in_active_snapshot_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "hard_conflict_confirmation_prompt_present_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "hard_conflict_no_bridge_until_confirmation_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "dedup_cluster_member_ids_have_source_proof_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "dedup_cluster_evidence_count_matches_member_proof_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "dedup_conflicting_case_has_conflict_precondition_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "conflicting_candidates_not_merged_with_conflict_proof_rate",
       "clean_value": 1.0,
       "clean_passed": true,
       "passed": true
@@ -330,6 +372,68 @@
         "bridge_does_not_use_rejected_aspects_rate"
       ],
       "raw_artifact_ref": "per_case/mixed_strict/v132_I10_rejected_aspect_used_in_bridge.json"
+    },
+    {
+      "case_id": "v132_I11_conflict_report_references_non_active_memory",
+      "defect_type": "conflict_report_references_non_active_memory",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "conflict_memory_refs_present_in_active_snapshot_rate"
+      ],
+      "expected_failed_check_ids": [
+        "conflict_memory_refs_present_in_active_snapshot_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v132_I11_conflict_report_references_non_active_memory.json"
+    },
+    {
+      "case_id": "v132_I12_hard_conflict_missing_confirmation_prompt",
+      "defect_type": "hard_conflict_missing_confirmation_prompt",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "hard_conflict_confirmation_prompt_present_rate",
+        "hard_conflict_no_bridge_until_confirmation_rate"
+      ],
+      "expected_failed_check_ids": [
+        "hard_conflict_confirmation_prompt_present_rate",
+        "hard_conflict_no_bridge_until_confirmation_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v132_I12_hard_conflict_missing_confirmation_prompt.json"
+    },
+    {
+      "case_id": "v132_I13_dedup_cluster_contains_unproven_member_candidate",
+      "defect_type": "dedup_cluster_contains_unproven_member_candidate",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "dedup_cluster_member_ids_have_source_proof_rate",
+        "dedup_cluster_evidence_count_matches_member_proof_rate"
+      ],
+      "expected_failed_check_ids": [
+        "dedup_cluster_member_ids_have_source_proof_rate",
+        "dedup_cluster_evidence_count_matches_member_proof_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v132_I13_dedup_cluster_contains_unproven_member_candidate.json"
+    },
+    {
+      "case_id": "v132_I14_conflicting_candidates_case_without_conflict_proof",
+      "defect_type": "conflicting_candidates_case_without_conflict_proof",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "dedup_conflicting_case_has_conflict_precondition_rate",
+        "conflicting_candidates_not_merged_with_conflict_proof_rate"
+      ],
+      "expected_failed_check_ids": [
+        "dedup_conflicting_case_has_conflict_precondition_rate",
+        "conflicting_candidates_not_merged_with_conflict_proof_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v132_I14_conflicting_candidates_case_without_conflict_proof.json"
     }
   ],
   "unexpected_clean_case_failures": [],

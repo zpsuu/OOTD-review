@@ -40,6 +40,13 @@ REQUIRED_GATES = [
     "item_interest_not_promoted_to_style_preference_rate",
     "luxury_item_specificity_excluded_rate",
     "photo_lighting_excluded_rate",
+    "conflict_memory_refs_present_in_active_snapshot_rate",
+    "hard_conflict_confirmation_prompt_present_rate",
+    "hard_conflict_no_bridge_until_confirmation_rate",
+    "dedup_cluster_member_ids_have_source_proof_rate",
+    "dedup_cluster_evidence_count_matches_member_proof_rate",
+    "dedup_conflicting_case_has_conflict_precondition_rate",
+    "conflicting_candidates_not_merged_with_conflict_proof_rate",
 ]
 
 CASE_IDS = [
@@ -111,6 +118,10 @@ DEFECTS = [
     ("I08", "cluster_merges_incompatible_candidates", ["dedup_cluster_only_merges_compatible_candidates_rate", "conflicting_candidates_not_merged_rate"]),
     ("I09", "confirmed_candidate_writes_production_memory", ["confirmed_candidate_shadow_only_rate", "no_production_memory_write_from_inspiration_confirmation_rate"]),
     ("I10", "rejected_aspect_used_in_bridge", ["bridge_uses_confirmed_aspects_only_rate", "bridge_does_not_use_rejected_aspects_rate"]),
+    ("I11", "conflict_report_references_non_active_memory", ["conflict_memory_refs_present_in_active_snapshot_rate"]),
+    ("I12", "hard_conflict_missing_confirmation_prompt", ["hard_conflict_confirmation_prompt_present_rate", "hard_conflict_no_bridge_until_confirmation_rate"]),
+    ("I13", "dedup_cluster_contains_unproven_member_candidate", ["dedup_cluster_member_ids_have_source_proof_rate", "dedup_cluster_evidence_count_matches_member_proof_rate"]),
+    ("I14", "conflicting_candidates_case_without_conflict_proof", ["dedup_conflicting_case_has_conflict_precondition_rate", "conflicting_candidates_not_merged_with_conflict_proof_rate"]),
 ]
 
 SAMPLE_MAP = {
@@ -287,8 +298,10 @@ def _candidate(kind: str, suffix: str, intake_id: str, action: dict[str, Any] | 
         concept = "relaxed vertical silhouette"
     elif kind == "item_interest":
         concept = "structured jacket category interest"
-    elif kind in {"date_night", "soft_conflict", "hard_conflict"}:
+    elif kind in {"date_night", "soft_conflict"}:
         concept = "soft date-night presence"
+    elif kind == "hard_conflict":
+        concept = "romantic sweet date-night mood"
     elif kind == "sport_conflict":
         concept = "practical sporty movement cue"
     elif kind in {"office_daily", "daily_city_walk"}:
@@ -318,15 +331,36 @@ def _candidate(kind: str, suffix: str, intake_id: str, action: dict[str, Any] | 
 
 
 def _conflict(kind: str, suffix: str, candidate: dict[str, Any] | None) -> dict[str, Any] | None:
-    if candidate is None or kind not in {"date_night", "sport_conflict", "soft_conflict", "hard_conflict"}:
+    if candidate is None or kind not in {"date_night", "sport_conflict", "soft_conflict", "hard_conflict", "dedup_conflicting"}:
         return None
+    if kind == "dedup_conflicting":
+        return {
+            "conflict_report_id": f"icr_{suffix}",
+            "confirmed_candidate_id": candidate["confirmed_inspiration_candidate_id"],
+            "conflicts": [
+                {
+                    "candidate_id": "cic_sweet_date_presence",
+                    "candidate_concept": "romantic sweet date-night mood",
+                    "conflicting_memory_id": "mem_avoid_excessive_sweetness",
+                    "conflict_type": "soft_conflict",
+                    "resolution": "separate_governance_required",
+                    "safe_translation": "soft date-night presence without bow/lace/pink overload",
+                }
+            ],
+            "conflict_proof_present": True,
+            "requires_user_confirmation": True,
+            "can_generate_bridge": True,
+            "production_write_allowed": False,
+        }
     if kind == "hard_conflict":
         conflicts = [
             {
+                "candidate_id": candidate["confirmed_inspiration_candidate_id"],
                 "candidate_concept": candidate["candidate_concept"],
                 "conflicting_memory_id": "mem_hard_no_romantic_styling",
                 "conflict_type": "hard_conflict",
                 "resolution": "ask_user_confirmation_before_bridge",
+                "requires_user_confirmation": True,
                 "safe_translation": None,
             }
         ]
@@ -342,6 +376,7 @@ def _conflict(kind: str, suffix: str, candidate: dict[str, Any] | None) -> dict[
     safe = "practical movement cue without gym-coded styling" if kind == "sport_conflict" else "soft date-night presence without bow/lace/pink overload"
     conflicts = [
         {
+            "candidate_id": candidate["confirmed_inspiration_candidate_id"],
             "candidate_concept": candidate["candidate_concept"],
             "conflicting_memory_id": memory_id,
             "conflict_type": "soft_conflict",
@@ -361,6 +396,11 @@ def _conflict(kind: str, suffix: str, candidate: dict[str, Any] | None) -> dict[
 
 def _cluster(kind: str, suffix: str) -> dict[str, Any] | None:
     if kind == "dedup_compatible":
+        member_source_proof = {
+            f"cic_{suffix}_a": "confirmation_action_a",
+            f"cic_{suffix}_b": "confirmation_action_b",
+            f"cic_{suffix}_c": "confirmation_action_c",
+        }
         return {
             "cluster_id": f"insp_cluster_{suffix}",
             "cluster_label": "low saturation clean city direction",
@@ -368,6 +408,9 @@ def _cluster(kind: str, suffix: str) -> dict[str, Any] | None:
             "shared_confirmed_aspects": ["low_saturation_palette", "clean_lines"],
             "conflicting_aspects": [],
             "evidence_count": 3,
+            "member_source_proof": member_source_proof,
+            "all_member_ids_have_source_proof": True,
+            "evidence_count_matches_member_proof": True,
             "confidence_delta": 0.12,
             "status": "shadow_cluster",
             "production_write_allowed": False,
@@ -387,6 +430,7 @@ def _cluster(kind: str, suffix: str) -> dict[str, Any] | None:
             "merge_decision": "not_merged",
             "conflicting_candidates_merged": False,
             "reason": "active avoid memory conflicts require separate governance",
+            "conflict_proof_ref": "conflict_report.conflicts[0]",
             "production_write_allowed": False,
         }
     return None
@@ -447,9 +491,18 @@ def _scenario_preconditions(kind: str, has_card: bool, has_candidate: bool, conf
         if kind != "hard_conflict":
             expected.append("moderated_translation_present")
             proof_refs.append("conflict_report.conflicts[0].safe_translation")
+        else:
+            expected.extend(["hard_conflict_memory_active", "hard_conflict_confirmation_prompt_present", "bridge_blocked_until_user_confirms"])
+            proof_refs.extend(["active_memory_details.mem_hard_no_romantic_styling", "conflict_confirmation_prompt", "bridge_after_confirmation"])
     elif kind.startswith("dedup"):
         expected.extend(["multiple_confirmed_candidates_present", "candidate_aspects_compatible" if kind == "dedup_compatible" else "candidate_aspects_not_compatible", "dedup_cluster_governance_present"])
         proof_refs.extend(["confirmed_candidate_inputs", "dedup_cluster"])
+        if kind == "dedup_compatible":
+            expected.extend(["all_cluster_members_have_source_proof", "cluster_evidence_count_matches_member_proof"])
+            proof_refs.extend(["dedup_cluster.member_source_proof", "dedup_cluster.evidence_count_matches_member_proof"])
+        if kind == "dedup_conflicting":
+            expected.extend(["conflicting_candidate_pair_present", "active_conflicting_memory_present", "conflict_report_present", "conflicting_candidates_not_merged"])
+            proof_refs.extend(["confirmed_candidate_inputs", "active_memory_snapshot", "conflict_report.conflicts[0]", "dedup_cluster.conflicting_candidates_merged"])
     elif kind == "do_not_remember":
         expected.extend(["user_action_do_not_remember", "confirmed_candidate_absent", "production_write_absent"])
         proof_refs.extend(["user_confirmation_action.action_type", "confirmed_inspiration_candidate", "production_store_write_executed"])
@@ -480,6 +533,59 @@ def _case_artifact(case_id: str, index: int) -> dict[str, Any]:
     conflict = _conflict(kind, suffix, candidate)
     cluster = _cluster(kind, suffix)
     bridge = _bridge(kind, suffix, candidate, conflict)
+    active_memory_snapshot: list[str] = []
+    active_memory_details: dict[str, Any] = {}
+    if conflict:
+        active_memory_snapshot = ["mem_avoid_excessive_sweetness", "mem_avoid_gym_coded_style"]
+        active_memory_details = {
+            "mem_avoid_excessive_sweetness": {
+                "memory_id": "mem_avoid_excessive_sweetness",
+                "concept": "avoid excessive sweetness",
+                "polarity": "avoid",
+                "scope": "contextual",
+                "contexts": ["date_night", "daily_city_walk"],
+                "status": "active",
+                "evidence_refs": ["fixture_mem_avoid_excessive_sweetness"],
+            },
+            "mem_avoid_gym_coded_style": {
+                "memory_id": "mem_avoid_gym_coded_style",
+                "concept": "avoid gym-coded styling outside workouts",
+                "polarity": "avoid",
+                "scope": "contextual",
+                "contexts": ["office_daily", "daily_city_walk"],
+                "status": "active",
+                "evidence_refs": ["fixture_mem_avoid_gym_coded_style"],
+            },
+        }
+        if kind == "hard_conflict":
+            active_memory_snapshot.append("mem_hard_no_romantic_styling")
+            active_memory_details["mem_hard_no_romantic_styling"] = {
+                "memory_id": "mem_hard_no_romantic_styling",
+                "concept": "romantic styling is not allowed without explicit confirmation",
+                "polarity": "avoid",
+                "scope": "contextual",
+                "contexts": ["date_night", "romantic_context"],
+                "status": "active",
+                "evidence_refs": ["fixture_mem_hard_no_romantic_styling"],
+            }
+    conflict_confirmation_prompt = None
+    if kind == "hard_conflict" and conflict and candidate:
+        conflict_confirmation_prompt = {
+            "conflict_confirmation_prompt_id": f"conflict_prompt_{suffix}",
+            "prompt_type": "hard_conflict_confirmation_required",
+            "question": "This direction conflicts with a prior boundary. Continue for this task, or use a safer translation?",
+            "conflicting_memory_refs": ["mem_hard_no_romantic_styling"],
+            "candidate_ref": candidate["confirmed_inspiration_candidate_id"],
+            "allowed_actions": [
+                "continue_for_this_task_only",
+                "use_moderated_translation",
+                "do_not_remember",
+                "not_this_direction",
+                "clarify_intent",
+            ],
+            "requires_user_action_before_bridge": True,
+            "production_write_allowed": False,
+        }
     correction = None
     deprecated = None
     if kind == "correct_interpretation":
@@ -505,6 +611,49 @@ def _case_artifact(case_id: str, index: int) -> dict[str, Any]:
         claims.append({"claim_id": f"claim_bridge_{suffix}", "text": "Bridge uses confirmed aspects only and excludes rejected aspects.", "trace_refs": [bridge["bridge_shadow_run_id"], "bridge_after_confirmation.confirmed_aspects_used", "bridge_after_confirmation.rejected_aspects_excluded"]})
     if fallback:
         claims.append({"claim_id": f"claim_fallback_{suffix}", "text": "Fallback path asks for more information and creates no confirmation card.", "trace_refs": [intake_id, "fallback_or_clarification"]})
+    if kind == "dedup_compatible":
+        confirmed_candidate_inputs = [
+            {"candidate_id": f"cic_{suffix}_a", "confirmed_aspects": ["low_saturation_palette"], "source_proof_ref": "confirmation_action_a"},
+            {"candidate_id": f"cic_{suffix}_b", "confirmed_aspects": ["clean_lines"], "source_proof_ref": "confirmation_action_b"},
+            {"candidate_id": f"cic_{suffix}_c", "confirmed_aspects": ["low_saturation_palette", "clean_lines"], "source_proof_ref": "confirmation_action_c"},
+        ]
+    elif kind == "dedup_conflicting":
+        confirmed_candidate_inputs = [
+            {
+                "candidate_id": "cic_sweet_date_presence",
+                "candidate_concept": "romantic sweet date-night mood",
+                "confirmed_aspects": ["soft_presence", "romantic_mood"],
+                "scope_candidate": "contextual",
+                "suggested_contexts": ["date_night"],
+                "source_proof_ref": "confirmation_action_sweet_date_presence",
+            },
+            {
+                "candidate_id": "cic_low_sweetness_boundary",
+                "candidate_concept": "low sweetness styling boundary",
+                "confirmed_aspects": ["low_sweetness_boundary"],
+                "scope_candidate": "contextual",
+                "suggested_contexts": ["date_night"],
+                "source_proof_ref": "confirmation_action_low_sweetness_boundary",
+            },
+        ]
+    elif cluster:
+        confirmed_candidate_inputs = [
+            {"candidate_id": f"cic_{suffix}_a", "confirmed_aspects": ["color_palette"], "source_proof_ref": "confirmation_action_color_only"},
+            {"candidate_id": f"cic_{suffix}_b", "confirmed_aspects": ["silhouette"], "source_proof_ref": "confirmation_action_silhouette_only"},
+        ]
+    else:
+        confirmed_candidate_inputs = []
+
+    trace = {
+        "intake_event_id": intake_id,
+        "confirmation_card_id": confirmation_card["confirmation_card_id"] if confirmation_card else None,
+        "confirmation_action_id": action["confirmation_action_id"] if action else None,
+        "confirmed_candidate_id": candidate["confirmed_inspiration_candidate_id"] if candidate else None,
+    }
+    if conflict_confirmation_prompt:
+        trace["conflict_confirmation_prompt_refs"] = [conflict_confirmation_prompt["conflict_confirmation_prompt_id"]]
+        trace["conflicting_memory_ids"] = ["mem_hard_no_romantic_styling"]
+
     return {
         "case_id": f"v132_{case_id}",
         "version": VERSION,
@@ -525,12 +674,11 @@ def _case_artifact(case_id: str, index: int) -> dict[str, Any]:
         "correction_governance": correction,
         "confirmed_inspiration_candidate": candidate,
         "candidate_scope_self_proof": scope_proof,
-        "active_memory_snapshot": ["mem_avoid_excessive_sweetness", "mem_avoid_gym_coded_style"] if conflict else [],
+        "active_memory_snapshot": active_memory_snapshot,
+        "active_memory_details": active_memory_details,
         "conflict_report": conflict,
-        "confirmed_candidate_inputs": [
-            {"candidate_id": f"cic_{suffix}_a", "confirmed_aspects": ["low_saturation_palette"]},
-            {"candidate_id": f"cic_{suffix}_b", "confirmed_aspects": ["clean_lines"]},
-        ] if cluster else [],
+        "conflict_confirmation_prompt": conflict_confirmation_prompt,
+        "confirmed_candidate_inputs": confirmed_candidate_inputs,
         "dedup_cluster": cluster,
         "bridge_after_confirmation": bridge,
         "fallback_or_clarification": fallback,
@@ -544,7 +692,7 @@ def _case_artifact(case_id: str, index: int) -> dict[str, Any]:
         },
         "production_store_write_executed": False,
         "user_visible_claims": claims,
-        "trace": {"intake_event_id": intake_id, "confirmation_card_id": confirmation_card["confirmation_card_id"] if confirmation_card else None, "confirmation_action_id": action["confirmation_action_id"] if action else None, "confirmed_candidate_id": candidate["confirmed_inspiration_candidate_id"] if candidate else None},
+        "trace": trace,
     }
 
 
@@ -691,7 +839,11 @@ def _manifest() -> dict[str, Any]:
             "injected_summary": "injected_defect_detection_summary.json",
         },
         "required_gates": REQUIRED_GATES,
-        "must_review_samples": [f"sample_artifacts/{name}" for name in SAMPLE_MAP],
+        "must_review_samples": [
+            *[f"sample_artifacts/{name}" for name in SAMPLE_MAP],
+            "per_case/clean/v132_E05_hard_conflict_asks_confirmation.json",
+            "per_case/clean/v132_F03_conflicting_candidates_stay_separate.json",
+        ],
     }
 
 
@@ -713,13 +865,13 @@ PASS CANDIDATE pending manual review.
 ## Clean Acceptance
 
 - cases: 55
-- checks: 26
+- checks: 33
 - verdict: pass
 
 ## Mixed Strict
 
-- cases: 65
-- injected defects: 10
+- cases: 69
+- injected defects: 14
 - verdict: fail
 - injected defect detection: pass
 
@@ -746,9 +898,9 @@ Inspiration Confirmation UX & Candidate Governance.
 ## Evidence
 
 - Clean acceptance: 55/55 cases pass
-- Clean checks: 26/26 checks pass
+- Clean checks: 33/33 checks pass
 - Mixed strict: expected fail with injected defects
-- Injected defect detection: 10/10 seeded defects detected
+- Injected defect detection: 14/14 seeded defects detected
 
 ## Boundaries
 
