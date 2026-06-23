@@ -1,7 +1,7 @@
 {
   "benchmark_id": "v1.31.inspiration_intake_shadow_pipeline.mixed_strict",
   "schema_version": "v1.31",
-  "generated_at": "2026-06-23T12:36:56Z",
+  "generated_at": "2026-06-23T12:47:07Z",
   "verdicts": {
     "mixed_strict_verdict": "fail",
     "injected_defect_detection_verdict": "pass"
@@ -14,6 +14,477 @@
     "unexpected_clean_case_failures": 0,
     "unexpected_injected_passes": 0
   },
+  "checks": [
+    {
+      "check_id": "inspiration_intake_schema_valid_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": false,
+      "expected_injected_defect_types": [],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "content_ref_storage_policy_present_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": true,
+      "expected_injected_defect_types": [
+        "storage_policy_missing_from_content_refs"
+      ],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "external_content_not_redistributed_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": true,
+      "expected_injected_defect_types": [
+        "raw_external_image_redistributed_in_evidence_pack",
+        "external_image_source_reused_as_public_artifact"
+      ],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "raw_external_image_not_in_public_evidence_pack_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": true,
+      "expected_injected_defect_types": [
+        "raw_external_image_redistributed_in_evidence_pack"
+      ],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "redistribution_disallowed_for_external_content_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": true,
+      "expected_injected_defect_types": [
+        "external_image_source_reused_as_public_artifact"
+      ],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "visual_signal_candidate_schema_valid_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": false,
+      "expected_injected_defect_types": [],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "text_signal_candidate_schema_valid_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": false,
+      "expected_injected_defect_types": [],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "uncertain_visual_fields_flagged_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": true,
+      "expected_injected_defect_types": [
+        "uncertain_visual_signal_used_as_confirmed_core_element"
+      ],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "low_confidence_visual_fields_not_promoted_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": true,
+      "expected_injected_defect_types": [
+        "uncertain_visual_signal_used_as_confirmed_core_element"
+      ],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "high_risk_visual_inference_suppressed_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": true,
+      "expected_injected_defect_types": [
+        "body_model_inference_exposed_as_user_memory"
+      ],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "user_intent_resolution_present_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": false,
+      "expected_injected_defect_types": [],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "ambiguous_intake_requires_clarification_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": false,
+      "expected_injected_defect_types": [],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "liked_aspects_not_entire_image_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": true,
+      "expected_injected_defect_types": [
+        "entire_image_treated_as_confirmed_preference"
+      ],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "rejected_or_unconfirmed_aspects_not_core_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": false,
+      "expected_injected_defect_types": [],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "ideal_direction_candidate_schema_valid_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": false,
+      "expected_injected_defect_types": [],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "ideal_core_elements_not_entire_image_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": true,
+      "expected_injected_defect_types": [
+        "entire_image_treated_as_confirmed_preference"
+      ],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "ideal_candidate_requires_confirmation_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": false,
+      "expected_injected_defect_types": [],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "ideal_candidate_downstream_use_restricted_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": false,
+      "expected_injected_defect_types": [],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "inspiration_no_production_memory_write_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": true,
+      "expected_injected_defect_types": [
+        "external_inspiration_writes_production_memory",
+        "body_model_inference_exposed_as_user_memory"
+      ],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "shadow_memory_proposal_shadow_only_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": true,
+      "expected_injected_defect_types": [
+        "external_inspiration_writes_production_memory"
+      ],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "shadow_memory_proposal_requires_confirmation_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": true,
+      "expected_injected_defect_types": [
+        "url_title_alone_creates_memory_proposal",
+        "memory_proposal_lacks_user_confirmation_requirement"
+      ],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "user_confirmation_does_not_bypass_shadow_policy_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": false,
+      "expected_injected_defect_types": [],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "bridge_shadow_run_generated_when_signal_sufficient_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": false,
+      "expected_injected_defect_types": [],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "bridge_reality_outfit_uses_only_closet_items_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": true,
+      "expected_injected_defect_types": [
+        "bridge_invents_closet_item_to_match_inspiration"
+      ],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "bridge_gap_disclosed_when_closet_lacks_key_element_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": false,
+      "expected_injected_defect_types": [],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "bridge_no_product_recommendation_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": true,
+      "expected_injected_defect_types": [
+        "product_recommendation_inserted_into_one_item_step"
+      ],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "bridge_no_buy_step_present_when_applicable_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": false,
+      "expected_injected_defect_types": [],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "bridge_match_score_not_overstated_for_weak_match_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": false,
+      "expected_injected_defect_types": [],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "url_metadata_only_does_not_create_memory_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": true,
+      "expected_injected_defect_types": [
+        "url_title_alone_creates_memory_proposal"
+      ],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "inaccessible_url_returns_honest_fallback_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": true,
+      "expected_injected_defect_types": [
+        "inaccessible_link_crashes_pipeline"
+      ],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "platform_api_absence_does_not_fail_pipeline_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": true,
+      "expected_injected_defect_types": [
+        "inaccessible_link_crashes_pipeline"
+      ],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "user_visible_claim_trace_coverage_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": false,
+      "expected_injected_defect_types": [],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "intake_to_bridge_trace_complete_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": false,
+      "expected_injected_defect_types": [],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "shadow_proposal_evidence_refs_complete_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": false,
+      "expected_injected_defect_types": [],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "scenario_precondition_satisfied_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": false,
+      "expected_injected_defect_types": [],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "no_vacuous_inspiration_case_pass_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": false,
+      "expected_injected_defect_types": [],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "fallback_without_candidate_has_no_memory_confirmation_prompt_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": true,
+      "expected_injected_defect_types": [
+        "metadata_only_fallback_shows_memory_confirmation_prompt"
+      ],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "clarification_prompt_actions_do_not_include_remember_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": true,
+      "expected_injected_defect_types": [
+        "ambiguous_fallback_allows_remember_later_shadow"
+      ],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "metadata_only_fallback_selected_action_not_remember_shadow_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": true,
+      "expected_injected_defect_types": [
+        "clarification_prompt_selected_action_remember_shadow"
+      ],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "metadata_only_liked_aspects_not_resolved_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": true,
+      "expected_injected_defect_types": [
+        "metadata_only_url_resolves_visual_liked_aspects"
+      ],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "metadata_only_visual_aspects_remain_unconfirmed_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": true,
+      "expected_injected_defect_types": [
+        "metadata_only_url_confirms_visual_aspects"
+      ],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "url_metadata_only_intent_requires_clarification_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": false,
+      "expected_injected_defect_types": [],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "high_risk_case_has_high_risk_precondition_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": true,
+      "expected_injected_defect_types": [
+        "high_risk_case_without_high_risk_precondition"
+      ],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "uncertain_visual_case_has_uncertain_field_precondition_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": true,
+      "expected_injected_defect_types": [
+        "uncertain_visual_case_without_uncertain_precondition"
+      ],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "intent_resolution_case_has_specific_user_statement_precondition_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": true,
+      "expected_injected_defect_types": [
+        "intent_resolution_case_without_specific_user_statement_precondition"
+      ],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    },
+    {
+      "check_id": "metadata_only_case_has_metadata_only_precondition_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "injected_failure_exercised": true,
+      "expected_injected_defect_types": [
+        "metadata_only_case_without_metadata_only_precondition"
+      ],
+      "passed": true,
+      "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it"
+    }
+  ],
   "detected_defects": [
     {
       "case_id": "v131_I01",

@@ -21,11 +21,14 @@
 
 - [ ] URL metadata-only cases ask for screenshot or clarification.
 - [ ] Link title alone does not create memory proposal.
+- [ ] Metadata-only URL cases do not resolve color palette or silhouette as liked aspects.
+- [ ] Metadata-only URL cases keep color, silhouette, exact items, and material in not_confirmed_aspects.
 
 ## E. User Intent Resolution
 
 - [ ] Liked aspects are explicit.
 - [ ] Non-core and rejected aspects are not promoted to core.
+- [ ] Color-only and date-night cases include user-statement-specific scenario preconditions.
 
 ## F. Ideal Direction Candidate
 
@@ -49,17 +52,23 @@
 
 - [ ] production_store_write_attempted is false.
 - [ ] production_store_write_executed is false.
+- [ ] Fallback-only cases have memory_ux_confirmation_prompt = null.
+- [ ] Fallback-only cases use clarification_prompt, not memory confirmation.
 
 ## J. Trace Coverage
 
 - [ ] User-visible claims are trace-backed.
 - [ ] Shadow proposal evidence refs are complete.
+- [ ] High-risk inference cases include high-risk-specific scenario preconditions.
+- [ ] Uncertain visual cases include uncertain-field-specific scenario preconditions.
 
 ## K. Ambiguous / Inaccessible Input Fallback
 
 - [ ] Ambiguous shares ask clarification.
 - [ ] Inaccessible URLs return honest fallback.
 - [ ] Platform API absence does not fail the pipeline.
+- [ ] Clarification prompt actions do not include remember_later_shadow, remember_long_term, remember_for_context, or use_for_this_bridge_only.
+- [ ] Clarification prompt selected action is not a remember action.
 
 ## L. Injected Defect Detection
 

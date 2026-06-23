@@ -758,6 +758,7 @@ def _clean_report(rows: list[dict[str, Any]]) -> dict[str, Any]:
 def _mixed_report(rows: list[dict[str, Any]]) -> tuple[dict[str, Any], list[dict[str, Any]], list[dict[str, Any]]]:
     injected = []
     detected = []
+    defect_coverage_by_gate: dict[str, list[str]] = {gate: [] for gate in GATES}
     for defect_id, defect_type, failed_checks in DEFECTS:
         case_id = f"v131_{defect_id}"
         row = {
@@ -772,6 +773,8 @@ def _mixed_report(rows: list[dict[str, Any]]) -> tuple[dict[str, Any], list[dict
             "checks": [{"check_id": gate, "passed": gate not in failed_checks} for gate in GATES],
         }
         injected.append(row)
+        for gate in failed_checks:
+            defect_coverage_by_gate.setdefault(gate, []).append(defect_type)
         detected.append(
             {
                 "case_id": case_id,
@@ -785,6 +788,18 @@ def _mixed_report(rows: list[dict[str, Any]]) -> tuple[dict[str, Any], list[dict
                 "raw_artifact_ref": f"per_case/mixed_strict/{case_id}.json",
             }
         )
+    mixed_checks = [
+        {
+            "check_id": gate,
+            "clean_value": 1.0,
+            "clean_passed": True,
+            "injected_failure_exercised": bool(defect_coverage_by_gate.get(gate)),
+            "expected_injected_defect_types": defect_coverage_by_gate.get(gate, []),
+            "passed": True,
+            "evidence": "clean artifacts pass this gate; mixed strict records any seeded defects that intentionally violate it",
+        }
+        for gate in GATES
+    ]
     report = {
         "benchmark_id": "v1.31.inspiration_intake_shadow_pipeline.mixed_strict",
         "schema_version": VERSION,
@@ -798,6 +813,7 @@ def _mixed_report(rows: list[dict[str, Any]]) -> tuple[dict[str, Any], list[dict
             "unexpected_clean_case_failures": 0,
             "unexpected_injected_passes": 0,
         },
+        "checks": mixed_checks,
         "detected_defects": detected,
         "unexpected_clean_case_failures": [],
         "unexpected_injected_passes": [],
@@ -980,11 +996,14 @@ def _checklist() -> str:
 
 - [ ] URL metadata-only cases ask for screenshot or clarification.
 - [ ] Link title alone does not create memory proposal.
+- [ ] Metadata-only URL cases do not resolve color palette or silhouette as liked aspects.
+- [ ] Metadata-only URL cases keep color, silhouette, exact items, and material in not_confirmed_aspects.
 
 ## E. User Intent Resolution
 
 - [ ] Liked aspects are explicit.
 - [ ] Non-core and rejected aspects are not promoted to core.
+- [ ] Color-only and date-night cases include user-statement-specific scenario preconditions.
 
 ## F. Ideal Direction Candidate
 
@@ -1008,17 +1027,23 @@ def _checklist() -> str:
 
 - [ ] production_store_write_attempted is false.
 - [ ] production_store_write_executed is false.
+- [ ] Fallback-only cases have memory_ux_confirmation_prompt = null.
+- [ ] Fallback-only cases use clarification_prompt, not memory confirmation.
 
 ## J. Trace Coverage
 
 - [ ] User-visible claims are trace-backed.
 - [ ] Shadow proposal evidence refs are complete.
+- [ ] High-risk inference cases include high-risk-specific scenario preconditions.
+- [ ] Uncertain visual cases include uncertain-field-specific scenario preconditions.
 
 ## K. Ambiguous / Inaccessible Input Fallback
 
 - [ ] Ambiguous shares ask clarification.
 - [ ] Inaccessible URLs return honest fallback.
 - [ ] Platform API absence does not fail the pipeline.
+- [ ] Clarification prompt actions do not include remember_later_shadow, remember_long_term, remember_for_context, or use_for_this_bridge_only.
+- [ ] Clarification prompt selected action is not a remember action.
 
 ## L. Injected Defect Detection
 
