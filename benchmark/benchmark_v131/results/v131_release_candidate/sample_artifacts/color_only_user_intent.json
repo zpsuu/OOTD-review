@@ -10,6 +10,9 @@
       "user_statement_targets_color",
       "liked_aspects_color_only",
       "non_color_visual_aspects_not_confirmed",
+      "ideal_core_elements_color_only",
+      "shadow_proposal_limited_to_color",
+      "unconfirmed_aspects_excluded_from_shadow_proposal",
       "ideal_direction_candidate_present",
       "bridge_shadow_run_present",
       "memory_ux_confirmation_prompt_present",
@@ -23,6 +26,10 @@
       "inspiration_intake_event.user_statement",
       "user_intent_resolution.resolved_user_intent.liked_aspects",
       "user_intent_resolution.resolved_user_intent.not_confirmed_aspects",
+      "ideal_direction_candidate.core_elements",
+      "shadow_memory_proposal.concept",
+      "shadow_memory_proposal.proposal_limited_to_confirmed_liked_aspects",
+      "shadow_memory_proposal.excluded_from_proposal",
       "ideal_direction_candidate",
       "bridge_shadow_run",
       "memory_ux_confirmation_prompt",
@@ -47,7 +54,7 @@
         "derived_content_hash": "sha256_fixture_v131_14"
       }
     ],
-    "created_at": "2026-06-23T12:47:07Z"
+    "created_at": "2026-06-23T13:47:08Z"
   },
   "visual_signal_candidate": {
     "visual_signal_candidate_id": "vsc_v131_14",
@@ -230,12 +237,11 @@
   "shadow_memory_proposal": {
     "shadow_memory_proposal_id": "shadow_prop_v131_14",
     "proposal_type": "ideal_direction_preference_candidate",
-    "concept": "low saturation relaxed structured city style",
+    "concept": "low saturation color palette",
     "polarity": "soft_prefer",
     "scope_candidate": "contextual",
     "suggested_contexts": [
-      "office_daily",
-      "daily_city_walk"
+      "office_daily"
     ],
     "evidence_refs": [
       "intake_v131_14",
@@ -247,8 +253,21 @@
     "production_store_write_attempted": false,
     "production_store_write_executed": false,
     "requires_user_confirmation": true,
+    "proposal_limited_to_confirmed_liked_aspects": true,
+    "confirmed_liked_aspects_used": [
+      "color_palette"
+    ],
+    "excluded_from_proposal": [
+      "silhouette",
+      "exact_items",
+      "model_body",
+      "photo_lighting",
+      "relaxed_structure",
+      "city_style"
+    ],
     "reason_no_production_write": "v1.31 inspiration intake is shadow-only"
   },
+  "intent_scope_to_shadow_context_proof": null,
   "memory_ux_confirmation_prompt": {
     "memory_ux_confirmation_prompt_id": "memux_v131_14",
     "question": "Should I keep this as a shadow-only style direction candidate for review later?",

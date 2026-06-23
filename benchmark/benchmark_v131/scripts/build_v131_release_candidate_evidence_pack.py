@@ -61,6 +61,13 @@ GATES = [
     "uncertain_visual_case_has_uncertain_field_precondition_rate",
     "intent_resolution_case_has_specific_user_statement_precondition_rate",
     "metadata_only_case_has_metadata_only_precondition_rate",
+    "contextual_intent_scope_propagates_to_shadow_context_rate",
+    "date_night_intent_not_mapped_to_office_daily_rate",
+    "shadow_proposal_suggested_contexts_match_user_intent_rate",
+    "color_only_intent_shadow_proposal_limited_to_color_rate",
+    "shadow_proposal_does_not_include_unconfirmed_aspects_rate",
+    "intent_liked_aspects_match_shadow_proposal_scope_rate",
+    "sample_artifacts_match_per_case_artifacts_rate",
 ]
 
 REQUIRED_NEW_GATES = [
@@ -88,6 +95,13 @@ REQUIRED_NEW_GATES = [
     "uncertain_visual_case_has_uncertain_field_precondition_rate",
     "intent_resolution_case_has_specific_user_statement_precondition_rate",
     "metadata_only_case_has_metadata_only_precondition_rate",
+    "contextual_intent_scope_propagates_to_shadow_context_rate",
+    "date_night_intent_not_mapped_to_office_daily_rate",
+    "shadow_proposal_suggested_contexts_match_user_intent_rate",
+    "color_only_intent_shadow_proposal_limited_to_color_rate",
+    "shadow_proposal_does_not_include_unconfirmed_aspects_rate",
+    "intent_liked_aspects_match_shadow_proposal_scope_rate",
+    "sample_artifacts_match_per_case_artifacts_rate",
 ]
 
 CASE_IDS = [
@@ -163,6 +177,25 @@ DEFECTS = [
     ("I19", "uncertain_visual_case_without_uncertain_precondition", ["uncertain_visual_case_has_uncertain_field_precondition_rate"]),
     ("I20", "intent_resolution_case_without_specific_user_statement_precondition", ["intent_resolution_case_has_specific_user_statement_precondition_rate"]),
     ("I21", "metadata_only_case_without_metadata_only_precondition", ["metadata_only_case_has_metadata_only_precondition_rate"]),
+    (
+        "I22",
+        "date_night_intent_mapped_to_office_daily_shadow_context",
+        [
+            "contextual_intent_scope_propagates_to_shadow_context_rate",
+            "date_night_intent_not_mapped_to_office_daily_rate",
+            "shadow_proposal_suggested_contexts_match_user_intent_rate",
+        ],
+    ),
+    (
+        "I23",
+        "color_only_intent_creates_full_style_shadow_proposal",
+        [
+            "color_only_intent_shadow_proposal_limited_to_color_rate",
+            "shadow_proposal_does_not_include_unconfirmed_aspects_rate",
+            "intent_liked_aspects_match_shadow_proposal_scope_rate",
+        ],
+    ),
+    ("I24", "sample_artifact_stale_vs_per_case", ["sample_artifacts_match_per_case_artifacts_rate"]),
 ]
 
 SAMPLE_MAP = {
@@ -493,19 +526,45 @@ def _bridge_shadow_run(case_id: str, suffix: str, ideal: dict[str, Any] | None) 
 def _shadow_memory_proposal(case_id: str, suffix: str, ideal: dict[str, Any] | None, intake: dict[str, Any]) -> dict[str, Any] | None:
     if ideal is None or case_id.startswith("F03"):
         return None
+    concept = "low saturation relaxed structured city style"
+    suggested_contexts = ["office_daily", "daily_city_walk"]
+    limited_to_confirmed = False
+    confirmed_liked_aspects_used = ["overall_mood", "color_palette", "silhouette"]
+    excluded_from_proposal = ["model_body", "photo_lighting", "exact_items"]
+    if case_id.startswith("C02"):
+        concept = "low saturation color palette"
+        suggested_contexts = ["office_daily"]
+        limited_to_confirmed = True
+        confirmed_liked_aspects_used = ["color_palette"]
+        excluded_from_proposal = [
+            "silhouette",
+            "exact_items",
+            "model_body",
+            "photo_lighting",
+            "relaxed_structure",
+            "city_style",
+        ]
+    elif case_id.startswith("C04"):
+        suggested_contexts = ["date_night"]
+        limited_to_confirmed = True
+        confirmed_liked_aspects_used = ["overall_mood", "clean_presence", "low_saturation_palette"]
+        excluded_from_proposal = ["office_daily", "daily_city_walk", "exact_items", "model_body", "photo_lighting"]
     return {
         "shadow_memory_proposal_id": f"shadow_prop_{suffix}",
         "proposal_type": "ideal_direction_preference_candidate",
-        "concept": "low saturation relaxed structured city style",
+        "concept": concept,
         "polarity": "soft_prefer",
         "scope_candidate": "contextual",
-        "suggested_contexts": ["office_daily", "daily_city_walk"],
+        "suggested_contexts": suggested_contexts,
         "evidence_refs": [intake["intake_event_id"], f"uir_{suffix}", ideal["ideal_direction_candidate_id"]],
         "status": "shadow_only",
         "production_write_allowed": False,
         "production_store_write_attempted": False,
         "production_store_write_executed": False,
         "requires_user_confirmation": True,
+        "proposal_limited_to_confirmed_liked_aspects": limited_to_confirmed,
+        "confirmed_liked_aspects_used": confirmed_liked_aspects_used,
+        "excluded_from_proposal": excluded_from_proposal,
         "reason_no_production_write": "v1.31 inspiration intake is shadow-only",
     }
 
@@ -620,21 +679,44 @@ def _scenario_preconditions(case_id: str, source_type: str, sufficient: bool, ha
             ]
         )
     if case_id.startswith("C02"):
-        expected.extend(["user_statement_targets_color", "liked_aspects_color_only", "non_color_visual_aspects_not_confirmed"])
+        expected.extend(
+            [
+                "user_statement_targets_color",
+                "liked_aspects_color_only",
+                "non_color_visual_aspects_not_confirmed",
+                "ideal_core_elements_color_only",
+                "shadow_proposal_limited_to_color",
+                "unconfirmed_aspects_excluded_from_shadow_proposal",
+            ]
+        )
         proof_refs.extend(
             [
                 "inspiration_intake_event.user_statement",
                 "user_intent_resolution.resolved_user_intent.liked_aspects",
                 "user_intent_resolution.resolved_user_intent.not_confirmed_aspects",
+                "ideal_direction_candidate.core_elements",
+                "shadow_memory_proposal.concept",
+                "shadow_memory_proposal.proposal_limited_to_confirmed_liked_aspects",
+                "shadow_memory_proposal.excluded_from_proposal",
             ]
         )
     if case_id.startswith("C04"):
-        expected.extend(["user_statement_targets_date_night", "intended_scope_is_date_or_contextual", "shadow_memory_scope_candidate_is_contextual"])
+        expected.extend(
+            [
+                "user_statement_targets_date_night",
+                "intended_scope_is_date_or_contextual",
+                "shadow_memory_scope_candidate_is_contextual",
+                "shadow_suggested_context_matches_date_intent",
+                "office_daily_context_not_suggested",
+            ]
+        )
         proof_refs.extend(
             [
                 "inspiration_intake_event.user_statement",
                 "user_intent_resolution.resolved_user_intent.intended_scope",
                 "shadow_memory_proposal.scope_candidate",
+                "shadow_memory_proposal.suggested_contexts",
+                "intent_scope_to_shadow_context_proof",
             ]
         )
     if sufficient:
@@ -684,6 +766,21 @@ def _case_artifact(case_id: str, index: int) -> dict[str, Any]:
     ideal = _ideal_direction_candidate(case_id, suffix, sufficient)
     bridge = _bridge_shadow_run(case_id, suffix, ideal)
     proposal = _shadow_memory_proposal(case_id, suffix, ideal, intake)
+    scope_proof = None
+    if case_id.startswith("C04") and proposal is not None:
+        suggested_contexts = proposal.get("suggested_contexts", [])
+        disallowed_contexts = ["office_daily", "daily_city_walk"]
+        matched_context = "date_night" if "date_night" in suggested_contexts else "date" if "date" in suggested_contexts else None
+        scope_proof = {
+            "intended_scope": intent["resolved_user_intent"]["intended_scope"],
+            "user_statement": intake["user_statement"],
+            "scope_candidate": proposal["scope_candidate"],
+            "suggested_contexts": suggested_contexts,
+            "matched": matched_context in {"date", "date_night"},
+            "matched_context": matched_context,
+            "disallowed_contexts": disallowed_contexts,
+            "disallowed_contexts_present": any(context in suggested_contexts for context in disallowed_contexts),
+        }
     fallback = _fallback_or_clarification(case_id, text_signal, intent)
     clarification = _clarification_prompt(case_id, suffix) if fallback else None
     prompt = _memory_ux_prompt(case_id, suffix) if ideal is not None or proposal is not None else None
@@ -710,6 +807,7 @@ def _case_artifact(case_id: str, index: int) -> dict[str, Any]:
         "ideal_direction_candidate": ideal,
         "bridge_shadow_run": bridge,
         "shadow_memory_proposal": proposal,
+        "intent_scope_to_shadow_context_proof": scope_proof,
         "memory_ux_confirmation_prompt": prompt,
         "clarification_prompt": clarification,
         "fallback_or_clarification": fallback,
@@ -926,13 +1024,13 @@ PASS CANDIDATE pending manual review.
 ## Clean Acceptance
 
 - cases: 48
-- checks: 46
+- checks: 53
 - verdict: pass
 
 ## Mixed Strict
 
-- cases: 69
-- injected defects: 21
+- cases: 72
+- injected defects: 24
 - verdict: fail
 - injected defect detection: pass
 
@@ -958,9 +1056,9 @@ Inspiration Intake Shadow Pipeline.
 ## Evidence
 
 - Clean acceptance: 48/48 cases pass
-- Clean checks: 46/46 checks pass
+- Clean checks: 53/53 checks pass
 - Mixed strict: expected fail with injected defects
-- Injected defect detection: 21/21 seeded defects detected
+- Injected defect detection: 24/24 seeded defects detected
 
 ## Boundaries
 
@@ -1022,6 +1120,10 @@ def _checklist() -> str:
 - [ ] status is shadow_only.
 - [ ] production_write_allowed is false.
 - [ ] requires_user_confirmation is true.
+- [ ] Date-night-only intent maps to date/date_night shadow contexts, not office_daily.
+- [ ] Color-only intent creates a color/palette-only shadow proposal.
+- [ ] Shadow proposals exclude unconfirmed aspects from the user intent.
+- [ ] Key sample artifacts match their corresponding per-case raw artifacts.
 
 ## I. No Production Memory Write
 

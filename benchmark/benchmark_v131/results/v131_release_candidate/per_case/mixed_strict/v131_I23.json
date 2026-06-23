@@ -1,16 +1,20 @@
 {
-  "case_id": "v131_I15",
+  "case_id": "v131_I23",
   "version": "v1.31",
-  "defect_type": "clarification_prompt_selected_action_remember_shadow",
+  "defect_type": "color_only_intent_creates_full_style_shadow_proposal",
   "expected_failure": true,
   "source_clean_case_id": "v131_A01_screenshot_intake_creates_valid_inspiration_intake_event",
   "failed_check_ids": [
-    "metadata_only_fallback_selected_action_not_remember_shadow_rate"
+    "color_only_intent_shadow_proposal_limited_to_color_rate",
+    "shadow_proposal_does_not_include_unconfirmed_aspects_rate",
+    "intent_liked_aspects_match_shadow_proposal_scope_rate"
   ],
   "expected_failed_check_ids": [
-    "metadata_only_fallback_selected_action_not_remember_shadow_rate"
+    "color_only_intent_shadow_proposal_limited_to_color_rate",
+    "shadow_proposal_does_not_include_unconfirmed_aspects_rate",
+    "intent_liked_aspects_match_shadow_proposal_scope_rate"
   ],
-  "failure_reason": "Injected defect detected: clarification_prompt_selected_action_remember_shadow",
+  "failure_reason": "Injected defect detected: color_only_intent_creates_full_style_shadow_proposal",
   "checks": [
     {
       "check_id": "inspiration_intake_schema_valid_rate",
@@ -166,7 +170,7 @@
     },
     {
       "check_id": "metadata_only_fallback_selected_action_not_remember_shadow_rate",
-      "passed": false
+      "passed": true
     },
     {
       "check_id": "metadata_only_liked_aspects_not_resolved_rate",
@@ -210,15 +214,15 @@
     },
     {
       "check_id": "color_only_intent_shadow_proposal_limited_to_color_rate",
-      "passed": true
+      "passed": false
     },
     {
       "check_id": "shadow_proposal_does_not_include_unconfirmed_aspects_rate",
-      "passed": true
+      "passed": false
     },
     {
       "check_id": "intent_liked_aspects_match_shadow_proposal_scope_rate",
-      "passed": true
+      "passed": false
     },
     {
       "check_id": "sample_artifacts_match_per_case_artifacts_rate",

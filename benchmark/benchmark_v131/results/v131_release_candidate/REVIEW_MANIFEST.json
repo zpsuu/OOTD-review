@@ -3,7 +3,7 @@
   "release_candidate_status": "pass_candidate_pending_manual_review",
   "branch": "v131-inspiration-intake-shadow-pipeline",
   "theme": "Inspiration Intake Shadow Pipeline",
-  "generated_at": "2026-06-23T12:47:07Z",
+  "generated_at": "2026-06-23T13:47:08Z",
   "scope": {
     "goals": [
       "platform-agnostic inspiration intake",
@@ -79,7 +79,14 @@
     "high_risk_case_has_high_risk_precondition_rate",
     "uncertain_visual_case_has_uncertain_field_precondition_rate",
     "intent_resolution_case_has_specific_user_statement_precondition_rate",
-    "metadata_only_case_has_metadata_only_precondition_rate"
+    "metadata_only_case_has_metadata_only_precondition_rate",
+    "contextual_intent_scope_propagates_to_shadow_context_rate",
+    "date_night_intent_not_mapped_to_office_daily_rate",
+    "shadow_proposal_suggested_contexts_match_user_intent_rate",
+    "color_only_intent_shadow_proposal_limited_to_color_rate",
+    "shadow_proposal_does_not_include_unconfirmed_aspects_rate",
+    "intent_liked_aspects_match_shadow_proposal_scope_rate",
+    "sample_artifacts_match_per_case_artifacts_rate"
   ],
   "required_new_gates": [
     "inspiration_intake_schema_valid_rate",
@@ -105,7 +112,14 @@
     "high_risk_case_has_high_risk_precondition_rate",
     "uncertain_visual_case_has_uncertain_field_precondition_rate",
     "intent_resolution_case_has_specific_user_statement_precondition_rate",
-    "metadata_only_case_has_metadata_only_precondition_rate"
+    "metadata_only_case_has_metadata_only_precondition_rate",
+    "contextual_intent_scope_propagates_to_shadow_context_rate",
+    "date_night_intent_not_mapped_to_office_daily_rate",
+    "shadow_proposal_suggested_contexts_match_user_intent_rate",
+    "color_only_intent_shadow_proposal_limited_to_color_rate",
+    "shadow_proposal_does_not_include_unconfirmed_aspects_rate",
+    "intent_liked_aspects_match_shadow_proposal_scope_rate",
+    "sample_artifacts_match_per_case_artifacts_rate"
   ],
   "must_review_samples": [
     "sample_artifacts/screenshot_intake_low_saturation_city.json",

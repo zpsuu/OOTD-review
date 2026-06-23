@@ -41,7 +41,7 @@
         "derived_content_hash": "sha256_fixture_v131_15"
       }
     ],
-    "created_at": "2026-06-23T12:47:07Z"
+    "created_at": "2026-06-23T13:47:08Z"
   },
   "visual_signal_candidate": {
     "visual_signal_candidate_id": "vsc_v131_15",
@@ -247,8 +247,20 @@
     "production_store_write_attempted": false,
     "production_store_write_executed": false,
     "requires_user_confirmation": true,
+    "proposal_limited_to_confirmed_liked_aspects": false,
+    "confirmed_liked_aspects_used": [
+      "overall_mood",
+      "color_palette",
+      "silhouette"
+    ],
+    "excluded_from_proposal": [
+      "model_body",
+      "photo_lighting",
+      "exact_items"
+    ],
     "reason_no_production_write": "v1.31 inspiration intake is shadow-only"
   },
+  "intent_scope_to_shadow_context_proof": null,
   "memory_ux_confirmation_prompt": {
     "memory_ux_confirmation_prompt_id": "memux_v131_15",
     "question": "Should I keep this as a shadow-only style direction candidate for review later?",

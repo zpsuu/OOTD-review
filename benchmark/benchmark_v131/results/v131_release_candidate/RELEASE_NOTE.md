@@ -11,9 +11,9 @@ Inspiration Intake Shadow Pipeline.
 ## Evidence
 
 - Clean acceptance: 48/48 cases pass
-- Clean checks: 46/46 checks pass
+- Clean checks: 53/53 checks pass
 - Mixed strict: expected fail with injected defects
-- Injected defect detection: 21/21 seeded defects detected
+- Injected defect detection: 24/24 seeded defects detected
 
 ## Boundaries
 

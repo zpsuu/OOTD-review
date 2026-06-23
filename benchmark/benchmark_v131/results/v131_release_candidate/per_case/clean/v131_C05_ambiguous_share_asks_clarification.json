@@ -42,7 +42,7 @@
         "derived_content_hash": "sha256_fixture_v131_17"
       }
     ],
-    "created_at": "2026-06-23T12:47:07Z"
+    "created_at": "2026-06-23T13:47:08Z"
   },
   "visual_signal_candidate": {
     "visual_signal_candidate_id": "vsc_v131_17",
@@ -131,6 +131,7 @@
   "ideal_direction_candidate": null,
   "bridge_shadow_run": null,
   "shadow_memory_proposal": null,
+  "intent_scope_to_shadow_context_proof": null,
   "memory_ux_confirmation_prompt": null,
   "clarification_prompt": {
     "clarification_prompt_id": "clarify_v131_17",

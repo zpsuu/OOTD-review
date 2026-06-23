@@ -197,6 +197,34 @@
     {
       "check_id": "metadata_only_case_has_metadata_only_precondition_rate",
       "passed": true
+    },
+    {
+      "check_id": "contextual_intent_scope_propagates_to_shadow_context_rate",
+      "passed": true
+    },
+    {
+      "check_id": "date_night_intent_not_mapped_to_office_daily_rate",
+      "passed": true
+    },
+    {
+      "check_id": "shadow_proposal_suggested_contexts_match_user_intent_rate",
+      "passed": true
+    },
+    {
+      "check_id": "color_only_intent_shadow_proposal_limited_to_color_rate",
+      "passed": true
+    },
+    {
+      "check_id": "shadow_proposal_does_not_include_unconfirmed_aspects_rate",
+      "passed": true
+    },
+    {
+      "check_id": "intent_liked_aspects_match_shadow_proposal_scope_rate",
+      "passed": true
+    },
+    {
+      "check_id": "sample_artifacts_match_per_case_artifacts_rate",
+      "passed": true
     }
   ]
 }

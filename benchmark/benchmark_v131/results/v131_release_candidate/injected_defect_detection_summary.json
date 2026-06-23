@@ -332,6 +332,59 @@
       ],
       "failure_reason": "Injected defect detected: metadata_only_case_without_metadata_only_precondition",
       "raw_artifact_ref": "per_case/mixed_strict/v131_I21.json"
+    },
+    {
+      "case_id": "v131_I22",
+      "defect_type": "date_night_intent_mapped_to_office_daily_shadow_context",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "contextual_intent_scope_propagates_to_shadow_context_rate",
+        "date_night_intent_not_mapped_to_office_daily_rate",
+        "shadow_proposal_suggested_contexts_match_user_intent_rate"
+      ],
+      "expected_failed_check_ids": [
+        "contextual_intent_scope_propagates_to_shadow_context_rate",
+        "date_night_intent_not_mapped_to_office_daily_rate",
+        "shadow_proposal_suggested_contexts_match_user_intent_rate"
+      ],
+      "failure_reason": "Injected defect detected: date_night_intent_mapped_to_office_daily_shadow_context",
+      "raw_artifact_ref": "per_case/mixed_strict/v131_I22.json"
+    },
+    {
+      "case_id": "v131_I23",
+      "defect_type": "color_only_intent_creates_full_style_shadow_proposal",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "color_only_intent_shadow_proposal_limited_to_color_rate",
+        "shadow_proposal_does_not_include_unconfirmed_aspects_rate",
+        "intent_liked_aspects_match_shadow_proposal_scope_rate"
+      ],
+      "expected_failed_check_ids": [
+        "color_only_intent_shadow_proposal_limited_to_color_rate",
+        "shadow_proposal_does_not_include_unconfirmed_aspects_rate",
+        "intent_liked_aspects_match_shadow_proposal_scope_rate"
+      ],
+      "failure_reason": "Injected defect detected: color_only_intent_creates_full_style_shadow_proposal",
+      "raw_artifact_ref": "per_case/mixed_strict/v131_I23.json"
+    },
+    {
+      "case_id": "v131_I24",
+      "defect_type": "sample_artifact_stale_vs_per_case",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "sample_artifacts_match_per_case_artifacts_rate"
+      ],
+      "expected_failed_check_ids": [
+        "sample_artifacts_match_per_case_artifacts_rate"
+      ],
+      "failure_reason": "Injected defect detected: sample_artifact_stale_vs_per_case",
+      "raw_artifact_ref": "per_case/mixed_strict/v131_I24.json"
     }
   ],
   "unexpected_clean_case_failures": [],

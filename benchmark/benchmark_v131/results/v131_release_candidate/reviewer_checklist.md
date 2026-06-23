@@ -47,6 +47,10 @@
 - [ ] status is shadow_only.
 - [ ] production_write_allowed is false.
 - [ ] requires_user_confirmation is true.
+- [ ] Date-night-only intent maps to date/date_night shadow contexts, not office_daily.
+- [ ] Color-only intent creates a color/palette-only shadow proposal.
+- [ ] Shadow proposals exclude unconfirmed aspects from the user intent.
+- [ ] Key sample artifacts match their corresponding per-case raw artifacts.
 
 ## I. No Production Memory Write
 
