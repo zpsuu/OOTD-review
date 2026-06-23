@@ -1,0 +1,2742 @@
+{
+  "beta_run_id": "beta_v1298_C_7day",
+  "version": "v1.29.8",
+  "user_fixture_id": "user_C_incomplete_closet",
+  "closet_fixture_id": "closet_C_incomplete",
+  "initial_memory_fixture_id": "memory_C_minimal",
+  "run_days": [
+    {
+      "case_id": "v1298_C01",
+      "version": "v1.29.8",
+      "user_fixture_id": "user_C_incomplete_closet",
+      "closet_fixture_id": "closet_C_incomplete",
+      "initial_memory_fixture_id": "memory_C_minimal",
+      "day_index": 1,
+      "task_context": {
+        "occasion": "office_daily",
+        "weather": {
+          "temperature_band": "mild",
+          "rain": false
+        },
+        "mobility": "normal",
+        "formality_target": "polished_but_not_formal",
+        "user_prompt": "beta fixture C day 1: office_daily, polished_but_not_formal",
+        "current_task_exception": false,
+        "context_refs": [
+          "ctx_C_1",
+          "weather_mild_dry"
+        ]
+      },
+      "closet_readiness_report": {
+        "report_id": "crr_v1298_C01",
+        "closet_size": 10,
+        "status": "ready",
+        "missing_required_categories": [],
+        "low_confidence_items_excluded": false,
+        "unconfirmed_vision_candidates_excluded": false,
+        "trace_refs": [
+          "closet_C_readiness",
+          "reliability_C_1"
+        ]
+      },
+      "task_memory_packet": {
+        "task_memory_packet_id": "tmp_v1298_C_day1",
+        "active_memory": [
+          "wants practical daily outfits"
+        ],
+        "current_task_exception_this_task_only": false,
+        "rejected_proposals_reused": false,
+        "context_proof_refs": [
+          "ctx_C_1",
+          "weather_mild_dry"
+        ]
+      },
+      "candidate_outfit": {
+        "candidate_id": "cand_v1298_C01",
+        "uses_only_confirmed_closet_items": true,
+        "low_confidence_item_used_as_required_slot": false,
+        "unconfirmed_vision_candidate_used": false
+      },
+      "quality_report": {
+        "quality_report_id": "qr_v1298_C_day1",
+        "passed": true,
+        "guardrails_retained": true,
+        "issues": [],
+        "visible_swap_options_quality_guarded": true,
+        "post_repair_validation_present": true
+      },
+      "repair_report": {
+        "repair_report_id": "repair_v1298_C01",
+        "repair_attempted": false,
+        "pre_repair_issues": [],
+        "post_repair_validation": {
+          "passed": true,
+          "trace_ref": "qr_v1298_C_day1"
+        }
+      },
+      "final_daily_outfit_card": {
+        "card_id": "doc_v1298_C_day1",
+        "card_type": "daily_outfit",
+        "headline": "Today's outfit",
+        "today_direction": {
+          "text": "clean, practical, context-safe daily outfit",
+          "claim_refs": [
+            "mem_C_active",
+            "ctx_C_1"
+          ]
+        },
+        "outfit_items": [
+          {
+            "item_id": "c_d1_top",
+            "display_name": "confirmed knit top",
+            "role": "top",
+            "reason": "confirmed closet item with context-safe formality",
+            "claim_refs": [
+              "closet_C_confirmed_top",
+              "ctx_C_1"
+            ]
+          },
+          {
+            "item_id": "c_d1_bottom",
+            "display_name": "confirmed straight trousers",
+            "role": "bottom",
+            "reason": "keeps the outfit wearable without over-formality",
+            "claim_refs": [
+              "closet_C_confirmed_bottom",
+              "mem_C_boundary"
+            ]
+          },
+          {
+            "item_id": "c_d1_shoe",
+            "display_name": "confirmed practical shoes",
+            "role": "shoes",
+            "reason": "matches mobility and weather constraints",
+            "claim_refs": [
+              "closet_C_confirmed_shoe",
+              "weather_C_1"
+            ]
+          }
+        ],
+        "why_this_works": [
+          {
+            "text": "The card uses only confirmed closet items.",
+            "claim_ref": "closet_C_confirmed"
+          },
+          {
+            "text": "The explanation is tied to task context and active memory.",
+            "claim_ref": "tmp_v1298_C_day1"
+          }
+        ],
+        "quality_notes": [
+          {
+            "check": "occasion_fit",
+            "passed": true,
+            "trace_ref": "qr_v1298_C_day1"
+          },
+          {
+            "check": "weather_fit",
+            "passed": true,
+            "trace_ref": "qr_v1298_C_day1"
+          },
+          {
+            "check": "formality_fit",
+            "passed": true,
+            "trace_ref": "qr_v1298_C_day1"
+          }
+        ],
+        "swap_options": [
+          {
+            "item_id": "c_d1_alt_top",
+            "display_name": "confirmed alternate top",
+            "quality_guarded": true,
+            "claim_refs": [
+              "closet_C_confirmed_alt_top",
+              "qr_v1298_C_day1"
+            ]
+          }
+        ],
+        "hidden_swap_options": [
+          {
+            "item_id": "c_d1_low_confidence_jacket",
+            "hidden_reason": "metadata confidence too low for the current slot",
+            "trace_refs": [
+              "reliability_C_1"
+            ]
+          }
+        ],
+        "closet_gap_note": null,
+        "memory_ux_blocks": [
+          {
+            "action": "why_changed",
+            "route": "memory_ux",
+            "trace_ref": "tmp_v1298_C_day1"
+          }
+        ],
+        "feedback_actions": [
+          "wear_this",
+          "save",
+          "too_formal",
+          "too_sweet",
+          "too_plain",
+          "not_me",
+          "do_not_remember",
+          "correct_interpretation"
+        ],
+        "trace_refs": {
+          "task_memory_packet_id": "tmp_v1298_C_day1",
+          "quality_report_id": "qr_v1298_C_day1",
+          "planner_trace_id": "trace_v1298_C_day1"
+        }
+      },
+      "fallback_notice": null,
+      "user_adoption_event": {
+        "event_id": "adopt_v1298_C01",
+        "action": "view",
+        "logged": true,
+        "context_ref": "ctx_C_1"
+      },
+      "user_feedback_event": {
+        "event_id": "feedback_v1298_C01",
+        "action": "none",
+        "logged": true,
+        "routes_to_memory_ux": false
+      },
+      "memory_ux_events": [],
+      "user_memory_actions": [],
+      "write_gate_decisions": [],
+      "human_review_scorecard": {
+        "human_review_scorecard_id": "hrs_v1298_C_day1",
+        "scored_by": "synthetic_reviewer",
+        "scores": {
+          "realistically_wearable": 2,
+          "occasion_fit": 2,
+          "weather_fit": 2,
+          "formality_fit": 2,
+          "memory_fit": 2,
+          "not_repetitive": 2,
+          "explanation_trustworthy": 2,
+          "would_try": 1
+        },
+        "max_score": 16,
+        "total_score": 15,
+        "review_notes": "Trace-backed and reviewable; fallback days do not overstate readiness."
+      },
+      "day_trace": {
+        "trace_id": "trace_v1298_C_day1",
+        "pipeline_order": [
+          "closet_readiness",
+          "task_memory_packet",
+          "candidate_generation",
+          "quality_guardrails",
+          "daily_card_or_honest_fallback",
+          "feedback_observability"
+        ],
+        "all_user_visible_claims_trace_backed": true
+      },
+      "failure_reason": null,
+      "observability_events": [
+        {
+          "event_type": "closet_readiness",
+          "trace_ref": "closet_C_readiness"
+        },
+        {
+          "event_type": "quality_report",
+          "trace_ref": "qr_v1298_C_day1"
+        },
+        {
+          "event_type": "memory_packet",
+          "trace_ref": "tmp_v1298_C_day1"
+        }
+      ],
+      "checks": [
+        {
+          "check_id": "beta_run_schema_valid_rate",
+          "passed": true
+        },
+        {
+          "check_id": "beta_user_fixture_schema_valid_rate",
+          "passed": true
+        },
+        {
+          "check_id": "beta_day_artifact_schema_valid_rate",
+          "passed": true
+        },
+        {
+          "check_id": "all_beta_days_have_task_context_rate",
+          "passed": true
+        },
+        {
+          "check_id": "daily_card_generation_success_or_honest_fallback_rate",
+          "passed": true
+        },
+        {
+          "check_id": "daily_card_trace_completeness_rate",
+          "passed": true
+        },
+        {
+          "check_id": "user_visible_claim_trace_coverage_rate",
+          "passed": true
+        },
+        {
+          "check_id": "closet_insufficient_fallback_present_rate",
+          "passed": true
+        },
+        {
+          "check_id": "honest_fallback_has_user_visible_reason_rate",
+          "passed": true
+        },
+        {
+          "check_id": "honest_fallback_has_trace_rate",
+          "passed": true
+        },
+        {
+          "check_id": "honest_fallback_no_hallucinated_item_rate",
+          "passed": true
+        },
+        {
+          "check_id": "failure_reason_classified_rate",
+          "passed": true
+        },
+        {
+          "check_id": "unclassified_failure_count",
+          "passed": true
+        },
+        {
+          "check_id": "quality_guardrails_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "quality_repair_self_proof_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "swap_option_quality_guardrail_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "closet_reliability_guardrails_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "low_confidence_item_not_used_as_required_slot_rate",
+          "passed": true
+        },
+        {
+          "check_id": "unconfirmed_vision_candidate_not_used_rate",
+          "passed": true
+        },
+        {
+          "check_id": "memory_ux_action_routing_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "remember_long_term_routes_to_write_gate_rate",
+          "passed": true
+        },
+        {
+          "check_id": "do_not_remember_no_production_write_rate",
+          "passed": true
+        },
+        {
+          "check_id": "correct_interpretation_supersedes_wrong_proposal_rate",
+          "passed": true
+        },
+        {
+          "check_id": "current_exception_not_globalized_rate",
+          "passed": true
+        },
+        {
+          "check_id": "multi_day_state_stability_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "contextual_memory_context_proof_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "rejected_proposal_not_reused_rate",
+          "passed": true
+        },
+        {
+          "check_id": "exact_outfit_not_repeated_without_reason_rate",
+          "passed": true
+        },
+        {
+          "check_id": "final_memory_snapshot_authorized_rate",
+          "passed": true
+        },
+        {
+          "check_id": "observability_summary_complete_rate",
+          "passed": true
+        },
+        {
+          "check_id": "human_review_scorecard_present_rate",
+          "passed": true
+        },
+        {
+          "check_id": "human_review_scorecard_complete_rate",
+          "passed": true
+        },
+        {
+          "check_id": "internal_beta_readiness_verdict_not_overstated_rate",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "case_id": "v1298_C02",
+      "version": "v1.29.8",
+      "user_fixture_id": "user_C_incomplete_closet",
+      "closet_fixture_id": "closet_C_incomplete",
+      "initial_memory_fixture_id": "memory_C_minimal",
+      "day_index": 2,
+      "task_context": {
+        "occasion": "office_daily",
+        "weather": {
+          "temperature_band": "mild",
+          "rain": true
+        },
+        "mobility": "walk_a_lot",
+        "formality_target": "clean_practical",
+        "user_prompt": "beta fixture C day 2: office_daily, clean_practical",
+        "current_task_exception": false,
+        "context_refs": [
+          "ctx_C_2",
+          "weather_mild_rain"
+        ]
+      },
+      "closet_readiness_report": {
+        "report_id": "crr_v1298_C02",
+        "closet_size": 10,
+        "status": "ready_with_disclosure",
+        "missing_required_categories": [
+          "rain_safe_footwear"
+        ],
+        "low_confidence_items_excluded": false,
+        "unconfirmed_vision_candidates_excluded": false,
+        "trace_refs": [
+          "closet_C_readiness",
+          "reliability_C_2"
+        ]
+      },
+      "task_memory_packet": {
+        "task_memory_packet_id": "tmp_v1298_C_day2",
+        "active_memory": [
+          "wants practical daily outfits"
+        ],
+        "current_task_exception_this_task_only": false,
+        "rejected_proposals_reused": false,
+        "context_proof_refs": [
+          "ctx_C_2",
+          "weather_mild_rain"
+        ]
+      },
+      "candidate_outfit": {
+        "candidate_id": "cand_v1298_C02",
+        "uses_only_confirmed_closet_items": false,
+        "low_confidence_item_used_as_required_slot": false,
+        "unconfirmed_vision_candidate_used": false
+      },
+      "quality_report": {
+        "quality_report_id": "qr_v1298_C_day2",
+        "passed": false,
+        "guardrails_retained": true,
+        "issues": [
+          {
+            "issue_type": "no_weather_safe_option",
+            "classified": true
+          }
+        ],
+        "visible_swap_options_quality_guarded": true,
+        "post_repair_validation_present": true
+      },
+      "repair_report": {
+        "repair_report_id": "repair_v1298_C02",
+        "repair_attempted": false,
+        "pre_repair_issues": [],
+        "post_repair_validation": {
+          "passed": true,
+          "trace_ref": "qr_v1298_C_day2"
+        }
+      },
+      "final_daily_outfit_card": {
+        "card_type": "honest_fallback_notice",
+        "fallback_type": "no_weather_safe_option",
+        "headline": "I cannot give a complete outfit yet",
+        "user_visible_reason": "Your closet lacks confirmed rain-safe footwear for this task.",
+        "available_items_preview": [
+          "c_confirmed_top",
+          "c_confirmed_bottom"
+        ],
+        "missing_or_unreliable_categories": [
+          "rain_safe_footwear"
+        ],
+        "next_best_action": "Confirm the missing category or add a reliable closet item before using it.",
+        "trace_refs": [
+          "tmp_v1298_C_day2",
+          "qr_v1298_C_day2",
+          "trace_v1298_C_day2"
+        ],
+        "no_hallucinated_item_proof": {
+          "closet_item_ids_checked": true,
+          "non_closet_item_ids_in_output": [],
+          "gap_suggestions_treated_as_items": false
+        }
+      },
+      "fallback_notice": {
+        "card_type": "honest_fallback_notice",
+        "fallback_type": "no_weather_safe_option",
+        "headline": "I cannot give a complete outfit yet",
+        "user_visible_reason": "Your closet lacks confirmed rain-safe footwear for this task.",
+        "available_items_preview": [
+          "c_confirmed_top",
+          "c_confirmed_bottom"
+        ],
+        "missing_or_unreliable_categories": [
+          "rain_safe_footwear"
+        ],
+        "next_best_action": "Confirm the missing category or add a reliable closet item before using it.",
+        "trace_refs": [
+          "tmp_v1298_C_day2",
+          "qr_v1298_C_day2",
+          "trace_v1298_C_day2"
+        ],
+        "no_hallucinated_item_proof": {
+          "closet_item_ids_checked": true,
+          "non_closet_item_ids_in_output": [],
+          "gap_suggestions_treated_as_items": false
+        }
+      },
+      "user_adoption_event": {
+        "event_id": "adopt_v1298_C02",
+        "action": "view",
+        "logged": true,
+        "context_ref": "ctx_C_2"
+      },
+      "user_feedback_event": {
+        "event_id": "feedback_v1298_C02",
+        "action": "none",
+        "logged": true,
+        "routes_to_memory_ux": false
+      },
+      "memory_ux_events": [],
+      "user_memory_actions": [],
+      "write_gate_decisions": [],
+      "human_review_scorecard": {
+        "human_review_scorecard_id": "hrs_v1298_C_day2",
+        "scored_by": "synthetic_reviewer",
+        "scores": {
+          "realistically_wearable": 2,
+          "occasion_fit": 2,
+          "weather_fit": 2,
+          "formality_fit": 2,
+          "memory_fit": 2,
+          "not_repetitive": 2,
+          "explanation_trustworthy": 2,
+          "would_try": 0
+        },
+        "max_score": 16,
+        "total_score": 14,
+        "review_notes": "Trace-backed and reviewable; fallback days do not overstate readiness."
+      },
+      "day_trace": {
+        "trace_id": "trace_v1298_C_day2",
+        "pipeline_order": [
+          "closet_readiness",
+          "task_memory_packet",
+          "candidate_generation",
+          "quality_guardrails",
+          "daily_card_or_honest_fallback",
+          "feedback_observability"
+        ],
+        "all_user_visible_claims_trace_backed": true
+      },
+      "failure_reason": "no_weather_safe_option",
+      "observability_events": [
+        {
+          "event_type": "closet_readiness",
+          "trace_ref": "closet_C_readiness"
+        },
+        {
+          "event_type": "quality_report",
+          "trace_ref": "qr_v1298_C_day2"
+        },
+        {
+          "event_type": "memory_packet",
+          "trace_ref": "tmp_v1298_C_day2"
+        }
+      ],
+      "checks": [
+        {
+          "check_id": "beta_run_schema_valid_rate",
+          "passed": true
+        },
+        {
+          "check_id": "beta_user_fixture_schema_valid_rate",
+          "passed": true
+        },
+        {
+          "check_id": "beta_day_artifact_schema_valid_rate",
+          "passed": true
+        },
+        {
+          "check_id": "all_beta_days_have_task_context_rate",
+          "passed": true
+        },
+        {
+          "check_id": "daily_card_generation_success_or_honest_fallback_rate",
+          "passed": true
+        },
+        {
+          "check_id": "daily_card_trace_completeness_rate",
+          "passed": true
+        },
+        {
+          "check_id": "user_visible_claim_trace_coverage_rate",
+          "passed": true
+        },
+        {
+          "check_id": "closet_insufficient_fallback_present_rate",
+          "passed": true
+        },
+        {
+          "check_id": "honest_fallback_has_user_visible_reason_rate",
+          "passed": true
+        },
+        {
+          "check_id": "honest_fallback_has_trace_rate",
+          "passed": true
+        },
+        {
+          "check_id": "honest_fallback_no_hallucinated_item_rate",
+          "passed": true
+        },
+        {
+          "check_id": "failure_reason_classified_rate",
+          "passed": true
+        },
+        {
+          "check_id": "unclassified_failure_count",
+          "passed": true
+        },
+        {
+          "check_id": "quality_guardrails_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "quality_repair_self_proof_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "swap_option_quality_guardrail_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "closet_reliability_guardrails_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "low_confidence_item_not_used_as_required_slot_rate",
+          "passed": true
+        },
+        {
+          "check_id": "unconfirmed_vision_candidate_not_used_rate",
+          "passed": true
+        },
+        {
+          "check_id": "memory_ux_action_routing_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "remember_long_term_routes_to_write_gate_rate",
+          "passed": true
+        },
+        {
+          "check_id": "do_not_remember_no_production_write_rate",
+          "passed": true
+        },
+        {
+          "check_id": "correct_interpretation_supersedes_wrong_proposal_rate",
+          "passed": true
+        },
+        {
+          "check_id": "current_exception_not_globalized_rate",
+          "passed": true
+        },
+        {
+          "check_id": "multi_day_state_stability_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "contextual_memory_context_proof_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "rejected_proposal_not_reused_rate",
+          "passed": true
+        },
+        {
+          "check_id": "exact_outfit_not_repeated_without_reason_rate",
+          "passed": true
+        },
+        {
+          "check_id": "final_memory_snapshot_authorized_rate",
+          "passed": true
+        },
+        {
+          "check_id": "observability_summary_complete_rate",
+          "passed": true
+        },
+        {
+          "check_id": "human_review_scorecard_present_rate",
+          "passed": true
+        },
+        {
+          "check_id": "human_review_scorecard_complete_rate",
+          "passed": true
+        },
+        {
+          "check_id": "internal_beta_readiness_verdict_not_overstated_rate",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "case_id": "v1298_C03",
+      "version": "v1.29.8",
+      "user_fixture_id": "user_C_incomplete_closet",
+      "closet_fixture_id": "closet_C_incomplete",
+      "initial_memory_fixture_id": "memory_C_minimal",
+      "day_index": 3,
+      "task_context": {
+        "occasion": "client_meeting",
+        "weather": {
+          "temperature_band": "mild",
+          "rain": false
+        },
+        "mobility": "normal",
+        "formality_target": "formal_but_not_interview",
+        "user_prompt": "beta fixture C day 3: client_meeting, formal_but_not_interview",
+        "current_task_exception": false,
+        "context_refs": [
+          "ctx_C_3",
+          "weather_mild_dry"
+        ]
+      },
+      "closet_readiness_report": {
+        "report_id": "crr_v1298_C03",
+        "closet_size": 10,
+        "status": "ready",
+        "missing_required_categories": [],
+        "low_confidence_items_excluded": false,
+        "unconfirmed_vision_candidates_excluded": false,
+        "trace_refs": [
+          "closet_C_readiness",
+          "reliability_C_3"
+        ]
+      },
+      "task_memory_packet": {
+        "task_memory_packet_id": "tmp_v1298_C_day3",
+        "active_memory": [
+          "wants practical daily outfits"
+        ],
+        "current_task_exception_this_task_only": false,
+        "rejected_proposals_reused": false,
+        "context_proof_refs": [
+          "ctx_C_3",
+          "weather_mild_dry"
+        ]
+      },
+      "candidate_outfit": {
+        "candidate_id": "cand_v1298_C03",
+        "uses_only_confirmed_closet_items": true,
+        "low_confidence_item_used_as_required_slot": false,
+        "unconfirmed_vision_candidate_used": false
+      },
+      "quality_report": {
+        "quality_report_id": "qr_v1298_C_day3",
+        "passed": true,
+        "guardrails_retained": true,
+        "issues": [],
+        "visible_swap_options_quality_guarded": true,
+        "post_repair_validation_present": true
+      },
+      "repair_report": {
+        "repair_report_id": "repair_v1298_C03",
+        "repair_attempted": true,
+        "pre_repair_issues": [
+          "formality_too_high"
+        ],
+        "post_repair_validation": {
+          "passed": true,
+          "trace_ref": "qr_v1298_C_day3"
+        }
+      },
+      "final_daily_outfit_card": {
+        "card_id": "doc_v1298_C_day3",
+        "card_type": "daily_outfit",
+        "headline": "Today's outfit",
+        "today_direction": {
+          "text": "clean, practical, context-safe daily outfit",
+          "claim_refs": [
+            "mem_C_active",
+            "ctx_C_3"
+          ]
+        },
+        "outfit_items": [
+          {
+            "item_id": "c_d3_top",
+            "display_name": "confirmed knit top",
+            "role": "top",
+            "reason": "confirmed closet item with context-safe formality",
+            "claim_refs": [
+              "closet_C_confirmed_top",
+              "ctx_C_3"
+            ]
+          },
+          {
+            "item_id": "c_d3_bottom",
+            "display_name": "confirmed straight trousers",
+            "role": "bottom",
+            "reason": "keeps the outfit wearable without over-formality",
+            "claim_refs": [
+              "closet_C_confirmed_bottom",
+              "mem_C_boundary"
+            ]
+          },
+          {
+            "item_id": "c_d3_shoe",
+            "display_name": "confirmed practical shoes",
+            "role": "shoes",
+            "reason": "matches mobility and weather constraints",
+            "claim_refs": [
+              "closet_C_confirmed_shoe",
+              "weather_C_3"
+            ]
+          }
+        ],
+        "why_this_works": [
+          {
+            "text": "The card uses only confirmed closet items.",
+            "claim_ref": "closet_C_confirmed"
+          },
+          {
+            "text": "The explanation is tied to task context and active memory.",
+            "claim_ref": "tmp_v1298_C_day3"
+          }
+        ],
+        "quality_notes": [
+          {
+            "check": "occasion_fit",
+            "passed": true,
+            "trace_ref": "qr_v1298_C_day3"
+          },
+          {
+            "check": "weather_fit",
+            "passed": true,
+            "trace_ref": "qr_v1298_C_day3"
+          },
+          {
+            "check": "formality_fit",
+            "passed": true,
+            "trace_ref": "qr_v1298_C_day3"
+          }
+        ],
+        "swap_options": [
+          {
+            "item_id": "c_d3_alt_top",
+            "display_name": "confirmed alternate top",
+            "quality_guarded": true,
+            "claim_refs": [
+              "closet_C_confirmed_alt_top",
+              "qr_v1298_C_day3"
+            ]
+          }
+        ],
+        "hidden_swap_options": [
+          {
+            "item_id": "c_d3_low_confidence_jacket",
+            "hidden_reason": "metadata confidence too low for the current slot",
+            "trace_refs": [
+              "reliability_C_3"
+            ]
+          }
+        ],
+        "closet_gap_note": null,
+        "memory_ux_blocks": [
+          {
+            "action": "why_changed",
+            "route": "memory_ux",
+            "trace_ref": "tmp_v1298_C_day3"
+          }
+        ],
+        "feedback_actions": [
+          "wear_this",
+          "save",
+          "too_formal",
+          "too_sweet",
+          "too_plain",
+          "not_me",
+          "do_not_remember",
+          "correct_interpretation"
+        ],
+        "trace_refs": {
+          "task_memory_packet_id": "tmp_v1298_C_day3",
+          "quality_report_id": "qr_v1298_C_day3",
+          "planner_trace_id": "trace_v1298_C_day3"
+        }
+      },
+      "fallback_notice": null,
+      "user_adoption_event": {
+        "event_id": "adopt_v1298_C03",
+        "action": "do_not_remember",
+        "logged": true,
+        "context_ref": "ctx_C_3"
+      },
+      "user_feedback_event": {
+        "event_id": "feedback_v1298_C03",
+        "action": "do_not_remember",
+        "logged": true,
+        "routes_to_memory_ux": true
+      },
+      "memory_ux_events": [
+        {
+          "event_id": "mux_v1298_C_day3",
+          "action": "do_not_remember",
+          "route": "session_only",
+          "source": "feedback_action",
+          "trace_ref": "tmp_v1298_C_day3"
+        }
+      ],
+      "user_memory_actions": [
+        {
+          "action_id": "uma_v1298_C_day3",
+          "action": "do_not_remember",
+          "routing_decision": "session_only",
+          "observable": true
+        }
+      ],
+      "write_gate_decisions": [
+        {
+          "decision_id": "wgd_v1298_C_day3",
+          "action": "do_not_remember",
+          "decision": "no_write",
+          "production_write": false,
+          "reason": "user explicitly declined memory write"
+        }
+      ],
+      "human_review_scorecard": {
+        "human_review_scorecard_id": "hrs_v1298_C_day3",
+        "scored_by": "synthetic_reviewer",
+        "scores": {
+          "realistically_wearable": 2,
+          "occasion_fit": 2,
+          "weather_fit": 2,
+          "formality_fit": 2,
+          "memory_fit": 2,
+          "not_repetitive": 2,
+          "explanation_trustworthy": 2,
+          "would_try": 1
+        },
+        "max_score": 16,
+        "total_score": 15,
+        "review_notes": "Trace-backed and reviewable; fallback days do not overstate readiness."
+      },
+      "day_trace": {
+        "trace_id": "trace_v1298_C_day3",
+        "pipeline_order": [
+          "closet_readiness",
+          "task_memory_packet",
+          "candidate_generation",
+          "quality_guardrails",
+          "daily_card_or_honest_fallback",
+          "feedback_observability"
+        ],
+        "all_user_visible_claims_trace_backed": true
+      },
+      "failure_reason": null,
+      "observability_events": [
+        {
+          "event_type": "closet_readiness",
+          "trace_ref": "closet_C_readiness"
+        },
+        {
+          "event_type": "quality_report",
+          "trace_ref": "qr_v1298_C_day3"
+        },
+        {
+          "event_type": "memory_packet",
+          "trace_ref": "tmp_v1298_C_day3"
+        }
+      ],
+      "checks": [
+        {
+          "check_id": "beta_run_schema_valid_rate",
+          "passed": true
+        },
+        {
+          "check_id": "beta_user_fixture_schema_valid_rate",
+          "passed": true
+        },
+        {
+          "check_id": "beta_day_artifact_schema_valid_rate",
+          "passed": true
+        },
+        {
+          "check_id": "all_beta_days_have_task_context_rate",
+          "passed": true
+        },
+        {
+          "check_id": "daily_card_generation_success_or_honest_fallback_rate",
+          "passed": true
+        },
+        {
+          "check_id": "daily_card_trace_completeness_rate",
+          "passed": true
+        },
+        {
+          "check_id": "user_visible_claim_trace_coverage_rate",
+          "passed": true
+        },
+        {
+          "check_id": "closet_insufficient_fallback_present_rate",
+          "passed": true
+        },
+        {
+          "check_id": "honest_fallback_has_user_visible_reason_rate",
+          "passed": true
+        },
+        {
+          "check_id": "honest_fallback_has_trace_rate",
+          "passed": true
+        },
+        {
+          "check_id": "honest_fallback_no_hallucinated_item_rate",
+          "passed": true
+        },
+        {
+          "check_id": "failure_reason_classified_rate",
+          "passed": true
+        },
+        {
+          "check_id": "unclassified_failure_count",
+          "passed": true
+        },
+        {
+          "check_id": "quality_guardrails_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "quality_repair_self_proof_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "swap_option_quality_guardrail_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "closet_reliability_guardrails_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "low_confidence_item_not_used_as_required_slot_rate",
+          "passed": true
+        },
+        {
+          "check_id": "unconfirmed_vision_candidate_not_used_rate",
+          "passed": true
+        },
+        {
+          "check_id": "memory_ux_action_routing_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "remember_long_term_routes_to_write_gate_rate",
+          "passed": true
+        },
+        {
+          "check_id": "do_not_remember_no_production_write_rate",
+          "passed": true
+        },
+        {
+          "check_id": "correct_interpretation_supersedes_wrong_proposal_rate",
+          "passed": true
+        },
+        {
+          "check_id": "current_exception_not_globalized_rate",
+          "passed": true
+        },
+        {
+          "check_id": "multi_day_state_stability_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "contextual_memory_context_proof_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "rejected_proposal_not_reused_rate",
+          "passed": true
+        },
+        {
+          "check_id": "exact_outfit_not_repeated_without_reason_rate",
+          "passed": true
+        },
+        {
+          "check_id": "final_memory_snapshot_authorized_rate",
+          "passed": true
+        },
+        {
+          "check_id": "observability_summary_complete_rate",
+          "passed": true
+        },
+        {
+          "check_id": "human_review_scorecard_present_rate",
+          "passed": true
+        },
+        {
+          "check_id": "human_review_scorecard_complete_rate",
+          "passed": true
+        },
+        {
+          "check_id": "internal_beta_readiness_verdict_not_overstated_rate",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "case_id": "v1298_C04",
+      "version": "v1.29.8",
+      "user_fixture_id": "user_C_incomplete_closet",
+      "closet_fixture_id": "closet_C_incomplete",
+      "initial_memory_fixture_id": "memory_C_minimal",
+      "day_index": 4,
+      "task_context": {
+        "occasion": "office_daily",
+        "weather": {
+          "temperature_band": "cold",
+          "rain": false
+        },
+        "mobility": "normal",
+        "formality_target": "soft_structured",
+        "user_prompt": "beta fixture C day 4: office_daily, soft_structured",
+        "current_task_exception": false,
+        "context_refs": [
+          "ctx_C_4",
+          "weather_cold_dry"
+        ]
+      },
+      "closet_readiness_report": {
+        "report_id": "crr_v1298_C04",
+        "closet_size": 10,
+        "status": "ready",
+        "missing_required_categories": [],
+        "low_confidence_items_excluded": false,
+        "unconfirmed_vision_candidates_excluded": false,
+        "trace_refs": [
+          "closet_C_readiness",
+          "reliability_C_4"
+        ]
+      },
+      "task_memory_packet": {
+        "task_memory_packet_id": "tmp_v1298_C_day4",
+        "active_memory": [
+          "wants practical daily outfits"
+        ],
+        "current_task_exception_this_task_only": false,
+        "rejected_proposals_reused": false,
+        "context_proof_refs": [
+          "ctx_C_4",
+          "weather_cold_dry"
+        ]
+      },
+      "candidate_outfit": {
+        "candidate_id": "cand_v1298_C04",
+        "uses_only_confirmed_closet_items": true,
+        "low_confidence_item_used_as_required_slot": false,
+        "unconfirmed_vision_candidate_used": false
+      },
+      "quality_report": {
+        "quality_report_id": "qr_v1298_C_day4",
+        "passed": true,
+        "guardrails_retained": true,
+        "issues": [],
+        "visible_swap_options_quality_guarded": true,
+        "post_repair_validation_present": true
+      },
+      "repair_report": {
+        "repair_report_id": "repair_v1298_C04",
+        "repair_attempted": false,
+        "pre_repair_issues": [],
+        "post_repair_validation": {
+          "passed": true,
+          "trace_ref": "qr_v1298_C_day4"
+        }
+      },
+      "final_daily_outfit_card": {
+        "card_id": "doc_v1298_C_day4",
+        "card_type": "daily_outfit",
+        "headline": "Today's outfit",
+        "today_direction": {
+          "text": "clean, practical, context-safe daily outfit",
+          "claim_refs": [
+            "mem_C_active",
+            "ctx_C_4"
+          ]
+        },
+        "outfit_items": [
+          {
+            "item_id": "c_d4_top",
+            "display_name": "confirmed knit top",
+            "role": "top",
+            "reason": "confirmed closet item with context-safe formality",
+            "claim_refs": [
+              "closet_C_confirmed_top",
+              "ctx_C_4"
+            ]
+          },
+          {
+            "item_id": "c_d4_bottom",
+            "display_name": "confirmed straight trousers",
+            "role": "bottom",
+            "reason": "keeps the outfit wearable without over-formality",
+            "claim_refs": [
+              "closet_C_confirmed_bottom",
+              "mem_C_boundary"
+            ]
+          },
+          {
+            "item_id": "c_d4_shoe",
+            "display_name": "confirmed practical shoes",
+            "role": "shoes",
+            "reason": "matches mobility and weather constraints",
+            "claim_refs": [
+              "closet_C_confirmed_shoe",
+              "weather_C_4"
+            ]
+          }
+        ],
+        "why_this_works": [
+          {
+            "text": "The card uses only confirmed closet items.",
+            "claim_ref": "closet_C_confirmed"
+          },
+          {
+            "text": "The explanation is tied to task context and active memory.",
+            "claim_ref": "tmp_v1298_C_day4"
+          }
+        ],
+        "quality_notes": [
+          {
+            "check": "occasion_fit",
+            "passed": true,
+            "trace_ref": "qr_v1298_C_day4"
+          },
+          {
+            "check": "weather_fit",
+            "passed": true,
+            "trace_ref": "qr_v1298_C_day4"
+          },
+          {
+            "check": "formality_fit",
+            "passed": true,
+            "trace_ref": "qr_v1298_C_day4"
+          }
+        ],
+        "swap_options": [
+          {
+            "item_id": "c_d4_alt_top",
+            "display_name": "confirmed alternate top",
+            "quality_guarded": true,
+            "claim_refs": [
+              "closet_C_confirmed_alt_top",
+              "qr_v1298_C_day4"
+            ]
+          }
+        ],
+        "hidden_swap_options": [
+          {
+            "item_id": "c_d4_low_confidence_jacket",
+            "hidden_reason": "metadata confidence too low for the current slot",
+            "trace_refs": [
+              "reliability_C_4"
+            ]
+          }
+        ],
+        "closet_gap_note": null,
+        "memory_ux_blocks": [
+          {
+            "action": "why_changed",
+            "route": "memory_ux",
+            "trace_ref": "tmp_v1298_C_day4"
+          }
+        ],
+        "feedback_actions": [
+          "wear_this",
+          "save",
+          "too_formal",
+          "too_sweet",
+          "too_plain",
+          "not_me",
+          "do_not_remember",
+          "correct_interpretation"
+        ],
+        "trace_refs": {
+          "task_memory_packet_id": "tmp_v1298_C_day4",
+          "quality_report_id": "qr_v1298_C_day4",
+          "planner_trace_id": "trace_v1298_C_day4"
+        }
+      },
+      "fallback_notice": null,
+      "user_adoption_event": {
+        "event_id": "adopt_v1298_C04",
+        "action": "view",
+        "logged": true,
+        "context_ref": "ctx_C_4"
+      },
+      "user_feedback_event": {
+        "event_id": "feedback_v1298_C04",
+        "action": "none",
+        "logged": true,
+        "routes_to_memory_ux": false
+      },
+      "memory_ux_events": [],
+      "user_memory_actions": [],
+      "write_gate_decisions": [],
+      "human_review_scorecard": {
+        "human_review_scorecard_id": "hrs_v1298_C_day4",
+        "scored_by": "synthetic_reviewer",
+        "scores": {
+          "realistically_wearable": 2,
+          "occasion_fit": 2,
+          "weather_fit": 2,
+          "formality_fit": 2,
+          "memory_fit": 2,
+          "not_repetitive": 2,
+          "explanation_trustworthy": 2,
+          "would_try": 1
+        },
+        "max_score": 16,
+        "total_score": 15,
+        "review_notes": "Trace-backed and reviewable; fallback days do not overstate readiness."
+      },
+      "day_trace": {
+        "trace_id": "trace_v1298_C_day4",
+        "pipeline_order": [
+          "closet_readiness",
+          "task_memory_packet",
+          "candidate_generation",
+          "quality_guardrails",
+          "daily_card_or_honest_fallback",
+          "feedback_observability"
+        ],
+        "all_user_visible_claims_trace_backed": true
+      },
+      "failure_reason": null,
+      "observability_events": [
+        {
+          "event_type": "closet_readiness",
+          "trace_ref": "closet_C_readiness"
+        },
+        {
+          "event_type": "quality_report",
+          "trace_ref": "qr_v1298_C_day4"
+        },
+        {
+          "event_type": "memory_packet",
+          "trace_ref": "tmp_v1298_C_day4"
+        }
+      ],
+      "checks": [
+        {
+          "check_id": "beta_run_schema_valid_rate",
+          "passed": true
+        },
+        {
+          "check_id": "beta_user_fixture_schema_valid_rate",
+          "passed": true
+        },
+        {
+          "check_id": "beta_day_artifact_schema_valid_rate",
+          "passed": true
+        },
+        {
+          "check_id": "all_beta_days_have_task_context_rate",
+          "passed": true
+        },
+        {
+          "check_id": "daily_card_generation_success_or_honest_fallback_rate",
+          "passed": true
+        },
+        {
+          "check_id": "daily_card_trace_completeness_rate",
+          "passed": true
+        },
+        {
+          "check_id": "user_visible_claim_trace_coverage_rate",
+          "passed": true
+        },
+        {
+          "check_id": "closet_insufficient_fallback_present_rate",
+          "passed": true
+        },
+        {
+          "check_id": "honest_fallback_has_user_visible_reason_rate",
+          "passed": true
+        },
+        {
+          "check_id": "honest_fallback_has_trace_rate",
+          "passed": true
+        },
+        {
+          "check_id": "honest_fallback_no_hallucinated_item_rate",
+          "passed": true
+        },
+        {
+          "check_id": "failure_reason_classified_rate",
+          "passed": true
+        },
+        {
+          "check_id": "unclassified_failure_count",
+          "passed": true
+        },
+        {
+          "check_id": "quality_guardrails_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "quality_repair_self_proof_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "swap_option_quality_guardrail_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "closet_reliability_guardrails_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "low_confidence_item_not_used_as_required_slot_rate",
+          "passed": true
+        },
+        {
+          "check_id": "unconfirmed_vision_candidate_not_used_rate",
+          "passed": true
+        },
+        {
+          "check_id": "memory_ux_action_routing_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "remember_long_term_routes_to_write_gate_rate",
+          "passed": true
+        },
+        {
+          "check_id": "do_not_remember_no_production_write_rate",
+          "passed": true
+        },
+        {
+          "check_id": "correct_interpretation_supersedes_wrong_proposal_rate",
+          "passed": true
+        },
+        {
+          "check_id": "current_exception_not_globalized_rate",
+          "passed": true
+        },
+        {
+          "check_id": "multi_day_state_stability_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "contextual_memory_context_proof_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "rejected_proposal_not_reused_rate",
+          "passed": true
+        },
+        {
+          "check_id": "exact_outfit_not_repeated_without_reason_rate",
+          "passed": true
+        },
+        {
+          "check_id": "final_memory_snapshot_authorized_rate",
+          "passed": true
+        },
+        {
+          "check_id": "observability_summary_complete_rate",
+          "passed": true
+        },
+        {
+          "check_id": "human_review_scorecard_present_rate",
+          "passed": true
+        },
+        {
+          "check_id": "human_review_scorecard_complete_rate",
+          "passed": true
+        },
+        {
+          "check_id": "internal_beta_readiness_verdict_not_overstated_rate",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "case_id": "v1298_C05",
+      "version": "v1.29.8",
+      "user_fixture_id": "user_C_incomplete_closet",
+      "closet_fixture_id": "closet_C_incomplete",
+      "initial_memory_fixture_id": "memory_C_minimal",
+      "day_index": 5,
+      "task_context": {
+        "occasion": "weekend_errands",
+        "weather": {
+          "temperature_band": "warm",
+          "rain": false
+        },
+        "mobility": "walk_a_lot",
+        "formality_target": "relaxed_clean",
+        "user_prompt": "beta fixture C day 5: weekend_errands, relaxed_clean",
+        "current_task_exception": false,
+        "context_refs": [
+          "ctx_C_5",
+          "weather_warm_dry"
+        ]
+      },
+      "closet_readiness_report": {
+        "report_id": "crr_v1298_C05",
+        "closet_size": 10,
+        "status": "insufficient",
+        "missing_required_categories": [
+          "top",
+          "bottom"
+        ],
+        "low_confidence_items_excluded": false,
+        "unconfirmed_vision_candidates_excluded": false,
+        "trace_refs": [
+          "closet_C_readiness",
+          "reliability_C_5"
+        ]
+      },
+      "task_memory_packet": {
+        "task_memory_packet_id": "tmp_v1298_C_day5",
+        "active_memory": [
+          "wants practical daily outfits"
+        ],
+        "current_task_exception_this_task_only": false,
+        "rejected_proposals_reused": false,
+        "context_proof_refs": [
+          "ctx_C_5",
+          "weather_warm_dry"
+        ]
+      },
+      "candidate_outfit": {
+        "candidate_id": "cand_v1298_C05",
+        "uses_only_confirmed_closet_items": false,
+        "low_confidence_item_used_as_required_slot": false,
+        "unconfirmed_vision_candidate_used": false
+      },
+      "quality_report": {
+        "quality_report_id": "qr_v1298_C_day5",
+        "passed": false,
+        "guardrails_retained": true,
+        "issues": [
+          {
+            "issue_type": "closet_insufficient",
+            "classified": true
+          }
+        ],
+        "visible_swap_options_quality_guarded": true,
+        "post_repair_validation_present": true
+      },
+      "repair_report": {
+        "repair_report_id": "repair_v1298_C05",
+        "repair_attempted": false,
+        "pre_repair_issues": [],
+        "post_repair_validation": {
+          "passed": true,
+          "trace_ref": "qr_v1298_C_day5"
+        }
+      },
+      "final_daily_outfit_card": {
+        "card_type": "closet_insufficient_notice",
+        "fallback_type": "closet_insufficient",
+        "headline": "I cannot give a complete outfit yet",
+        "user_visible_reason": "I cannot build a complete reliable outfit from the available categories.",
+        "available_items_preview": [
+          "c_confirmed_top",
+          "c_confirmed_bottom"
+        ],
+        "missing_or_unreliable_categories": [
+          "top",
+          "bottom"
+        ],
+        "next_best_action": "Confirm the missing category or add a reliable closet item before using it.",
+        "trace_refs": [
+          "tmp_v1298_C_day5",
+          "qr_v1298_C_day5",
+          "trace_v1298_C_day5"
+        ],
+        "no_hallucinated_item_proof": {
+          "closet_item_ids_checked": true,
+          "non_closet_item_ids_in_output": [],
+          "gap_suggestions_treated_as_items": false
+        }
+      },
+      "fallback_notice": {
+        "card_type": "closet_insufficient_notice",
+        "fallback_type": "closet_insufficient",
+        "headline": "I cannot give a complete outfit yet",
+        "user_visible_reason": "I cannot build a complete reliable outfit from the available categories.",
+        "available_items_preview": [
+          "c_confirmed_top",
+          "c_confirmed_bottom"
+        ],
+        "missing_or_unreliable_categories": [
+          "top",
+          "bottom"
+        ],
+        "next_best_action": "Confirm the missing category or add a reliable closet item before using it.",
+        "trace_refs": [
+          "tmp_v1298_C_day5",
+          "qr_v1298_C_day5",
+          "trace_v1298_C_day5"
+        ],
+        "no_hallucinated_item_proof": {
+          "closet_item_ids_checked": true,
+          "non_closet_item_ids_in_output": [],
+          "gap_suggestions_treated_as_items": false
+        }
+      },
+      "user_adoption_event": {
+        "event_id": "adopt_v1298_C05",
+        "action": "view",
+        "logged": true,
+        "context_ref": "ctx_C_5"
+      },
+      "user_feedback_event": {
+        "event_id": "feedback_v1298_C05",
+        "action": "none",
+        "logged": true,
+        "routes_to_memory_ux": false
+      },
+      "memory_ux_events": [],
+      "user_memory_actions": [],
+      "write_gate_decisions": [],
+      "human_review_scorecard": {
+        "human_review_scorecard_id": "hrs_v1298_C_day5",
+        "scored_by": "synthetic_reviewer",
+        "scores": {
+          "realistically_wearable": 2,
+          "occasion_fit": 2,
+          "weather_fit": 2,
+          "formality_fit": 2,
+          "memory_fit": 2,
+          "not_repetitive": 2,
+          "explanation_trustworthy": 2,
+          "would_try": 0
+        },
+        "max_score": 16,
+        "total_score": 14,
+        "review_notes": "Trace-backed and reviewable; fallback days do not overstate readiness."
+      },
+      "day_trace": {
+        "trace_id": "trace_v1298_C_day5",
+        "pipeline_order": [
+          "closet_readiness",
+          "task_memory_packet",
+          "candidate_generation",
+          "quality_guardrails",
+          "daily_card_or_honest_fallback",
+          "feedback_observability"
+        ],
+        "all_user_visible_claims_trace_backed": true
+      },
+      "failure_reason": "closet_insufficient",
+      "observability_events": [
+        {
+          "event_type": "closet_readiness",
+          "trace_ref": "closet_C_readiness"
+        },
+        {
+          "event_type": "quality_report",
+          "trace_ref": "qr_v1298_C_day5"
+        },
+        {
+          "event_type": "memory_packet",
+          "trace_ref": "tmp_v1298_C_day5"
+        }
+      ],
+      "checks": [
+        {
+          "check_id": "beta_run_schema_valid_rate",
+          "passed": true
+        },
+        {
+          "check_id": "beta_user_fixture_schema_valid_rate",
+          "passed": true
+        },
+        {
+          "check_id": "beta_day_artifact_schema_valid_rate",
+          "passed": true
+        },
+        {
+          "check_id": "all_beta_days_have_task_context_rate",
+          "passed": true
+        },
+        {
+          "check_id": "daily_card_generation_success_or_honest_fallback_rate",
+          "passed": true
+        },
+        {
+          "check_id": "daily_card_trace_completeness_rate",
+          "passed": true
+        },
+        {
+          "check_id": "user_visible_claim_trace_coverage_rate",
+          "passed": true
+        },
+        {
+          "check_id": "closet_insufficient_fallback_present_rate",
+          "passed": true
+        },
+        {
+          "check_id": "honest_fallback_has_user_visible_reason_rate",
+          "passed": true
+        },
+        {
+          "check_id": "honest_fallback_has_trace_rate",
+          "passed": true
+        },
+        {
+          "check_id": "honest_fallback_no_hallucinated_item_rate",
+          "passed": true
+        },
+        {
+          "check_id": "failure_reason_classified_rate",
+          "passed": true
+        },
+        {
+          "check_id": "unclassified_failure_count",
+          "passed": true
+        },
+        {
+          "check_id": "quality_guardrails_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "quality_repair_self_proof_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "swap_option_quality_guardrail_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "closet_reliability_guardrails_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "low_confidence_item_not_used_as_required_slot_rate",
+          "passed": true
+        },
+        {
+          "check_id": "unconfirmed_vision_candidate_not_used_rate",
+          "passed": true
+        },
+        {
+          "check_id": "memory_ux_action_routing_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "remember_long_term_routes_to_write_gate_rate",
+          "passed": true
+        },
+        {
+          "check_id": "do_not_remember_no_production_write_rate",
+          "passed": true
+        },
+        {
+          "check_id": "correct_interpretation_supersedes_wrong_proposal_rate",
+          "passed": true
+        },
+        {
+          "check_id": "current_exception_not_globalized_rate",
+          "passed": true
+        },
+        {
+          "check_id": "multi_day_state_stability_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "contextual_memory_context_proof_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "rejected_proposal_not_reused_rate",
+          "passed": true
+        },
+        {
+          "check_id": "exact_outfit_not_repeated_without_reason_rate",
+          "passed": true
+        },
+        {
+          "check_id": "final_memory_snapshot_authorized_rate",
+          "passed": true
+        },
+        {
+          "check_id": "observability_summary_complete_rate",
+          "passed": true
+        },
+        {
+          "check_id": "human_review_scorecard_present_rate",
+          "passed": true
+        },
+        {
+          "check_id": "human_review_scorecard_complete_rate",
+          "passed": true
+        },
+        {
+          "check_id": "internal_beta_readiness_verdict_not_overstated_rate",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "case_id": "v1298_C06",
+      "version": "v1.29.8",
+      "user_fixture_id": "user_C_incomplete_closet",
+      "closet_fixture_id": "closet_C_incomplete",
+      "initial_memory_fixture_id": "memory_C_minimal",
+      "day_index": 6,
+      "task_context": {
+        "occasion": "office_daily",
+        "weather": {
+          "temperature_band": "mild",
+          "rain": false
+        },
+        "mobility": "normal",
+        "formality_target": "low_saturation",
+        "user_prompt": "beta fixture C day 6: office_daily, low_saturation",
+        "current_task_exception": false,
+        "context_refs": [
+          "ctx_C_6",
+          "weather_mild_dry"
+        ]
+      },
+      "closet_readiness_report": {
+        "report_id": "crr_v1298_C06",
+        "closet_size": 10,
+        "status": "ready",
+        "missing_required_categories": [],
+        "low_confidence_items_excluded": false,
+        "unconfirmed_vision_candidates_excluded": false,
+        "trace_refs": [
+          "closet_C_readiness",
+          "reliability_C_6"
+        ]
+      },
+      "task_memory_packet": {
+        "task_memory_packet_id": "tmp_v1298_C_day6",
+        "active_memory": [
+          "wants practical daily outfits"
+        ],
+        "current_task_exception_this_task_only": false,
+        "rejected_proposals_reused": false,
+        "context_proof_refs": [
+          "ctx_C_6",
+          "weather_mild_dry"
+        ]
+      },
+      "candidate_outfit": {
+        "candidate_id": "cand_v1298_C06",
+        "uses_only_confirmed_closet_items": true,
+        "low_confidence_item_used_as_required_slot": false,
+        "unconfirmed_vision_candidate_used": false
+      },
+      "quality_report": {
+        "quality_report_id": "qr_v1298_C_day6",
+        "passed": true,
+        "guardrails_retained": true,
+        "issues": [],
+        "visible_swap_options_quality_guarded": true,
+        "post_repair_validation_present": true
+      },
+      "repair_report": {
+        "repair_report_id": "repair_v1298_C06",
+        "repair_attempted": true,
+        "pre_repair_issues": [
+          "formality_too_high"
+        ],
+        "post_repair_validation": {
+          "passed": true,
+          "trace_ref": "qr_v1298_C_day6"
+        }
+      },
+      "final_daily_outfit_card": {
+        "card_id": "doc_v1298_C_day6",
+        "card_type": "daily_outfit",
+        "headline": "Today's outfit",
+        "today_direction": {
+          "text": "clean, practical, context-safe daily outfit",
+          "claim_refs": [
+            "mem_C_active",
+            "ctx_C_6"
+          ]
+        },
+        "outfit_items": [
+          {
+            "item_id": "c_d6_top",
+            "display_name": "confirmed knit top",
+            "role": "top",
+            "reason": "confirmed closet item with context-safe formality",
+            "claim_refs": [
+              "closet_C_confirmed_top",
+              "ctx_C_6"
+            ]
+          },
+          {
+            "item_id": "c_d6_bottom",
+            "display_name": "confirmed straight trousers",
+            "role": "bottom",
+            "reason": "keeps the outfit wearable without over-formality",
+            "claim_refs": [
+              "closet_C_confirmed_bottom",
+              "mem_C_boundary"
+            ]
+          },
+          {
+            "item_id": "c_d6_shoe",
+            "display_name": "confirmed practical shoes",
+            "role": "shoes",
+            "reason": "matches mobility and weather constraints",
+            "claim_refs": [
+              "closet_C_confirmed_shoe",
+              "weather_C_6"
+            ]
+          }
+        ],
+        "why_this_works": [
+          {
+            "text": "The card uses only confirmed closet items.",
+            "claim_ref": "closet_C_confirmed"
+          },
+          {
+            "text": "The explanation is tied to task context and active memory.",
+            "claim_ref": "tmp_v1298_C_day6"
+          }
+        ],
+        "quality_notes": [
+          {
+            "check": "occasion_fit",
+            "passed": true,
+            "trace_ref": "qr_v1298_C_day6"
+          },
+          {
+            "check": "weather_fit",
+            "passed": true,
+            "trace_ref": "qr_v1298_C_day6"
+          },
+          {
+            "check": "formality_fit",
+            "passed": true,
+            "trace_ref": "qr_v1298_C_day6"
+          }
+        ],
+        "swap_options": [
+          {
+            "item_id": "c_d6_alt_top",
+            "display_name": "confirmed alternate top",
+            "quality_guarded": true,
+            "claim_refs": [
+              "closet_C_confirmed_alt_top",
+              "qr_v1298_C_day6"
+            ]
+          }
+        ],
+        "hidden_swap_options": [
+          {
+            "item_id": "c_d6_low_confidence_jacket",
+            "hidden_reason": "metadata confidence too low for the current slot",
+            "trace_refs": [
+              "reliability_C_6"
+            ]
+          }
+        ],
+        "closet_gap_note": null,
+        "memory_ux_blocks": [
+          {
+            "action": "why_changed",
+            "route": "memory_ux",
+            "trace_ref": "tmp_v1298_C_day6"
+          }
+        ],
+        "feedback_actions": [
+          "wear_this",
+          "save",
+          "too_formal",
+          "too_sweet",
+          "too_plain",
+          "not_me",
+          "do_not_remember",
+          "correct_interpretation"
+        ],
+        "trace_refs": {
+          "task_memory_packet_id": "tmp_v1298_C_day6",
+          "quality_report_id": "qr_v1298_C_day6",
+          "planner_trace_id": "trace_v1298_C_day6"
+        }
+      },
+      "fallback_notice": null,
+      "user_adoption_event": {
+        "event_id": "adopt_v1298_C06",
+        "action": "view",
+        "logged": true,
+        "context_ref": "ctx_C_6"
+      },
+      "user_feedback_event": {
+        "event_id": "feedback_v1298_C06",
+        "action": "none",
+        "logged": true,
+        "routes_to_memory_ux": false
+      },
+      "memory_ux_events": [],
+      "user_memory_actions": [],
+      "write_gate_decisions": [],
+      "human_review_scorecard": {
+        "human_review_scorecard_id": "hrs_v1298_C_day6",
+        "scored_by": "synthetic_reviewer",
+        "scores": {
+          "realistically_wearable": 2,
+          "occasion_fit": 2,
+          "weather_fit": 2,
+          "formality_fit": 2,
+          "memory_fit": 2,
+          "not_repetitive": 2,
+          "explanation_trustworthy": 2,
+          "would_try": 1
+        },
+        "max_score": 16,
+        "total_score": 15,
+        "review_notes": "Trace-backed and reviewable; fallback days do not overstate readiness."
+      },
+      "day_trace": {
+        "trace_id": "trace_v1298_C_day6",
+        "pipeline_order": [
+          "closet_readiness",
+          "task_memory_packet",
+          "candidate_generation",
+          "quality_guardrails",
+          "daily_card_or_honest_fallback",
+          "feedback_observability"
+        ],
+        "all_user_visible_claims_trace_backed": true
+      },
+      "failure_reason": null,
+      "observability_events": [
+        {
+          "event_type": "closet_readiness",
+          "trace_ref": "closet_C_readiness"
+        },
+        {
+          "event_type": "quality_report",
+          "trace_ref": "qr_v1298_C_day6"
+        },
+        {
+          "event_type": "memory_packet",
+          "trace_ref": "tmp_v1298_C_day6"
+        }
+      ],
+      "checks": [
+        {
+          "check_id": "beta_run_schema_valid_rate",
+          "passed": true
+        },
+        {
+          "check_id": "beta_user_fixture_schema_valid_rate",
+          "passed": true
+        },
+        {
+          "check_id": "beta_day_artifact_schema_valid_rate",
+          "passed": true
+        },
+        {
+          "check_id": "all_beta_days_have_task_context_rate",
+          "passed": true
+        },
+        {
+          "check_id": "daily_card_generation_success_or_honest_fallback_rate",
+          "passed": true
+        },
+        {
+          "check_id": "daily_card_trace_completeness_rate",
+          "passed": true
+        },
+        {
+          "check_id": "user_visible_claim_trace_coverage_rate",
+          "passed": true
+        },
+        {
+          "check_id": "closet_insufficient_fallback_present_rate",
+          "passed": true
+        },
+        {
+          "check_id": "honest_fallback_has_user_visible_reason_rate",
+          "passed": true
+        },
+        {
+          "check_id": "honest_fallback_has_trace_rate",
+          "passed": true
+        },
+        {
+          "check_id": "honest_fallback_no_hallucinated_item_rate",
+          "passed": true
+        },
+        {
+          "check_id": "failure_reason_classified_rate",
+          "passed": true
+        },
+        {
+          "check_id": "unclassified_failure_count",
+          "passed": true
+        },
+        {
+          "check_id": "quality_guardrails_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "quality_repair_self_proof_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "swap_option_quality_guardrail_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "closet_reliability_guardrails_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "low_confidence_item_not_used_as_required_slot_rate",
+          "passed": true
+        },
+        {
+          "check_id": "unconfirmed_vision_candidate_not_used_rate",
+          "passed": true
+        },
+        {
+          "check_id": "memory_ux_action_routing_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "remember_long_term_routes_to_write_gate_rate",
+          "passed": true
+        },
+        {
+          "check_id": "do_not_remember_no_production_write_rate",
+          "passed": true
+        },
+        {
+          "check_id": "correct_interpretation_supersedes_wrong_proposal_rate",
+          "passed": true
+        },
+        {
+          "check_id": "current_exception_not_globalized_rate",
+          "passed": true
+        },
+        {
+          "check_id": "multi_day_state_stability_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "contextual_memory_context_proof_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "rejected_proposal_not_reused_rate",
+          "passed": true
+        },
+        {
+          "check_id": "exact_outfit_not_repeated_without_reason_rate",
+          "passed": true
+        },
+        {
+          "check_id": "final_memory_snapshot_authorized_rate",
+          "passed": true
+        },
+        {
+          "check_id": "observability_summary_complete_rate",
+          "passed": true
+        },
+        {
+          "check_id": "human_review_scorecard_present_rate",
+          "passed": true
+        },
+        {
+          "check_id": "human_review_scorecard_complete_rate",
+          "passed": true
+        },
+        {
+          "check_id": "internal_beta_readiness_verdict_not_overstated_rate",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "case_id": "v1298_C07",
+      "version": "v1.29.8",
+      "user_fixture_id": "user_C_incomplete_closet",
+      "closet_fixture_id": "closet_C_incomplete",
+      "initial_memory_fixture_id": "memory_C_minimal",
+      "day_index": 7,
+      "task_context": {
+        "occasion": "dinner_after_work",
+        "weather": {
+          "temperature_band": "cool",
+          "rain": false
+        },
+        "mobility": "normal",
+        "formality_target": "polished_relaxed",
+        "user_prompt": "beta fixture C day 7: dinner_after_work, polished_relaxed",
+        "current_task_exception": false,
+        "context_refs": [
+          "ctx_C_7",
+          "weather_cool_dry"
+        ]
+      },
+      "closet_readiness_report": {
+        "report_id": "crr_v1298_C07",
+        "closet_size": 10,
+        "status": "ready",
+        "missing_required_categories": [],
+        "low_confidence_items_excluded": false,
+        "unconfirmed_vision_candidates_excluded": false,
+        "trace_refs": [
+          "closet_C_readiness",
+          "reliability_C_7"
+        ]
+      },
+      "task_memory_packet": {
+        "task_memory_packet_id": "tmp_v1298_C_day7",
+        "active_memory": [
+          "wants practical daily outfits"
+        ],
+        "current_task_exception_this_task_only": false,
+        "rejected_proposals_reused": false,
+        "context_proof_refs": [
+          "ctx_C_7",
+          "weather_cool_dry"
+        ]
+      },
+      "candidate_outfit": {
+        "candidate_id": "cand_v1298_C07",
+        "uses_only_confirmed_closet_items": true,
+        "low_confidence_item_used_as_required_slot": false,
+        "unconfirmed_vision_candidate_used": false
+      },
+      "quality_report": {
+        "quality_report_id": "qr_v1298_C_day7",
+        "passed": true,
+        "guardrails_retained": true,
+        "issues": [],
+        "visible_swap_options_quality_guarded": true,
+        "post_repair_validation_present": true
+      },
+      "repair_report": {
+        "repair_report_id": "repair_v1298_C07",
+        "repair_attempted": false,
+        "pre_repair_issues": [],
+        "post_repair_validation": {
+          "passed": true,
+          "trace_ref": "qr_v1298_C_day7"
+        }
+      },
+      "final_daily_outfit_card": {
+        "card_id": "doc_v1298_C_day7",
+        "card_type": "daily_outfit",
+        "headline": "Today's outfit",
+        "today_direction": {
+          "text": "clean, practical, context-safe daily outfit",
+          "claim_refs": [
+            "mem_C_active",
+            "ctx_C_7"
+          ]
+        },
+        "outfit_items": [
+          {
+            "item_id": "c_d7_top",
+            "display_name": "confirmed knit top",
+            "role": "top",
+            "reason": "confirmed closet item with context-safe formality",
+            "claim_refs": [
+              "closet_C_confirmed_top",
+              "ctx_C_7"
+            ]
+          },
+          {
+            "item_id": "c_d7_bottom",
+            "display_name": "confirmed straight trousers",
+            "role": "bottom",
+            "reason": "keeps the outfit wearable without over-formality",
+            "claim_refs": [
+              "closet_C_confirmed_bottom",
+              "mem_C_boundary"
+            ]
+          },
+          {
+            "item_id": "c_d7_shoe",
+            "display_name": "confirmed practical shoes",
+            "role": "shoes",
+            "reason": "matches mobility and weather constraints",
+            "claim_refs": [
+              "closet_C_confirmed_shoe",
+              "weather_C_7"
+            ]
+          }
+        ],
+        "why_this_works": [
+          {
+            "text": "The card uses only confirmed closet items.",
+            "claim_ref": "closet_C_confirmed"
+          },
+          {
+            "text": "The explanation is tied to task context and active memory.",
+            "claim_ref": "tmp_v1298_C_day7"
+          }
+        ],
+        "quality_notes": [
+          {
+            "check": "occasion_fit",
+            "passed": true,
+            "trace_ref": "qr_v1298_C_day7"
+          },
+          {
+            "check": "weather_fit",
+            "passed": true,
+            "trace_ref": "qr_v1298_C_day7"
+          },
+          {
+            "check": "formality_fit",
+            "passed": true,
+            "trace_ref": "qr_v1298_C_day7"
+          }
+        ],
+        "swap_options": [
+          {
+            "item_id": "c_d7_alt_top",
+            "display_name": "confirmed alternate top",
+            "quality_guarded": true,
+            "claim_refs": [
+              "closet_C_confirmed_alt_top",
+              "qr_v1298_C_day7"
+            ]
+          }
+        ],
+        "hidden_swap_options": [
+          {
+            "item_id": "c_d7_low_confidence_jacket",
+            "hidden_reason": "metadata confidence too low for the current slot",
+            "trace_refs": [
+              "reliability_C_7"
+            ]
+          }
+        ],
+        "closet_gap_note": null,
+        "memory_ux_blocks": [
+          {
+            "action": "why_changed",
+            "route": "memory_ux",
+            "trace_ref": "tmp_v1298_C_day7"
+          }
+        ],
+        "feedback_actions": [
+          "wear_this",
+          "save",
+          "too_formal",
+          "too_sweet",
+          "too_plain",
+          "not_me",
+          "do_not_remember",
+          "correct_interpretation"
+        ],
+        "trace_refs": {
+          "task_memory_packet_id": "tmp_v1298_C_day7",
+          "quality_report_id": "qr_v1298_C_day7",
+          "planner_trace_id": "trace_v1298_C_day7"
+        }
+      },
+      "fallback_notice": null,
+      "user_adoption_event": {
+        "event_id": "adopt_v1298_C07",
+        "action": "view",
+        "logged": true,
+        "context_ref": "ctx_C_7"
+      },
+      "user_feedback_event": {
+        "event_id": "feedback_v1298_C07",
+        "action": "none",
+        "logged": true,
+        "routes_to_memory_ux": false
+      },
+      "memory_ux_events": [],
+      "user_memory_actions": [],
+      "write_gate_decisions": [],
+      "human_review_scorecard": {
+        "human_review_scorecard_id": "hrs_v1298_C_day7",
+        "scored_by": "synthetic_reviewer",
+        "scores": {
+          "realistically_wearable": 2,
+          "occasion_fit": 2,
+          "weather_fit": 2,
+          "formality_fit": 2,
+          "memory_fit": 2,
+          "not_repetitive": 2,
+          "explanation_trustworthy": 2,
+          "would_try": 1
+        },
+        "max_score": 16,
+        "total_score": 15,
+        "review_notes": "Trace-backed and reviewable; fallback days do not overstate readiness."
+      },
+      "day_trace": {
+        "trace_id": "trace_v1298_C_day7",
+        "pipeline_order": [
+          "closet_readiness",
+          "task_memory_packet",
+          "candidate_generation",
+          "quality_guardrails",
+          "daily_card_or_honest_fallback",
+          "feedback_observability"
+        ],
+        "all_user_visible_claims_trace_backed": true
+      },
+      "failure_reason": null,
+      "observability_events": [
+        {
+          "event_type": "closet_readiness",
+          "trace_ref": "closet_C_readiness"
+        },
+        {
+          "event_type": "quality_report",
+          "trace_ref": "qr_v1298_C_day7"
+        },
+        {
+          "event_type": "memory_packet",
+          "trace_ref": "tmp_v1298_C_day7"
+        }
+      ],
+      "checks": [
+        {
+          "check_id": "beta_run_schema_valid_rate",
+          "passed": true
+        },
+        {
+          "check_id": "beta_user_fixture_schema_valid_rate",
+          "passed": true
+        },
+        {
+          "check_id": "beta_day_artifact_schema_valid_rate",
+          "passed": true
+        },
+        {
+          "check_id": "all_beta_days_have_task_context_rate",
+          "passed": true
+        },
+        {
+          "check_id": "daily_card_generation_success_or_honest_fallback_rate",
+          "passed": true
+        },
+        {
+          "check_id": "daily_card_trace_completeness_rate",
+          "passed": true
+        },
+        {
+          "check_id": "user_visible_claim_trace_coverage_rate",
+          "passed": true
+        },
+        {
+          "check_id": "closet_insufficient_fallback_present_rate",
+          "passed": true
+        },
+        {
+          "check_id": "honest_fallback_has_user_visible_reason_rate",
+          "passed": true
+        },
+        {
+          "check_id": "honest_fallback_has_trace_rate",
+          "passed": true
+        },
+        {
+          "check_id": "honest_fallback_no_hallucinated_item_rate",
+          "passed": true
+        },
+        {
+          "check_id": "failure_reason_classified_rate",
+          "passed": true
+        },
+        {
+          "check_id": "unclassified_failure_count",
+          "passed": true
+        },
+        {
+          "check_id": "quality_guardrails_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "quality_repair_self_proof_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "swap_option_quality_guardrail_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "closet_reliability_guardrails_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "low_confidence_item_not_used_as_required_slot_rate",
+          "passed": true
+        },
+        {
+          "check_id": "unconfirmed_vision_candidate_not_used_rate",
+          "passed": true
+        },
+        {
+          "check_id": "memory_ux_action_routing_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "remember_long_term_routes_to_write_gate_rate",
+          "passed": true
+        },
+        {
+          "check_id": "do_not_remember_no_production_write_rate",
+          "passed": true
+        },
+        {
+          "check_id": "correct_interpretation_supersedes_wrong_proposal_rate",
+          "passed": true
+        },
+        {
+          "check_id": "current_exception_not_globalized_rate",
+          "passed": true
+        },
+        {
+          "check_id": "multi_day_state_stability_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "contextual_memory_context_proof_retained_rate",
+          "passed": true
+        },
+        {
+          "check_id": "rejected_proposal_not_reused_rate",
+          "passed": true
+        },
+        {
+          "check_id": "exact_outfit_not_repeated_without_reason_rate",
+          "passed": true
+        },
+        {
+          "check_id": "final_memory_snapshot_authorized_rate",
+          "passed": true
+        },
+        {
+          "check_id": "observability_summary_complete_rate",
+          "passed": true
+        },
+        {
+          "check_id": "human_review_scorecard_present_rate",
+          "passed": true
+        },
+        {
+          "check_id": "human_review_scorecard_complete_rate",
+          "passed": true
+        },
+        {
+          "check_id": "internal_beta_readiness_verdict_not_overstated_rate",
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "beta_run_summary": {
+    "days": 7,
+    "daily_outfit_cards_generated": 5,
+    "honest_fallbacks_generated": 2,
+    "success_or_honest_fallback_rate": 1.0,
+    "unclassified_failure_count": 0
+  },
+  "failure_summary": {
+    "classified_failure_reasons": [
+      "no_weather_safe_option",
+      "closet_insufficient"
+    ],
+    "unclassified_failures": []
+  },
+  "observability_summary": {
+    "all_days_have_trace": true,
+    "all_cards_have_trace_refs": true,
+    "all_memory_actions_have_routing": true,
+    "all_write_gate_decisions_observable": true
+  },
+  "human_review_scorecard": {
+    "scorecards_present": true,
+    "scorecards_complete": true,
+    "average_score": 14.71
+  },
+  "final_memory_snapshot": {
+    "authorized": true,
+    "current_task_exceptions_expired": true,
+    "do_not_remember_reused": false,
+    "rejected_proposal_reused": false
+  },
+  "final_outfit_history": {
+    "exact_outfit_repeated_without_reason": false,
+    "outfit_history_ids": [
+      "doc_v1298_C_day1",
+      "fallback_v1298_C02",
+      "doc_v1298_C_day3",
+      "doc_v1298_C_day4",
+      "fallback_v1298_C05",
+      "doc_v1298_C_day6",
+      "doc_v1298_C_day7"
+    ]
+  },
+  "checks": [
+    {
+      "check_id": "beta_run_schema_valid_rate",
+      "passed": true
+    },
+    {
+      "check_id": "beta_user_fixture_schema_valid_rate",
+      "passed": true
+    },
+    {
+      "check_id": "beta_day_artifact_schema_valid_rate",
+      "passed": true
+    },
+    {
+      "check_id": "all_beta_days_have_task_context_rate",
+      "passed": true
+    },
+    {
+      "check_id": "daily_card_generation_success_or_honest_fallback_rate",
+      "passed": true
+    },
+    {
+      "check_id": "daily_card_trace_completeness_rate",
+      "passed": true
+    },
+    {
+      "check_id": "user_visible_claim_trace_coverage_rate",
+      "passed": true
+    },
+    {
+      "check_id": "closet_insufficient_fallback_present_rate",
+      "passed": true
+    },
+    {
+      "check_id": "honest_fallback_has_user_visible_reason_rate",
+      "passed": true
+    },
+    {
+      "check_id": "honest_fallback_has_trace_rate",
+      "passed": true
+    },
+    {
+      "check_id": "honest_fallback_no_hallucinated_item_rate",
+      "passed": true
+    },
+    {
+      "check_id": "failure_reason_classified_rate",
+      "passed": true
+    },
+    {
+      "check_id": "unclassified_failure_count",
+      "passed": true
+    },
+    {
+      "check_id": "quality_guardrails_retained_rate",
+      "passed": true
+    },
+    {
+      "check_id": "quality_repair_self_proof_retained_rate",
+      "passed": true
+    },
+    {
+      "check_id": "swap_option_quality_guardrail_retained_rate",
+      "passed": true
+    },
+    {
+      "check_id": "closet_reliability_guardrails_retained_rate",
+      "passed": true
+    },
+    {
+      "check_id": "low_confidence_item_not_used_as_required_slot_rate",
+      "passed": true
+    },
+    {
+      "check_id": "unconfirmed_vision_candidate_not_used_rate",
+      "passed": true
+    },
+    {
+      "check_id": "memory_ux_action_routing_retained_rate",
+      "passed": true
+    },
+    {
+      "check_id": "remember_long_term_routes_to_write_gate_rate",
+      "passed": true
+    },
+    {
+      "check_id": "do_not_remember_no_production_write_rate",
+      "passed": true
+    },
+    {
+      "check_id": "correct_interpretation_supersedes_wrong_proposal_rate",
+      "passed": true
+    },
+    {
+      "check_id": "current_exception_not_globalized_rate",
+      "passed": true
+    },
+    {
+      "check_id": "multi_day_state_stability_retained_rate",
+      "passed": true
+    },
+    {
+      "check_id": "contextual_memory_context_proof_retained_rate",
+      "passed": true
+    },
+    {
+      "check_id": "rejected_proposal_not_reused_rate",
+      "passed": true
+    },
+    {
+      "check_id": "exact_outfit_not_repeated_without_reason_rate",
+      "passed": true
+    },
+    {
+      "check_id": "final_memory_snapshot_authorized_rate",
+      "passed": true
+    },
+    {
+      "check_id": "observability_summary_complete_rate",
+      "passed": true
+    },
+    {
+      "check_id": "human_review_scorecard_present_rate",
+      "passed": true
+    },
+    {
+      "check_id": "human_review_scorecard_complete_rate",
+      "passed": true
+    },
+    {
+      "check_id": "internal_beta_readiness_verdict_not_overstated_rate",
+      "passed": true
+    }
+  ]
+}

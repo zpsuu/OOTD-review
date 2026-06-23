@@ -1,0 +1,57 @@
+{
+  "version": "v1.29.8",
+  "release_candidate_status": "pass_candidate_pending_manual_review",
+  "branch": "v1298-daily-outfit-beta-readiness",
+  "theme": "Daily Outfit Beta Readiness",
+  "generated_at": "2026-06-23T09:24:33Z",
+  "scope": {
+    "goals": [
+      "Validate internal beta readiness for Daily Outfit",
+      "Verify end-to-end beta user runs",
+      "Retain memory, closet, quality, multi-day and Memory UX guardrails",
+      "Classify failures and provide honest fallbacks",
+      "Provide observability and human review scorecards"
+    ],
+    "non_goals": [
+      "No external inspiration intake",
+      "No Ideal-Reality Bridge",
+      "No shopping or commerce",
+      "No public beta launch",
+      "No multimodal clean acceptance dependency",
+      "No full UI"
+    ]
+  },
+  "reports": {
+    "clean_report": "clean_report.json",
+    "mixed_strict_report": "mixed_strict_report.json",
+    "injected_summary": "injected_defect_detection_summary.json",
+    "beta_run_summary": "beta_run_summary.json",
+    "failure_summary": "failure_summary.json",
+    "observability_summary": "observability_summary.json",
+    "human_review_scorecard_summary": "human_review_scorecard_summary.json"
+  },
+  "required_new_gates": [
+    "beta_run_schema_valid_rate",
+    "daily_card_generation_success_or_honest_fallback_rate",
+    "daily_card_trace_completeness_rate",
+    "closet_insufficient_fallback_present_rate",
+    "failure_reason_classified_rate",
+    "observability_summary_complete_rate",
+    "human_review_scorecard_present_rate",
+    "internal_beta_readiness_verdict_not_overstated_rate"
+  ],
+  "must_review_samples": [
+    "sample_artifacts/beta_user_small_closet_7day.json",
+    "sample_artifacts/beta_user_incomplete_closet_7day.json",
+    "sample_artifacts/beta_user_low_confidence_metadata_7day.json",
+    "sample_artifacts/honest_fallback_closet_insufficient.json",
+    "sample_artifacts/memory_ux_feedback_action_routing.json",
+    "sample_artifacts/quality_guardrail_retained_in_beta_run.json",
+    "sample_artifacts/human_review_scorecard_example.json"
+  ],
+  "known_p2_backlog": [
+    "manual reviewer should spot-check product usefulness across fallback-heavy users",
+    "future suite should replace synthetic scorecards with reviewer-entered scores",
+    "expand beta fixture demographics before public beta"
+  ]
+}

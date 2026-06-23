@@ -1,0 +1,378 @@
+{
+  "case_id": "v1298_E07",
+  "version": "v1.29.8",
+  "user_fixture_id": "user_E_current_exception",
+  "closet_fixture_id": "closet_E_exceptions",
+  "initial_memory_fixture_id": "memory_E_office",
+  "day_index": 7,
+  "task_context": {
+    "occasion": "dinner_after_work",
+    "weather": {
+      "temperature_band": "cool",
+      "rain": false
+    },
+    "mobility": "normal",
+    "formality_target": "polished_relaxed",
+    "user_prompt": "beta fixture E day 7: dinner_after_work, polished_relaxed",
+    "current_task_exception": false,
+    "context_refs": [
+      "ctx_E_7",
+      "weather_cool_dry"
+    ]
+  },
+  "closet_readiness_report": {
+    "report_id": "crr_v1298_E07",
+    "closet_size": 20,
+    "status": "ready",
+    "missing_required_categories": [],
+    "low_confidence_items_excluded": false,
+    "unconfirmed_vision_candidates_excluded": false,
+    "trace_refs": [
+      "closet_E_readiness",
+      "reliability_E_7"
+    ]
+  },
+  "task_memory_packet": {
+    "task_memory_packet_id": "tmp_v1298_E_day7",
+    "active_memory": [
+      "prefers relaxed office outfits"
+    ],
+    "current_task_exception_this_task_only": false,
+    "rejected_proposals_reused": false,
+    "context_proof_refs": [
+      "ctx_E_7",
+      "weather_cool_dry"
+    ]
+  },
+  "candidate_outfit": {
+    "candidate_id": "cand_v1298_E07",
+    "uses_only_confirmed_closet_items": true,
+    "low_confidence_item_used_as_required_slot": false,
+    "unconfirmed_vision_candidate_used": false
+  },
+  "quality_report": {
+    "quality_report_id": "qr_v1298_E_day7",
+    "passed": true,
+    "guardrails_retained": true,
+    "issues": [],
+    "visible_swap_options_quality_guarded": true,
+    "post_repair_validation_present": true
+  },
+  "repair_report": {
+    "repair_report_id": "repair_v1298_E07",
+    "repair_attempted": false,
+    "pre_repair_issues": [],
+    "post_repair_validation": {
+      "passed": true,
+      "trace_ref": "qr_v1298_E_day7"
+    }
+  },
+  "final_daily_outfit_card": {
+    "card_id": "doc_v1298_E_day7",
+    "card_type": "daily_outfit",
+    "headline": "Today's outfit",
+    "today_direction": {
+      "text": "clean, practical, context-safe daily outfit",
+      "claim_refs": [
+        "mem_E_active",
+        "ctx_E_7"
+      ]
+    },
+    "outfit_items": [
+      {
+        "item_id": "e_d7_top",
+        "display_name": "confirmed knit top",
+        "role": "top",
+        "reason": "confirmed closet item with context-safe formality",
+        "claim_refs": [
+          "closet_E_confirmed_top",
+          "ctx_E_7"
+        ]
+      },
+      {
+        "item_id": "e_d7_bottom",
+        "display_name": "confirmed straight trousers",
+        "role": "bottom",
+        "reason": "keeps the outfit wearable without over-formality",
+        "claim_refs": [
+          "closet_E_confirmed_bottom",
+          "mem_E_boundary"
+        ]
+      },
+      {
+        "item_id": "e_d7_shoe",
+        "display_name": "confirmed practical shoes",
+        "role": "shoes",
+        "reason": "matches mobility and weather constraints",
+        "claim_refs": [
+          "closet_E_confirmed_shoe",
+          "weather_E_7"
+        ]
+      }
+    ],
+    "why_this_works": [
+      {
+        "text": "The card uses only confirmed closet items.",
+        "claim_ref": "closet_E_confirmed"
+      },
+      {
+        "text": "The explanation is tied to task context and active memory.",
+        "claim_ref": "tmp_v1298_E_day7"
+      }
+    ],
+    "quality_notes": [
+      {
+        "check": "occasion_fit",
+        "passed": true,
+        "trace_ref": "qr_v1298_E_day7"
+      },
+      {
+        "check": "weather_fit",
+        "passed": true,
+        "trace_ref": "qr_v1298_E_day7"
+      },
+      {
+        "check": "formality_fit",
+        "passed": true,
+        "trace_ref": "qr_v1298_E_day7"
+      }
+    ],
+    "swap_options": [
+      {
+        "item_id": "e_d7_alt_top",
+        "display_name": "confirmed alternate top",
+        "quality_guarded": true,
+        "claim_refs": [
+          "closet_E_confirmed_alt_top",
+          "qr_v1298_E_day7"
+        ]
+      }
+    ],
+    "hidden_swap_options": [
+      {
+        "item_id": "e_d7_low_confidence_jacket",
+        "hidden_reason": "metadata confidence too low for the current slot",
+        "trace_refs": [
+          "reliability_E_7"
+        ]
+      }
+    ],
+    "closet_gap_note": null,
+    "memory_ux_blocks": [
+      {
+        "action": "why_changed",
+        "route": "memory_ux",
+        "trace_ref": "tmp_v1298_E_day7"
+      }
+    ],
+    "feedback_actions": [
+      "wear_this",
+      "save",
+      "too_formal",
+      "too_sweet",
+      "too_plain",
+      "not_me",
+      "do_not_remember",
+      "correct_interpretation"
+    ],
+    "trace_refs": {
+      "task_memory_packet_id": "tmp_v1298_E_day7",
+      "quality_report_id": "qr_v1298_E_day7",
+      "planner_trace_id": "trace_v1298_E_day7"
+    }
+  },
+  "fallback_notice": null,
+  "user_adoption_event": {
+    "event_id": "adopt_v1298_E07",
+    "action": "view",
+    "logged": true,
+    "context_ref": "ctx_E_7"
+  },
+  "user_feedback_event": {
+    "event_id": "feedback_v1298_E07",
+    "action": "none",
+    "logged": true,
+    "routes_to_memory_ux": false
+  },
+  "memory_ux_events": [],
+  "user_memory_actions": [],
+  "write_gate_decisions": [],
+  "human_review_scorecard": {
+    "human_review_scorecard_id": "hrs_v1298_E_day7",
+    "scored_by": "synthetic_reviewer",
+    "scores": {
+      "realistically_wearable": 2,
+      "occasion_fit": 2,
+      "weather_fit": 2,
+      "formality_fit": 2,
+      "memory_fit": 2,
+      "not_repetitive": 2,
+      "explanation_trustworthy": 2,
+      "would_try": 1
+    },
+    "max_score": 16,
+    "total_score": 15,
+    "review_notes": "Trace-backed and reviewable; fallback days do not overstate readiness."
+  },
+  "day_trace": {
+    "trace_id": "trace_v1298_E_day7",
+    "pipeline_order": [
+      "closet_readiness",
+      "task_memory_packet",
+      "candidate_generation",
+      "quality_guardrails",
+      "daily_card_or_honest_fallback",
+      "feedback_observability"
+    ],
+    "all_user_visible_claims_trace_backed": true
+  },
+  "failure_reason": null,
+  "observability_events": [
+    {
+      "event_type": "closet_readiness",
+      "trace_ref": "closet_E_readiness"
+    },
+    {
+      "event_type": "quality_report",
+      "trace_ref": "qr_v1298_E_day7"
+    },
+    {
+      "event_type": "memory_packet",
+      "trace_ref": "tmp_v1298_E_day7"
+    }
+  ],
+  "checks": [
+    {
+      "check_id": "beta_run_schema_valid_rate",
+      "passed": true
+    },
+    {
+      "check_id": "beta_user_fixture_schema_valid_rate",
+      "passed": true
+    },
+    {
+      "check_id": "beta_day_artifact_schema_valid_rate",
+      "passed": true
+    },
+    {
+      "check_id": "all_beta_days_have_task_context_rate",
+      "passed": true
+    },
+    {
+      "check_id": "daily_card_generation_success_or_honest_fallback_rate",
+      "passed": true
+    },
+    {
+      "check_id": "daily_card_trace_completeness_rate",
+      "passed": true
+    },
+    {
+      "check_id": "user_visible_claim_trace_coverage_rate",
+      "passed": true
+    },
+    {
+      "check_id": "closet_insufficient_fallback_present_rate",
+      "passed": true
+    },
+    {
+      "check_id": "honest_fallback_has_user_visible_reason_rate",
+      "passed": true
+    },
+    {
+      "check_id": "honest_fallback_has_trace_rate",
+      "passed": true
+    },
+    {
+      "check_id": "honest_fallback_no_hallucinated_item_rate",
+      "passed": true
+    },
+    {
+      "check_id": "failure_reason_classified_rate",
+      "passed": true
+    },
+    {
+      "check_id": "unclassified_failure_count",
+      "passed": true
+    },
+    {
+      "check_id": "quality_guardrails_retained_rate",
+      "passed": true
+    },
+    {
+      "check_id": "quality_repair_self_proof_retained_rate",
+      "passed": true
+    },
+    {
+      "check_id": "swap_option_quality_guardrail_retained_rate",
+      "passed": true
+    },
+    {
+      "check_id": "closet_reliability_guardrails_retained_rate",
+      "passed": true
+    },
+    {
+      "check_id": "low_confidence_item_not_used_as_required_slot_rate",
+      "passed": true
+    },
+    {
+      "check_id": "unconfirmed_vision_candidate_not_used_rate",
+      "passed": true
+    },
+    {
+      "check_id": "memory_ux_action_routing_retained_rate",
+      "passed": true
+    },
+    {
+      "check_id": "remember_long_term_routes_to_write_gate_rate",
+      "passed": true
+    },
+    {
+      "check_id": "do_not_remember_no_production_write_rate",
+      "passed": true
+    },
+    {
+      "check_id": "correct_interpretation_supersedes_wrong_proposal_rate",
+      "passed": true
+    },
+    {
+      "check_id": "current_exception_not_globalized_rate",
+      "passed": true
+    },
+    {
+      "check_id": "multi_day_state_stability_retained_rate",
+      "passed": true
+    },
+    {
+      "check_id": "contextual_memory_context_proof_retained_rate",
+      "passed": true
+    },
+    {
+      "check_id": "rejected_proposal_not_reused_rate",
+      "passed": true
+    },
+    {
+      "check_id": "exact_outfit_not_repeated_without_reason_rate",
+      "passed": true
+    },
+    {
+      "check_id": "final_memory_snapshot_authorized_rate",
+      "passed": true
+    },
+    {
+      "check_id": "observability_summary_complete_rate",
+      "passed": true
+    },
+    {
+      "check_id": "human_review_scorecard_present_rate",
+      "passed": true
+    },
+    {
+      "check_id": "human_review_scorecard_complete_rate",
+      "passed": true
+    },
+    {
+      "check_id": "internal_beta_readiness_verdict_not_overstated_rate",
+      "passed": true
+    }
+  ]
+}

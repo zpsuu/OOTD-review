@@ -1,0 +1,11 @@
+{
+  "human_review_scorecard_summary_id": "hrs_v1298_summary",
+  "scorecards_present": true,
+  "scorecards_complete": true,
+  "scorecard_count": 56,
+  "average_total_score": 14.89,
+  "min_total_score": 14,
+  "readiness_verdict_not_overstated": true,
+  "readiness_verdict": "internal_dogfood_ready_pending_manual_review",
+  "low_score_cards": []
+}

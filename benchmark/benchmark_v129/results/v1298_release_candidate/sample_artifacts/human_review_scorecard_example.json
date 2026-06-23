@@ -1,0 +1,17 @@
+{
+  "human_review_scorecard_id": "hrs_v1298_A_day3",
+  "scored_by": "synthetic_reviewer",
+  "scores": {
+    "realistically_wearable": 2,
+    "occasion_fit": 2,
+    "weather_fit": 2,
+    "formality_fit": 2,
+    "memory_fit": 2,
+    "not_repetitive": 2,
+    "explanation_trustworthy": 2,
+    "would_try": 1
+  },
+  "max_score": 16,
+  "total_score": 15,
+  "review_notes": "Trace-backed and reviewable; fallback days do not overstate readiness."
+}

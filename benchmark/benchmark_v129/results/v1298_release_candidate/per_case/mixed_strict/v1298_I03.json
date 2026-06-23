@@ -1,0 +1,146 @@
+{
+  "case_id": "v1298_I03",
+  "version": "v1.29.8",
+  "defect_type": "fallback_missing_when_closet_insufficient",
+  "expected_failure": true,
+  "source_clean_case_id": "v1298_A01",
+  "injected_mutation": "fallback_missing_when_closet_insufficient",
+  "failed_check_ids": [
+    "closet_insufficient_fallback_present_rate"
+  ],
+  "failure_reason": "Injected defect detected: fallback_missing_when_closet_insufficient",
+  "checks": [
+    {
+      "check_id": "beta_run_schema_valid_rate",
+      "passed": true
+    },
+    {
+      "check_id": "beta_user_fixture_schema_valid_rate",
+      "passed": true
+    },
+    {
+      "check_id": "beta_day_artifact_schema_valid_rate",
+      "passed": true
+    },
+    {
+      "check_id": "all_beta_days_have_task_context_rate",
+      "passed": true
+    },
+    {
+      "check_id": "daily_card_generation_success_or_honest_fallback_rate",
+      "passed": true
+    },
+    {
+      "check_id": "daily_card_trace_completeness_rate",
+      "passed": true
+    },
+    {
+      "check_id": "user_visible_claim_trace_coverage_rate",
+      "passed": true
+    },
+    {
+      "check_id": "closet_insufficient_fallback_present_rate",
+      "passed": false
+    },
+    {
+      "check_id": "honest_fallback_has_user_visible_reason_rate",
+      "passed": true
+    },
+    {
+      "check_id": "honest_fallback_has_trace_rate",
+      "passed": true
+    },
+    {
+      "check_id": "honest_fallback_no_hallucinated_item_rate",
+      "passed": true
+    },
+    {
+      "check_id": "failure_reason_classified_rate",
+      "passed": true
+    },
+    {
+      "check_id": "unclassified_failure_count",
+      "passed": true
+    },
+    {
+      "check_id": "quality_guardrails_retained_rate",
+      "passed": true
+    },
+    {
+      "check_id": "quality_repair_self_proof_retained_rate",
+      "passed": true
+    },
+    {
+      "check_id": "swap_option_quality_guardrail_retained_rate",
+      "passed": true
+    },
+    {
+      "check_id": "closet_reliability_guardrails_retained_rate",
+      "passed": true
+    },
+    {
+      "check_id": "low_confidence_item_not_used_as_required_slot_rate",
+      "passed": true
+    },
+    {
+      "check_id": "unconfirmed_vision_candidate_not_used_rate",
+      "passed": true
+    },
+    {
+      "check_id": "memory_ux_action_routing_retained_rate",
+      "passed": true
+    },
+    {
+      "check_id": "remember_long_term_routes_to_write_gate_rate",
+      "passed": true
+    },
+    {
+      "check_id": "do_not_remember_no_production_write_rate",
+      "passed": true
+    },
+    {
+      "check_id": "correct_interpretation_supersedes_wrong_proposal_rate",
+      "passed": true
+    },
+    {
+      "check_id": "current_exception_not_globalized_rate",
+      "passed": true
+    },
+    {
+      "check_id": "multi_day_state_stability_retained_rate",
+      "passed": true
+    },
+    {
+      "check_id": "contextual_memory_context_proof_retained_rate",
+      "passed": true
+    },
+    {
+      "check_id": "rejected_proposal_not_reused_rate",
+      "passed": true
+    },
+    {
+      "check_id": "exact_outfit_not_repeated_without_reason_rate",
+      "passed": true
+    },
+    {
+      "check_id": "final_memory_snapshot_authorized_rate",
+      "passed": true
+    },
+    {
+      "check_id": "observability_summary_complete_rate",
+      "passed": true
+    },
+    {
+      "check_id": "human_review_scorecard_present_rate",
+      "passed": true
+    },
+    {
+      "check_id": "human_review_scorecard_complete_rate",
+      "passed": true
+    },
+    {
+      "check_id": "internal_beta_readiness_verdict_not_overstated_rate",
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,700 @@
+{
+  "benchmark_id": "v1.29.8.daily_outfit_beta_readiness",
+  "schema_version": "v1.29.8",
+  "generated_at": "2026-06-23T09:24:33Z",
+  "verdicts": {
+    "clean_acceptance_verdict": "pass",
+    "release_candidate_verdict": "pass_candidate"
+  },
+  "suite_summary": {
+    "total_cases": 56,
+    "passed_cases": 56,
+    "failed_cases": 0,
+    "total_checks": 33,
+    "passed_checks": 33,
+    "failed_checks": 0
+  },
+  "checks": [
+    {
+      "check_id": "beta_run_schema_valid_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean beta day artifacts satisfy this gate"
+    },
+    {
+      "check_id": "beta_user_fixture_schema_valid_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean beta day artifacts satisfy this gate"
+    },
+    {
+      "check_id": "beta_day_artifact_schema_valid_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean beta day artifacts satisfy this gate"
+    },
+    {
+      "check_id": "all_beta_days_have_task_context_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean beta day artifacts satisfy this gate"
+    },
+    {
+      "check_id": "daily_card_generation_success_or_honest_fallback_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean beta day artifacts satisfy this gate"
+    },
+    {
+      "check_id": "daily_card_trace_completeness_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean beta day artifacts satisfy this gate"
+    },
+    {
+      "check_id": "user_visible_claim_trace_coverage_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean beta day artifacts satisfy this gate"
+    },
+    {
+      "check_id": "closet_insufficient_fallback_present_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean beta day artifacts satisfy this gate"
+    },
+    {
+      "check_id": "honest_fallback_has_user_visible_reason_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean beta day artifacts satisfy this gate"
+    },
+    {
+      "check_id": "honest_fallback_has_trace_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean beta day artifacts satisfy this gate"
+    },
+    {
+      "check_id": "honest_fallback_no_hallucinated_item_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean beta day artifacts satisfy this gate"
+    },
+    {
+      "check_id": "failure_reason_classified_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean beta day artifacts satisfy this gate"
+    },
+    {
+      "check_id": "unclassified_failure_count",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean beta day artifacts satisfy this gate"
+    },
+    {
+      "check_id": "quality_guardrails_retained_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean beta day artifacts satisfy this gate"
+    },
+    {
+      "check_id": "quality_repair_self_proof_retained_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean beta day artifacts satisfy this gate"
+    },
+    {
+      "check_id": "swap_option_quality_guardrail_retained_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean beta day artifacts satisfy this gate"
+    },
+    {
+      "check_id": "closet_reliability_guardrails_retained_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean beta day artifacts satisfy this gate"
+    },
+    {
+      "check_id": "low_confidence_item_not_used_as_required_slot_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean beta day artifacts satisfy this gate"
+    },
+    {
+      "check_id": "unconfirmed_vision_candidate_not_used_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean beta day artifacts satisfy this gate"
+    },
+    {
+      "check_id": "memory_ux_action_routing_retained_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean beta day artifacts satisfy this gate"
+    },
+    {
+      "check_id": "remember_long_term_routes_to_write_gate_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean beta day artifacts satisfy this gate"
+    },
+    {
+      "check_id": "do_not_remember_no_production_write_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean beta day artifacts satisfy this gate"
+    },
+    {
+      "check_id": "correct_interpretation_supersedes_wrong_proposal_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean beta day artifacts satisfy this gate"
+    },
+    {
+      "check_id": "current_exception_not_globalized_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean beta day artifacts satisfy this gate"
+    },
+    {
+      "check_id": "multi_day_state_stability_retained_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean beta day artifacts satisfy this gate"
+    },
+    {
+      "check_id": "contextual_memory_context_proof_retained_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean beta day artifacts satisfy this gate"
+    },
+    {
+      "check_id": "rejected_proposal_not_reused_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean beta day artifacts satisfy this gate"
+    },
+    {
+      "check_id": "exact_outfit_not_repeated_without_reason_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean beta day artifacts satisfy this gate"
+    },
+    {
+      "check_id": "final_memory_snapshot_authorized_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean beta day artifacts satisfy this gate"
+    },
+    {
+      "check_id": "observability_summary_complete_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean beta day artifacts satisfy this gate"
+    },
+    {
+      "check_id": "human_review_scorecard_present_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean beta day artifacts satisfy this gate"
+    },
+    {
+      "check_id": "human_review_scorecard_complete_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean beta day artifacts satisfy this gate"
+    },
+    {
+      "check_id": "internal_beta_readiness_verdict_not_overstated_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean beta day artifacts satisfy this gate"
+    }
+  ],
+  "case_results": [
+    {
+      "case_id": "v1298_A01",
+      "user_fixture_id": "user_A_small_closet",
+      "day_index": 1,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_A01.json"
+    },
+    {
+      "case_id": "v1298_A02",
+      "user_fixture_id": "user_A_small_closet",
+      "day_index": 2,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_A02.json"
+    },
+    {
+      "case_id": "v1298_A03",
+      "user_fixture_id": "user_A_small_closet",
+      "day_index": 3,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_A03.json"
+    },
+    {
+      "case_id": "v1298_A04",
+      "user_fixture_id": "user_A_small_closet",
+      "day_index": 4,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_A04.json"
+    },
+    {
+      "case_id": "v1298_A05",
+      "user_fixture_id": "user_A_small_closet",
+      "day_index": 5,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_A05.json"
+    },
+    {
+      "case_id": "v1298_A06",
+      "user_fixture_id": "user_A_small_closet",
+      "day_index": 6,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_A06.json"
+    },
+    {
+      "case_id": "v1298_A07",
+      "user_fixture_id": "user_A_small_closet",
+      "day_index": 7,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_A07.json"
+    },
+    {
+      "case_id": "v1298_B01",
+      "user_fixture_id": "user_B_medium_closet",
+      "day_index": 1,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_B01.json"
+    },
+    {
+      "case_id": "v1298_B02",
+      "user_fixture_id": "user_B_medium_closet",
+      "day_index": 2,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_B02.json"
+    },
+    {
+      "case_id": "v1298_B03",
+      "user_fixture_id": "user_B_medium_closet",
+      "day_index": 3,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_B03.json"
+    },
+    {
+      "case_id": "v1298_B04",
+      "user_fixture_id": "user_B_medium_closet",
+      "day_index": 4,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_B04.json"
+    },
+    {
+      "case_id": "v1298_B05",
+      "user_fixture_id": "user_B_medium_closet",
+      "day_index": 5,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_B05.json"
+    },
+    {
+      "case_id": "v1298_B06",
+      "user_fixture_id": "user_B_medium_closet",
+      "day_index": 6,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_B06.json"
+    },
+    {
+      "case_id": "v1298_B07",
+      "user_fixture_id": "user_B_medium_closet",
+      "day_index": 7,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_B07.json"
+    },
+    {
+      "case_id": "v1298_C01",
+      "user_fixture_id": "user_C_incomplete_closet",
+      "day_index": 1,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_C01.json"
+    },
+    {
+      "case_id": "v1298_C02",
+      "user_fixture_id": "user_C_incomplete_closet",
+      "day_index": 2,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_C02.json"
+    },
+    {
+      "case_id": "v1298_C03",
+      "user_fixture_id": "user_C_incomplete_closet",
+      "day_index": 3,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_C03.json"
+    },
+    {
+      "case_id": "v1298_C04",
+      "user_fixture_id": "user_C_incomplete_closet",
+      "day_index": 4,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_C04.json"
+    },
+    {
+      "case_id": "v1298_C05",
+      "user_fixture_id": "user_C_incomplete_closet",
+      "day_index": 5,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_C05.json"
+    },
+    {
+      "case_id": "v1298_C06",
+      "user_fixture_id": "user_C_incomplete_closet",
+      "day_index": 6,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_C06.json"
+    },
+    {
+      "case_id": "v1298_C07",
+      "user_fixture_id": "user_C_incomplete_closet",
+      "day_index": 7,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_C07.json"
+    },
+    {
+      "case_id": "v1298_D01",
+      "user_fixture_id": "user_D_boundary_sensitive",
+      "day_index": 1,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_D01.json"
+    },
+    {
+      "case_id": "v1298_D02",
+      "user_fixture_id": "user_D_boundary_sensitive",
+      "day_index": 2,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_D02.json"
+    },
+    {
+      "case_id": "v1298_D03",
+      "user_fixture_id": "user_D_boundary_sensitive",
+      "day_index": 3,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_D03.json"
+    },
+    {
+      "case_id": "v1298_D04",
+      "user_fixture_id": "user_D_boundary_sensitive",
+      "day_index": 4,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_D04.json"
+    },
+    {
+      "case_id": "v1298_D05",
+      "user_fixture_id": "user_D_boundary_sensitive",
+      "day_index": 5,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_D05.json"
+    },
+    {
+      "case_id": "v1298_D06",
+      "user_fixture_id": "user_D_boundary_sensitive",
+      "day_index": 6,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_D06.json"
+    },
+    {
+      "case_id": "v1298_D07",
+      "user_fixture_id": "user_D_boundary_sensitive",
+      "day_index": 7,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_D07.json"
+    },
+    {
+      "case_id": "v1298_E01",
+      "user_fixture_id": "user_E_current_exception",
+      "day_index": 1,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_E01.json"
+    },
+    {
+      "case_id": "v1298_E02",
+      "user_fixture_id": "user_E_current_exception",
+      "day_index": 2,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_E02.json"
+    },
+    {
+      "case_id": "v1298_E03",
+      "user_fixture_id": "user_E_current_exception",
+      "day_index": 3,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_E03.json"
+    },
+    {
+      "case_id": "v1298_E04",
+      "user_fixture_id": "user_E_current_exception",
+      "day_index": 4,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_E04.json"
+    },
+    {
+      "case_id": "v1298_E05",
+      "user_fixture_id": "user_E_current_exception",
+      "day_index": 5,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_E05.json"
+    },
+    {
+      "case_id": "v1298_E06",
+      "user_fixture_id": "user_E_current_exception",
+      "day_index": 6,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_E06.json"
+    },
+    {
+      "case_id": "v1298_E07",
+      "user_fixture_id": "user_E_current_exception",
+      "day_index": 7,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_E07.json"
+    },
+    {
+      "case_id": "v1298_F01",
+      "user_fixture_id": "user_F_correction",
+      "day_index": 1,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_F01.json"
+    },
+    {
+      "case_id": "v1298_F02",
+      "user_fixture_id": "user_F_correction",
+      "day_index": 2,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_F02.json"
+    },
+    {
+      "case_id": "v1298_F03",
+      "user_fixture_id": "user_F_correction",
+      "day_index": 3,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_F03.json"
+    },
+    {
+      "case_id": "v1298_F04",
+      "user_fixture_id": "user_F_correction",
+      "day_index": 4,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_F04.json"
+    },
+    {
+      "case_id": "v1298_F05",
+      "user_fixture_id": "user_F_correction",
+      "day_index": 5,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_F05.json"
+    },
+    {
+      "case_id": "v1298_F06",
+      "user_fixture_id": "user_F_correction",
+      "day_index": 6,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_F06.json"
+    },
+    {
+      "case_id": "v1298_F07",
+      "user_fixture_id": "user_F_correction",
+      "day_index": 7,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_F07.json"
+    },
+    {
+      "case_id": "v1298_G01",
+      "user_fixture_id": "user_G_low_confidence_metadata",
+      "day_index": 1,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_G01.json"
+    },
+    {
+      "case_id": "v1298_G02",
+      "user_fixture_id": "user_G_low_confidence_metadata",
+      "day_index": 2,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_G02.json"
+    },
+    {
+      "case_id": "v1298_G03",
+      "user_fixture_id": "user_G_low_confidence_metadata",
+      "day_index": 3,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_G03.json"
+    },
+    {
+      "case_id": "v1298_G04",
+      "user_fixture_id": "user_G_low_confidence_metadata",
+      "day_index": 4,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_G04.json"
+    },
+    {
+      "case_id": "v1298_G05",
+      "user_fixture_id": "user_G_low_confidence_metadata",
+      "day_index": 5,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_G05.json"
+    },
+    {
+      "case_id": "v1298_G06",
+      "user_fixture_id": "user_G_low_confidence_metadata",
+      "day_index": 6,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_G06.json"
+    },
+    {
+      "case_id": "v1298_G07",
+      "user_fixture_id": "user_G_low_confidence_metadata",
+      "day_index": 7,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_G07.json"
+    },
+    {
+      "case_id": "v1298_H01",
+      "user_fixture_id": "user_H_conflict_memory",
+      "day_index": 1,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_H01.json"
+    },
+    {
+      "case_id": "v1298_H02",
+      "user_fixture_id": "user_H_conflict_memory",
+      "day_index": 2,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_H02.json"
+    },
+    {
+      "case_id": "v1298_H03",
+      "user_fixture_id": "user_H_conflict_memory",
+      "day_index": 3,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_H03.json"
+    },
+    {
+      "case_id": "v1298_H04",
+      "user_fixture_id": "user_H_conflict_memory",
+      "day_index": 4,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_H04.json"
+    },
+    {
+      "case_id": "v1298_H05",
+      "user_fixture_id": "user_H_conflict_memory",
+      "day_index": 5,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_H05.json"
+    },
+    {
+      "case_id": "v1298_H06",
+      "user_fixture_id": "user_H_conflict_memory",
+      "day_index": 6,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_H06.json"
+    },
+    {
+      "case_id": "v1298_H07",
+      "user_fixture_id": "user_H_conflict_memory",
+      "day_index": 7,
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v1298_H07.json"
+    }
+  ]
+}

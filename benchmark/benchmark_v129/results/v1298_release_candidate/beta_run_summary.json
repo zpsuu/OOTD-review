@@ -1,0 +1,13 @@
+{
+  "beta_run_summary_id": "brs_v1298",
+  "total_users": 8,
+  "total_days": 56,
+  "daily_outfit_cards_generated": 50,
+  "honest_fallbacks_generated": 6,
+  "generation_success_or_honest_fallback_rate": 1.0,
+  "memory_actions_count": 15,
+  "write_gate_decisions_count": 15,
+  "quality_repairs_count": 16,
+  "closet_insufficient_count": 2,
+  "unclassified_failure_count": 0
+}

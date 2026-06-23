@@ -72,10 +72,25 @@ Focus:
 Status: PASS CANDIDATE confirmed
 
 Focus:
-- small closet readiness
-- incomplete closet handling
-- item reliability and metadata confidence
-- no hallucinated closet items
 - scenario precondition self-proof
-- non-vacuous clean gates
-- insufficient closet notice card
+- non-vacuous gates
+- current exception fixture proof
+- D-series gap / missing category proof
+- E-series repair proof
+- F-series swap reliability proof
+- insufficient card semantics
+
+## v1.29.8 - Daily Outfit Beta Readiness
+
+Status: PASS CANDIDATE pending manual review
+
+Current review focus:
+- internal beta readiness
+- multi-user beta fixture runs
+- Daily Outfit Card or honest fallback
+- quality guardrail retention
+- closet reliability retention
+- Memory UX action routing
+- multi-day state stability
+- observability summary
+- human review scorecard

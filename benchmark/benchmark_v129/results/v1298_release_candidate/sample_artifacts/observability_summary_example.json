@@ -1,0 +1,56 @@
+{
+  "observability_summary_id": "obs_v1298",
+  "all_days_have_trace": true,
+  "all_cards_have_trace_refs": true,
+  "all_failures_classified": true,
+  "all_fallbacks_have_user_visible_reason": true,
+  "all_memory_actions_have_routing": true,
+  "all_quality_repairs_have_post_repair_validation": true,
+  "debuggable_failure_examples": [
+    {
+      "case_id": "v1298_A05",
+      "failure_reason": "closet_insufficient",
+      "trace_refs": [
+        "tmp_v1298_A_day5",
+        "qr_v1298_A_day5",
+        "trace_v1298_A_day5"
+      ]
+    },
+    {
+      "case_id": "v1298_C02",
+      "failure_reason": "no_weather_safe_option",
+      "trace_refs": [
+        "tmp_v1298_C_day2",
+        "qr_v1298_C_day2",
+        "trace_v1298_C_day2"
+      ]
+    },
+    {
+      "case_id": "v1298_C05",
+      "failure_reason": "closet_insufficient",
+      "trace_refs": [
+        "tmp_v1298_C_day5",
+        "qr_v1298_C_day5",
+        "trace_v1298_C_day5"
+      ]
+    },
+    {
+      "case_id": "v1298_G01",
+      "failure_reason": "low_confidence_metadata",
+      "trace_refs": [
+        "tmp_v1298_G_day1",
+        "qr_v1298_G_day1",
+        "trace_v1298_G_day1"
+      ]
+    },
+    {
+      "case_id": "v1298_G04",
+      "failure_reason": "unconfirmed_vision_candidate_only",
+      "trace_refs": [
+        "tmp_v1298_G_day4",
+        "qr_v1298_G_day4",
+        "trace_v1298_G_day4"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,246 @@
+{
+  "benchmark_id": "v1.29.8.daily_outfit_beta_readiness.mixed_strict",
+  "schema_version": "v1.29.8",
+  "generated_at": "2026-06-23T09:24:33Z",
+  "verdicts": {
+    "mixed_strict_verdict": "fail",
+    "injected_defect_detection_verdict": "pass"
+  },
+  "suite_summary": {
+    "total_cases": 71,
+    "clean_cases": 56,
+    "injected_defect_cases": 15,
+    "expected_failed_cases": 15,
+    "unexpected_clean_case_failures": 0,
+    "unexpected_injected_passes": 0
+  },
+  "detected_defects": [
+    {
+      "case_id": "v1298_I01",
+      "defect_type": "beta_run_missing_observability",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "observability_summary_complete_rate"
+      ],
+      "expected_failed_check_ids": [
+        "observability_summary_complete_rate"
+      ],
+      "failure_reason": "Injected defect detected: beta_run_missing_observability",
+      "raw_artifact_ref": "per_case/mixed_strict/v1298_I01.json"
+    },
+    {
+      "case_id": "v1298_I02",
+      "defect_type": "daily_card_generated_without_trace",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "daily_card_trace_completeness_rate"
+      ],
+      "expected_failed_check_ids": [
+        "daily_card_trace_completeness_rate"
+      ],
+      "failure_reason": "Injected defect detected: daily_card_generated_without_trace",
+      "raw_artifact_ref": "per_case/mixed_strict/v1298_I02.json"
+    },
+    {
+      "case_id": "v1298_I03",
+      "defect_type": "fallback_missing_when_closet_insufficient",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "closet_insufficient_fallback_present_rate"
+      ],
+      "expected_failed_check_ids": [
+        "closet_insufficient_fallback_present_rate"
+      ],
+      "failure_reason": "Injected defect detected: fallback_missing_when_closet_insufficient",
+      "raw_artifact_ref": "per_case/mixed_strict/v1298_I03.json"
+    },
+    {
+      "case_id": "v1298_I04",
+      "defect_type": "human_review_score_missing",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "human_review_scorecard_present_rate"
+      ],
+      "expected_failed_check_ids": [
+        "human_review_scorecard_present_rate"
+      ],
+      "failure_reason": "Injected defect detected: human_review_score_missing",
+      "raw_artifact_ref": "per_case/mixed_strict/v1298_I04.json"
+    },
+    {
+      "case_id": "v1298_I05",
+      "defect_type": "quality_guardrail_regression",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "quality_guardrails_retained_rate"
+      ],
+      "expected_failed_check_ids": [
+        "quality_guardrails_retained_rate"
+      ],
+      "failure_reason": "Injected defect detected: quality_guardrail_regression",
+      "raw_artifact_ref": "per_case/mixed_strict/v1298_I05.json"
+    },
+    {
+      "case_id": "v1298_I06",
+      "defect_type": "memory_action_bypasses_write_gate",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "remember_long_term_routes_to_write_gate_rate"
+      ],
+      "expected_failed_check_ids": [
+        "remember_long_term_routes_to_write_gate_rate"
+      ],
+      "failure_reason": "Injected defect detected: memory_action_bypasses_write_gate",
+      "raw_artifact_ref": "per_case/mixed_strict/v1298_I06.json"
+    },
+    {
+      "case_id": "v1298_I07",
+      "defect_type": "feedback_not_logged",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "memory_ux_action_routing_retained_rate"
+      ],
+      "expected_failed_check_ids": [
+        "memory_ux_action_routing_retained_rate"
+      ],
+      "failure_reason": "Injected defect detected: feedback_not_logged",
+      "raw_artifact_ref": "per_case/mixed_strict/v1298_I07.json"
+    },
+    {
+      "case_id": "v1298_I08",
+      "defect_type": "failure_reason_not_classified",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "failure_reason_classified_rate"
+      ],
+      "expected_failed_check_ids": [
+        "failure_reason_classified_rate"
+      ],
+      "failure_reason": "Injected defect detected: failure_reason_not_classified",
+      "raw_artifact_ref": "per_case/mixed_strict/v1298_I08.json"
+    },
+    {
+      "case_id": "v1298_I09",
+      "defect_type": "beta_readiness_summary_overstates_readiness",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "internal_beta_readiness_verdict_not_overstated_rate"
+      ],
+      "expected_failed_check_ids": [
+        "internal_beta_readiness_verdict_not_overstated_rate"
+      ],
+      "failure_reason": "Injected defect detected: beta_readiness_summary_overstates_readiness",
+      "raw_artifact_ref": "per_case/mixed_strict/v1298_I09.json"
+    },
+    {
+      "case_id": "v1298_I10",
+      "defect_type": "hallucinated_item_in_beta_card",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "honest_fallback_no_hallucinated_item_rate"
+      ],
+      "expected_failed_check_ids": [
+        "honest_fallback_no_hallucinated_item_rate"
+      ],
+      "failure_reason": "Injected defect detected: hallucinated_item_in_beta_card",
+      "raw_artifact_ref": "per_case/mixed_strict/v1298_I10.json"
+    },
+    {
+      "case_id": "v1298_I11",
+      "defect_type": "fallback_without_user_visible_reason",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "honest_fallback_has_user_visible_reason_rate"
+      ],
+      "expected_failed_check_ids": [
+        "honest_fallback_has_user_visible_reason_rate"
+      ],
+      "failure_reason": "Injected defect detected: fallback_without_user_visible_reason",
+      "raw_artifact_ref": "per_case/mixed_strict/v1298_I11.json"
+    },
+    {
+      "case_id": "v1298_I12",
+      "defect_type": "low_confidence_item_used_in_beta_clean_path",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "low_confidence_item_not_used_as_required_slot_rate"
+      ],
+      "expected_failed_check_ids": [
+        "low_confidence_item_not_used_as_required_slot_rate"
+      ],
+      "failure_reason": "Injected defect detected: low_confidence_item_used_in_beta_clean_path",
+      "raw_artifact_ref": "per_case/mixed_strict/v1298_I12.json"
+    },
+    {
+      "case_id": "v1298_I13",
+      "defect_type": "current_exception_globalized_in_beta_run",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "current_exception_not_globalized_rate"
+      ],
+      "expected_failed_check_ids": [
+        "current_exception_not_globalized_rate"
+      ],
+      "failure_reason": "Injected defect detected: current_exception_globalized_in_beta_run",
+      "raw_artifact_ref": "per_case/mixed_strict/v1298_I13.json"
+    },
+    {
+      "case_id": "v1298_I14",
+      "defect_type": "do_not_remember_reused_in_beta_run",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "do_not_remember_no_production_write_rate"
+      ],
+      "expected_failed_check_ids": [
+        "do_not_remember_no_production_write_rate"
+      ],
+      "failure_reason": "Injected defect detected: do_not_remember_reused_in_beta_run",
+      "raw_artifact_ref": "per_case/mixed_strict/v1298_I14.json"
+    },
+    {
+      "case_id": "v1298_I15",
+      "defect_type": "exact_outfit_repeated_without_reason_in_beta_run",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "exact_outfit_not_repeated_without_reason_rate"
+      ],
+      "expected_failed_check_ids": [
+        "exact_outfit_not_repeated_without_reason_rate"
+      ],
+      "failure_reason": "Injected defect detected: exact_outfit_repeated_without_reason_in_beta_run",
+      "raw_artifact_ref": "per_case/mixed_strict/v1298_I15.json"
+    }
+  ],
+  "unexpected_clean_case_failures": [],
+  "unexpected_injected_passes": []
+}

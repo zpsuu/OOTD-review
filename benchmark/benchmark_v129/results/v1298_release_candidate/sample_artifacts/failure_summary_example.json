@@ -1,0 +1,13 @@
+{
+  "failure_summary_id": "fs_v1298",
+  "failure_counts_by_type": {
+    "closet_insufficient": 2,
+    "low_confidence_metadata": 1,
+    "memory_conflict_requires_clarification": 1,
+    "no_weather_safe_option": 1,
+    "unconfirmed_vision_candidate_only": 1
+  },
+  "unclassified_failures": [],
+  "fallbacks_without_user_visible_reason": [],
+  "fallbacks_without_trace": []
+}
