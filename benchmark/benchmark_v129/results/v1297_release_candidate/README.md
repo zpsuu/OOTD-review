@@ -6,6 +6,20 @@ v1.29.7 focuses on Closet Bootstrapping & Item Reliability.
 
 This release verifies that Daily Outfit can operate on small or incomplete closets without hallucinating items, over-trusting weak metadata, or hiding missing categories.
 
+## Release Status
+
+v1.29.7 Closet Bootstrapping & Item Reliability is PASS CANDIDATE confirmed.
+
+Clean acceptance suite passes 46/46 cases and 44/44 checks.
+Scenario preconditions are present and raw-proven.
+Non-vacuous gates are included in clean_report.
+G03/G04 current exception cases trigger real current-task exception conditions.
+D-series gap cases include actual gap/missing-category triggers.
+E-series repair cases include pre-repair reliability issues or no-reliable-alternative proof.
+F-series swap reliability cases include visible swaps, hidden swaps, and no-swap reasons.
+Insufficient closet cards use closet_insufficient_notice instead of partial Daily Outfit Cards.
+Manual spot review passes.
+
 ## Non-Goals
 
 - No external inspiration intake

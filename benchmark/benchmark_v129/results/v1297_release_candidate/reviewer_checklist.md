@@ -78,8 +78,9 @@
 - [ ] insufficient closet cases use `closet_insufficient_notice`, not normal Daily Outfit Card
 
 ## Final Manual Review Verdict
-- [ ] PASS CANDIDATE confirmed
+- [x] PASS CANDIDATE confirmed
 - [ ] PARTIAL PASS
 - [ ] FAIL
 
 Reviewer notes:
+Manual review confirmed scenario self-proof and non-vacuous gate coverage. v1.29.7 is PASS CANDIDATE confirmed.

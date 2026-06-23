@@ -69,13 +69,13 @@ Focus:
 
 ## v1.29.7 - Closet Bootstrapping & Item Reliability
 
-Status: PASS CANDIDATE pending manual review
+Status: PASS CANDIDATE confirmed
 
-Current review focus:
+Focus:
+- small closet readiness
+- incomplete closet handling
+- item reliability and metadata confidence
+- no hallucinated closet items
 - scenario precondition self-proof
-- non-vacuous gates
-- current exception fixture proof
-- D-series gap / missing category proof
-- E-series repair proof
-- F-series swap reliability proof
-- insufficient card semantics
+- non-vacuous clean gates
+- insufficient closet notice card

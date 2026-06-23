@@ -1,8 +1,7 @@
 {
   "version": "v1.29.7",
-  "release_candidate_status": "pass_candidate_pending_manual_review",
+  "release_candidate_status": "pass_candidate_confirmed",
   "branch": "v1297-scenario-self-proof-cleanup",
-  "commit_sha": "e02e22f5c802d8c2a638de2e757af4357bb94d50",
   "theme": "Closet Bootstrapping & Item Reliability",
   "expected_changes_since_last_review": [
     "Add scenario_preconditions to all clean per-case artifacts",
@@ -50,5 +49,15 @@
     "add case-level checks to sample artifacts",
     "expand clean coverage beyond primary fixture family",
     "align injected expected_failed_check_ids with actual failed checks"
-  ]
+  ],
+  "commits": {
+    "source_private_repo_commit_sha": "e02e22f5c802d8c2a638de2e757af4357bb94d50",
+    "review_mirror_evidence_commit_sha": "fe53788fc79c4c24950f421ae8f9769259101ee8",
+    "manifest_cleanup_commit_sha": "reported_outside_manifest_after_commit",
+    "commit_sha_note": "The public mirror evidence commit is recorded here. The commit that updates this manifest is reported outside the manifest after git commit, because embedding the hash of the same commit inside a tracked file would make the hash unstable."
+  },
+  "manual_review_status": "passed",
+  "manual_review_verdict": "PASS CANDIDATE confirmed",
+  "manual_review_completed_at": "2026-06-23T08:53:10.919828+00:00",
+  "manual_review_summary": "v1.29.7 content-level review passed. Scenario preconditions are present and non-vacuous gates are included. G03/G04, D-series, E-series, F-series, and insufficient card schema were manually spot-reviewed."
 }
