@@ -240,6 +240,102 @@
       ],
       "failure_reason": "Injected defect detected: user_visible_claim_without_trace",
       "raw_artifact_ref": "per_case/mixed_strict/v130_H15.json"
+    },
+    {
+      "case_id": "v130_H16",
+      "defect_type": "scenario_conflict_case_without_conflict_precondition",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "ideal_conflict_case_has_conflict_precondition_rate",
+        "no_vacuous_bridge_case_pass_rate"
+      ],
+      "expected_failed_check_ids": [
+        "ideal_conflict_case_has_conflict_precondition_rate",
+        "no_vacuous_bridge_case_pass_rate"
+      ],
+      "failure_reason": "Injected defect detected: scenario_conflict_case_without_conflict_precondition",
+      "raw_artifact_ref": "per_case/mixed_strict/v130_H16.json"
+    },
+    {
+      "case_id": "v130_H17",
+      "defect_type": "match_score_without_formula",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "match_score_formula_present_rate",
+        "match_score_case_has_formula_precondition_rate"
+      ],
+      "expected_failed_check_ids": [
+        "match_score_formula_present_rate",
+        "match_score_case_has_formula_precondition_rate"
+      ],
+      "failure_reason": "Injected defect detected: match_score_without_formula",
+      "raw_artifact_ref": "per_case/mixed_strict/v130_H17.json"
+    },
+    {
+      "case_id": "v130_H18",
+      "defect_type": "match_score_formula_mismatch",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "match_score_computed_equals_reported_rate"
+      ],
+      "expected_failed_check_ids": [
+        "match_score_computed_equals_reported_rate"
+      ],
+      "failure_reason": "Injected defect detected: match_score_formula_mismatch",
+      "raw_artifact_ref": "per_case/mixed_strict/v130_H18.json"
+    },
+    {
+      "case_id": "v130_H19",
+      "defect_type": "remember_contextual_write_gate_missing_status",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "remember_contextual_write_gate_decision_self_proof_rate",
+        "memory_write_case_has_action_precondition_rate"
+      ],
+      "expected_failed_check_ids": [
+        "remember_contextual_write_gate_decision_self_proof_rate",
+        "memory_write_case_has_action_precondition_rate"
+      ],
+      "failure_reason": "Injected defect detected: remember_contextual_write_gate_missing_status",
+      "raw_artifact_ref": "per_case/mixed_strict/v130_H19.json"
+    },
+    {
+      "case_id": "v130_H20",
+      "defect_type": "remember_contextual_silent_write",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "remember_contextual_no_silent_write_rate"
+      ],
+      "expected_failed_check_ids": [
+        "remember_contextual_no_silent_write_rate"
+      ],
+      "failure_reason": "Injected defect detected: remember_contextual_silent_write",
+      "raw_artifact_ref": "per_case/mixed_strict/v130_H20.json"
+    },
+    {
+      "case_id": "v130_H21",
+      "defect_type": "conflict_memory_missing_from_user_visible_claim_refs",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "bridge_card_conflict_claim_trace_coverage_rate"
+      ],
+      "expected_failed_check_ids": [
+        "bridge_card_conflict_claim_trace_coverage_rate"
+      ],
+      "failure_reason": "Injected defect detected: conflict_memory_missing_from_user_visible_claim_refs",
+      "raw_artifact_ref": "per_case/mixed_strict/v130_H21.json"
     }
   ],
   "unexpected_clean_case_failures": [],

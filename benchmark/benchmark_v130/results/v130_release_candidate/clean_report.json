@@ -1,7 +1,7 @@
 {
   "benchmark_id": "v1.30.ideal_reality_bridge_alpha",
   "schema_version": "v1.30",
-  "generated_at": "2026-06-23T11:13:11Z",
+  "generated_at": "2026-06-23T11:40:26Z",
   "verdicts": {
     "clean_acceptance_verdict": "pass",
     "release_candidate_verdict": "pass_candidate"
@@ -10,8 +10,8 @@
     "total_cases": 45,
     "passed_cases": 45,
     "failed_cases": 0,
-    "total_checks": 39,
-    "passed_checks": 39,
+    "total_checks": 49,
+    "passed_checks": 49,
     "failed_checks": 0
   },
   "checks": [
@@ -283,6 +283,76 @@
     },
     {
       "check_id": "no_vacuous_bridge_case_pass_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean bridge artifacts satisfy this gate"
+    },
+    {
+      "check_id": "ideal_conflict_case_has_conflict_precondition_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean bridge artifacts satisfy this gate"
+    },
+    {
+      "check_id": "gap_case_has_missing_element_precondition_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean bridge artifacts satisfy this gate"
+    },
+    {
+      "check_id": "match_score_case_has_formula_precondition_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean bridge artifacts satisfy this gate"
+    },
+    {
+      "check_id": "memory_write_case_has_action_precondition_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean bridge artifacts satisfy this gate"
+    },
+    {
+      "check_id": "match_score_formula_present_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean bridge artifacts satisfy this gate"
+    },
+    {
+      "check_id": "match_score_computed_equals_reported_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean bridge artifacts satisfy this gate"
+    },
+    {
+      "check_id": "match_score_key_gap_cap_applied_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean bridge artifacts satisfy this gate"
+    },
+    {
+      "check_id": "remember_contextual_write_gate_decision_self_proof_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean bridge artifacts satisfy this gate"
+    },
+    {
+      "check_id": "remember_contextual_no_silent_write_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all clean bridge artifacts satisfy this gate"
+    },
+    {
+      "check_id": "bridge_card_conflict_claim_trace_coverage_rate",
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,

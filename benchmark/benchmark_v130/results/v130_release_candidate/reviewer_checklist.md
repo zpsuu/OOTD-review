@@ -53,11 +53,13 @@
 - [ ] Score is consistent with matched / missing elements.
 - [ ] Score is not overstated when a key gap is missing.
 - [ ] Limited closet does not receive inflated score.
+- [ ] Formula, weights, caps, computed score, final score, and rounding proof are present.
 
 ## H. Memory UX
 
 - [ ] Ideal direction memory write requires confirmation.
 - [ ] Remember-for-context routes to write gate.
+- [ ] Remember-for-context includes selected scope, decision status, and no-write store proof.
 - [ ] Just-exploring creates no production write.
 - [ ] Not-this-direction creates no positive memory.
 - [ ] Correct interpretation supersedes wrong ideal interpretation.
@@ -65,6 +67,7 @@
 ## I. Trace
 
 - [ ] User-visible claims are trace-backed.
+- [ ] Conflict / avoid memory claims are included in user-visible conflict claim refs.
 - [ ] Scenario preconditions are present and satisfied.
 - [ ] No clean case passes vacuously.
 

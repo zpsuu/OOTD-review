@@ -9,6 +9,15 @@
     "satisfied": true,
     "proof_refs": [
       "ideal_direction"
+    ],
+    "missing_preconditions": []
+  },
+  "closet_inventory": {
+    "closet_item_ids": [
+      "top_ivory_knit",
+      "bottom_gray_trousers",
+      "shoes_black_loafers",
+      "bag_charcoal_clean"
     ]
   },
   "ideal_direction": {
@@ -69,7 +78,12 @@
         "concept": "full athletic look",
         "reason": "not part of this ideal direction"
       }
-    ]
+    ],
+    "moderated_translation": {
+      "applies": false,
+      "reason": "no moderation needed",
+      "trace_refs": []
+    }
   },
   "user_memory_fit_report": {
     "memory_fit_report_id": "memfit_v130_09",
@@ -77,6 +91,8 @@
     "fit_status": "exploratory",
     "supported_by_memory": [],
     "conflicts_with_memory": [],
+    "conflicting_memory_ids": [],
+    "memory_fit_summary": [],
     "do_not_use_as_positive_signal": [],
     "requires_confirmation": true,
     "user_visible_fit_claim_refs": []
@@ -91,7 +107,28 @@
       "light_structure": 0.55,
       "shoe_bag_polish": 0.65
     },
-    "closet_match_score": 0.54,
+    "closet_match_score": 0.68,
+    "match_score_self_proof": {
+      "formula": "weighted_average_with_key_gap_cap",
+      "component_weights": {
+        "color_palette": 0.25,
+        "clean_lines": 0.25,
+        "light_structure": 0.3,
+        "shoe_bag_polish": 0.2
+      },
+      "raw_component_scores": {
+        "color_palette": 0.8,
+        "clean_lines": 0.75,
+        "light_structure": 0.55,
+        "shoe_bag_polish": 0.65
+      },
+      "computed_score_before_caps": 0.6825,
+      "key_gap_caps_applied": [],
+      "computed_score_after_caps": 0.6825,
+      "final_reported_score": 0.68,
+      "rounding_rule": "round_to_2_decimals",
+      "math_verified": true
+    },
     "matched_elements": [
       {
         "ideal_element": "low_saturation_palette",
@@ -207,8 +244,20 @@
       "decision_id": "wgd_v130_09",
       "action": "just_exploring",
       "route": "no_write",
-      "production_write": false,
-      "requires_confirmation": false
+      "selected_scope": "none",
+      "target_contexts": [],
+      "write_gate_decision_status": "no_write_user_exploring_or_rejected",
+      "production_store_write_attempted": false,
+      "production_store_write_executed": false,
+      "shadow_store_write_attempted": false,
+      "shadow_store_write_executed": false,
+      "reason": "user action does not authorize memory write",
+      "audit_ref": "audit_v130_09",
+      "no_write_store_proof": {
+        "active_memory_ids_before": [],
+        "active_memory_ids_after": [],
+        "new_memory_ids_created": []
+      }
     }
   ],
   "bridge_trace": {
@@ -225,6 +274,11 @@
     "gap_evidence_refs": [
       "crm_v130_09"
     ],
+    "user_visible_positive_claim_refs": [],
+    "user_visible_gap_claim_refs": [
+      "crm_v130_09"
+    ],
+    "user_visible_conflict_claim_refs": [],
     "user_visible_claim_refs": [
       "crm_v130_09"
     ],
@@ -294,7 +348,12 @@
           "concept": "full athletic look",
           "reason": "not part of this ideal direction"
         }
-      ]
+      ],
+      "moderated_translation": {
+        "applies": false,
+        "reason": "no moderation needed",
+        "trace_refs": []
+      }
     },
     "memory_fit_summary": {
       "memory_fit_report_id": "memfit_v130_09",
@@ -302,6 +361,8 @@
       "fit_status": "exploratory",
       "supported_by_memory": [],
       "conflicts_with_memory": [],
+      "conflicting_memory_ids": [],
+      "memory_fit_summary": [],
       "do_not_use_as_positive_signal": [],
       "requires_confirmation": true,
       "user_visible_fit_claim_refs": []
@@ -316,7 +377,28 @@
         "light_structure": 0.55,
         "shoe_bag_polish": 0.65
       },
-      "closet_match_score": 0.54,
+      "closet_match_score": 0.68,
+      "match_score_self_proof": {
+        "formula": "weighted_average_with_key_gap_cap",
+        "component_weights": {
+          "color_palette": 0.25,
+          "clean_lines": 0.25,
+          "light_structure": 0.3,
+          "shoe_bag_polish": 0.2
+        },
+        "raw_component_scores": {
+          "color_palette": 0.8,
+          "clean_lines": 0.75,
+          "light_structure": 0.55,
+          "shoe_bag_polish": 0.65
+        },
+        "computed_score_before_caps": 0.6825,
+        "key_gap_caps_applied": [],
+        "computed_score_after_caps": 0.6825,
+        "final_reported_score": 0.68,
+        "rounding_rule": "round_to_2_decimals",
+        "math_verified": true
+      },
       "matched_elements": [
         {
           "ideal_element": "low_saturation_palette",
@@ -437,6 +519,10 @@
         "correct_interpretation"
       ],
       "selected_fixture_action": "just_exploring",
+      "user_action": {
+        "action_type": "just_exploring",
+        "requires_confirmation": false
+      },
       "requires_confirmation_before_write": true
     },
     "user_visible_claim_refs": [

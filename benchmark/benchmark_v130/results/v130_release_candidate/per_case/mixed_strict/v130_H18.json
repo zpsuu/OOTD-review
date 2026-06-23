@@ -1,13 +1,13 @@
 {
-  "case_id": "v130_H07",
+  "case_id": "v130_H18",
   "version": "v1.30",
-  "defect_type": "one_item_step_treated_as_closet_item",
+  "defect_type": "match_score_formula_mismatch",
   "expected_failure": true,
   "source_clean_case_id": "v130_A01_low_saturation_city_style_decomposed",
   "failed_check_ids": [
-    "reality_outfit_does_not_use_gap_suggestion_as_closet_item_rate"
+    "match_score_computed_equals_reported_rate"
   ],
-  "failure_reason": "Injected defect detected: one_item_step_treated_as_closet_item",
+  "failure_reason": "Injected defect detected: match_score_formula_mismatch",
   "checks": [
     {
       "check_id": "ideal_reality_bridge_card_schema_valid_rate",
@@ -55,7 +55,7 @@
     },
     {
       "check_id": "reality_outfit_does_not_use_gap_suggestion_as_closet_item_rate",
-      "passed": false
+      "passed": true
     },
     {
       "check_id": "low_confidence_closet_item_not_used_for_reality_mapping_rate",
@@ -187,7 +187,7 @@
     },
     {
       "check_id": "match_score_computed_equals_reported_rate",
-      "passed": true
+      "passed": false
     },
     {
       "check_id": "match_score_key_gap_cap_applied_rate",

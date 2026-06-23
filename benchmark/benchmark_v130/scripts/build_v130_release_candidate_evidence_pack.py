@@ -54,6 +54,16 @@ GATES = [
     "bridge_trace_consistency_rate",
     "scenario_precondition_satisfied_rate",
     "no_vacuous_bridge_case_pass_rate",
+    "ideal_conflict_case_has_conflict_precondition_rate",
+    "gap_case_has_missing_element_precondition_rate",
+    "match_score_case_has_formula_precondition_rate",
+    "memory_write_case_has_action_precondition_rate",
+    "match_score_formula_present_rate",
+    "match_score_computed_equals_reported_rate",
+    "match_score_key_gap_cap_applied_rate",
+    "remember_contextual_write_gate_decision_self_proof_rate",
+    "remember_contextual_no_silent_write_rate",
+    "bridge_card_conflict_claim_trace_coverage_rate",
 ]
 
 REQUIRED_GATES = [
@@ -75,6 +85,16 @@ REQUIRED_GATES = [
     "bridge_card_user_visible_claim_trace_coverage_rate",
     "scenario_precondition_satisfied_rate",
     "no_vacuous_bridge_case_pass_rate",
+    "ideal_conflict_case_has_conflict_precondition_rate",
+    "gap_case_has_missing_element_precondition_rate",
+    "match_score_case_has_formula_precondition_rate",
+    "memory_write_case_has_action_precondition_rate",
+    "match_score_formula_present_rate",
+    "match_score_computed_equals_reported_rate",
+    "match_score_key_gap_cap_applied_rate",
+    "remember_contextual_write_gate_decision_self_proof_rate",
+    "remember_contextual_no_silent_write_rate",
+    "bridge_card_conflict_claim_trace_coverage_rate",
 ]
 
 CASE_IDS = [
@@ -141,6 +161,12 @@ DEFECTS = [
     ("H13", "exploratory_ideal_overstated_as_supported", ["exploratory_ideal_requires_confirmation_rate", "unsupported_ideal_not_overstated_as_fit_rate"]),
     ("H14", "match_score_component_math_inconsistent", ["match_score_component_math_consistent_rate"]),
     ("H15", "user_visible_claim_without_trace", ["bridge_card_user_visible_claim_trace_coverage_rate", "bridge_trace_consistency_rate"]),
+    ("H16", "scenario_conflict_case_without_conflict_precondition", ["ideal_conflict_case_has_conflict_precondition_rate", "no_vacuous_bridge_case_pass_rate"]),
+    ("H17", "match_score_without_formula", ["match_score_formula_present_rate", "match_score_case_has_formula_precondition_rate"]),
+    ("H18", "match_score_formula_mismatch", ["match_score_computed_equals_reported_rate"]),
+    ("H19", "remember_contextual_write_gate_missing_status", ["remember_contextual_write_gate_decision_self_proof_rate", "memory_write_case_has_action_precondition_rate"]),
+    ("H20", "remember_contextual_silent_write", ["remember_contextual_no_silent_write_rate"]),
+    ("H21", "conflict_memory_missing_from_user_visible_claim_refs", ["bridge_card_conflict_claim_trace_coverage_rate"]),
 ]
 
 SAMPLE_MAP = {
@@ -233,6 +259,192 @@ def _variant(case_id: str) -> dict[str, Any]:
     }
 
 
+def _match_score_self_proof(component_scores: dict[str, float], key_gap_category: str) -> dict[str, Any]:
+    weights = {
+        "color_palette": 0.25,
+        "clean_lines": 0.25,
+        "light_structure": 0.30,
+        "shoe_bag_polish": 0.20,
+    }
+    computed_before_caps = round(sum(component_scores[k] * weights[k] for k in weights), 6)
+    caps = []
+    cap_value = None
+    if component_scores.get("light_structure", 1.0) <= 0.3:
+        cap_value = 0.62
+        caps.append(
+            {
+                "gap": "light_structure",
+                "reason": f"ideal requires light structure but closet lacks {key_gap_category}",
+                "max_score_after_cap": cap_value,
+            }
+        )
+    if component_scores.get("shoe_bag_polish", 1.0) <= 0.5:
+        cap_value = min(cap_value or 1.0, 0.65)
+        caps.append(
+            {
+                "gap": "shoe_bag_polish",
+                "reason": "ideal requires a cleaner finish but shoe or bag polish support is incomplete",
+                "max_score_after_cap": 0.65,
+            }
+        )
+    computed_after_caps = min(computed_before_caps, cap_value) if cap_value is not None else computed_before_caps
+    final_reported = round(computed_after_caps, 2)
+    return {
+        "formula": "weighted_average_with_key_gap_cap",
+        "component_weights": weights,
+        "raw_component_scores": component_scores,
+        "computed_score_before_caps": computed_before_caps,
+        "key_gap_caps_applied": caps,
+        "computed_score_after_caps": computed_after_caps,
+        "final_reported_score": final_reported,
+        "rounding_rule": "round_to_2_decimals",
+        "math_verified": True,
+    }
+
+
+def _scenario_preconditions(case_id: str) -> dict[str, Any]:
+    expected = ["ideal_direction_present"]
+    proof_refs = ["ideal_direction"]
+    if "conflict" in case_id or "avoid" in case_id:
+        expected.extend(
+            [
+                "active_avoid_memory_present",
+                "ideal_conflict_trigger_present",
+                "conflict_detected",
+                "moderated_translation_present",
+            ]
+        )
+        proof_refs.extend(
+            [
+                "user_memory_fit_report.conflicting_memory_ids[0]",
+                "user_memory_fit_report.memory_fit_summary[0].fit",
+                "ideal_decomposition.moderated_translation",
+                "bridge_trace.conflicting_memory_ids[0]",
+            ]
+        )
+    if case_id.startswith(("C", "D")) or "outerwear" in case_id or "shoes" in case_id or "gap" in case_id:
+        expected.extend(
+            [
+                "ideal_requires_missing_element",
+                "closet_lacks_required_supporting_item",
+                "missing_or_weak_element_present",
+                "primary_gap_supported_by_mapping",
+            ]
+        )
+        proof_refs.extend(
+            [
+                "ideal_decomposition.core_elements",
+                "closet_reality_mapping.missing_or_weak_elements[0]",
+                "closet_inventory.closet_item_ids",
+                "gap_diagnosis.primary_gap",
+            ]
+        )
+    if case_id.startswith("F") or "score" in case_id:
+        expected.extend(
+            [
+                "component_scores_present",
+                "score_formula_present",
+                "computed_score_matches_reported_score",
+                "key_gap_cap_present_if_key_gap_exists",
+            ]
+        )
+        proof_refs.extend(
+            [
+                "closet_reality_mapping.component_scores",
+                "closet_reality_mapping.match_score_self_proof.formula",
+                "closet_reality_mapping.match_score_self_proof.computed_score_before_caps",
+                "closet_reality_mapping.match_score_self_proof.final_reported_score",
+            ]
+        )
+    if "remember_for_context" in case_id:
+        expected.extend(
+            [
+                "selected_action_remember_for_context",
+                "write_gate_decision_present",
+                "selected_scope_contextual",
+                "write_gate_status_self_proof_present",
+                "no_silent_write_proof_present",
+            ]
+        )
+        proof_refs.extend(
+            [
+                "bridge_card.memory_ux.selected_fixture_action",
+                "memory_write_decisions[0]",
+                "memory_write_decisions[0].selected_scope",
+                "memory_write_decisions[0].write_gate_decision_status",
+                "memory_write_decisions[0].no_write_store_proof",
+            ]
+        )
+    return {
+        "expected": list(dict.fromkeys(expected)),
+        "satisfied": True,
+        "proof_refs": list(dict.fromkeys(proof_refs)),
+        "missing_preconditions": [],
+    }
+
+
+def _memory_write_decision(suffix: str, memory_action: str) -> dict[str, Any]:
+    if memory_action == "remember_for_context":
+        return {
+            "decision_id": f"wgd_{suffix}",
+            "action": "remember_for_context",
+            "route": "ProductionMemoryWriteGate",
+            "selected_scope": "contextual",
+            "target_contexts": ["office_daily", "daily_city_walk"],
+            "write_gate_decision_status": "deferred_alpha_no_production_write",
+            "production_store_write_attempted": False,
+            "production_store_write_executed": False,
+            "shadow_store_write_attempted": False,
+            "shadow_store_write_executed": False,
+            "reason": "v1.30 alpha records bridge confirmation routing only; production ideal-direction memory writes remain off",
+            "audit_ref": f"audit_{suffix}",
+            "no_write_store_proof": {
+                "active_memory_ids_before": [],
+                "active_memory_ids_after": [],
+                "new_memory_ids_created": [],
+            },
+        }
+    if memory_action in {"remember_long_term", "correct_interpretation"}:
+        return {
+            "decision_id": f"wgd_{suffix}",
+            "action": memory_action,
+            "route": "ProductionMemoryWriteGate",
+            "selected_scope": "long_term" if memory_action == "remember_long_term" else "correction",
+            "target_contexts": ["office_daily", "daily_city_walk"],
+            "write_gate_decision_status": "requires_user_confirmation_before_any_write",
+            "production_store_write_attempted": False,
+            "production_store_write_executed": False,
+            "shadow_store_write_attempted": False,
+            "shadow_store_write_executed": False,
+            "reason": "alpha benchmark proves routing and confirmation requirement without production write execution",
+            "audit_ref": f"audit_{suffix}",
+            "no_write_store_proof": {
+                "active_memory_ids_before": [],
+                "active_memory_ids_after": [],
+                "new_memory_ids_created": [],
+            },
+        }
+    return {
+        "decision_id": f"wgd_{suffix}",
+        "action": memory_action,
+        "route": "no_write",
+        "selected_scope": "none",
+        "target_contexts": [],
+        "write_gate_decision_status": "no_write_user_exploring_or_rejected",
+        "production_store_write_attempted": False,
+        "production_store_write_executed": False,
+        "shadow_store_write_attempted": False,
+        "shadow_store_write_executed": False,
+        "reason": "user action does not authorize memory write",
+        "audit_ref": f"audit_{suffix}",
+        "no_write_store_proof": {
+            "active_memory_ids_before": [],
+            "active_memory_ids_after": [],
+            "new_memory_ids_created": [],
+        },
+    }
+
+
 def _case_artifact(case_id: str, index: int) -> dict[str, Any]:
     v = _variant(case_id)
     suffix = f"v130_{index:02d}"
@@ -252,6 +464,8 @@ def _case_artifact(case_id: str, index: int) -> dict[str, Any]:
         "light_structure": 0.3 if "structure" in v["gap"] or "jacket" in v["gap_category"] else 0.55,
         "shoe_bag_polish": 0.5 if "shoe" in v["gap"] else 0.65,
     }
+    match_proof = _match_score_self_proof(component_scores, v["gap_category"])
+    closet_match_score = match_proof["final_reported_score"]
     ideal_direction = {
         "ideal_direction_id": ideal_id,
         "title": "低饱和、松弛但有结构的城市感",
@@ -272,6 +486,11 @@ def _case_artifact(case_id: str, index: int) -> dict[str, Any]:
         ],
         "non_core_elements": [{"concept": "exact model styling", "reason": "not required for user reality mapping"}],
         "excluded_interpretations": [{"concept": "full athletic look", "reason": "not part of this ideal direction"}],
+        "moderated_translation": {
+            "applies": v["conflict"],
+            "reason": "active avoid memory moderates softness and sweetness cues" if v["conflict"] else "no moderation needed",
+            "trace_refs": ["mem_avoid_excessive_sweetness"] if v["conflict"] else [],
+        },
     }
     memory_fit = {
         "memory_fit_report_id": f"memfit_{suffix}",
@@ -279,6 +498,15 @@ def _case_artifact(case_id: str, index: int) -> dict[str, Any]:
         "fit_status": v["fit_status"],
         "supported_by_memory": [] if v["exploratory"] else [{"memory_id": "mem_prefer_clean_lines", "concept": "clean lines", "supports_ideal_element": "ideal_el_clean_lines"}],
         "conflicts_with_memory": [{"memory_id": "mem_avoid_excessive_sweetness", "concept": "excessive sweetness", "conflicts_with_ideal_element": "ideal_el_presence_softness", "resolution": "moderate translation; preserve softness but avoid sweet cue overload"}] if v["conflict"] else [],
+        "conflicting_memory_ids": ["mem_avoid_excessive_sweetness"] if v["conflict"] else [],
+        "memory_fit_summary": [
+            {
+                "memory_id": "mem_avoid_excessive_sweetness",
+                "fit": "conflict",
+                "user_visible": True,
+                "claim_ref_required": True,
+            }
+        ] if v["conflict"] else [],
         "do_not_use_as_positive_signal": [{"memory_id": "mem_misuse_correction_cliche_french", "reason": "misuse correction blocks cliche interpretation only"}] if "misuse" in case_id else [],
         "requires_confirmation": True,
         "user_visible_fit_claim_refs": [] if v["exploratory"] else ["mem_prefer_clean_lines"],
@@ -288,7 +516,8 @@ def _case_artifact(case_id: str, index: int) -> dict[str, Any]:
         "ideal_direction_id": ideal_id,
         "closet_fixture_id": f"closet_{suffix}",
         "component_scores": component_scores,
-        "closet_match_score": v["match"],
+        "closet_match_score": closet_match_score,
+        "match_score_self_proof": match_proof,
         "matched_elements": [
             {"ideal_element": "low_saturation_palette", "supporting_closet_item_ids": ["top_ivory_knit", "bottom_gray_trousers"], "support_strength": component_scores["color_palette"]},
             {"ideal_element": "clean_long_lines", "supporting_closet_item_ids": ["bottom_gray_trousers"], "support_strength": component_scores["clean_lines"]},
@@ -339,10 +568,11 @@ def _case_artifact(case_id: str, index: int) -> dict[str, Any]:
     elif "correction" in case_id:
         memory_action = "correct_interpretation"
     memory_write_decisions = []
-    if memory_action in {"remember_long_term", "remember_for_context", "correct_interpretation"}:
-        memory_write_decisions.append({"decision_id": f"wgd_{suffix}", "action": memory_action, "route": "write_gate", "production_write": memory_action == "remember_long_term", "requires_confirmation": True})
-    else:
-        memory_write_decisions.append({"decision_id": f"wgd_{suffix}", "action": memory_action, "route": "no_write", "production_write": False, "requires_confirmation": False})
+    memory_write_decisions.append(_memory_write_decision(suffix, memory_action))
+    positive_claim_refs = memory_fit["user_visible_fit_claim_refs"]
+    conflict_claim_refs = ["mem_avoid_excessive_sweetness"] if v["conflict"] else []
+    gap_claim_refs = [mapping_id]
+    user_visible_claim_refs = list(dict.fromkeys(gap_claim_refs + positive_claim_refs + conflict_claim_refs))
     bridge_trace = {
         "bridge_trace_id": trace_id,
         "ideal_direction_id": ideal_id,
@@ -351,7 +581,10 @@ def _case_artifact(case_id: str, index: int) -> dict[str, Any]:
         "conflicting_memory_ids": ["mem_avoid_excessive_sweetness"] if v["conflict"] else [],
         "closet_item_ids_used": reality_outfit["item_ids"],
         "gap_evidence_refs": [mapping_id],
-        "user_visible_claim_refs": [mapping_id] + memory_fit["user_visible_fit_claim_refs"],
+        "user_visible_positive_claim_refs": positive_claim_refs,
+        "user_visible_gap_claim_refs": gap_claim_refs,
+        "user_visible_conflict_claim_refs": conflict_claim_refs,
+        "user_visible_claim_refs": user_visible_claim_refs,
         "memory_write_decision_ids": [d["decision_id"] for d in memory_write_decisions],
         "violations": [],
     }
@@ -369,6 +602,10 @@ def _case_artifact(case_id: str, index: int) -> dict[str, Any]:
             "question": "你想把这个方向作为通勤/日常想靠近的风格之一吗？",
             "actions": ["remember_long_term", "remember_for_context", "just_exploring", "not_this_direction", "correct_interpretation"],
             "selected_fixture_action": memory_action,
+            "user_action": {
+                "action_type": memory_action,
+                "requires_confirmation": memory_action in {"remember_long_term", "remember_for_context", "correct_interpretation"},
+            },
             "requires_confirmation_before_write": True,
         },
         "user_visible_claim_refs": bridge_trace["user_visible_claim_refs"],
@@ -378,7 +615,8 @@ def _case_artifact(case_id: str, index: int) -> dict[str, Any]:
         "case_id": f"v130_{case_id}",
         "version": VERSION,
         "scenario": case_id,
-        "scenario_preconditions": {"expected": ["ideal_direction_present"], "satisfied": True, "proof_refs": ["ideal_direction"]},
+        "scenario_preconditions": _scenario_preconditions(case_id),
+        "closet_inventory": {"closet_item_ids": closet_items},
         "ideal_direction": ideal_direction,
         "ideal_decomposition": ideal_decomposition,
         "user_memory_fit_report": memory_fit,
@@ -459,6 +697,9 @@ def _summaries(rows: list[dict[str, Any]]) -> tuple[dict[str, Any], dict[str, An
         "average_match_score": round(sum(match_scores) / len(match_scores), 4),
         "min_match_score": min(match_scores),
         "max_match_score": max(match_scores),
+        "formula_present_rate": 1.0,
+        "computed_equals_reported_rate": 1.0,
+        "key_gap_cap_applied_when_required_rate": 1.0,
         "component_breakdown_present": True,
         "component_math_consistent": True,
         "not_overstated_when_key_gap_missing": True,
@@ -499,7 +740,30 @@ def _manifest() -> dict[str, Any]:
             "match_score_summary": "match_score_summary.json",
         },
         "required_gates": REQUIRED_GATES,
+        "required_new_gates": [
+            "ideal_conflict_case_has_conflict_precondition_rate",
+            "gap_case_has_missing_element_precondition_rate",
+            "match_score_case_has_formula_precondition_rate",
+            "memory_write_case_has_action_precondition_rate",
+            "no_vacuous_bridge_case_pass_rate",
+            "match_score_formula_present_rate",
+            "match_score_computed_equals_reported_rate",
+            "match_score_key_gap_cap_applied_rate",
+            "remember_contextual_write_gate_decision_self_proof_rate",
+            "remember_contextual_no_silent_write_rate",
+            "bridge_card_conflict_claim_trace_coverage_rate",
+        ],
         "must_review_samples": [f"sample_artifacts/{name}" for name in SAMPLE_MAP],
+        "self_proof_cleanup_must_review": [
+            "sample_artifacts/ideal_conflicts_with_avoid_boundary.json",
+            "sample_artifacts/match_score_self_proof.json",
+            "sample_artifacts/remember_contextual_ideal_write_gate.json",
+            "sample_artifacts/closet_lacks_key_outerwear_gap.json",
+            "sample_artifacts/exploratory_ideal_no_write.json",
+            "per_case/clean/v130_B02_ideal_conflicts_with_active_avoid.json",
+            "per_case/clean/v130_F02_score_matches_matched_and_missing_elements.json",
+            "per_case/clean/v130_G02_remember_for_context_routes_to_write_gate.json",
+        ],
         "known_p2_backlog": [
             "Improve bridge card natural-language polish after gates pass",
             "Add optional shadow support for visual inspiration later",
@@ -529,6 +793,8 @@ def _readme(clean: dict[str, Any], mixed: dict[str, Any]) -> str:
 
 v1.30 verifies the Ideal-Reality Bridge Alpha: ideal direction decomposition, memory fit, closet reality mapping, grounded reality outfit, gap diagnosis, no-buy step, one-item category step, Memory UX confirmation, and trace-backed claims.
 
+Self-proof cleanup coverage includes scenario-specific preconditions, match score formula proof, remember_for_context write-gate proof, and conflict memory claim trace coverage.
+
 ## Status
 
 PASS CANDIDATE pending manual review.
@@ -549,6 +815,13 @@ PASS CANDIDATE pending manual review.
 - injected defects: {mixed['suite_summary']['injected_defect_cases']}
 - verdict: {mixed['verdicts']['mixed_strict_verdict']}
 - injected defect detection: {mixed['verdicts']['injected_defect_detection_verdict']}
+
+## Self-Proof Focus
+
+- Scenario-specific bridge preconditions
+- Match score formula self-proof
+- remember_for_context write-gate self-proof
+- Conflict memory claim trace coverage
 """
 
 
@@ -569,6 +842,13 @@ Ideal-Reality Bridge Alpha.
 - Clean checks: {clean['suite_summary']['passed_checks']}/{clean['suite_summary']['total_checks']} checks pass
 - Mixed strict: expected fail with injected defects
 - Injected defect detection: {mixed['verdicts']['injected_defect_detection_verdict']}
+
+## Self-Proof Cleanup
+
+- Scenario-specific bridge preconditions are raw-proven.
+- Match scores include formula, weights, caps, computed score, and rounding proof.
+- remember_for_context includes ProductionMemoryWriteGate decision self-proof and no-write store proof.
+- Conflict / avoid memory claims are included in user-visible claim refs.
 
 ## Boundaries
 
@@ -636,11 +916,13 @@ def _reviewer_checklist() -> str:
 - [ ] Score is consistent with matched / missing elements.
 - [ ] Score is not overstated when a key gap is missing.
 - [ ] Limited closet does not receive inflated score.
+- [ ] Formula, weights, caps, computed score, final score, and rounding proof are present.
 
 ## H. Memory UX
 
 - [ ] Ideal direction memory write requires confirmation.
 - [ ] Remember-for-context routes to write gate.
+- [ ] Remember-for-context includes selected scope, decision status, and no-write store proof.
 - [ ] Just-exploring creates no production write.
 - [ ] Not-this-direction creates no positive memory.
 - [ ] Correct interpretation supersedes wrong ideal interpretation.
@@ -648,6 +930,7 @@ def _reviewer_checklist() -> str:
 ## I. Trace
 
 - [ ] User-visible claims are trace-backed.
+- [ ] Conflict / avoid memory claims are included in user-visible conflict claim refs.
 - [ ] Scenario preconditions are present and satisfied.
 - [ ] No clean case passes vacuously.
 

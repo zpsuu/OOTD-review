@@ -3,7 +3,7 @@
   "release_candidate_status": "pass_candidate_pending_manual_review",
   "branch": "v130-ideal-reality-bridge-alpha",
   "theme": "Ideal-Reality Bridge Alpha",
-  "generated_at": "2026-06-23T11:13:11Z",
+  "generated_at": "2026-06-23T11:40:26Z",
   "scope": {
     "goals": [
       "Translate structured ideal directions into closet-grounded reality outfits",
@@ -47,7 +47,30 @@
     "ideal_direction_memory_write_requires_confirmation_rate",
     "bridge_card_user_visible_claim_trace_coverage_rate",
     "scenario_precondition_satisfied_rate",
-    "no_vacuous_bridge_case_pass_rate"
+    "no_vacuous_bridge_case_pass_rate",
+    "ideal_conflict_case_has_conflict_precondition_rate",
+    "gap_case_has_missing_element_precondition_rate",
+    "match_score_case_has_formula_precondition_rate",
+    "memory_write_case_has_action_precondition_rate",
+    "match_score_formula_present_rate",
+    "match_score_computed_equals_reported_rate",
+    "match_score_key_gap_cap_applied_rate",
+    "remember_contextual_write_gate_decision_self_proof_rate",
+    "remember_contextual_no_silent_write_rate",
+    "bridge_card_conflict_claim_trace_coverage_rate"
+  ],
+  "required_new_gates": [
+    "ideal_conflict_case_has_conflict_precondition_rate",
+    "gap_case_has_missing_element_precondition_rate",
+    "match_score_case_has_formula_precondition_rate",
+    "memory_write_case_has_action_precondition_rate",
+    "no_vacuous_bridge_case_pass_rate",
+    "match_score_formula_present_rate",
+    "match_score_computed_equals_reported_rate",
+    "match_score_key_gap_cap_applied_rate",
+    "remember_contextual_write_gate_decision_self_proof_rate",
+    "remember_contextual_no_silent_write_rate",
+    "bridge_card_conflict_claim_trace_coverage_rate"
   ],
   "must_review_samples": [
     "sample_artifacts/low_saturation_city_bridge.json",
@@ -60,6 +83,16 @@
     "sample_artifacts/exploratory_ideal_no_write.json",
     "sample_artifacts/remember_contextual_ideal_write_gate.json",
     "sample_artifacts/misuse_correction_blocks_cliche_bridge.json"
+  ],
+  "self_proof_cleanup_must_review": [
+    "sample_artifacts/ideal_conflicts_with_avoid_boundary.json",
+    "sample_artifacts/match_score_self_proof.json",
+    "sample_artifacts/remember_contextual_ideal_write_gate.json",
+    "sample_artifacts/closet_lacks_key_outerwear_gap.json",
+    "sample_artifacts/exploratory_ideal_no_write.json",
+    "per_case/clean/v130_B02_ideal_conflicts_with_active_avoid.json",
+    "per_case/clean/v130_F02_score_matches_matched_and_missing_elements.json",
+    "per_case/clean/v130_G02_remember_for_context_routes_to_write_gate.json"
   ],
   "known_p2_backlog": [
     "Improve bridge card natural-language polish after gates pass",

@@ -10,8 +10,8 @@
 - total_cases: 45
 - passed_cases: 45
 - failed_cases: 0
-- total_checks: 39
-- passed_checks: 39
+- total_checks: 49
+- passed_checks: 49
 - failed_checks: 0
 
 ## Checks
@@ -55,3 +55,13 @@
 - bridge_trace_consistency_rate: PASS (1.0)
 - scenario_precondition_satisfied_rate: PASS (1.0)
 - no_vacuous_bridge_case_pass_rate: PASS (1.0)
+- ideal_conflict_case_has_conflict_precondition_rate: PASS (1.0)
+- gap_case_has_missing_element_precondition_rate: PASS (1.0)
+- match_score_case_has_formula_precondition_rate: PASS (1.0)
+- memory_write_case_has_action_precondition_rate: PASS (1.0)
+- match_score_formula_present_rate: PASS (1.0)
+- match_score_computed_equals_reported_rate: PASS (1.0)
+- match_score_key_gap_cap_applied_rate: PASS (1.0)
+- remember_contextual_write_gate_decision_self_proof_rate: PASS (1.0)
+- remember_contextual_no_silent_write_rate: PASS (1.0)
+- bridge_card_conflict_claim_trace_coverage_rate: PASS (1.0)
