@@ -1,37 +1,25 @@
-# OOTD Review Index
+# v1.31 Review Note - PASS CANDIDATE confirmed
 
-## Current Active Version
+## Version
 
 v1.31 - Inspiration Intake Shadow Pipeline
 
-Current branch:
-`v131-inspiration-intake-shadow-pipeline`
+## Final Verdict
 
-Current status:
-`PASS CANDIDATE confirmed after inspiration intake shadow pipeline review`
+PASS CANDIDATE confirmed after inspiration intake shadow pipeline review
 
-## Current Review Focus
+## Summary
 
-This iteration verifies Inspiration Intake Shadow Pipeline evidence across:
+v1.31 Inspiration Intake Shadow Pipeline passed manual spot review. Intent-to-shadow scope propagation, color-only shadow proposal narrowing, clarification fallback semantics, shadow-only memory policy, and privacy/rights safety are confirmed.
 
-- platform-agnostic inspiration intake
-- visual/text signal candidates
-- user intent resolution
-- ideal direction candidate generation
-- v1.30 bridge shadow run
-- shadow-only memory proposal
-- no production memory write from external inspiration
-- privacy / rights-safe external evidence handling
-- URL metadata and inaccessible-link fallback
-- injected defect detection for inspiration safety regressions
+## Evidence
 
-## Latest Evidence Pack
+Entrypoint:
 
-`benchmark/benchmark_v131/results/v131_release_candidate/`
+`benchmark/benchmark_v131/results/v131_release_candidate/REVIEW_MANIFEST.json`
 
-## Key Files To Review
+Key reports:
 
-- `benchmark/benchmark_v131/results/v131_release_candidate/REVIEW_MANIFEST.json`
 - `benchmark/benchmark_v131/results/v131_release_candidate/clean_report.json`
 - `benchmark/benchmark_v131/results/v131_release_candidate/mixed_strict_report.json`
 - `benchmark/benchmark_v131/results/v131_release_candidate/injected_defect_detection_summary.json`
@@ -39,7 +27,13 @@ This iteration verifies Inspiration Intake Shadow Pipeline evidence across:
 - `benchmark/benchmark_v131/results/v131_release_candidate/shadow_memory_proposal_summary.json`
 - `benchmark/benchmark_v131/results/v131_release_candidate/bridge_shadow_summary.json`
 - `benchmark/benchmark_v131/results/v131_release_candidate/privacy_rights_summary.json`
-- `benchmark/benchmark_v131/results/v131_release_candidate/sample_artifacts/screenshot_intake_low_saturation_city.json`
+
+Representative spot-reviewed artifacts:
+
+- `benchmark/benchmark_v131/results/v131_release_candidate/sample_artifacts/color_only_user_intent.json`
+- `benchmark/benchmark_v131/results/v131_release_candidate/sample_artifacts/date_night_contextual_intent.json`
 - `benchmark/benchmark_v131/results/v131_release_candidate/sample_artifacts/url_metadata_insufficient_requests_screenshot.json`
+- `benchmark/benchmark_v131/results/v131_release_candidate/sample_artifacts/ambiguous_share_clarification.json`
+- `benchmark/benchmark_v131/results/v131_release_candidate/sample_artifacts/high_risk_visual_inference_suppressed.json`
 - `benchmark/benchmark_v131/results/v131_release_candidate/sample_artifacts/shadow_memory_proposal_no_production_write.json`
 - `benchmark/benchmark_v131/results/v131_release_candidate/sample_artifacts/external_content_not_redistributed.json`

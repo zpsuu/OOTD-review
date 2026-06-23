@@ -6,7 +6,7 @@ v1.31 verifies the Inspiration Intake Shadow Pipeline: external inspiration inta
 
 ## Status
 
-PASS CANDIDATE pending manual review.
+PASS CANDIDATE confirmed after inspiration intake shadow pipeline review.
 
 ## Entrypoint
 

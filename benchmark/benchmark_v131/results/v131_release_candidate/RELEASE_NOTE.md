@@ -2,7 +2,7 @@
 
 ## Status
 
-PASS CANDIDATE pending manual review.
+PASS CANDIDATE confirmed after inspiration intake shadow pipeline review.
 
 ## Theme
 

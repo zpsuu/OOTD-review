@@ -22,4 +22,4 @@ Entrypoint:
 
 ## Status
 
-v1.31 Inspiration Intake Shadow Pipeline is PASS CANDIDATE pending manual review.
+v1.31 Inspiration Intake Shadow Pipeline is PASS CANDIDATE confirmed after inspiration intake shadow pipeline review.

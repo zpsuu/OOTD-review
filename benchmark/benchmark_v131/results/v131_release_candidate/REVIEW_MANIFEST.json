@@ -1,6 +1,9 @@
 {
   "version": "v1.31",
-  "release_candidate_status": "pass_candidate_pending_manual_review",
+  "release_candidate_status": "pass_candidate_confirmed",
+  "manual_review_status": "passed",
+  "manual_review_verdict": "PASS CANDIDATE confirmed",
+  "manual_review_summary": "v1.31 Inspiration Intake Shadow Pipeline passed manual spot review. Intent-to-shadow scope propagation, color-only shadow proposal narrowing, clarification fallback semantics, shadow-only memory policy, and privacy/rights safety are confirmed.",
   "branch": "v131-inspiration-intake-shadow-pipeline",
   "theme": "Inspiration Intake Shadow Pipeline",
   "generated_at": "2026-06-23T13:47:08Z",
