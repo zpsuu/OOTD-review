@@ -6,7 +6,7 @@ v1.33 verifies confirmed inspiration memory promotion governance: eligibility re
 
 ## Status
 
-PASS CANDIDATE pending manual review.
+PASS CANDIDATE confirmed after promotion write / rollback / review payload self-proof review.
 
 ## Entrypoint
 

@@ -2,7 +2,7 @@
 
 ## Status
 
-PASS CANDIDATE pending manual review.
+PASS CANDIDATE confirmed after promotion write / rollback / review payload self-proof review.
 
 ## Theme
 

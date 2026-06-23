@@ -8,7 +8,7 @@ Current branch:
 `v133-confirmed-inspiration-memory-promotion-governance`
 
 Current status:
-`PASS CANDIDATE pending manual review`
+`PASS CANDIDATE confirmed after promotion write / rollback / review payload self-proof review`
 
 ## Current Review Focus
 
@@ -53,7 +53,7 @@ This iteration verifies Confirmed Inspiration Memory Promotion Governance eviden
 
 ## v1.33 - Confirmed Inspiration Memory Promotion Governance
 
-Status: PASS CANDIDATE pending manual review
+Status: PASS CANDIDATE confirmed after promotion write / rollback / review payload self-proof review
 
 Current review focus:
 - eligibility before promotion

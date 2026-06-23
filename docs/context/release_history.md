@@ -143,7 +143,7 @@ Focus:
 
 ## v1.33 - Confirmed Inspiration Memory Promotion Governance
 
-Status: PASS CANDIDATE pending manual review
+Status: PASS CANDIDATE confirmed after promotion write / rollback / review payload self-proof review
 
 Focus:
 - promotion eligibility reports for confirmed inspiration candidates
