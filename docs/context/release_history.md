@@ -82,15 +82,15 @@ Focus:
 
 ## v1.29.8 - Daily Outfit Beta Readiness
 
-Status: PASS CANDIDATE pending manual review
+Status: PASS CANDIDATE confirmed
 
-Current review focus:
-- internal beta readiness
+Focus:
+- internal beta / dogfood readiness evidence
 - multi-user beta fixture runs
-- Daily Outfit Card or honest fallback
-- quality guardrail retention
-- closet reliability retention
-- Memory UX action routing
-- multi-day state stability
-- observability summary
-- human review scorecard
+- daily card generation or honest fallback
+- fallback preview consistency
+- fallback scorecard semantics
+- separation of Daily Outfit Cards and fallback notices in score summaries
+- observability summary completeness
+- human review scorecard summary
+- injected defect detection for beta-readiness regressions

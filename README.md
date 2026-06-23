@@ -22,4 +22,4 @@ Entrypoint:
 
 ## Status
 
-PASS CANDIDATE pending manual review.
+v1.29.8 Daily Outfit Beta Readiness is PASS CANDIDATE confirmed.

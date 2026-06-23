@@ -8,7 +8,7 @@ This is an internal dogfood readiness benchmark, not a public beta launch.
 
 ## Status
 
-PASS CANDIDATE pending manual review.
+PASS CANDIDATE confirmed after fallback / scorecard semantics review.
 
 ## Entrypoint
 

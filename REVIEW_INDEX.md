@@ -8,20 +8,20 @@ Current branch:
 `v1298-daily-outfit-beta-readiness`
 
 Current status:
-`PASS CANDIDATE pending manual review`
+`PASS CANDIDATE confirmed`
 
-## Current Review Focus
+## Confirmed Review Focus
 
-This iteration verifies internal Daily Outfit beta readiness across:
+This version confirms beta-readiness evidence for:
 
-- multi-user beta fixture runs
-- Daily Outfit Card or honest fallback behavior
-- closet readiness and item reliability
-- quality guardrail retention
-- Memory UX action routing
-- multi-day state stability
-- classified failure taxonomy
-- observability summaries and human review scorecards
+- Daily Outfit Card generation or honest fallback
+- complete trace-backed card output
+- fallback preview consistency
+- fallback scorecard semantics
+- separation of Daily Outfit scorecards and fallback scorecards
+- observability summaries
+- human review scorecard summaries
+- injected defect detection for beta-readiness regressions
 
 ## Latest Evidence Pack
 

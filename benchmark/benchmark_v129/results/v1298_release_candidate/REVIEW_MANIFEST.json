@@ -1,6 +1,6 @@
 {
   "version": "v1.29.8",
-  "release_candidate_status": "pass_candidate_pending_manual_review",
+  "release_candidate_status": "pass_candidate_confirmed",
   "branch": "v1298-daily-outfit-beta-readiness",
   "theme": "Daily Outfit Beta Readiness",
   "generated_at": "2026-06-23T09:42:44Z",
@@ -70,5 +70,14 @@
     "manual reviewer should spot-check product usefulness across fallback-heavy users",
     "future suite should replace synthetic scorecards with reviewer-entered scores",
     "expand beta fixture demographics before public beta"
-  ]
+  ],
+  "commits": {
+    "review_mirror_evidence_commit_sha": "3c02e3f02e64d5e77cb2e7538e3bf96a3a9f0778",
+    "manifest_cleanup_commit_sha": "reported_outside_manifest_after_commit",
+    "commit_sha_note": "The public mirror evidence commit is recorded here. The commit that updates this manifest is reported outside the manifest after git commit, because embedding the hash of the same commit inside a tracked file would make the hash unstable."
+  },
+  "manual_review_status": "passed",
+  "manual_review_verdict": "PASS CANDIDATE confirmed",
+  "manual_review_completed_at": "2026-06-23T10:26:55.351079+00:00",
+  "manual_review_summary": "v1.29.8 content-level review passed. Fallback preview consistency and fallback scorecard semantics passed manual spot review. Fallback cards separate missing categories, unreliable categories, reliable previews, and unreliable previews. Fallback scorecards are separated from complete Daily Outfit scorecards."
 }

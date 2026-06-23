@@ -9,5 +9,6 @@
   "write_gate_decisions_count": 15,
   "quality_repairs_count": 16,
   "closet_insufficient_count": 2,
-  "unclassified_failure_count": 0
+  "unclassified_failure_count": 0,
+  "success_or_honest_fallback_rate": 1.0
 }

@@ -1,6 +1,6 @@
 # v1.29.8 Reviewer Checklist
 
-Status: PASS CANDIDATE pending manual review
+Status: PASS CANDIDATE confirmed
 
 ## A. Beta Run Schema
 
