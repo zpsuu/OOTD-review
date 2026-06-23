@@ -1,0 +1,71 @@
+{
+  "version": "v1.32",
+  "release_candidate_status": "pass_candidate_pending_manual_review",
+  "branch": "v132-inspiration-confirmation-ux-candidate-governance",
+  "theme": "Inspiration Confirmation UX & Candidate Governance",
+  "generated_at": "2026-06-23T14:11:43Z",
+  "scope": {
+    "goals": [
+      "Generate confirmation cards only for sufficient inspiration candidates",
+      "Create confirmed shadow candidates only after user action",
+      "Narrow candidates to confirmed liked aspects",
+      "Map selected scope to suggested contexts",
+      "Detect and moderate conflicts with existing memory",
+      "Cluster compatible repeated inspiration confirmations",
+      "Feed only confirmed aspects into bridge shadow runs",
+      "Remain shadow-only with no production memory write"
+    ],
+    "non_goals": [
+      "No production memory write",
+      "No platform API integration",
+      "No scraping",
+      "No content feed",
+      "No AIGC image generation",
+      "No shopping or commerce",
+      "No public beta"
+    ]
+  },
+  "reports": {
+    "clean_report": "clean_report.json",
+    "mixed_strict_report": "mixed_strict_report.json",
+    "injected_summary": "injected_defect_detection_summary.json"
+  },
+  "required_gates": [
+    "confirmation_card_schema_valid_rate",
+    "confirmation_card_only_for_sufficient_candidate_rate",
+    "metadata_or_ambiguous_fallback_no_confirmation_card_rate",
+    "confirmed_candidate_requires_user_action_rate",
+    "confirmed_candidate_liked_aspects_match_user_action_rate",
+    "confirmed_candidate_excludes_rejected_aspects_rate",
+    "color_only_candidate_limited_to_color_rate",
+    "context_selection_maps_to_suggested_context_rate",
+    "date_night_not_mapped_to_office_rate",
+    "conflict_report_present_when_candidate_conflicts_with_memory_rate",
+    "moderated_translation_present_for_soft_conflict_rate",
+    "do_not_remember_creates_no_candidate_rate",
+    "correction_deprecates_wrong_candidate_rate",
+    "confirmed_candidate_shadow_only_rate",
+    "no_production_memory_write_from_inspiration_confirmation_rate",
+    "dedup_cluster_only_merges_compatible_candidates_rate",
+    "bridge_uses_confirmed_aspects_only_rate",
+    "bridge_does_not_use_rejected_aspects_rate",
+    "user_visible_claim_trace_coverage_rate",
+    "confirmation_card_trace_refs_present_rate",
+    "candidate_scope_self_proof_present_rate",
+    "cluster_shadow_only_rate",
+    "conflicting_candidates_not_merged_rate",
+    "item_interest_not_promoted_to_style_preference_rate",
+    "luxury_item_specificity_excluded_rate",
+    "photo_lighting_excluded_rate"
+  ],
+  "must_review_samples": [
+    "sample_artifacts/confirmation_card_low_saturation_city.json",
+    "sample_artifacts/color_only_confirmation_candidate.json",
+    "sample_artifacts/date_night_scope_confirmation.json",
+    "sample_artifacts/do_not_remember_no_candidate.json",
+    "sample_artifacts/correct_interpretation_deprecates_candidate.json",
+    "sample_artifacts/conflict_with_sweetness_boundary_moderated.json",
+    "sample_artifacts/repeated_inspiration_dedup_cluster.json",
+    "sample_artifacts/bridge_uses_confirmed_aspects_only.json"
+  ]
+}

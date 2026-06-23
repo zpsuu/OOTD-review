@@ -1,0 +1,16 @@
+{
+  "case_id": "v132_I08_cluster_merges_incompatible_candidates",
+  "version": "v1.32",
+  "defect_type": "cluster_merges_incompatible_candidates",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "dedup_cluster_only_merges_compatible_candidates_rate",
+    "conflicting_candidates_not_merged_rate"
+  ],
+  "failed_check_ids": [
+    "dedup_cluster_only_merges_compatible_candidates_rate",
+    "conflicting_candidates_not_merged_rate"
+  ],
+  "source_clean_case_id": "v132_A01_card_generated_from_sufficient_ideal_candidate",
+  "failure_reason": "Injected defect detected: cluster_merges_incompatible_candidates"
+}

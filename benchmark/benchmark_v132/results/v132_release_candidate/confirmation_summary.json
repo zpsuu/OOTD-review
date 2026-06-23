@@ -1,0 +1,6 @@
+{
+  "confirmation_cards_created": 50,
+  "metadata_or_ambiguous_fallback_cards_created": 0,
+  "confirmation_card_only_for_sufficient_candidate": true,
+  "all_cards_have_trace_refs": true
+}

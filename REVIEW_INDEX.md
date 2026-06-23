@@ -2,44 +2,64 @@
 
 ## Current Active Version
 
-v1.31 - Inspiration Intake Shadow Pipeline
+v1.32 - Inspiration Confirmation UX & Candidate Governance
 
 Current branch:
-`v131-inspiration-intake-shadow-pipeline`
+`v132-inspiration-confirmation-ux-candidate-governance`
 
 Current status:
-`PASS CANDIDATE confirmed after inspiration intake shadow pipeline review`
+`PASS CANDIDATE pending manual review`
 
 ## Current Review Focus
 
-This iteration verifies Inspiration Intake Shadow Pipeline evidence across:
+This iteration verifies Inspiration Confirmation UX & Candidate Governance evidence across:
 
-- platform-agnostic inspiration intake
-- visual/text signal candidates
-- user intent resolution
-- ideal direction candidate generation
-- v1.30 bridge shadow run
-- shadow-only memory proposal
-- no production memory write from external inspiration
-- privacy / rights-safe external evidence handling
-- URL metadata and inaccessible-link fallback
-- injected defect detection for inspiration safety regressions
+- confirmation cards only after sufficient ideal candidates
+- user confirmation actions before confirmed shadow candidates
+- color-only / silhouette-only / item-interest narrowing
+- scope mapping for date-night, office, daily-walk, and global/deferred intent
+- conflict report generation and moderated translations
+- do-not-remember and correction governance
+- compatible dedup clustering
+- bridge shadow runs using confirmed aspects only
+- no production memory write from inspiration confirmation
+- injected defect detection for confirmation governance regressions
 
 ## Latest Evidence Pack
 
-`benchmark/benchmark_v131/results/v131_release_candidate/`
+`benchmark/benchmark_v132/results/v132_release_candidate/`
 
 ## Key Files To Review
 
-- `benchmark/benchmark_v131/results/v131_release_candidate/REVIEW_MANIFEST.json`
-- `benchmark/benchmark_v131/results/v131_release_candidate/clean_report.json`
-- `benchmark/benchmark_v131/results/v131_release_candidate/mixed_strict_report.json`
-- `benchmark/benchmark_v131/results/v131_release_candidate/injected_defect_detection_summary.json`
-- `benchmark/benchmark_v131/results/v131_release_candidate/intake_summary.json`
-- `benchmark/benchmark_v131/results/v131_release_candidate/shadow_memory_proposal_summary.json`
-- `benchmark/benchmark_v131/results/v131_release_candidate/bridge_shadow_summary.json`
-- `benchmark/benchmark_v131/results/v131_release_candidate/privacy_rights_summary.json`
-- `benchmark/benchmark_v131/results/v131_release_candidate/sample_artifacts/screenshot_intake_low_saturation_city.json`
-- `benchmark/benchmark_v131/results/v131_release_candidate/sample_artifacts/url_metadata_insufficient_requests_screenshot.json`
-- `benchmark/benchmark_v131/results/v131_release_candidate/sample_artifacts/shadow_memory_proposal_no_production_write.json`
-- `benchmark/benchmark_v131/results/v131_release_candidate/sample_artifacts/external_content_not_redistributed.json`
+- `benchmark/benchmark_v132/results/v132_release_candidate/REVIEW_MANIFEST.json`
+- `benchmark/benchmark_v132/results/v132_release_candidate/clean_report.json`
+- `benchmark/benchmark_v132/results/v132_release_candidate/mixed_strict_report.json`
+- `benchmark/benchmark_v132/results/v132_release_candidate/injected_defect_detection_summary.json`
+- `benchmark/benchmark_v132/results/v132_release_candidate/confirmation_summary.json`
+- `benchmark/benchmark_v132/results/v132_release_candidate/confirmed_candidate_summary.json`
+- `benchmark/benchmark_v132/results/v132_release_candidate/conflict_resolution_summary.json`
+- `benchmark/benchmark_v132/results/v132_release_candidate/dedup_cluster_summary.json`
+- `benchmark/benchmark_v132/results/v132_release_candidate/bridge_after_confirmation_summary.json`
+- `benchmark/benchmark_v132/results/v132_release_candidate/sample_artifacts/confirmation_card_low_saturation_city.json`
+- `benchmark/benchmark_v132/results/v132_release_candidate/sample_artifacts/color_only_confirmation_candidate.json`
+- `benchmark/benchmark_v132/results/v132_release_candidate/sample_artifacts/date_night_scope_confirmation.json`
+- `benchmark/benchmark_v132/results/v132_release_candidate/sample_artifacts/do_not_remember_no_candidate.json`
+- `benchmark/benchmark_v132/results/v132_release_candidate/sample_artifacts/correct_interpretation_deprecates_candidate.json`
+- `benchmark/benchmark_v132/results/v132_release_candidate/sample_artifacts/conflict_with_sweetness_boundary_moderated.json`
+- `benchmark/benchmark_v132/results/v132_release_candidate/sample_artifacts/repeated_inspiration_dedup_cluster.json`
+- `benchmark/benchmark_v132/results/v132_release_candidate/sample_artifacts/bridge_uses_confirmed_aspects_only.json`
+
+## v1.32 - Inspiration Confirmation UX & Candidate Governance
+
+Status: PASS CANDIDATE pending manual review
+
+Current review focus:
+- confirmation card generation only for sufficient ideal candidates
+- user action required before confirmed inspiration candidate creation
+- candidate narrowing to confirmed liked aspects
+- scope mapping to selected contexts
+- conflict report and moderated translation governance
+- do-not-remember and correction handling
+- compatible dedup clustering
+- bridge shadow runs using confirmed aspects only
+- no production memory write from inspiration confirmation

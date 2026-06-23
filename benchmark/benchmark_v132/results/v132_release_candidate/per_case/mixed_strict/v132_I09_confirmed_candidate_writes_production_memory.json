@@ -1,0 +1,16 @@
+{
+  "case_id": "v132_I09_confirmed_candidate_writes_production_memory",
+  "version": "v1.32",
+  "defect_type": "confirmed_candidate_writes_production_memory",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "confirmed_candidate_shadow_only_rate",
+    "no_production_memory_write_from_inspiration_confirmation_rate"
+  ],
+  "failed_check_ids": [
+    "confirmed_candidate_shadow_only_rate",
+    "no_production_memory_write_from_inspiration_confirmation_rate"
+  ],
+  "source_clean_case_id": "v132_A01_card_generated_from_sufficient_ideal_candidate",
+  "failure_reason": "Injected defect detected: confirmed_candidate_writes_production_memory"
+}

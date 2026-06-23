@@ -1,0 +1,16 @@
+{
+  "case_id": "v132_I03_date_night_confirmation_maps_to_office_daily",
+  "version": "v1.32",
+  "defect_type": "date_night_confirmation_maps_to_office_daily",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "date_night_not_mapped_to_office_rate",
+    "context_selection_maps_to_suggested_context_rate"
+  ],
+  "failed_check_ids": [
+    "date_night_not_mapped_to_office_rate",
+    "context_selection_maps_to_suggested_context_rate"
+  ],
+  "source_clean_case_id": "v132_A01_card_generated_from_sufficient_ideal_candidate",
+  "failure_reason": "Injected defect detected: date_night_confirmation_maps_to_office_daily"
+}

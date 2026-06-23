@@ -1,0 +1,96 @@
+{
+  "case_id": "v132_A02_card_not_generated_for_metadata_only_fallback",
+  "version": "v1.32",
+  "scenario": "A02_card_not_generated_for_metadata_only_fallback",
+  "scenario_kind": "metadata_only",
+  "scenario_preconditions": {
+    "expected": [
+      "inspiration_input_present",
+      "insufficient_or_fallback_path_present",
+      "metadata_only_input_present",
+      "confirmation_card_absent",
+      "confirmed_candidate_absent"
+    ],
+    "satisfied": true,
+    "proof_refs": [
+      "inspiration_intake_event",
+      "ideal_direction_candidate",
+      "fallback_or_clarification",
+      "confirmation_card",
+      "confirmed_inspiration_candidate"
+    ],
+    "missing_preconditions": []
+  },
+  "inspiration_intake_event": {
+    "intake_event_id": "intake_v132_02",
+    "source_type": "url_metadata",
+    "raw_external_image_in_public_evidence": false,
+    "content_refs": [
+      {
+        "content_ref_id": "content_v132_02",
+        "storage_policy": "derived_signals_only",
+        "redistribution_allowed": false
+      }
+    ]
+  },
+  "visual_signal_candidate": null,
+  "ideal_direction_candidate": null,
+  "confirmation_card": null,
+  "user_confirmation_action": null,
+  "deprecated_candidate_before_correction": null,
+  "correction_governance": null,
+  "confirmed_inspiration_candidate": null,
+  "candidate_scope_self_proof": {
+    "selected_scope": null,
+    "selected_contexts": [],
+    "candidate_scope": null,
+    "candidate_suggested_contexts": [],
+    "matches_user_selection": true,
+    "date_night_mapped_to_office": false
+  },
+  "active_memory_snapshot": [],
+  "conflict_report": null,
+  "confirmed_candidate_inputs": [],
+  "dedup_cluster": null,
+  "bridge_after_confirmation": null,
+  "fallback_or_clarification": {
+    "reason": "metadata_only",
+    "confirmation_card_created": false,
+    "requests_screenshot_or_liked_aspect": true,
+    "memory_candidate_created": false
+  },
+  "clarification_prompt": {
+    "clarification_prompt_id": "clarify_v132_02",
+    "actions": [
+      "upload_screenshot",
+      "clarify_liked_aspect",
+      "cancel",
+      "do_not_remember"
+    ],
+    "remember_action_present": false
+  },
+  "memory_policy_decision": {
+    "production_write_allowed": false,
+    "production_store_write_attempted": false,
+    "production_store_write_executed": false,
+    "shadow_candidate_allowed": false,
+    "requires_write_gate_before_commit": true
+  },
+  "production_store_write_executed": false,
+  "user_visible_claims": [
+    {
+      "claim_id": "claim_fallback_v132_02",
+      "text": "Fallback path asks for more information and creates no confirmation card.",
+      "trace_refs": [
+        "intake_v132_02",
+        "fallback_or_clarification"
+      ]
+    }
+  ],
+  "trace": {
+    "intake_event_id": "intake_v132_02",
+    "confirmation_card_id": null,
+    "confirmation_action_id": null,
+    "confirmed_candidate_id": null
+  }
+}

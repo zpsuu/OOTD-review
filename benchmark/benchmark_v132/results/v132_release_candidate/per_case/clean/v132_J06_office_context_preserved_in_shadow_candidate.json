@@ -1,0 +1,243 @@
+{
+  "case_id": "v132_J06_office_context_preserved_in_shadow_candidate",
+  "version": "v1.32",
+  "scenario": "J06_office_context_preserved_in_shadow_candidate",
+  "scenario_kind": "office_daily",
+  "scenario_preconditions": {
+    "expected": [
+      "inspiration_input_present",
+      "ideal_direction_candidate_sufficient",
+      "confirmed_candidate_created_after_user_action",
+      "candidate_shadow_only",
+      "production_write_forbidden"
+    ],
+    "satisfied": true,
+    "proof_refs": [
+      "inspiration_intake_event",
+      "ideal_direction_candidate",
+      "user_confirmation_action",
+      "confirmed_inspiration_candidate.status",
+      "confirmed_inspiration_candidate.production_write_allowed"
+    ],
+    "missing_preconditions": []
+  },
+  "inspiration_intake_event": {
+    "intake_event_id": "intake_v132_49",
+    "source_type": "screenshot_fixture",
+    "raw_external_image_in_public_evidence": false,
+    "content_refs": [
+      {
+        "content_ref_id": "content_v132_49",
+        "storage_policy": "derived_signals_only",
+        "redistribution_allowed": false
+      }
+    ]
+  },
+  "visual_signal_candidate": {
+    "visual_signal_candidate_id": "visual_signal_candidate_v132_49",
+    "color_palette": [
+      "low_saturation",
+      "gray",
+      "ivory"
+    ],
+    "silhouette": [
+      "relaxed_structure"
+    ],
+    "style_cues": [
+      "quiet_city"
+    ],
+    "trace_refs": [
+      "content_v132_49"
+    ]
+  },
+  "ideal_direction_candidate": {
+    "ideal_direction_candidate_id": "ideal_cand_v132_49",
+    "sufficient_for_confirmation_card": true,
+    "requires_user_confirmation": true,
+    "production_write_allowed": false
+  },
+  "confirmation_card": {
+    "confirmation_card_id": "icc_v132_49",
+    "intake_event_id": "intake_v132_49",
+    "ideal_direction_candidate_id": "ideal_cand_v132_49",
+    "candidate_liked_aspects": [
+      {
+        "aspect": "color_palette",
+        "label": "low saturation colors",
+        "confidence": 0.82,
+        "source_ref": "visual_signal_candidate.color_palette"
+      },
+      {
+        "aspect": "silhouette",
+        "label": "relaxed but structured silhouette",
+        "confidence": 0.71,
+        "source_ref": "visual_signal_candidate.silhouette"
+      },
+      {
+        "aspect": "overall_mood",
+        "label": "clean quiet city mood",
+        "confidence": 0.74,
+        "source_ref": "visual_signal_candidate.style_cues"
+      }
+    ],
+    "not_confirmed_aspects": [
+      "exact_items",
+      "model_body",
+      "photo_lighting",
+      "luxury_brand_specificity"
+    ],
+    "question": "Which part should I understand from this inspiration?",
+    "allowed_actions": [
+      "confirm_overall_mood",
+      "confirm_color_only",
+      "confirm_silhouette_only",
+      "confirm_item_interest",
+      "confirm_context",
+      "this_time_only",
+      "do_not_remember",
+      "correct_interpretation"
+    ],
+    "requires_user_action_before_memory_candidate": true
+  },
+  "user_confirmation_action": {
+    "confirmation_action_id": "uica_v132_49",
+    "confirmation_card_id": "icc_v132_49",
+    "action_type": "confirm_context",
+    "confirmed_liked_aspects": [
+      "overall_mood",
+      "low_saturation_palette"
+    ],
+    "rejected_aspects": [
+      "exact_items",
+      "model_body",
+      "photo_lighting"
+    ],
+    "selected_scope": "contextual",
+    "selected_contexts": [
+      "office_daily"
+    ],
+    "user_correction_text": null,
+    "routes_to": "shadow_memory_candidate_governance",
+    "production_write_allowed": false
+  },
+  "deprecated_candidate_before_correction": null,
+  "correction_governance": null,
+  "confirmed_inspiration_candidate": {
+    "confirmed_inspiration_candidate_id": "cic_v132_49",
+    "source_intake_event_id": "intake_v132_49",
+    "confirmed_aspects": [
+      "overall_mood",
+      "low_saturation_palette"
+    ],
+    "candidate_concept": "office_daily quiet outfit mood",
+    "polarity": "soft_prefer",
+    "scope_candidate": "contextual",
+    "suggested_contexts": [
+      "office_daily"
+    ],
+    "excluded_aspects": [
+      "exact_items",
+      "model_body",
+      "photo_lighting"
+    ],
+    "confidence": 0.74,
+    "evidence_refs": [
+      "intake_v132_49",
+      "visual_signal_candidate_v132_49",
+      "uica_v132_49"
+    ],
+    "status": "confirmed_shadow_candidate",
+    "production_write_allowed": false,
+    "production_store_write_attempted": false,
+    "production_store_write_executed": false,
+    "requires_write_gate_before_commit": true,
+    "created_after_user_action": true
+  },
+  "candidate_scope_self_proof": {
+    "selected_scope": "contextual",
+    "selected_contexts": [
+      "office_daily"
+    ],
+    "candidate_scope": "contextual",
+    "candidate_suggested_contexts": [
+      "office_daily"
+    ],
+    "matches_user_selection": true,
+    "date_night_mapped_to_office": false
+  },
+  "active_memory_snapshot": [],
+  "conflict_report": null,
+  "confirmed_candidate_inputs": [],
+  "dedup_cluster": null,
+  "bridge_after_confirmation": {
+    "bridge_shadow_run_id": "bridge_after_confirmation_v132_49",
+    "confirmed_candidate_id": "cic_v132_49",
+    "confirmed_aspects_used": [
+      "overall_mood",
+      "low_saturation_palette"
+    ],
+    "rejected_aspects_excluded": [
+      "exact_items",
+      "model_body",
+      "photo_lighting"
+    ],
+    "uses_confirmed_aspects_only": true,
+    "rejected_aspects_used": false,
+    "safe_translation_used": null,
+    "reality_outfit": {
+      "item_ids": [
+        "top_ivory_knit",
+        "bottom_gray_trousers",
+        "shoes_black_loafers"
+      ],
+      "all_items_from_closet": true,
+      "invented_item_ids": []
+    },
+    "gap_diagnosis": {
+      "matches_confirmed_concept": true,
+      "primary_gap": "slightly stronger structure",
+      "specificity": "category_level"
+    },
+    "next_steps": {
+      "no_buy_step": "Use existing ivory knit, gray trousers, and black loafers to keep the confirmed direction closet-grounded.",
+      "product_links": [],
+      "sku_refs": []
+    },
+    "shadow_only": true
+  },
+  "fallback_or_clarification": null,
+  "clarification_prompt": null,
+  "memory_policy_decision": {
+    "production_write_allowed": false,
+    "production_store_write_attempted": false,
+    "production_store_write_executed": false,
+    "shadow_candidate_allowed": true,
+    "requires_write_gate_before_commit": true
+  },
+  "production_store_write_executed": false,
+  "user_visible_claims": [
+    {
+      "claim_id": "claim_candidate_v132_49",
+      "text": "Confirmed inspiration remains a shadow candidate generated after user action.",
+      "trace_refs": [
+        "uica_v132_49",
+        "cic_v132_49"
+      ]
+    },
+    {
+      "claim_id": "claim_bridge_v132_49",
+      "text": "Bridge uses confirmed aspects only and excludes rejected aspects.",
+      "trace_refs": [
+        "bridge_after_confirmation_v132_49",
+        "bridge_after_confirmation.confirmed_aspects_used",
+        "bridge_after_confirmation.rejected_aspects_excluded"
+      ]
+    }
+  ],
+  "trace": {
+    "intake_event_id": "intake_v132_49",
+    "confirmation_card_id": "icc_v132_49",
+    "confirmation_action_id": "uica_v132_49",
+    "confirmed_candidate_id": "cic_v132_49"
+  }
+}

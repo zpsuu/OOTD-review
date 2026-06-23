@@ -1,0 +1,16 @@
+{
+  "case_id": "v132_I06_conflict_with_avoid_boundary_ignored",
+  "version": "v1.32",
+  "defect_type": "conflict_with_avoid_boundary_ignored",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "conflict_report_present_when_candidate_conflicts_with_memory_rate",
+    "moderated_translation_present_for_soft_conflict_rate"
+  ],
+  "failed_check_ids": [
+    "conflict_report_present_when_candidate_conflicts_with_memory_rate",
+    "moderated_translation_present_for_soft_conflict_rate"
+  ],
+  "source_clean_case_id": "v132_A01_card_generated_from_sufficient_ideal_candidate",
+  "failure_reason": "Injected defect detected: conflict_with_avoid_boundary_ignored"
+}

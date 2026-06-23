@@ -1,0 +1,151 @@
+{
+  "case_id": "v132_B06_this_time_only_creates_no_candidate",
+  "version": "v1.32",
+  "scenario": "B06_this_time_only_creates_no_candidate",
+  "scenario_kind": "this_time_only",
+  "scenario_preconditions": {
+    "expected": [
+      "inspiration_input_present",
+      "ideal_direction_candidate_sufficient"
+    ],
+    "satisfied": true,
+    "proof_refs": [
+      "inspiration_intake_event",
+      "ideal_direction_candidate"
+    ],
+    "missing_preconditions": []
+  },
+  "inspiration_intake_event": {
+    "intake_event_id": "intake_v132_11",
+    "source_type": "screenshot_fixture",
+    "raw_external_image_in_public_evidence": false,
+    "content_refs": [
+      {
+        "content_ref_id": "content_v132_11",
+        "storage_policy": "derived_signals_only",
+        "redistribution_allowed": false
+      }
+    ]
+  },
+  "visual_signal_candidate": {
+    "visual_signal_candidate_id": "visual_signal_candidate_v132_11",
+    "color_palette": [
+      "low_saturation",
+      "gray",
+      "ivory"
+    ],
+    "silhouette": [
+      "relaxed_structure"
+    ],
+    "style_cues": [
+      "quiet_city"
+    ],
+    "trace_refs": [
+      "content_v132_11"
+    ]
+  },
+  "ideal_direction_candidate": {
+    "ideal_direction_candidate_id": "ideal_cand_v132_11",
+    "sufficient_for_confirmation_card": true,
+    "requires_user_confirmation": true,
+    "production_write_allowed": false
+  },
+  "confirmation_card": {
+    "confirmation_card_id": "icc_v132_11",
+    "intake_event_id": "intake_v132_11",
+    "ideal_direction_candidate_id": "ideal_cand_v132_11",
+    "candidate_liked_aspects": [
+      {
+        "aspect": "color_palette",
+        "label": "low saturation colors",
+        "confidence": 0.82,
+        "source_ref": "visual_signal_candidate.color_palette"
+      },
+      {
+        "aspect": "silhouette",
+        "label": "relaxed but structured silhouette",
+        "confidence": 0.71,
+        "source_ref": "visual_signal_candidate.silhouette"
+      },
+      {
+        "aspect": "overall_mood",
+        "label": "clean quiet city mood",
+        "confidence": 0.74,
+        "source_ref": "visual_signal_candidate.style_cues"
+      }
+    ],
+    "not_confirmed_aspects": [
+      "exact_items",
+      "model_body",
+      "photo_lighting",
+      "luxury_brand_specificity"
+    ],
+    "question": "Which part should I understand from this inspiration?",
+    "allowed_actions": [
+      "confirm_overall_mood",
+      "confirm_color_only",
+      "confirm_silhouette_only",
+      "confirm_item_interest",
+      "confirm_context",
+      "this_time_only",
+      "do_not_remember",
+      "correct_interpretation"
+    ],
+    "requires_user_action_before_memory_candidate": true
+  },
+  "user_confirmation_action": {
+    "confirmation_action_id": "uica_v132_11",
+    "confirmation_card_id": "icc_v132_11",
+    "action_type": "this_time_only",
+    "confirmed_liked_aspects": [
+      "overall_mood"
+    ],
+    "rejected_aspects": [
+      "exact_items",
+      "model_body",
+      "photo_lighting"
+    ],
+    "selected_scope": "one_time",
+    "selected_contexts": [
+      "today_only"
+    ],
+    "user_correction_text": null,
+    "routes_to": "shadow_memory_candidate_governance",
+    "production_write_allowed": false
+  },
+  "deprecated_candidate_before_correction": null,
+  "correction_governance": null,
+  "confirmed_inspiration_candidate": null,
+  "candidate_scope_self_proof": {
+    "selected_scope": "one_time",
+    "selected_contexts": [
+      "today_only"
+    ],
+    "candidate_scope": null,
+    "candidate_suggested_contexts": [],
+    "matches_user_selection": true,
+    "date_night_mapped_to_office": false
+  },
+  "active_memory_snapshot": [],
+  "conflict_report": null,
+  "confirmed_candidate_inputs": [],
+  "dedup_cluster": null,
+  "bridge_after_confirmation": null,
+  "fallback_or_clarification": null,
+  "clarification_prompt": null,
+  "memory_policy_decision": {
+    "production_write_allowed": false,
+    "production_store_write_attempted": false,
+    "production_store_write_executed": false,
+    "shadow_candidate_allowed": false,
+    "requires_write_gate_before_commit": true
+  },
+  "production_store_write_executed": false,
+  "user_visible_claims": [],
+  "trace": {
+    "intake_event_id": "intake_v132_11",
+    "confirmation_card_id": "icc_v132_11",
+    "confirmation_action_id": "uica_v132_11",
+    "confirmed_candidate_id": null
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "case_id": "v132_I01_confirmation_card_generated_for_metadata_only_fallback",
+  "version": "v1.32",
+  "defect_type": "confirmation_card_generated_for_metadata_only_fallback",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "metadata_or_ambiguous_fallback_no_confirmation_card_rate",
+    "confirmation_card_only_for_sufficient_candidate_rate"
+  ],
+  "failed_check_ids": [
+    "metadata_or_ambiguous_fallback_no_confirmation_card_rate",
+    "confirmation_card_only_for_sufficient_candidate_rate"
+  ],
+  "source_clean_case_id": "v132_A01_card_generated_from_sufficient_ideal_candidate",
+  "failure_reason": "Injected defect detected: confirmation_card_generated_for_metadata_only_fallback"
+}

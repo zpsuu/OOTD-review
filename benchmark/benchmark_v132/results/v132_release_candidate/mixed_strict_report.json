@@ -1,0 +1,337 @@
+{
+  "benchmark_id": "v1.32.inspiration_confirmation_ux_candidate_governance.mixed_strict",
+  "schema_version": "v1.32",
+  "generated_at": "2026-06-23T14:11:43Z",
+  "verdicts": {
+    "mixed_strict_verdict": "fail",
+    "injected_defect_detection_verdict": "pass"
+  },
+  "suite_summary": {
+    "total_cases": 65,
+    "clean_cases": 55,
+    "injected_defect_cases": 10,
+    "expected_failed_cases": 10,
+    "unexpected_clean_case_failures": 0,
+    "unexpected_injected_passes": 0
+  },
+  "checks": [
+    {
+      "check_id": "confirmation_card_schema_valid_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "confirmation_card_only_for_sufficient_candidate_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "metadata_or_ambiguous_fallback_no_confirmation_card_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "confirmed_candidate_requires_user_action_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "confirmed_candidate_liked_aspects_match_user_action_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "confirmed_candidate_excludes_rejected_aspects_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "color_only_candidate_limited_to_color_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "context_selection_maps_to_suggested_context_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "date_night_not_mapped_to_office_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "conflict_report_present_when_candidate_conflicts_with_memory_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "moderated_translation_present_for_soft_conflict_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "do_not_remember_creates_no_candidate_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "correction_deprecates_wrong_candidate_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "confirmed_candidate_shadow_only_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "no_production_memory_write_from_inspiration_confirmation_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "dedup_cluster_only_merges_compatible_candidates_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "bridge_uses_confirmed_aspects_only_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "bridge_does_not_use_rejected_aspects_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "user_visible_claim_trace_coverage_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "confirmation_card_trace_refs_present_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "candidate_scope_self_proof_present_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "cluster_shadow_only_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "conflicting_candidates_not_merged_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "item_interest_not_promoted_to_style_preference_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "luxury_item_specificity_excluded_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "photo_lighting_excluded_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    }
+  ],
+  "detected_defects": [
+    {
+      "case_id": "v132_I01_confirmation_card_generated_for_metadata_only_fallback",
+      "defect_type": "confirmation_card_generated_for_metadata_only_fallback",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "metadata_or_ambiguous_fallback_no_confirmation_card_rate",
+        "confirmation_card_only_for_sufficient_candidate_rate"
+      ],
+      "expected_failed_check_ids": [
+        "metadata_or_ambiguous_fallback_no_confirmation_card_rate",
+        "confirmation_card_only_for_sufficient_candidate_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v132_I01_confirmation_card_generated_for_metadata_only_fallback.json"
+    },
+    {
+      "case_id": "v132_I02_color_only_confirmation_creates_full_style_candidate",
+      "defect_type": "color_only_confirmation_creates_full_style_candidate",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "color_only_candidate_limited_to_color_rate",
+        "confirmed_candidate_liked_aspects_match_user_action_rate"
+      ],
+      "expected_failed_check_ids": [
+        "color_only_candidate_limited_to_color_rate",
+        "confirmed_candidate_liked_aspects_match_user_action_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v132_I02_color_only_confirmation_creates_full_style_candidate.json"
+    },
+    {
+      "case_id": "v132_I03_date_night_confirmation_maps_to_office_daily",
+      "defect_type": "date_night_confirmation_maps_to_office_daily",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "date_night_not_mapped_to_office_rate",
+        "context_selection_maps_to_suggested_context_rate"
+      ],
+      "expected_failed_check_ids": [
+        "date_night_not_mapped_to_office_rate",
+        "context_selection_maps_to_suggested_context_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v132_I03_date_night_confirmation_maps_to_office_daily.json"
+    },
+    {
+      "case_id": "v132_I04_do_not_remember_still_creates_candidate",
+      "defect_type": "do_not_remember_still_creates_candidate",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "do_not_remember_creates_no_candidate_rate",
+        "no_production_memory_write_from_inspiration_confirmation_rate"
+      ],
+      "expected_failed_check_ids": [
+        "do_not_remember_creates_no_candidate_rate",
+        "no_production_memory_write_from_inspiration_confirmation_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v132_I04_do_not_remember_still_creates_candidate.json"
+    },
+    {
+      "case_id": "v132_I05_correction_fails_to_deprecate_wrong_candidate",
+      "defect_type": "correction_fails_to_deprecate_wrong_candidate",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "correction_deprecates_wrong_candidate_rate"
+      ],
+      "expected_failed_check_ids": [
+        "correction_deprecates_wrong_candidate_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v132_I05_correction_fails_to_deprecate_wrong_candidate.json"
+    },
+    {
+      "case_id": "v132_I06_conflict_with_avoid_boundary_ignored",
+      "defect_type": "conflict_with_avoid_boundary_ignored",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "conflict_report_present_when_candidate_conflicts_with_memory_rate",
+        "moderated_translation_present_for_soft_conflict_rate"
+      ],
+      "expected_failed_check_ids": [
+        "conflict_report_present_when_candidate_conflicts_with_memory_rate",
+        "moderated_translation_present_for_soft_conflict_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v132_I06_conflict_with_avoid_boundary_ignored.json"
+    },
+    {
+      "case_id": "v132_I07_exact_luxury_item_treated_as_style_preference",
+      "defect_type": "exact_luxury_item_treated_as_style_preference",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "luxury_item_specificity_excluded_rate",
+        "item_interest_not_promoted_to_style_preference_rate"
+      ],
+      "expected_failed_check_ids": [
+        "luxury_item_specificity_excluded_rate",
+        "item_interest_not_promoted_to_style_preference_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v132_I07_exact_luxury_item_treated_as_style_preference.json"
+    },
+    {
+      "case_id": "v132_I08_cluster_merges_incompatible_candidates",
+      "defect_type": "cluster_merges_incompatible_candidates",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "dedup_cluster_only_merges_compatible_candidates_rate",
+        "conflicting_candidates_not_merged_rate"
+      ],
+      "expected_failed_check_ids": [
+        "dedup_cluster_only_merges_compatible_candidates_rate",
+        "conflicting_candidates_not_merged_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v132_I08_cluster_merges_incompatible_candidates.json"
+    },
+    {
+      "case_id": "v132_I09_confirmed_candidate_writes_production_memory",
+      "defect_type": "confirmed_candidate_writes_production_memory",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "confirmed_candidate_shadow_only_rate",
+        "no_production_memory_write_from_inspiration_confirmation_rate"
+      ],
+      "expected_failed_check_ids": [
+        "confirmed_candidate_shadow_only_rate",
+        "no_production_memory_write_from_inspiration_confirmation_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v132_I09_confirmed_candidate_writes_production_memory.json"
+    },
+    {
+      "case_id": "v132_I10_rejected_aspect_used_in_bridge",
+      "defect_type": "rejected_aspect_used_in_bridge",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "bridge_uses_confirmed_aspects_only_rate",
+        "bridge_does_not_use_rejected_aspects_rate"
+      ],
+      "expected_failed_check_ids": [
+        "bridge_uses_confirmed_aspects_only_rate",
+        "bridge_does_not_use_rejected_aspects_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v132_I10_rejected_aspect_used_in_bridge.json"
+    }
+  ],
+  "unexpected_clean_case_failures": [],
+  "unexpected_injected_passes": []
+}

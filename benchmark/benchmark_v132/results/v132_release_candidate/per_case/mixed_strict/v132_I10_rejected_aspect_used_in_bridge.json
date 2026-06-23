@@ -1,0 +1,16 @@
+{
+  "case_id": "v132_I10_rejected_aspect_used_in_bridge",
+  "version": "v1.32",
+  "defect_type": "rejected_aspect_used_in_bridge",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "bridge_uses_confirmed_aspects_only_rate",
+    "bridge_does_not_use_rejected_aspects_rate"
+  ],
+  "failed_check_ids": [
+    "bridge_uses_confirmed_aspects_only_rate",
+    "bridge_does_not_use_rejected_aspects_rate"
+  ],
+  "source_clean_case_id": "v132_A01_card_generated_from_sufficient_ideal_candidate",
+  "failure_reason": "Injected defect detected: rejected_aspect_used_in_bridge"
+}

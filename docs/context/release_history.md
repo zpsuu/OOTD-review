@@ -125,3 +125,18 @@ Current review focus:
 - privacy / rights-safe external evidence handling
 - URL metadata and inaccessible-link fallback
 - injected defect detection for inspiration safety regressions
+
+## v1.32 - Inspiration Confirmation UX & Candidate Governance
+
+Status: PASS CANDIDATE pending manual review
+
+Focus:
+- confirmation cards only after sufficient ideal candidates
+- user action required before confirmed inspiration candidates
+- confirmed candidate narrowing to liked aspects
+- scope mapping to selected contexts
+- conflict reports and moderated translations
+- do-not-remember and correction governance
+- compatible dedup clustering
+- bridge shadow runs using confirmed aspects only
+- no production memory write from inspiration confirmation

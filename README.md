@@ -14,12 +14,12 @@ The private development repository remains private. This mirror only contains re
 
 ## Current Review Target
 
-v1.31 - Inspiration Intake Shadow Pipeline
+v1.32 - Inspiration Confirmation UX & Candidate Governance
 
 Entrypoint:
 
-`benchmark/benchmark_v131/results/v131_release_candidate/REVIEW_MANIFEST.json`
+`benchmark/benchmark_v132/results/v132_release_candidate/REVIEW_MANIFEST.json`
 
 ## Status
 
-v1.31 Inspiration Intake Shadow Pipeline is PASS CANDIDATE confirmed after inspiration intake shadow pipeline review.
+v1.32 Inspiration Confirmation UX & Candidate Governance is PASS CANDIDATE pending manual review.

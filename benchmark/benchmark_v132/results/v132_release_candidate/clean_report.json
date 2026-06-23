@@ -1,0 +1,533 @@
+{
+  "benchmark_id": "v1.32.inspiration_confirmation_ux_candidate_governance",
+  "schema_version": "v1.32",
+  "generated_at": "2026-06-23T14:11:43Z",
+  "verdicts": {
+    "clean_acceptance_verdict": "pass",
+    "release_candidate_verdict": "pass_candidate"
+  },
+  "suite_summary": {
+    "total_cases": 55,
+    "passed_cases": 55,
+    "failed_cases": 0,
+    "total_checks": 26,
+    "passed_checks": 26,
+    "failed_checks": 0
+  },
+  "checks": [
+    {
+      "check_id": "confirmation_card_schema_valid_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "raw v1.32 clean artifacts satisfy this gate"
+    },
+    {
+      "check_id": "confirmation_card_only_for_sufficient_candidate_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "raw v1.32 clean artifacts satisfy this gate"
+    },
+    {
+      "check_id": "metadata_or_ambiguous_fallback_no_confirmation_card_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "raw v1.32 clean artifacts satisfy this gate"
+    },
+    {
+      "check_id": "confirmed_candidate_requires_user_action_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "raw v1.32 clean artifacts satisfy this gate"
+    },
+    {
+      "check_id": "confirmed_candidate_liked_aspects_match_user_action_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "raw v1.32 clean artifacts satisfy this gate"
+    },
+    {
+      "check_id": "confirmed_candidate_excludes_rejected_aspects_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "raw v1.32 clean artifacts satisfy this gate"
+    },
+    {
+      "check_id": "color_only_candidate_limited_to_color_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "raw v1.32 clean artifacts satisfy this gate"
+    },
+    {
+      "check_id": "context_selection_maps_to_suggested_context_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "raw v1.32 clean artifacts satisfy this gate"
+    },
+    {
+      "check_id": "date_night_not_mapped_to_office_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "raw v1.32 clean artifacts satisfy this gate"
+    },
+    {
+      "check_id": "conflict_report_present_when_candidate_conflicts_with_memory_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "raw v1.32 clean artifacts satisfy this gate"
+    },
+    {
+      "check_id": "moderated_translation_present_for_soft_conflict_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "raw v1.32 clean artifacts satisfy this gate"
+    },
+    {
+      "check_id": "do_not_remember_creates_no_candidate_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "raw v1.32 clean artifacts satisfy this gate"
+    },
+    {
+      "check_id": "correction_deprecates_wrong_candidate_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "raw v1.32 clean artifacts satisfy this gate"
+    },
+    {
+      "check_id": "confirmed_candidate_shadow_only_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "raw v1.32 clean artifacts satisfy this gate"
+    },
+    {
+      "check_id": "no_production_memory_write_from_inspiration_confirmation_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "raw v1.32 clean artifacts satisfy this gate"
+    },
+    {
+      "check_id": "dedup_cluster_only_merges_compatible_candidates_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "raw v1.32 clean artifacts satisfy this gate"
+    },
+    {
+      "check_id": "bridge_uses_confirmed_aspects_only_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "raw v1.32 clean artifacts satisfy this gate"
+    },
+    {
+      "check_id": "bridge_does_not_use_rejected_aspects_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "raw v1.32 clean artifacts satisfy this gate"
+    },
+    {
+      "check_id": "user_visible_claim_trace_coverage_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "raw v1.32 clean artifacts satisfy this gate"
+    },
+    {
+      "check_id": "confirmation_card_trace_refs_present_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "raw v1.32 clean artifacts satisfy this gate"
+    },
+    {
+      "check_id": "candidate_scope_self_proof_present_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "raw v1.32 clean artifacts satisfy this gate"
+    },
+    {
+      "check_id": "cluster_shadow_only_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "raw v1.32 clean artifacts satisfy this gate"
+    },
+    {
+      "check_id": "conflicting_candidates_not_merged_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "raw v1.32 clean artifacts satisfy this gate"
+    },
+    {
+      "check_id": "item_interest_not_promoted_to_style_preference_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "raw v1.32 clean artifacts satisfy this gate"
+    },
+    {
+      "check_id": "luxury_item_specificity_excluded_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "raw v1.32 clean artifacts satisfy this gate"
+    },
+    {
+      "check_id": "photo_lighting_excluded_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "raw v1.32 clean artifacts satisfy this gate"
+    }
+  ],
+  "case_results": [
+    {
+      "case_id": "v132_A01_card_generated_from_sufficient_ideal_candidate",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_A01_card_generated_from_sufficient_ideal_candidate.json"
+    },
+    {
+      "case_id": "v132_A02_card_not_generated_for_metadata_only_fallback",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_A02_card_not_generated_for_metadata_only_fallback.json"
+    },
+    {
+      "case_id": "v132_A03_card_not_generated_for_ambiguous_fallback",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_A03_card_not_generated_for_ambiguous_fallback.json"
+    },
+    {
+      "case_id": "v132_A04_candidate_liked_aspects_have_trace_refs",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_A04_candidate_liked_aspects_have_trace_refs.json"
+    },
+    {
+      "case_id": "v132_A05_not_confirmed_aspects_are_listed",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_A05_not_confirmed_aspects_are_listed.json"
+    },
+    {
+      "case_id": "v132_B01_confirm_overall_mood",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_B01_confirm_overall_mood.json"
+    },
+    {
+      "case_id": "v132_B02_confirm_color_only",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_B02_confirm_color_only.json"
+    },
+    {
+      "case_id": "v132_B03_confirm_silhouette_only",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_B03_confirm_silhouette_only.json"
+    },
+    {
+      "case_id": "v132_B04_confirm_item_interest",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_B04_confirm_item_interest.json"
+    },
+    {
+      "case_id": "v132_B05_confirm_context_only",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_B05_confirm_context_only.json"
+    },
+    {
+      "case_id": "v132_B06_this_time_only_creates_no_candidate",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_B06_this_time_only_creates_no_candidate.json"
+    },
+    {
+      "case_id": "v132_B07_do_not_remember_creates_no_candidate",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_B07_do_not_remember_creates_no_candidate.json"
+    },
+    {
+      "case_id": "v132_B08_correct_interpretation_supersedes_candidate",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_B08_correct_interpretation_supersedes_candidate.json"
+    },
+    {
+      "case_id": "v132_C01_date_night_selection_maps_to_date_night",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_C01_date_night_selection_maps_to_date_night.json"
+    },
+    {
+      "case_id": "v132_C02_office_selection_maps_to_office_daily",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_C02_office_selection_maps_to_office_daily.json"
+    },
+    {
+      "case_id": "v132_C03_daily_walking_maps_to_daily_city_walk",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_C03_daily_walking_maps_to_daily_city_walk.json"
+    },
+    {
+      "case_id": "v132_C04_global_selection_remains_shadow_deferred",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_C04_global_selection_remains_shadow_deferred.json"
+    },
+    {
+      "case_id": "v132_C05_unknown_scope_asks_clarification",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_C05_unknown_scope_asks_clarification.json"
+    },
+    {
+      "case_id": "v132_D01_color_only_candidate_contains_only_color_concept",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_D01_color_only_candidate_contains_only_color_concept.json"
+    },
+    {
+      "case_id": "v132_D02_silhouette_only_candidate_excludes_color",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_D02_silhouette_only_candidate_excludes_color.json"
+    },
+    {
+      "case_id": "v132_D03_item_interest_does_not_become_style_preference",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_D03_item_interest_does_not_become_style_preference.json"
+    },
+    {
+      "case_id": "v132_D04_exact_luxury_item_excluded_from_concept",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_D04_exact_luxury_item_excluded_from_concept.json"
+    },
+    {
+      "case_id": "v132_D05_photo_lighting_excluded_from_concept",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_D05_photo_lighting_excluded_from_concept.json"
+    },
+    {
+      "case_id": "v132_E01_sweet_date_night_conflicts_with_avoid_excessive_sweetness",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_E01_sweet_date_night_conflicts_with_avoid_excessive_sweetness.json"
+    },
+    {
+      "case_id": "v132_E02_sporty_inspiration_conflicts_with_avoid_gym_coded_style",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_E02_sporty_inspiration_conflicts_with_avoid_gym_coded_style.json"
+    },
+    {
+      "case_id": "v132_E03_conflict_produces_moderated_translation",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_E03_conflict_produces_moderated_translation.json"
+    },
+    {
+      "case_id": "v132_E04_conflict_does_not_block_bridge_if_safe_translation_exists",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_E04_conflict_does_not_block_bridge_if_safe_translation_exists.json"
+    },
+    {
+      "case_id": "v132_E05_hard_conflict_asks_confirmation",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_E05_hard_conflict_asks_confirmation.json"
+    },
+    {
+      "case_id": "v132_F01_repeated_low_saturation_confirmations_cluster_together",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_F01_repeated_low_saturation_confirmations_cluster_together.json"
+    },
+    {
+      "case_id": "v132_F02_color_only_and_silhouette_only_do_not_merge_incorrectly",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_F02_color_only_and_silhouette_only_do_not_merge_incorrectly.json"
+    },
+    {
+      "case_id": "v132_F03_conflicting_candidates_stay_separate",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_F03_conflicting_candidates_stay_separate.json"
+    },
+    {
+      "case_id": "v132_F04_cluster_confidence_increases_with_compatible_evidence",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_F04_cluster_confidence_increases_with_compatible_evidence.json"
+    },
+    {
+      "case_id": "v132_F05_cluster_remains_shadow_only",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_F05_cluster_remains_shadow_only.json"
+    },
+    {
+      "case_id": "v132_G01_confirmed_candidate_feeds_bridge_shadow_run",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_G01_confirmed_candidate_feeds_bridge_shadow_run.json"
+    },
+    {
+      "case_id": "v132_G02_bridge_uses_narrowed_confirmed_aspects",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_G02_bridge_uses_narrowed_confirmed_aspects.json"
+    },
+    {
+      "case_id": "v132_G03_bridge_does_not_use_rejected_aspects",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_G03_bridge_does_not_use_rejected_aspects.json"
+    },
+    {
+      "case_id": "v132_G04_gap_diagnosis_matches_confirmed_concept",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_G04_gap_diagnosis_matches_confirmed_concept.json"
+    },
+    {
+      "case_id": "v132_G05_no_buy_step_generated_from_confirmed_concept",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_G05_no_buy_step_generated_from_confirmed_concept.json"
+    },
+    {
+      "case_id": "v132_H01_confirmed_candidate_still_no_production_write",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_H01_confirmed_candidate_still_no_production_write.json"
+    },
+    {
+      "case_id": "v132_H02_remember_later_routes_to_deferred_candidate_no_store_write",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_H02_remember_later_routes_to_deferred_candidate_no_store_write.json"
+    },
+    {
+      "case_id": "v132_H03_do_not_remember_not_reused",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_H03_do_not_remember_not_reused.json"
+    },
+    {
+      "case_id": "v132_H04_correction_deprecates_wrong_candidate",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_H04_correction_deprecates_wrong_candidate.json"
+    },
+    {
+      "case_id": "v132_H05_user_visible_claims_trace_backed",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_H05_user_visible_claims_trace_backed.json"
+    },
+    {
+      "case_id": "v132_J01_metadata_only_url_requests_screenshot",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_J01_metadata_only_url_requests_screenshot.json"
+    },
+    {
+      "case_id": "v132_J02_ambiguous_share_requests_liked_aspect",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_J02_ambiguous_share_requests_liked_aspect.json"
+    },
+    {
+      "case_id": "v132_J03_confirmation_card_lists_unconfirmed_exact_items",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_J03_confirmation_card_lists_unconfirmed_exact_items.json"
+    },
+    {
+      "case_id": "v132_J04_confirmation_action_records_rejected_aspects",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_J04_confirmation_action_records_rejected_aspects.json"
+    },
+    {
+      "case_id": "v132_J05_global_candidate_requires_future_write_gate",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_J05_global_candidate_requires_future_write_gate.json"
+    },
+    {
+      "case_id": "v132_J06_office_context_preserved_in_shadow_candidate",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_J06_office_context_preserved_in_shadow_candidate.json"
+    },
+    {
+      "case_id": "v132_J07_daily_city_walk_context_preserved_in_shadow_candidate",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_J07_daily_city_walk_context_preserved_in_shadow_candidate.json"
+    },
+    {
+      "case_id": "v132_J08_item_interest_keeps_category_level_only",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_J08_item_interest_keeps_category_level_only.json"
+    },
+    {
+      "case_id": "v132_J09_luxury_brand_specificity_remains_excluded",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_J09_luxury_brand_specificity_remains_excluded.json"
+    },
+    {
+      "case_id": "v132_J10_photo_lighting_remains_excluded",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_J10_photo_lighting_remains_excluded.json"
+    },
+    {
+      "case_id": "v132_J11_conflict_report_remains_shadow_only",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_J11_conflict_report_remains_shadow_only.json"
+    },
+    {
+      "case_id": "v132_J12_bridge_reality_outfit_closet_grounded",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v132_J12_bridge_reality_outfit_closet_grounded.json"
+    }
+  ]
+}

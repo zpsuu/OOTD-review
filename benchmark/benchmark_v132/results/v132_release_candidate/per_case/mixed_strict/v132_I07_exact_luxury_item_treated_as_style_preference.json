@@ -1,0 +1,16 @@
+{
+  "case_id": "v132_I07_exact_luxury_item_treated_as_style_preference",
+  "version": "v1.32",
+  "defect_type": "exact_luxury_item_treated_as_style_preference",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "luxury_item_specificity_excluded_rate",
+    "item_interest_not_promoted_to_style_preference_rate"
+  ],
+  "failed_check_ids": [
+    "luxury_item_specificity_excluded_rate",
+    "item_interest_not_promoted_to_style_preference_rate"
+  ],
+  "source_clean_case_id": "v132_A01_card_generated_from_sufficient_ideal_candidate",
+  "failure_reason": "Injected defect detected: exact_luxury_item_treated_as_style_preference"
+}

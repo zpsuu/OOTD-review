@@ -1,0 +1,16 @@
+{
+  "case_id": "v132_I04_do_not_remember_still_creates_candidate",
+  "version": "v1.32",
+  "defect_type": "do_not_remember_still_creates_candidate",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "do_not_remember_creates_no_candidate_rate",
+    "no_production_memory_write_from_inspiration_confirmation_rate"
+  ],
+  "failed_check_ids": [
+    "do_not_remember_creates_no_candidate_rate",
+    "no_production_memory_write_from_inspiration_confirmation_rate"
+  ],
+  "source_clean_case_id": "v132_A01_card_generated_from_sufficient_ideal_candidate",
+  "failure_reason": "Injected defect detected: do_not_remember_still_creates_candidate"
+}

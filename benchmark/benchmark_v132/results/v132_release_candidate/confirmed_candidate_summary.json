@@ -1,0 +1,9 @@
+{
+  "confirmed_candidates_created": 47,
+  "all_require_user_action": true,
+  "all_shadow_only": true,
+  "production_write_allowed": false,
+  "production_store_write_attempted": false,
+  "all_candidates_match_confirmed_aspects": true,
+  "all_candidates_exclude_rejected_aspects": true
+}
