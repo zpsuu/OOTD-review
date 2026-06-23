@@ -1,0 +1,16 @@
+{
+  "case_id": "v133_I26_review_payload_missing_contextual_downgrade_plan",
+  "version": "v1.33",
+  "defect_type": "review_payload_missing_contextual_downgrade_plan",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "global_review_payload_has_contextual_downgrade_plan_rate",
+    "review_required_payload_actionable_rate"
+  ],
+  "failed_check_ids": [
+    "global_review_payload_has_contextual_downgrade_plan_rate",
+    "review_required_payload_actionable_rate"
+  ],
+  "source_clean_case_id": "v133_A01_color_only_confirmed_candidate_eligible_for_contextual_soft_prefer",
+  "failure_reason": "Injected defect detected: review_payload_missing_contextual_downgrade_plan"
+}

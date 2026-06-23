@@ -11,9 +11,9 @@ Confirmed Inspiration Memory Promotion Governance.
 ## Evidence
 
 - Clean acceptance: 54/54 cases pass
-- Clean checks: 25/25 checks pass
+- Clean checks: 44/44 checks pass
 - Mixed strict: expected fail with injected defects
-- Injected defect detection: 12/12 seeded defects detected
+- Injected defect detection: 28/28 seeded defects detected
 
 ## Boundaries
 

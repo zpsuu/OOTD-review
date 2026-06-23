@@ -1,0 +1,14 @@
+{
+  "case_id": "v133_I20_post_rollback_memory_still_active",
+  "version": "v1.33",
+  "defect_type": "post_rollback_memory_still_active",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "post_rollback_memory_absent_from_active_state_rate"
+  ],
+  "failed_check_ids": [
+    "post_rollback_memory_absent_from_active_state_rate"
+  ],
+  "source_clean_case_id": "v133_A01_color_only_confirmed_candidate_eligible_for_contextual_soft_prefer",
+  "failure_reason": "Injected defect detected: post_rollback_memory_still_active"
+}

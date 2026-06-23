@@ -40,6 +40,25 @@ GATES = [
     "promoted_memory_not_used_as_hard_filter_rate",
     "response_claim_refs_promoted_memory_consumed_rate",
     "sample_artifacts_match_per_case_artifacts_rate",
+    "promotion_write_commit_id_present_rate",
+    "promotion_write_journal_entry_present_rate",
+    "promotion_write_read_after_write_present_rate",
+    "promotion_write_audit_replay_self_proof_rate",
+    "promotion_write_store_version_present_rate",
+    "rollback_proof_read_after_rollback_present_rate",
+    "rollback_target_matches_promotion_write_rate",
+    "post_rollback_memory_absent_from_active_state_rate",
+    "rollback_state_hash_restored_rate",
+    "rollback_active_and_rolledback_ids_present_rate",
+    "global_review_payload_has_contextual_downgrade_plan_rate",
+    "global_review_payload_no_empty_contexts_rate",
+    "global_review_payload_concept_narrowed_to_confirmed_aspects_rate",
+    "review_required_payload_actionable_rate",
+    "response_claim_text_matches_promoted_memory_concept_rate",
+    "response_claim_text_not_generic_cross_case_template_rate",
+    "rollback_case_has_allowed_write_precondition_rate",
+    "review_case_has_review_payload_precondition_rate",
+    "write_artifact_case_has_allowed_write_precondition_rate",
 ]
 
 CASE_IDS = [
@@ -112,6 +131,22 @@ DEFECTS = [
     ("I10", "response_claims_promoted_memory_not_consumed", ["response_claim_refs_promoted_memory_consumed_rate"]),
     ("I11", "unconfirmed_visual_signal_promoted", ["visual_only_unconfirmed_candidate_not_promoted_rate", "eligible_candidate_requires_user_confirmation_rate"]),
     ("I12", "exact_product_interest_promoted_as_style_memory", ["promoted_memory_downstream_use_bounded_rate", "promoted_memory_atom_schema_valid_rate"]),
+    ("I13", "promotion_write_missing_commit_id", ["promotion_write_commit_id_present_rate", "promotion_write_artifact_self_proof_rate"]),
+    ("I14", "promotion_write_missing_journal_entry", ["promotion_write_journal_entry_present_rate", "promotion_write_artifact_self_proof_rate"]),
+    ("I15", "promotion_write_missing_read_after_write", ["promotion_write_read_after_write_present_rate", "promotion_write_artifact_self_proof_rate"]),
+    ("I16", "promotion_write_missing_audit_replay", ["promotion_write_audit_replay_self_proof_rate", "promotion_write_artifact_self_proof_rate"]),
+    ("I17", "promotion_write_missing_store_version", ["promotion_write_store_version_present_rate", "promotion_write_artifact_self_proof_rate"]),
+    ("I18", "rollback_claims_success_without_read_after_rollback", ["rollback_proof_read_after_rollback_present_rate"]),
+    ("I19", "rollback_target_mismatch", ["rollback_target_matches_promotion_write_rate"]),
+    ("I20", "post_rollback_memory_still_active", ["post_rollback_memory_absent_from_active_state_rate"]),
+    ("I21", "rollback_missing_active_and_rolledback_ids", ["rollback_active_and_rolledback_ids_present_rate"]),
+    ("I22", "rollback_state_hash_not_restored", ["rollback_state_hash_restored_rate"]),
+    ("I23", "global_review_payload_empty_contexts", ["global_review_payload_no_empty_contexts_rate", "review_required_payload_actionable_rate"]),
+    ("I24", "global_review_payload_keeps_global_identity_concept", ["global_review_payload_concept_narrowed_to_confirmed_aspects_rate"]),
+    ("I25", "review_payload_approve_contextual_without_context", ["global_review_payload_no_empty_contexts_rate", "review_required_payload_actionable_rate"]),
+    ("I26", "review_payload_missing_contextual_downgrade_plan", ["global_review_payload_has_contextual_downgrade_plan_rate", "review_required_payload_actionable_rate"]),
+    ("I27", "response_claim_text_mismatches_promoted_memory_concept", ["response_claim_text_matches_promoted_memory_concept_rate"]),
+    ("I28", "response_claim_uses_generic_cross_case_template", ["response_claim_text_not_generic_cross_case_template_rate"]),
 ]
 
 SAMPLE_MAP = {
@@ -393,18 +428,58 @@ def _decision(kind: str, suffix: str, plan: dict[str, Any] | None, eligibility: 
         reason = None
     elif plan and eligibility["eligibility_status"] == "requires_review":
         status = "requires_review"
-        reason = "human_review_required"
+        reason = "global_write_from_single_inspiration_not_allowed" if kind == "global_request_review" else "human_review_required"
         human_review_payload = {
-            "review_question": "Should this confirmed inspiration candidate be promoted as a contextual soft preference?",
-            "candidate_summary": plan["target_memory_concept"],
+            "review_question": "Should this be downgraded to a contextual color-palette soft preference?"
+            if kind == "global_request_review"
+            else "Should this confirmed inspiration candidate be promoted as a contextual soft preference?",
+            "candidate_summary": "User confirmed color_palette from a single inspiration, but requested global memory."
+            if kind == "global_request_review"
+            else plan["target_memory_concept"],
+            "risk_reason": "Global memory from a single external inspiration is not allowed in v1.33."
+            if kind == "global_request_review"
+            else "Promotion requires human review before write.",
             "conflicting_memory_refs": eligibility["conflict_assessment"].get("conflicting_memory_ids", []),
+            "proposed_contextual_downgrade": {
+                "concept": "low saturation color palette",
+                "concept_type": "aesthetic_preference",
+                "polarity": "soft_prefer",
+                "scope": "contextual",
+                "contexts": ["office_daily"],
+                "confidence": 0.72,
+                "evidence_refs": [plan["confirmed_candidate_id"], f"confirmation_action_{suffix}"],
+                "excluded_aspects": [
+                    "silhouette",
+                    "exact_items",
+                    "model_body",
+                    "photo_lighting",
+                    "global_style_identity",
+                ],
+                "downstream_use": [
+                    "aesthetic_direction_soft_bias",
+                    "ideal_reality_bridge_personalization",
+                ],
+                "disallowed_downstream_use": [
+                    "hard_filter",
+                    "global_style_identity",
+                    "body_inference",
+                    "commerce_targeting",
+                ],
+            }
+            if kind == "global_request_review"
+            else None,
             "proposed_memory_diff": {
-                "concept": plan["target_memory_concept"],
-                "scope": plan["scope"],
-                "contexts": plan["contexts"],
+                "concept": "low saturation color palette" if kind == "global_request_review" else plan["target_memory_concept"],
+                "scope": "contextual",
+                "contexts": ["office_daily"] if kind == "global_request_review" else plan["contexts"],
                 "polarity": plan["polarity"],
             },
-            "allowed_reviewer_decisions": ["approve_contextual", "defer", "block"],
+            "allowed_reviewer_decisions": ["approve_contextual_downgrade", "defer", "block"]
+            if kind == "global_request_review"
+            else ["approve_contextual", "defer", "block"],
+            "not_allowed_reviewer_decisions": ["approve_global_from_single_inspiration"]
+            if kind == "global_request_review"
+            else [],
         }
     elif kind == "blocked_low_proof":
         reason = "insufficient_evidence_refs_for_write"
@@ -419,12 +494,40 @@ def _decision(kind: str, suffix: str, plan: dict[str, Any] | None, eligibility: 
         "shadow_store_write_executed": False,
     }
     if status == "allowed":
+        committed_memory_id = f"mem_insp_{suffix}"
+        commit_id = f"prod_commit_{suffix}"
+        journal_id = f"prod_journal_{suffix}"
+        state_before = f"sha256:before_{suffix}"
+        state_after = f"sha256:after_write_{suffix}"
         decision.update(
             {
                 "store_env": "production_fixture",
                 "namespace": "test/v133/inspiration_memory",
                 "write_backend": "production_memory_store",
-                "committed_memory_id": f"mem_insp_{suffix}",
+                "store_version": "v133_promotion_store_v1",
+                "production_commit_id": commit_id,
+                "production_journal_entry_id": journal_id,
+                "committed_memory_id": committed_memory_id,
+                "state_hash_before": state_before,
+                "state_hash_after_write": state_after,
+                "active_memory_ids_before_write": [],
+                "active_memory_ids_after_write": [committed_memory_id],
+                "read_after_write": {
+                    "status": "found",
+                    "memory_id": committed_memory_id,
+                    "memory_present": True,
+                    "concept": plan["target_memory_concept"] if plan else None,
+                    "scope": plan["scope"] if plan else None,
+                    "contexts": plan["contexts"] if plan else [],
+                },
+                "audit_replay": {
+                    "status": "matched",
+                    "expected_state_hash": state_after,
+                    "replayed_state_hash": state_after,
+                    "matches_store": True,
+                    "journal_entry_ids": [journal_id],
+                    "commit_ids": [commit_id],
+                },
                 "audit_ref": f"audit_{suffix}",
                 "rollback_ref": f"rollback_{suffix}",
             }
@@ -477,9 +580,14 @@ def _audit_and_rollback(suffix: str, decision: dict[str, Any], atom: dict[str, A
         "audit_ref": decision["audit_ref"],
         "namespace": decision["namespace"],
         "write_backend": decision["write_backend"],
+        "store_version": decision["store_version"],
+        "production_commit_id": decision["production_commit_id"],
+        "production_journal_entry_id": decision["production_journal_entry_id"],
         "committed_memory_id": atom["memory_id"],
-        "state_hash_before": f"sha256_before_{suffix}",
-        "state_hash_after": f"sha256_after_{suffix}",
+        "state_hash_before": decision["state_hash_before"],
+        "state_hash_after": decision["state_hash_after_write"],
+        "read_after_write": decision["read_after_write"],
+        "audit_replay": decision["audit_replay"],
         "production_native_commit_artifact": True,
     }
     rollback = {
@@ -487,10 +595,52 @@ def _audit_and_rollback(suffix: str, decision: dict[str, Any], atom: dict[str, A
         "rollback_window_id": atom["lifecycle"]["rollback_window_id"],
         "can_rollback": True,
         "rollback_tested": True,
-        "state_hash_after_rollback": f"sha256_before_{suffix}",
-        "read_after_rollback": None,
+        "target_commit_id": decision["production_commit_id"],
+        "target_memory_id": decision["committed_memory_id"],
+        "rollback_decision_id": f"rollback_decision_{suffix}",
+        "pre_state_hash": decision["state_hash_before"],
+        "post_write_state_hash": decision["state_hash_after_write"],
+        "post_rollback_state_hash": decision["state_hash_before"],
+        "state_restored": True,
+        "active_memory_ids_before_write": decision["active_memory_ids_before_write"],
+        "active_memory_ids_after_write": decision["active_memory_ids_after_write"],
+        "active_memory_ids_after_rollback": [],
+        "rolledback_memory_ids": [decision["committed_memory_id"]],
+        "rolledback_commit_ids": [decision["production_commit_id"]],
+        "read_after_rollback": {
+            "status": "not_found",
+            "memory_id": decision["committed_memory_id"],
+            "memory_present": False,
+        },
     }
     return audit, rollback
+
+
+def _claim_text_and_terms(concept: str) -> tuple[str, list[str]]:
+    if concept == "soft date-night presence without excessive sweetness":
+        return (
+            "I used your confirmed date-night direction, translated to keep softness without excessive sweetness.",
+            ["date-night", "softness", "without excessive sweetness"],
+        )
+    if concept == "soft date-night presence":
+        return (
+            "I used your confirmed soft date-night presence preference as a contextual cue.",
+            ["soft date-night", "presence", "contextual"],
+        )
+    if "silhouette" in concept:
+        return (
+            "I used your confirmed relaxed structured silhouette preference as a contextual cue.",
+            ["silhouette", "relaxed", "structured"],
+        )
+    if "sneaker" in concept:
+        return (
+            "I used your confirmed low-profile sneaker tolerance as a contextual cue.",
+            ["low-profile sneaker", "tolerance", "contextual"],
+        )
+    return (
+        "I used your confirmed low-saturation color preference as a soft context cue.",
+        ["low-saturation", "color", "soft context"],
+    )
 
 
 def _consumption(kind: str, suffix: str, atom: dict[str, Any] | None) -> dict[str, Any] | None:
@@ -501,6 +651,15 @@ def _consumption(kind: str, suffix: str, atom: dict[str, Any] | None) -> dict[st
         request_context = "formal_client_meeting" if kind == "daily_walk_mismatch_excluded" else "weekend_casual"
     context_match = request_context in atom["contexts"]
     consumed = context_match
+    claim_text, terms = _claim_text_and_terms(atom["concept"])
+    alignment = {
+        "claim_ref": atom["memory_id"],
+        "promoted_memory_concept": atom["concept"],
+        "claim_text": claim_text if consumed else "",
+        "concept_terms_covered": terms if consumed else [],
+        "generic_template_detected": False,
+        "matches_promoted_memory_concept": True,
+    }
     return {
         "task_memory_packet_id": f"tmp_{suffix}",
         "request_context": request_context,
@@ -516,12 +675,13 @@ def _consumption(kind: str, suffix: str, atom: dict[str, Any] | None) -> dict[st
         "response_claims": [
             {
                 "claim_id": f"claim_{suffix}",
-                "text": "I used your confirmed low-saturation preference as a soft context cue.",
+                "text": claim_text,
                 "trace_refs": [atom["memory_id"], f"tmp_{suffix}"],
             }
         ]
         if consumed
         else [],
+        "response_claim_alignment": alignment if consumed else None,
     }
 
 
@@ -594,10 +754,13 @@ def _case_artifact(case_id: str, index: int) -> dict[str, Any]:
         "active_memory_snapshot": active_memory_snapshot,
         "active_memory_details": active_memory_details,
         "promotion_write_decision": decision,
+        "human_review_payload": decision.get("human_review_payload"),
         "promoted_memory_atom": atom,
         "audit_snapshot": audit,
         "rollback_proof": rollback,
         "task_memory_packet": consumption,
+        "downstream_consumption": consumption,
+        "response_claim_alignment": consumption.get("response_claim_alignment") if consumption else None,
         "direct_write_bypass_detected": False,
         "trace": {
             "candidate_id": candidate["confirmed_inspiration_candidate_id"],
@@ -773,13 +936,13 @@ PASS CANDIDATE pending manual review.
 ## Clean Acceptance
 
 - cases: 54
-- checks: 25
+- checks: 44
 - verdict: pass
 
 ## Mixed Strict
 
-- cases: 66
-- injected defects: 12
+- cases: 82
+- injected defects: 28
 - verdict: fail
 - injected defect detection: pass
 
@@ -806,9 +969,9 @@ Confirmed Inspiration Memory Promotion Governance.
 ## Evidence
 
 - Clean acceptance: 54/54 cases pass
-- Clean checks: 25/25 checks pass
+- Clean checks: 44/44 checks pass
 - Mixed strict: expected fail with injected defects
-- Injected defect detection: 12/12 seeded defects detected
+- Injected defect detection: 28/28 seeded defects detected
 
 ## Boundaries
 

@@ -160,10 +160,42 @@
     "store_env": "production_fixture",
     "namespace": "test/v133/inspiration_memory",
     "write_backend": "production_memory_store",
+    "store_version": "v133_promotion_store_v1",
+    "production_commit_id": "prod_commit_v133_31",
+    "production_journal_entry_id": "prod_journal_v133_31",
     "committed_memory_id": "mem_insp_v133_31",
+    "state_hash_before": "sha256:before_v133_31",
+    "state_hash_after_write": "sha256:after_write_v133_31",
+    "active_memory_ids_before_write": [],
+    "active_memory_ids_after_write": [
+      "mem_insp_v133_31"
+    ],
+    "read_after_write": {
+      "status": "found",
+      "memory_id": "mem_insp_v133_31",
+      "memory_present": true,
+      "concept": "low-profile sneaker tolerance",
+      "scope": "contextual",
+      "contexts": [
+        "daily_city_walk"
+      ]
+    },
+    "audit_replay": {
+      "status": "matched",
+      "expected_state_hash": "sha256:after_write_v133_31",
+      "replayed_state_hash": "sha256:after_write_v133_31",
+      "matches_store": true,
+      "journal_entry_ids": [
+        "prod_journal_v133_31"
+      ],
+      "commit_ids": [
+        "prod_commit_v133_31"
+      ]
+    },
     "audit_ref": "audit_v133_31",
     "rollback_ref": "rollback_v133_31"
   },
+  "human_review_payload": null,
   "promoted_memory_atom": {
     "memory_id": "mem_insp_v133_31",
     "concept": "low-profile sneaker tolerance",
@@ -222,9 +254,34 @@
     "audit_ref": "audit_v133_31",
     "namespace": "test/v133/inspiration_memory",
     "write_backend": "production_memory_store",
+    "store_version": "v133_promotion_store_v1",
+    "production_commit_id": "prod_commit_v133_31",
+    "production_journal_entry_id": "prod_journal_v133_31",
     "committed_memory_id": "mem_insp_v133_31",
-    "state_hash_before": "sha256_before_v133_31",
-    "state_hash_after": "sha256_after_v133_31",
+    "state_hash_before": "sha256:before_v133_31",
+    "state_hash_after": "sha256:after_write_v133_31",
+    "read_after_write": {
+      "status": "found",
+      "memory_id": "mem_insp_v133_31",
+      "memory_present": true,
+      "concept": "low-profile sneaker tolerance",
+      "scope": "contextual",
+      "contexts": [
+        "daily_city_walk"
+      ]
+    },
+    "audit_replay": {
+      "status": "matched",
+      "expected_state_hash": "sha256:after_write_v133_31",
+      "replayed_state_hash": "sha256:after_write_v133_31",
+      "matches_store": true,
+      "journal_entry_ids": [
+        "prod_journal_v133_31"
+      ],
+      "commit_ids": [
+        "prod_commit_v133_31"
+      ]
+    },
     "production_native_commit_artifact": true
   },
   "rollback_proof": {
@@ -232,8 +289,29 @@
     "rollback_window_id": "rbw_v133_31",
     "can_rollback": true,
     "rollback_tested": true,
-    "state_hash_after_rollback": "sha256_before_v133_31",
-    "read_after_rollback": null
+    "target_commit_id": "prod_commit_v133_31",
+    "target_memory_id": "mem_insp_v133_31",
+    "rollback_decision_id": "rollback_decision_v133_31",
+    "pre_state_hash": "sha256:before_v133_31",
+    "post_write_state_hash": "sha256:after_write_v133_31",
+    "post_rollback_state_hash": "sha256:before_v133_31",
+    "state_restored": true,
+    "active_memory_ids_before_write": [],
+    "active_memory_ids_after_write": [
+      "mem_insp_v133_31"
+    ],
+    "active_memory_ids_after_rollback": [],
+    "rolledback_memory_ids": [
+      "mem_insp_v133_31"
+    ],
+    "rolledback_commit_ids": [
+      "prod_commit_v133_31"
+    ],
+    "read_after_rollback": {
+      "status": "not_found",
+      "memory_id": "mem_insp_v133_31",
+      "memory_present": false
+    }
   },
   "task_memory_packet": {
     "task_memory_packet_id": "tmp_v133_31",
@@ -249,8 +327,27 @@
     "hard_filter_used": false,
     "daily_outfit_effect": null,
     "bridge_use": null,
-    "response_claims": []
+    "response_claims": [],
+    "response_claim_alignment": null
   },
+  "downstream_consumption": {
+    "task_memory_packet_id": "tmp_v133_31",
+    "request_context": "formal_client_meeting",
+    "candidate_memory_id": "mem_insp_v133_31",
+    "context_match": false,
+    "consumed_memory_ids": [],
+    "excluded_memory_ids": [
+      "mem_insp_v133_31"
+    ],
+    "exclusion_reason": "context_mismatch",
+    "use_type": null,
+    "hard_filter_used": false,
+    "daily_outfit_effect": null,
+    "bridge_use": null,
+    "response_claims": [],
+    "response_claim_alignment": null
+  },
+  "response_claim_alignment": null,
   "direct_write_bypass_detected": false,
   "trace": {
     "candidate_id": "cic_v133_31",

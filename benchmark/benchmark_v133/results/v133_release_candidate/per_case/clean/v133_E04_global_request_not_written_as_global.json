@@ -143,28 +143,120 @@
     "production_store_write_executed": false,
     "shadow_store_write_attempted": false,
     "shadow_store_write_executed": false,
-    "reason": "human_review_required",
+    "reason": "global_write_from_single_inspiration_not_allowed",
     "human_review_payload": {
-      "review_question": "Should this confirmed inspiration candidate be promoted as a contextual soft preference?",
-      "candidate_summary": "single inspiration global style identity request",
+      "review_question": "Should this be downgraded to a contextual color-palette soft preference?",
+      "candidate_summary": "User confirmed color_palette from a single inspiration, but requested global memory.",
+      "risk_reason": "Global memory from a single external inspiration is not allowed in v1.33.",
       "conflicting_memory_refs": [],
-      "proposed_memory_diff": {
-        "concept": "single inspiration global style identity request",
+      "proposed_contextual_downgrade": {
+        "concept": "low saturation color palette",
+        "concept_type": "aesthetic_preference",
+        "polarity": "soft_prefer",
         "scope": "contextual",
-        "contexts": [],
+        "contexts": [
+          "office_daily"
+        ],
+        "confidence": 0.72,
+        "evidence_refs": [
+          "cic_v133_32",
+          "confirmation_action_v133_32"
+        ],
+        "excluded_aspects": [
+          "silhouette",
+          "exact_items",
+          "model_body",
+          "photo_lighting",
+          "global_style_identity"
+        ],
+        "downstream_use": [
+          "aesthetic_direction_soft_bias",
+          "ideal_reality_bridge_personalization"
+        ],
+        "disallowed_downstream_use": [
+          "hard_filter",
+          "global_style_identity",
+          "body_inference",
+          "commerce_targeting"
+        ]
+      },
+      "proposed_memory_diff": {
+        "concept": "low saturation color palette",
+        "scope": "contextual",
+        "contexts": [
+          "office_daily"
+        ],
         "polarity": "soft_prefer"
       },
       "allowed_reviewer_decisions": [
-        "approve_contextual",
+        "approve_contextual_downgrade",
         "defer",
         "block"
+      ],
+      "not_allowed_reviewer_decisions": [
+        "approve_global_from_single_inspiration"
       ]
     }
+  },
+  "human_review_payload": {
+    "review_question": "Should this be downgraded to a contextual color-palette soft preference?",
+    "candidate_summary": "User confirmed color_palette from a single inspiration, but requested global memory.",
+    "risk_reason": "Global memory from a single external inspiration is not allowed in v1.33.",
+    "conflicting_memory_refs": [],
+    "proposed_contextual_downgrade": {
+      "concept": "low saturation color palette",
+      "concept_type": "aesthetic_preference",
+      "polarity": "soft_prefer",
+      "scope": "contextual",
+      "contexts": [
+        "office_daily"
+      ],
+      "confidence": 0.72,
+      "evidence_refs": [
+        "cic_v133_32",
+        "confirmation_action_v133_32"
+      ],
+      "excluded_aspects": [
+        "silhouette",
+        "exact_items",
+        "model_body",
+        "photo_lighting",
+        "global_style_identity"
+      ],
+      "downstream_use": [
+        "aesthetic_direction_soft_bias",
+        "ideal_reality_bridge_personalization"
+      ],
+      "disallowed_downstream_use": [
+        "hard_filter",
+        "global_style_identity",
+        "body_inference",
+        "commerce_targeting"
+      ]
+    },
+    "proposed_memory_diff": {
+      "concept": "low saturation color palette",
+      "scope": "contextual",
+      "contexts": [
+        "office_daily"
+      ],
+      "polarity": "soft_prefer"
+    },
+    "allowed_reviewer_decisions": [
+      "approve_contextual_downgrade",
+      "defer",
+      "block"
+    ],
+    "not_allowed_reviewer_decisions": [
+      "approve_global_from_single_inspiration"
+    ]
   },
   "promoted_memory_atom": null,
   "audit_snapshot": null,
   "rollback_proof": null,
   "task_memory_packet": null,
+  "downstream_consumption": null,
+  "response_claim_alignment": null,
   "direct_write_bypass_detected": false,
   "trace": {
     "candidate_id": "cic_v133_32",

@@ -1,0 +1,16 @@
+{
+  "case_id": "v133_I13_promotion_write_missing_commit_id",
+  "version": "v1.33",
+  "defect_type": "promotion_write_missing_commit_id",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "promotion_write_commit_id_present_rate",
+    "promotion_write_artifact_self_proof_rate"
+  ],
+  "failed_check_ids": [
+    "promotion_write_commit_id_present_rate",
+    "promotion_write_artifact_self_proof_rate"
+  ],
+  "source_clean_case_id": "v133_A01_color_only_confirmed_candidate_eligible_for_contextual_soft_prefer",
+  "failure_reason": "Injected defect detected: promotion_write_missing_commit_id"
+}

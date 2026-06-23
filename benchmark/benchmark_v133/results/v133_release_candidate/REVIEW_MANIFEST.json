@@ -4,7 +4,7 @@
   "branch": "v133-confirmed-inspiration-memory-promotion-governance",
   "theme": "Confirmed Inspiration Memory Promotion Governance",
   "entrypoint": "benchmark/benchmark_v133/results/v133_release_candidate/REVIEW_MANIFEST.json",
-  "generated_at": "2026-06-23T15:05:55Z",
+  "generated_at": "2026-06-23T15:21:27Z",
   "scope": {
     "goals": [
       "Evaluate promotion eligibility for confirmed inspiration candidates",
@@ -53,7 +53,26 @@
     "promoted_memory_consumed_only_matching_context_rate",
     "promoted_memory_not_used_as_hard_filter_rate",
     "response_claim_refs_promoted_memory_consumed_rate",
-    "sample_artifacts_match_per_case_artifacts_rate"
+    "sample_artifacts_match_per_case_artifacts_rate",
+    "promotion_write_commit_id_present_rate",
+    "promotion_write_journal_entry_present_rate",
+    "promotion_write_read_after_write_present_rate",
+    "promotion_write_audit_replay_self_proof_rate",
+    "promotion_write_store_version_present_rate",
+    "rollback_proof_read_after_rollback_present_rate",
+    "rollback_target_matches_promotion_write_rate",
+    "post_rollback_memory_absent_from_active_state_rate",
+    "rollback_state_hash_restored_rate",
+    "rollback_active_and_rolledback_ids_present_rate",
+    "global_review_payload_has_contextual_downgrade_plan_rate",
+    "global_review_payload_no_empty_contexts_rate",
+    "global_review_payload_concept_narrowed_to_confirmed_aspects_rate",
+    "review_required_payload_actionable_rate",
+    "response_claim_text_matches_promoted_memory_concept_rate",
+    "response_claim_text_not_generic_cross_case_template_rate",
+    "rollback_case_has_allowed_write_precondition_rate",
+    "review_case_has_review_payload_precondition_rate",
+    "write_artifact_case_has_allowed_write_precondition_rate"
   ],
   "must_review_samples": [
     "sample_artifacts/color_only_contextual_promotion_allowed.json",

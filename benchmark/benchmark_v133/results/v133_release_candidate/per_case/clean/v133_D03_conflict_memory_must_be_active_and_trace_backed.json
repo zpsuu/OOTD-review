@@ -177,10 +177,42 @@
     "store_env": "production_fixture",
     "namespace": "test/v133/inspiration_memory",
     "write_backend": "production_memory_store",
+    "store_version": "v133_promotion_store_v1",
+    "production_commit_id": "prod_commit_v133_25",
+    "production_journal_entry_id": "prod_journal_v133_25",
     "committed_memory_id": "mem_insp_v133_25",
+    "state_hash_before": "sha256:before_v133_25",
+    "state_hash_after_write": "sha256:after_write_v133_25",
+    "active_memory_ids_before_write": [],
+    "active_memory_ids_after_write": [
+      "mem_insp_v133_25"
+    ],
+    "read_after_write": {
+      "status": "found",
+      "memory_id": "mem_insp_v133_25",
+      "memory_present": true,
+      "concept": "soft date-night presence without excessive sweetness",
+      "scope": "contextual",
+      "contexts": [
+        "date_night"
+      ]
+    },
+    "audit_replay": {
+      "status": "matched",
+      "expected_state_hash": "sha256:after_write_v133_25",
+      "replayed_state_hash": "sha256:after_write_v133_25",
+      "matches_store": true,
+      "journal_entry_ids": [
+        "prod_journal_v133_25"
+      ],
+      "commit_ids": [
+        "prod_commit_v133_25"
+      ]
+    },
     "audit_ref": "audit_v133_25",
     "rollback_ref": "rollback_v133_25"
   },
+  "human_review_payload": null,
   "promoted_memory_atom": {
     "memory_id": "mem_insp_v133_25",
     "concept": "soft date-night presence without excessive sweetness",
@@ -238,9 +270,34 @@
     "audit_ref": "audit_v133_25",
     "namespace": "test/v133/inspiration_memory",
     "write_backend": "production_memory_store",
+    "store_version": "v133_promotion_store_v1",
+    "production_commit_id": "prod_commit_v133_25",
+    "production_journal_entry_id": "prod_journal_v133_25",
     "committed_memory_id": "mem_insp_v133_25",
-    "state_hash_before": "sha256_before_v133_25",
-    "state_hash_after": "sha256_after_v133_25",
+    "state_hash_before": "sha256:before_v133_25",
+    "state_hash_after": "sha256:after_write_v133_25",
+    "read_after_write": {
+      "status": "found",
+      "memory_id": "mem_insp_v133_25",
+      "memory_present": true,
+      "concept": "soft date-night presence without excessive sweetness",
+      "scope": "contextual",
+      "contexts": [
+        "date_night"
+      ]
+    },
+    "audit_replay": {
+      "status": "matched",
+      "expected_state_hash": "sha256:after_write_v133_25",
+      "replayed_state_hash": "sha256:after_write_v133_25",
+      "matches_store": true,
+      "journal_entry_ids": [
+        "prod_journal_v133_25"
+      ],
+      "commit_ids": [
+        "prod_commit_v133_25"
+      ]
+    },
     "production_native_commit_artifact": true
   },
   "rollback_proof": {
@@ -248,8 +305,29 @@
     "rollback_window_id": "rbw_v133_25",
     "can_rollback": true,
     "rollback_tested": true,
-    "state_hash_after_rollback": "sha256_before_v133_25",
-    "read_after_rollback": null
+    "target_commit_id": "prod_commit_v133_25",
+    "target_memory_id": "mem_insp_v133_25",
+    "rollback_decision_id": "rollback_decision_v133_25",
+    "pre_state_hash": "sha256:before_v133_25",
+    "post_write_state_hash": "sha256:after_write_v133_25",
+    "post_rollback_state_hash": "sha256:before_v133_25",
+    "state_restored": true,
+    "active_memory_ids_before_write": [],
+    "active_memory_ids_after_write": [
+      "mem_insp_v133_25"
+    ],
+    "active_memory_ids_after_rollback": [],
+    "rolledback_memory_ids": [
+      "mem_insp_v133_25"
+    ],
+    "rolledback_commit_ids": [
+      "prod_commit_v133_25"
+    ],
+    "read_after_rollback": {
+      "status": "not_found",
+      "memory_id": "mem_insp_v133_25",
+      "memory_present": false
+    }
   },
   "task_memory_packet": {
     "task_memory_packet_id": "tmp_v133_25",
@@ -268,13 +346,74 @@
     "response_claims": [
       {
         "claim_id": "claim_v133_25",
-        "text": "I used your confirmed low-saturation preference as a soft context cue.",
+        "text": "I used your confirmed date-night direction, translated to keep softness without excessive sweetness.",
         "trace_refs": [
           "mem_insp_v133_25",
           "tmp_v133_25"
         ]
       }
-    ]
+    ],
+    "response_claim_alignment": {
+      "claim_ref": "mem_insp_v133_25",
+      "promoted_memory_concept": "soft date-night presence without excessive sweetness",
+      "claim_text": "I used your confirmed date-night direction, translated to keep softness without excessive sweetness.",
+      "concept_terms_covered": [
+        "date-night",
+        "softness",
+        "without excessive sweetness"
+      ],
+      "generic_template_detected": false,
+      "matches_promoted_memory_concept": true
+    }
+  },
+  "downstream_consumption": {
+    "task_memory_packet_id": "tmp_v133_25",
+    "request_context": "date_night",
+    "candidate_memory_id": "mem_insp_v133_25",
+    "context_match": true,
+    "consumed_memory_ids": [
+      "mem_insp_v133_25"
+    ],
+    "excluded_memory_ids": [],
+    "exclusion_reason": null,
+    "use_type": "soft_bias",
+    "hard_filter_used": false,
+    "daily_outfit_effect": "softly_biases_palette_selection",
+    "bridge_use": "supporting_signal_not_constraint",
+    "response_claims": [
+      {
+        "claim_id": "claim_v133_25",
+        "text": "I used your confirmed date-night direction, translated to keep softness without excessive sweetness.",
+        "trace_refs": [
+          "mem_insp_v133_25",
+          "tmp_v133_25"
+        ]
+      }
+    ],
+    "response_claim_alignment": {
+      "claim_ref": "mem_insp_v133_25",
+      "promoted_memory_concept": "soft date-night presence without excessive sweetness",
+      "claim_text": "I used your confirmed date-night direction, translated to keep softness without excessive sweetness.",
+      "concept_terms_covered": [
+        "date-night",
+        "softness",
+        "without excessive sweetness"
+      ],
+      "generic_template_detected": false,
+      "matches_promoted_memory_concept": true
+    }
+  },
+  "response_claim_alignment": {
+    "claim_ref": "mem_insp_v133_25",
+    "promoted_memory_concept": "soft date-night presence without excessive sweetness",
+    "claim_text": "I used your confirmed date-night direction, translated to keep softness without excessive sweetness.",
+    "concept_terms_covered": [
+      "date-night",
+      "softness",
+      "without excessive sweetness"
+    ],
+    "generic_template_detected": false,
+    "matches_promoted_memory_concept": true
   },
   "direct_write_bypass_detected": false,
   "trace": {

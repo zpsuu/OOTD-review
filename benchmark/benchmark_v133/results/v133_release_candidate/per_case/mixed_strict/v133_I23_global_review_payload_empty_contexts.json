@@ -1,0 +1,16 @@
+{
+  "case_id": "v133_I23_global_review_payload_empty_contexts",
+  "version": "v1.33",
+  "defect_type": "global_review_payload_empty_contexts",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "global_review_payload_no_empty_contexts_rate",
+    "review_required_payload_actionable_rate"
+  ],
+  "failed_check_ids": [
+    "global_review_payload_no_empty_contexts_rate",
+    "review_required_payload_actionable_rate"
+  ],
+  "source_clean_case_id": "v133_A01_color_only_confirmed_candidate_eligible_for_contextual_soft_prefer",
+  "failure_reason": "Injected defect detected: global_review_payload_empty_contexts"
+}

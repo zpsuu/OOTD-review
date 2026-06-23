@@ -1,0 +1,14 @@
+{
+  "case_id": "v133_I24_global_review_payload_keeps_global_identity_concept",
+  "version": "v1.33",
+  "defect_type": "global_review_payload_keeps_global_identity_concept",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "global_review_payload_concept_narrowed_to_confirmed_aspects_rate"
+  ],
+  "failed_check_ids": [
+    "global_review_payload_concept_narrowed_to_confirmed_aspects_rate"
+  ],
+  "source_clean_case_id": "v133_A01_color_only_confirmed_candidate_eligible_for_contextual_soft_prefer",
+  "failure_reason": "Injected defect detected: global_review_payload_keeps_global_identity_concept"
+}

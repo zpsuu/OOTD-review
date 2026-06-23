@@ -181,9 +181,11 @@
     "human_review_payload": {
       "review_question": "Should this confirmed inspiration candidate be promoted as a contextual soft preference?",
       "candidate_summary": "romantic sweet date-night mood",
+      "risk_reason": "Promotion requires human review before write.",
       "conflicting_memory_refs": [
         "mem_hard_no_romantic_styling"
       ],
+      "proposed_contextual_downgrade": null,
       "proposed_memory_diff": {
         "concept": "romantic sweet date-night mood",
         "scope": "contextual",
@@ -196,13 +198,39 @@
         "approve_contextual",
         "defer",
         "block"
-      ]
+      ],
+      "not_allowed_reviewer_decisions": []
     }
+  },
+  "human_review_payload": {
+    "review_question": "Should this confirmed inspiration candidate be promoted as a contextual soft preference?",
+    "candidate_summary": "romantic sweet date-night mood",
+    "risk_reason": "Promotion requires human review before write.",
+    "conflicting_memory_refs": [
+      "mem_hard_no_romantic_styling"
+    ],
+    "proposed_contextual_downgrade": null,
+    "proposed_memory_diff": {
+      "concept": "romantic sweet date-night mood",
+      "scope": "contextual",
+      "contexts": [
+        "date_night"
+      ],
+      "polarity": "soft_prefer"
+    },
+    "allowed_reviewer_decisions": [
+      "approve_contextual",
+      "defer",
+      "block"
+    ],
+    "not_allowed_reviewer_decisions": []
   },
   "promoted_memory_atom": null,
   "audit_snapshot": null,
   "rollback_proof": null,
   "task_memory_packet": null,
+  "downstream_consumption": null,
+  "response_claim_alignment": null,
   "direct_write_bypass_detected": false,
   "trace": {
     "candidate_id": "cic_v133_24",

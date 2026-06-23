@@ -1,9 +1,9 @@
 {
   "version": "v1.33",
-  "generated_at": "2026-06-23T15:05:55Z",
+  "generated_at": "2026-06-23T15:21:27Z",
   "verdict": "pass",
-  "seeded_defects": 12,
-  "detected_defects": 12,
+  "seeded_defects": 28,
+  "detected_defects": 28,
   "unexpected_clean_case_failures": [],
   "unexpected_injected_passes": [],
   "detected": [
@@ -188,6 +188,246 @@
         "promoted_memory_atom_schema_valid_rate"
       ],
       "raw_artifact_ref": "per_case/mixed_strict/v133_I12_exact_product_interest_promoted_as_style_memory.json"
+    },
+    {
+      "case_id": "v133_I13_promotion_write_missing_commit_id",
+      "defect_type": "promotion_write_missing_commit_id",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "promotion_write_commit_id_present_rate",
+        "promotion_write_artifact_self_proof_rate"
+      ],
+      "expected_failed_check_ids": [
+        "promotion_write_commit_id_present_rate",
+        "promotion_write_artifact_self_proof_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v133_I13_promotion_write_missing_commit_id.json"
+    },
+    {
+      "case_id": "v133_I14_promotion_write_missing_journal_entry",
+      "defect_type": "promotion_write_missing_journal_entry",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "promotion_write_journal_entry_present_rate",
+        "promotion_write_artifact_self_proof_rate"
+      ],
+      "expected_failed_check_ids": [
+        "promotion_write_journal_entry_present_rate",
+        "promotion_write_artifact_self_proof_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v133_I14_promotion_write_missing_journal_entry.json"
+    },
+    {
+      "case_id": "v133_I15_promotion_write_missing_read_after_write",
+      "defect_type": "promotion_write_missing_read_after_write",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "promotion_write_read_after_write_present_rate",
+        "promotion_write_artifact_self_proof_rate"
+      ],
+      "expected_failed_check_ids": [
+        "promotion_write_read_after_write_present_rate",
+        "promotion_write_artifact_self_proof_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v133_I15_promotion_write_missing_read_after_write.json"
+    },
+    {
+      "case_id": "v133_I16_promotion_write_missing_audit_replay",
+      "defect_type": "promotion_write_missing_audit_replay",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "promotion_write_audit_replay_self_proof_rate",
+        "promotion_write_artifact_self_proof_rate"
+      ],
+      "expected_failed_check_ids": [
+        "promotion_write_audit_replay_self_proof_rate",
+        "promotion_write_artifact_self_proof_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v133_I16_promotion_write_missing_audit_replay.json"
+    },
+    {
+      "case_id": "v133_I17_promotion_write_missing_store_version",
+      "defect_type": "promotion_write_missing_store_version",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "promotion_write_store_version_present_rate",
+        "promotion_write_artifact_self_proof_rate"
+      ],
+      "expected_failed_check_ids": [
+        "promotion_write_store_version_present_rate",
+        "promotion_write_artifact_self_proof_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v133_I17_promotion_write_missing_store_version.json"
+    },
+    {
+      "case_id": "v133_I18_rollback_claims_success_without_read_after_rollback",
+      "defect_type": "rollback_claims_success_without_read_after_rollback",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "rollback_proof_read_after_rollback_present_rate"
+      ],
+      "expected_failed_check_ids": [
+        "rollback_proof_read_after_rollback_present_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v133_I18_rollback_claims_success_without_read_after_rollback.json"
+    },
+    {
+      "case_id": "v133_I19_rollback_target_mismatch",
+      "defect_type": "rollback_target_mismatch",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "rollback_target_matches_promotion_write_rate"
+      ],
+      "expected_failed_check_ids": [
+        "rollback_target_matches_promotion_write_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v133_I19_rollback_target_mismatch.json"
+    },
+    {
+      "case_id": "v133_I20_post_rollback_memory_still_active",
+      "defect_type": "post_rollback_memory_still_active",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "post_rollback_memory_absent_from_active_state_rate"
+      ],
+      "expected_failed_check_ids": [
+        "post_rollback_memory_absent_from_active_state_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v133_I20_post_rollback_memory_still_active.json"
+    },
+    {
+      "case_id": "v133_I21_rollback_missing_active_and_rolledback_ids",
+      "defect_type": "rollback_missing_active_and_rolledback_ids",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "rollback_active_and_rolledback_ids_present_rate"
+      ],
+      "expected_failed_check_ids": [
+        "rollback_active_and_rolledback_ids_present_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v133_I21_rollback_missing_active_and_rolledback_ids.json"
+    },
+    {
+      "case_id": "v133_I22_rollback_state_hash_not_restored",
+      "defect_type": "rollback_state_hash_not_restored",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "rollback_state_hash_restored_rate"
+      ],
+      "expected_failed_check_ids": [
+        "rollback_state_hash_restored_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v133_I22_rollback_state_hash_not_restored.json"
+    },
+    {
+      "case_id": "v133_I23_global_review_payload_empty_contexts",
+      "defect_type": "global_review_payload_empty_contexts",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "global_review_payload_no_empty_contexts_rate",
+        "review_required_payload_actionable_rate"
+      ],
+      "expected_failed_check_ids": [
+        "global_review_payload_no_empty_contexts_rate",
+        "review_required_payload_actionable_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v133_I23_global_review_payload_empty_contexts.json"
+    },
+    {
+      "case_id": "v133_I24_global_review_payload_keeps_global_identity_concept",
+      "defect_type": "global_review_payload_keeps_global_identity_concept",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "global_review_payload_concept_narrowed_to_confirmed_aspects_rate"
+      ],
+      "expected_failed_check_ids": [
+        "global_review_payload_concept_narrowed_to_confirmed_aspects_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v133_I24_global_review_payload_keeps_global_identity_concept.json"
+    },
+    {
+      "case_id": "v133_I25_review_payload_approve_contextual_without_context",
+      "defect_type": "review_payload_approve_contextual_without_context",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "global_review_payload_no_empty_contexts_rate",
+        "review_required_payload_actionable_rate"
+      ],
+      "expected_failed_check_ids": [
+        "global_review_payload_no_empty_contexts_rate",
+        "review_required_payload_actionable_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v133_I25_review_payload_approve_contextual_without_context.json"
+    },
+    {
+      "case_id": "v133_I26_review_payload_missing_contextual_downgrade_plan",
+      "defect_type": "review_payload_missing_contextual_downgrade_plan",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "global_review_payload_has_contextual_downgrade_plan_rate",
+        "review_required_payload_actionable_rate"
+      ],
+      "expected_failed_check_ids": [
+        "global_review_payload_has_contextual_downgrade_plan_rate",
+        "review_required_payload_actionable_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v133_I26_review_payload_missing_contextual_downgrade_plan.json"
+    },
+    {
+      "case_id": "v133_I27_response_claim_text_mismatches_promoted_memory_concept",
+      "defect_type": "response_claim_text_mismatches_promoted_memory_concept",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "response_claim_text_matches_promoted_memory_concept_rate"
+      ],
+      "expected_failed_check_ids": [
+        "response_claim_text_matches_promoted_memory_concept_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v133_I27_response_claim_text_mismatches_promoted_memory_concept.json"
+    },
+    {
+      "case_id": "v133_I28_response_claim_uses_generic_cross_case_template",
+      "defect_type": "response_claim_uses_generic_cross_case_template",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "response_claim_text_not_generic_cross_case_template_rate"
+      ],
+      "expected_failed_check_ids": [
+        "response_claim_text_not_generic_cross_case_template_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v133_I28_response_claim_uses_generic_cross_case_template.json"
     }
   ]
 }

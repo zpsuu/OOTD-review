@@ -160,10 +160,42 @@
     "store_env": "production_fixture",
     "namespace": "test/v133/inspiration_memory",
     "write_backend": "production_memory_store",
+    "store_version": "v133_promotion_store_v1",
+    "production_commit_id": "prod_commit_v133_12",
+    "production_journal_entry_id": "prod_journal_v133_12",
     "committed_memory_id": "mem_insp_v133_12",
+    "state_hash_before": "sha256:before_v133_12",
+    "state_hash_after_write": "sha256:after_write_v133_12",
+    "active_memory_ids_before_write": [],
+    "active_memory_ids_after_write": [
+      "mem_insp_v133_12"
+    ],
+    "read_after_write": {
+      "status": "found",
+      "memory_id": "mem_insp_v133_12",
+      "memory_present": true,
+      "concept": "low saturation color palette",
+      "scope": "contextual",
+      "contexts": [
+        "office_daily"
+      ]
+    },
+    "audit_replay": {
+      "status": "matched",
+      "expected_state_hash": "sha256:after_write_v133_12",
+      "replayed_state_hash": "sha256:after_write_v133_12",
+      "matches_store": true,
+      "journal_entry_ids": [
+        "prod_journal_v133_12"
+      ],
+      "commit_ids": [
+        "prod_commit_v133_12"
+      ]
+    },
     "audit_ref": "audit_v133_12",
     "rollback_ref": "rollback_v133_12"
   },
+  "human_review_payload": null,
   "promoted_memory_atom": {
     "memory_id": "mem_insp_v133_12",
     "concept": "low saturation color palette",
@@ -222,9 +254,34 @@
     "audit_ref": "audit_v133_12",
     "namespace": "test/v133/inspiration_memory",
     "write_backend": "production_memory_store",
+    "store_version": "v133_promotion_store_v1",
+    "production_commit_id": "prod_commit_v133_12",
+    "production_journal_entry_id": "prod_journal_v133_12",
     "committed_memory_id": "mem_insp_v133_12",
-    "state_hash_before": "sha256_before_v133_12",
-    "state_hash_after": "sha256_after_v133_12",
+    "state_hash_before": "sha256:before_v133_12",
+    "state_hash_after": "sha256:after_write_v133_12",
+    "read_after_write": {
+      "status": "found",
+      "memory_id": "mem_insp_v133_12",
+      "memory_present": true,
+      "concept": "low saturation color palette",
+      "scope": "contextual",
+      "contexts": [
+        "office_daily"
+      ]
+    },
+    "audit_replay": {
+      "status": "matched",
+      "expected_state_hash": "sha256:after_write_v133_12",
+      "replayed_state_hash": "sha256:after_write_v133_12",
+      "matches_store": true,
+      "journal_entry_ids": [
+        "prod_journal_v133_12"
+      ],
+      "commit_ids": [
+        "prod_commit_v133_12"
+      ]
+    },
     "production_native_commit_artifact": true
   },
   "rollback_proof": {
@@ -232,8 +289,29 @@
     "rollback_window_id": "rbw_v133_12",
     "can_rollback": true,
     "rollback_tested": true,
-    "state_hash_after_rollback": "sha256_before_v133_12",
-    "read_after_rollback": null
+    "target_commit_id": "prod_commit_v133_12",
+    "target_memory_id": "mem_insp_v133_12",
+    "rollback_decision_id": "rollback_decision_v133_12",
+    "pre_state_hash": "sha256:before_v133_12",
+    "post_write_state_hash": "sha256:after_write_v133_12",
+    "post_rollback_state_hash": "sha256:before_v133_12",
+    "state_restored": true,
+    "active_memory_ids_before_write": [],
+    "active_memory_ids_after_write": [
+      "mem_insp_v133_12"
+    ],
+    "active_memory_ids_after_rollback": [],
+    "rolledback_memory_ids": [
+      "mem_insp_v133_12"
+    ],
+    "rolledback_commit_ids": [
+      "prod_commit_v133_12"
+    ],
+    "read_after_rollback": {
+      "status": "not_found",
+      "memory_id": "mem_insp_v133_12",
+      "memory_present": false
+    }
   },
   "task_memory_packet": {
     "task_memory_packet_id": "tmp_v133_12",
@@ -252,13 +330,74 @@
     "response_claims": [
       {
         "claim_id": "claim_v133_12",
-        "text": "I used your confirmed low-saturation preference as a soft context cue.",
+        "text": "I used your confirmed low-saturation color preference as a soft context cue.",
         "trace_refs": [
           "mem_insp_v133_12",
           "tmp_v133_12"
         ]
       }
-    ]
+    ],
+    "response_claim_alignment": {
+      "claim_ref": "mem_insp_v133_12",
+      "promoted_memory_concept": "low saturation color palette",
+      "claim_text": "I used your confirmed low-saturation color preference as a soft context cue.",
+      "concept_terms_covered": [
+        "low-saturation",
+        "color",
+        "soft context"
+      ],
+      "generic_template_detected": false,
+      "matches_promoted_memory_concept": true
+    }
+  },
+  "downstream_consumption": {
+    "task_memory_packet_id": "tmp_v133_12",
+    "request_context": "office_daily",
+    "candidate_memory_id": "mem_insp_v133_12",
+    "context_match": true,
+    "consumed_memory_ids": [
+      "mem_insp_v133_12"
+    ],
+    "excluded_memory_ids": [],
+    "exclusion_reason": null,
+    "use_type": "soft_bias",
+    "hard_filter_used": false,
+    "daily_outfit_effect": "softly_biases_palette_selection",
+    "bridge_use": "supporting_signal_not_constraint",
+    "response_claims": [
+      {
+        "claim_id": "claim_v133_12",
+        "text": "I used your confirmed low-saturation color preference as a soft context cue.",
+        "trace_refs": [
+          "mem_insp_v133_12",
+          "tmp_v133_12"
+        ]
+      }
+    ],
+    "response_claim_alignment": {
+      "claim_ref": "mem_insp_v133_12",
+      "promoted_memory_concept": "low saturation color palette",
+      "claim_text": "I used your confirmed low-saturation color preference as a soft context cue.",
+      "concept_terms_covered": [
+        "low-saturation",
+        "color",
+        "soft context"
+      ],
+      "generic_template_detected": false,
+      "matches_promoted_memory_concept": true
+    }
+  },
+  "response_claim_alignment": {
+    "claim_ref": "mem_insp_v133_12",
+    "promoted_memory_concept": "low saturation color palette",
+    "claim_text": "I used your confirmed low-saturation color preference as a soft context cue.",
+    "concept_terms_covered": [
+      "low-saturation",
+      "color",
+      "soft context"
+    ],
+    "generic_template_detected": false,
+    "matches_promoted_memory_concept": true
   },
   "direct_write_bypass_detected": false,
   "trace": {

@@ -108,10 +108,13 @@
     "shadow_store_write_executed": false,
     "reason": "promotion_not_eligible"
   },
+  "human_review_payload": null,
   "promoted_memory_atom": null,
   "audit_snapshot": null,
   "rollback_proof": null,
   "task_memory_packet": null,
+  "downstream_consumption": null,
+  "response_claim_alignment": null,
   "direct_write_bypass_detected": false,
   "trace": {
     "candidate_id": "cic_v133_51",

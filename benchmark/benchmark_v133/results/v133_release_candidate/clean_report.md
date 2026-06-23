@@ -1,8 +1,8 @@
 # v1.33 Clean Acceptance Report
 
-- generated_at: 2026-06-23T15:05:55Z
+- generated_at: 2026-06-23T15:21:27Z
 - total_cases: 54
-- total_checks: 25
+- total_checks: 44
 
 ## Checks
 
@@ -31,3 +31,22 @@
 - PASS `promoted_memory_not_used_as_hard_filter_rate`
 - PASS `response_claim_refs_promoted_memory_consumed_rate`
 - PASS `sample_artifacts_match_per_case_artifacts_rate`
+- PASS `promotion_write_commit_id_present_rate`
+- PASS `promotion_write_journal_entry_present_rate`
+- PASS `promotion_write_read_after_write_present_rate`
+- PASS `promotion_write_audit_replay_self_proof_rate`
+- PASS `promotion_write_store_version_present_rate`
+- PASS `rollback_proof_read_after_rollback_present_rate`
+- PASS `rollback_target_matches_promotion_write_rate`
+- PASS `post_rollback_memory_absent_from_active_state_rate`
+- PASS `rollback_state_hash_restored_rate`
+- PASS `rollback_active_and_rolledback_ids_present_rate`
+- PASS `global_review_payload_has_contextual_downgrade_plan_rate`
+- PASS `global_review_payload_no_empty_contexts_rate`
+- PASS `global_review_payload_concept_narrowed_to_confirmed_aspects_rate`
+- PASS `review_required_payload_actionable_rate`
+- PASS `response_claim_text_matches_promoted_memory_concept_rate`
+- PASS `response_claim_text_not_generic_cross_case_template_rate`
+- PASS `rollback_case_has_allowed_write_precondition_rate`
+- PASS `review_case_has_review_payload_precondition_rate`
+- PASS `write_artifact_case_has_allowed_write_precondition_rate`
