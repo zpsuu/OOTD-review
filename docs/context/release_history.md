@@ -140,3 +140,19 @@ Focus:
 - compatible dedup clustering
 - bridge shadow runs using confirmed aspects only
 - no production memory write from inspiration confirmation
+
+## v1.33 - Confirmed Inspiration Memory Promotion Governance
+
+Status: PASS CANDIDATE pending manual review
+
+Focus:
+- promotion eligibility reports for confirmed inspiration candidates
+- narrow low-risk contextual soft_prefer promotion policy
+- promotion plans matching confirmed aspects
+- ProductionMemoryWriteGate routing for allowed promotions
+- blocked / deferred / review-required unsafe paths
+- conflict moderation or review before write
+- production-native write artifact self-proof
+- rollback proof for allowed writes
+- scoped PromotedMemoryAtom integrity
+- context-safe downstream consumption

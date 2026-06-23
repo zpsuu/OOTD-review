@@ -1,0 +1,16 @@
+{
+  "case_id": "v133_I09_production_write_lacks_rollback_proof",
+  "version": "v1.33",
+  "defect_type": "production_write_lacks_rollback_proof",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "rollback_proof_present_for_allowed_write_rate",
+    "promotion_write_artifact_self_proof_rate"
+  ],
+  "failed_check_ids": [
+    "rollback_proof_present_for_allowed_write_rate",
+    "promotion_write_artifact_self_proof_rate"
+  ],
+  "source_clean_case_id": "v133_A01_color_only_confirmed_candidate_eligible_for_contextual_soft_prefer",
+  "failure_reason": "Injected defect detected: production_write_lacks_rollback_proof"
+}

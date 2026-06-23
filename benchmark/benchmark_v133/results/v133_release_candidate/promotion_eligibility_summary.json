@@ -1,0 +1,11 @@
+{
+  "total_confirmed_candidates_evaluated": 54,
+  "eligible_low_risk_count": 34,
+  "deferred_count": 1,
+  "requires_review_count": 5,
+  "blocked_count": 14,
+  "global_write_blocked_count": 2,
+  "high_risk_blocked_count": 1,
+  "metadata_only_blocked_count": 2,
+  "visual_only_unconfirmed_blocked_count": 3
+}

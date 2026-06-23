@@ -1,0 +1,7 @@
+{
+  "allowed_write_count": 34,
+  "blocked_no_write_attempt_count": 15,
+  "review_required_count": 5,
+  "rollback_proof_count": 34,
+  "write_artifact_self_proof_passed": true
+}

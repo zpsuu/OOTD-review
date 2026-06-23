@@ -1,0 +1,14 @@
+{
+  "case_id": "v133_I08_promoted_memory_consumed_in_wrong_context",
+  "version": "v1.33",
+  "defect_type": "promoted_memory_consumed_in_wrong_context",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "promoted_memory_consumed_only_matching_context_rate"
+  ],
+  "failed_check_ids": [
+    "promoted_memory_consumed_only_matching_context_rate"
+  ],
+  "source_clean_case_id": "v133_A01_color_only_confirmed_candidate_eligible_for_contextual_soft_prefer",
+  "failure_reason": "Injected defect detected: promoted_memory_consumed_in_wrong_context"
+}

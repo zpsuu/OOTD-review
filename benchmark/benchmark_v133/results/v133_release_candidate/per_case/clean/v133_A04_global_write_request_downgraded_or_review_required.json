@@ -1,0 +1,176 @@
+{
+  "case_id": "v133_A04_global_write_request_downgraded_or_review_required",
+  "version": "v1.33",
+  "scenario": "A04_global_write_request_downgraded_or_review_required",
+  "scenario_kind": "global_request_review",
+  "scenario_preconditions": {
+    "expected": [
+      "confirmed_inspiration_candidate_present",
+      "promotion_eligibility_report_present",
+      "review_payload_present",
+      "production_write_not_attempted"
+    ],
+    "satisfied": true,
+    "proof_refs": [
+      "confirmed_inspiration_candidate",
+      "promotion_eligibility_report",
+      "promotion_write_decision.human_review_payload",
+      "promotion_write_decision.production_store_write_attempted"
+    ],
+    "missing_preconditions": []
+  },
+  "confirmed_inspiration_candidate": {
+    "confirmed_inspiration_candidate_id": "cic_v133_04",
+    "source_intake_event_id": "intake_v133_04",
+    "source_type": "confirmed_external_inspiration",
+    "user_confirmed": true,
+    "confirmed_aspects": [
+      "color_palette"
+    ],
+    "candidate_concept": "single inspiration global style identity request",
+    "polarity": "soft_prefer",
+    "scope_candidate": "global_requested",
+    "suggested_contexts": [],
+    "excluded_aspects": [
+      "silhouette",
+      "exact_items",
+      "model_body",
+      "photo_lighting",
+      "luxury_brand_specificity"
+    ],
+    "confidence": 0.72,
+    "evidence_refs": [
+      "intake_v133_04",
+      "visual_signal_candidate_v133_04",
+      "confirmation_action_v133_04"
+    ],
+    "status": "confirmed_shadow_candidate",
+    "production_write_allowed": false,
+    "requires_write_gate_before_commit": true
+  },
+  "promotion_eligibility_report": {
+    "promotion_eligibility_report_id": "per_v133_04",
+    "confirmed_candidate_id": "cic_v133_04",
+    "eligible": false,
+    "eligibility_status": "requires_review",
+    "reasons": [
+      "single_inspiration_global_write_not_allowed",
+      "review_contextual_scope_only"
+    ],
+    "risk_assessment": {
+      "risk_level": "low",
+      "high_risk_inference_present": false,
+      "external_image_only": false,
+      "globalization_risk": "high",
+      "exact_product_or_brand_present": false
+    },
+    "scope_assessment": {
+      "selected_scope": "global_requested",
+      "allowed_contexts": [],
+      "global_write_allowed": false,
+      "global_write_requested": true
+    },
+    "aspect_scope": {
+      "confirmed_aspects": [
+        "color_palette"
+      ],
+      "excluded_aspects": [
+        "silhouette",
+        "exact_items",
+        "model_body",
+        "photo_lighting",
+        "luxury_brand_specificity"
+      ]
+    },
+    "conflict_assessment": {
+      "has_conflict": false,
+      "requires_moderated_translation": false,
+      "conflicting_memory_ids": []
+    },
+    "promotion_decision": {
+      "recommended_action": "review_contextual_downgrade",
+      "production_write_allowed_to_attempt": false
+    }
+  },
+  "inspiration_memory_promotion_plan": {
+    "promotion_plan_id": "imp_v133_04",
+    "confirmed_candidate_id": "cic_v133_04",
+    "target_memory_concept": "single inspiration global style identity request",
+    "concept_type": "aesthetic_preference",
+    "polarity": "soft_prefer",
+    "scope": "contextual",
+    "contexts": [],
+    "confidence": 0.72,
+    "confirmed_aspects": [
+      "color_palette"
+    ],
+    "evidence_refs": [
+      "intake_v133_04",
+      "visual_signal_candidate_v133_04",
+      "confirmation_action_v133_04"
+    ],
+    "excluded_from_memory": [
+      "silhouette",
+      "exact_items",
+      "model_body",
+      "photo_lighting",
+      "luxury_brand_specificity"
+    ],
+    "downstream_use": [
+      "aesthetic_direction_ranking",
+      "ideal_reality_bridge_personalization",
+      "daily_outfit_soft_bias"
+    ],
+    "disallowed_downstream_use": [
+      "hard_filter",
+      "body_inference",
+      "commerce_targeting",
+      "global_style_identity"
+    ],
+    "requires_write_gate": true,
+    "plan_matches_confirmed_aspects": true,
+    "plan_excludes_unconfirmed_aspects": true,
+    "scope_matches_user_selected_context": true
+  },
+  "active_memory_snapshot": [],
+  "active_memory_details": {},
+  "promotion_write_decision": {
+    "promotion_write_decision_id": "pwd_v133_04",
+    "promotion_plan_id": "imp_v133_04",
+    "route": "ProductionMemoryWriteGate",
+    "status": "requires_review",
+    "production_store_write_attempted": false,
+    "production_store_write_executed": false,
+    "shadow_store_write_attempted": false,
+    "shadow_store_write_executed": false,
+    "reason": "human_review_required",
+    "human_review_payload": {
+      "review_question": "Should this confirmed inspiration candidate be promoted as a contextual soft preference?",
+      "candidate_summary": "single inspiration global style identity request",
+      "conflicting_memory_refs": [],
+      "proposed_memory_diff": {
+        "concept": "single inspiration global style identity request",
+        "scope": "contextual",
+        "contexts": [],
+        "polarity": "soft_prefer"
+      },
+      "allowed_reviewer_decisions": [
+        "approve_contextual",
+        "defer",
+        "block"
+      ]
+    }
+  },
+  "promoted_memory_atom": null,
+  "audit_snapshot": null,
+  "rollback_proof": null,
+  "task_memory_packet": null,
+  "direct_write_bypass_detected": false,
+  "trace": {
+    "candidate_id": "cic_v133_04",
+    "eligibility_report_id": "per_v133_04",
+    "promotion_plan_id": "imp_v133_04",
+    "write_decision_id": "pwd_v133_04",
+    "memory_id": null
+  }
+}

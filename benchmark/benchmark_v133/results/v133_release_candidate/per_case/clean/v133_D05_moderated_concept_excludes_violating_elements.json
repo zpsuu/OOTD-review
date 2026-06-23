@@ -1,0 +1,287 @@
+{
+  "case_id": "v133_D05_moderated_concept_excludes_violating_elements",
+  "version": "v1.33",
+  "scenario": "D05_moderated_concept_excludes_violating_elements",
+  "scenario_kind": "moderated_conflict_allowed",
+  "scenario_preconditions": {
+    "expected": [
+      "confirmed_inspiration_candidate_present",
+      "promotion_eligibility_report_present",
+      "promotion_plan_present",
+      "production_write_gate_route",
+      "rollback_proof_present",
+      "promoted_memory_atom_present",
+      "active_conflict_governance_present",
+      "context_safe_consumption_evaluated"
+    ],
+    "satisfied": true,
+    "proof_refs": [
+      "confirmed_inspiration_candidate",
+      "promotion_eligibility_report",
+      "inspiration_memory_promotion_plan",
+      "promotion_write_decision.route",
+      "rollback_proof",
+      "promoted_memory_atom",
+      "active_memory_snapshot",
+      "task_memory_packet"
+    ],
+    "missing_preconditions": []
+  },
+  "confirmed_inspiration_candidate": {
+    "confirmed_inspiration_candidate_id": "cic_v133_27",
+    "source_intake_event_id": "intake_v133_27",
+    "source_type": "confirmed_external_inspiration",
+    "user_confirmed": true,
+    "confirmed_aspects": [
+      "soft_presence"
+    ],
+    "candidate_concept": "soft date-night presence without excessive sweetness",
+    "polarity": "soft_prefer",
+    "scope_candidate": "contextual",
+    "suggested_contexts": [
+      "date_night"
+    ],
+    "excluded_aspects": [
+      "bow_lace_pink_overload",
+      "exact_items",
+      "model_body",
+      "photo_lighting"
+    ],
+    "confidence": 0.72,
+    "evidence_refs": [
+      "intake_v133_27",
+      "visual_signal_candidate_v133_27",
+      "confirmation_action_v133_27"
+    ],
+    "status": "confirmed_shadow_candidate",
+    "production_write_allowed": false,
+    "requires_write_gate_before_commit": true
+  },
+  "promotion_eligibility_report": {
+    "promotion_eligibility_report_id": "per_v133_27",
+    "confirmed_candidate_id": "cic_v133_27",
+    "eligible": true,
+    "eligibility_status": "eligible_low_risk",
+    "reasons": [
+      "user_confirmed_aspect",
+      "soft_conflict_moderated",
+      "contextual_scope_selected"
+    ],
+    "risk_assessment": {
+      "risk_level": "low",
+      "high_risk_inference_present": false,
+      "external_image_only": false,
+      "globalization_risk": "low",
+      "exact_product_or_brand_present": false
+    },
+    "scope_assessment": {
+      "selected_scope": "contextual",
+      "allowed_contexts": [
+        "date_night"
+      ],
+      "global_write_allowed": false,
+      "global_write_requested": false
+    },
+    "aspect_scope": {
+      "confirmed_aspects": [
+        "soft_presence"
+      ],
+      "excluded_aspects": [
+        "bow_lace_pink_overload",
+        "exact_items",
+        "model_body",
+        "photo_lighting"
+      ]
+    },
+    "conflict_assessment": {
+      "has_conflict": true,
+      "requires_moderated_translation": true,
+      "conflicting_memory_ids": [
+        "mem_avoid_excessive_sweetness"
+      ],
+      "moderated_translation": "soft date-night presence without excessive sweetness"
+    },
+    "promotion_decision": {
+      "recommended_action": "create_memory_evolution_proposal",
+      "production_write_allowed_to_attempt": true
+    }
+  },
+  "inspiration_memory_promotion_plan": {
+    "promotion_plan_id": "imp_v133_27",
+    "confirmed_candidate_id": "cic_v133_27",
+    "target_memory_concept": "soft date-night presence without excessive sweetness",
+    "concept_type": "aesthetic_preference",
+    "polarity": "soft_prefer",
+    "scope": "contextual",
+    "contexts": [
+      "date_night"
+    ],
+    "confidence": 0.72,
+    "confirmed_aspects": [
+      "soft_presence"
+    ],
+    "evidence_refs": [
+      "intake_v133_27",
+      "visual_signal_candidate_v133_27",
+      "confirmation_action_v133_27"
+    ],
+    "excluded_from_memory": [
+      "bow_lace_pink_overload",
+      "exact_items",
+      "model_body",
+      "photo_lighting"
+    ],
+    "downstream_use": [
+      "aesthetic_direction_ranking",
+      "ideal_reality_bridge_personalization",
+      "daily_outfit_soft_bias"
+    ],
+    "disallowed_downstream_use": [
+      "hard_filter",
+      "body_inference",
+      "commerce_targeting",
+      "global_style_identity"
+    ],
+    "requires_write_gate": true,
+    "plan_matches_confirmed_aspects": true,
+    "plan_excludes_unconfirmed_aspects": true,
+    "scope_matches_user_selected_context": true
+  },
+  "active_memory_snapshot": [
+    "mem_avoid_excessive_sweetness"
+  ],
+  "active_memory_details": {
+    "mem_avoid_excessive_sweetness": {
+      "memory_id": "mem_avoid_excessive_sweetness",
+      "concept": "avoid excessive sweetness",
+      "polarity": "avoid",
+      "scope": "contextual",
+      "contexts": [
+        "date_night"
+      ],
+      "status": "active",
+      "evidence_refs": [
+        "fixture_mem_avoid_excessive_sweetness"
+      ]
+    }
+  },
+  "promotion_write_decision": {
+    "promotion_write_decision_id": "pwd_v133_27",
+    "promotion_plan_id": "imp_v133_27",
+    "route": "ProductionMemoryWriteGate",
+    "status": "allowed",
+    "production_store_write_attempted": true,
+    "production_store_write_executed": true,
+    "shadow_store_write_attempted": false,
+    "shadow_store_write_executed": false,
+    "store_env": "production_fixture",
+    "namespace": "test/v133/inspiration_memory",
+    "write_backend": "production_memory_store",
+    "committed_memory_id": "mem_insp_v133_27",
+    "audit_ref": "audit_v133_27",
+    "rollback_ref": "rollback_v133_27"
+  },
+  "promoted_memory_atom": {
+    "memory_id": "mem_insp_v133_27",
+    "concept": "soft date-night presence without excessive sweetness",
+    "concept_type": "aesthetic_preference",
+    "polarity": "soft_prefer",
+    "scope": "contextual",
+    "contexts": [
+      "date_night"
+    ],
+    "confidence": 0.72,
+    "confidence_self_proof": {
+      "source": "confirmed_candidate_confidence",
+      "candidate_confidence": 0.72,
+      "rounded_memory_confidence": 0.72,
+      "evidence_refs": [
+        "intake_v133_27",
+        "visual_signal_candidate_v133_27",
+        "confirmation_action_v133_27"
+      ]
+    },
+    "evidence_refs": [
+      "intake_v133_27",
+      "visual_signal_candidate_v133_27",
+      "confirmation_action_v133_27",
+      "imp_v133_27"
+    ],
+    "source_type": "confirmed_external_inspiration",
+    "downstream_use": [
+      "aesthetic_direction_ranking",
+      "daily_outfit_soft_bias"
+    ],
+    "disallowed_downstream_use": [
+      "hard_filter",
+      "commerce_targeting",
+      "body_inference",
+      "global_style_identity"
+    ],
+    "excluded_aspects": [
+      "bow_lace_pink_overload",
+      "exact_items",
+      "model_body",
+      "photo_lighting"
+    ],
+    "raw_external_content_refs": [],
+    "product_links": [],
+    "sku_refs": [],
+    "merchant_refs": [],
+    "lifecycle": {
+      "created_by": "promotion_write_gate",
+      "rollback_window_id": "rbw_v133_27",
+      "review_required": false
+    }
+  },
+  "audit_snapshot": {
+    "audit_ref": "audit_v133_27",
+    "namespace": "test/v133/inspiration_memory",
+    "write_backend": "production_memory_store",
+    "committed_memory_id": "mem_insp_v133_27",
+    "state_hash_before": "sha256_before_v133_27",
+    "state_hash_after": "sha256_after_v133_27",
+    "production_native_commit_artifact": true
+  },
+  "rollback_proof": {
+    "rollback_ref": "rollback_v133_27",
+    "rollback_window_id": "rbw_v133_27",
+    "can_rollback": true,
+    "rollback_tested": true,
+    "state_hash_after_rollback": "sha256_before_v133_27",
+    "read_after_rollback": null
+  },
+  "task_memory_packet": {
+    "task_memory_packet_id": "tmp_v133_27",
+    "request_context": "date_night",
+    "candidate_memory_id": "mem_insp_v133_27",
+    "context_match": true,
+    "consumed_memory_ids": [
+      "mem_insp_v133_27"
+    ],
+    "excluded_memory_ids": [],
+    "exclusion_reason": null,
+    "use_type": "soft_bias",
+    "hard_filter_used": false,
+    "daily_outfit_effect": "softly_biases_palette_selection",
+    "bridge_use": "supporting_signal_not_constraint",
+    "response_claims": [
+      {
+        "claim_id": "claim_v133_27",
+        "text": "I used your confirmed low-saturation preference as a soft context cue.",
+        "trace_refs": [
+          "mem_insp_v133_27",
+          "tmp_v133_27"
+        ]
+      }
+    ]
+  },
+  "direct_write_bypass_detected": false,
+  "trace": {
+    "candidate_id": "cic_v133_27",
+    "eligibility_report_id": "per_v133_27",
+    "promotion_plan_id": "imp_v133_27",
+    "write_decision_id": "pwd_v133_27",
+    "memory_id": "mem_insp_v133_27"
+  }
+}

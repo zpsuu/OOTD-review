@@ -1,0 +1,14 @@
+{
+  "case_id": "v133_I07_memory_atom_includes_raw_image_ref",
+  "version": "v1.33",
+  "defect_type": "memory_atom_includes_raw_image_ref",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "promoted_memory_no_raw_external_content_ref_rate"
+  ],
+  "failed_check_ids": [
+    "promoted_memory_no_raw_external_content_ref_rate"
+  ],
+  "source_clean_case_id": "v133_A01_color_only_confirmed_candidate_eligible_for_contextual_soft_prefer",
+  "failure_reason": "Injected defect detected: memory_atom_includes_raw_image_ref"
+}

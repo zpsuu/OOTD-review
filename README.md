@@ -14,12 +14,12 @@ The private development repository remains private. This mirror only contains re
 
 ## Current Review Target
 
-v1.32 - Inspiration Confirmation UX & Candidate Governance
+v1.33 - Confirmed Inspiration Memory Promotion Governance
 
 Entrypoint:
 
-`benchmark/benchmark_v132/results/v132_release_candidate/REVIEW_MANIFEST.json`
+`benchmark/benchmark_v133/results/v133_release_candidate/REVIEW_MANIFEST.json`
 
 ## Status
 
-v1.32 Inspiration Confirmation UX & Candidate Governance is PASS CANDIDATE confirmed after conflict / dedup self-proof review.
+v1.33 Confirmed Inspiration Memory Promotion Governance is PASS CANDIDATE pending manual review.

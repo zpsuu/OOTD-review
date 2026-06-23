@@ -1,0 +1,16 @@
+{
+  "case_id": "v133_I02_color_only_candidate_writes_full_style_memory",
+  "version": "v1.33",
+  "defect_type": "color_only_candidate_writes_full_style_memory",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "promotion_plan_matches_confirmed_aspects_rate",
+    "promotion_plan_excludes_unconfirmed_aspects_rate"
+  ],
+  "failed_check_ids": [
+    "promotion_plan_matches_confirmed_aspects_rate",
+    "promotion_plan_excludes_unconfirmed_aspects_rate"
+  ],
+  "source_clean_case_id": "v133_A01_color_only_confirmed_candidate_eligible_for_contextual_soft_prefer",
+  "failure_reason": "Injected defect detected: color_only_candidate_writes_full_style_memory"
+}

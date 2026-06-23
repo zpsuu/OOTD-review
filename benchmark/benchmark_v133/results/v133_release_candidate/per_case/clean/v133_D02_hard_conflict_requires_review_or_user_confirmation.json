@@ -1,0 +1,214 @@
+{
+  "case_id": "v133_D02_hard_conflict_requires_review_or_user_confirmation",
+  "version": "v1.33",
+  "scenario": "D02_hard_conflict_requires_review_or_user_confirmation",
+  "scenario_kind": "review_required_conflict",
+  "scenario_preconditions": {
+    "expected": [
+      "confirmed_inspiration_candidate_present",
+      "promotion_eligibility_report_present",
+      "review_payload_present",
+      "production_write_not_attempted",
+      "active_conflict_governance_present"
+    ],
+    "satisfied": true,
+    "proof_refs": [
+      "confirmed_inspiration_candidate",
+      "promotion_eligibility_report",
+      "promotion_write_decision.human_review_payload",
+      "promotion_write_decision.production_store_write_attempted",
+      "active_memory_snapshot"
+    ],
+    "missing_preconditions": []
+  },
+  "confirmed_inspiration_candidate": {
+    "confirmed_inspiration_candidate_id": "cic_v133_24",
+    "source_intake_event_id": "intake_v133_24",
+    "source_type": "confirmed_external_inspiration",
+    "user_confirmed": true,
+    "confirmed_aspects": [
+      "romantic_mood"
+    ],
+    "candidate_concept": "romantic sweet date-night mood",
+    "polarity": "soft_prefer",
+    "scope_candidate": "contextual",
+    "suggested_contexts": [
+      "date_night"
+    ],
+    "excluded_aspects": [
+      "exact_items",
+      "model_body",
+      "photo_lighting"
+    ],
+    "confidence": 0.72,
+    "evidence_refs": [
+      "intake_v133_24",
+      "visual_signal_candidate_v133_24",
+      "confirmation_action_v133_24"
+    ],
+    "status": "confirmed_shadow_candidate",
+    "production_write_allowed": false,
+    "requires_write_gate_before_commit": true
+  },
+  "promotion_eligibility_report": {
+    "promotion_eligibility_report_id": "per_v133_24",
+    "confirmed_candidate_id": "cic_v133_24",
+    "eligible": false,
+    "eligibility_status": "requires_review",
+    "reasons": [
+      "hard_conflict_requires_review",
+      "active_conflicting_memory_present"
+    ],
+    "risk_assessment": {
+      "risk_level": "low",
+      "high_risk_inference_present": false,
+      "external_image_only": false,
+      "globalization_risk": "low",
+      "exact_product_or_brand_present": false
+    },
+    "scope_assessment": {
+      "selected_scope": "contextual",
+      "allowed_contexts": [
+        "date_night"
+      ],
+      "global_write_allowed": false,
+      "global_write_requested": false
+    },
+    "aspect_scope": {
+      "confirmed_aspects": [
+        "romantic_mood"
+      ],
+      "excluded_aspects": [
+        "exact_items",
+        "model_body",
+        "photo_lighting"
+      ]
+    },
+    "conflict_assessment": {
+      "has_conflict": true,
+      "requires_moderated_translation": false,
+      "conflicting_memory_ids": [
+        "mem_hard_no_romantic_styling"
+      ]
+    },
+    "promotion_decision": {
+      "recommended_action": "human_review",
+      "production_write_allowed_to_attempt": false
+    }
+  },
+  "inspiration_memory_promotion_plan": {
+    "promotion_plan_id": "imp_v133_24",
+    "confirmed_candidate_id": "cic_v133_24",
+    "target_memory_concept": "romantic sweet date-night mood",
+    "concept_type": "aesthetic_preference",
+    "polarity": "soft_prefer",
+    "scope": "contextual",
+    "contexts": [
+      "date_night"
+    ],
+    "confidence": 0.72,
+    "confirmed_aspects": [
+      "romantic_mood"
+    ],
+    "evidence_refs": [
+      "intake_v133_24",
+      "visual_signal_candidate_v133_24",
+      "confirmation_action_v133_24"
+    ],
+    "excluded_from_memory": [
+      "exact_items",
+      "model_body",
+      "photo_lighting"
+    ],
+    "downstream_use": [
+      "aesthetic_direction_ranking",
+      "ideal_reality_bridge_personalization",
+      "daily_outfit_soft_bias"
+    ],
+    "disallowed_downstream_use": [
+      "hard_filter",
+      "body_inference",
+      "commerce_targeting",
+      "global_style_identity"
+    ],
+    "requires_write_gate": true,
+    "plan_matches_confirmed_aspects": true,
+    "plan_excludes_unconfirmed_aspects": true,
+    "scope_matches_user_selected_context": true
+  },
+  "active_memory_snapshot": [
+    "mem_avoid_excessive_sweetness",
+    "mem_hard_no_romantic_styling"
+  ],
+  "active_memory_details": {
+    "mem_avoid_excessive_sweetness": {
+      "memory_id": "mem_avoid_excessive_sweetness",
+      "concept": "avoid excessive sweetness",
+      "polarity": "avoid",
+      "scope": "contextual",
+      "contexts": [
+        "date_night"
+      ],
+      "status": "active",
+      "evidence_refs": [
+        "fixture_mem_avoid_excessive_sweetness"
+      ]
+    },
+    "mem_hard_no_romantic_styling": {
+      "memory_id": "mem_hard_no_romantic_styling",
+      "concept": "romantic styling requires explicit confirmation",
+      "polarity": "avoid",
+      "scope": "contextual",
+      "contexts": [
+        "date_night"
+      ],
+      "status": "active",
+      "evidence_refs": [
+        "fixture_mem_hard_no_romantic_styling"
+      ]
+    }
+  },
+  "promotion_write_decision": {
+    "promotion_write_decision_id": "pwd_v133_24",
+    "promotion_plan_id": "imp_v133_24",
+    "route": "ProductionMemoryWriteGate",
+    "status": "requires_review",
+    "production_store_write_attempted": false,
+    "production_store_write_executed": false,
+    "shadow_store_write_attempted": false,
+    "shadow_store_write_executed": false,
+    "reason": "human_review_required",
+    "human_review_payload": {
+      "review_question": "Should this confirmed inspiration candidate be promoted as a contextual soft preference?",
+      "candidate_summary": "romantic sweet date-night mood",
+      "conflicting_memory_refs": [
+        "mem_hard_no_romantic_styling"
+      ],
+      "proposed_memory_diff": {
+        "concept": "romantic sweet date-night mood",
+        "scope": "contextual",
+        "contexts": [
+          "date_night"
+        ],
+        "polarity": "soft_prefer"
+      },
+      "allowed_reviewer_decisions": [
+        "approve_contextual",
+        "defer",
+        "block"
+      ]
+    }
+  },
+  "promoted_memory_atom": null,
+  "audit_snapshot": null,
+  "rollback_proof": null,
+  "task_memory_packet": null,
+  "direct_write_bypass_detected": false,
+  "trace": {
+    "candidate_id": "cic_v133_24",
+    "eligibility_report_id": "per_v133_24",
+    "promotion_plan_id": "imp_v133_24",
+    "write_decision_id": "pwd_v133_24",
+    "memory_id": null
+  }
+}

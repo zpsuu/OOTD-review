@@ -1,0 +1,355 @@
+{
+  "benchmark_id": "v1.33.confirmed_inspiration_memory_promotion_governance.mixed_strict",
+  "schema_version": "v1.33",
+  "generated_at": "2026-06-23T15:05:55Z",
+  "verdicts": {
+    "mixed_strict_verdict": "fail",
+    "injected_defect_detection_verdict": "pass"
+  },
+  "suite_summary": {
+    "total_cases": 66,
+    "clean_cases": 54,
+    "injected_defect_cases": 12,
+    "expected_failed_cases": 12,
+    "unexpected_clean_case_failures": 0,
+    "unexpected_injected_passes": 0
+  },
+  "checks": [
+    {
+      "check_id": "promotion_eligibility_report_present_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "eligible_candidate_requires_user_confirmation_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "promotion_plan_matches_confirmed_aspects_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "promotion_plan_excludes_unconfirmed_aspects_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "promotion_scope_matches_user_selected_context_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "global_write_from_single_inspiration_blocked_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "high_risk_candidate_not_promoted_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "metadata_only_candidate_not_promoted_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "visual_only_unconfirmed_candidate_not_promoted_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "rejected_candidate_not_promoted_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "do_not_remember_candidate_not_promoted_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "conflict_requires_moderation_or_review_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "unmoderated_conflict_no_write_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "allowed_promotion_routes_to_production_write_gate_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "blocked_promotion_no_production_write_attempt_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "review_required_promotion_has_actionable_payload_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "promotion_write_artifact_self_proof_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "rollback_proof_present_for_allowed_write_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "promoted_memory_atom_schema_valid_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "promoted_memory_no_raw_external_content_ref_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "promoted_memory_downstream_use_bounded_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "promoted_memory_consumed_only_matching_context_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "promoted_memory_not_used_as_hard_filter_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "response_claim_refs_promoted_memory_consumed_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "sample_artifacts_match_per_case_artifacts_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    }
+  ],
+  "detected_defects": [
+    {
+      "case_id": "v133_I01_confirmed_candidate_directly_writes_memory_without_promotion_eligibility",
+      "defect_type": "confirmed_candidate_directly_writes_memory_without_promotion_eligibility",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "promotion_eligibility_report_present_rate",
+        "allowed_promotion_routes_to_production_write_gate_rate"
+      ],
+      "expected_failed_check_ids": [
+        "promotion_eligibility_report_present_rate",
+        "allowed_promotion_routes_to_production_write_gate_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v133_I01_confirmed_candidate_directly_writes_memory_without_promotion_eligibility.json"
+    },
+    {
+      "case_id": "v133_I02_color_only_candidate_writes_full_style_memory",
+      "defect_type": "color_only_candidate_writes_full_style_memory",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "promotion_plan_matches_confirmed_aspects_rate",
+        "promotion_plan_excludes_unconfirmed_aspects_rate"
+      ],
+      "expected_failed_check_ids": [
+        "promotion_plan_matches_confirmed_aspects_rate",
+        "promotion_plan_excludes_unconfirmed_aspects_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v133_I02_color_only_candidate_writes_full_style_memory.json"
+    },
+    {
+      "case_id": "v133_I03_global_memory_written_from_single_inspiration",
+      "defect_type": "global_memory_written_from_single_inspiration",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "global_write_from_single_inspiration_blocked_rate"
+      ],
+      "expected_failed_check_ids": [
+        "global_write_from_single_inspiration_blocked_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v133_I03_global_memory_written_from_single_inspiration.json"
+    },
+    {
+      "case_id": "v133_I04_high_risk_body_inference_written",
+      "defect_type": "high_risk_body_inference_written",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "high_risk_candidate_not_promoted_rate",
+        "promoted_memory_atom_schema_valid_rate"
+      ],
+      "expected_failed_check_ids": [
+        "high_risk_candidate_not_promoted_rate",
+        "promoted_memory_atom_schema_valid_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v133_I04_high_risk_body_inference_written.json"
+    },
+    {
+      "case_id": "v133_I05_conflict_ignored_and_written",
+      "defect_type": "conflict_ignored_and_written",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "conflict_requires_moderation_or_review_rate",
+        "unmoderated_conflict_no_write_rate"
+      ],
+      "expected_failed_check_ids": [
+        "conflict_requires_moderation_or_review_rate",
+        "unmoderated_conflict_no_write_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v133_I05_conflict_ignored_and_written.json"
+    },
+    {
+      "case_id": "v133_I06_blocked_candidate_attempts_production_write",
+      "defect_type": "blocked_candidate_attempts_production_write",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "blocked_promotion_no_production_write_attempt_rate"
+      ],
+      "expected_failed_check_ids": [
+        "blocked_promotion_no_production_write_attempt_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v133_I06_blocked_candidate_attempts_production_write.json"
+    },
+    {
+      "case_id": "v133_I07_memory_atom_includes_raw_image_ref",
+      "defect_type": "memory_atom_includes_raw_image_ref",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "promoted_memory_no_raw_external_content_ref_rate"
+      ],
+      "expected_failed_check_ids": [
+        "promoted_memory_no_raw_external_content_ref_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v133_I07_memory_atom_includes_raw_image_ref.json"
+    },
+    {
+      "case_id": "v133_I08_promoted_memory_consumed_in_wrong_context",
+      "defect_type": "promoted_memory_consumed_in_wrong_context",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "promoted_memory_consumed_only_matching_context_rate"
+      ],
+      "expected_failed_check_ids": [
+        "promoted_memory_consumed_only_matching_context_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v133_I08_promoted_memory_consumed_in_wrong_context.json"
+    },
+    {
+      "case_id": "v133_I09_production_write_lacks_rollback_proof",
+      "defect_type": "production_write_lacks_rollback_proof",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "rollback_proof_present_for_allowed_write_rate",
+        "promotion_write_artifact_self_proof_rate"
+      ],
+      "expected_failed_check_ids": [
+        "rollback_proof_present_for_allowed_write_rate",
+        "promotion_write_artifact_self_proof_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v133_I09_production_write_lacks_rollback_proof.json"
+    },
+    {
+      "case_id": "v133_I10_response_claims_promoted_memory_not_consumed",
+      "defect_type": "response_claims_promoted_memory_not_consumed",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "response_claim_refs_promoted_memory_consumed_rate"
+      ],
+      "expected_failed_check_ids": [
+        "response_claim_refs_promoted_memory_consumed_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v133_I10_response_claims_promoted_memory_not_consumed.json"
+    },
+    {
+      "case_id": "v133_I11_unconfirmed_visual_signal_promoted",
+      "defect_type": "unconfirmed_visual_signal_promoted",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "visual_only_unconfirmed_candidate_not_promoted_rate",
+        "eligible_candidate_requires_user_confirmation_rate"
+      ],
+      "expected_failed_check_ids": [
+        "visual_only_unconfirmed_candidate_not_promoted_rate",
+        "eligible_candidate_requires_user_confirmation_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v133_I11_unconfirmed_visual_signal_promoted.json"
+    },
+    {
+      "case_id": "v133_I12_exact_product_interest_promoted_as_style_memory",
+      "defect_type": "exact_product_interest_promoted_as_style_memory",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "promoted_memory_downstream_use_bounded_rate",
+        "promoted_memory_atom_schema_valid_rate"
+      ],
+      "expected_failed_check_ids": [
+        "promoted_memory_downstream_use_bounded_rate",
+        "promoted_memory_atom_schema_valid_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v133_I12_exact_product_interest_promoted_as_style_memory.json"
+    }
+  ],
+  "unexpected_clean_case_failures": [],
+  "unexpected_injected_passes": []
+}

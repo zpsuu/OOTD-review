@@ -1,0 +1,124 @@
+{
+  "case_id": "v133_H02_rejected_candidate_blocked",
+  "version": "v1.33",
+  "scenario": "H02_rejected_candidate_blocked",
+  "scenario_kind": "rejected_blocked",
+  "scenario_preconditions": {
+    "expected": [
+      "confirmed_inspiration_candidate_present",
+      "promotion_eligibility_report_present",
+      "production_write_not_attempted",
+      "promoted_memory_atom_absent"
+    ],
+    "satisfied": true,
+    "proof_refs": [
+      "confirmed_inspiration_candidate",
+      "promotion_eligibility_report",
+      "promotion_write_decision.production_store_write_attempted",
+      "promoted_memory_atom"
+    ],
+    "missing_preconditions": []
+  },
+  "confirmed_inspiration_candidate": {
+    "confirmed_inspiration_candidate_id": "cic_v133_49",
+    "source_intake_event_id": "intake_v133_49",
+    "source_type": "confirmed_external_inspiration",
+    "user_confirmed": true,
+    "confirmed_aspects": [
+      "color_palette"
+    ],
+    "candidate_concept": "low saturation color palette",
+    "polarity": "soft_prefer",
+    "scope_candidate": "contextual",
+    "suggested_contexts": [
+      "office_daily"
+    ],
+    "excluded_aspects": [
+      "silhouette",
+      "exact_items",
+      "model_body",
+      "photo_lighting",
+      "luxury_brand_specificity"
+    ],
+    "confidence": 0.72,
+    "evidence_refs": [
+      "intake_v133_49",
+      "visual_signal_candidate_v133_49",
+      "confirmation_action_v133_49"
+    ],
+    "status": "rejected_by_user",
+    "production_write_allowed": false,
+    "requires_write_gate_before_commit": true
+  },
+  "promotion_eligibility_report": {
+    "promotion_eligibility_report_id": "per_v133_49",
+    "confirmed_candidate_id": "cic_v133_49",
+    "eligible": false,
+    "eligibility_status": "blocked",
+    "reasons": [
+      "candidate_rejected_by_user"
+    ],
+    "risk_assessment": {
+      "risk_level": "low",
+      "high_risk_inference_present": false,
+      "external_image_only": false,
+      "globalization_risk": "low",
+      "exact_product_or_brand_present": false
+    },
+    "scope_assessment": {
+      "selected_scope": "contextual",
+      "allowed_contexts": [
+        "office_daily"
+      ],
+      "global_write_allowed": false,
+      "global_write_requested": false
+    },
+    "aspect_scope": {
+      "confirmed_aspects": [
+        "color_palette"
+      ],
+      "excluded_aspects": [
+        "silhouette",
+        "exact_items",
+        "model_body",
+        "photo_lighting",
+        "luxury_brand_specificity"
+      ]
+    },
+    "conflict_assessment": {
+      "has_conflict": false,
+      "requires_moderated_translation": false,
+      "conflicting_memory_ids": []
+    },
+    "promotion_decision": {
+      "recommended_action": "block",
+      "production_write_allowed_to_attempt": false
+    }
+  },
+  "inspiration_memory_promotion_plan": null,
+  "active_memory_snapshot": [],
+  "active_memory_details": {},
+  "promotion_write_decision": {
+    "promotion_write_decision_id": "pwd_v133_49",
+    "promotion_plan_id": null,
+    "route": "ProductionMemoryWriteGate",
+    "status": "blocked",
+    "production_store_write_attempted": false,
+    "production_store_write_executed": false,
+    "shadow_store_write_attempted": false,
+    "shadow_store_write_executed": false,
+    "reason": "promotion_not_eligible"
+  },
+  "promoted_memory_atom": null,
+  "audit_snapshot": null,
+  "rollback_proof": null,
+  "task_memory_packet": null,
+  "direct_write_bypass_detected": false,
+  "trace": {
+    "candidate_id": "cic_v133_49",
+    "eligibility_report_id": "per_v133_49",
+    "promotion_plan_id": null,
+    "write_decision_id": "pwd_v133_49",
+    "memory_id": null
+  }
+}

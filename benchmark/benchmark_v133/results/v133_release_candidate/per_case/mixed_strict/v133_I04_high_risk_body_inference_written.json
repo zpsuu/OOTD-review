@@ -1,0 +1,16 @@
+{
+  "case_id": "v133_I04_high_risk_body_inference_written",
+  "version": "v1.33",
+  "defect_type": "high_risk_body_inference_written",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "high_risk_candidate_not_promoted_rate",
+    "promoted_memory_atom_schema_valid_rate"
+  ],
+  "failed_check_ids": [
+    "high_risk_candidate_not_promoted_rate",
+    "promoted_memory_atom_schema_valid_rate"
+  ],
+  "source_clean_case_id": "v133_A01_color_only_confirmed_candidate_eligible_for_contextual_soft_prefer",
+  "failure_reason": "Injected defect detected: high_risk_body_inference_written"
+}

@@ -1,0 +1,16 @@
+{
+  "case_id": "v133_I01_confirmed_candidate_directly_writes_memory_without_promotion_eligibility",
+  "version": "v1.33",
+  "defect_type": "confirmed_candidate_directly_writes_memory_without_promotion_eligibility",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "promotion_eligibility_report_present_rate",
+    "allowed_promotion_routes_to_production_write_gate_rate"
+  ],
+  "failed_check_ids": [
+    "promotion_eligibility_report_present_rate",
+    "allowed_promotion_routes_to_production_write_gate_rate"
+  ],
+  "source_clean_case_id": "v133_A01_color_only_confirmed_candidate_eligible_for_contextual_soft_prefer",
+  "failure_reason": "Injected defect detected: confirmed_candidate_directly_writes_memory_without_promotion_eligibility"
+}

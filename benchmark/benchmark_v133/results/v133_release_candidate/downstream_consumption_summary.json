@@ -1,0 +1,7 @@
+{
+  "matching_context_consumption_count": 30,
+  "mismatching_context_exclusion_count": 4,
+  "wrong_context_consumption_count": 0,
+  "hard_filter_use_count": 0,
+  "response_claim_without_consumption_count": 0
+}

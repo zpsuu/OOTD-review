@@ -1,0 +1,14 @@
+{
+  "case_id": "v133_I03_global_memory_written_from_single_inspiration",
+  "version": "v1.33",
+  "defect_type": "global_memory_written_from_single_inspiration",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "global_write_from_single_inspiration_blocked_rate"
+  ],
+  "failed_check_ids": [
+    "global_write_from_single_inspiration_blocked_rate"
+  ],
+  "source_clean_case_id": "v133_A01_color_only_confirmed_candidate_eligible_for_contextual_soft_prefer",
+  "failure_reason": "Injected defect detected: global_memory_written_from_single_inspiration"
+}

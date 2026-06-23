@@ -1,0 +1,271 @@
+{
+  "case_id": "v133_C05_rollback_proof_exists_for_allowed_write",
+  "version": "v1.33",
+  "scenario": "C05_rollback_proof_exists_for_allowed_write",
+  "scenario_kind": "color_allowed",
+  "scenario_preconditions": {
+    "expected": [
+      "confirmed_inspiration_candidate_present",
+      "promotion_eligibility_report_present",
+      "promotion_plan_present",
+      "production_write_gate_route",
+      "rollback_proof_present",
+      "promoted_memory_atom_present",
+      "context_safe_consumption_evaluated"
+    ],
+    "satisfied": true,
+    "proof_refs": [
+      "confirmed_inspiration_candidate",
+      "promotion_eligibility_report",
+      "inspiration_memory_promotion_plan",
+      "promotion_write_decision.route",
+      "rollback_proof",
+      "promoted_memory_atom",
+      "task_memory_packet"
+    ],
+    "missing_preconditions": []
+  },
+  "confirmed_inspiration_candidate": {
+    "confirmed_inspiration_candidate_id": "cic_v133_20",
+    "source_intake_event_id": "intake_v133_20",
+    "source_type": "confirmed_external_inspiration",
+    "user_confirmed": true,
+    "confirmed_aspects": [
+      "color_palette"
+    ],
+    "candidate_concept": "low saturation color palette",
+    "polarity": "soft_prefer",
+    "scope_candidate": "contextual",
+    "suggested_contexts": [
+      "office_daily"
+    ],
+    "excluded_aspects": [
+      "silhouette",
+      "exact_items",
+      "model_body",
+      "photo_lighting",
+      "luxury_brand_specificity"
+    ],
+    "confidence": 0.72,
+    "evidence_refs": [
+      "intake_v133_20",
+      "visual_signal_candidate_v133_20",
+      "confirmation_action_v133_20"
+    ],
+    "status": "confirmed_shadow_candidate",
+    "production_write_allowed": false,
+    "requires_write_gate_before_commit": true
+  },
+  "promotion_eligibility_report": {
+    "promotion_eligibility_report_id": "per_v133_20",
+    "confirmed_candidate_id": "cic_v133_20",
+    "eligible": true,
+    "eligibility_status": "eligible_low_risk",
+    "reasons": [
+      "user_confirmed_aspect",
+      "low_risk_aesthetic_signal",
+      "contextual_scope_selected",
+      "no_active_conflict"
+    ],
+    "risk_assessment": {
+      "risk_level": "low",
+      "high_risk_inference_present": false,
+      "external_image_only": false,
+      "globalization_risk": "low",
+      "exact_product_or_brand_present": false
+    },
+    "scope_assessment": {
+      "selected_scope": "contextual",
+      "allowed_contexts": [
+        "office_daily"
+      ],
+      "global_write_allowed": false,
+      "global_write_requested": false
+    },
+    "aspect_scope": {
+      "confirmed_aspects": [
+        "color_palette"
+      ],
+      "excluded_aspects": [
+        "silhouette",
+        "exact_items",
+        "model_body",
+        "photo_lighting",
+        "luxury_brand_specificity"
+      ]
+    },
+    "conflict_assessment": {
+      "has_conflict": false,
+      "requires_moderated_translation": false,
+      "conflicting_memory_ids": []
+    },
+    "promotion_decision": {
+      "recommended_action": "create_memory_evolution_proposal",
+      "production_write_allowed_to_attempt": true
+    }
+  },
+  "inspiration_memory_promotion_plan": {
+    "promotion_plan_id": "imp_v133_20",
+    "confirmed_candidate_id": "cic_v133_20",
+    "target_memory_concept": "low saturation color palette",
+    "concept_type": "aesthetic_preference",
+    "polarity": "soft_prefer",
+    "scope": "contextual",
+    "contexts": [
+      "office_daily"
+    ],
+    "confidence": 0.72,
+    "confirmed_aspects": [
+      "color_palette"
+    ],
+    "evidence_refs": [
+      "intake_v133_20",
+      "visual_signal_candidate_v133_20",
+      "confirmation_action_v133_20"
+    ],
+    "excluded_from_memory": [
+      "silhouette",
+      "exact_items",
+      "model_body",
+      "photo_lighting",
+      "luxury_brand_specificity"
+    ],
+    "downstream_use": [
+      "aesthetic_direction_ranking",
+      "ideal_reality_bridge_personalization",
+      "daily_outfit_soft_bias"
+    ],
+    "disallowed_downstream_use": [
+      "hard_filter",
+      "body_inference",
+      "commerce_targeting",
+      "global_style_identity"
+    ],
+    "requires_write_gate": true,
+    "plan_matches_confirmed_aspects": true,
+    "plan_excludes_unconfirmed_aspects": true,
+    "scope_matches_user_selected_context": true
+  },
+  "active_memory_snapshot": [],
+  "active_memory_details": {},
+  "promotion_write_decision": {
+    "promotion_write_decision_id": "pwd_v133_20",
+    "promotion_plan_id": "imp_v133_20",
+    "route": "ProductionMemoryWriteGate",
+    "status": "allowed",
+    "production_store_write_attempted": true,
+    "production_store_write_executed": true,
+    "shadow_store_write_attempted": false,
+    "shadow_store_write_executed": false,
+    "store_env": "production_fixture",
+    "namespace": "test/v133/inspiration_memory",
+    "write_backend": "production_memory_store",
+    "committed_memory_id": "mem_insp_v133_20",
+    "audit_ref": "audit_v133_20",
+    "rollback_ref": "rollback_v133_20"
+  },
+  "promoted_memory_atom": {
+    "memory_id": "mem_insp_v133_20",
+    "concept": "low saturation color palette",
+    "concept_type": "aesthetic_preference",
+    "polarity": "soft_prefer",
+    "scope": "contextual",
+    "contexts": [
+      "office_daily"
+    ],
+    "confidence": 0.72,
+    "confidence_self_proof": {
+      "source": "confirmed_candidate_confidence",
+      "candidate_confidence": 0.72,
+      "rounded_memory_confidence": 0.72,
+      "evidence_refs": [
+        "intake_v133_20",
+        "visual_signal_candidate_v133_20",
+        "confirmation_action_v133_20"
+      ]
+    },
+    "evidence_refs": [
+      "intake_v133_20",
+      "visual_signal_candidate_v133_20",
+      "confirmation_action_v133_20",
+      "imp_v133_20"
+    ],
+    "source_type": "confirmed_external_inspiration",
+    "downstream_use": [
+      "aesthetic_direction_ranking",
+      "daily_outfit_soft_bias"
+    ],
+    "disallowed_downstream_use": [
+      "hard_filter",
+      "commerce_targeting",
+      "body_inference",
+      "global_style_identity"
+    ],
+    "excluded_aspects": [
+      "silhouette",
+      "exact_items",
+      "model_body",
+      "photo_lighting",
+      "luxury_brand_specificity"
+    ],
+    "raw_external_content_refs": [],
+    "product_links": [],
+    "sku_refs": [],
+    "merchant_refs": [],
+    "lifecycle": {
+      "created_by": "promotion_write_gate",
+      "rollback_window_id": "rbw_v133_20",
+      "review_required": false
+    }
+  },
+  "audit_snapshot": {
+    "audit_ref": "audit_v133_20",
+    "namespace": "test/v133/inspiration_memory",
+    "write_backend": "production_memory_store",
+    "committed_memory_id": "mem_insp_v133_20",
+    "state_hash_before": "sha256_before_v133_20",
+    "state_hash_after": "sha256_after_v133_20",
+    "production_native_commit_artifact": true
+  },
+  "rollback_proof": {
+    "rollback_ref": "rollback_v133_20",
+    "rollback_window_id": "rbw_v133_20",
+    "can_rollback": true,
+    "rollback_tested": true,
+    "state_hash_after_rollback": "sha256_before_v133_20",
+    "read_after_rollback": null
+  },
+  "task_memory_packet": {
+    "task_memory_packet_id": "tmp_v133_20",
+    "request_context": "office_daily",
+    "candidate_memory_id": "mem_insp_v133_20",
+    "context_match": true,
+    "consumed_memory_ids": [
+      "mem_insp_v133_20"
+    ],
+    "excluded_memory_ids": [],
+    "exclusion_reason": null,
+    "use_type": "soft_bias",
+    "hard_filter_used": false,
+    "daily_outfit_effect": "softly_biases_palette_selection",
+    "bridge_use": "supporting_signal_not_constraint",
+    "response_claims": [
+      {
+        "claim_id": "claim_v133_20",
+        "text": "I used your confirmed low-saturation preference as a soft context cue.",
+        "trace_refs": [
+          "mem_insp_v133_20",
+          "tmp_v133_20"
+        ]
+      }
+    ]
+  },
+  "direct_write_bypass_detected": false,
+  "trace": {
+    "candidate_id": "cic_v133_20",
+    "eligibility_report_id": "per_v133_20",
+    "promotion_plan_id": "imp_v133_20",
+    "write_decision_id": "pwd_v133_20",
+    "memory_id": "mem_insp_v133_20"
+  }
+}

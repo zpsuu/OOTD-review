@@ -1,0 +1,70 @@
+{
+  "version": "v1.33",
+  "release_candidate_status": "pass_candidate_pending_manual_review",
+  "branch": "v133-confirmed-inspiration-memory-promotion-governance",
+  "theme": "Confirmed Inspiration Memory Promotion Governance",
+  "entrypoint": "benchmark/benchmark_v133/results/v133_release_candidate/REVIEW_MANIFEST.json",
+  "generated_at": "2026-06-23T15:05:55Z",
+  "scope": {
+    "goals": [
+      "Evaluate promotion eligibility for confirmed inspiration candidates",
+      "Promote only narrow low-risk contextual soft_prefer candidates",
+      "Route allowed promotions through ProductionMemoryWriteGate",
+      "Block/defer/review unsafe candidates",
+      "Verify promoted memory atom integrity",
+      "Verify downstream context-safe consumption"
+    ],
+    "non_goals": [
+      "No broad global style identity writes",
+      "No high-risk inference writes",
+      "No shopping or product promotion",
+      "No external platform API integration",
+      "No content feed",
+      "No unrestricted inspiration memory writes"
+    ]
+  },
+  "reports": {
+    "clean_report": "clean_report.json",
+    "mixed_strict_report": "mixed_strict_report.json",
+    "injected_summary": "injected_defect_detection_summary.json"
+  },
+  "required_gates": [
+    "promotion_eligibility_report_present_rate",
+    "eligible_candidate_requires_user_confirmation_rate",
+    "promotion_plan_matches_confirmed_aspects_rate",
+    "promotion_plan_excludes_unconfirmed_aspects_rate",
+    "promotion_scope_matches_user_selected_context_rate",
+    "global_write_from_single_inspiration_blocked_rate",
+    "high_risk_candidate_not_promoted_rate",
+    "metadata_only_candidate_not_promoted_rate",
+    "visual_only_unconfirmed_candidate_not_promoted_rate",
+    "rejected_candidate_not_promoted_rate",
+    "do_not_remember_candidate_not_promoted_rate",
+    "conflict_requires_moderation_or_review_rate",
+    "unmoderated_conflict_no_write_rate",
+    "allowed_promotion_routes_to_production_write_gate_rate",
+    "blocked_promotion_no_production_write_attempt_rate",
+    "review_required_promotion_has_actionable_payload_rate",
+    "promotion_write_artifact_self_proof_rate",
+    "rollback_proof_present_for_allowed_write_rate",
+    "promoted_memory_atom_schema_valid_rate",
+    "promoted_memory_no_raw_external_content_ref_rate",
+    "promoted_memory_downstream_use_bounded_rate",
+    "promoted_memory_consumed_only_matching_context_rate",
+    "promoted_memory_not_used_as_hard_filter_rate",
+    "response_claim_refs_promoted_memory_consumed_rate",
+    "sample_artifacts_match_per_case_artifacts_rate"
+  ],
+  "must_review_samples": [
+    "sample_artifacts/color_only_contextual_promotion_allowed.json",
+    "sample_artifacts/date_night_contextual_promotion_allowed.json",
+    "sample_artifacts/global_request_blocked_or_review.json",
+    "sample_artifacts/high_risk_candidate_blocked.json",
+    "sample_artifacts/conflict_moderated_translation_promotion.json",
+    "sample_artifacts/allowed_promotion_write_artifact.json",
+    "sample_artifacts/rollback_proof_for_promotion_write.json",
+    "sample_artifacts/promoted_memory_consumed_matching_context.json",
+    "sample_artifacts/promoted_memory_excluded_mismatching_context.json",
+    "sample_artifacts/blocked_candidate_no_write_attempt.json"
+  ]
+}
