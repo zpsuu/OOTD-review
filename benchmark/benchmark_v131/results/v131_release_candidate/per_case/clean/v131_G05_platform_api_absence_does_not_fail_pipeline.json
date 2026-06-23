@@ -7,9 +7,11 @@
       "external_inspiration_input_present",
       "inspiration_intake_event_present",
       "storage_policy_present",
-      "url_intake_present",
-      "metadata_only_signal_present",
+      "url_metadata_only_input_present",
       "visual_content_unavailable",
+      "ideal_direction_not_created",
+      "memory_proposal_not_created",
+      "clarification_prompt_present",
       "clarification_or_fallback_required"
     ],
     "satisfied": true,
@@ -19,7 +21,9 @@
       "inspiration_intake_event.source_type",
       "text_signal_candidate.metadata_only",
       "text_signal_candidate.url_fetch_report.visual_content_available",
-      "fallback_or_clarification"
+      "ideal_direction_candidate",
+      "shadow_memory_proposal",
+      "clarification_prompt"
     ],
     "missing_preconditions": []
   },
@@ -46,7 +50,7 @@
         "public_evidence_representation": "synthetic_metadata_summary"
       }
     ],
-    "created_at": "2026-06-23T12:07:52Z"
+    "created_at": "2026-06-23T12:36:56Z"
   },
   "visual_signal_candidate": null,
   "text_signal_candidate": {
@@ -80,22 +84,24 @@
     "intent_resolution_id": "uir_v131_41",
     "intake_event_id": "intake_v131_41",
     "resolved_user_intent": {
-      "liked_aspects": [
-        "overall_mood",
-        "color_palette",
-        "silhouette"
+      "liked_aspects": [],
+      "tentative_aspects_from_metadata": [
+        "overall_mood"
       ],
       "not_confirmed_aspects": [
+        "color_palette",
+        "silhouette",
         "exact_items",
+        "material",
         "model_body",
-        "photo_lighting",
-        "exact_product_specificity"
+        "photo_lighting"
       ],
       "rejected_aspects": [],
-      "intended_scope": "office_daily"
+      "intended_scope": "unknown_or_exploratory"
     },
     "requires_user_confirmation": true,
-    "confirmation_question": "Which part should I learn from: mood, colors, or silhouette?",
+    "requires_visual_or_user_clarification": true,
+    "confirmation_question": "Can you upload a screenshot or tell me which part you liked?",
     "allowed_user_actions": [
       "remember_later_shadow",
       "use_for_this_bridge_only",
@@ -107,19 +113,18 @@
   "ideal_direction_candidate": null,
   "bridge_shadow_run": null,
   "shadow_memory_proposal": null,
-  "memory_ux_confirmation_prompt": {
-    "memory_ux_confirmation_prompt_id": "memux_v131_41",
-    "question": "Should I keep this as a shadow-only style direction candidate for review later?",
+  "memory_ux_confirmation_prompt": null,
+  "clarification_prompt": {
+    "clarification_prompt_id": "clarify_v131_41",
+    "prompt_type": "clarification_required",
+    "question": "I need a screenshot or a bit more detail before turning this into an ideal direction.",
     "actions": [
-      "remember_later_shadow",
-      "use_for_this_bridge_only",
+      "upload_screenshot",
       "clarify_liked_aspect",
-      "do_not_remember",
-      "not_this_direction"
+      "cancel",
+      "do_not_remember"
     ],
-    "selected_fixture_action": "remember_later_shadow",
-    "production_write_allowed_after_confirmation": false,
-    "confirmation_policy": "confirmation can keep or discard shadow proposal only; it cannot write production memory in v1.31"
+    "selected_fixture_action": "clarify_liked_aspect"
   },
   "fallback_or_clarification": {
     "fallback_id": "fallback_uir_v131_41",

@@ -7,6 +7,9 @@
       "external_inspiration_input_present",
       "inspiration_intake_event_present",
       "storage_policy_present",
+      "user_statement_targets_date_night",
+      "intended_scope_is_date_or_contextual",
+      "shadow_memory_scope_candidate_is_contextual",
       "ideal_direction_candidate_present",
       "bridge_shadow_run_present",
       "memory_ux_confirmation_prompt_present",
@@ -17,6 +20,9 @@
     "proof_refs": [
       "inspiration_intake_event",
       "inspiration_intake_event.content_refs[0].storage_policy",
+      "inspiration_intake_event.user_statement",
+      "user_intent_resolution.resolved_user_intent.intended_scope",
+      "shadow_memory_proposal.scope_candidate",
       "ideal_direction_candidate",
       "bridge_shadow_run",
       "memory_ux_confirmation_prompt",
@@ -41,7 +47,7 @@
         "derived_content_hash": "sha256_fixture_v131_16"
       }
     ],
-    "created_at": "2026-06-23T12:07:52Z"
+    "created_at": "2026-06-23T12:36:56Z"
   },
   "visual_signal_candidate": {
     "visual_signal_candidate_id": "vsc_v131_16",
@@ -110,6 +116,7 @@
         "clean_presence",
         "low_saturation_palette"
       ],
+      "tentative_aspects_from_metadata": [],
       "not_confirmed_aspects": [
         "exact_items",
         "model_body",
@@ -120,6 +127,7 @@
       "intended_scope": "date"
     },
     "requires_user_confirmation": true,
+    "requires_visual_or_user_clarification": false,
     "confirmation_question": "Should this stay scoped to date night only?",
     "allowed_user_actions": [
       "remember_later_shadow",
@@ -149,6 +157,13 @@
       "model_body",
       "identity_inference",
       "exact_product_specificity"
+    ],
+    "excluded_or_not_confirmed_elements": [
+      "model_body",
+      "identity_inference",
+      "exact_product_specificity",
+      "item_cues",
+      "material"
     ],
     "confidence": 0.72,
     "requires_user_confirmation": true,
@@ -253,6 +268,7 @@
     "production_write_allowed_after_confirmation": false,
     "confirmation_policy": "confirmation can keep or discard shadow proposal only; it cannot write production memory in v1.31"
   },
+  "clarification_prompt": null,
   "fallback_or_clarification": null,
   "privacy_rights_report": {
     "raw_external_content_in_public_evidence_pack": false,

@@ -10,6 +10,6 @@
 - total_cases: 48
 - passed_cases: 48
 - failed_cases: 0
-- total_checks: 36
-- passed_checks: 36
+- total_checks: 46
+- passed_checks: 46
 - failed_checks: 0

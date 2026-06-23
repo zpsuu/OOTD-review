@@ -51,6 +51,16 @@ GATES = [
     "shadow_proposal_evidence_refs_complete_rate",
     "scenario_precondition_satisfied_rate",
     "no_vacuous_inspiration_case_pass_rate",
+    "fallback_without_candidate_has_no_memory_confirmation_prompt_rate",
+    "clarification_prompt_actions_do_not_include_remember_rate",
+    "metadata_only_fallback_selected_action_not_remember_shadow_rate",
+    "metadata_only_liked_aspects_not_resolved_rate",
+    "metadata_only_visual_aspects_remain_unconfirmed_rate",
+    "url_metadata_only_intent_requires_clarification_rate",
+    "high_risk_case_has_high_risk_precondition_rate",
+    "uncertain_visual_case_has_uncertain_field_precondition_rate",
+    "intent_resolution_case_has_specific_user_statement_precondition_rate",
+    "metadata_only_case_has_metadata_only_precondition_rate",
 ]
 
 REQUIRED_NEW_GATES = [
@@ -68,6 +78,16 @@ REQUIRED_NEW_GATES = [
     "user_visible_claim_trace_coverage_rate",
     "scenario_precondition_satisfied_rate",
     "no_vacuous_inspiration_case_pass_rate",
+    "fallback_without_candidate_has_no_memory_confirmation_prompt_rate",
+    "clarification_prompt_actions_do_not_include_remember_rate",
+    "metadata_only_fallback_selected_action_not_remember_shadow_rate",
+    "metadata_only_liked_aspects_not_resolved_rate",
+    "metadata_only_visual_aspects_remain_unconfirmed_rate",
+    "url_metadata_only_intent_requires_clarification_rate",
+    "high_risk_case_has_high_risk_precondition_rate",
+    "uncertain_visual_case_has_uncertain_field_precondition_rate",
+    "intent_resolution_case_has_specific_user_statement_precondition_rate",
+    "metadata_only_case_has_metadata_only_precondition_rate",
 ]
 
 CASE_IDS = [
@@ -134,6 +154,15 @@ DEFECTS = [
     ("I10", "inaccessible_link_crashes_pipeline", ["inaccessible_url_returns_honest_fallback_rate", "platform_api_absence_does_not_fail_pipeline_rate"]),
     ("I11", "storage_policy_missing_from_content_refs", ["content_ref_storage_policy_present_rate"]),
     ("I12", "external_image_source_reused_as_public_artifact", ["external_content_not_redistributed_rate", "redistribution_disallowed_for_external_content_rate"]),
+    ("I13", "metadata_only_fallback_shows_memory_confirmation_prompt", ["fallback_without_candidate_has_no_memory_confirmation_prompt_rate"]),
+    ("I14", "ambiguous_fallback_allows_remember_later_shadow", ["clarification_prompt_actions_do_not_include_remember_rate"]),
+    ("I15", "clarification_prompt_selected_action_remember_shadow", ["metadata_only_fallback_selected_action_not_remember_shadow_rate"]),
+    ("I16", "metadata_only_url_resolves_visual_liked_aspects", ["metadata_only_liked_aspects_not_resolved_rate"]),
+    ("I17", "metadata_only_url_confirms_visual_aspects", ["metadata_only_visual_aspects_remain_unconfirmed_rate"]),
+    ("I18", "high_risk_case_without_high_risk_precondition", ["high_risk_case_has_high_risk_precondition_rate"]),
+    ("I19", "uncertain_visual_case_without_uncertain_precondition", ["uncertain_visual_case_has_uncertain_field_precondition_rate"]),
+    ("I20", "intent_resolution_case_without_specific_user_statement_precondition", ["intent_resolution_case_has_specific_user_statement_precondition_rate"]),
+    ("I21", "metadata_only_case_without_metadata_only_precondition", ["metadata_only_case_has_metadata_only_precondition_rate"]),
 ]
 
 SAMPLE_MAP = {
@@ -312,6 +341,15 @@ def _intent_resolution(case_id: str, intake: dict[str, Any], suffix: str) -> dic
     rejected: list[str] = []
     scope = "office_daily"
     question = "Which part should I learn from: mood, colors, or silhouette?"
+    tentative_aspects_from_metadata: list[str] = []
+    requires_visual_or_user_clarification = False
+    if intake["source_type"] == "url":
+        liked = []
+        tentative_aspects_from_metadata = ["overall_mood"]
+        not_confirmed = ["color_palette", "silhouette", "exact_items", "material", "model_body", "photo_lighting"]
+        scope = "unknown_or_exploratory"
+        question = "Can you upload a screenshot or tell me which part you liked?"
+        requires_visual_or_user_clarification = True
     if case_id.startswith("C02"):
         liked = ["color_palette"]
         not_confirmed = ["silhouette", "exact_items", "model_body", "photo_lighting"]
@@ -337,11 +375,13 @@ def _intent_resolution(case_id: str, intake: dict[str, Any], suffix: str) -> dic
         "intake_event_id": intake["intake_event_id"],
         "resolved_user_intent": {
             "liked_aspects": liked,
+            "tentative_aspects_from_metadata": tentative_aspects_from_metadata,
             "not_confirmed_aspects": not_confirmed,
             "rejected_aspects": rejected,
             "intended_scope": scope,
         },
         "requires_user_confirmation": True,
+        "requires_visual_or_user_clarification": requires_visual_or_user_clarification,
         "confirmation_question": question,
         "allowed_user_actions": [
             "remember_later_shadow",
@@ -378,6 +418,7 @@ def _ideal_direction_candidate(case_id: str, suffix: str, sufficient: bool) -> d
         "core_elements": core,
         "non_core_elements": ["exact_model_styling", "photo_lighting", "luxury_item_specificity", "exact_items"],
         "excluded_elements": ["model_body", "identity_inference", "exact_product_specificity"],
+        "excluded_or_not_confirmed_elements": ["model_body", "identity_inference", "exact_product_specificity", "item_cues", "material"],
         "confidence": 0.72 if len(core) > 1 else 0.64,
         "requires_user_confirmation": True,
         "allowed_downstream_use": ["ideal_reality_bridge_shadow", "shadow_memory_proposal"],
@@ -481,6 +522,16 @@ def _memory_ux_prompt(case_id: str, suffix: str) -> dict[str, Any]:
     }
 
 
+def _clarification_prompt(case_id: str, suffix: str) -> dict[str, Any]:
+    return {
+        "clarification_prompt_id": f"clarify_{suffix}",
+        "prompt_type": "clarification_required",
+        "question": "I need a screenshot or a bit more detail before turning this into an ideal direction.",
+        "actions": ["upload_screenshot", "clarify_liked_aspect", "cancel", "do_not_remember"],
+        "selected_fixture_action": "clarify_liked_aspect",
+    }
+
+
 def _privacy_rights_report(intake: dict[str, Any], visual: dict[str, Any] | None, text_signal: dict[str, Any] | None) -> dict[str, Any]:
     return {
         "raw_external_content_in_public_evidence_pack": False,
@@ -496,11 +547,96 @@ def _scenario_preconditions(case_id: str, source_type: str, sufficient: bool, ha
     expected = ["external_inspiration_input_present", "inspiration_intake_event_present", "storage_policy_present"]
     proof_refs = ["inspiration_intake_event", "inspiration_intake_event.content_refs[0].storage_policy"]
     if source_type == "url":
-        expected.extend(["url_intake_present", "metadata_only_signal_present", "visual_content_unavailable"])
-        proof_refs.extend(["inspiration_intake_event.source_type", "text_signal_candidate.metadata_only", "text_signal_candidate.url_fetch_report.visual_content_available"])
+        expected.extend(
+            [
+                "url_metadata_only_input_present",
+                "visual_content_unavailable",
+                "ideal_direction_not_created",
+                "memory_proposal_not_created",
+                "clarification_prompt_present",
+            ]
+        )
+        proof_refs.extend(
+            [
+                "inspiration_intake_event.source_type",
+                "text_signal_candidate.metadata_only",
+                "text_signal_candidate.url_fetch_report.visual_content_available",
+                "ideal_direction_candidate",
+                "shadow_memory_proposal",
+                "clarification_prompt",
+            ]
+        )
     if case_id.startswith(("G01", "G02", "G03", "G04", "G05", "G06", "B06", "C05")):
         expected.append("clarification_or_fallback_required")
-        proof_refs.append("fallback_or_clarification")
+        proof_refs.append("clarification_prompt")
+    if case_id.startswith("C05"):
+        expected.extend(
+            [
+                "ambiguous_user_share_present",
+                "liked_aspects_not_resolved",
+                "ideal_direction_not_created",
+                "memory_proposal_not_created",
+                "clarification_prompt_present",
+            ]
+        )
+        proof_refs.extend(
+            [
+                "inspiration_intake_event.user_statement",
+                "user_intent_resolution.resolved_user_intent.liked_aspects",
+                "ideal_direction_candidate",
+                "shadow_memory_proposal",
+                "clarification_prompt",
+            ]
+        )
+    if case_id.startswith(("B04", "F05")):
+        expected.extend(
+            [
+                "high_risk_visual_inference_candidate_present",
+                "suppressed_high_risk_inferences_present",
+                "high_risk_inference_not_in_user_visible_claims",
+                "high_risk_inference_not_in_shadow_memory_proposal",
+            ]
+        )
+        proof_refs.extend(
+            [
+                "visual_signal_candidate.suppressed_high_risk_inferences",
+                "user_visible_claims",
+                "shadow_memory_proposal",
+            ]
+        )
+    if case_id.startswith(("B02", "B05", "D06")):
+        expected.extend(
+            [
+                "uncertain_visual_field_present",
+                "uncertain_field_flagged",
+                "uncertain_field_not_promoted_to_core_element",
+            ]
+        )
+        proof_refs.extend(
+            [
+                "visual_signal_candidate.uncertain_fields",
+                "ideal_direction_candidate.core_elements",
+                "ideal_direction_candidate.excluded_or_not_confirmed_elements",
+            ]
+        )
+    if case_id.startswith("C02"):
+        expected.extend(["user_statement_targets_color", "liked_aspects_color_only", "non_color_visual_aspects_not_confirmed"])
+        proof_refs.extend(
+            [
+                "inspiration_intake_event.user_statement",
+                "user_intent_resolution.resolved_user_intent.liked_aspects",
+                "user_intent_resolution.resolved_user_intent.not_confirmed_aspects",
+            ]
+        )
+    if case_id.startswith("C04"):
+        expected.extend(["user_statement_targets_date_night", "intended_scope_is_date_or_contextual", "shadow_memory_scope_candidate_is_contextual"])
+        proof_refs.extend(
+            [
+                "inspiration_intake_event.user_statement",
+                "user_intent_resolution.resolved_user_intent.intended_scope",
+                "shadow_memory_proposal.scope_candidate",
+            ]
+        )
     if sufficient:
         expected.extend(["ideal_direction_candidate_present", "bridge_shadow_run_present", "memory_ux_confirmation_prompt_present"])
         proof_refs.extend(["ideal_direction_candidate", "bridge_shadow_run", "memory_ux_confirmation_prompt"])
@@ -548,8 +684,9 @@ def _case_artifact(case_id: str, index: int) -> dict[str, Any]:
     ideal = _ideal_direction_candidate(case_id, suffix, sufficient)
     bridge = _bridge_shadow_run(case_id, suffix, ideal)
     proposal = _shadow_memory_proposal(case_id, suffix, ideal, intake)
-    prompt = _memory_ux_prompt(case_id, suffix)
     fallback = _fallback_or_clarification(case_id, text_signal, intent)
+    clarification = _clarification_prompt(case_id, suffix) if fallback else None
+    prompt = _memory_ux_prompt(case_id, suffix) if ideal is not None or proposal is not None else None
     privacy = _privacy_rights_report(intake, visual, text_signal)
     source_type = intake["source_type"]
     claims = []
@@ -574,6 +711,7 @@ def _case_artifact(case_id: str, index: int) -> dict[str, Any]:
         "bridge_shadow_run": bridge,
         "shadow_memory_proposal": proposal,
         "memory_ux_confirmation_prompt": prompt,
+        "clarification_prompt": clarification,
         "fallback_or_clarification": fallback,
         "privacy_rights_report": privacy,
         "memory_policy_decision": {
@@ -772,13 +910,13 @@ PASS CANDIDATE pending manual review.
 ## Clean Acceptance
 
 - cases: 48
-- checks: 36
+- checks: 46
 - verdict: pass
 
 ## Mixed Strict
 
-- cases: 60
-- injected defects: 12
+- cases: 69
+- injected defects: 21
 - verdict: fail
 - injected defect detection: pass
 
@@ -804,9 +942,9 @@ Inspiration Intake Shadow Pipeline.
 ## Evidence
 
 - Clean acceptance: 48/48 cases pass
-- Clean checks: 36/36 checks pass
+- Clean checks: 46/46 checks pass
 - Mixed strict: expected fail with injected defects
-- Injected defect detection: 12/12 seeded defects detected
+- Injected defect detection: 21/21 seeded defects detected
 
 ## Boundaries
 

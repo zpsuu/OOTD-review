@@ -7,6 +7,9 @@
       "external_inspiration_input_present",
       "inspiration_intake_event_present",
       "storage_policy_present",
+      "uncertain_visual_field_present",
+      "uncertain_field_flagged",
+      "uncertain_field_not_promoted_to_core_element",
       "ideal_direction_candidate_present",
       "bridge_shadow_run_present",
       "memory_ux_confirmation_prompt_present",
@@ -17,6 +20,9 @@
     "proof_refs": [
       "inspiration_intake_event",
       "inspiration_intake_event.content_refs[0].storage_policy",
+      "visual_signal_candidate.uncertain_fields",
+      "ideal_direction_candidate.core_elements",
+      "ideal_direction_candidate.excluded_or_not_confirmed_elements",
       "ideal_direction_candidate",
       "bridge_shadow_run",
       "memory_ux_confirmation_prompt",
@@ -41,7 +47,7 @@
         "derived_content_hash": "sha256_fixture_v131_11"
       }
     ],
-    "created_at": "2026-06-23T12:07:52Z"
+    "created_at": "2026-06-23T12:36:56Z"
   },
   "visual_signal_candidate": {
     "visual_signal_candidate_id": "vsc_v131_11",
@@ -110,6 +116,7 @@
         "color_palette",
         "silhouette"
       ],
+      "tentative_aspects_from_metadata": [],
       "not_confirmed_aspects": [
         "exact_items",
         "model_body",
@@ -120,6 +127,7 @@
       "intended_scope": "office_daily"
     },
     "requires_user_confirmation": true,
+    "requires_visual_or_user_clarification": false,
     "confirmation_question": "Which part should I learn from: mood, colors, or silhouette?",
     "allowed_user_actions": [
       "remember_later_shadow",
@@ -147,6 +155,13 @@
       "model_body",
       "identity_inference",
       "exact_product_specificity"
+    ],
+    "excluded_or_not_confirmed_elements": [
+      "model_body",
+      "identity_inference",
+      "exact_product_specificity",
+      "item_cues",
+      "material"
     ],
     "confidence": 0.72,
     "requires_user_confirmation": true,
@@ -251,6 +266,7 @@
     "production_write_allowed_after_confirmation": false,
     "confirmation_policy": "confirmation can keep or discard shadow proposal only; it cannot write production memory in v1.31"
   },
+  "clarification_prompt": null,
   "fallback_or_clarification": null,
   "privacy_rights_report": {
     "raw_external_content_in_public_evidence_pack": false,

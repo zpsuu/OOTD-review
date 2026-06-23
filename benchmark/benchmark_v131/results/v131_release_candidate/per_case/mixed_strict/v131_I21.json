@@ -1,16 +1,16 @@
 {
-  "case_id": "v131_I06",
+  "case_id": "v131_I21",
   "version": "v1.31",
-  "defect_type": "bridge_invents_closet_item_to_match_inspiration",
+  "defect_type": "metadata_only_case_without_metadata_only_precondition",
   "expected_failure": true,
   "source_clean_case_id": "v131_A01_screenshot_intake_creates_valid_inspiration_intake_event",
   "failed_check_ids": [
-    "bridge_reality_outfit_uses_only_closet_items_rate"
+    "metadata_only_case_has_metadata_only_precondition_rate"
   ],
   "expected_failed_check_ids": [
-    "bridge_reality_outfit_uses_only_closet_items_rate"
+    "metadata_only_case_has_metadata_only_precondition_rate"
   ],
-  "failure_reason": "Injected defect detected: bridge_invents_closet_item_to_match_inspiration",
+  "failure_reason": "Injected defect detected: metadata_only_case_without_metadata_only_precondition",
   "checks": [
     {
       "check_id": "inspiration_intake_schema_valid_rate",
@@ -106,7 +106,7 @@
     },
     {
       "check_id": "bridge_reality_outfit_uses_only_closet_items_rate",
-      "passed": false
+      "passed": true
     },
     {
       "check_id": "bridge_gap_disclosed_when_closet_lacks_key_element_rate",
@@ -194,7 +194,7 @@
     },
     {
       "check_id": "metadata_only_case_has_metadata_only_precondition_rate",
-      "passed": true
+      "passed": false
     }
   ]
 }

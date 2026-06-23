@@ -3,7 +3,7 @@
   "release_candidate_status": "pass_candidate_pending_manual_review",
   "branch": "v131-inspiration-intake-shadow-pipeline",
   "theme": "Inspiration Intake Shadow Pipeline",
-  "generated_at": "2026-06-23T12:07:52Z",
+  "generated_at": "2026-06-23T12:36:56Z",
   "scope": {
     "goals": [
       "platform-agnostic inspiration intake",
@@ -69,7 +69,17 @@
     "intake_to_bridge_trace_complete_rate",
     "shadow_proposal_evidence_refs_complete_rate",
     "scenario_precondition_satisfied_rate",
-    "no_vacuous_inspiration_case_pass_rate"
+    "no_vacuous_inspiration_case_pass_rate",
+    "fallback_without_candidate_has_no_memory_confirmation_prompt_rate",
+    "clarification_prompt_actions_do_not_include_remember_rate",
+    "metadata_only_fallback_selected_action_not_remember_shadow_rate",
+    "metadata_only_liked_aspects_not_resolved_rate",
+    "metadata_only_visual_aspects_remain_unconfirmed_rate",
+    "url_metadata_only_intent_requires_clarification_rate",
+    "high_risk_case_has_high_risk_precondition_rate",
+    "uncertain_visual_case_has_uncertain_field_precondition_rate",
+    "intent_resolution_case_has_specific_user_statement_precondition_rate",
+    "metadata_only_case_has_metadata_only_precondition_rate"
   ],
   "required_new_gates": [
     "inspiration_intake_schema_valid_rate",
@@ -85,7 +95,17 @@
     "url_metadata_only_does_not_create_memory_rate",
     "user_visible_claim_trace_coverage_rate",
     "scenario_precondition_satisfied_rate",
-    "no_vacuous_inspiration_case_pass_rate"
+    "no_vacuous_inspiration_case_pass_rate",
+    "fallback_without_candidate_has_no_memory_confirmation_prompt_rate",
+    "clarification_prompt_actions_do_not_include_remember_rate",
+    "metadata_only_fallback_selected_action_not_remember_shadow_rate",
+    "metadata_only_liked_aspects_not_resolved_rate",
+    "metadata_only_visual_aspects_remain_unconfirmed_rate",
+    "url_metadata_only_intent_requires_clarification_rate",
+    "high_risk_case_has_high_risk_precondition_rate",
+    "uncertain_visual_case_has_uncertain_field_precondition_rate",
+    "intent_resolution_case_has_specific_user_statement_precondition_rate",
+    "metadata_only_case_has_metadata_only_precondition_rate"
   ],
   "must_review_samples": [
     "sample_artifacts/screenshot_intake_low_saturation_city.json",

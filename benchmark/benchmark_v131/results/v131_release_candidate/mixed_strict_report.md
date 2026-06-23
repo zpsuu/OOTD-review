@@ -7,9 +7,9 @@
 
 ## Summary
 
-- total_cases: 60
+- total_cases: 69
 - clean_cases: 48
-- injected_defect_cases: 12
-- expected_failed_cases: 12
+- injected_defect_cases: 21
+- expected_failed_cases: 21
 - unexpected_clean_case_failures: 0
 - unexpected_injected_passes: 0

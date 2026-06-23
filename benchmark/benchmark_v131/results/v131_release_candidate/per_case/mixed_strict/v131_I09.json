@@ -155,6 +155,46 @@
     {
       "check_id": "no_vacuous_inspiration_case_pass_rate",
       "passed": true
+    },
+    {
+      "check_id": "fallback_without_candidate_has_no_memory_confirmation_prompt_rate",
+      "passed": true
+    },
+    {
+      "check_id": "clarification_prompt_actions_do_not_include_remember_rate",
+      "passed": true
+    },
+    {
+      "check_id": "metadata_only_fallback_selected_action_not_remember_shadow_rate",
+      "passed": true
+    },
+    {
+      "check_id": "metadata_only_liked_aspects_not_resolved_rate",
+      "passed": true
+    },
+    {
+      "check_id": "metadata_only_visual_aspects_remain_unconfirmed_rate",
+      "passed": true
+    },
+    {
+      "check_id": "url_metadata_only_intent_requires_clarification_rate",
+      "passed": true
+    },
+    {
+      "check_id": "high_risk_case_has_high_risk_precondition_rate",
+      "passed": true
+    },
+    {
+      "check_id": "uncertain_visual_case_has_uncertain_field_precondition_rate",
+      "passed": true
+    },
+    {
+      "check_id": "intent_resolution_case_has_specific_user_statement_precondition_rate",
+      "passed": true
+    },
+    {
+      "check_id": "metadata_only_case_has_metadata_only_precondition_rate",
+      "passed": true
     }
   ]
 }

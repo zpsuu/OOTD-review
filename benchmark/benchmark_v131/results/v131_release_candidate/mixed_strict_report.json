@@ -1,16 +1,16 @@
 {
   "benchmark_id": "v1.31.inspiration_intake_shadow_pipeline.mixed_strict",
   "schema_version": "v1.31",
-  "generated_at": "2026-06-23T12:07:52Z",
+  "generated_at": "2026-06-23T12:36:56Z",
   "verdicts": {
     "mixed_strict_verdict": "fail",
     "injected_defect_detection_verdict": "pass"
   },
   "suite_summary": {
-    "total_cases": 60,
+    "total_cases": 69,
     "clean_cases": 48,
-    "injected_defect_cases": 12,
-    "expected_failed_cases": 12,
+    "injected_defect_cases": 21,
+    "expected_failed_cases": 21,
     "unexpected_clean_case_failures": 0,
     "unexpected_injected_passes": 0
   },
@@ -210,6 +210,141 @@
       ],
       "failure_reason": "Injected defect detected: external_image_source_reused_as_public_artifact",
       "raw_artifact_ref": "per_case/mixed_strict/v131_I12.json"
+    },
+    {
+      "case_id": "v131_I13",
+      "defect_type": "metadata_only_fallback_shows_memory_confirmation_prompt",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "fallback_without_candidate_has_no_memory_confirmation_prompt_rate"
+      ],
+      "expected_failed_check_ids": [
+        "fallback_without_candidate_has_no_memory_confirmation_prompt_rate"
+      ],
+      "failure_reason": "Injected defect detected: metadata_only_fallback_shows_memory_confirmation_prompt",
+      "raw_artifact_ref": "per_case/mixed_strict/v131_I13.json"
+    },
+    {
+      "case_id": "v131_I14",
+      "defect_type": "ambiguous_fallback_allows_remember_later_shadow",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "clarification_prompt_actions_do_not_include_remember_rate"
+      ],
+      "expected_failed_check_ids": [
+        "clarification_prompt_actions_do_not_include_remember_rate"
+      ],
+      "failure_reason": "Injected defect detected: ambiguous_fallback_allows_remember_later_shadow",
+      "raw_artifact_ref": "per_case/mixed_strict/v131_I14.json"
+    },
+    {
+      "case_id": "v131_I15",
+      "defect_type": "clarification_prompt_selected_action_remember_shadow",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "metadata_only_fallback_selected_action_not_remember_shadow_rate"
+      ],
+      "expected_failed_check_ids": [
+        "metadata_only_fallback_selected_action_not_remember_shadow_rate"
+      ],
+      "failure_reason": "Injected defect detected: clarification_prompt_selected_action_remember_shadow",
+      "raw_artifact_ref": "per_case/mixed_strict/v131_I15.json"
+    },
+    {
+      "case_id": "v131_I16",
+      "defect_type": "metadata_only_url_resolves_visual_liked_aspects",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "metadata_only_liked_aspects_not_resolved_rate"
+      ],
+      "expected_failed_check_ids": [
+        "metadata_only_liked_aspects_not_resolved_rate"
+      ],
+      "failure_reason": "Injected defect detected: metadata_only_url_resolves_visual_liked_aspects",
+      "raw_artifact_ref": "per_case/mixed_strict/v131_I16.json"
+    },
+    {
+      "case_id": "v131_I17",
+      "defect_type": "metadata_only_url_confirms_visual_aspects",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "metadata_only_visual_aspects_remain_unconfirmed_rate"
+      ],
+      "expected_failed_check_ids": [
+        "metadata_only_visual_aspects_remain_unconfirmed_rate"
+      ],
+      "failure_reason": "Injected defect detected: metadata_only_url_confirms_visual_aspects",
+      "raw_artifact_ref": "per_case/mixed_strict/v131_I17.json"
+    },
+    {
+      "case_id": "v131_I18",
+      "defect_type": "high_risk_case_without_high_risk_precondition",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "high_risk_case_has_high_risk_precondition_rate"
+      ],
+      "expected_failed_check_ids": [
+        "high_risk_case_has_high_risk_precondition_rate"
+      ],
+      "failure_reason": "Injected defect detected: high_risk_case_without_high_risk_precondition",
+      "raw_artifact_ref": "per_case/mixed_strict/v131_I18.json"
+    },
+    {
+      "case_id": "v131_I19",
+      "defect_type": "uncertain_visual_case_without_uncertain_precondition",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "uncertain_visual_case_has_uncertain_field_precondition_rate"
+      ],
+      "expected_failed_check_ids": [
+        "uncertain_visual_case_has_uncertain_field_precondition_rate"
+      ],
+      "failure_reason": "Injected defect detected: uncertain_visual_case_without_uncertain_precondition",
+      "raw_artifact_ref": "per_case/mixed_strict/v131_I19.json"
+    },
+    {
+      "case_id": "v131_I20",
+      "defect_type": "intent_resolution_case_without_specific_user_statement_precondition",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "intent_resolution_case_has_specific_user_statement_precondition_rate"
+      ],
+      "expected_failed_check_ids": [
+        "intent_resolution_case_has_specific_user_statement_precondition_rate"
+      ],
+      "failure_reason": "Injected defect detected: intent_resolution_case_without_specific_user_statement_precondition",
+      "raw_artifact_ref": "per_case/mixed_strict/v131_I20.json"
+    },
+    {
+      "case_id": "v131_I21",
+      "defect_type": "metadata_only_case_without_metadata_only_precondition",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "metadata_only_case_has_metadata_only_precondition_rate"
+      ],
+      "expected_failed_check_ids": [
+        "metadata_only_case_has_metadata_only_precondition_rate"
+      ],
+      "failure_reason": "Injected defect detected: metadata_only_case_without_metadata_only_precondition",
+      "raw_artifact_ref": "per_case/mixed_strict/v131_I21.json"
     }
   ],
   "unexpected_clean_case_failures": [],
