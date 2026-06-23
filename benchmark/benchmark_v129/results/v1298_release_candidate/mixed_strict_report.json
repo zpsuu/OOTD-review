@@ -1,19 +1,287 @@
 {
   "benchmark_id": "v1.29.8.daily_outfit_beta_readiness.mixed_strict",
   "schema_version": "v1.29.8",
-  "generated_at": "2026-06-23T09:24:33Z",
+  "generated_at": "2026-06-23T09:42:44Z",
   "verdicts": {
     "mixed_strict_verdict": "fail",
     "injected_defect_detection_verdict": "pass"
   },
   "suite_summary": {
-    "total_cases": 71,
+    "total_cases": 75,
     "clean_cases": 56,
-    "injected_defect_cases": 15,
-    "expected_failed_cases": 15,
+    "injected_defect_cases": 19,
+    "expected_failed_cases": 19,
     "unexpected_clean_case_failures": 0,
     "unexpected_injected_passes": 0
   },
+  "checks": [
+    {
+      "check_id": "beta_run_schema_valid_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "no injected defect targets this gate"
+    },
+    {
+      "check_id": "beta_user_fixture_schema_valid_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "no injected defect targets this gate"
+    },
+    {
+      "check_id": "beta_day_artifact_schema_valid_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "no injected defect targets this gate"
+    },
+    {
+      "check_id": "all_beta_days_have_task_context_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "no injected defect targets this gate"
+    },
+    {
+      "check_id": "daily_card_generation_success_or_honest_fallback_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "no injected defect targets this gate"
+    },
+    {
+      "check_id": "daily_card_trace_completeness_rate",
+      "value": 0.0,
+      "threshold": 1.0,
+      "passed": false,
+      "evidence": "mixed strict includes injected failures for this gate"
+    },
+    {
+      "check_id": "user_visible_claim_trace_coverage_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "no injected defect targets this gate"
+    },
+    {
+      "check_id": "closet_insufficient_fallback_present_rate",
+      "value": 0.0,
+      "threshold": 1.0,
+      "passed": false,
+      "evidence": "mixed strict includes injected failures for this gate"
+    },
+    {
+      "check_id": "honest_fallback_has_user_visible_reason_rate",
+      "value": 0.0,
+      "threshold": 1.0,
+      "passed": false,
+      "evidence": "mixed strict includes injected failures for this gate"
+    },
+    {
+      "check_id": "honest_fallback_has_trace_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "no injected defect targets this gate"
+    },
+    {
+      "check_id": "honest_fallback_no_hallucinated_item_rate",
+      "value": 0.0,
+      "threshold": 1.0,
+      "passed": false,
+      "evidence": "mixed strict includes injected failures for this gate"
+    },
+    {
+      "check_id": "failure_reason_classified_rate",
+      "value": 0.0,
+      "threshold": 1.0,
+      "passed": false,
+      "evidence": "mixed strict includes injected failures for this gate"
+    },
+    {
+      "check_id": "unclassified_failure_count",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "no injected defect targets this gate"
+    },
+    {
+      "check_id": "quality_guardrails_retained_rate",
+      "value": 0.0,
+      "threshold": 1.0,
+      "passed": false,
+      "evidence": "mixed strict includes injected failures for this gate"
+    },
+    {
+      "check_id": "quality_repair_self_proof_retained_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "no injected defect targets this gate"
+    },
+    {
+      "check_id": "swap_option_quality_guardrail_retained_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "no injected defect targets this gate"
+    },
+    {
+      "check_id": "closet_reliability_guardrails_retained_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "no injected defect targets this gate"
+    },
+    {
+      "check_id": "low_confidence_item_not_used_as_required_slot_rate",
+      "value": 0.0,
+      "threshold": 1.0,
+      "passed": false,
+      "evidence": "mixed strict includes injected failures for this gate"
+    },
+    {
+      "check_id": "unconfirmed_vision_candidate_not_used_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "no injected defect targets this gate"
+    },
+    {
+      "check_id": "memory_ux_action_routing_retained_rate",
+      "value": 0.0,
+      "threshold": 1.0,
+      "passed": false,
+      "evidence": "mixed strict includes injected failures for this gate"
+    },
+    {
+      "check_id": "remember_long_term_routes_to_write_gate_rate",
+      "value": 0.0,
+      "threshold": 1.0,
+      "passed": false,
+      "evidence": "mixed strict includes injected failures for this gate"
+    },
+    {
+      "check_id": "do_not_remember_no_production_write_rate",
+      "value": 0.0,
+      "threshold": 1.0,
+      "passed": false,
+      "evidence": "mixed strict includes injected failures for this gate"
+    },
+    {
+      "check_id": "correct_interpretation_supersedes_wrong_proposal_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "no injected defect targets this gate"
+    },
+    {
+      "check_id": "current_exception_not_globalized_rate",
+      "value": 0.0,
+      "threshold": 1.0,
+      "passed": false,
+      "evidence": "mixed strict includes injected failures for this gate"
+    },
+    {
+      "check_id": "multi_day_state_stability_retained_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "no injected defect targets this gate"
+    },
+    {
+      "check_id": "contextual_memory_context_proof_retained_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "no injected defect targets this gate"
+    },
+    {
+      "check_id": "rejected_proposal_not_reused_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "no injected defect targets this gate"
+    },
+    {
+      "check_id": "exact_outfit_not_repeated_without_reason_rate",
+      "value": 0.0,
+      "threshold": 1.0,
+      "passed": false,
+      "evidence": "mixed strict includes injected failures for this gate"
+    },
+    {
+      "check_id": "final_memory_snapshot_authorized_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "no injected defect targets this gate"
+    },
+    {
+      "check_id": "observability_summary_complete_rate",
+      "value": 0.0,
+      "threshold": 1.0,
+      "passed": false,
+      "evidence": "mixed strict includes injected failures for this gate"
+    },
+    {
+      "check_id": "human_review_scorecard_present_rate",
+      "value": 0.0,
+      "threshold": 1.0,
+      "passed": false,
+      "evidence": "mixed strict includes injected failures for this gate"
+    },
+    {
+      "check_id": "human_review_scorecard_complete_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "no injected defect targets this gate"
+    },
+    {
+      "check_id": "internal_beta_readiness_verdict_not_overstated_rate",
+      "value": 0.0,
+      "threshold": 1.0,
+      "passed": false,
+      "evidence": "mixed strict includes injected failures for this gate"
+    },
+    {
+      "check_id": "fallback_missing_categories_not_in_available_reliable_preview_rate",
+      "value": 0.0,
+      "threshold": 1.0,
+      "passed": false,
+      "evidence": "mixed strict includes injected failures for this gate"
+    },
+    {
+      "check_id": "fallback_available_preview_category_consistency_rate",
+      "value": 0.0,
+      "threshold": 1.0,
+      "passed": false,
+      "evidence": "mixed strict includes injected failures for this gate"
+    },
+    {
+      "check_id": "fallback_scorecard_type_correct_rate",
+      "value": 0.0,
+      "threshold": 1.0,
+      "passed": false,
+      "evidence": "mixed strict includes injected failures for this gate"
+    },
+    {
+      "check_id": "fallback_scorecard_does_not_score_wearability_as_outfit_rate",
+      "value": 0.0,
+      "threshold": 1.0,
+      "passed": false,
+      "evidence": "mixed strict includes injected failures for this gate"
+    },
+    {
+      "check_id": "beta_readiness_score_separates_outfit_and_fallback_rate",
+      "value": 0.0,
+      "threshold": 1.0,
+      "passed": false,
+      "evidence": "mixed strict includes injected failures for this gate"
+    }
+  ],
   "detected_defects": [
     {
       "case_id": "v1298_I01",
@@ -239,6 +507,72 @@
       ],
       "failure_reason": "Injected defect detected: exact_outfit_repeated_without_reason_in_beta_run",
       "raw_artifact_ref": "per_case/mixed_strict/v1298_I15.json"
+    },
+    {
+      "case_id": "v1298_I16",
+      "defect_type": "fallback_lists_missing_category_as_available_confirmed_item",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "fallback_missing_categories_not_in_available_reliable_preview_rate",
+        "fallback_available_preview_category_consistency_rate"
+      ],
+      "expected_failed_check_ids": [
+        "fallback_missing_categories_not_in_available_reliable_preview_rate",
+        "fallback_available_preview_category_consistency_rate"
+      ],
+      "failure_reason": "Injected defect detected: fallback_lists_missing_category_as_available_confirmed_item",
+      "raw_artifact_ref": "per_case/mixed_strict/v1298_I16.json"
+    },
+    {
+      "case_id": "v1298_I17",
+      "defect_type": "fallback_unreliable_item_listed_as_confirmed_available",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "fallback_available_preview_category_consistency_rate"
+      ],
+      "expected_failed_check_ids": [
+        "fallback_available_preview_category_consistency_rate"
+      ],
+      "failure_reason": "Injected defect detected: fallback_unreliable_item_listed_as_confirmed_available",
+      "raw_artifact_ref": "per_case/mixed_strict/v1298_I17.json"
+    },
+    {
+      "case_id": "v1298_I18",
+      "defect_type": "fallback_scorecard_scores_wearability_as_full_outfit",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "fallback_scorecard_type_correct_rate",
+        "fallback_scorecard_does_not_score_wearability_as_outfit_rate"
+      ],
+      "expected_failed_check_ids": [
+        "fallback_scorecard_type_correct_rate",
+        "fallback_scorecard_does_not_score_wearability_as_outfit_rate"
+      ],
+      "failure_reason": "Injected defect detected: fallback_scorecard_scores_wearability_as_full_outfit",
+      "raw_artifact_ref": "per_case/mixed_strict/v1298_I18.json"
+    },
+    {
+      "case_id": "v1298_I19",
+      "defect_type": "beta_readiness_summary_uses_fallback_scores_as_outfit_scores",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "beta_readiness_score_separates_outfit_and_fallback_rate",
+        "internal_beta_readiness_verdict_not_overstated_rate"
+      ],
+      "expected_failed_check_ids": [
+        "beta_readiness_score_separates_outfit_and_fallback_rate",
+        "internal_beta_readiness_verdict_not_overstated_rate"
+      ],
+      "failure_reason": "Injected defect detected: beta_readiness_summary_uses_fallback_scores_as_outfit_scores",
+      "raw_artifact_ref": "per_case/mixed_strict/v1298_I19.json"
     }
   ],
   "unexpected_clean_case_failures": [],

@@ -17,13 +17,13 @@ PASS CANDIDATE pending manual review.
 ## Clean Acceptance
 
 - cases: 56
-- checks: 33
+- checks: 38
 - verdict: pass
 
 ## Mixed Strict
 
-- cases: 71
-- injected defects: 15
+- cases: 75
+- injected defects: 19
 - verdict: fail
 - injected defect detection: pass
 
@@ -42,3 +42,5 @@ PASS CANDIDATE pending manual review.
 - failure reasons are classified
 - quality, closet reliability, Memory UX, and multi-day guardrails remain active
 - human review scorecards exist and do not overstate beta readiness
+- fallback cards split missing categories from unreliable categories and available previews
+- fallback scorecards are separated from complete Daily Outfit scorecards

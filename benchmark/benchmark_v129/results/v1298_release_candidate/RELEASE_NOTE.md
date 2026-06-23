@@ -11,9 +11,15 @@ Daily Outfit Beta Readiness.
 ## Evidence
 
 - Clean acceptance: 56/56 cases pass
-- Clean checks: 33/33 checks pass
+- Clean checks: 38/38 checks pass
 - Mixed strict: expected fail with injected defects
 - Injected defect detection: pass
+
+## Fallback / Scorecard Cleanup
+
+- Fallback cards separate missing categories, unreliable categories, reliable previews, and unreliable previews.
+- Fallback scorecards do not score complete-outfit wearability dimensions.
+- Beta readiness score summaries separate Daily Outfit Cards from fallback notices.
 
 ## Boundaries
 

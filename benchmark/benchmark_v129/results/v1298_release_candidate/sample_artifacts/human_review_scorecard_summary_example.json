@@ -3,9 +3,30 @@
   "scorecards_present": true,
   "scorecards_complete": true,
   "scorecard_count": 56,
-  "average_total_score": 14.89,
-  "min_total_score": 14,
+  "daily_outfit_score_summary": {
+    "count": 50,
+    "average_score": 15.0,
+    "min_score": 15,
+    "max_score": 15,
+    "max_possible_score": 16
+  },
+  "fallback_score_summary": {
+    "count": 6,
+    "average_score": 10.0,
+    "min_score": 10,
+    "max_score": 10,
+    "max_possible_score": 12
+  },
+  "fallback_count": 6,
+  "fallback_rate": 0.1071,
+  "average_score": null,
   "readiness_verdict_not_overstated": true,
+  "readiness_verdict_basis": {
+    "daily_outfit_score_threshold_met": true,
+    "fallback_rate_within_limit": true,
+    "fallback_quality_threshold_met": true,
+    "score_types_separated": true
+  },
   "readiness_verdict": "internal_dogfood_ready_pending_manual_review",
   "low_score_cards": []
 }

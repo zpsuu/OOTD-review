@@ -32,6 +32,9 @@
         "closet_size": 10,
         "status": "ready",
         "missing_required_categories": [],
+        "unreliable_required_categories": [],
+        "available_reliable_items_preview": [],
+        "available_unreliable_items_preview": [],
         "low_confidence_items_excluded": false,
         "unconfirmed_vision_candidates_excluded": false,
         "trace_refs": [
@@ -206,6 +209,7 @@
       "write_gate_decisions": [],
       "human_review_scorecard": {
         "human_review_scorecard_id": "hrs_v1298_C_day1",
+        "scorecard_type": "daily_outfit_scorecard",
         "scored_by": "synthetic_reviewer",
         "scores": {
           "realistically_wearable": 2,
@@ -219,7 +223,7 @@
         },
         "max_score": 16,
         "total_score": 15,
-        "review_notes": "Trace-backed and reviewable; fallback days do not overstate readiness."
+        "review_notes": "Trace-backed complete outfit card with context and quality guardrails."
       },
       "day_trace": {
         "trace_id": "trace_v1298_C_day1",
@@ -380,6 +384,26 @@
         {
           "check_id": "internal_beta_readiness_verdict_not_overstated_rate",
           "passed": true
+        },
+        {
+          "check_id": "fallback_missing_categories_not_in_available_reliable_preview_rate",
+          "passed": true
+        },
+        {
+          "check_id": "fallback_available_preview_category_consistency_rate",
+          "passed": true
+        },
+        {
+          "check_id": "fallback_scorecard_type_correct_rate",
+          "passed": true
+        },
+        {
+          "check_id": "fallback_scorecard_does_not_score_wearability_as_outfit_rate",
+          "passed": true
+        },
+        {
+          "check_id": "beta_readiness_score_separates_outfit_and_fallback_rate",
+          "passed": true
         }
       ]
     },
@@ -409,8 +433,18 @@
         "report_id": "crr_v1298_C02",
         "closet_size": 10,
         "status": "ready_with_disclosure",
-        "missing_required_categories": [
-          "rain_safe_footwear"
+        "missing_required_categories": [],
+        "unreliable_required_categories": [
+          "reliable_rain_safe_shoes"
+        ],
+        "available_reliable_items_preview": [],
+        "available_unreliable_items_preview": [
+          {
+            "item_id": "c_low_confidence_canvas_sneaker",
+            "category": "shoes",
+            "reason": "rain_safety_not_confirmed",
+            "reliability_status": "unreliable"
+          }
         ],
         "low_confidence_items_excluded": false,
         "unconfirmed_vision_candidates_excluded": false,
@@ -462,15 +496,27 @@
       "final_daily_outfit_card": {
         "card_type": "honest_fallback_notice",
         "fallback_type": "no_weather_safe_option",
+        "fallback_reason": "no_weather_safe_option",
         "headline": "I cannot give a complete outfit yet",
-        "user_visible_reason": "Your closet lacks confirmed rain-safe footwear for this task.",
-        "available_items_preview": [
-          "c_confirmed_top",
-          "c_confirmed_bottom"
+        "user_visible_reason": "Your closet has shoes, but none are confirmed reliable for rain today.",
+        "missing_required_categories": [],
+        "unreliable_required_categories": [
+          "reliable_rain_safe_shoes"
         ],
-        "missing_or_unreliable_categories": [
-          "rain_safe_footwear"
+        "available_reliable_items_preview": [],
+        "available_unreliable_items_preview": [
+          {
+            "item_id": "c_low_confidence_canvas_sneaker",
+            "category": "shoes",
+            "reason": "rain_safety_not_confirmed",
+            "reliability_status": "unreliable"
+          }
         ],
+        "missing_or_unreliable_summary": [
+          "unreliable rain-safe shoes"
+        ],
+        "can_generate_daily_outfit": false,
+        "invented_item_ids": [],
         "next_best_action": "Confirm the missing category or add a reliable closet item before using it.",
         "trace_refs": [
           "tmp_v1298_C_day2",
@@ -478,23 +524,35 @@
           "trace_v1298_C_day2"
         ],
         "no_hallucinated_item_proof": {
-          "closet_item_ids_checked": true,
-          "non_closet_item_ids_in_output": [],
+          "invented_item_ids": [],
+          "all_visible_items_exist_in_closet": true,
           "gap_suggestions_treated_as_items": false
         }
       },
       "fallback_notice": {
         "card_type": "honest_fallback_notice",
         "fallback_type": "no_weather_safe_option",
+        "fallback_reason": "no_weather_safe_option",
         "headline": "I cannot give a complete outfit yet",
-        "user_visible_reason": "Your closet lacks confirmed rain-safe footwear for this task.",
-        "available_items_preview": [
-          "c_confirmed_top",
-          "c_confirmed_bottom"
+        "user_visible_reason": "Your closet has shoes, but none are confirmed reliable for rain today.",
+        "missing_required_categories": [],
+        "unreliable_required_categories": [
+          "reliable_rain_safe_shoes"
         ],
-        "missing_or_unreliable_categories": [
-          "rain_safe_footwear"
+        "available_reliable_items_preview": [],
+        "available_unreliable_items_preview": [
+          {
+            "item_id": "c_low_confidence_canvas_sneaker",
+            "category": "shoes",
+            "reason": "rain_safety_not_confirmed",
+            "reliability_status": "unreliable"
+          }
         ],
+        "missing_or_unreliable_summary": [
+          "unreliable rain-safe shoes"
+        ],
+        "can_generate_daily_outfit": false,
+        "invented_item_ids": [],
         "next_best_action": "Confirm the missing category or add a reliable closet item before using it.",
         "trace_refs": [
           "tmp_v1298_C_day2",
@@ -502,8 +560,8 @@
           "trace_v1298_C_day2"
         ],
         "no_hallucinated_item_proof": {
-          "closet_item_ids_checked": true,
-          "non_closet_item_ids_in_output": [],
+          "invented_item_ids": [],
+          "all_visible_items_exist_in_closet": true,
           "gap_suggestions_treated_as_items": false
         }
       },
@@ -524,20 +582,26 @@
       "write_gate_decisions": [],
       "human_review_scorecard": {
         "human_review_scorecard_id": "hrs_v1298_C_day2",
+        "scorecard_type": "fallback_scorecard",
         "scored_by": "synthetic_reviewer",
         "scores": {
-          "realistically_wearable": 2,
-          "occasion_fit": 2,
-          "weather_fit": 2,
-          "formality_fit": 2,
-          "memory_fit": 2,
-          "not_repetitive": 2,
-          "explanation_trustworthy": 2,
-          "would_try": 0
+          "fallback_honesty": 2,
+          "failure_reason_clarity": 2,
+          "traceability": 2,
+          "no_hallucination": 2,
+          "next_action_usefulness": 1,
+          "would_continue": 1
         },
-        "max_score": 16,
-        "total_score": 14,
-        "review_notes": "Trace-backed and reviewable; fallback days do not overstate readiness."
+        "not_applicable_scores": [
+          "realistically_wearable",
+          "occasion_fit",
+          "weather_fit",
+          "formality_fit",
+          "would_try_as_outfit"
+        ],
+        "max_score": 12,
+        "total_score": 10,
+        "review_notes": "Fallback is honest, trace-backed, and does not claim a wearable complete outfit."
       },
       "day_trace": {
         "trace_id": "trace_v1298_C_day2",
@@ -698,6 +762,26 @@
         {
           "check_id": "internal_beta_readiness_verdict_not_overstated_rate",
           "passed": true
+        },
+        {
+          "check_id": "fallback_missing_categories_not_in_available_reliable_preview_rate",
+          "passed": true
+        },
+        {
+          "check_id": "fallback_available_preview_category_consistency_rate",
+          "passed": true
+        },
+        {
+          "check_id": "fallback_scorecard_type_correct_rate",
+          "passed": true
+        },
+        {
+          "check_id": "fallback_scorecard_does_not_score_wearability_as_outfit_rate",
+          "passed": true
+        },
+        {
+          "check_id": "beta_readiness_score_separates_outfit_and_fallback_rate",
+          "passed": true
         }
       ]
     },
@@ -728,6 +812,9 @@
         "closet_size": 10,
         "status": "ready",
         "missing_required_categories": [],
+        "unreliable_required_categories": [],
+        "available_reliable_items_preview": [],
+        "available_unreliable_items_preview": [],
         "low_confidence_items_excluded": false,
         "unconfirmed_vision_candidates_excluded": false,
         "trace_refs": [
@@ -927,6 +1014,7 @@
       ],
       "human_review_scorecard": {
         "human_review_scorecard_id": "hrs_v1298_C_day3",
+        "scorecard_type": "daily_outfit_scorecard",
         "scored_by": "synthetic_reviewer",
         "scores": {
           "realistically_wearable": 2,
@@ -940,7 +1028,7 @@
         },
         "max_score": 16,
         "total_score": 15,
-        "review_notes": "Trace-backed and reviewable; fallback days do not overstate readiness."
+        "review_notes": "Trace-backed complete outfit card with context and quality guardrails."
       },
       "day_trace": {
         "trace_id": "trace_v1298_C_day3",
@@ -1101,6 +1189,26 @@
         {
           "check_id": "internal_beta_readiness_verdict_not_overstated_rate",
           "passed": true
+        },
+        {
+          "check_id": "fallback_missing_categories_not_in_available_reliable_preview_rate",
+          "passed": true
+        },
+        {
+          "check_id": "fallback_available_preview_category_consistency_rate",
+          "passed": true
+        },
+        {
+          "check_id": "fallback_scorecard_type_correct_rate",
+          "passed": true
+        },
+        {
+          "check_id": "fallback_scorecard_does_not_score_wearability_as_outfit_rate",
+          "passed": true
+        },
+        {
+          "check_id": "beta_readiness_score_separates_outfit_and_fallback_rate",
+          "passed": true
         }
       ]
     },
@@ -1131,6 +1239,9 @@
         "closet_size": 10,
         "status": "ready",
         "missing_required_categories": [],
+        "unreliable_required_categories": [],
+        "available_reliable_items_preview": [],
+        "available_unreliable_items_preview": [],
         "low_confidence_items_excluded": false,
         "unconfirmed_vision_candidates_excluded": false,
         "trace_refs": [
@@ -1305,6 +1416,7 @@
       "write_gate_decisions": [],
       "human_review_scorecard": {
         "human_review_scorecard_id": "hrs_v1298_C_day4",
+        "scorecard_type": "daily_outfit_scorecard",
         "scored_by": "synthetic_reviewer",
         "scores": {
           "realistically_wearable": 2,
@@ -1318,7 +1430,7 @@
         },
         "max_score": 16,
         "total_score": 15,
-        "review_notes": "Trace-backed and reviewable; fallback days do not overstate readiness."
+        "review_notes": "Trace-backed complete outfit card with context and quality guardrails."
       },
       "day_trace": {
         "trace_id": "trace_v1298_C_day4",
@@ -1479,6 +1591,26 @@
         {
           "check_id": "internal_beta_readiness_verdict_not_overstated_rate",
           "passed": true
+        },
+        {
+          "check_id": "fallback_missing_categories_not_in_available_reliable_preview_rate",
+          "passed": true
+        },
+        {
+          "check_id": "fallback_available_preview_category_consistency_rate",
+          "passed": true
+        },
+        {
+          "check_id": "fallback_scorecard_type_correct_rate",
+          "passed": true
+        },
+        {
+          "check_id": "fallback_scorecard_does_not_score_wearability_as_outfit_rate",
+          "passed": true
+        },
+        {
+          "check_id": "beta_readiness_score_separates_outfit_and_fallback_rate",
+          "passed": true
         }
       ]
     },
@@ -1512,6 +1644,9 @@
           "top",
           "bottom"
         ],
+        "unreliable_required_categories": [],
+        "available_reliable_items_preview": [],
+        "available_unreliable_items_preview": [],
         "low_confidence_items_excluded": false,
         "unconfirmed_vision_candidates_excluded": false,
         "trace_refs": [
@@ -1562,16 +1697,22 @@
       "final_daily_outfit_card": {
         "card_type": "closet_insufficient_notice",
         "fallback_type": "closet_insufficient",
+        "fallback_reason": "closet_insufficient",
         "headline": "I cannot give a complete outfit yet",
-        "user_visible_reason": "I cannot build a complete reliable outfit from the available categories.",
-        "available_items_preview": [
-          "c_confirmed_top",
-          "c_confirmed_bottom"
-        ],
-        "missing_or_unreliable_categories": [
+        "user_visible_reason": "I cannot build a complete reliable outfit because required top and bottom categories are absent.",
+        "missing_required_categories": [
           "top",
           "bottom"
         ],
+        "unreliable_required_categories": [],
+        "available_reliable_items_preview": [],
+        "available_unreliable_items_preview": [],
+        "missing_or_unreliable_summary": [
+          "missing top",
+          "missing bottom"
+        ],
+        "can_generate_daily_outfit": false,
+        "invented_item_ids": [],
         "next_best_action": "Confirm the missing category or add a reliable closet item before using it.",
         "trace_refs": [
           "tmp_v1298_C_day5",
@@ -1579,24 +1720,30 @@
           "trace_v1298_C_day5"
         ],
         "no_hallucinated_item_proof": {
-          "closet_item_ids_checked": true,
-          "non_closet_item_ids_in_output": [],
+          "invented_item_ids": [],
+          "all_visible_items_exist_in_closet": true,
           "gap_suggestions_treated_as_items": false
         }
       },
       "fallback_notice": {
         "card_type": "closet_insufficient_notice",
         "fallback_type": "closet_insufficient",
+        "fallback_reason": "closet_insufficient",
         "headline": "I cannot give a complete outfit yet",
-        "user_visible_reason": "I cannot build a complete reliable outfit from the available categories.",
-        "available_items_preview": [
-          "c_confirmed_top",
-          "c_confirmed_bottom"
-        ],
-        "missing_or_unreliable_categories": [
+        "user_visible_reason": "I cannot build a complete reliable outfit because required top and bottom categories are absent.",
+        "missing_required_categories": [
           "top",
           "bottom"
         ],
+        "unreliable_required_categories": [],
+        "available_reliable_items_preview": [],
+        "available_unreliable_items_preview": [],
+        "missing_or_unreliable_summary": [
+          "missing top",
+          "missing bottom"
+        ],
+        "can_generate_daily_outfit": false,
+        "invented_item_ids": [],
         "next_best_action": "Confirm the missing category or add a reliable closet item before using it.",
         "trace_refs": [
           "tmp_v1298_C_day5",
@@ -1604,8 +1751,8 @@
           "trace_v1298_C_day5"
         ],
         "no_hallucinated_item_proof": {
-          "closet_item_ids_checked": true,
-          "non_closet_item_ids_in_output": [],
+          "invented_item_ids": [],
+          "all_visible_items_exist_in_closet": true,
           "gap_suggestions_treated_as_items": false
         }
       },
@@ -1626,20 +1773,26 @@
       "write_gate_decisions": [],
       "human_review_scorecard": {
         "human_review_scorecard_id": "hrs_v1298_C_day5",
+        "scorecard_type": "fallback_scorecard",
         "scored_by": "synthetic_reviewer",
         "scores": {
-          "realistically_wearable": 2,
-          "occasion_fit": 2,
-          "weather_fit": 2,
-          "formality_fit": 2,
-          "memory_fit": 2,
-          "not_repetitive": 2,
-          "explanation_trustworthy": 2,
-          "would_try": 0
+          "fallback_honesty": 2,
+          "failure_reason_clarity": 2,
+          "traceability": 2,
+          "no_hallucination": 2,
+          "next_action_usefulness": 1,
+          "would_continue": 1
         },
-        "max_score": 16,
-        "total_score": 14,
-        "review_notes": "Trace-backed and reviewable; fallback days do not overstate readiness."
+        "not_applicable_scores": [
+          "realistically_wearable",
+          "occasion_fit",
+          "weather_fit",
+          "formality_fit",
+          "would_try_as_outfit"
+        ],
+        "max_score": 12,
+        "total_score": 10,
+        "review_notes": "Fallback is honest, trace-backed, and does not claim a wearable complete outfit."
       },
       "day_trace": {
         "trace_id": "trace_v1298_C_day5",
@@ -1800,6 +1953,26 @@
         {
           "check_id": "internal_beta_readiness_verdict_not_overstated_rate",
           "passed": true
+        },
+        {
+          "check_id": "fallback_missing_categories_not_in_available_reliable_preview_rate",
+          "passed": true
+        },
+        {
+          "check_id": "fallback_available_preview_category_consistency_rate",
+          "passed": true
+        },
+        {
+          "check_id": "fallback_scorecard_type_correct_rate",
+          "passed": true
+        },
+        {
+          "check_id": "fallback_scorecard_does_not_score_wearability_as_outfit_rate",
+          "passed": true
+        },
+        {
+          "check_id": "beta_readiness_score_separates_outfit_and_fallback_rate",
+          "passed": true
         }
       ]
     },
@@ -1830,6 +2003,9 @@
         "closet_size": 10,
         "status": "ready",
         "missing_required_categories": [],
+        "unreliable_required_categories": [],
+        "available_reliable_items_preview": [],
+        "available_unreliable_items_preview": [],
         "low_confidence_items_excluded": false,
         "unconfirmed_vision_candidates_excluded": false,
         "trace_refs": [
@@ -2006,6 +2182,7 @@
       "write_gate_decisions": [],
       "human_review_scorecard": {
         "human_review_scorecard_id": "hrs_v1298_C_day6",
+        "scorecard_type": "daily_outfit_scorecard",
         "scored_by": "synthetic_reviewer",
         "scores": {
           "realistically_wearable": 2,
@@ -2019,7 +2196,7 @@
         },
         "max_score": 16,
         "total_score": 15,
-        "review_notes": "Trace-backed and reviewable; fallback days do not overstate readiness."
+        "review_notes": "Trace-backed complete outfit card with context and quality guardrails."
       },
       "day_trace": {
         "trace_id": "trace_v1298_C_day6",
@@ -2180,6 +2357,26 @@
         {
           "check_id": "internal_beta_readiness_verdict_not_overstated_rate",
           "passed": true
+        },
+        {
+          "check_id": "fallback_missing_categories_not_in_available_reliable_preview_rate",
+          "passed": true
+        },
+        {
+          "check_id": "fallback_available_preview_category_consistency_rate",
+          "passed": true
+        },
+        {
+          "check_id": "fallback_scorecard_type_correct_rate",
+          "passed": true
+        },
+        {
+          "check_id": "fallback_scorecard_does_not_score_wearability_as_outfit_rate",
+          "passed": true
+        },
+        {
+          "check_id": "beta_readiness_score_separates_outfit_and_fallback_rate",
+          "passed": true
         }
       ]
     },
@@ -2210,6 +2407,9 @@
         "closet_size": 10,
         "status": "ready",
         "missing_required_categories": [],
+        "unreliable_required_categories": [],
+        "available_reliable_items_preview": [],
+        "available_unreliable_items_preview": [],
         "low_confidence_items_excluded": false,
         "unconfirmed_vision_candidates_excluded": false,
         "trace_refs": [
@@ -2384,6 +2584,7 @@
       "write_gate_decisions": [],
       "human_review_scorecard": {
         "human_review_scorecard_id": "hrs_v1298_C_day7",
+        "scorecard_type": "daily_outfit_scorecard",
         "scored_by": "synthetic_reviewer",
         "scores": {
           "realistically_wearable": 2,
@@ -2397,7 +2598,7 @@
         },
         "max_score": 16,
         "total_score": 15,
-        "review_notes": "Trace-backed and reviewable; fallback days do not overstate readiness."
+        "review_notes": "Trace-backed complete outfit card with context and quality guardrails."
       },
       "day_trace": {
         "trace_id": "trace_v1298_C_day7",
@@ -2558,6 +2759,26 @@
         {
           "check_id": "internal_beta_readiness_verdict_not_overstated_rate",
           "passed": true
+        },
+        {
+          "check_id": "fallback_missing_categories_not_in_available_reliable_preview_rate",
+          "passed": true
+        },
+        {
+          "check_id": "fallback_available_preview_category_consistency_rate",
+          "passed": true
+        },
+        {
+          "check_id": "fallback_scorecard_type_correct_rate",
+          "passed": true
+        },
+        {
+          "check_id": "fallback_scorecard_does_not_score_wearability_as_outfit_rate",
+          "passed": true
+        },
+        {
+          "check_id": "beta_readiness_score_separates_outfit_and_fallback_rate",
+          "passed": true
         }
       ]
     }
@@ -2585,7 +2806,9 @@
   "human_review_scorecard": {
     "scorecards_present": true,
     "scorecards_complete": true,
-    "average_score": 14.71
+    "daily_outfit_scorecards": 5,
+    "fallback_scorecards": 2,
+    "score_types_separated": true
   },
   "final_memory_snapshot": {
     "authorized": true,
@@ -2736,6 +2959,26 @@
     },
     {
       "check_id": "internal_beta_readiness_verdict_not_overstated_rate",
+      "passed": true
+    },
+    {
+      "check_id": "fallback_missing_categories_not_in_available_reliable_preview_rate",
+      "passed": true
+    },
+    {
+      "check_id": "fallback_available_preview_category_consistency_rate",
+      "passed": true
+    },
+    {
+      "check_id": "fallback_scorecard_type_correct_rate",
+      "passed": true
+    },
+    {
+      "check_id": "fallback_scorecard_does_not_score_wearability_as_outfit_rate",
+      "passed": true
+    },
+    {
+      "check_id": "beta_readiness_score_separates_outfit_and_fallback_rate",
       "passed": true
     }
   ]

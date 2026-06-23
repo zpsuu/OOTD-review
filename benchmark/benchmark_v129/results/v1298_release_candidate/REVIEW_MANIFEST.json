@@ -3,7 +3,14 @@
   "release_candidate_status": "pass_candidate_pending_manual_review",
   "branch": "v1298-daily-outfit-beta-readiness",
   "theme": "Daily Outfit Beta Readiness",
-  "generated_at": "2026-06-23T09:24:33Z",
+  "generated_at": "2026-06-23T09:42:44Z",
+  "expected_changes_since_last_review": [
+    "Fix fallback missing / available preview consistency",
+    "Split daily outfit scorecards from fallback scorecards",
+    "Add fallback preview consistency gates",
+    "Add fallback scorecard semantics gates",
+    "Add injected defects for fallback preview and fallback scorecard failures"
+  ],
   "scope": {
     "goals": [
       "Validate internal beta readiness for Daily Outfit",
@@ -38,7 +45,12 @@
     "failure_reason_classified_rate",
     "observability_summary_complete_rate",
     "human_review_scorecard_present_rate",
-    "internal_beta_readiness_verdict_not_overstated_rate"
+    "internal_beta_readiness_verdict_not_overstated_rate",
+    "fallback_missing_categories_not_in_available_reliable_preview_rate",
+    "fallback_available_preview_category_consistency_rate",
+    "fallback_scorecard_type_correct_rate",
+    "fallback_scorecard_does_not_score_wearability_as_outfit_rate",
+    "beta_readiness_score_separates_outfit_and_fallback_rate"
   ],
   "must_review_samples": [
     "sample_artifacts/beta_user_small_closet_7day.json",
@@ -47,7 +59,12 @@
     "sample_artifacts/honest_fallback_closet_insufficient.json",
     "sample_artifacts/memory_ux_feedback_action_routing.json",
     "sample_artifacts/quality_guardrail_retained_in_beta_run.json",
-    "sample_artifacts/human_review_scorecard_example.json"
+    "sample_artifacts/human_review_scorecard_example.json",
+    "sample_artifacts/human_review_scorecard_summary.json",
+    "human_review_scorecard_summary.json",
+    "clean_report.json",
+    "mixed_strict_report.json",
+    "injected_defect_detection_summary.json"
   ],
   "known_p2_backlog": [
     "manual reviewer should spot-check product usefulness across fallback-heavy users",

@@ -1,5 +1,6 @@
 {
   "human_review_scorecard_id": "hrs_v1298_A_day3",
+  "scorecard_type": "daily_outfit_scorecard",
   "scored_by": "synthetic_reviewer",
   "scores": {
     "realistically_wearable": 2,
@@ -13,5 +14,5 @@
   },
   "max_score": 16,
   "total_score": 15,
-  "review_notes": "Trace-backed and reviewable; fallback days do not overstate readiness."
+  "review_notes": "Trace-backed complete outfit card with context and quality guardrails."
 }

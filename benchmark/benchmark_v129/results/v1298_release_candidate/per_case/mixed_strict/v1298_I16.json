@@ -1,14 +1,15 @@
 {
-  "case_id": "v1298_I05",
+  "case_id": "v1298_I16",
   "version": "v1.29.8",
-  "defect_type": "quality_guardrail_regression",
+  "defect_type": "fallback_lists_missing_category_as_available_confirmed_item",
   "expected_failure": true,
   "source_clean_case_id": "v1298_A01",
-  "injected_mutation": "quality_guardrail_regression",
+  "injected_mutation": "fallback_lists_missing_category_as_available_confirmed_item",
   "failed_check_ids": [
-    "quality_guardrails_retained_rate"
+    "fallback_missing_categories_not_in_available_reliable_preview_rate",
+    "fallback_available_preview_category_consistency_rate"
   ],
-  "failure_reason": "Injected defect detected: quality_guardrail_regression",
+  "failure_reason": "Injected defect detected: fallback_lists_missing_category_as_available_confirmed_item",
   "checks": [
     {
       "check_id": "beta_run_schema_valid_rate",
@@ -64,7 +65,7 @@
     },
     {
       "check_id": "quality_guardrails_retained_rate",
-      "passed": false
+      "passed": true
     },
     {
       "check_id": "quality_repair_self_proof_retained_rate",
@@ -144,11 +145,11 @@
     },
     {
       "check_id": "fallback_missing_categories_not_in_available_reliable_preview_rate",
-      "passed": true
+      "passed": false
     },
     {
       "check_id": "fallback_available_preview_category_consistency_rate",
-      "passed": true
+      "passed": false
     },
     {
       "check_id": "fallback_scorecard_type_correct_rate",

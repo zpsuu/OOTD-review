@@ -10,8 +10,8 @@
 - total_cases: 56
 - passed_cases: 56
 - failed_cases: 0
-- total_checks: 33
-- passed_checks: 33
+- total_checks: 38
+- passed_checks: 38
 - failed_checks: 0
 
 ## Checks
@@ -49,3 +49,8 @@
 - human_review_scorecard_present_rate: PASS (1.0)
 - human_review_scorecard_complete_rate: PASS (1.0)
 - internal_beta_readiness_verdict_not_overstated_rate: PASS (1.0)
+- fallback_missing_categories_not_in_available_reliable_preview_rate: PASS (1.0)
+- fallback_available_preview_category_consistency_rate: PASS (1.0)
+- fallback_scorecard_type_correct_rate: PASS (1.0)
+- fallback_scorecard_does_not_score_wearability_as_outfit_rate: PASS (1.0)
+- beta_readiness_score_separates_outfit_and_fallback_rate: PASS (1.0)

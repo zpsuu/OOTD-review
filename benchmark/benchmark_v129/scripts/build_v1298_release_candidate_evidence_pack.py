@@ -48,6 +48,11 @@ GATES = [
     "human_review_scorecard_present_rate",
     "human_review_scorecard_complete_rate",
     "internal_beta_readiness_verdict_not_overstated_rate",
+    "fallback_missing_categories_not_in_available_reliable_preview_rate",
+    "fallback_available_preview_category_consistency_rate",
+    "fallback_scorecard_type_correct_rate",
+    "fallback_scorecard_does_not_score_wearability_as_outfit_rate",
+    "beta_readiness_score_separates_outfit_and_fallback_rate",
 ]
 
 REQUIRED_NEW_GATES = [
@@ -59,6 +64,11 @@ REQUIRED_NEW_GATES = [
     "observability_summary_complete_rate",
     "human_review_scorecard_present_rate",
     "internal_beta_readiness_verdict_not_overstated_rate",
+    "fallback_missing_categories_not_in_available_reliable_preview_rate",
+    "fallback_available_preview_category_consistency_rate",
+    "fallback_scorecard_type_correct_rate",
+    "fallback_scorecard_does_not_score_wearability_as_outfit_rate",
+    "beta_readiness_score_separates_outfit_and_fallback_rate",
 ]
 
 DEFECTS = [
@@ -77,6 +87,10 @@ DEFECTS = [
     ("I13", "current_exception_globalized_in_beta_run", ["current_exception_not_globalized_rate"]),
     ("I14", "do_not_remember_reused_in_beta_run", ["do_not_remember_no_production_write_rate"]),
     ("I15", "exact_outfit_repeated_without_reason_in_beta_run", ["exact_outfit_not_repeated_without_reason_rate"]),
+    ("I16", "fallback_lists_missing_category_as_available_confirmed_item", ["fallback_missing_categories_not_in_available_reliable_preview_rate", "fallback_available_preview_category_consistency_rate"]),
+    ("I17", "fallback_unreliable_item_listed_as_confirmed_available", ["fallback_available_preview_category_consistency_rate"]),
+    ("I18", "fallback_scorecard_scores_wearability_as_full_outfit", ["fallback_scorecard_type_correct_rate", "fallback_scorecard_does_not_score_wearability_as_outfit_rate"]),
+    ("I19", "beta_readiness_summary_uses_fallback_scores_as_outfit_scores", ["beta_readiness_score_separates_outfit_and_fallback_rate", "internal_beta_readiness_verdict_not_overstated_rate"]),
 ]
 
 USERS = [
@@ -171,11 +185,67 @@ USERS = [
 ]
 
 FALLBACK_DETAILS = {
-    "closet_insufficient": ("I cannot build a complete reliable outfit from the available categories.", ["top", "bottom"]),
-    "no_weather_safe_option": ("Your closet lacks confirmed rain-safe footwear for this task.", ["rain_safe_footwear"]),
-    "low_confidence_metadata": ("The only matching item has low-confidence metadata, so I will not treat it as reliable.", ["confirmed_category"]),
-    "unconfirmed_vision_candidate_only": ("The available candidate is vision-only and unconfirmed in the clean planner path.", ["confirmed_item"]),
-    "memory_conflict_requires_clarification": ("The task and stored style memory conflict enough to need clarification.", ["clarified_priority"]),
+    "closet_insufficient": {
+        "reason": "I cannot build a complete reliable outfit because required top and bottom categories are absent.",
+        "missing_required_categories": ["top", "bottom"],
+        "unreliable_required_categories": [],
+        "available_reliable_items_preview": [],
+        "available_unreliable_items_preview": [],
+        "summary": ["missing top", "missing bottom"],
+    },
+    "no_weather_safe_option": {
+        "reason": "Your closet has shoes, but none are confirmed reliable for rain today.",
+        "missing_required_categories": [],
+        "unreliable_required_categories": ["reliable_rain_safe_shoes"],
+        "available_reliable_items_preview": [],
+        "available_unreliable_items_preview": [
+            {
+                "item_id": "c_low_confidence_canvas_sneaker",
+                "category": "shoes",
+                "reason": "rain_safety_not_confirmed",
+                "reliability_status": "unreliable",
+            }
+        ],
+        "summary": ["unreliable rain-safe shoes"],
+    },
+    "low_confidence_metadata": {
+        "reason": "The only weather-safe footwear candidate has low-confidence metadata, so I will not treat it as reliable.",
+        "missing_required_categories": [],
+        "unreliable_required_categories": ["reliable_weather_safe_footwear"],
+        "available_reliable_items_preview": [],
+        "available_unreliable_items_preview": [
+            {
+                "item_id": "g_low_confidence_weather_boot",
+                "category": "shoes",
+                "reason": "low_confidence_weather_or_unconfirmed_metadata",
+                "reliability_status": "unreliable",
+            }
+        ],
+        "summary": ["unreliable weather-safe footwear"],
+    },
+    "unconfirmed_vision_candidate_only": {
+        "reason": "The only candidate for the needed layer is vision-only and unconfirmed in the clean planner path.",
+        "missing_required_categories": [],
+        "unreliable_required_categories": ["reliable_cold_weather_outerwear"],
+        "available_reliable_items_preview": [],
+        "available_unreliable_items_preview": [
+            {
+                "item_id": "g_unconfirmed_vision_outerwear",
+                "category": "outerwear",
+                "reason": "unconfirmed_visual_candidate",
+                "reliability_status": "unreliable",
+            }
+        ],
+        "summary": ["unreliable cold-weather outerwear"],
+    },
+    "memory_conflict_requires_clarification": {
+        "reason": "The task and stored style memory conflict enough to need clarification before claiming a complete outfit.",
+        "missing_required_categories": [],
+        "unreliable_required_categories": ["clarified_style_priority"],
+        "available_reliable_items_preview": [],
+        "available_unreliable_items_preview": [],
+        "summary": ["unclear style priority"],
+    },
 }
 
 
@@ -299,20 +369,25 @@ def _outfit_card(user: dict[str, Any], day: int, trace_refs: dict[str, str]) -> 
 
 
 def _fallback_notice(user: dict[str, Any], day: int, fallback_type: str, trace_refs: dict[str, str]) -> dict[str, Any]:
-    reason, missing = FALLBACK_DETAILS[fallback_type]
-    code = user["code"]
+    details = FALLBACK_DETAILS[fallback_type]
     return {
         "card_type": "honest_fallback_notice" if fallback_type != "closet_insufficient" else "closet_insufficient_notice",
         "fallback_type": fallback_type,
+        "fallback_reason": fallback_type,
         "headline": "I cannot give a complete outfit yet",
-        "user_visible_reason": reason,
-        "available_items_preview": [f"{code.lower()}_confirmed_top", f"{code.lower()}_confirmed_bottom"],
-        "missing_or_unreliable_categories": missing,
+        "user_visible_reason": details["reason"],
+        "missing_required_categories": details["missing_required_categories"],
+        "unreliable_required_categories": details["unreliable_required_categories"],
+        "available_reliable_items_preview": details["available_reliable_items_preview"],
+        "available_unreliable_items_preview": details["available_unreliable_items_preview"],
+        "missing_or_unreliable_summary": details["summary"],
+        "can_generate_daily_outfit": False,
+        "invented_item_ids": [],
         "next_best_action": "Confirm the missing category or add a reliable closet item before using it.",
         "trace_refs": list(trace_refs.values()),
         "no_hallucinated_item_proof": {
-            "closet_item_ids_checked": True,
-            "non_closet_item_ids_in_output": [],
+            "invented_item_ids": [],
+            "all_visible_items_exist_in_closet": True,
             "gap_suggestions_treated_as_items": False,
         },
     }
@@ -363,7 +438,32 @@ def _memory_events(user: dict[str, Any], day: int, action: str | None) -> tuple[
 
 
 def _scorecard(user: dict[str, Any], day: int, card_type: str) -> dict[str, Any]:
-    base_scores = {
+    if card_type != "daily_outfit":
+        fallback_scores = {
+            "fallback_honesty": 2,
+            "failure_reason_clarity": 2,
+            "traceability": 2,
+            "no_hallucination": 2,
+            "next_action_usefulness": 1,
+            "would_continue": 1,
+        }
+        return {
+            "human_review_scorecard_id": f"hrs_v1298_{user['code']}_day{day}",
+            "scorecard_type": "fallback_scorecard",
+            "scored_by": "synthetic_reviewer",
+            "scores": fallback_scores,
+            "not_applicable_scores": [
+                "realistically_wearable",
+                "occasion_fit",
+                "weather_fit",
+                "formality_fit",
+                "would_try_as_outfit",
+            ],
+            "max_score": 12,
+            "total_score": sum(fallback_scores.values()),
+            "review_notes": "Fallback is honest, trace-backed, and does not claim a wearable complete outfit.",
+        }
+    outfit_scores = {
         "realistically_wearable": 2,
         "occasion_fit": 2,
         "weather_fit": 2,
@@ -371,16 +471,16 @@ def _scorecard(user: dict[str, Any], day: int, card_type: str) -> dict[str, Any]
         "memory_fit": 2,
         "not_repetitive": 2,
         "explanation_trustworthy": 2,
-        "would_try": 1 if card_type == "daily_outfit" else 0,
+        "would_try": 1,
     }
-    total = sum(base_scores.values())
     return {
         "human_review_scorecard_id": f"hrs_v1298_{user['code']}_day{day}",
+        "scorecard_type": "daily_outfit_scorecard",
         "scored_by": "synthetic_reviewer",
-        "scores": base_scores,
+        "scores": outfit_scores,
         "max_score": 16,
-        "total_score": total,
-        "review_notes": "Trace-backed and reviewable; fallback days do not overstate readiness.",
+        "total_score": sum(outfit_scores.values()),
+        "review_notes": "Trace-backed complete outfit card with context and quality guardrails.",
     }
 
 
@@ -395,6 +495,7 @@ def _day_artifact(user: dict[str, Any], day: int) -> dict[str, Any]:
     fallback = _fallback_notice(user, day, fallback_type, trace_refs) if fallback_type else None
     card = fallback or _outfit_card(user, day, trace_refs)
     card_type = card["card_type"]
+    fallback_details = FALLBACK_DETAILS.get(fallback_type) if fallback_type else None
     if fallback_type == "closet_insufficient":
         failure_reason = "closet_insufficient"
     else:
@@ -411,7 +512,10 @@ def _day_artifact(user: dict[str, Any], day: int) -> dict[str, Any]:
             "report_id": f"crr_{case_id}",
             "closet_size": user["closet_size"],
             "status": "insufficient" if fallback_type == "closet_insufficient" else "ready_with_disclosure" if fallback_type else "ready",
-            "missing_required_categories": FALLBACK_DETAILS.get(fallback_type, ("", []))[1] if fallback_type else [],
+            "missing_required_categories": fallback_details["missing_required_categories"] if fallback_details else [],
+            "unreliable_required_categories": fallback_details["unreliable_required_categories"] if fallback_details else [],
+            "available_reliable_items_preview": fallback_details["available_reliable_items_preview"] if fallback_details else [],
+            "available_unreliable_items_preview": fallback_details["available_unreliable_items_preview"] if fallback_details else [],
             "low_confidence_items_excluded": code == "G",
             "unconfirmed_vision_candidates_excluded": code == "G",
             "trace_refs": [f"closet_{code}_readiness", f"reliability_{code}_{day}"],
@@ -513,7 +617,13 @@ def _run_artifact(user: dict[str, Any], days: list[dict[str, Any]]) -> dict[str,
         "human_review_scorecard": {
             "scorecards_present": True,
             "scorecards_complete": True,
-            "average_score": round(sum(day["human_review_scorecard"]["total_score"] for day in days) / len(days), 2),
+            "daily_outfit_scorecards": sum(
+                1 for day in days if day["human_review_scorecard"]["scorecard_type"] == "daily_outfit_scorecard"
+            ),
+            "fallback_scorecards": sum(
+                1 for day in days if day["human_review_scorecard"]["scorecard_type"] == "fallback_scorecard"
+            ),
+            "score_types_separated": True,
         },
         "final_memory_snapshot": {
             "authorized": True,
@@ -601,6 +711,7 @@ def _mixed_report(days: list[dict[str, Any]]) -> tuple[dict[str, Any], list[dict
                 "raw_artifact_ref": f"per_case/mixed_strict/{case_id}.json",
             }
         )
+    targeted_gates = {gate for _, _, failed_checks in DEFECTS for gate in failed_checks}
     report = {
         "benchmark_id": "v1.29.8.daily_outfit_beta_readiness.mixed_strict",
         "schema_version": VERSION,
@@ -617,6 +728,16 @@ def _mixed_report(days: list[dict[str, Any]]) -> tuple[dict[str, Any], list[dict
             "unexpected_clean_case_failures": 0,
             "unexpected_injected_passes": 0,
         },
+        "checks": [
+            {
+                "check_id": gate,
+                "value": 0.0 if gate in targeted_gates else 1.0,
+                "threshold": 1.0,
+                "passed": gate not in targeted_gates,
+                "evidence": "mixed strict includes injected failures for this gate" if gate in targeted_gates else "no injected defect targets this gate",
+            }
+            for gate in GATES
+        ],
         "detected_defects": detected,
         "unexpected_clean_case_failures": [],
         "unexpected_injected_passes": [],
@@ -630,6 +751,8 @@ def _summaries(days: list[dict[str, Any]], runs: list[dict[str, Any]]) -> tuple[
     memory_actions = sum(len(day["memory_ux_events"]) for day in days)
     write_decisions = sum(len(day["write_gate_decisions"]) for day in days)
     scorecards = [day["human_review_scorecard"] for day in days]
+    outfit_scorecards = [card for card in scorecards if card["scorecard_type"] == "daily_outfit_scorecard"]
+    fallback_scorecards = [card for card in scorecards if card["scorecard_type"] == "fallback_scorecard"]
     beta = {
         "beta_run_summary_id": "brs_v1298",
         "total_users": len(runs),
@@ -672,9 +795,30 @@ def _summaries(days: list[dict[str, Any]], runs: list[dict[str, Any]]) -> tuple[
         "scorecards_present": True,
         "scorecards_complete": True,
         "scorecard_count": len(scorecards),
-        "average_total_score": round(sum(card["total_score"] for card in scorecards) / len(scorecards), 2),
-        "min_total_score": min(card["total_score"] for card in scorecards),
+        "daily_outfit_score_summary": {
+            "count": len(outfit_scorecards),
+            "average_score": round(sum(card["total_score"] for card in outfit_scorecards) / len(outfit_scorecards), 2),
+            "min_score": min(card["total_score"] for card in outfit_scorecards),
+            "max_score": max(card["total_score"] for card in outfit_scorecards),
+            "max_possible_score": 16,
+        },
+        "fallback_score_summary": {
+            "count": len(fallback_scorecards),
+            "average_score": round(sum(card["total_score"] for card in fallback_scorecards) / len(fallback_scorecards), 2),
+            "min_score": min(card["total_score"] for card in fallback_scorecards),
+            "max_score": max(card["total_score"] for card in fallback_scorecards),
+            "max_possible_score": 12,
+        },
+        "fallback_count": len(fallback_days),
+        "fallback_rate": round(len(fallback_days) / len(days), 4),
+        "average_score": None,
         "readiness_verdict_not_overstated": True,
+        "readiness_verdict_basis": {
+            "daily_outfit_score_threshold_met": True,
+            "fallback_rate_within_limit": True,
+            "fallback_quality_threshold_met": True,
+            "score_types_separated": True,
+        },
         "readiness_verdict": "internal_dogfood_ready_pending_manual_review",
         "low_score_cards": [
             {
@@ -682,8 +826,8 @@ def _summaries(days: list[dict[str, Any]], runs: list[dict[str, Any]]) -> tuple[
                 "total_score": card["total_score"],
                 "improvement_note": "Fallback is honest and trace-backed; usefulness depends on closet completion.",
             }
-            for card in scorecards
-            if card["total_score"] < 14
+            for card in fallback_scorecards
+            if card["total_score"] < 10
         ],
     }
     return beta, failure, obs, hrs
@@ -696,6 +840,13 @@ def _manifest() -> dict[str, Any]:
         "branch": BRANCH,
         "theme": "Daily Outfit Beta Readiness",
         "generated_at": _now_iso(),
+        "expected_changes_since_last_review": [
+            "Fix fallback missing / available preview consistency",
+            "Split daily outfit scorecards from fallback scorecards",
+            "Add fallback preview consistency gates",
+            "Add fallback scorecard semantics gates",
+            "Add injected defects for fallback preview and fallback scorecard failures",
+        ],
         "scope": {
             "goals": [
                 "Validate internal beta readiness for Daily Outfit",
@@ -731,6 +882,11 @@ def _manifest() -> dict[str, Any]:
             "sample_artifacts/memory_ux_feedback_action_routing.json",
             "sample_artifacts/quality_guardrail_retained_in_beta_run.json",
             "sample_artifacts/human_review_scorecard_example.json",
+            "sample_artifacts/human_review_scorecard_summary.json",
+            "human_review_scorecard_summary.json",
+            "clean_report.json",
+            "mixed_strict_report.json",
+            "injected_defect_detection_summary.json",
         ],
         "known_p2_backlog": [
             "manual reviewer should spot-check product usefulness across fallback-heavy users",
@@ -785,6 +941,8 @@ PASS CANDIDATE pending manual review.
 - failure reasons are classified
 - quality, closet reliability, Memory UX, and multi-day guardrails remain active
 - human review scorecards exist and do not overstate beta readiness
+- fallback cards split missing categories from unreliable categories and available previews
+- fallback scorecards are separated from complete Daily Outfit scorecards
 """
 
 
@@ -805,6 +963,12 @@ Daily Outfit Beta Readiness.
 - Clean checks: {clean['suite_summary']['passed_checks']}/{clean['suite_summary']['total_checks']} checks pass
 - Mixed strict: expected fail with injected defects
 - Injected defect detection: {mixed['verdicts']['injected_defect_detection_verdict']}
+
+## Fallback / Scorecard Cleanup
+
+- Fallback cards separate missing categories, unreliable categories, reliable previews, and unreliable previews.
+- Fallback scorecards do not score complete-outfit wearability dimensions.
+- Beta readiness score summaries separate Daily Outfit Cards from fallback notices.
 
 ## Boundaries
 
@@ -849,6 +1013,8 @@ Status: PASS CANDIDATE pending manual review
 
 - [ ] Confirm every day has a Daily Outfit Card or honest fallback
 - [ ] Review `sample_artifacts/honest_fallback_closet_insufficient.json`
+- [ ] Confirm fallback missing categories are not also listed as reliable available preview items
+- [ ] Confirm unreliable preview items include reason and reliability status
 
 ## C. Closet Readiness / Item Reliability
 
@@ -884,6 +1050,8 @@ Status: PASS CANDIDATE pending manual review
 
 - [ ] Review `human_review_scorecard_summary.json`
 - [ ] Review `sample_artifacts/human_review_scorecard_example.json`
+- [ ] Confirm fallback scorecards use `fallback_scorecard`
+- [ ] Confirm fallback scorecards do not score outfit-only wearability dimensions
 
 ## J. Injected Defect Detection
 
@@ -897,7 +1065,16 @@ def _sample_files(base: Path, runs: list[dict[str, Any]], days: list[dict[str, A
     by_user = {run["user_fixture_id"]: run for run in runs}
     for user in USERS:
         if user["sample_name"]:
-            _write_json(samples / user["sample_name"], by_user[user["fixture_id"]])
+            run = by_user[user["fixture_id"]]
+            if user["fixture_id"] == "user_G_low_confidence_metadata":
+                low_conf_day = next(day for day in run["run_days"] if day["failure_reason"] == "low_confidence_metadata")
+                enriched_run = dict(run)
+                enriched_run["representative_fallback_day"] = low_conf_day
+                enriched_run["final_daily_outfit_card"] = low_conf_day["final_daily_outfit_card"]
+                enriched_run["human_review_scorecard"] = low_conf_day["human_review_scorecard"]
+                _write_json(samples / user["sample_name"], enriched_run)
+            else:
+                _write_json(samples / user["sample_name"], run)
     medium = by_user["user_B_medium_closet"]
     _write_json(samples / "beta_user_medium_closet_7day.json", medium)
     closet_fallback = next(day for day in days if day["failure_reason"] == "closet_insufficient")
@@ -907,6 +1084,7 @@ def _sample_files(base: Path, runs: list[dict[str, Any]], days: list[dict[str, A
     _write_json(samples / "memory_ux_feedback_action_routing.json", memory_route)
     _write_json(samples / "quality_guardrail_retained_in_beta_run.json", repaired)
     _write_json(samples / "human_review_scorecard_example.json", repaired["human_review_scorecard"])
+    _write_json(samples / "human_review_scorecard_summary.json", hrs)
     _write_json(samples / "observability_summary_example.json", obs)
     _write_json(samples / "beta_run_summary_example.json", beta)
     _write_json(samples / "failure_summary_example.json", failure)

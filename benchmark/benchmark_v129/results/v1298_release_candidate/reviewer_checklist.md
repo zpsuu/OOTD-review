@@ -12,6 +12,8 @@ Status: PASS CANDIDATE pending manual review
 
 - [ ] Confirm every day has a Daily Outfit Card or honest fallback
 - [ ] Review `sample_artifacts/honest_fallback_closet_insufficient.json`
+- [ ] Confirm fallback missing categories are not also listed as reliable available preview items
+- [ ] Confirm unreliable preview items include reason and reliability status
 
 ## C. Closet Readiness / Item Reliability
 
@@ -47,6 +49,8 @@ Status: PASS CANDIDATE pending manual review
 
 - [ ] Review `human_review_scorecard_summary.json`
 - [ ] Review `sample_artifacts/human_review_scorecard_example.json`
+- [ ] Confirm fallback scorecards use `fallback_scorecard`
+- [ ] Confirm fallback scorecards do not score outfit-only wearability dimensions
 
 ## J. Injected Defect Detection
 
