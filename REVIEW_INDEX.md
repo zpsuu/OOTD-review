@@ -8,20 +8,20 @@ Current branch:
 `v130-ideal-reality-bridge-alpha`
 
 Current status:
-`PASS CANDIDATE pending manual review`
+`PASS CANDIDATE confirmed`
 
-## Current Review Focus
+## Confirmed Review Focus
 
-This iteration verifies Ideal-Reality Bridge Alpha evidence across:
+Manual review confirmed Ideal-Reality Bridge Alpha evidence across:
 
-- ideal direction decomposition
-- user memory fit / conflict analysis
-- closet reality mapping
-- closet-grounded reality outfit generation
-- match score component self-proof
-- specific gap diagnosis
-- no-buy and one-item category-level next steps
-- Memory UX confirmation and write safety
+- scenario-specific bridge preconditions
+- match score formula self-proof
+- remember_for_context write-gate self-proof
+- conflict / avoid memory claim trace coverage
+- closet-grounded reality outfits
+- specific category-level gap diagnosis
+- no-buy steps using existing closet items
+- one-item category-level next steps
 - injected defect detection for bridge regressions
 
 ## Latest Evidence Pack

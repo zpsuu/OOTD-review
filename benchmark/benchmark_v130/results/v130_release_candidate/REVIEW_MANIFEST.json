@@ -1,6 +1,23 @@
 {
   "version": "v1.30",
-  "release_candidate_status": "pass_candidate_pending_manual_review",
+  "release_candidate_status": "pass_candidate_confirmed",
+  "manual_review_status": "passed",
+  "manual_review_verdict": "PASS CANDIDATE confirmed",
+  "manual_review_completed_at": "2026-06-23T11:49:56Z",
+  "manual_review_summary": [
+    "Clean acceptance suite passes 45/45 cases and 49/49 checks.",
+    "Mixed strict suite fails as expected with injected defects.",
+    "Injected defect detection passes with all 21 seeded defects detected.",
+    "Scenario-specific bridge preconditions are raw-proven.",
+    "Match scores include formula, weights, caps, computed score, and rounding proof.",
+    "remember_for_context includes ProductionMemoryWriteGate decision self-proof and no-silent-write proof.",
+    "Conflict / avoid memory claims are included in user-visible claim refs.",
+    "Reality outfits are closet-grounded.",
+    "Gap diagnosis is specific and category-level.",
+    "No-buy steps use existing closet items.",
+    "One-item steps remain category-level and do not include product links or SKU.",
+    "Manual spot review passes."
+  ],
   "branch": "v130-ideal-reality-bridge-alpha",
   "theme": "Ideal-Reality Bridge Alpha",
   "generated_at": "2026-06-23T11:40:26Z",
@@ -98,5 +115,10 @@
     "Improve bridge card natural-language polish after gates pass",
     "Add optional shadow support for visual inspiration later",
     "Add more human-eval calibration before public beta"
-  ]
+  ],
+  "commits": {
+    "review_mirror_evidence_commit_sha": "16f4de5fa9679f45fad385bffaee0f925e3761d6",
+    "manifest_cleanup_commit_sha": "reported_outside_manifest_after_commit",
+    "commit_sha_note": "The public mirror evidence commit is recorded here. The commit that updates this manifest is reported outside the manifest after git commit, because embedding the hash of the same commit inside a tracked file would make the hash unstable."
+  }
 }

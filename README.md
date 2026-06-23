@@ -22,4 +22,4 @@ Entrypoint:
 
 ## Status
 
-PASS CANDIDATE pending manual review.
+v1.30 Ideal-Reality Bridge Alpha is PASS CANDIDATE confirmed.

@@ -82,9 +82,9 @@ Focus:
 
 ## v1.29.8 - Daily Outfit Beta Readiness
 
-Status: PASS CANDIDATE pending manual review
+Status: PASS CANDIDATE confirmed
 
-Current review focus:
+Focus:
 - internal beta readiness
 - multi-user beta fixture runs
 - Daily Outfit Card or honest fallback
@@ -97,15 +97,15 @@ Current review focus:
 
 ## v1.30 - Ideal-Reality Bridge Alpha
 
-Status: PASS CANDIDATE pending manual review
+Status: PASS CANDIDATE confirmed
 
-Current review focus:
-- ideal direction decomposition
-- user memory fit / conflict analysis
-- closet reality mapping
-- grounded reality outfit generation
-- specific gap diagnosis
-- no-buy and one-item category-level next steps
-- match score self-proof
-- Memory UX confirmation and write safety
+Focus:
+- scenario-specific bridge preconditions
+- match score formula self-proof
+- remember_for_context write-gate self-proof
+- conflict / avoid memory claim trace coverage
+- closet-grounded reality outfits
+- specific category-level gap diagnosis
+- no-buy steps using existing closet items
+- one-item category-level next steps
 - injected defect detection for bridge regressions

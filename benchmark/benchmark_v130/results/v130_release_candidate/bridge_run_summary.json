@@ -6,5 +6,5 @@
   "all_bridge_cards_trace_backed": true,
   "all_reality_outfits_closet_grounded": true,
   "memory_write_requires_confirmation": true,
-  "release_candidate_status": "pass_candidate_pending_manual_review"
+  "release_candidate_status": "pass_candidate_confirmed"
 }

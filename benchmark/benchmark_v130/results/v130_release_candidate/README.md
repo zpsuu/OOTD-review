@@ -8,7 +8,7 @@ Self-proof cleanup coverage includes scenario-specific preconditions, match scor
 
 ## Status
 
-PASS CANDIDATE pending manual review.
+PASS CANDIDATE confirmed.
 
 ## Entrypoint
 

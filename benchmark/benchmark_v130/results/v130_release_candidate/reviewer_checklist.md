@@ -73,7 +73,7 @@
 
 ## Final Verdict
 
-- [ ] PASS CANDIDATE confirmed
+- [x] PASS CANDIDATE confirmed
 - [ ] PASS CANDIDATE hold
 - [ ] PARTIAL PASS
 - [ ] FAIL
