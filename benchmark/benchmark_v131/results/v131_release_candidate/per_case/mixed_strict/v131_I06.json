@@ -1,0 +1,160 @@
+{
+  "case_id": "v131_I06",
+  "version": "v1.31",
+  "defect_type": "bridge_invents_closet_item_to_match_inspiration",
+  "expected_failure": true,
+  "source_clean_case_id": "v131_A01_screenshot_intake_creates_valid_inspiration_intake_event",
+  "failed_check_ids": [
+    "bridge_reality_outfit_uses_only_closet_items_rate"
+  ],
+  "expected_failed_check_ids": [
+    "bridge_reality_outfit_uses_only_closet_items_rate"
+  ],
+  "failure_reason": "Injected defect detected: bridge_invents_closet_item_to_match_inspiration",
+  "checks": [
+    {
+      "check_id": "inspiration_intake_schema_valid_rate",
+      "passed": true
+    },
+    {
+      "check_id": "content_ref_storage_policy_present_rate",
+      "passed": true
+    },
+    {
+      "check_id": "external_content_not_redistributed_rate",
+      "passed": true
+    },
+    {
+      "check_id": "raw_external_image_not_in_public_evidence_pack_rate",
+      "passed": true
+    },
+    {
+      "check_id": "redistribution_disallowed_for_external_content_rate",
+      "passed": true
+    },
+    {
+      "check_id": "visual_signal_candidate_schema_valid_rate",
+      "passed": true
+    },
+    {
+      "check_id": "text_signal_candidate_schema_valid_rate",
+      "passed": true
+    },
+    {
+      "check_id": "uncertain_visual_fields_flagged_rate",
+      "passed": true
+    },
+    {
+      "check_id": "low_confidence_visual_fields_not_promoted_rate",
+      "passed": true
+    },
+    {
+      "check_id": "high_risk_visual_inference_suppressed_rate",
+      "passed": true
+    },
+    {
+      "check_id": "user_intent_resolution_present_rate",
+      "passed": true
+    },
+    {
+      "check_id": "ambiguous_intake_requires_clarification_rate",
+      "passed": true
+    },
+    {
+      "check_id": "liked_aspects_not_entire_image_rate",
+      "passed": true
+    },
+    {
+      "check_id": "rejected_or_unconfirmed_aspects_not_core_rate",
+      "passed": true
+    },
+    {
+      "check_id": "ideal_direction_candidate_schema_valid_rate",
+      "passed": true
+    },
+    {
+      "check_id": "ideal_core_elements_not_entire_image_rate",
+      "passed": true
+    },
+    {
+      "check_id": "ideal_candidate_requires_confirmation_rate",
+      "passed": true
+    },
+    {
+      "check_id": "ideal_candidate_downstream_use_restricted_rate",
+      "passed": true
+    },
+    {
+      "check_id": "inspiration_no_production_memory_write_rate",
+      "passed": true
+    },
+    {
+      "check_id": "shadow_memory_proposal_shadow_only_rate",
+      "passed": true
+    },
+    {
+      "check_id": "shadow_memory_proposal_requires_confirmation_rate",
+      "passed": true
+    },
+    {
+      "check_id": "user_confirmation_does_not_bypass_shadow_policy_rate",
+      "passed": true
+    },
+    {
+      "check_id": "bridge_shadow_run_generated_when_signal_sufficient_rate",
+      "passed": true
+    },
+    {
+      "check_id": "bridge_reality_outfit_uses_only_closet_items_rate",
+      "passed": false
+    },
+    {
+      "check_id": "bridge_gap_disclosed_when_closet_lacks_key_element_rate",
+      "passed": true
+    },
+    {
+      "check_id": "bridge_no_product_recommendation_rate",
+      "passed": true
+    },
+    {
+      "check_id": "bridge_no_buy_step_present_when_applicable_rate",
+      "passed": true
+    },
+    {
+      "check_id": "bridge_match_score_not_overstated_for_weak_match_rate",
+      "passed": true
+    },
+    {
+      "check_id": "url_metadata_only_does_not_create_memory_rate",
+      "passed": true
+    },
+    {
+      "check_id": "inaccessible_url_returns_honest_fallback_rate",
+      "passed": true
+    },
+    {
+      "check_id": "platform_api_absence_does_not_fail_pipeline_rate",
+      "passed": true
+    },
+    {
+      "check_id": "user_visible_claim_trace_coverage_rate",
+      "passed": true
+    },
+    {
+      "check_id": "intake_to_bridge_trace_complete_rate",
+      "passed": true
+    },
+    {
+      "check_id": "shadow_proposal_evidence_refs_complete_rate",
+      "passed": true
+    },
+    {
+      "check_id": "scenario_precondition_satisfied_rate",
+      "passed": true
+    },
+    {
+      "check_id": "no_vacuous_inspiration_case_pass_rate",
+      "passed": true
+    }
+  ]
+}

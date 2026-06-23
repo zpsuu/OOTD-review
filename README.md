@@ -14,12 +14,12 @@ The private development repository remains private. This mirror only contains re
 
 ## Current Review Target
 
-v1.30 - Ideal-Reality Bridge Alpha
+v1.31 - Inspiration Intake Shadow Pipeline
 
 Entrypoint:
 
-`benchmark/benchmark_v130/results/v130_release_candidate/REVIEW_MANIFEST.json`
+`benchmark/benchmark_v131/results/v131_release_candidate/REVIEW_MANIFEST.json`
 
 ## Status
 
-v1.30 Ideal-Reality Bridge Alpha is PASS CANDIDATE confirmed.
+v1.31 Inspiration Intake Shadow Pipeline is PASS CANDIDATE pending manual review.

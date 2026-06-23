@@ -1,0 +1,13 @@
+{
+  "intake_summary_id": "ins_v131",
+  "total_cases": 48,
+  "source_type_counts": {
+    "image_upload": 1,
+    "screenshot": 38,
+    "text_only": 1,
+    "url": 8
+  },
+  "intake_events_created": 48,
+  "content_refs_have_storage_policy": true,
+  "url_metadata_only_cases_request_screenshot_or_clarification": true
+}

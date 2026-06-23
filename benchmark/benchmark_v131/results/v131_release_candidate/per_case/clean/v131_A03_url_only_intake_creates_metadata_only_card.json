@@ -1,0 +1,178 @@
+{
+  "case_id": "v131_A03_url_only_intake_creates_metadata_only_card",
+  "version": "v1.31",
+  "scenario": "A03_url_only_intake_creates_metadata_only_card",
+  "scenario_preconditions": {
+    "expected": [
+      "external_inspiration_input_present",
+      "inspiration_intake_event_present",
+      "storage_policy_present",
+      "url_intake_present",
+      "metadata_only_signal_present",
+      "visual_content_unavailable"
+    ],
+    "satisfied": true,
+    "proof_refs": [
+      "inspiration_intake_event",
+      "inspiration_intake_event.content_refs[0].storage_policy",
+      "inspiration_intake_event.source_type",
+      "text_signal_candidate.metadata_only",
+      "text_signal_candidate.url_fetch_report.visual_content_available"
+    ],
+    "missing_preconditions": []
+  },
+  "inspiration_intake_event": {
+    "intake_event_id": "intake_v131_03",
+    "source_type": "url",
+    "source_platform_hint": "pinterest",
+    "user_statement": "this is the vibe",
+    "content_refs": [
+      {
+        "content_ref_id": "content_url_v131_03",
+        "content_type": "url",
+        "storage_policy": "metadata_only",
+        "redistribution_allowed": false,
+        "raw_content_in_public_evidence_pack": false,
+        "public_evidence_representation": "redacted_url_placeholder"
+      },
+      {
+        "content_ref_id": "content_meta_v131_03",
+        "content_type": "metadata_card",
+        "storage_policy": "metadata_only",
+        "redistribution_allowed": false,
+        "raw_content_in_public_evidence_pack": false,
+        "public_evidence_representation": "synthetic_metadata_summary"
+      }
+    ],
+    "created_at": "2026-06-23T12:07:52Z"
+  },
+  "visual_signal_candidate": null,
+  "text_signal_candidate": {
+    "text_signal_candidate_id": "tsc_v131_03",
+    "source_content_ref": "content_url_v131_03",
+    "available_text": {
+      "url": "redacted_or_placeholder",
+      "title": "Quiet city outfit inspiration",
+      "description": "metadata-only summary",
+      "user_text": null
+    },
+    "signal_confidence": "low",
+    "metadata_only": true,
+    "url_fetch_report": {
+      "visual_content_available": false,
+      "platform_api_available": false,
+      "fetch_status": "metadata_only",
+      "honest_fallback_returned": true
+    },
+    "requires_screenshot_or_user_clarification": true,
+    "allowed_downstream_use": [
+      "clarification_prompt"
+    ],
+    "disallowed_downstream_use": [
+      "production_memory_write",
+      "confirmed_ideal_direction",
+      "confirmed_memory_proposal"
+    ]
+  },
+  "user_intent_resolution": {
+    "intent_resolution_id": "uir_v131_03",
+    "intake_event_id": "intake_v131_03",
+    "resolved_user_intent": {
+      "liked_aspects": [
+        "overall_mood",
+        "color_palette",
+        "silhouette"
+      ],
+      "not_confirmed_aspects": [
+        "exact_items",
+        "model_body",
+        "photo_lighting",
+        "exact_product_specificity"
+      ],
+      "rejected_aspects": [],
+      "intended_scope": "office_daily"
+    },
+    "requires_user_confirmation": true,
+    "confirmation_question": "Which part should I learn from: mood, colors, or silhouette?",
+    "allowed_user_actions": [
+      "remember_later_shadow",
+      "use_for_this_bridge_only",
+      "clarify_liked_aspect",
+      "do_not_remember",
+      "not_this_direction"
+    ]
+  },
+  "ideal_direction_candidate": null,
+  "bridge_shadow_run": null,
+  "shadow_memory_proposal": null,
+  "memory_ux_confirmation_prompt": {
+    "memory_ux_confirmation_prompt_id": "memux_v131_03",
+    "question": "Should I keep this as a shadow-only style direction candidate for review later?",
+    "actions": [
+      "remember_later_shadow",
+      "use_for_this_bridge_only",
+      "clarify_liked_aspect",
+      "do_not_remember",
+      "not_this_direction"
+    ],
+    "selected_fixture_action": "remember_later_shadow",
+    "production_write_allowed_after_confirmation": false,
+    "confirmation_policy": "confirmation can keep or discard shadow proposal only; it cannot write production memory in v1.31"
+  },
+  "fallback_or_clarification": {
+    "fallback_id": "fallback_uir_v131_03",
+    "reason": "url_metadata_insufficient",
+    "honest_message": "I only have metadata or an ambiguous share, so I need a screenshot or clarification before creating an ideal direction.",
+    "requests_screenshot_or_clarification": true,
+    "pipeline_continues_without_platform_api": true,
+    "memory_proposal_created": false,
+    "ideal_direction_created": false,
+    "text_signal_candidate_ref": "tsc_v131_03"
+  },
+  "privacy_rights_report": {
+    "raw_external_content_in_public_evidence_pack": false,
+    "redistribution_allowed_for_external_content": false,
+    "content_refs_checked": [
+      "content_url_v131_03",
+      "content_meta_v131_03"
+    ],
+    "storage_policies": {
+      "content_url_v131_03": "metadata_only",
+      "content_meta_v131_03": "metadata_only"
+    },
+    "derived_signals_stored": true,
+    "public_artifact_contains_only": [
+      "synthetic descriptors",
+      "redacted metadata",
+      "derived signal candidates"
+    ]
+  },
+  "memory_policy_decision": {
+    "decision_id": "mem_policy_v131_03",
+    "external_inspiration_to_production_memory_write": "forbidden",
+    "production_store_write_attempted": false,
+    "production_store_write_executed": false,
+    "shadow_proposal_allowed": false,
+    "future_shadow_claim_blocked": false
+  },
+  "user_visible_claims": [
+    {
+      "claim_id": "claim_fallback_v131_03",
+      "text": "Metadata-only or ambiguous input asks for screenshot or clarification before memory proposal.",
+      "trace_refs": [
+        "intake_v131_03",
+        "fallback_uir_v131_03"
+      ]
+    }
+  ],
+  "trace": {
+    "intake_event_id": "intake_v131_03",
+    "visual_signal_candidate_id": null,
+    "text_signal_candidate_id": "tsc_v131_03",
+    "intent_resolution_id": "uir_v131_03",
+    "ideal_direction_candidate_id": null,
+    "bridge_shadow_run_id": null,
+    "shadow_memory_proposal_id": null,
+    "complete_for_applicable_path": true
+  }
+}

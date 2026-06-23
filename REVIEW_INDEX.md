@@ -2,42 +2,44 @@
 
 ## Current Active Version
 
-v1.30 - Ideal-Reality Bridge Alpha
+v1.31 - Inspiration Intake Shadow Pipeline
 
 Current branch:
-`v130-ideal-reality-bridge-alpha`
+`v131-inspiration-intake-shadow-pipeline`
 
 Current status:
-`PASS CANDIDATE confirmed`
+`PASS CANDIDATE pending manual review`
 
-## Confirmed Review Focus
+## Current Review Focus
 
-Manual review confirmed Ideal-Reality Bridge Alpha evidence across:
+This iteration verifies Inspiration Intake Shadow Pipeline evidence across:
 
-- scenario-specific bridge preconditions
-- match score formula self-proof
-- remember_for_context write-gate self-proof
-- conflict / avoid memory claim trace coverage
-- closet-grounded reality outfits
-- specific category-level gap diagnosis
-- no-buy steps using existing closet items
-- one-item category-level next steps
-- injected defect detection for bridge regressions
+- platform-agnostic inspiration intake
+- visual/text signal candidates
+- user intent resolution
+- ideal direction candidate generation
+- v1.30 bridge shadow run
+- shadow-only memory proposal
+- no production memory write from external inspiration
+- privacy / rights-safe external evidence handling
+- URL metadata and inaccessible-link fallback
+- injected defect detection for inspiration safety regressions
 
 ## Latest Evidence Pack
 
-`benchmark/benchmark_v130/results/v130_release_candidate/`
+`benchmark/benchmark_v131/results/v131_release_candidate/`
 
 ## Key Files To Review
 
-- `benchmark/benchmark_v130/results/v130_release_candidate/REVIEW_MANIFEST.json`
-- `benchmark/benchmark_v130/results/v130_release_candidate/clean_report.json`
-- `benchmark/benchmark_v130/results/v130_release_candidate/mixed_strict_report.json`
-- `benchmark/benchmark_v130/results/v130_release_candidate/injected_defect_detection_summary.json`
-- `benchmark/benchmark_v130/results/v130_release_candidate/bridge_run_summary.json`
-- `benchmark/benchmark_v130/results/v130_release_candidate/gap_diagnosis_summary.json`
-- `benchmark/benchmark_v130/results/v130_release_candidate/match_score_summary.json`
-- `benchmark/benchmark_v130/results/v130_release_candidate/sample_artifacts/low_saturation_city_bridge.json`
-- `benchmark/benchmark_v130/results/v130_release_candidate/sample_artifacts/ideal_supported_by_memory.json`
-- `benchmark/benchmark_v130/results/v130_release_candidate/sample_artifacts/ideal_conflicts_with_avoid_boundary.json`
-- `benchmark/benchmark_v130/results/v130_release_candidate/sample_artifacts/closet_lacks_key_outerwear_gap.json`
+- `benchmark/benchmark_v131/results/v131_release_candidate/REVIEW_MANIFEST.json`
+- `benchmark/benchmark_v131/results/v131_release_candidate/clean_report.json`
+- `benchmark/benchmark_v131/results/v131_release_candidate/mixed_strict_report.json`
+- `benchmark/benchmark_v131/results/v131_release_candidate/injected_defect_detection_summary.json`
+- `benchmark/benchmark_v131/results/v131_release_candidate/intake_summary.json`
+- `benchmark/benchmark_v131/results/v131_release_candidate/shadow_memory_proposal_summary.json`
+- `benchmark/benchmark_v131/results/v131_release_candidate/bridge_shadow_summary.json`
+- `benchmark/benchmark_v131/results/v131_release_candidate/privacy_rights_summary.json`
+- `benchmark/benchmark_v131/results/v131_release_candidate/sample_artifacts/screenshot_intake_low_saturation_city.json`
+- `benchmark/benchmark_v131/results/v131_release_candidate/sample_artifacts/url_metadata_insufficient_requests_screenshot.json`
+- `benchmark/benchmark_v131/results/v131_release_candidate/sample_artifacts/shadow_memory_proposal_no_production_write.json`
+- `benchmark/benchmark_v131/results/v131_release_candidate/sample_artifacts/external_content_not_redistributed.json`

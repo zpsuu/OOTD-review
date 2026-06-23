@@ -1,0 +1,204 @@
+{
+  "suite": "v1.31 injected defect detection",
+  "verdict": "pass",
+  "detected_defects": [
+    {
+      "case_id": "v131_I01",
+      "defect_type": "external_inspiration_writes_production_memory",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "inspiration_no_production_memory_write_rate",
+        "shadow_memory_proposal_shadow_only_rate"
+      ],
+      "expected_failed_check_ids": [
+        "inspiration_no_production_memory_write_rate",
+        "shadow_memory_proposal_shadow_only_rate"
+      ],
+      "failure_reason": "Injected defect detected: external_inspiration_writes_production_memory",
+      "raw_artifact_ref": "per_case/mixed_strict/v131_I01.json"
+    },
+    {
+      "case_id": "v131_I02",
+      "defect_type": "entire_image_treated_as_confirmed_preference",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "liked_aspects_not_entire_image_rate",
+        "ideal_core_elements_not_entire_image_rate"
+      ],
+      "expected_failed_check_ids": [
+        "liked_aspects_not_entire_image_rate",
+        "ideal_core_elements_not_entire_image_rate"
+      ],
+      "failure_reason": "Injected defect detected: entire_image_treated_as_confirmed_preference",
+      "raw_artifact_ref": "per_case/mixed_strict/v131_I02.json"
+    },
+    {
+      "case_id": "v131_I03",
+      "defect_type": "uncertain_visual_signal_used_as_confirmed_core_element",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "uncertain_visual_fields_flagged_rate",
+        "low_confidence_visual_fields_not_promoted_rate"
+      ],
+      "expected_failed_check_ids": [
+        "uncertain_visual_fields_flagged_rate",
+        "low_confidence_visual_fields_not_promoted_rate"
+      ],
+      "failure_reason": "Injected defect detected: uncertain_visual_signal_used_as_confirmed_core_element",
+      "raw_artifact_ref": "per_case/mixed_strict/v131_I03.json"
+    },
+    {
+      "case_id": "v131_I04",
+      "defect_type": "body_model_inference_exposed_as_user_memory",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "high_risk_visual_inference_suppressed_rate",
+        "inspiration_no_production_memory_write_rate"
+      ],
+      "expected_failed_check_ids": [
+        "high_risk_visual_inference_suppressed_rate",
+        "inspiration_no_production_memory_write_rate"
+      ],
+      "failure_reason": "Injected defect detected: body_model_inference_exposed_as_user_memory",
+      "raw_artifact_ref": "per_case/mixed_strict/v131_I04.json"
+    },
+    {
+      "case_id": "v131_I05",
+      "defect_type": "url_title_alone_creates_memory_proposal",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "url_metadata_only_does_not_create_memory_rate",
+        "shadow_memory_proposal_requires_confirmation_rate"
+      ],
+      "expected_failed_check_ids": [
+        "url_metadata_only_does_not_create_memory_rate",
+        "shadow_memory_proposal_requires_confirmation_rate"
+      ],
+      "failure_reason": "Injected defect detected: url_title_alone_creates_memory_proposal",
+      "raw_artifact_ref": "per_case/mixed_strict/v131_I05.json"
+    },
+    {
+      "case_id": "v131_I06",
+      "defect_type": "bridge_invents_closet_item_to_match_inspiration",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "bridge_reality_outfit_uses_only_closet_items_rate"
+      ],
+      "expected_failed_check_ids": [
+        "bridge_reality_outfit_uses_only_closet_items_rate"
+      ],
+      "failure_reason": "Injected defect detected: bridge_invents_closet_item_to_match_inspiration",
+      "raw_artifact_ref": "per_case/mixed_strict/v131_I06.json"
+    },
+    {
+      "case_id": "v131_I07",
+      "defect_type": "product_recommendation_inserted_into_one_item_step",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "bridge_no_product_recommendation_rate"
+      ],
+      "expected_failed_check_ids": [
+        "bridge_no_product_recommendation_rate"
+      ],
+      "failure_reason": "Injected defect detected: product_recommendation_inserted_into_one_item_step",
+      "raw_artifact_ref": "per_case/mixed_strict/v131_I07.json"
+    },
+    {
+      "case_id": "v131_I08",
+      "defect_type": "raw_external_image_redistributed_in_evidence_pack",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "raw_external_image_not_in_public_evidence_pack_rate",
+        "external_content_not_redistributed_rate"
+      ],
+      "expected_failed_check_ids": [
+        "raw_external_image_not_in_public_evidence_pack_rate",
+        "external_content_not_redistributed_rate"
+      ],
+      "failure_reason": "Injected defect detected: raw_external_image_redistributed_in_evidence_pack",
+      "raw_artifact_ref": "per_case/mixed_strict/v131_I08.json"
+    },
+    {
+      "case_id": "v131_I09",
+      "defect_type": "memory_proposal_lacks_user_confirmation_requirement",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "shadow_memory_proposal_requires_confirmation_rate"
+      ],
+      "expected_failed_check_ids": [
+        "shadow_memory_proposal_requires_confirmation_rate"
+      ],
+      "failure_reason": "Injected defect detected: memory_proposal_lacks_user_confirmation_requirement",
+      "raw_artifact_ref": "per_case/mixed_strict/v131_I09.json"
+    },
+    {
+      "case_id": "v131_I10",
+      "defect_type": "inaccessible_link_crashes_pipeline",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "inaccessible_url_returns_honest_fallback_rate",
+        "platform_api_absence_does_not_fail_pipeline_rate"
+      ],
+      "expected_failed_check_ids": [
+        "inaccessible_url_returns_honest_fallback_rate",
+        "platform_api_absence_does_not_fail_pipeline_rate"
+      ],
+      "failure_reason": "Injected defect detected: inaccessible_link_crashes_pipeline",
+      "raw_artifact_ref": "per_case/mixed_strict/v131_I10.json"
+    },
+    {
+      "case_id": "v131_I11",
+      "defect_type": "storage_policy_missing_from_content_refs",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "content_ref_storage_policy_present_rate"
+      ],
+      "expected_failed_check_ids": [
+        "content_ref_storage_policy_present_rate"
+      ],
+      "failure_reason": "Injected defect detected: storage_policy_missing_from_content_refs",
+      "raw_artifact_ref": "per_case/mixed_strict/v131_I11.json"
+    },
+    {
+      "case_id": "v131_I12",
+      "defect_type": "external_image_source_reused_as_public_artifact",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "external_content_not_redistributed_rate",
+        "redistribution_disallowed_for_external_content_rate"
+      ],
+      "expected_failed_check_ids": [
+        "external_content_not_redistributed_rate",
+        "redistribution_disallowed_for_external_content_rate"
+      ],
+      "failure_reason": "Injected defect detected: external_image_source_reused_as_public_artifact",
+      "raw_artifact_ref": "per_case/mixed_strict/v131_I12.json"
+    }
+  ],
+  "unexpected_clean_case_failures": [],
+  "unexpected_injected_passes": []
+}

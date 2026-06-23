@@ -1,0 +1,9 @@
+{
+  "shadow_memory_proposal_summary_id": "smps_v131",
+  "shadow_memory_proposals_created": 38,
+  "all_status_shadow_only": true,
+  "production_write_allowed": false,
+  "production_store_write_attempted": false,
+  "production_store_write_executed": false,
+  "all_require_user_confirmation": true
+}

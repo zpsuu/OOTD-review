@@ -1,0 +1,191 @@
+{
+  "case_id": "v131_C05_ambiguous_share_asks_clarification",
+  "version": "v1.31",
+  "scenario": "C05_ambiguous_share_asks_clarification",
+  "scenario_preconditions": {
+    "expected": [
+      "external_inspiration_input_present",
+      "inspiration_intake_event_present",
+      "storage_policy_present",
+      "clarification_or_fallback_required"
+    ],
+    "satisfied": true,
+    "proof_refs": [
+      "inspiration_intake_event",
+      "inspiration_intake_event.content_refs[0].storage_policy",
+      "fallback_or_clarification"
+    ],
+    "missing_preconditions": []
+  },
+  "inspiration_intake_event": {
+    "intake_event_id": "intake_v131_17",
+    "source_type": "screenshot",
+    "source_platform_hint": "unknown",
+    "user_statement": "I saved this, what can we do with it?",
+    "content_refs": [
+      {
+        "content_ref_id": "content_image_v131_17",
+        "content_type": "image",
+        "storage_policy": "private_temporary",
+        "redistribution_allowed": false,
+        "raw_content_in_public_evidence_pack": false,
+        "public_evidence_representation": "derived_signal_fixture_only",
+        "derived_content_hash": "sha256_fixture_v131_17"
+      }
+    ],
+    "created_at": "2026-06-23T12:07:52Z"
+  },
+  "visual_signal_candidate": {
+    "visual_signal_candidate_id": "vsc_v131_17",
+    "source_content_ref": "content_image_v131_17",
+    "signals": {
+      "color_palette": [
+        "low_saturation",
+        "ivory",
+        "gray",
+        "black"
+      ],
+      "silhouette": [
+        "clean_long_lines",
+        "relaxed_structure"
+      ],
+      "style_cues": [
+        "city",
+        "polished_but_not_formal"
+      ],
+      "item_cues": [
+        "structured_jacket",
+        "straight_trousers",
+        "loafers"
+      ],
+      "mood": [
+        "relaxed",
+        "clean",
+        "quiet"
+      ]
+    },
+    "confidence_by_field": {
+      "color_palette": 0.82,
+      "silhouette": 0.71,
+      "style_cues": 0.66,
+      "item_cues": 0.58,
+      "material": 0.39
+    },
+    "uncertain_fields": [
+      "item_cues",
+      "material"
+    ],
+    "suppressed_high_risk_inferences": [
+      "model_body",
+      "identity_inference",
+      "age_inference",
+      "body_shape_inference"
+    ],
+    "requires_user_confirmation": true,
+    "allowed_downstream_use": [
+      "ideal_direction_candidate",
+      "bridge_shadow_run"
+    ],
+    "disallowed_downstream_use": [
+      "production_memory_write",
+      "direct_user_profile_update",
+      "commerce_recommendation"
+    ]
+  },
+  "text_signal_candidate": null,
+  "user_intent_resolution": {
+    "intent_resolution_id": "uir_v131_17",
+    "intake_event_id": "intake_v131_17",
+    "resolved_user_intent": {
+      "liked_aspects": [],
+      "not_confirmed_aspects": [
+        "exact_items",
+        "model_body",
+        "photo_lighting",
+        "exact_product_specificity"
+      ],
+      "rejected_aspects": [],
+      "intended_scope": "exploratory"
+    },
+    "requires_user_confirmation": true,
+    "confirmation_question": "Do you want me to understand the mood, color, silhouette, or a specific styling detail?",
+    "allowed_user_actions": [
+      "remember_later_shadow",
+      "use_for_this_bridge_only",
+      "clarify_liked_aspect",
+      "do_not_remember",
+      "not_this_direction"
+    ]
+  },
+  "ideal_direction_candidate": null,
+  "bridge_shadow_run": null,
+  "shadow_memory_proposal": null,
+  "memory_ux_confirmation_prompt": {
+    "memory_ux_confirmation_prompt_id": "memux_v131_17",
+    "question": "Should I keep this as a shadow-only style direction candidate for review later?",
+    "actions": [
+      "remember_later_shadow",
+      "use_for_this_bridge_only",
+      "clarify_liked_aspect",
+      "do_not_remember",
+      "not_this_direction"
+    ],
+    "selected_fixture_action": "remember_later_shadow",
+    "production_write_allowed_after_confirmation": false,
+    "confirmation_policy": "confirmation can keep or discard shadow proposal only; it cannot write production memory in v1.31"
+  },
+  "fallback_or_clarification": {
+    "fallback_id": "fallback_uir_v131_17",
+    "reason": "ambiguous_intent",
+    "honest_message": "I only have metadata or an ambiguous share, so I need a screenshot or clarification before creating an ideal direction.",
+    "requests_screenshot_or_clarification": true,
+    "pipeline_continues_without_platform_api": true,
+    "memory_proposal_created": false,
+    "ideal_direction_created": false,
+    "text_signal_candidate_ref": null
+  },
+  "privacy_rights_report": {
+    "raw_external_content_in_public_evidence_pack": false,
+    "redistribution_allowed_for_external_content": false,
+    "content_refs_checked": [
+      "content_image_v131_17"
+    ],
+    "storage_policies": {
+      "content_image_v131_17": "private_temporary"
+    },
+    "derived_signals_stored": true,
+    "public_artifact_contains_only": [
+      "synthetic descriptors",
+      "redacted metadata",
+      "derived signal candidates"
+    ]
+  },
+  "memory_policy_decision": {
+    "decision_id": "mem_policy_v131_17",
+    "external_inspiration_to_production_memory_write": "forbidden",
+    "production_store_write_attempted": false,
+    "production_store_write_executed": false,
+    "shadow_proposal_allowed": false,
+    "future_shadow_claim_blocked": false
+  },
+  "user_visible_claims": [
+    {
+      "claim_id": "claim_fallback_v131_17",
+      "text": "Metadata-only or ambiguous input asks for screenshot or clarification before memory proposal.",
+      "trace_refs": [
+        "intake_v131_17",
+        "fallback_uir_v131_17"
+      ]
+    }
+  ],
+  "trace": {
+    "intake_event_id": "intake_v131_17",
+    "visual_signal_candidate_id": "vsc_v131_17",
+    "text_signal_candidate_id": null,
+    "intent_resolution_id": "uir_v131_17",
+    "ideal_direction_candidate_id": null,
+    "bridge_shadow_run_id": null,
+    "shadow_memory_proposal_id": null,
+    "complete_for_applicable_path": true
+  }
+}

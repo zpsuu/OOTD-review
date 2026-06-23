@@ -1,0 +1,561 @@
+{
+  "benchmark_id": "v1.31.inspiration_intake_shadow_pipeline",
+  "schema_version": "v1.31",
+  "generated_at": "2026-06-23T12:07:52Z",
+  "verdicts": {
+    "clean_acceptance_verdict": "pass",
+    "release_candidate_verdict": "pass_candidate"
+  },
+  "suite_summary": {
+    "total_cases": 48,
+    "passed_cases": 48,
+    "failed_cases": 0,
+    "total_checks": 36,
+    "passed_checks": 36,
+    "failed_checks": 0
+  },
+  "checks": [
+    {
+      "check_id": "inspiration_intake_schema_valid_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all applicable clean inspiration intake artifacts satisfy this gate"
+    },
+    {
+      "check_id": "content_ref_storage_policy_present_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all applicable clean inspiration intake artifacts satisfy this gate"
+    },
+    {
+      "check_id": "external_content_not_redistributed_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all applicable clean inspiration intake artifacts satisfy this gate"
+    },
+    {
+      "check_id": "raw_external_image_not_in_public_evidence_pack_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all applicable clean inspiration intake artifacts satisfy this gate"
+    },
+    {
+      "check_id": "redistribution_disallowed_for_external_content_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all applicable clean inspiration intake artifacts satisfy this gate"
+    },
+    {
+      "check_id": "visual_signal_candidate_schema_valid_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all applicable clean inspiration intake artifacts satisfy this gate"
+    },
+    {
+      "check_id": "text_signal_candidate_schema_valid_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all applicable clean inspiration intake artifacts satisfy this gate"
+    },
+    {
+      "check_id": "uncertain_visual_fields_flagged_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all applicable clean inspiration intake artifacts satisfy this gate"
+    },
+    {
+      "check_id": "low_confidence_visual_fields_not_promoted_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all applicable clean inspiration intake artifacts satisfy this gate"
+    },
+    {
+      "check_id": "high_risk_visual_inference_suppressed_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all applicable clean inspiration intake artifacts satisfy this gate"
+    },
+    {
+      "check_id": "user_intent_resolution_present_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all applicable clean inspiration intake artifacts satisfy this gate"
+    },
+    {
+      "check_id": "ambiguous_intake_requires_clarification_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all applicable clean inspiration intake artifacts satisfy this gate"
+    },
+    {
+      "check_id": "liked_aspects_not_entire_image_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all applicable clean inspiration intake artifacts satisfy this gate"
+    },
+    {
+      "check_id": "rejected_or_unconfirmed_aspects_not_core_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all applicable clean inspiration intake artifacts satisfy this gate"
+    },
+    {
+      "check_id": "ideal_direction_candidate_schema_valid_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all applicable clean inspiration intake artifacts satisfy this gate"
+    },
+    {
+      "check_id": "ideal_core_elements_not_entire_image_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all applicable clean inspiration intake artifacts satisfy this gate"
+    },
+    {
+      "check_id": "ideal_candidate_requires_confirmation_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all applicable clean inspiration intake artifacts satisfy this gate"
+    },
+    {
+      "check_id": "ideal_candidate_downstream_use_restricted_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all applicable clean inspiration intake artifacts satisfy this gate"
+    },
+    {
+      "check_id": "inspiration_no_production_memory_write_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all applicable clean inspiration intake artifacts satisfy this gate"
+    },
+    {
+      "check_id": "shadow_memory_proposal_shadow_only_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all applicable clean inspiration intake artifacts satisfy this gate"
+    },
+    {
+      "check_id": "shadow_memory_proposal_requires_confirmation_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all applicable clean inspiration intake artifacts satisfy this gate"
+    },
+    {
+      "check_id": "user_confirmation_does_not_bypass_shadow_policy_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all applicable clean inspiration intake artifacts satisfy this gate"
+    },
+    {
+      "check_id": "bridge_shadow_run_generated_when_signal_sufficient_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all applicable clean inspiration intake artifacts satisfy this gate"
+    },
+    {
+      "check_id": "bridge_reality_outfit_uses_only_closet_items_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all applicable clean inspiration intake artifacts satisfy this gate"
+    },
+    {
+      "check_id": "bridge_gap_disclosed_when_closet_lacks_key_element_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all applicable clean inspiration intake artifacts satisfy this gate"
+    },
+    {
+      "check_id": "bridge_no_product_recommendation_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all applicable clean inspiration intake artifacts satisfy this gate"
+    },
+    {
+      "check_id": "bridge_no_buy_step_present_when_applicable_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all applicable clean inspiration intake artifacts satisfy this gate"
+    },
+    {
+      "check_id": "bridge_match_score_not_overstated_for_weak_match_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all applicable clean inspiration intake artifacts satisfy this gate"
+    },
+    {
+      "check_id": "url_metadata_only_does_not_create_memory_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all applicable clean inspiration intake artifacts satisfy this gate"
+    },
+    {
+      "check_id": "inaccessible_url_returns_honest_fallback_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all applicable clean inspiration intake artifacts satisfy this gate"
+    },
+    {
+      "check_id": "platform_api_absence_does_not_fail_pipeline_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all applicable clean inspiration intake artifacts satisfy this gate"
+    },
+    {
+      "check_id": "user_visible_claim_trace_coverage_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all applicable clean inspiration intake artifacts satisfy this gate"
+    },
+    {
+      "check_id": "intake_to_bridge_trace_complete_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all applicable clean inspiration intake artifacts satisfy this gate"
+    },
+    {
+      "check_id": "shadow_proposal_evidence_refs_complete_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all applicable clean inspiration intake artifacts satisfy this gate"
+    },
+    {
+      "check_id": "scenario_precondition_satisfied_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all applicable clean inspiration intake artifacts satisfy this gate"
+    },
+    {
+      "check_id": "no_vacuous_inspiration_case_pass_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "evidence": "all applicable clean inspiration intake artifacts satisfy this gate"
+    }
+  ],
+  "case_results": [
+    {
+      "case_id": "v131_A01_screenshot_intake_creates_valid_inspiration_intake_event",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_A01_screenshot_intake_creates_valid_inspiration_intake_event.json"
+    },
+    {
+      "case_id": "v131_A02_image_upload_intake_creates_valid_content_refs",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_A02_image_upload_intake_creates_valid_content_refs.json"
+    },
+    {
+      "case_id": "v131_A03_url_only_intake_creates_metadata_only_card",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_A03_url_only_intake_creates_metadata_only_card.json"
+    },
+    {
+      "case_id": "v131_A04_text_only_ideal_prompt_creates_intent_candidate",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_A04_text_only_ideal_prompt_creates_intent_candidate.json"
+    },
+    {
+      "case_id": "v131_A05_source_privacy_storage_policy_exists",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_A05_source_privacy_storage_policy_exists.json"
+    },
+    {
+      "case_id": "v131_A06_external_image_raw_content_excluded_from_public_evidence",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_A06_external_image_raw_content_excluded_from_public_evidence.json"
+    },
+    {
+      "case_id": "v131_B01_low_saturation_city_image_produces_visual_signal_candidate",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_B01_low_saturation_city_image_produces_visual_signal_candidate.json"
+    },
+    {
+      "case_id": "v131_B02_uncertain_material_is_flagged_as_uncertain",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_B02_uncertain_material_is_flagged_as_uncertain.json"
+    },
+    {
+      "case_id": "v131_B03_exact_luxury_item_is_excluded_from_core_elements",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_B03_exact_luxury_item_is_excluded_from_core_elements.json"
+    },
+    {
+      "case_id": "v131_B04_body_model_specific_inference_suppressed",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_B04_body_model_specific_inference_suppressed.json"
+    },
+    {
+      "case_id": "v131_B05_parser_confidence_below_threshold_requires_confirmation",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_B05_parser_confidence_below_threshold_requires_confirmation.json"
+    },
+    {
+      "case_id": "v131_B06_metadata_only_url_remains_low_confidence_and_asks_clarification",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_B06_metadata_only_url_remains_low_confidence_and_asks_clarification.json"
+    },
+    {
+      "case_id": "v131_C01_this_is_the_vibe_resolves_overall_mood",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_C01_this_is_the_vibe_resolves_overall_mood.json"
+    },
+    {
+      "case_id": "v131_C02_i_like_the_color_resolves_color_only_intent",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_C02_i_like_the_color_resolves_color_only_intent.json"
+    },
+    {
+      "case_id": "v131_C03_not_this_exposed_excludes_exposure_element",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_C03_not_this_exposed_excludes_exposure_element.json"
+    },
+    {
+      "case_id": "v131_C04_just_for_date_night_sets_contextual_scope",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_C04_just_for_date_night_sets_contextual_scope.json"
+    },
+    {
+      "case_id": "v131_C05_ambiguous_share_asks_clarification",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_C05_ambiguous_share_asks_clarification.json"
+    },
+    {
+      "case_id": "v131_C06_rejects_exact_items_but_likes_silhouette",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_C06_rejects_exact_items_but_likes_silhouette.json"
+    },
+    {
+      "case_id": "v131_D01_visual_signals_become_structured_ideal_direction",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_D01_visual_signals_become_structured_ideal_direction.json"
+    },
+    {
+      "case_id": "v131_D02_core_elements_separated_from_non_core_visual_elements",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_D02_core_elements_separated_from_non_core_visual_elements.json"
+    },
+    {
+      "case_id": "v131_D03_ideal_direction_requires_confirmation",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_D03_ideal_direction_requires_confirmation.json"
+    },
+    {
+      "case_id": "v131_D04_ideal_direction_does_not_become_production_memory",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_D04_ideal_direction_does_not_become_production_memory.json"
+    },
+    {
+      "case_id": "v131_D05_ideal_direction_feeds_v130_bridge_shadow",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_D05_ideal_direction_feeds_v130_bridge_shadow.json"
+    },
+    {
+      "case_id": "v131_D06_uncertain_fields_not_promoted_to_core_elements",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_D06_uncertain_fields_not_promoted_to_core_elements.json"
+    },
+    {
+      "case_id": "v131_E01_inspiration_ideal_maps_to_closet_reality",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_E01_inspiration_ideal_maps_to_closet_reality.json"
+    },
+    {
+      "case_id": "v131_E02_closet_lacks_key_item_and_gap_is_disclosed",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_E02_closet_lacks_key_item_and_gap_is_disclosed.json"
+    },
+    {
+      "case_id": "v131_E03_no_buy_step_generated",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_E03_no_buy_step_generated.json"
+    },
+    {
+      "case_id": "v131_E04_one_item_step_is_category_level",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_E04_one_item_step_is_category_level.json"
+    },
+    {
+      "case_id": "v131_E05_bridge_score_not_overstated_for_weak_closet_match",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_E05_bridge_score_not_overstated_for_weak_closet_match.json"
+    },
+    {
+      "case_id": "v131_E06_bridge_does_not_invent_closet_item_to_match_inspiration",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_E06_bridge_does_not_invent_closet_item_to_match_inspiration.json"
+    },
+    {
+      "case_id": "v131_F01_shadow_memory_proposal_created_no_production_write",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_F01_shadow_memory_proposal_created_no_production_write.json"
+    },
+    {
+      "case_id": "v131_F02_user_confirmation_still_routes_to_shadow_deferred",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_F02_user_confirmation_still_routes_to_shadow_deferred.json"
+    },
+    {
+      "case_id": "v131_F03_do_not_remember_prevents_future_shadow_claim",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_F03_do_not_remember_prevents_future_shadow_claim.json"
+    },
+    {
+      "case_id": "v131_F04_misuse_correction_not_turned_into_positive_style",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_F04_misuse_correction_not_turned_into_positive_style.json"
+    },
+    {
+      "case_id": "v131_F05_high_risk_inference_not_shown_as_learned_memory",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_F05_high_risk_inference_not_shown_as_learned_memory.json"
+    },
+    {
+      "case_id": "v131_F06_external_inspiration_proposal_requires_user_confirmation",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_F06_external_inspiration_proposal_requires_user_confirmation.json"
+    },
+    {
+      "case_id": "v131_G01_url_metadata_insufficient_asks_for_screenshot",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_G01_url_metadata_insufficient_asks_for_screenshot.json"
+    },
+    {
+      "case_id": "v131_G02_inaccessible_url_does_not_break_flow",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_G02_inaccessible_url_does_not_break_flow.json"
+    },
+    {
+      "case_id": "v131_G03_link_title_alone_does_not_create_ideal_direction",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_G03_link_title_alone_does_not_create_ideal_direction.json"
+    },
+    {
+      "case_id": "v131_G04_screenshot_fallback_requested",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_G04_screenshot_fallback_requested.json"
+    },
+    {
+      "case_id": "v131_G05_platform_api_absence_does_not_fail_pipeline",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_G05_platform_api_absence_does_not_fail_pipeline.json"
+    },
+    {
+      "case_id": "v131_G06_url_only_event_creates_metadata_card_not_memory_proposal",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_G06_url_only_event_creates_metadata_card_not_memory_proposal.json"
+    },
+    {
+      "case_id": "v131_H01_all_user_visible_claims_trace_to_evidence",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_H01_all_user_visible_claims_trace_to_evidence.json"
+    },
+    {
+      "case_id": "v131_H02_external_content_not_redistributed",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_H02_external_content_not_redistributed.json"
+    },
+    {
+      "case_id": "v131_H03_raw_image_not_included_in_public_evidence_pack",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_H03_raw_image_not_included_in_public_evidence_pack.json"
+    },
+    {
+      "case_id": "v131_H04_derived_signals_can_be_stored",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_H04_derived_signals_can_be_stored.json"
+    },
+    {
+      "case_id": "v131_H05_storage_policy_present_for_each_content_ref",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_H05_storage_policy_present_for_each_content_ref.json"
+    },
+    {
+      "case_id": "v131_H06_redistribution_allowed_false_for_external_screenshots_images",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v131_H06_redistribution_allowed_false_for_external_screenshots_images.json"
+    }
+  ]
+}

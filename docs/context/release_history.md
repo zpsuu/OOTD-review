@@ -109,3 +109,19 @@ Focus:
 - no-buy steps using existing closet items
 - one-item category-level next steps
 - injected defect detection for bridge regressions
+
+## v1.31 - Inspiration Intake Shadow Pipeline
+
+Status: PASS CANDIDATE pending manual review
+
+Current review focus:
+- platform-agnostic inspiration intake
+- visual/text signal candidates
+- user intent resolution
+- ideal direction candidate generation
+- v1.30 bridge shadow run
+- shadow-only memory proposal
+- no production memory write from external inspiration
+- privacy / rights-safe external evidence handling
+- URL metadata and inaccessible-link fallback
+- injected defect detection for inspiration safety regressions

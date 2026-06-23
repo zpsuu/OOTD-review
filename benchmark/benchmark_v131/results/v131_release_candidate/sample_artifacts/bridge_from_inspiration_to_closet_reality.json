@@ -1,0 +1,310 @@
+{
+  "case_id": "v131_E01_inspiration_ideal_maps_to_closet_reality",
+  "version": "v1.31",
+  "scenario": "E01_inspiration_ideal_maps_to_closet_reality",
+  "scenario_preconditions": {
+    "expected": [
+      "external_inspiration_input_present",
+      "inspiration_intake_event_present",
+      "storage_policy_present",
+      "ideal_direction_candidate_present",
+      "bridge_shadow_run_present",
+      "memory_ux_confirmation_prompt_present",
+      "shadow_memory_proposal_present",
+      "production_write_forbidden"
+    ],
+    "satisfied": true,
+    "proof_refs": [
+      "inspiration_intake_event",
+      "inspiration_intake_event.content_refs[0].storage_policy",
+      "ideal_direction_candidate",
+      "bridge_shadow_run",
+      "memory_ux_confirmation_prompt",
+      "shadow_memory_proposal",
+      "shadow_memory_proposal.production_write_allowed"
+    ],
+    "missing_preconditions": []
+  },
+  "inspiration_intake_event": {
+    "intake_event_id": "intake_v131_25",
+    "source_type": "screenshot",
+    "source_platform_hint": "unknown",
+    "user_statement": "this is the vibe",
+    "content_refs": [
+      {
+        "content_ref_id": "content_image_v131_25",
+        "content_type": "image",
+        "storage_policy": "private_temporary",
+        "redistribution_allowed": false,
+        "raw_content_in_public_evidence_pack": false,
+        "public_evidence_representation": "derived_signal_fixture_only",
+        "derived_content_hash": "sha256_fixture_v131_25"
+      }
+    ],
+    "created_at": "2026-06-23T12:07:52Z"
+  },
+  "visual_signal_candidate": {
+    "visual_signal_candidate_id": "vsc_v131_25",
+    "source_content_ref": "content_image_v131_25",
+    "signals": {
+      "color_palette": [
+        "low_saturation",
+        "ivory",
+        "gray",
+        "black"
+      ],
+      "silhouette": [
+        "clean_long_lines",
+        "relaxed_structure"
+      ],
+      "style_cues": [
+        "city",
+        "polished_but_not_formal"
+      ],
+      "item_cues": [
+        "structured_jacket",
+        "straight_trousers",
+        "loafers"
+      ],
+      "mood": [
+        "relaxed",
+        "clean",
+        "quiet"
+      ]
+    },
+    "confidence_by_field": {
+      "color_palette": 0.82,
+      "silhouette": 0.71,
+      "style_cues": 0.66,
+      "item_cues": 0.58,
+      "material": 0.39
+    },
+    "uncertain_fields": [
+      "item_cues",
+      "material"
+    ],
+    "suppressed_high_risk_inferences": [
+      "model_body",
+      "identity_inference",
+      "age_inference",
+      "body_shape_inference"
+    ],
+    "requires_user_confirmation": true,
+    "allowed_downstream_use": [
+      "ideal_direction_candidate",
+      "bridge_shadow_run"
+    ],
+    "disallowed_downstream_use": [
+      "production_memory_write",
+      "direct_user_profile_update",
+      "commerce_recommendation"
+    ]
+  },
+  "text_signal_candidate": null,
+  "user_intent_resolution": {
+    "intent_resolution_id": "uir_v131_25",
+    "intake_event_id": "intake_v131_25",
+    "resolved_user_intent": {
+      "liked_aspects": [
+        "overall_mood",
+        "color_palette",
+        "silhouette"
+      ],
+      "not_confirmed_aspects": [
+        "exact_items",
+        "model_body",
+        "photo_lighting",
+        "exact_product_specificity"
+      ],
+      "rejected_aspects": [],
+      "intended_scope": "office_daily"
+    },
+    "requires_user_confirmation": true,
+    "confirmation_question": "Which part should I learn from: mood, colors, or silhouette?",
+    "allowed_user_actions": [
+      "remember_later_shadow",
+      "use_for_this_bridge_only",
+      "clarify_liked_aspect",
+      "do_not_remember",
+      "not_this_direction"
+    ]
+  },
+  "ideal_direction_candidate": {
+    "ideal_direction_candidate_id": "ideal_cand_v131_25",
+    "source": "external_inspiration_shadow",
+    "title": "low saturation relaxed structured city style",
+    "core_elements": [
+      "low_saturation_palette",
+      "clean_long_lines",
+      "light_structure",
+      "polished_but_not_formal"
+    ],
+    "non_core_elements": [
+      "exact_model_styling",
+      "photo_lighting",
+      "luxury_item_specificity",
+      "exact_items"
+    ],
+    "excluded_elements": [
+      "model_body",
+      "identity_inference",
+      "exact_product_specificity"
+    ],
+    "confidence": 0.72,
+    "requires_user_confirmation": true,
+    "allowed_downstream_use": [
+      "ideal_reality_bridge_shadow",
+      "shadow_memory_proposal"
+    ],
+    "disallowed_downstream_use": [
+      "production_memory_write",
+      "direct_user_profile_update",
+      "commerce_recommendation"
+    ]
+  },
+  "bridge_shadow_run": {
+    "bridge_shadow_run_id": "bridge_shadow_v131_25",
+    "ideal_direction_candidate_ref": "ideal_cand_v131_25",
+    "closet_fixture_id": "closet_v131_25",
+    "reality_outfit": {
+      "item_ids": [
+        "top_ivory_knit",
+        "bottom_gray_trousers",
+        "shoes_black_loafers"
+      ],
+      "all_items_from_closet": true,
+      "invented_item_ids": []
+    },
+    "closet_match_score": 0.72,
+    "match_score_self_proof": {
+      "formula": "weighted_average_with_key_gap_cap",
+      "component_weights": {
+        "color_palette": 0.25,
+        "silhouette": 0.25,
+        "light_structure": 0.3,
+        "context_fit": 0.2
+      },
+      "raw_component_scores": {
+        "color_palette": 0.82,
+        "silhouette": 0.74,
+        "light_structure": 0.58,
+        "context_fit": 0.76
+      },
+      "computed_score_before_caps": 0.716,
+      "key_gap_caps_applied": [],
+      "computed_score_after_caps": 0.716,
+      "final_reported_score": 0.72,
+      "rounding_rule": "round_to_2_decimals",
+      "math_verified": true
+    },
+    "gap_diagnosis": {
+      "primary_gap": "slightly stronger light structure",
+      "gap_supported_by": [
+        "ideal_element_light_structure",
+        "closet_missing_light_structured_outerwear"
+      ],
+      "specificity": "category_level"
+    },
+    "next_steps": {
+      "no_buy_step": "Use existing ivory knit, gray trousers, and black loafers to preserve low-noise city polish.",
+      "one_item_step": {
+        "category": "light structured short jacket",
+        "product_recommendation_included": false,
+        "merchant_ref": null,
+        "sku_ref": null,
+        "product_link": null
+      }
+    },
+    "shadow_only": true
+  },
+  "shadow_memory_proposal": {
+    "shadow_memory_proposal_id": "shadow_prop_v131_25",
+    "proposal_type": "ideal_direction_preference_candidate",
+    "concept": "low saturation relaxed structured city style",
+    "polarity": "soft_prefer",
+    "scope_candidate": "contextual",
+    "suggested_contexts": [
+      "office_daily",
+      "daily_city_walk"
+    ],
+    "evidence_refs": [
+      "intake_v131_25",
+      "uir_v131_25",
+      "ideal_cand_v131_25"
+    ],
+    "status": "shadow_only",
+    "production_write_allowed": false,
+    "production_store_write_attempted": false,
+    "production_store_write_executed": false,
+    "requires_user_confirmation": true,
+    "reason_no_production_write": "v1.31 inspiration intake is shadow-only"
+  },
+  "memory_ux_confirmation_prompt": {
+    "memory_ux_confirmation_prompt_id": "memux_v131_25",
+    "question": "Should I keep this as a shadow-only style direction candidate for review later?",
+    "actions": [
+      "remember_later_shadow",
+      "use_for_this_bridge_only",
+      "clarify_liked_aspect",
+      "do_not_remember",
+      "not_this_direction"
+    ],
+    "selected_fixture_action": "remember_later_shadow",
+    "production_write_allowed_after_confirmation": false,
+    "confirmation_policy": "confirmation can keep or discard shadow proposal only; it cannot write production memory in v1.31"
+  },
+  "fallback_or_clarification": null,
+  "privacy_rights_report": {
+    "raw_external_content_in_public_evidence_pack": false,
+    "redistribution_allowed_for_external_content": false,
+    "content_refs_checked": [
+      "content_image_v131_25"
+    ],
+    "storage_policies": {
+      "content_image_v131_25": "private_temporary"
+    },
+    "derived_signals_stored": true,
+    "public_artifact_contains_only": [
+      "synthetic descriptors",
+      "redacted metadata",
+      "derived signal candidates"
+    ]
+  },
+  "memory_policy_decision": {
+    "decision_id": "mem_policy_v131_25",
+    "external_inspiration_to_production_memory_write": "forbidden",
+    "production_store_write_attempted": false,
+    "production_store_write_executed": false,
+    "shadow_proposal_allowed": true,
+    "future_shadow_claim_blocked": false
+  },
+  "user_visible_claims": [
+    {
+      "claim_id": "claim_ideal_v131_25",
+      "text": "The inspiration is treated as a candidate style direction, not a confirmed preference.",
+      "trace_refs": [
+        "intake_v131_25",
+        "ideal_cand_v131_25"
+      ]
+    },
+    {
+      "claim_id": "claim_bridge_v131_25",
+      "text": "The reality outfit uses only closet fixture items and discloses the light-structure gap.",
+      "trace_refs": [
+        "bridge_shadow_v131_25",
+        "bridge_shadow_run.reality_outfit.item_ids",
+        "bridge_shadow_run.gap_diagnosis"
+      ]
+    }
+  ],
+  "trace": {
+    "intake_event_id": "intake_v131_25",
+    "visual_signal_candidate_id": "vsc_v131_25",
+    "text_signal_candidate_id": null,
+    "intent_resolution_id": "uir_v131_25",
+    "ideal_direction_candidate_id": "ideal_cand_v131_25",
+    "bridge_shadow_run_id": "bridge_shadow_v131_25",
+    "shadow_memory_proposal_id": "shadow_prop_v131_25",
+    "complete_for_applicable_path": true
+  }
+}
