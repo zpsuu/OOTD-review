@@ -22,4 +22,4 @@ Entrypoint:
 
 ## Status
 
-PASS CANDIDATE pending manual review.
+PASS CANDIDATE confirmed.
