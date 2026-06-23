@@ -1,0 +1,747 @@
+{
+  "benchmark_id": "v1.29.7.closet_bootstrapping_item_reliability",
+  "schema_version": "v1.29.7",
+  "generated_at": "2026-06-23T07:52:50Z",
+  "suite_summary": {
+    "suite_mode": "clean_acceptance",
+    "total_cases": 46,
+    "clean_cases": 46,
+    "injected_cases": 0,
+    "total_checks": 44,
+    "passed_checks": 44,
+    "failed_checks": 0
+  },
+  "verdicts": {
+    "clean_acceptance_verdict": "pass",
+    "mixed_strict_verdict": "not_applicable",
+    "injected_defect_detection_verdict": "not_applicable",
+    "release_candidate_verdict": "pass_candidate"
+  },
+  "checks": [
+    {
+      "check_id": "closet_bootstrap_profile_schema_valid_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "closet_readiness_report_present_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "closet_readiness_before_generation_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "item_reliability_profile_present_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "final_outfit_items_exist_in_closet_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "swap_options_exist_in_closet_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "gap_suggestions_not_treated_as_closet_items_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "card_text_no_hallucinated_item_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "minimum_viable_closet_status_correct_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "missing_required_category_disclosed_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "blocking_missing_category_returns_insufficient_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "non_blocking_gap_returns_pass_with_disclosure_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "low_confidence_category_not_used_as_required_slot_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "low_confidence_formality_not_used_for_formal_claim_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "low_confidence_weather_not_used_for_weather_claim_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "low_confidence_material_not_claimed_as_fact_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "uncertain_fields_surface_uncertainty_note_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "unconfirmed_vision_candidate_not_used_in_clean_planner_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "low_reliability_item_excluded_from_high_stakes_context_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "item_reliability_tier_trace_coverage_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "final_quality_pass_requires_reliability_report_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "pass_with_disclosure_has_gap_disclosure_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "insufficient_status_has_blocking_reason_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "closet_gap_note_no_product_recommendation_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "reliable_swap_options_visible_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "unreliable_swap_options_hidden_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "hidden_swap_options_have_reason_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "swap_option_uncertain_claim_trace_coverage_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "memory_preference_does_not_force_unreliable_item_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "memory_claim_not_based_on_unconfirmed_metadata_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "current_exception_cannot_override_missing_category_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "current_exception_requires_item_reliability_support_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "scenario_precondition_satisfied_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "scenario_precondition_proof_refs_present_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "no_vacuous_clean_case_pass_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "current_exception_case_has_exception_precondition_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "missing_category_case_has_missing_category_precondition_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "gap_case_has_gap_disclosure_precondition_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "gap_suggestion_category_only_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "swap_case_has_visible_swap_precondition_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "hidden_swap_case_has_hidden_swap_precondition_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "repair_case_has_pre_repair_issue_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "low_confidence_case_has_low_confidence_item_precondition_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    },
+    {
+      "check_id": "insufficient_card_does_not_present_partial_outfit_as_daily_outfit_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 46,
+      "denominator": 46
+    }
+  ],
+  "case_results": [
+    {
+      "case_id": "v1297_A01",
+      "scenario": "complete_small_closet_daily_outfit",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_A02",
+      "scenario": "five_item_closet_grounded_outfit",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_A03",
+      "scenario": "missing_accessory_does_not_block",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_A04",
+      "scenario": "missing_shoes_gap_disclosed",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_A05",
+      "scenario": "missing_top_insufficient",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_A06",
+      "scenario": "missing_bottom_insufficient",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_A07",
+      "scenario": "missing_rain_protection_gap_disclosed",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_A08",
+      "scenario": "one_viable_outfit_limited_variety_disclosed",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_B01",
+      "scenario": "high_confidence_metadata_can_drive_claims",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_B02",
+      "scenario": "low_confidence_material_not_claimed",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_B03",
+      "scenario": "low_confidence_formality_excluded_formal_meeting",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_B04",
+      "scenario": "low_confidence_weather_excluded_rainy_day",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_B05",
+      "scenario": "low_confidence_category_cannot_satisfy_required_slot",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_B06",
+      "scenario": "medium-confidence_item_used_low_stakes_with_uncertainty_note",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_B07",
+      "scenario": "uncertain_field_surfaces_uncertainty_note",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_C01",
+      "scenario": "user_confirmed_item_high_reliability",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_C02",
+      "scenario": "vision_candidate_candidate_only",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_C03",
+      "scenario": "vision_candidate_not_used_without_confirmation",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_C04",
+      "scenario": "user_described_missing_category_requires_clarification",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_C05",
+      "scenario": "merchant_imported_high_confidence_can_be_used",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_C06",
+      "scenario": "item_reliability_tier_in_trace",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_D01",
+      "scenario": "missing_shoes_disclosed_as_gap",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_D02",
+      "scenario": "missing_outerwear_cold_day_disclosed",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_D03",
+      "scenario": "missing_rain_safe_footwear_disclosed",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_D04",
+      "scenario": "gap_suggestion_category_only_no_product",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_D05",
+      "scenario": "gap_note_not_memory_preference",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_D06",
+      "scenario": "pass_with_disclosure_gap_note",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_D07",
+      "scenario": "blocking_missing_category_insufficient",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_E01",
+      "scenario": "final_outfit_uses_only_eligible_items",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_E02",
+      "scenario": "final_excludes_low_confidence_formal_item",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_E03",
+      "scenario": "final_excludes_dry_only_shoes_rainy_task",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_E04",
+      "scenario": "final_excludes_warm_only_item_cold_task",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_E05",
+      "scenario": "final_excludes_low_category_confidence",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_E06",
+      "scenario": "repair_replaces_unreliable_item",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_E07",
+      "scenario": "no_reliable_alternative_disclose_gap",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_F01",
+      "scenario": "visible_swap_options_closet_grounded",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_F02",
+      "scenario": "visible_swap_options_pass_guardrails",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_F03",
+      "scenario": "unreliable_swap_hidden",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_F04",
+      "scenario": "hidden_swap_has_reason",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_F05",
+      "scenario": "swap_claim_refs_trace_backed",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_F06",
+      "scenario": "no_swap_when_no_reliable_swap",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_G01",
+      "scenario": "memory_preference_does_not_force_unreliable_item",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_G02",
+      "scenario": "memory_avoid_excludes_unreliable_item",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_G03",
+      "scenario": "current_exception_cannot_override_missing_category",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_G04",
+      "scenario": "current_exception_requires_item_reliability_support",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_G05",
+      "scenario": "memory_claim_not_from_unconfirmed_metadata",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    }
+  ],
+  "detected_defects": [],
+  "unexpected_clean_case_failures": [],
+  "unexpected_injected_passes": []
+}

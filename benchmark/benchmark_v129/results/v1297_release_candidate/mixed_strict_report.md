@@ -1,0 +1,81 @@
+# v1.29.7 Closet Bootstrapping & Item Reliability Report
+
+- suite_mode: `mixed_strict_with_injected`
+- cases: `70`
+- checks: `12/44` PASS
+- clean_acceptance_verdict: `not_applicable`
+- mixed_strict_verdict: `fail`
+- injected_defect_detection_verdict: `pass`
+- release_candidate_verdict: `not_applicable`
+
+## Checks
+- `closet_bootstrap_profile_schema_valid_rate`: 1.0 (PASS)
+- `closet_readiness_report_present_rate`: 1.0 (PASS)
+- `closet_readiness_before_generation_rate`: 0.9857 (FAIL)
+- `item_reliability_profile_present_rate`: 1.0 (PASS)
+- `final_outfit_items_exist_in_closet_rate`: 0.9571 (FAIL)
+- `swap_options_exist_in_closet_rate`: 1.0 (PASS)
+- `gap_suggestions_not_treated_as_closet_items_rate`: 0.9857 (FAIL)
+- `card_text_no_hallucinated_item_rate`: 0.9857 (FAIL)
+- `minimum_viable_closet_status_correct_rate`: 0.9571 (FAIL)
+- `missing_required_category_disclosed_rate`: 0.9571 (FAIL)
+- `blocking_missing_category_returns_insufficient_rate`: 0.9714 (FAIL)
+- `non_blocking_gap_returns_pass_with_disclosure_rate`: 0.9857 (FAIL)
+- `low_confidence_category_not_used_as_required_slot_rate`: 0.9714 (FAIL)
+- `low_confidence_formality_not_used_for_formal_claim_rate`: 0.9857 (FAIL)
+- `low_confidence_weather_not_used_for_weather_claim_rate`: 0.9857 (FAIL)
+- `low_confidence_material_not_claimed_as_fact_rate`: 0.9857 (FAIL)
+- `uncertain_fields_surface_uncertainty_note_rate`: 0.9714 (FAIL)
+- `unconfirmed_vision_candidate_not_used_in_clean_planner_rate`: 0.9857 (FAIL)
+- `low_reliability_item_excluded_from_high_stakes_context_rate`: 0.9857 (FAIL)
+- `item_reliability_tier_trace_coverage_rate`: 0.9714 (FAIL)
+- `final_quality_pass_requires_reliability_report_rate`: 0.9857 (FAIL)
+- `pass_with_disclosure_has_gap_disclosure_rate`: 1.0 (PASS)
+- `insufficient_status_has_blocking_reason_rate`: 1.0 (PASS)
+- `closet_gap_note_no_product_recommendation_rate`: 0.9857 (FAIL)
+- `reliable_swap_options_visible_rate`: 0.9714 (FAIL)
+- `unreliable_swap_options_hidden_rate`: 0.9714 (FAIL)
+- `hidden_swap_options_have_reason_rate`: 1.0 (PASS)
+- `swap_option_uncertain_claim_trace_coverage_rate`: 0.9714 (FAIL)
+- `memory_preference_does_not_force_unreliable_item_rate`: 0.9857 (FAIL)
+- `memory_claim_not_based_on_unconfirmed_metadata_rate`: 1.0 (PASS)
+- `current_exception_cannot_override_missing_category_rate`: 1.0 (PASS)
+- `current_exception_requires_item_reliability_support_rate`: 1.0 (PASS)
+- `scenario_precondition_satisfied_rate`: 0.8429 (FAIL)
+- `scenario_precondition_proof_refs_present_rate`: 0.8714 (FAIL)
+- `no_vacuous_clean_case_pass_rate`: 1.0 (PASS)
+- `current_exception_case_has_exception_precondition_rate`: 0.9857 (FAIL)
+- `missing_category_case_has_missing_category_precondition_rate`: 0.9857 (FAIL)
+- `gap_case_has_gap_disclosure_precondition_rate`: 0.9714 (FAIL)
+- `gap_suggestion_category_only_rate`: 0.9857 (FAIL)
+- `swap_case_has_visible_swap_precondition_rate`: 0.9857 (FAIL)
+- `hidden_swap_case_has_hidden_swap_precondition_rate`: 0.9857 (FAIL)
+- `repair_case_has_pre_repair_issue_rate`: 0.9857 (FAIL)
+- `low_confidence_case_has_low_confidence_item_precondition_rate`: 1.0 (PASS)
+- `insufficient_card_does_not_present_partial_outfit_as_daily_outfit_rate`: 0.9857 (FAIL)
+
+## Injected Defects
+- `v1297_H01` `missing_shoes_hallucinated_item`: detected
+- `v1297_H02` `missing_top_marked_as_pass`: detected
+- `v1297_H03` `low_confidence_formality_used_for_client_meeting`: detected
+- `v1297_H04` `low_confidence_weather_used_for_rain_claim`: detected
+- `v1297_H05` `low_confidence_category_satisfies_required_slot`: detected
+- `v1297_H06` `vision_candidate_used_without_confirmation`: detected
+- `v1297_H07` `gap_suggestion_treated_as_closet_item`: detected
+- `v1297_H08` `missing_gap_not_disclosed`: detected
+- `v1297_H09` `product_recommendation_in_gap_note`: detected
+- `v1297_H10` `memory_preference_forces_unreliable_item`: detected
+- `v1297_H11` `swap_option_low_confidence_not_hidden`: detected
+- `v1297_H12` `swap_option_weather_unreliable_visible`: detected
+- `v1297_H13` `card_claims_uncertain_material_as_fact`: detected
+- `v1297_H14` `final_outfit_quality_pass_without_reliability_report`: detected
+- `v1297_H15` `closet_readiness_skipped_before_generation`: detected
+- `v1297_H16` `insufficient_closet_still_returns_normal_pass`: detected
+- `v1297_H17` `scenario_precondition_missing_but_clean_case_passes`: detected
+- `v1297_H18` `current_exception_case_without_exception`: detected
+- `v1297_H19` `missing_category_case_without_missing_category`: detected
+- `v1297_H20` `gap_case_without_gap_disclosure`: detected
+- `v1297_H21` `swap_case_without_visible_swap`: detected
+- `v1297_H22` `hidden_swap_case_without_hidden_swap`: detected
+- `v1297_H23` `repair_case_without_pre_repair_issue`: detected
+- `v1297_H24` `insufficient_card_presents_partial_outfit_as_daily_outfit`: detected

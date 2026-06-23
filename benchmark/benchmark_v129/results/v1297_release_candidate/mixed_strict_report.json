@@ -1,0 +1,1437 @@
+{
+  "benchmark_id": "v1.29.7.closet_bootstrapping_item_reliability",
+  "schema_version": "v1.29.7",
+  "generated_at": "2026-06-23T07:52:50Z",
+  "suite_summary": {
+    "suite_mode": "mixed_strict_with_injected",
+    "total_cases": 70,
+    "clean_cases": 46,
+    "injected_cases": 24,
+    "total_checks": 44,
+    "passed_checks": 12,
+    "failed_checks": 32
+  },
+  "verdicts": {
+    "clean_acceptance_verdict": "not_applicable",
+    "mixed_strict_verdict": "fail",
+    "injected_defect_detection_verdict": "pass",
+    "release_candidate_verdict": "not_applicable"
+  },
+  "checks": [
+    {
+      "check_id": "closet_bootstrap_profile_schema_valid_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 70,
+      "denominator": 70
+    },
+    {
+      "check_id": "closet_readiness_report_present_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 70,
+      "denominator": 70
+    },
+    {
+      "check_id": "closet_readiness_before_generation_rate",
+      "value": 0.9857,
+      "threshold": 1.0,
+      "passed": false,
+      "numerator": 69,
+      "denominator": 70
+    },
+    {
+      "check_id": "item_reliability_profile_present_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 70,
+      "denominator": 70
+    },
+    {
+      "check_id": "final_outfit_items_exist_in_closet_rate",
+      "value": 0.9571,
+      "threshold": 1.0,
+      "passed": false,
+      "numerator": 67,
+      "denominator": 70
+    },
+    {
+      "check_id": "swap_options_exist_in_closet_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 70,
+      "denominator": 70
+    },
+    {
+      "check_id": "gap_suggestions_not_treated_as_closet_items_rate",
+      "value": 0.9857,
+      "threshold": 1.0,
+      "passed": false,
+      "numerator": 69,
+      "denominator": 70
+    },
+    {
+      "check_id": "card_text_no_hallucinated_item_rate",
+      "value": 0.9857,
+      "threshold": 1.0,
+      "passed": false,
+      "numerator": 69,
+      "denominator": 70
+    },
+    {
+      "check_id": "minimum_viable_closet_status_correct_rate",
+      "value": 0.9571,
+      "threshold": 1.0,
+      "passed": false,
+      "numerator": 67,
+      "denominator": 70
+    },
+    {
+      "check_id": "missing_required_category_disclosed_rate",
+      "value": 0.9571,
+      "threshold": 1.0,
+      "passed": false,
+      "numerator": 67,
+      "denominator": 70
+    },
+    {
+      "check_id": "blocking_missing_category_returns_insufficient_rate",
+      "value": 0.9714,
+      "threshold": 1.0,
+      "passed": false,
+      "numerator": 68,
+      "denominator": 70
+    },
+    {
+      "check_id": "non_blocking_gap_returns_pass_with_disclosure_rate",
+      "value": 0.9857,
+      "threshold": 1.0,
+      "passed": false,
+      "numerator": 69,
+      "denominator": 70
+    },
+    {
+      "check_id": "low_confidence_category_not_used_as_required_slot_rate",
+      "value": 0.9714,
+      "threshold": 1.0,
+      "passed": false,
+      "numerator": 68,
+      "denominator": 70
+    },
+    {
+      "check_id": "low_confidence_formality_not_used_for_formal_claim_rate",
+      "value": 0.9857,
+      "threshold": 1.0,
+      "passed": false,
+      "numerator": 69,
+      "denominator": 70
+    },
+    {
+      "check_id": "low_confidence_weather_not_used_for_weather_claim_rate",
+      "value": 0.9857,
+      "threshold": 1.0,
+      "passed": false,
+      "numerator": 69,
+      "denominator": 70
+    },
+    {
+      "check_id": "low_confidence_material_not_claimed_as_fact_rate",
+      "value": 0.9857,
+      "threshold": 1.0,
+      "passed": false,
+      "numerator": 69,
+      "denominator": 70
+    },
+    {
+      "check_id": "uncertain_fields_surface_uncertainty_note_rate",
+      "value": 0.9714,
+      "threshold": 1.0,
+      "passed": false,
+      "numerator": 68,
+      "denominator": 70
+    },
+    {
+      "check_id": "unconfirmed_vision_candidate_not_used_in_clean_planner_rate",
+      "value": 0.9857,
+      "threshold": 1.0,
+      "passed": false,
+      "numerator": 69,
+      "denominator": 70
+    },
+    {
+      "check_id": "low_reliability_item_excluded_from_high_stakes_context_rate",
+      "value": 0.9857,
+      "threshold": 1.0,
+      "passed": false,
+      "numerator": 69,
+      "denominator": 70
+    },
+    {
+      "check_id": "item_reliability_tier_trace_coverage_rate",
+      "value": 0.9714,
+      "threshold": 1.0,
+      "passed": false,
+      "numerator": 68,
+      "denominator": 70
+    },
+    {
+      "check_id": "final_quality_pass_requires_reliability_report_rate",
+      "value": 0.9857,
+      "threshold": 1.0,
+      "passed": false,
+      "numerator": 69,
+      "denominator": 70
+    },
+    {
+      "check_id": "pass_with_disclosure_has_gap_disclosure_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 70,
+      "denominator": 70
+    },
+    {
+      "check_id": "insufficient_status_has_blocking_reason_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 70,
+      "denominator": 70
+    },
+    {
+      "check_id": "closet_gap_note_no_product_recommendation_rate",
+      "value": 0.9857,
+      "threshold": 1.0,
+      "passed": false,
+      "numerator": 69,
+      "denominator": 70
+    },
+    {
+      "check_id": "reliable_swap_options_visible_rate",
+      "value": 0.9714,
+      "threshold": 1.0,
+      "passed": false,
+      "numerator": 68,
+      "denominator": 70
+    },
+    {
+      "check_id": "unreliable_swap_options_hidden_rate",
+      "value": 0.9714,
+      "threshold": 1.0,
+      "passed": false,
+      "numerator": 68,
+      "denominator": 70
+    },
+    {
+      "check_id": "hidden_swap_options_have_reason_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 70,
+      "denominator": 70
+    },
+    {
+      "check_id": "swap_option_uncertain_claim_trace_coverage_rate",
+      "value": 0.9714,
+      "threshold": 1.0,
+      "passed": false,
+      "numerator": 68,
+      "denominator": 70
+    },
+    {
+      "check_id": "memory_preference_does_not_force_unreliable_item_rate",
+      "value": 0.9857,
+      "threshold": 1.0,
+      "passed": false,
+      "numerator": 69,
+      "denominator": 70
+    },
+    {
+      "check_id": "memory_claim_not_based_on_unconfirmed_metadata_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 70,
+      "denominator": 70
+    },
+    {
+      "check_id": "current_exception_cannot_override_missing_category_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 70,
+      "denominator": 70
+    },
+    {
+      "check_id": "current_exception_requires_item_reliability_support_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 70,
+      "denominator": 70
+    },
+    {
+      "check_id": "scenario_precondition_satisfied_rate",
+      "value": 0.8429,
+      "threshold": 1.0,
+      "passed": false,
+      "numerator": 59,
+      "denominator": 70
+    },
+    {
+      "check_id": "scenario_precondition_proof_refs_present_rate",
+      "value": 0.8714,
+      "threshold": 1.0,
+      "passed": false,
+      "numerator": 61,
+      "denominator": 70
+    },
+    {
+      "check_id": "no_vacuous_clean_case_pass_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 70,
+      "denominator": 70
+    },
+    {
+      "check_id": "current_exception_case_has_exception_precondition_rate",
+      "value": 0.9857,
+      "threshold": 1.0,
+      "passed": false,
+      "numerator": 69,
+      "denominator": 70
+    },
+    {
+      "check_id": "missing_category_case_has_missing_category_precondition_rate",
+      "value": 0.9857,
+      "threshold": 1.0,
+      "passed": false,
+      "numerator": 69,
+      "denominator": 70
+    },
+    {
+      "check_id": "gap_case_has_gap_disclosure_precondition_rate",
+      "value": 0.9714,
+      "threshold": 1.0,
+      "passed": false,
+      "numerator": 68,
+      "denominator": 70
+    },
+    {
+      "check_id": "gap_suggestion_category_only_rate",
+      "value": 0.9857,
+      "threshold": 1.0,
+      "passed": false,
+      "numerator": 69,
+      "denominator": 70
+    },
+    {
+      "check_id": "swap_case_has_visible_swap_precondition_rate",
+      "value": 0.9857,
+      "threshold": 1.0,
+      "passed": false,
+      "numerator": 69,
+      "denominator": 70
+    },
+    {
+      "check_id": "hidden_swap_case_has_hidden_swap_precondition_rate",
+      "value": 0.9857,
+      "threshold": 1.0,
+      "passed": false,
+      "numerator": 69,
+      "denominator": 70
+    },
+    {
+      "check_id": "repair_case_has_pre_repair_issue_rate",
+      "value": 0.9857,
+      "threshold": 1.0,
+      "passed": false,
+      "numerator": 69,
+      "denominator": 70
+    },
+    {
+      "check_id": "low_confidence_case_has_low_confidence_item_precondition_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "numerator": 70,
+      "denominator": 70
+    },
+    {
+      "check_id": "insufficient_card_does_not_present_partial_outfit_as_daily_outfit_rate",
+      "value": 0.9857,
+      "threshold": 1.0,
+      "passed": false,
+      "numerator": 69,
+      "denominator": 70
+    }
+  ],
+  "case_results": [
+    {
+      "case_id": "v1297_A01",
+      "scenario": "complete_small_closet_daily_outfit",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_A02",
+      "scenario": "five_item_closet_grounded_outfit",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_A03",
+      "scenario": "missing_accessory_does_not_block",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_A04",
+      "scenario": "missing_shoes_gap_disclosed",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_A05",
+      "scenario": "missing_top_insufficient",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_A06",
+      "scenario": "missing_bottom_insufficient",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_A07",
+      "scenario": "missing_rain_protection_gap_disclosed",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_A08",
+      "scenario": "one_viable_outfit_limited_variety_disclosed",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_B01",
+      "scenario": "high_confidence_metadata_can_drive_claims",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_B02",
+      "scenario": "low_confidence_material_not_claimed",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_B03",
+      "scenario": "low_confidence_formality_excluded_formal_meeting",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_B04",
+      "scenario": "low_confidence_weather_excluded_rainy_day",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_B05",
+      "scenario": "low_confidence_category_cannot_satisfy_required_slot",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_B06",
+      "scenario": "medium-confidence_item_used_low_stakes_with_uncertainty_note",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_B07",
+      "scenario": "uncertain_field_surfaces_uncertainty_note",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_C01",
+      "scenario": "user_confirmed_item_high_reliability",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_C02",
+      "scenario": "vision_candidate_candidate_only",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_C03",
+      "scenario": "vision_candidate_not_used_without_confirmation",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_C04",
+      "scenario": "user_described_missing_category_requires_clarification",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_C05",
+      "scenario": "merchant_imported_high_confidence_can_be_used",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_C06",
+      "scenario": "item_reliability_tier_in_trace",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_D01",
+      "scenario": "missing_shoes_disclosed_as_gap",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_D02",
+      "scenario": "missing_outerwear_cold_day_disclosed",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_D03",
+      "scenario": "missing_rain_safe_footwear_disclosed",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_D04",
+      "scenario": "gap_suggestion_category_only_no_product",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_D05",
+      "scenario": "gap_note_not_memory_preference",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_D06",
+      "scenario": "pass_with_disclosure_gap_note",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_D07",
+      "scenario": "blocking_missing_category_insufficient",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_E01",
+      "scenario": "final_outfit_uses_only_eligible_items",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_E02",
+      "scenario": "final_excludes_low_confidence_formal_item",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_E03",
+      "scenario": "final_excludes_dry_only_shoes_rainy_task",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_E04",
+      "scenario": "final_excludes_warm_only_item_cold_task",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_E05",
+      "scenario": "final_excludes_low_category_confidence",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_E06",
+      "scenario": "repair_replaces_unreliable_item",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_E07",
+      "scenario": "no_reliable_alternative_disclose_gap",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_F01",
+      "scenario": "visible_swap_options_closet_grounded",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_F02",
+      "scenario": "visible_swap_options_pass_guardrails",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_F03",
+      "scenario": "unreliable_swap_hidden",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_F04",
+      "scenario": "hidden_swap_has_reason",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_F05",
+      "scenario": "swap_claim_refs_trace_backed",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_F06",
+      "scenario": "no_swap_when_no_reliable_swap",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_G01",
+      "scenario": "memory_preference_does_not_force_unreliable_item",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_G02",
+      "scenario": "memory_avoid_excludes_unreliable_item",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_G03",
+      "scenario": "current_exception_cannot_override_missing_category",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_G04",
+      "scenario": "current_exception_requires_item_reliability_support",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_G05",
+      "scenario": "memory_claim_not_from_unconfirmed_metadata",
+      "is_injected_defect": false,
+      "defect_type": null,
+      "failed_check_ids": [],
+      "passed": true
+    },
+    {
+      "case_id": "v1297_H01",
+      "scenario": "missing_shoes_hallucinated_item",
+      "is_injected_defect": true,
+      "defect_type": "missing_shoes_hallucinated_item",
+      "failed_check_ids": [
+        "final_outfit_items_exist_in_closet_rate",
+        "card_text_no_hallucinated_item_rate"
+      ],
+      "passed": false
+    },
+    {
+      "case_id": "v1297_H02",
+      "scenario": "missing_top_marked_as_pass",
+      "is_injected_defect": true,
+      "defect_type": "missing_top_marked_as_pass",
+      "failed_check_ids": [
+        "blocking_missing_category_returns_insufficient_rate"
+      ],
+      "passed": false
+    },
+    {
+      "case_id": "v1297_H03",
+      "scenario": "low_confidence_formality_used_for_client_meeting",
+      "is_injected_defect": true,
+      "defect_type": "low_confidence_formality_used_for_client_meeting",
+      "failed_check_ids": [
+        "low_confidence_formality_not_used_for_formal_claim_rate",
+        "low_reliability_item_excluded_from_high_stakes_context_rate"
+      ],
+      "passed": false
+    },
+    {
+      "case_id": "v1297_H04",
+      "scenario": "low_confidence_weather_used_for_rain_claim",
+      "is_injected_defect": true,
+      "defect_type": "low_confidence_weather_used_for_rain_claim",
+      "failed_check_ids": [
+        "low_confidence_weather_not_used_for_weather_claim_rate"
+      ],
+      "passed": false
+    },
+    {
+      "case_id": "v1297_H05",
+      "scenario": "low_confidence_category_satisfies_required_slot",
+      "is_injected_defect": true,
+      "defect_type": "low_confidence_category_satisfies_required_slot",
+      "failed_check_ids": [
+        "low_confidence_category_not_used_as_required_slot_rate"
+      ],
+      "passed": false
+    },
+    {
+      "case_id": "v1297_H06",
+      "scenario": "vision_candidate_used_without_confirmation",
+      "is_injected_defect": true,
+      "defect_type": "vision_candidate_used_without_confirmation",
+      "failed_check_ids": [
+        "low_confidence_category_not_used_as_required_slot_rate",
+        "unconfirmed_vision_candidate_not_used_in_clean_planner_rate"
+      ],
+      "passed": false
+    },
+    {
+      "case_id": "v1297_H07",
+      "scenario": "gap_suggestion_treated_as_closet_item",
+      "is_injected_defect": true,
+      "defect_type": "gap_suggestion_treated_as_closet_item",
+      "failed_check_ids": [
+        "final_outfit_items_exist_in_closet_rate",
+        "gap_suggestions_not_treated_as_closet_items_rate",
+        "gap_suggestion_category_only_rate"
+      ],
+      "passed": false
+    },
+    {
+      "case_id": "v1297_H08",
+      "scenario": "missing_gap_not_disclosed",
+      "is_injected_defect": true,
+      "defect_type": "missing_gap_not_disclosed",
+      "failed_check_ids": [
+        "minimum_viable_closet_status_correct_rate",
+        "missing_required_category_disclosed_rate",
+        "non_blocking_gap_returns_pass_with_disclosure_rate",
+        "scenario_precondition_satisfied_rate",
+        "scenario_precondition_proof_refs_present_rate",
+        "gap_case_has_gap_disclosure_precondition_rate"
+      ],
+      "passed": false
+    },
+    {
+      "case_id": "v1297_H09",
+      "scenario": "product_recommendation_in_gap_note",
+      "is_injected_defect": true,
+      "defect_type": "product_recommendation_in_gap_note",
+      "failed_check_ids": [
+        "closet_gap_note_no_product_recommendation_rate"
+      ],
+      "passed": false
+    },
+    {
+      "case_id": "v1297_H10",
+      "scenario": "memory_preference_forces_unreliable_item",
+      "is_injected_defect": true,
+      "defect_type": "memory_preference_forces_unreliable_item",
+      "failed_check_ids": [
+        "final_outfit_items_exist_in_closet_rate",
+        "memory_preference_does_not_force_unreliable_item_rate"
+      ],
+      "passed": false
+    },
+    {
+      "case_id": "v1297_H11",
+      "scenario": "swap_option_low_confidence_not_hidden",
+      "is_injected_defect": true,
+      "defect_type": "swap_option_low_confidence_not_hidden",
+      "failed_check_ids": [
+        "uncertain_fields_surface_uncertainty_note_rate",
+        "item_reliability_tier_trace_coverage_rate",
+        "reliable_swap_options_visible_rate",
+        "unreliable_swap_options_hidden_rate",
+        "swap_option_uncertain_claim_trace_coverage_rate",
+        "scenario_precondition_satisfied_rate",
+        "scenario_precondition_proof_refs_present_rate"
+      ],
+      "passed": false
+    },
+    {
+      "case_id": "v1297_H12",
+      "scenario": "swap_option_weather_unreliable_visible",
+      "is_injected_defect": true,
+      "defect_type": "swap_option_weather_unreliable_visible",
+      "failed_check_ids": [
+        "uncertain_fields_surface_uncertainty_note_rate",
+        "item_reliability_tier_trace_coverage_rate",
+        "reliable_swap_options_visible_rate",
+        "unreliable_swap_options_hidden_rate",
+        "swap_option_uncertain_claim_trace_coverage_rate"
+      ],
+      "passed": false
+    },
+    {
+      "case_id": "v1297_H13",
+      "scenario": "card_claims_uncertain_material_as_fact",
+      "is_injected_defect": true,
+      "defect_type": "card_claims_uncertain_material_as_fact",
+      "failed_check_ids": [
+        "low_confidence_material_not_claimed_as_fact_rate"
+      ],
+      "passed": false
+    },
+    {
+      "case_id": "v1297_H14",
+      "scenario": "final_outfit_quality_pass_without_reliability_report",
+      "is_injected_defect": true,
+      "defect_type": "final_outfit_quality_pass_without_reliability_report",
+      "failed_check_ids": [
+        "final_quality_pass_requires_reliability_report_rate"
+      ],
+      "passed": false
+    },
+    {
+      "case_id": "v1297_H15",
+      "scenario": "closet_readiness_skipped_before_generation",
+      "is_injected_defect": true,
+      "defect_type": "closet_readiness_skipped_before_generation",
+      "failed_check_ids": [
+        "closet_readiness_before_generation_rate"
+      ],
+      "passed": false
+    },
+    {
+      "case_id": "v1297_H16",
+      "scenario": "insufficient_closet_still_returns_normal_pass",
+      "is_injected_defect": true,
+      "defect_type": "insufficient_closet_still_returns_normal_pass",
+      "failed_check_ids": [
+        "minimum_viable_closet_status_correct_rate",
+        "missing_required_category_disclosed_rate",
+        "blocking_missing_category_returns_insufficient_rate",
+        "scenario_precondition_satisfied_rate"
+      ],
+      "passed": false
+    },
+    {
+      "case_id": "v1297_H17",
+      "scenario": "scenario_precondition_missing_but_clean_case_passes",
+      "is_injected_defect": true,
+      "defect_type": "scenario_precondition_missing_but_clean_case_passes",
+      "failed_check_ids": [
+        "scenario_precondition_satisfied_rate",
+        "scenario_precondition_proof_refs_present_rate"
+      ],
+      "passed": false
+    },
+    {
+      "case_id": "v1297_H18",
+      "scenario": "current_exception_cannot_override_missing_category",
+      "is_injected_defect": true,
+      "defect_type": "current_exception_case_without_exception",
+      "failed_check_ids": [
+        "scenario_precondition_satisfied_rate",
+        "scenario_precondition_proof_refs_present_rate",
+        "current_exception_case_has_exception_precondition_rate"
+      ],
+      "passed": false
+    },
+    {
+      "case_id": "v1297_H19",
+      "scenario": "missing_required_category_clean_but_claimed",
+      "is_injected_defect": true,
+      "defect_type": "missing_category_case_without_missing_category",
+      "failed_check_ids": [
+        "scenario_precondition_satisfied_rate",
+        "scenario_precondition_proof_refs_present_rate",
+        "missing_category_case_has_missing_category_precondition_rate"
+      ],
+      "passed": false
+    },
+    {
+      "case_id": "v1297_H20",
+      "scenario": "gap_case_without_gap_disclosure",
+      "is_injected_defect": true,
+      "defect_type": "gap_case_without_gap_disclosure",
+      "failed_check_ids": [
+        "scenario_precondition_satisfied_rate",
+        "scenario_precondition_proof_refs_present_rate",
+        "gap_case_has_gap_disclosure_precondition_rate"
+      ],
+      "passed": false
+    },
+    {
+      "case_id": "v1297_H21",
+      "scenario": "visible_swap_options_closet_grounded",
+      "is_injected_defect": true,
+      "defect_type": "swap_case_without_visible_swap",
+      "failed_check_ids": [
+        "scenario_precondition_satisfied_rate",
+        "scenario_precondition_proof_refs_present_rate",
+        "swap_case_has_visible_swap_precondition_rate"
+      ],
+      "passed": false
+    },
+    {
+      "case_id": "v1297_H22",
+      "scenario": "unreliable_swap_hidden",
+      "is_injected_defect": true,
+      "defect_type": "hidden_swap_case_without_hidden_swap",
+      "failed_check_ids": [
+        "scenario_precondition_satisfied_rate",
+        "scenario_precondition_proof_refs_present_rate",
+        "hidden_swap_case_has_hidden_swap_precondition_rate"
+      ],
+      "passed": false
+    },
+    {
+      "case_id": "v1297_H23",
+      "scenario": "repair_replaces_unreliable_item",
+      "is_injected_defect": true,
+      "defect_type": "repair_case_without_pre_repair_issue",
+      "failed_check_ids": [
+        "scenario_precondition_satisfied_rate",
+        "scenario_precondition_proof_refs_present_rate",
+        "repair_case_has_pre_repair_issue_rate"
+      ],
+      "passed": false
+    },
+    {
+      "case_id": "v1297_H24",
+      "scenario": "blocking_missing_category_insufficient",
+      "is_injected_defect": true,
+      "defect_type": "insufficient_card_presents_partial_outfit_as_daily_outfit",
+      "failed_check_ids": [
+        "minimum_viable_closet_status_correct_rate",
+        "missing_required_category_disclosed_rate",
+        "scenario_precondition_satisfied_rate",
+        "insufficient_card_does_not_present_partial_outfit_as_daily_outfit_rate"
+      ],
+      "passed": false
+    }
+  ],
+  "detected_defects": [
+    {
+      "case_id": "v1297_H01",
+      "defect_type": "missing_shoes_hallucinated_item",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "final_outfit_items_exist_in_closet_rate",
+        "card_text_no_hallucinated_item_rate"
+      ],
+      "expected_failed_check_ids": [
+        "final_outfit_items_exist_in_closet_rate",
+        "card_text_no_hallucinated_item_rate"
+      ],
+      "failure_reason": "Detected seeded defect: missing_shoes_hallucinated_item",
+      "raw_artifact_ref": "per_case/v1297_H01.json"
+    },
+    {
+      "case_id": "v1297_H02",
+      "defect_type": "missing_top_marked_as_pass",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "blocking_missing_category_returns_insufficient_rate"
+      ],
+      "expected_failed_check_ids": [
+        "blocking_missing_category_returns_insufficient_rate",
+        "insufficient_status_has_blocking_reason_rate"
+      ],
+      "failure_reason": "Detected seeded defect: missing_top_marked_as_pass",
+      "raw_artifact_ref": "per_case/v1297_H02.json"
+    },
+    {
+      "case_id": "v1297_H03",
+      "defect_type": "low_confidence_formality_used_for_client_meeting",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "low_confidence_formality_not_used_for_formal_claim_rate",
+        "low_reliability_item_excluded_from_high_stakes_context_rate"
+      ],
+      "expected_failed_check_ids": [
+        "low_confidence_formality_not_used_for_formal_claim_rate",
+        "low_reliability_item_excluded_from_high_stakes_context_rate"
+      ],
+      "failure_reason": "Detected seeded defect: low_confidence_formality_used_for_client_meeting",
+      "raw_artifact_ref": "per_case/v1297_H03.json"
+    },
+    {
+      "case_id": "v1297_H04",
+      "defect_type": "low_confidence_weather_used_for_rain_claim",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "low_confidence_weather_not_used_for_weather_claim_rate"
+      ],
+      "expected_failed_check_ids": [
+        "low_confidence_weather_not_used_for_weather_claim_rate"
+      ],
+      "failure_reason": "Detected seeded defect: low_confidence_weather_used_for_rain_claim",
+      "raw_artifact_ref": "per_case/v1297_H04.json"
+    },
+    {
+      "case_id": "v1297_H05",
+      "defect_type": "low_confidence_category_satisfies_required_slot",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "low_confidence_category_not_used_as_required_slot_rate"
+      ],
+      "expected_failed_check_ids": [
+        "low_confidence_category_not_used_as_required_slot_rate"
+      ],
+      "failure_reason": "Detected seeded defect: low_confidence_category_satisfies_required_slot",
+      "raw_artifact_ref": "per_case/v1297_H05.json"
+    },
+    {
+      "case_id": "v1297_H06",
+      "defect_type": "vision_candidate_used_without_confirmation",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "low_confidence_category_not_used_as_required_slot_rate",
+        "unconfirmed_vision_candidate_not_used_in_clean_planner_rate"
+      ],
+      "expected_failed_check_ids": [
+        "unconfirmed_vision_candidate_not_used_in_clean_planner_rate"
+      ],
+      "failure_reason": "Detected seeded defect: vision_candidate_used_without_confirmation",
+      "raw_artifact_ref": "per_case/v1297_H06.json"
+    },
+    {
+      "case_id": "v1297_H07",
+      "defect_type": "gap_suggestion_treated_as_closet_item",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "final_outfit_items_exist_in_closet_rate",
+        "gap_suggestions_not_treated_as_closet_items_rate",
+        "gap_suggestion_category_only_rate"
+      ],
+      "expected_failed_check_ids": [
+        "gap_suggestions_not_treated_as_closet_items_rate",
+        "final_outfit_items_exist_in_closet_rate"
+      ],
+      "failure_reason": "Detected seeded defect: gap_suggestion_treated_as_closet_item",
+      "raw_artifact_ref": "per_case/v1297_H07.json"
+    },
+    {
+      "case_id": "v1297_H08",
+      "defect_type": "missing_gap_not_disclosed",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "minimum_viable_closet_status_correct_rate",
+        "missing_required_category_disclosed_rate",
+        "non_blocking_gap_returns_pass_with_disclosure_rate",
+        "scenario_precondition_satisfied_rate",
+        "scenario_precondition_proof_refs_present_rate",
+        "gap_case_has_gap_disclosure_precondition_rate"
+      ],
+      "expected_failed_check_ids": [
+        "missing_required_category_disclosed_rate",
+        "pass_with_disclosure_has_gap_disclosure_rate"
+      ],
+      "failure_reason": "Detected seeded defect: missing_gap_not_disclosed",
+      "raw_artifact_ref": "per_case/v1297_H08.json"
+    },
+    {
+      "case_id": "v1297_H09",
+      "defect_type": "product_recommendation_in_gap_note",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "closet_gap_note_no_product_recommendation_rate"
+      ],
+      "expected_failed_check_ids": [
+        "closet_gap_note_no_product_recommendation_rate"
+      ],
+      "failure_reason": "Detected seeded defect: product_recommendation_in_gap_note",
+      "raw_artifact_ref": "per_case/v1297_H09.json"
+    },
+    {
+      "case_id": "v1297_H10",
+      "defect_type": "memory_preference_forces_unreliable_item",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "final_outfit_items_exist_in_closet_rate",
+        "memory_preference_does_not_force_unreliable_item_rate"
+      ],
+      "expected_failed_check_ids": [
+        "memory_preference_does_not_force_unreliable_item_rate"
+      ],
+      "failure_reason": "Detected seeded defect: memory_preference_forces_unreliable_item",
+      "raw_artifact_ref": "per_case/v1297_H10.json"
+    },
+    {
+      "case_id": "v1297_H11",
+      "defect_type": "swap_option_low_confidence_not_hidden",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "uncertain_fields_surface_uncertainty_note_rate",
+        "item_reliability_tier_trace_coverage_rate",
+        "reliable_swap_options_visible_rate",
+        "unreliable_swap_options_hidden_rate",
+        "swap_option_uncertain_claim_trace_coverage_rate",
+        "scenario_precondition_satisfied_rate",
+        "scenario_precondition_proof_refs_present_rate"
+      ],
+      "expected_failed_check_ids": [
+        "unreliable_swap_options_hidden_rate",
+        "reliable_swap_options_visible_rate"
+      ],
+      "failure_reason": "Detected seeded defect: swap_option_low_confidence_not_hidden",
+      "raw_artifact_ref": "per_case/v1297_H11.json"
+    },
+    {
+      "case_id": "v1297_H12",
+      "defect_type": "swap_option_weather_unreliable_visible",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "uncertain_fields_surface_uncertainty_note_rate",
+        "item_reliability_tier_trace_coverage_rate",
+        "reliable_swap_options_visible_rate",
+        "unreliable_swap_options_hidden_rate",
+        "swap_option_uncertain_claim_trace_coverage_rate"
+      ],
+      "expected_failed_check_ids": [
+        "unreliable_swap_options_hidden_rate",
+        "swap_option_uncertain_claim_trace_coverage_rate"
+      ],
+      "failure_reason": "Detected seeded defect: swap_option_weather_unreliable_visible",
+      "raw_artifact_ref": "per_case/v1297_H12.json"
+    },
+    {
+      "case_id": "v1297_H13",
+      "defect_type": "card_claims_uncertain_material_as_fact",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "low_confidence_material_not_claimed_as_fact_rate"
+      ],
+      "expected_failed_check_ids": [
+        "low_confidence_material_not_claimed_as_fact_rate"
+      ],
+      "failure_reason": "Detected seeded defect: card_claims_uncertain_material_as_fact",
+      "raw_artifact_ref": "per_case/v1297_H13.json"
+    },
+    {
+      "case_id": "v1297_H14",
+      "defect_type": "final_outfit_quality_pass_without_reliability_report",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "final_quality_pass_requires_reliability_report_rate"
+      ],
+      "expected_failed_check_ids": [
+        "final_quality_pass_requires_reliability_report_rate"
+      ],
+      "failure_reason": "Detected seeded defect: final_outfit_quality_pass_without_reliability_report",
+      "raw_artifact_ref": "per_case/v1297_H14.json"
+    },
+    {
+      "case_id": "v1297_H15",
+      "defect_type": "closet_readiness_skipped_before_generation",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "closet_readiness_before_generation_rate"
+      ],
+      "expected_failed_check_ids": [
+        "closet_readiness_before_generation_rate"
+      ],
+      "failure_reason": "Detected seeded defect: closet_readiness_skipped_before_generation",
+      "raw_artifact_ref": "per_case/v1297_H15.json"
+    },
+    {
+      "case_id": "v1297_H16",
+      "defect_type": "insufficient_closet_still_returns_normal_pass",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "minimum_viable_closet_status_correct_rate",
+        "missing_required_category_disclosed_rate",
+        "blocking_missing_category_returns_insufficient_rate",
+        "scenario_precondition_satisfied_rate"
+      ],
+      "expected_failed_check_ids": [
+        "blocking_missing_category_returns_insufficient_rate",
+        "insufficient_status_has_blocking_reason_rate"
+      ],
+      "failure_reason": "Detected seeded defect: insufficient_closet_still_returns_normal_pass",
+      "raw_artifact_ref": "per_case/v1297_H16.json"
+    },
+    {
+      "case_id": "v1297_H17",
+      "defect_type": "scenario_precondition_missing_but_clean_case_passes",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "scenario_precondition_satisfied_rate",
+        "scenario_precondition_proof_refs_present_rate"
+      ],
+      "expected_failed_check_ids": [
+        "scenario_precondition_satisfied_rate",
+        "no_vacuous_clean_case_pass_rate"
+      ],
+      "failure_reason": "Detected seeded defect: scenario_precondition_missing_but_clean_case_passes",
+      "raw_artifact_ref": "per_case/v1297_H17.json"
+    },
+    {
+      "case_id": "v1297_H18",
+      "defect_type": "current_exception_case_without_exception",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "scenario_precondition_satisfied_rate",
+        "scenario_precondition_proof_refs_present_rate",
+        "current_exception_case_has_exception_precondition_rate"
+      ],
+      "expected_failed_check_ids": [
+        "current_exception_case_has_exception_precondition_rate"
+      ],
+      "failure_reason": "Detected seeded defect: current_exception_case_without_exception",
+      "raw_artifact_ref": "per_case/v1297_H18.json"
+    },
+    {
+      "case_id": "v1297_H19",
+      "defect_type": "missing_category_case_without_missing_category",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "scenario_precondition_satisfied_rate",
+        "scenario_precondition_proof_refs_present_rate",
+        "missing_category_case_has_missing_category_precondition_rate"
+      ],
+      "expected_failed_check_ids": [
+        "missing_category_case_has_missing_category_precondition_rate"
+      ],
+      "failure_reason": "Detected seeded defect: missing_category_case_without_missing_category",
+      "raw_artifact_ref": "per_case/v1297_H19.json"
+    },
+    {
+      "case_id": "v1297_H20",
+      "defect_type": "gap_case_without_gap_disclosure",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "scenario_precondition_satisfied_rate",
+        "scenario_precondition_proof_refs_present_rate",
+        "gap_case_has_gap_disclosure_precondition_rate"
+      ],
+      "expected_failed_check_ids": [
+        "gap_case_has_gap_disclosure_precondition_rate"
+      ],
+      "failure_reason": "Detected seeded defect: gap_case_without_gap_disclosure",
+      "raw_artifact_ref": "per_case/v1297_H20.json"
+    },
+    {
+      "case_id": "v1297_H21",
+      "defect_type": "swap_case_without_visible_swap",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "scenario_precondition_satisfied_rate",
+        "scenario_precondition_proof_refs_present_rate",
+        "swap_case_has_visible_swap_precondition_rate"
+      ],
+      "expected_failed_check_ids": [
+        "swap_case_has_visible_swap_precondition_rate"
+      ],
+      "failure_reason": "Detected seeded defect: swap_case_without_visible_swap",
+      "raw_artifact_ref": "per_case/v1297_H21.json"
+    },
+    {
+      "case_id": "v1297_H22",
+      "defect_type": "hidden_swap_case_without_hidden_swap",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "scenario_precondition_satisfied_rate",
+        "scenario_precondition_proof_refs_present_rate",
+        "hidden_swap_case_has_hidden_swap_precondition_rate"
+      ],
+      "expected_failed_check_ids": [
+        "hidden_swap_case_has_hidden_swap_precondition_rate"
+      ],
+      "failure_reason": "Detected seeded defect: hidden_swap_case_without_hidden_swap",
+      "raw_artifact_ref": "per_case/v1297_H22.json"
+    },
+    {
+      "case_id": "v1297_H23",
+      "defect_type": "repair_case_without_pre_repair_issue",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "scenario_precondition_satisfied_rate",
+        "scenario_precondition_proof_refs_present_rate",
+        "repair_case_has_pre_repair_issue_rate"
+      ],
+      "expected_failed_check_ids": [
+        "repair_case_has_pre_repair_issue_rate"
+      ],
+      "failure_reason": "Detected seeded defect: repair_case_without_pre_repair_issue",
+      "raw_artifact_ref": "per_case/v1297_H23.json"
+    },
+    {
+      "case_id": "v1297_H24",
+      "defect_type": "insufficient_card_presents_partial_outfit_as_daily_outfit",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "minimum_viable_closet_status_correct_rate",
+        "missing_required_category_disclosed_rate",
+        "scenario_precondition_satisfied_rate",
+        "insufficient_card_does_not_present_partial_outfit_as_daily_outfit_rate"
+      ],
+      "expected_failed_check_ids": [
+        "insufficient_card_does_not_present_partial_outfit_as_daily_outfit_rate"
+      ],
+      "failure_reason": "Detected seeded defect: insufficient_card_presents_partial_outfit_as_daily_outfit",
+      "raw_artifact_ref": "per_case/v1297_H24.json"
+    }
+  ],
+  "unexpected_clean_case_failures": [],
+  "unexpected_injected_passes": []
+}

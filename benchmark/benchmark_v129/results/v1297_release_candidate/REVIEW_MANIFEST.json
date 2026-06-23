@@ -1,0 +1,54 @@
+{
+  "version": "v1.29.7",
+  "release_candidate_status": "pass_candidate_pending_manual_review",
+  "branch": "v1297-scenario-self-proof-cleanup",
+  "commit_sha": "e02e22f5c802d8c2a638de2e757af4357bb94d50",
+  "theme": "Closet Bootstrapping & Item Reliability",
+  "expected_changes_since_last_review": [
+    "Add scenario_preconditions to all clean per-case artifacts",
+    "Add non-vacuous scenario gates",
+    "Rewrite G03/G04 current exception fixtures",
+    "Rewrite D-series gap fixtures",
+    "Rewrite E-series repair fixtures",
+    "Rewrite F-series swap fixtures",
+    "Fix insufficient card schema"
+  ],
+  "required_new_gates": [
+    "scenario_precondition_satisfied_rate",
+    "current_exception_case_has_exception_precondition_rate",
+    "missing_category_case_has_missing_category_precondition_rate",
+    "gap_case_has_gap_disclosure_precondition_rate",
+    "swap_case_has_visible_swap_precondition_rate",
+    "hidden_swap_case_has_hidden_swap_precondition_rate",
+    "repair_case_has_pre_repair_issue_rate",
+    "insufficient_card_does_not_present_partial_outfit_as_daily_outfit_rate"
+  ],
+  "additional_non_vacuous_gates": [
+    "scenario_precondition_proof_refs_present_rate",
+    "no_vacuous_clean_case_pass_rate"
+  ],
+  "must_review_samples": [
+    "per_case/clean/v1297_G03.json",
+    "per_case/clean/v1297_G04.json",
+    "per_case/clean/v1297_D02.json",
+    "per_case/clean/v1297_D03.json",
+    "per_case/clean/v1297_D04.json",
+    "per_case/clean/v1297_D05.json",
+    "per_case/clean/v1297_D07.json",
+    "per_case/clean/v1297_E06.json",
+    "per_case/clean/v1297_E07.json",
+    "per_case/clean/v1297_F01.json",
+    "per_case/clean/v1297_F02.json",
+    "per_case/clean/v1297_F03.json",
+    "per_case/clean/v1297_F04.json",
+    "per_case/clean/v1297_F05.json",
+    "per_case/clean/v1297_F06.json",
+    "per_case/clean/v1297_A05.json",
+    "per_case/clean/v1297_A06.json"
+  ],
+  "known_p2_backlog": [
+    "add case-level checks to sample artifacts",
+    "expand clean coverage beyond primary fixture family",
+    "align injected expected_failed_check_ids with actual failed checks"
+  ]
+}

@@ -1,0 +1,55 @@
+# v1.29.7 Closet Bootstrapping & Item Reliability Report
+
+- suite_mode: `clean_acceptance`
+- cases: `46`
+- checks: `44/44` PASS
+- clean_acceptance_verdict: `pass`
+- mixed_strict_verdict: `not_applicable`
+- injected_defect_detection_verdict: `not_applicable`
+- release_candidate_verdict: `pass_candidate`
+
+## Checks
+- `closet_bootstrap_profile_schema_valid_rate`: 1.0 (PASS)
+- `closet_readiness_report_present_rate`: 1.0 (PASS)
+- `closet_readiness_before_generation_rate`: 1.0 (PASS)
+- `item_reliability_profile_present_rate`: 1.0 (PASS)
+- `final_outfit_items_exist_in_closet_rate`: 1.0 (PASS)
+- `swap_options_exist_in_closet_rate`: 1.0 (PASS)
+- `gap_suggestions_not_treated_as_closet_items_rate`: 1.0 (PASS)
+- `card_text_no_hallucinated_item_rate`: 1.0 (PASS)
+- `minimum_viable_closet_status_correct_rate`: 1.0 (PASS)
+- `missing_required_category_disclosed_rate`: 1.0 (PASS)
+- `blocking_missing_category_returns_insufficient_rate`: 1.0 (PASS)
+- `non_blocking_gap_returns_pass_with_disclosure_rate`: 1.0 (PASS)
+- `low_confidence_category_not_used_as_required_slot_rate`: 1.0 (PASS)
+- `low_confidence_formality_not_used_for_formal_claim_rate`: 1.0 (PASS)
+- `low_confidence_weather_not_used_for_weather_claim_rate`: 1.0 (PASS)
+- `low_confidence_material_not_claimed_as_fact_rate`: 1.0 (PASS)
+- `uncertain_fields_surface_uncertainty_note_rate`: 1.0 (PASS)
+- `unconfirmed_vision_candidate_not_used_in_clean_planner_rate`: 1.0 (PASS)
+- `low_reliability_item_excluded_from_high_stakes_context_rate`: 1.0 (PASS)
+- `item_reliability_tier_trace_coverage_rate`: 1.0 (PASS)
+- `final_quality_pass_requires_reliability_report_rate`: 1.0 (PASS)
+- `pass_with_disclosure_has_gap_disclosure_rate`: 1.0 (PASS)
+- `insufficient_status_has_blocking_reason_rate`: 1.0 (PASS)
+- `closet_gap_note_no_product_recommendation_rate`: 1.0 (PASS)
+- `reliable_swap_options_visible_rate`: 1.0 (PASS)
+- `unreliable_swap_options_hidden_rate`: 1.0 (PASS)
+- `hidden_swap_options_have_reason_rate`: 1.0 (PASS)
+- `swap_option_uncertain_claim_trace_coverage_rate`: 1.0 (PASS)
+- `memory_preference_does_not_force_unreliable_item_rate`: 1.0 (PASS)
+- `memory_claim_not_based_on_unconfirmed_metadata_rate`: 1.0 (PASS)
+- `current_exception_cannot_override_missing_category_rate`: 1.0 (PASS)
+- `current_exception_requires_item_reliability_support_rate`: 1.0 (PASS)
+- `scenario_precondition_satisfied_rate`: 1.0 (PASS)
+- `scenario_precondition_proof_refs_present_rate`: 1.0 (PASS)
+- `no_vacuous_clean_case_pass_rate`: 1.0 (PASS)
+- `current_exception_case_has_exception_precondition_rate`: 1.0 (PASS)
+- `missing_category_case_has_missing_category_precondition_rate`: 1.0 (PASS)
+- `gap_case_has_gap_disclosure_precondition_rate`: 1.0 (PASS)
+- `gap_suggestion_category_only_rate`: 1.0 (PASS)
+- `swap_case_has_visible_swap_precondition_rate`: 1.0 (PASS)
+- `hidden_swap_case_has_hidden_swap_precondition_rate`: 1.0 (PASS)
+- `repair_case_has_pre_repair_issue_rate`: 1.0 (PASS)
+- `low_confidence_case_has_low_confidence_item_precondition_rate`: 1.0 (PASS)
+- `insufficient_card_does_not_present_partial_outfit_as_daily_outfit_rate`: 1.0 (PASS)

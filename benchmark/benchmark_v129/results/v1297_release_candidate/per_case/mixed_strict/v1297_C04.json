@@ -1,0 +1,592 @@
+{
+  "benchmark_id": "v1.29.7.closet_bootstrapping_item_reliability",
+  "schema_version": "v1.29.7",
+  "artifact_schema_version": "v1.29.7",
+  "generated_at": "2026-06-23T07:52:50Z",
+  "run_id": "run_v1297_C04",
+  "case_id": "v1297_C04",
+  "scenario": "user_described_missing_category_requires_clarification",
+  "case_type": "clean",
+  "is_injected_defect": false,
+  "defect_type": null,
+  "task_context": {
+    "task_id": "task_v1297_C04",
+    "occasion": "office_daily",
+    "weather": {
+      "temperature_band": "mild",
+      "rain": false
+    },
+    "formality_target": "polished_but_not_formal",
+    "partial_outfit_allowed": true,
+    "current_task_constraints": []
+  },
+  "closet_fixture": {
+    "closet_fixture_id": "closet_v1297_missing_shoes",
+    "closet_items": [
+      {
+        "item_id": "top_ivory_knit",
+        "category": "top",
+        "display_name": "米白针织上衣",
+        "source": "user_confirmed",
+        "attributes": {
+          "formality": "medium",
+          "material": "knit",
+          "weather_suitability": [
+            "dry",
+            "light_rain"
+          ],
+          "temperature_suitability": [
+            "warm",
+            "mild"
+          ],
+          "style_cues": [
+            "clean",
+            "soft"
+          ]
+        },
+        "reliability": {
+          "metadata_source": "user_confirmed",
+          "field_confidence": {
+            "category": 0.98,
+            "color": 0.92,
+            "material": 0.82,
+            "formality": 0.84,
+            "weather_suitability": 0.84,
+            "temperature_suitability": 0.84,
+            "style_cues": 0.82
+          },
+          "overall_reliability_score": 0.87,
+          "reliability_tier": "high",
+          "uncertain_fields": [],
+          "requires_user_confirmation_fields": []
+        }
+      },
+      {
+        "item_id": "top_blue_tee",
+        "category": "top",
+        "display_name": "蓝色短袖 T 恤",
+        "source": "user_confirmed",
+        "attributes": {
+          "formality": "low",
+          "material": "cotton",
+          "weather_suitability": [
+            "dry",
+            "light_rain"
+          ],
+          "temperature_suitability": [
+            "warm",
+            "mild"
+          ],
+          "style_cues": [
+            "casual"
+          ]
+        },
+        "reliability": {
+          "metadata_source": "user_confirmed",
+          "field_confidence": {
+            "category": 0.98,
+            "color": 0.92,
+            "material": 0.82,
+            "formality": 0.84,
+            "weather_suitability": 0.84,
+            "temperature_suitability": 0.84,
+            "style_cues": 0.82
+          },
+          "overall_reliability_score": 0.87,
+          "reliability_tier": "high",
+          "uncertain_fields": [],
+          "requires_user_confirmation_fields": []
+        }
+      },
+      {
+        "item_id": "bottom_gray_trousers",
+        "category": "bottom",
+        "display_name": "灰色直筒裤",
+        "source": "user_confirmed",
+        "attributes": {
+          "formality": "medium_high",
+          "material": "cotton blend",
+          "weather_suitability": [
+            "dry",
+            "light_rain"
+          ],
+          "temperature_suitability": [
+            "warm",
+            "mild"
+          ],
+          "style_cues": [
+            "clean",
+            "office"
+          ]
+        },
+        "reliability": {
+          "metadata_source": "user_confirmed",
+          "field_confidence": {
+            "category": 0.98,
+            "color": 0.92,
+            "material": 0.82,
+            "formality": 0.84,
+            "weather_suitability": 0.84,
+            "temperature_suitability": 0.84,
+            "style_cues": 0.82
+          },
+          "overall_reliability_score": 0.87,
+          "reliability_tier": "high",
+          "uncertain_fields": [],
+          "requires_user_confirmation_fields": []
+        }
+      },
+      {
+        "item_id": "bottom_denim",
+        "category": "bottom",
+        "display_name": "直筒牛仔裤",
+        "source": "user_confirmed",
+        "attributes": {
+          "formality": "low",
+          "material": "cotton blend",
+          "weather_suitability": [
+            "dry",
+            "light_rain"
+          ],
+          "temperature_suitability": [
+            "warm",
+            "mild"
+          ],
+          "style_cues": [
+            "casual"
+          ]
+        },
+        "reliability": {
+          "metadata_source": "user_confirmed",
+          "field_confidence": {
+            "category": 0.98,
+            "color": 0.92,
+            "material": 0.82,
+            "formality": 0.84,
+            "weather_suitability": 0.84,
+            "temperature_suitability": 0.84,
+            "style_cues": 0.82
+          },
+          "overall_reliability_score": 0.87,
+          "reliability_tier": "high",
+          "uncertain_fields": [],
+          "requires_user_confirmation_fields": []
+        }
+      },
+      {
+        "item_id": "outer_light_trench",
+        "category": "outerwear",
+        "display_name": "轻薄风衣",
+        "source": "user_confirmed",
+        "attributes": {
+          "formality": "medium",
+          "material": "cotton blend",
+          "weather_suitability": [
+            "rain",
+            "light_rain",
+            "dry"
+          ],
+          "temperature_suitability": [
+            "mild",
+            "cold"
+          ],
+          "style_cues": [
+            "rain_ready"
+          ]
+        },
+        "reliability": {
+          "metadata_source": "user_confirmed",
+          "field_confidence": {
+            "category": 0.98,
+            "color": 0.92,
+            "material": 0.82,
+            "formality": 0.84,
+            "weather_suitability": 0.84,
+            "temperature_suitability": 0.84,
+            "style_cues": 0.82
+          },
+          "overall_reliability_score": 0.87,
+          "reliability_tier": "high",
+          "uncertain_fields": [],
+          "requires_user_confirmation_fields": []
+        }
+      }
+    ]
+  },
+  "closet_bootstrap_profile": {
+    "closet_bootstrap_profile_id": "cbp_v1297_C04",
+    "closet_fixture_id": "closet_v1297_missing_shoes",
+    "source_type": "manual_fixture",
+    "item_count": 5,
+    "category_counts": {
+      "top": 2,
+      "bottom": 2,
+      "outerwear": 1
+    },
+    "critical_missing_categories": [],
+    "optional_missing_categories": [
+      "accessory"
+    ],
+    "metadata_completeness_score": 0.76,
+    "minimum_viable_closet_status": "pass_with_gap",
+    "created_at": "2026-06-23T07:52:50Z"
+  },
+  "closet_readiness_report": {
+    "closet_readiness_report_id": "crr_v1297_C04",
+    "task_id": "task_v1297_C04",
+    "occasion": "office_daily",
+    "weather": {
+      "temperature_band": "mild",
+      "rain": false
+    },
+    "required_categories": [
+      "top",
+      "bottom",
+      "shoes"
+    ],
+    "available_required_categories": [
+      "top",
+      "bottom"
+    ],
+    "missing_required_categories": [
+      "shoes"
+    ],
+    "blocking_missing_categories": [],
+    "optional_categories": [
+      "accessory"
+    ],
+    "missing_optional_categories": [
+      "accessory"
+    ],
+    "readiness_status": "ready_with_gap",
+    "can_generate_grounded_outfit": true,
+    "partial_outfit_allowed": true,
+    "requires_gap_disclosure": true,
+    "gap_disclosures": [
+      {
+        "missing_category_disclosure_id": "mcd_v1297_C04_shoes",
+        "task_id": "task_v1297_C04",
+        "missing_categories": [
+          "shoes"
+        ],
+        "severity": "non_blocking",
+        "resolution": "best_effort_outfit_with_gap_disclosure",
+        "user_visible_text": "当前衣橱缺少 shoes，我不会编造该类别单品。",
+        "invented_item": false,
+        "gap_suggestion_type": "category_only",
+        "product_recommendation_included": false
+      }
+    ],
+    "eligible_item_ids_by_category": {
+      "top": [
+        "top_ivory_knit",
+        "top_blue_tee"
+      ],
+      "bottom": [
+        "bottom_gray_trousers",
+        "bottom_denim"
+      ],
+      "outerwear": [
+        "outer_light_trench"
+      ]
+    },
+    "excluded_item_ids": [],
+    "computed_before_candidate_generation": true
+  },
+  "item_reliability_profiles": [
+    {
+      "item_id": "top_ivory_knit",
+      "metadata_source": "user_confirmed",
+      "field_confidence": {
+        "category": 0.98,
+        "color": 0.92,
+        "material": 0.82,
+        "formality": 0.84,
+        "weather_suitability": 0.84,
+        "temperature_suitability": 0.84,
+        "style_cues": 0.82
+      },
+      "overall_reliability_score": 0.87,
+      "reliability_tier": "high",
+      "uncertain_fields": [],
+      "requires_user_confirmation_fields": [],
+      "allowed_downstream_use": [
+        "daily_outfit_candidate",
+        "low_stakes_context"
+      ],
+      "disallowed_downstream_use": []
+    },
+    {
+      "item_id": "top_blue_tee",
+      "metadata_source": "user_confirmed",
+      "field_confidence": {
+        "category": 0.98,
+        "color": 0.92,
+        "material": 0.82,
+        "formality": 0.84,
+        "weather_suitability": 0.84,
+        "temperature_suitability": 0.84,
+        "style_cues": 0.82
+      },
+      "overall_reliability_score": 0.87,
+      "reliability_tier": "high",
+      "uncertain_fields": [],
+      "requires_user_confirmation_fields": [],
+      "allowed_downstream_use": [
+        "daily_outfit_candidate",
+        "low_stakes_context"
+      ],
+      "disallowed_downstream_use": []
+    },
+    {
+      "item_id": "bottom_gray_trousers",
+      "metadata_source": "user_confirmed",
+      "field_confidence": {
+        "category": 0.98,
+        "color": 0.92,
+        "material": 0.82,
+        "formality": 0.84,
+        "weather_suitability": 0.84,
+        "temperature_suitability": 0.84,
+        "style_cues": 0.82
+      },
+      "overall_reliability_score": 0.87,
+      "reliability_tier": "high",
+      "uncertain_fields": [],
+      "requires_user_confirmation_fields": [],
+      "allowed_downstream_use": [
+        "daily_outfit_candidate",
+        "low_stakes_context"
+      ],
+      "disallowed_downstream_use": []
+    },
+    {
+      "item_id": "bottom_denim",
+      "metadata_source": "user_confirmed",
+      "field_confidence": {
+        "category": 0.98,
+        "color": 0.92,
+        "material": 0.82,
+        "formality": 0.84,
+        "weather_suitability": 0.84,
+        "temperature_suitability": 0.84,
+        "style_cues": 0.82
+      },
+      "overall_reliability_score": 0.87,
+      "reliability_tier": "high",
+      "uncertain_fields": [],
+      "requires_user_confirmation_fields": [],
+      "allowed_downstream_use": [
+        "daily_outfit_candidate",
+        "low_stakes_context"
+      ],
+      "disallowed_downstream_use": []
+    },
+    {
+      "item_id": "outer_light_trench",
+      "metadata_source": "user_confirmed",
+      "field_confidence": {
+        "category": 0.98,
+        "color": 0.92,
+        "material": 0.82,
+        "formality": 0.84,
+        "weather_suitability": 0.84,
+        "temperature_suitability": 0.84,
+        "style_cues": 0.82
+      },
+      "overall_reliability_score": 0.87,
+      "reliability_tier": "high",
+      "uncertain_fields": [],
+      "requires_user_confirmation_fields": [],
+      "allowed_downstream_use": [
+        "daily_outfit_candidate",
+        "low_stakes_context"
+      ],
+      "disallowed_downstream_use": []
+    }
+  ],
+  "metadata_confidence_policy": {
+    "metadata_confidence_policy_id": "mcp_v1297_default",
+    "thresholds": {
+      "category_min_for_planner": 0.85,
+      "weather_suitability_min_for_weather_claim": 0.8,
+      "formality_min_for_formal_meeting": 0.8,
+      "style_cue_min_for_user_visible_claim": 0.7,
+      "material_min_for_material_claim": 0.75
+    },
+    "low_confidence_policy": {
+      "exclude_from_high_stakes_context": true,
+      "allow_with_uncertainty_note_in_low_stakes_context": true,
+      "do_not_use_for_memory_write": true,
+      "requires_user_confirmation_before_persistent_profile": true
+    }
+  },
+  "task_memory_packet": {
+    "task_memory_packet_id": "tmp_v1297_C04",
+    "consumed_memory_ids": [
+      "mem_prefer_clean_lines"
+    ],
+    "active_preferences": [
+      "clean lines"
+    ],
+    "active_negative_boundaries": [],
+    "current_task_exceptions": []
+  },
+  "candidate_outfits": [
+    {
+      "candidate_outfit_id": "cand_v1297_C04",
+      "item_ids": [
+        "top_ivory_knit",
+        "bottom_gray_trousers"
+      ],
+      "generated_after_readiness_report": true
+    }
+  ],
+  "quality_report": {
+    "quality_report_id": "qr_v1297_C04",
+    "final_quality_status": "pass_with_disclosure",
+    "requires_reliability_report": true
+  },
+  "reliability_report": {
+    "reliability_report_id": "rr_v1297_C04",
+    "status": "pass",
+    "used_item_ids": [
+      "top_ivory_knit",
+      "bottom_gray_trousers"
+    ],
+    "excluded_item_ids": [],
+    "low_confidence_items_excluded": []
+  },
+  "missing_category_disclosures": [
+    {
+      "missing_category_disclosure_id": "mcd_v1297_C04_shoes",
+      "task_id": "task_v1297_C04",
+      "missing_categories": [
+        "shoes"
+      ],
+      "severity": "non_blocking",
+      "resolution": "best_effort_outfit_with_gap_disclosure",
+      "user_visible_text": "当前衣橱缺少 shoes，我不会编造该类别单品。",
+      "invented_item": false,
+      "gap_suggestion_type": "category_only",
+      "product_recommendation_included": false
+    }
+  ],
+  "final_daily_outfit_card": {
+    "card_id": "doc_v1297_C04",
+    "card_schema_version": "v1.29.7",
+    "headline": "今天这样穿",
+    "direction": "reliability-aware daily outfit",
+    "outfit_items": [
+      {
+        "item_id": "top_ivory_knit",
+        "display_name": "米白针织上衣",
+        "source": "closet",
+        "reliability_tier": "high"
+      },
+      {
+        "item_id": "bottom_gray_trousers",
+        "display_name": "灰色直筒裤",
+        "source": "closet",
+        "reliability_tier": "high"
+      }
+    ],
+    "swap_options": [],
+    "closet_gap_notes": [
+      {
+        "missing_category": "shoes",
+        "text": "当前衣橱缺少 shoes，我不会编造该类别单品。",
+        "product_recommendation_included": false,
+        "creates_memory_preference": false,
+        "memory_proposal_refs": []
+      }
+    ],
+    "gap_suggestions": [
+      {
+        "category": "shoes",
+        "missing_category": "shoes",
+        "source": "closet_gap",
+        "suggestion_type": "category_only",
+        "treated_as_outfit_item": false,
+        "product_recommendation_included": false,
+        "example_product_ids": []
+      }
+    ],
+    "uncertainty_notes": [],
+    "why_this_works": [
+      {
+        "text": "这套只使用当前衣橱中真实存在且可靠的单品。",
+        "claim_ref": "closet_readiness_report"
+      }
+    ],
+    "mentioned_item_ids": [
+      "top_ivory_knit",
+      "bottom_gray_trousers"
+    ],
+    "quality_status": "pass_with_disclosure",
+    "card_type": "daily_outfit_card",
+    "can_generate_daily_outfit": true,
+    "product_recommendation_included": false
+  },
+  "swap_option_reliability_report": {
+    "swap_option_reliability_report_id": "srr_v1297_C04",
+    "visible_swap_option_ids": [],
+    "hidden_swap_options": [],
+    "claim_refs": [
+      "closet_readiness_report"
+    ],
+    "status": "pass"
+  },
+  "trace": {
+    "trace_id": "trace_v1297_C04",
+    "pipeline_order": [
+      "task_context",
+      "closet_bootstrap_profile",
+      "closet_readiness_report",
+      "item_reliability_profile",
+      "task_memory_packet",
+      "candidate_outfit_generation",
+      "quality_reliability_critic",
+      "final_daily_outfit_card"
+    ],
+    "readiness_report_ref": "crr_v1297_C04",
+    "item_reliability_profile_refs": [
+      "top_ivory_knit",
+      "top_blue_tee",
+      "bottom_gray_trousers",
+      "bottom_denim",
+      "outer_light_trench"
+    ],
+    "excluded_item_ids": [],
+    "gap_disclosure_ids": [
+      "mcd_v1297_C04_shoes"
+    ],
+    "memory_forced_unreliable_item": false,
+    "current_exception_overrode_missing_category": false,
+    "vision_candidate_used_without_confirmation": false,
+    "memory_claim_based_on_unconfirmed_metadata": false
+  },
+  "checks": [],
+  "closet_insufficiency_disclosure": {
+    "disclosed": true,
+    "missing_categories": [
+      "shoes"
+    ],
+    "reason": "no reliable required category available in closet fixture",
+    "resolution": "best_effort_outfit_with_gap_disclosure",
+    "invented_item": false
+  },
+  "scenario_preconditions": {
+    "expected": [
+      "baseline_complete_closet_present"
+    ],
+    "satisfied": true,
+    "proof_refs": [
+      "closet_readiness_report.readiness_status"
+    ],
+    "proof_by_precondition": {
+      "baseline_complete_closet_present": "closet_readiness_report.readiness_status"
+    },
+    "missing_preconditions": []
+  }
+}

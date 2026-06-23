@@ -1,0 +1,30 @@
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Secrets
+.env
+.env.*
+*.pem
+*.key
+secrets/
+credentials/
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
+
+# Temp
+tmp/
+temp/
+*.log
+scratch/
