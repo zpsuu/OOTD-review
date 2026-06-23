@@ -1,0 +1,413 @@
+{
+  "benchmark_id": "v1.34.inspiration_memory_consumption_quality",
+  "schema_version": "v1.34",
+  "generated_at": "2026-06-23T15:43:56Z",
+  "verdicts": {
+    "clean_acceptance_verdict": "pass",
+    "release_candidate_verdict": "pass_candidate"
+  },
+  "suite_summary": {
+    "total_cases": 40,
+    "passed_cases": 40,
+    "failed_cases": 0,
+    "total_checks": 19,
+    "passed_checks": 19,
+    "failed_checks": 0
+  },
+  "checks": [
+    {
+      "check_id": "promoted_memory_consumption_report_present_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": [],
+      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+    },
+    {
+      "check_id": "promoted_memory_consumed_in_matching_context_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": [],
+      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+    },
+    {
+      "check_id": "promoted_memory_excluded_in_mismatching_context_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": [],
+      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+    },
+    {
+      "check_id": "promoted_memory_context_match_proof_present_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": [],
+      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+    },
+    {
+      "check_id": "promoted_memory_aspect_use_matches_confirmed_aspects_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": [],
+      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+    },
+    {
+      "check_id": "excluded_aspects_not_resurrected_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": [],
+      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+    },
+    {
+      "check_id": "promoted_memory_used_as_soft_bias_only_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": [],
+      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+    },
+    {
+      "check_id": "soft_prefer_not_used_as_hard_filter_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": [],
+      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+    },
+    {
+      "check_id": "daily_outfit_quality_non_regression_with_promoted_memory_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": [],
+      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+    },
+    {
+      "check_id": "promoted_memory_does_not_break_weather_fit_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": [],
+      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+    },
+    {
+      "check_id": "promoted_memory_does_not_break_formality_fit_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": [],
+      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+    },
+    {
+      "check_id": "promoted_memory_does_not_violate_active_avoid_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": [],
+      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+    },
+    {
+      "check_id": "consumption_delta_self_proof_present_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": [],
+      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+    },
+    {
+      "check_id": "targeted_promoted_memory_changes_visible_output_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": [],
+      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+    },
+    {
+      "check_id": "bridge_match_score_not_overstated_by_promoted_memory_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": [],
+      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+    },
+    {
+      "check_id": "response_claim_text_matches_promoted_memory_concept_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": [],
+      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+    },
+    {
+      "check_id": "response_claim_does_not_overstate_promoted_memory_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": [],
+      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+    },
+    {
+      "check_id": "rolledback_promoted_memory_not_consumed_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": [],
+      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+    },
+    {
+      "check_id": "promoted_memory_not_used_for_commerce_targeting_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": [],
+      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+    }
+  ],
+  "case_results": [
+    {
+      "case_id": "v134_A01_office_daily_low_saturation_memory_consumed_in_office_daily",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_A01_office_daily_low_saturation_memory_consumed_in_office_daily.json"
+    },
+    {
+      "case_id": "v134_A02_date_night_soft_presence_memory_consumed_in_date_night",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_A02_date_night_soft_presence_memory_consumed_in_date_night.json"
+    },
+    {
+      "case_id": "v134_A03_daily_city_walk_memory_consumed_in_daily_city_walk",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_A03_daily_city_walk_memory_consumed_in_daily_city_walk.json"
+    },
+    {
+      "case_id": "v134_A04_promoted_memory_appears_in_task_packet_for_matching_context",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_A04_promoted_memory_appears_in_task_packet_for_matching_context.json"
+    },
+    {
+      "case_id": "v134_A05_response_claim_refs_consumed_promoted_memory",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_A05_response_claim_refs_consumed_promoted_memory.json"
+    },
+    {
+      "case_id": "v134_B01_office_daily_memory_excluded_in_date_night",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_B01_office_daily_memory_excluded_in_date_night.json"
+    },
+    {
+      "case_id": "v134_B02_date_night_memory_excluded_in_office_daily",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_B02_date_night_memory_excluded_in_office_daily.json"
+    },
+    {
+      "case_id": "v134_B03_daily_city_walk_memory_excluded_in_formal_client_meeting",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_B03_daily_city_walk_memory_excluded_in_formal_client_meeting.json"
+    },
+    {
+      "case_id": "v134_B04_excluded_memory_not_referenced_in_response",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_B04_excluded_memory_not_referenced_in_response.json"
+    },
+    {
+      "case_id": "v134_B05_mismatch_exclusion_has_context_proof",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_B05_mismatch_exclusion_has_context_proof.json"
+    },
+    {
+      "case_id": "v134_C01_color_only_memory_affects_color_only",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_C01_color_only_memory_affects_color_only.json"
+    },
+    {
+      "case_id": "v134_C02_silhouette_only_memory_affects_silhouette_only",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_C02_silhouette_only_memory_affects_silhouette_only.json"
+    },
+    {
+      "case_id": "v134_C03_item_interest_memory_does_not_become_style_preference",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_C03_item_interest_memory_does_not_become_style_preference.json"
+    },
+    {
+      "case_id": "v134_C04_date_night_presence_memory_does_not_become_sweetness_preference",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_C04_date_night_presence_memory_does_not_become_sweetness_preference.json"
+    },
+    {
+      "case_id": "v134_C05_excluded_aspects_not_resurrected",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_C05_excluded_aspects_not_resurrected.json"
+    },
+    {
+      "case_id": "v134_D01_low_saturation_soft_prefer_does_not_ban_all_saturated_items",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_D01_low_saturation_soft_prefer_does_not_ban_all_saturated_items.json"
+    },
+    {
+      "case_id": "v134_D02_soft_preference_yields_to_weather_requirement",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_D02_soft_preference_yields_to_weather_requirement.json"
+    },
+    {
+      "case_id": "v134_D03_soft_preference_yields_to_formal_requirement",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_D03_soft_preference_yields_to_formal_requirement.json"
+    },
+    {
+      "case_id": "v134_D04_soft_preference_yields_to_closet_reliability",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_D04_soft_preference_yields_to_closet_reliability.json"
+    },
+    {
+      "case_id": "v134_D05_soft_preference_not_used_as_explicit_reject",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_D05_soft_preference_not_used_as_explicit_reject.json"
+    },
+    {
+      "case_id": "v134_E01_promoted_memory_changes_outfit_without_quality_regression",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_E01_promoted_memory_changes_outfit_without_quality_regression.json"
+    },
+    {
+      "case_id": "v134_E02_promoted_memory_ignored_when_it_would_break_weather_fit",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_E02_promoted_memory_ignored_when_it_would_break_weather_fit.json"
+    },
+    {
+      "case_id": "v134_E03_promoted_memory_ignored_when_it_would_break_formality_fit",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_E03_promoted_memory_ignored_when_it_would_break_formality_fit.json"
+    },
+    {
+      "case_id": "v134_E04_promoted_memory_does_not_cause_repetition",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_E04_promoted_memory_does_not_cause_repetition.json"
+    },
+    {
+      "case_id": "v134_E05_promoted_memory_does_not_violate_active_avoid",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_E05_promoted_memory_does_not_violate_active_avoid.json"
+    },
+    {
+      "case_id": "v134_F01_promoted_memory_supports_ideal_direction_fit",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_F01_promoted_memory_supports_ideal_direction_fit.json"
+    },
+    {
+      "case_id": "v134_F02_promoted_memory_increases_color_component_only",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_F02_promoted_memory_increases_color_component_only.json"
+    },
+    {
+      "case_id": "v134_F03_promoted_memory_does_not_inflate_overall_match_score",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_F03_promoted_memory_does_not_inflate_overall_match_score.json"
+    },
+    {
+      "case_id": "v134_F04_gap_diagnosis_remains_specific",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_F04_gap_diagnosis_remains_specific.json"
+    },
+    {
+      "case_id": "v134_F05_no_buy_step_uses_confirmed_aspect_only",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_F05_no_buy_step_uses_confirmed_aspect_only.json"
+    },
+    {
+      "case_id": "v134_G01_promoted_memory_used_consistently_across_matching_days",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_G01_promoted_memory_used_consistently_across_matching_days.json"
+    },
+    {
+      "case_id": "v134_G02_promoted_memory_does_not_dominate_every_day",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_G02_promoted_memory_does_not_dominate_every_day.json"
+    },
+    {
+      "case_id": "v134_G03_variety_guardrail_remains_active",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_G03_variety_guardrail_remains_active.json"
+    },
+    {
+      "case_id": "v134_G04_do_not_remember_later_blocks_claim",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_G04_do_not_remember_later_blocks_claim.json"
+    },
+    {
+      "case_id": "v134_G05_rollback_removes_memory_from_later_consumption",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_G05_rollback_removes_memory_from_later_consumption.json"
+    },
+    {
+      "case_id": "v134_H01_response_claim_matches_promoted_memory_concept",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_H01_response_claim_matches_promoted_memory_concept.json"
+    },
+    {
+      "case_id": "v134_H02_response_does_not_claim_full_style_from_color_memory",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_H02_response_does_not_claim_full_style_from_color_memory.json"
+    },
+    {
+      "case_id": "v134_H03_response_says_soft_bias_not_hard_rule",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_H03_response_says_soft_bias_not_hard_rule.json"
+    },
+    {
+      "case_id": "v134_H04_response_does_not_cite_excluded_memory",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_H04_response_does_not_cite_excluded_memory.json"
+    },
+    {
+      "case_id": "v134_H05_response_does_not_cite_rolled_back_memory",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v134_H05_response_does_not_cite_rolled_back_memory.json"
+    }
+  ]
+}

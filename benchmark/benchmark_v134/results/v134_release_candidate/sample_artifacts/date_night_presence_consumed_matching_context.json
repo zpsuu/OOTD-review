@@ -1,0 +1,310 @@
+{
+  "case_id": "v134_A02_date_night_soft_presence_memory_consumed_in_date_night",
+  "version": "v1.34",
+  "scenario": "A02_date_night_soft_presence_memory_consumed_in_date_night",
+  "scenario_kind": "date_night",
+  "scenario_preconditions": {
+    "expected": [
+      "promoted_memory_atom_present",
+      "task_memory_packet_present",
+      "context_or_exclusion_proof_present"
+    ],
+    "satisfied": true,
+    "proof_refs": [
+      "promoted_memory_atom",
+      "task_memory_packet",
+      "promoted_memory_consumption_report"
+    ],
+    "missing_preconditions": []
+  },
+  "promoted_memory_atom": {
+    "memory_id": "mem_insp_v134_02",
+    "concept": "soft date-night presence",
+    "concept_type": "aesthetic_preference",
+    "polarity": "soft_prefer",
+    "scope": "contextual",
+    "contexts": [
+      "date_night"
+    ],
+    "confirmed_aspects": [
+      "soft_presence"
+    ],
+    "excluded_aspects": [
+      "excessive_sweetness",
+      "exact_items",
+      "model_body",
+      "photo_lighting"
+    ],
+    "source_type": "confirmed_external_inspiration",
+    "downstream_use": [
+      "candidate_ranking",
+      "daily_outfit_soft_bias",
+      "bridge_support_signal"
+    ],
+    "disallowed_downstream_use": [
+      "hard_filter",
+      "global_style_identity",
+      "commerce_targeting",
+      "body_inference"
+    ],
+    "evidence_refs": [
+      "promotion_plan_v134_02",
+      "confirmation_action_v134_02"
+    ]
+  },
+  "task_memory_packet": {
+    "task_memory_packet_id": "tmp_v134_02",
+    "request_context": "date_night",
+    "candidate_promoted_memory_ids": [
+      "mem_insp_v134_02"
+    ],
+    "consumed_promoted_memory_ids": [
+      "mem_insp_v134_02"
+    ],
+    "excluded_memory_ids": [],
+    "exclusion_reasons": {},
+    "context_match": {
+      "matched": true,
+      "matched_context": "date_night"
+    },
+    "explicit_reject": [],
+    "commerce_targeting_memory_ids": [],
+    "rolledback_memory_ids": [],
+    "do_not_remember_memory_ids": []
+  },
+  "promoted_memory_consumption_report": {
+    "consumption_report_id": "pmcr_v134_02",
+    "task_id": "task_v134_02",
+    "promoted_memory_id": "mem_insp_v134_02",
+    "memory_concept": "soft date-night presence",
+    "memory_source_type": "confirmed_external_inspiration",
+    "memory_scope": "contextual",
+    "memory_contexts": [
+      "date_night"
+    ],
+    "current_task_context": {
+      "occasion": "date_night",
+      "context_tags": [
+        "date_night"
+      ]
+    },
+    "context_match": {
+      "matched": true,
+      "matched_by": "occasion",
+      "matched_context": "date_night"
+    },
+    "consumption_mode": "soft_bias",
+    "disallowed_consumption_modes": [
+      "hard_filter",
+      "global_style_identity",
+      "commerce_targeting",
+      "body_inference"
+    ],
+    "used_for": [
+      "candidate_ranking",
+      "contextual_presence"
+    ],
+    "not_used_for": [
+      "body_inference",
+      "commerce_targeting",
+      "global_style_identity",
+      "sweetness_preference",
+      "item_preference"
+    ],
+    "confirmed_aspects_used": [
+      "soft_presence"
+    ],
+    "excluded_aspects_not_used": [
+      "excessive_sweetness",
+      "exact_items",
+      "model_body",
+      "photo_lighting"
+    ],
+    "trace_refs": {
+      "task_memory_packet_id": "tmp_v134_02",
+      "planner_trace_id": "trace_v134_02"
+    }
+  },
+  "consumption_report": {
+    "consumption_report_id": "pmcr_v134_02",
+    "task_id": "task_v134_02",
+    "promoted_memory_id": "mem_insp_v134_02",
+    "memory_concept": "soft date-night presence",
+    "memory_source_type": "confirmed_external_inspiration",
+    "memory_scope": "contextual",
+    "memory_contexts": [
+      "date_night"
+    ],
+    "current_task_context": {
+      "occasion": "date_night",
+      "context_tags": [
+        "date_night"
+      ]
+    },
+    "context_match": {
+      "matched": true,
+      "matched_by": "occasion",
+      "matched_context": "date_night"
+    },
+    "consumption_mode": "soft_bias",
+    "disallowed_consumption_modes": [
+      "hard_filter",
+      "global_style_identity",
+      "commerce_targeting",
+      "body_inference"
+    ],
+    "used_for": [
+      "candidate_ranking",
+      "contextual_presence"
+    ],
+    "not_used_for": [
+      "body_inference",
+      "commerce_targeting",
+      "global_style_identity",
+      "sweetness_preference",
+      "item_preference"
+    ],
+    "confirmed_aspects_used": [
+      "soft_presence"
+    ],
+    "excluded_aspects_not_used": [
+      "excessive_sweetness",
+      "exact_items",
+      "model_body",
+      "photo_lighting"
+    ],
+    "trace_refs": {
+      "task_memory_packet_id": "tmp_v134_02",
+      "planner_trace_id": "trace_v134_02"
+    }
+  },
+  "mismatch_exclusion_proof": null,
+  "consumption_delta_proof": {
+    "delta_proof_id": "delta_v134_02",
+    "promoted_memory_id": "mem_insp_v134_02",
+    "baseline_without_promoted_memory": {
+      "outfit_items": [
+        "top_white_shirt",
+        "bottom_gray_trousers",
+        "shoes_black_loafers"
+      ],
+      "direction": "clean office outfit"
+    },
+    "with_promoted_memory": {
+      "outfit_items": [
+        "top_ivory_knit",
+        "bottom_gray_trousers",
+        "shoes_black_loafers"
+      ],
+      "direction": "clean soft date-night presence outfit"
+    },
+    "changed_elements": [
+      {
+        "slot": "top",
+        "from": "top_white_shirt",
+        "to": "top_ivory_knit",
+        "reason": "soft date-night presence soft bias"
+      }
+    ],
+    "quality_non_regression": {
+      "occasion_fit": "pass",
+      "weather_fit": "pass",
+      "formality_fit": "pass",
+      "boundary_violation_free": true,
+      "closet_grounded": true,
+      "repetition_guardrail_passed": true,
+      "item_reliability_passed": true,
+      "hard_constraint_override_reason": null,
+      "promoted_memory_ignored_to_preserve_quality": false,
+      "quality_non_regression": true
+    },
+    "delta_is_trace_backed": true,
+    "visible_output_changed_when_claimed": true,
+    "beneficial_delta": true,
+    "neutral_delta": false,
+    "harmful_delta": false
+  },
+  "daily_outfit_card": {
+    "item_ids": [
+      "top_ivory_knit",
+      "bottom_gray_trousers",
+      "shoes_black_loafers"
+    ],
+    "closet_grounded": true,
+    "weather_fit": "pass",
+    "formality_fit": "pass",
+    "active_avoid_violations": [],
+    "used_for": [
+      "candidate_ranking",
+      "contextual_presence"
+    ],
+    "not_used_for": [
+      "body_inference",
+      "commerce_targeting",
+      "global_style_identity",
+      "sweetness_preference",
+      "item_preference"
+    ]
+  },
+  "bridge_consumption_report": {
+    "bridge_consumption_id": "bridge_v134_02",
+    "promoted_memory_id": "mem_insp_v134_02",
+    "used_as": "component_support_signal",
+    "affected_component": "soft_presence",
+    "component_score_before": 0.7,
+    "component_score_after": 0.74,
+    "overall_score_before": 0.72,
+    "overall_score_after": 0.76,
+    "max_allowed_overall_delta": 0.05,
+    "score_inflation_detected": false,
+    "gap_diagnosis": "specific category-level gap remains unchanged",
+    "no_buy_step": "Use existing closet items that support soft date-night presence without shopping."
+  },
+  "multi_day_stability": {
+    "days_checked": 3,
+    "matching_days_consumed": 2,
+    "dominates_every_day": false,
+    "variety_guardrail_active": true
+  },
+  "rollback_proof": null,
+  "response_claims": [
+    {
+      "claim_id": "claim_v134_02",
+      "text": "I used your confirmed soft date-night presence as a contextual soft cue.",
+      "trace_refs": [
+        "mem_insp_v134_02",
+        "tmp_v134_02"
+      ]
+    }
+  ],
+  "response_claim_alignment": {
+    "claim_ref": "mem_insp_v134_02",
+    "promoted_memory_concept": "soft date-night presence",
+    "claim_text": "I used your confirmed soft date-night presence as a contextual soft cue.",
+    "concept_terms_covered": [
+      "soft date-night",
+      "presence",
+      "contextual"
+    ],
+    "generic_template_detected": false,
+    "matches_promoted_memory_concept": true,
+    "overstates_promoted_memory": false,
+    "claim_refs_subset_of_consumed_memory_ids": true
+  },
+  "consumption_quality_scorecard": {
+    "scorecard_id": "cq_A02_date_night_soft_presence_memory_consumed_in_date_night",
+    "case_id": "v134_A02_date_night_soft_presence_memory_consumed_in_date_night",
+    "scorecard_type": "promoted_memory_consumption",
+    "scores": {
+      "context_correct": 2,
+      "aspect_correct": 2,
+      "soft_bias_not_hard_filter": 2,
+      "quality_non_regression": 2,
+      "response_claim_accuracy": 2,
+      "delta_useful": 1
+    },
+    "total_score": 11,
+    "max_score": 12,
+    "reviewer_notes": "Promoted memory is consumed only as scoped soft bias without quality regression."
+  }
+}

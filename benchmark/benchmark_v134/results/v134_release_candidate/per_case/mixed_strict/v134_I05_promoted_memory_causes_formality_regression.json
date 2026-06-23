@@ -1,0 +1,16 @@
+{
+  "case_id": "v134_I05_promoted_memory_causes_formality_regression",
+  "version": "v1.34",
+  "defect_type": "promoted_memory_causes_formality_regression",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "daily_outfit_quality_non_regression_with_promoted_memory_rate",
+    "promoted_memory_does_not_break_formality_fit_rate"
+  ],
+  "failed_check_ids": [
+    "daily_outfit_quality_non_regression_with_promoted_memory_rate",
+    "promoted_memory_does_not_break_formality_fit_rate"
+  ],
+  "source_clean_case_id": "v134_A01_office_daily_low_saturation_memory_consumed_in_office_daily",
+  "failure_reason": "Injected defect detected: promoted_memory_causes_formality_regression"
+}

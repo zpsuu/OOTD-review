@@ -1,0 +1,294 @@
+{
+  "case_id": "v134_C03_item_interest_memory_does_not_become_style_preference",
+  "version": "v1.34",
+  "scenario": "C03_item_interest_memory_does_not_become_style_preference",
+  "scenario_kind": "item_interest",
+  "scenario_preconditions": {
+    "expected": [
+      "promoted_memory_atom_present",
+      "task_memory_packet_present",
+      "context_or_exclusion_proof_present"
+    ],
+    "satisfied": true,
+    "proof_refs": [
+      "promoted_memory_atom",
+      "task_memory_packet",
+      "promoted_memory_consumption_report"
+    ],
+    "missing_preconditions": []
+  },
+  "promoted_memory_atom": {
+    "memory_id": "mem_insp_v134_13",
+    "concept": "structured jacket category interest",
+    "concept_type": "aesthetic_preference",
+    "polarity": "soft_prefer",
+    "scope": "contextual",
+    "contexts": [
+      "office_daily"
+    ],
+    "confirmed_aspects": [
+      "item_category_interest"
+    ],
+    "excluded_aspects": [
+      "style_identity",
+      "luxury_brand_specificity",
+      "merchant",
+      "sku"
+    ],
+    "source_type": "confirmed_external_inspiration",
+    "downstream_use": [
+      "candidate_ranking",
+      "daily_outfit_soft_bias",
+      "bridge_support_signal"
+    ],
+    "disallowed_downstream_use": [
+      "hard_filter",
+      "global_style_identity",
+      "commerce_targeting",
+      "body_inference"
+    ],
+    "evidence_refs": [
+      "promotion_plan_v134_13",
+      "confirmation_action_v134_13"
+    ]
+  },
+  "task_memory_packet": {
+    "task_memory_packet_id": "tmp_v134_13",
+    "request_context": "office_daily",
+    "candidate_promoted_memory_ids": [
+      "mem_insp_v134_13"
+    ],
+    "consumed_promoted_memory_ids": [
+      "mem_insp_v134_13"
+    ],
+    "excluded_memory_ids": [],
+    "exclusion_reasons": {},
+    "context_match": {
+      "matched": true,
+      "matched_context": "office_daily"
+    },
+    "explicit_reject": [],
+    "commerce_targeting_memory_ids": [],
+    "rolledback_memory_ids": [],
+    "do_not_remember_memory_ids": []
+  },
+  "promoted_memory_consumption_report": {
+    "consumption_report_id": "pmcr_v134_13",
+    "task_id": "task_v134_13",
+    "promoted_memory_id": "mem_insp_v134_13",
+    "memory_concept": "structured jacket category interest",
+    "memory_source_type": "confirmed_external_inspiration",
+    "memory_scope": "contextual",
+    "memory_contexts": [
+      "office_daily"
+    ],
+    "current_task_context": {
+      "occasion": "office_daily",
+      "context_tags": [
+        "office_daily"
+      ]
+    },
+    "context_match": {
+      "matched": true,
+      "matched_by": "occasion",
+      "matched_context": "office_daily"
+    },
+    "consumption_mode": "soft_bias",
+    "disallowed_consumption_modes": [
+      "hard_filter",
+      "global_style_identity",
+      "commerce_targeting",
+      "body_inference"
+    ],
+    "used_for": [
+      "candidate_ranking",
+      "item_category_interest"
+    ],
+    "not_used_for": [
+      "body_inference",
+      "commerce_targeting",
+      "global_style_identity",
+      "full_style_identity"
+    ],
+    "confirmed_aspects_used": [
+      "item_category_interest"
+    ],
+    "excluded_aspects_not_used": [
+      "style_identity",
+      "luxury_brand_specificity",
+      "merchant",
+      "sku"
+    ],
+    "trace_refs": {
+      "task_memory_packet_id": "tmp_v134_13",
+      "planner_trace_id": "trace_v134_13"
+    }
+  },
+  "consumption_report": {
+    "consumption_report_id": "pmcr_v134_13",
+    "task_id": "task_v134_13",
+    "promoted_memory_id": "mem_insp_v134_13",
+    "memory_concept": "structured jacket category interest",
+    "memory_source_type": "confirmed_external_inspiration",
+    "memory_scope": "contextual",
+    "memory_contexts": [
+      "office_daily"
+    ],
+    "current_task_context": {
+      "occasion": "office_daily",
+      "context_tags": [
+        "office_daily"
+      ]
+    },
+    "context_match": {
+      "matched": true,
+      "matched_by": "occasion",
+      "matched_context": "office_daily"
+    },
+    "consumption_mode": "soft_bias",
+    "disallowed_consumption_modes": [
+      "hard_filter",
+      "global_style_identity",
+      "commerce_targeting",
+      "body_inference"
+    ],
+    "used_for": [
+      "candidate_ranking",
+      "item_category_interest"
+    ],
+    "not_used_for": [
+      "body_inference",
+      "commerce_targeting",
+      "global_style_identity",
+      "full_style_identity"
+    ],
+    "confirmed_aspects_used": [
+      "item_category_interest"
+    ],
+    "excluded_aspects_not_used": [
+      "style_identity",
+      "luxury_brand_specificity",
+      "merchant",
+      "sku"
+    ],
+    "trace_refs": {
+      "task_memory_packet_id": "tmp_v134_13",
+      "planner_trace_id": "trace_v134_13"
+    }
+  },
+  "mismatch_exclusion_proof": null,
+  "consumption_delta_proof": {
+    "delta_proof_id": "delta_v134_13",
+    "promoted_memory_id": "mem_insp_v134_13",
+    "baseline_without_promoted_memory": {
+      "outfit_items": [
+        "top_white_shirt",
+        "bottom_gray_trousers",
+        "shoes_black_loafers"
+      ],
+      "direction": "clean office outfit"
+    },
+    "with_promoted_memory": {
+      "outfit_items": [
+        "top_ivory_knit",
+        "bottom_gray_trousers",
+        "shoes_black_loafers"
+      ],
+      "direction": "clean structured jacket category interest outfit"
+    },
+    "changed_elements": [
+      {
+        "slot": "top",
+        "from": "top_white_shirt",
+        "to": "top_ivory_knit",
+        "reason": "structured jacket category interest soft bias"
+      }
+    ],
+    "quality_non_regression": {
+      "occasion_fit": "pass",
+      "weather_fit": "pass",
+      "formality_fit": "pass",
+      "boundary_violation_free": true,
+      "closet_grounded": true,
+      "repetition_guardrail_passed": true,
+      "item_reliability_passed": true,
+      "hard_constraint_override_reason": null,
+      "promoted_memory_ignored_to_preserve_quality": false,
+      "quality_non_regression": true
+    },
+    "delta_is_trace_backed": true,
+    "visible_output_changed_when_claimed": true,
+    "beneficial_delta": true,
+    "neutral_delta": false,
+    "harmful_delta": false
+  },
+  "daily_outfit_card": {
+    "item_ids": [
+      "top_ivory_knit",
+      "bottom_gray_trousers",
+      "shoes_black_loafers"
+    ],
+    "closet_grounded": true,
+    "weather_fit": "pass",
+    "formality_fit": "pass",
+    "active_avoid_violations": [],
+    "used_for": [
+      "candidate_ranking",
+      "item_category_interest"
+    ],
+    "not_used_for": [
+      "body_inference",
+      "commerce_targeting",
+      "global_style_identity",
+      "full_style_identity"
+    ]
+  },
+  "bridge_consumption_report": null,
+  "multi_day_stability": {
+    "days_checked": 3,
+    "matching_days_consumed": 2,
+    "dominates_every_day": false,
+    "variety_guardrail_active": true
+  },
+  "rollback_proof": null,
+  "response_claims": [
+    {
+      "claim_id": "claim_v134_13",
+      "text": "I used your confirmed structured jacket category interest as a soft cue.",
+      "trace_refs": [
+        "mem_insp_v134_13",
+        "tmp_v134_13"
+      ]
+    }
+  ],
+  "response_claim_alignment": {
+    "claim_ref": "mem_insp_v134_13",
+    "promoted_memory_concept": "structured jacket category interest",
+    "claim_text": "I used your confirmed structured jacket category interest as a soft cue.",
+    "concept_terms_covered": [
+      "structured jacket",
+      "category",
+      "soft cue"
+    ],
+    "generic_template_detected": false,
+    "matches_promoted_memory_concept": true,
+    "overstates_promoted_memory": false,
+    "claim_refs_subset_of_consumed_memory_ids": true
+  },
+  "consumption_quality_scorecard": {
+    "scorecard_id": "cq_C03_item_interest_memory_does_not_become_style_preference",
+    "case_id": "v134_C03_item_interest_memory_does_not_become_style_preference",
+    "scorecard_type": "promoted_memory_consumption",
+    "scores": {
+      "context_correct": 2,
+      "aspect_correct": 2,
+      "soft_bias_not_hard_filter": 2,
+      "quality_non_regression": 2,
+      "response_claim_accuracy": 2,
+      "delta_useful": 1
+    },
+    "total_score": 11,
+    "max_score": 12,
+    "reviewer_notes": "Promoted memory is consumed only as scoped soft bias without quality regression."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "impact_summary_id": "impact_v134",
+  "total_promoted_memory_consumption_cases": 40,
+  "matching_context_consumption_count": 32,
+  "mismatching_context_exclusion_count": 8,
+  "wrong_context_consumption_count": 0,
+  "soft_bias_consumption_count": 32,
+  "hard_filter_misuse_count": 0,
+  "commerce_targeting_misuse_count": 0,
+  "quality_regression_count": 0,
+  "response_claim_overstatement_count": 0,
+  "beneficial_delta_cases": 27,
+  "neutral_delta_cases": 13,
+  "harmful_delta_cases": 0
+}

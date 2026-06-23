@@ -1,0 +1,14 @@
+{
+  "case_id": "v134_I10_excluded_aspect_resurrected_in_daily_outfit",
+  "version": "v1.34",
+  "defect_type": "excluded_aspect_resurrected_in_daily_outfit",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "excluded_aspects_not_resurrected_rate"
+  ],
+  "failed_check_ids": [
+    "excluded_aspects_not_resurrected_rate"
+  ],
+  "source_clean_case_id": "v134_A01_office_daily_low_saturation_memory_consumed_in_office_daily",
+  "failure_reason": "Injected defect detected: excluded_aspect_resurrected_in_daily_outfit"
+}

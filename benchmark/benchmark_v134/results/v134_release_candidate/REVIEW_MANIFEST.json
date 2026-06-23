@@ -1,0 +1,48 @@
+{
+  "version": "v1.34",
+  "release_candidate_status": "pass_candidate_pending_manual_review",
+  "theme": "Inspiration Memory Consumption Quality",
+  "branch": "v134-inspiration-memory-consumption-quality",
+  "entrypoint": "benchmark/benchmark_v134/results/v134_release_candidate/REVIEW_MANIFEST.json",
+  "generated_at": "2026-06-23T15:43:56Z",
+  "required_gates": [
+    "promoted_memory_consumption_report_present_rate",
+    "promoted_memory_consumed_in_matching_context_rate",
+    "promoted_memory_excluded_in_mismatching_context_rate",
+    "promoted_memory_context_match_proof_present_rate",
+    "promoted_memory_aspect_use_matches_confirmed_aspects_rate",
+    "excluded_aspects_not_resurrected_rate",
+    "promoted_memory_used_as_soft_bias_only_rate",
+    "soft_prefer_not_used_as_hard_filter_rate",
+    "daily_outfit_quality_non_regression_with_promoted_memory_rate",
+    "promoted_memory_does_not_break_weather_fit_rate",
+    "promoted_memory_does_not_break_formality_fit_rate",
+    "promoted_memory_does_not_violate_active_avoid_rate",
+    "consumption_delta_self_proof_present_rate",
+    "targeted_promoted_memory_changes_visible_output_rate",
+    "bridge_match_score_not_overstated_by_promoted_memory_rate",
+    "response_claim_text_matches_promoted_memory_concept_rate",
+    "response_claim_does_not_overstate_promoted_memory_rate",
+    "rolledback_promoted_memory_not_consumed_rate",
+    "promoted_memory_not_used_for_commerce_targeting_rate"
+  ],
+  "must_review_samples": [
+    "sample_artifacts/office_low_saturation_consumed_matching_context.json",
+    "sample_artifacts/date_night_presence_consumed_matching_context.json",
+    "sample_artifacts/office_memory_excluded_date_night.json",
+    "sample_artifacts/color_only_memory_affects_color_only.json",
+    "sample_artifacts/soft_bias_yields_to_weather_requirement.json",
+    "sample_artifacts/promoted_memory_delta_visible_output.json",
+    "sample_artifacts/bridge_uses_promoted_memory_without_score_inflation.json",
+    "sample_artifacts/rolledback_promoted_memory_not_consumed.json",
+    "sample_artifacts/response_claim_no_overstatement.json"
+  ],
+  "non_goals": [
+    "No new external platform integrations",
+    "No production expansion of inspiration promotion allowlist",
+    "No global inspiration memory writes",
+    "No shopping or commerce",
+    "No AIGC image generation",
+    "No multimodal clean acceptance dependency"
+  ]
+}

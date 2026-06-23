@@ -2,65 +2,61 @@
 
 ## Current Active Version
 
-v1.33 - Confirmed Inspiration Memory Promotion Governance
+v1.34 - Inspiration Memory Consumption Quality
 
 Current branch:
-`v133-confirmed-inspiration-memory-promotion-governance`
+`v134-inspiration-memory-consumption-quality`
 
 Current status:
-`PASS CANDIDATE confirmed after promotion write / rollback / review payload self-proof review`
+`PASS CANDIDATE pending manual review`
 
 ## Current Review Focus
 
-This iteration verifies Confirmed Inspiration Memory Promotion Governance evidence across:
+This iteration verifies Inspiration Memory Consumption Quality evidence across:
 
-- promotion eligibility reports for confirmed inspiration candidates
-- narrow low-risk contextual soft_prefer promotion policy
-- promotion plans matching confirmed aspects and excluding unconfirmed aspects
-- ProductionMemoryWriteGate routing for allowed promotions
-- blocked / deferred / review-required non-write paths
-- conflict moderation before write
-- production-native write artifact self-proof
-- rollback proof for allowed writes
-- scoped PromotedMemoryAtom integrity
-- context-safe TaskMemoryPacket consumption
-- injected defect detection for promotion governance regressions
+- matching-context consumption for promoted inspiration memories
+- mismatching-context exclusion proof
+- confirmed aspect-only downstream use
+- soft-bias behavior without hard-filter misuse
+- Daily Outfit quality non-regression
+- Ideal-Reality Bridge component-level use without score inflation
+- multi-day stability and rollback safety
+- response claim accuracy without overstatement
+- injected defect detection for consumption quality regressions
 
 ## Latest Evidence Pack
 
-`benchmark/benchmark_v133/results/v133_release_candidate/`
+`benchmark/benchmark_v134/results/v134_release_candidate/`
 
 ## Key Files To Review
 
-- `benchmark/benchmark_v133/results/v133_release_candidate/REVIEW_MANIFEST.json`
-- `benchmark/benchmark_v133/results/v133_release_candidate/clean_report.json`
-- `benchmark/benchmark_v133/results/v133_release_candidate/mixed_strict_report.json`
-- `benchmark/benchmark_v133/results/v133_release_candidate/injected_defect_detection_summary.json`
-- `benchmark/benchmark_v133/results/v133_release_candidate/promotion_eligibility_summary.json`
-- `benchmark/benchmark_v133/results/v133_release_candidate/promotion_write_summary.json`
-- `benchmark/benchmark_v133/results/v133_release_candidate/promoted_memory_atom_summary.json`
-- `benchmark/benchmark_v133/results/v133_release_candidate/downstream_consumption_summary.json`
-- `benchmark/benchmark_v133/results/v133_release_candidate/sample_artifacts/color_only_contextual_promotion_allowed.json`
-- `benchmark/benchmark_v133/results/v133_release_candidate/sample_artifacts/date_night_contextual_promotion_allowed.json`
-- `benchmark/benchmark_v133/results/v133_release_candidate/sample_artifacts/global_request_blocked_or_review.json`
-- `benchmark/benchmark_v133/results/v133_release_candidate/sample_artifacts/high_risk_candidate_blocked.json`
-- `benchmark/benchmark_v133/results/v133_release_candidate/sample_artifacts/conflict_moderated_translation_promotion.json`
-- `benchmark/benchmark_v133/results/v133_release_candidate/sample_artifacts/allowed_promotion_write_artifact.json`
-- `benchmark/benchmark_v133/results/v133_release_candidate/sample_artifacts/rollback_proof_for_promotion_write.json`
-- `benchmark/benchmark_v133/results/v133_release_candidate/sample_artifacts/promoted_memory_consumed_matching_context.json`
-- `benchmark/benchmark_v133/results/v133_release_candidate/sample_artifacts/promoted_memory_excluded_mismatching_context.json`
-- `benchmark/benchmark_v133/results/v133_release_candidate/sample_artifacts/blocked_candidate_no_write_attempt.json`
+- `benchmark/benchmark_v134/results/v134_release_candidate/REVIEW_MANIFEST.json`
+- `benchmark/benchmark_v134/results/v134_release_candidate/clean_report.json`
+- `benchmark/benchmark_v134/results/v134_release_candidate/mixed_strict_report.json`
+- `benchmark/benchmark_v134/results/v134_release_candidate/injected_defect_detection_summary.json`
+- `benchmark/benchmark_v134/results/v134_release_candidate/promoted_memory_consumption_summary.json`
+- `benchmark/benchmark_v134/results/v134_release_candidate/inspiration_memory_impact_summary.json`
+- `benchmark/benchmark_v134/results/v134_release_candidate/quality_non_regression_summary.json`
+- `benchmark/benchmark_v134/results/v134_release_candidate/bridge_consumption_summary.json`
+- `benchmark/benchmark_v134/results/v134_release_candidate/response_claim_accuracy_summary.json`
+- `benchmark/benchmark_v134/results/v134_release_candidate/sample_artifacts/office_low_saturation_consumed_matching_context.json`
+- `benchmark/benchmark_v134/results/v134_release_candidate/sample_artifacts/date_night_presence_consumed_matching_context.json`
+- `benchmark/benchmark_v134/results/v134_release_candidate/sample_artifacts/office_memory_excluded_date_night.json`
+- `benchmark/benchmark_v134/results/v134_release_candidate/sample_artifacts/color_only_memory_affects_color_only.json`
+- `benchmark/benchmark_v134/results/v134_release_candidate/sample_artifacts/soft_bias_yields_to_weather_requirement.json`
+- `benchmark/benchmark_v134/results/v134_release_candidate/sample_artifacts/promoted_memory_delta_visible_output.json`
+- `benchmark/benchmark_v134/results/v134_release_candidate/sample_artifacts/bridge_uses_promoted_memory_without_score_inflation.json`
+- `benchmark/benchmark_v134/results/v134_release_candidate/sample_artifacts/rolledback_promoted_memory_not_consumed.json`
+- `benchmark/benchmark_v134/results/v134_release_candidate/sample_artifacts/response_claim_no_overstatement.json`
 
-## v1.33 - Confirmed Inspiration Memory Promotion Governance
+## v1.34 - Inspiration Memory Consumption Quality
 
-Status: PASS CANDIDATE confirmed after promotion write / rollback / review payload self-proof review
+Status: PASS CANDIDATE pending manual review
 
 Current review focus:
-- eligibility before promotion
-- narrow contextual soft_prefer allowlist
-- ProductionMemoryWriteGate routing
-- blocked / deferred / review-required paths
-- conflict moderation or review before write
-- audit and rollback proof
-- promoted MemoryAtom integrity
-- matching-context-only downstream consumption
+- promoted memory enters TaskMemoryPacket only in matching context
+- promoted memory is consumed as scoped soft bias
+- confirmed aspect boundaries are preserved downstream
+- Daily Outfit and Bridge quality do not regress
+- rolled-back or mismatched promoted memories are not consumed or claimed
+- response claims are trace-backed and not overstated

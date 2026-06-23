@@ -1,0 +1,171 @@
+{
+  "case_id": "v134_B05_mismatch_exclusion_has_context_proof",
+  "version": "v1.34",
+  "scenario": "B05_mismatch_exclusion_has_context_proof",
+  "scenario_kind": "office_mismatch",
+  "scenario_preconditions": {
+    "expected": [
+      "promoted_memory_atom_present",
+      "task_memory_packet_present",
+      "context_or_exclusion_proof_present"
+    ],
+    "satisfied": true,
+    "proof_refs": [
+      "promoted_memory_atom",
+      "task_memory_packet",
+      "promoted_memory_consumption_report"
+    ],
+    "missing_preconditions": []
+  },
+  "promoted_memory_atom": {
+    "memory_id": "mem_insp_v134_10",
+    "concept": "low saturation color palette",
+    "concept_type": "aesthetic_preference",
+    "polarity": "soft_prefer",
+    "scope": "contextual",
+    "contexts": [
+      "office_daily"
+    ],
+    "confirmed_aspects": [
+      "color_palette"
+    ],
+    "excluded_aspects": [
+      "silhouette",
+      "exact_items",
+      "model_body",
+      "photo_lighting"
+    ],
+    "source_type": "confirmed_external_inspiration",
+    "downstream_use": [
+      "candidate_ranking",
+      "daily_outfit_soft_bias",
+      "bridge_support_signal"
+    ],
+    "disallowed_downstream_use": [
+      "hard_filter",
+      "global_style_identity",
+      "commerce_targeting",
+      "body_inference"
+    ],
+    "evidence_refs": [
+      "promotion_plan_v134_10",
+      "confirmation_action_v134_10"
+    ]
+  },
+  "task_memory_packet": {
+    "task_memory_packet_id": "tmp_v134_10",
+    "request_context": "date_night",
+    "candidate_promoted_memory_ids": [
+      "mem_insp_v134_10"
+    ],
+    "consumed_promoted_memory_ids": [],
+    "excluded_memory_ids": [
+      "mem_insp_v134_10"
+    ],
+    "exclusion_reasons": {
+      "mem_insp_v134_10": "context_mismatch"
+    },
+    "context_match": {
+      "matched": false,
+      "matched_context": null
+    },
+    "explicit_reject": [],
+    "commerce_targeting_memory_ids": [],
+    "rolledback_memory_ids": [],
+    "do_not_remember_memory_ids": []
+  },
+  "promoted_memory_consumption_report": null,
+  "consumption_report": null,
+  "mismatch_exclusion_proof": {
+    "excluded_memory_ids": [
+      "mem_insp_v134_10"
+    ],
+    "exclusion_reasons": {
+      "mem_insp_v134_10": "context_mismatch"
+    },
+    "context_match": {
+      "matched": false,
+      "matched_context": null
+    }
+  },
+  "consumption_delta_proof": {
+    "delta_proof_id": "delta_v134_10",
+    "promoted_memory_id": "mem_insp_v134_10",
+    "baseline_without_promoted_memory": {
+      "outfit_items": [
+        "top_white_shirt",
+        "bottom_gray_trousers",
+        "shoes_black_loafers"
+      ],
+      "direction": "clean office outfit"
+    },
+    "with_promoted_memory": {
+      "outfit_items": [
+        "top_white_shirt",
+        "bottom_gray_trousers",
+        "shoes_black_loafers"
+      ],
+      "direction": "clean office outfit"
+    },
+    "changed_elements": [],
+    "quality_non_regression": {
+      "occasion_fit": "pass",
+      "weather_fit": "pass",
+      "formality_fit": "pass",
+      "boundary_violation_free": true,
+      "closet_grounded": true,
+      "repetition_guardrail_passed": true,
+      "item_reliability_passed": true,
+      "hard_constraint_override_reason": null,
+      "promoted_memory_ignored_to_preserve_quality": false,
+      "quality_non_regression": true
+    },
+    "delta_is_trace_backed": true,
+    "visible_output_changed_when_claimed": false,
+    "beneficial_delta": false,
+    "neutral_delta": true,
+    "harmful_delta": false
+  },
+  "daily_outfit_card": {
+    "item_ids": [
+      "top_white_shirt",
+      "bottom_gray_trousers",
+      "shoes_black_loafers"
+    ],
+    "closet_grounded": true,
+    "weather_fit": "pass",
+    "formality_fit": "pass",
+    "active_avoid_violations": [],
+    "used_for": [],
+    "not_used_for": [
+      "commerce_targeting",
+      "body_inference"
+    ]
+  },
+  "bridge_consumption_report": null,
+  "multi_day_stability": {
+    "days_checked": 3,
+    "matching_days_consumed": 0,
+    "dominates_every_day": false,
+    "variety_guardrail_active": true
+  },
+  "rollback_proof": null,
+  "response_claims": [],
+  "response_claim_alignment": null,
+  "consumption_quality_scorecard": {
+    "scorecard_id": "cq_B05_mismatch_exclusion_has_context_proof",
+    "case_id": "v134_B05_mismatch_exclusion_has_context_proof",
+    "scorecard_type": "promoted_memory_consumption",
+    "scores": {
+      "context_correct": 2,
+      "aspect_correct": 2,
+      "soft_bias_not_hard_filter": 2,
+      "quality_non_regression": 2,
+      "response_claim_accuracy": 2,
+      "delta_useful": 1
+    },
+    "total_score": 11,
+    "max_score": 12,
+    "reviewer_notes": "Promoted memory is consumed only as scoped soft bias without quality regression."
+  }
+}

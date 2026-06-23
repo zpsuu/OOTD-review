@@ -1,0 +1,289 @@
+{
+  "benchmark_id": "v1.34.inspiration_memory_consumption_quality.mixed_strict",
+  "schema_version": "v1.34",
+  "generated_at": "2026-06-23T15:43:56Z",
+  "verdicts": {
+    "mixed_strict_verdict": "fail",
+    "injected_defect_detection_verdict": "pass"
+  },
+  "suite_summary": {
+    "total_cases": 50,
+    "clean_cases": 40,
+    "injected_defect_cases": 10,
+    "expected_failed_cases": 10,
+    "unexpected_clean_case_failures": 0,
+    "unexpected_injected_passes": 0
+  },
+  "checks": [
+    {
+      "check_id": "promoted_memory_consumption_report_present_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "promoted_memory_consumed_in_matching_context_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "promoted_memory_excluded_in_mismatching_context_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "promoted_memory_context_match_proof_present_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "promoted_memory_aspect_use_matches_confirmed_aspects_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "excluded_aspects_not_resurrected_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "promoted_memory_used_as_soft_bias_only_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "soft_prefer_not_used_as_hard_filter_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "daily_outfit_quality_non_regression_with_promoted_memory_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "promoted_memory_does_not_break_weather_fit_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "promoted_memory_does_not_break_formality_fit_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "promoted_memory_does_not_violate_active_avoid_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "consumption_delta_self_proof_present_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "targeted_promoted_memory_changes_visible_output_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "bridge_match_score_not_overstated_by_promoted_memory_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "response_claim_text_matches_promoted_memory_concept_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "response_claim_does_not_overstate_promoted_memory_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "rolledback_promoted_memory_not_consumed_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    },
+    {
+      "check_id": "promoted_memory_not_used_for_commerce_targeting_rate",
+      "clean_value": 1.0,
+      "clean_passed": true,
+      "passed": true
+    }
+  ],
+  "detected_defects": [
+    {
+      "case_id": "v134_I01_promoted_memory_consumed_in_wrong_context",
+      "defect_type": "promoted_memory_consumed_in_wrong_context",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "promoted_memory_consumed_in_matching_context_rate",
+        "promoted_memory_excluded_in_mismatching_context_rate"
+      ],
+      "expected_failed_check_ids": [
+        "promoted_memory_consumed_in_matching_context_rate",
+        "promoted_memory_excluded_in_mismatching_context_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v134_I01_promoted_memory_consumed_in_wrong_context.json"
+    },
+    {
+      "case_id": "v134_I02_color_only_memory_used_as_full_style_preference",
+      "defect_type": "color_only_memory_used_as_full_style_preference",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "promoted_memory_aspect_use_matches_confirmed_aspects_rate",
+        "excluded_aspects_not_resurrected_rate"
+      ],
+      "expected_failed_check_ids": [
+        "promoted_memory_aspect_use_matches_confirmed_aspects_rate",
+        "excluded_aspects_not_resurrected_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v134_I02_color_only_memory_used_as_full_style_preference.json"
+    },
+    {
+      "case_id": "v134_I03_soft_prefer_used_as_hard_filter",
+      "defect_type": "soft_prefer_used_as_hard_filter",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "promoted_memory_used_as_soft_bias_only_rate",
+        "soft_prefer_not_used_as_hard_filter_rate"
+      ],
+      "expected_failed_check_ids": [
+        "promoted_memory_used_as_soft_bias_only_rate",
+        "soft_prefer_not_used_as_hard_filter_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v134_I03_soft_prefer_used_as_hard_filter.json"
+    },
+    {
+      "case_id": "v134_I04_promoted_memory_causes_weather_regression",
+      "defect_type": "promoted_memory_causes_weather_regression",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "daily_outfit_quality_non_regression_with_promoted_memory_rate",
+        "promoted_memory_does_not_break_weather_fit_rate"
+      ],
+      "expected_failed_check_ids": [
+        "daily_outfit_quality_non_regression_with_promoted_memory_rate",
+        "promoted_memory_does_not_break_weather_fit_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v134_I04_promoted_memory_causes_weather_regression.json"
+    },
+    {
+      "case_id": "v134_I05_promoted_memory_causes_formality_regression",
+      "defect_type": "promoted_memory_causes_formality_regression",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "daily_outfit_quality_non_regression_with_promoted_memory_rate",
+        "promoted_memory_does_not_break_formality_fit_rate"
+      ],
+      "expected_failed_check_ids": [
+        "daily_outfit_quality_non_regression_with_promoted_memory_rate",
+        "promoted_memory_does_not_break_formality_fit_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v134_I05_promoted_memory_causes_formality_regression.json"
+    },
+    {
+      "case_id": "v134_I06_response_claims_unconfirmed_aspect",
+      "defect_type": "response_claims_unconfirmed_aspect",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "response_claim_text_matches_promoted_memory_concept_rate",
+        "response_claim_does_not_overstate_promoted_memory_rate"
+      ],
+      "expected_failed_check_ids": [
+        "response_claim_text_matches_promoted_memory_concept_rate",
+        "response_claim_does_not_overstate_promoted_memory_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v134_I06_response_claims_unconfirmed_aspect.json"
+    },
+    {
+      "case_id": "v134_I07_rolled_back_promoted_memory_consumed_later",
+      "defect_type": "rolled_back_promoted_memory_consumed_later",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "rolledback_promoted_memory_not_consumed_rate"
+      ],
+      "expected_failed_check_ids": [
+        "rolledback_promoted_memory_not_consumed_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v134_I07_rolled_back_promoted_memory_consumed_later.json"
+    },
+    {
+      "case_id": "v134_I08_promoted_memory_used_as_commerce_targeting",
+      "defect_type": "promoted_memory_used_as_commerce_targeting",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "promoted_memory_not_used_for_commerce_targeting_rate"
+      ],
+      "expected_failed_check_ids": [
+        "promoted_memory_not_used_for_commerce_targeting_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v134_I08_promoted_memory_used_as_commerce_targeting.json"
+    },
+    {
+      "case_id": "v134_I09_bridge_match_score_inflated_by_promoted_memory",
+      "defect_type": "bridge_match_score_inflated_by_promoted_memory",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "bridge_match_score_not_overstated_by_promoted_memory_rate"
+      ],
+      "expected_failed_check_ids": [
+        "bridge_match_score_not_overstated_by_promoted_memory_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v134_I09_bridge_match_score_inflated_by_promoted_memory.json"
+    },
+    {
+      "case_id": "v134_I10_excluded_aspect_resurrected_in_daily_outfit",
+      "defect_type": "excluded_aspect_resurrected_in_daily_outfit",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "excluded_aspects_not_resurrected_rate"
+      ],
+      "expected_failed_check_ids": [
+        "excluded_aspects_not_resurrected_rate"
+      ],
+      "raw_artifact_ref": "per_case/mixed_strict/v134_I10_excluded_aspect_resurrected_in_daily_outfit.json"
+    }
+  ],
+  "unexpected_clean_case_failures": [],
+  "unexpected_injected_passes": []
+}

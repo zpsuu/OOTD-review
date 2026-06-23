@@ -1,0 +1,8 @@
+{
+  "quality_cases": 40,
+  "weather_regression_count": 0,
+  "formality_regression_count": 0,
+  "active_avoid_violation_count": 0,
+  "repetition_regression_count": 0,
+  "closet_grounding_failure_count": 0
+}

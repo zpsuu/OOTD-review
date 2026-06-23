@@ -1,0 +1,14 @@
+{
+  "case_id": "v134_I07_rolled_back_promoted_memory_consumed_later",
+  "version": "v1.34",
+  "defect_type": "rolled_back_promoted_memory_consumed_later",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "rolledback_promoted_memory_not_consumed_rate"
+  ],
+  "failed_check_ids": [
+    "rolledback_promoted_memory_not_consumed_rate"
+  ],
+  "source_clean_case_id": "v134_A01_office_daily_low_saturation_memory_consumed_in_office_daily",
+  "failure_reason": "Injected defect detected: rolled_back_promoted_memory_consumed_later"
+}

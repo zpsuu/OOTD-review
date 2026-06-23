@@ -1,0 +1,7 @@
+{
+  "bridge_cases": 25,
+  "component_level_influence_only": true,
+  "score_inflation_count": 0,
+  "specific_gap_diagnosis_count": 25,
+  "no_buy_steps_use_confirmed_aspect_only": true
+}

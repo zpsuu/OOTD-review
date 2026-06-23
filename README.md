@@ -14,12 +14,12 @@ The private development repository remains private. This mirror only contains re
 
 ## Current Review Target
 
-v1.33 - Confirmed Inspiration Memory Promotion Governance
+v1.34 - Inspiration Memory Consumption Quality
 
 Entrypoint:
 
-`benchmark/benchmark_v133/results/v133_release_candidate/REVIEW_MANIFEST.json`
+`benchmark/benchmark_v134/results/v134_release_candidate/REVIEW_MANIFEST.json`
 
 ## Status
 
-v1.33 Confirmed Inspiration Memory Promotion Governance is PASS CANDIDATE confirmed after promotion write / rollback / review payload self-proof review.
+v1.34 Inspiration Memory Consumption Quality is PASS CANDIDATE pending manual review.

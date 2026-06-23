@@ -1,0 +1,14 @@
+{
+  "case_id": "v134_I08_promoted_memory_used_as_commerce_targeting",
+  "version": "v1.34",
+  "defect_type": "promoted_memory_used_as_commerce_targeting",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "promoted_memory_not_used_for_commerce_targeting_rate"
+  ],
+  "failed_check_ids": [
+    "promoted_memory_not_used_for_commerce_targeting_rate"
+  ],
+  "source_clean_case_id": "v134_A01_office_daily_low_saturation_memory_consumed_in_office_daily",
+  "failure_reason": "Injected defect detected: promoted_memory_used_as_commerce_targeting"
+}

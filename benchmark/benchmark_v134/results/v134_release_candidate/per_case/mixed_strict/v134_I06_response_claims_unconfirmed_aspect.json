@@ -1,0 +1,16 @@
+{
+  "case_id": "v134_I06_response_claims_unconfirmed_aspect",
+  "version": "v1.34",
+  "defect_type": "response_claims_unconfirmed_aspect",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "response_claim_text_matches_promoted_memory_concept_rate",
+    "response_claim_does_not_overstate_promoted_memory_rate"
+  ],
+  "failed_check_ids": [
+    "response_claim_text_matches_promoted_memory_concept_rate",
+    "response_claim_does_not_overstate_promoted_memory_rate"
+  ],
+  "source_clean_case_id": "v134_A01_office_daily_low_saturation_memory_consumed_in_office_daily",
+  "failure_reason": "Injected defect detected: response_claims_unconfirmed_aspect"
+}
