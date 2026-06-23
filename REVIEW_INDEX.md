@@ -8,7 +8,7 @@ Current branch:
 `v132-inspiration-confirmation-ux-candidate-governance`
 
 Current status:
-`PASS CANDIDATE pending manual review`
+`PASS CANDIDATE confirmed after conflict / dedup self-proof review`
 
 ## Current Review Focus
 
@@ -51,7 +51,7 @@ This iteration verifies Inspiration Confirmation UX & Candidate Governance evide
 
 ## v1.32 - Inspiration Confirmation UX & Candidate Governance
 
-Status: PASS CANDIDATE pending manual review
+Status: PASS CANDIDATE confirmed after conflict / dedup self-proof review
 
 Current review focus:
 - confirmation card generation only for sufficient ideal candidates

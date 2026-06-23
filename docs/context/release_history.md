@@ -128,7 +128,7 @@ Current review focus:
 
 ## v1.32 - Inspiration Confirmation UX & Candidate Governance
 
-Status: PASS CANDIDATE pending manual review
+Status: PASS CANDIDATE confirmed after conflict / dedup self-proof review
 
 Focus:
 - confirmation cards only after sufficient ideal candidates

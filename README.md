@@ -22,4 +22,4 @@ Entrypoint:
 
 ## Status
 
-v1.32 Inspiration Confirmation UX & Candidate Governance is PASS CANDIDATE pending manual review.
+v1.32 Inspiration Confirmation UX & Candidate Governance is PASS CANDIDATE confirmed after conflict / dedup self-proof review.

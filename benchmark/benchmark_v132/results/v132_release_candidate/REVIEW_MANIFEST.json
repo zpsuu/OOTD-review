@@ -1,6 +1,9 @@
 {
   "version": "v1.32",
-  "release_candidate_status": "pass_candidate_pending_manual_review",
+  "release_candidate_status": "pass_candidate_confirmed",
+  "manual_review_status": "passed",
+  "manual_review_verdict": "PASS CANDIDATE confirmed",
+  "manual_review_summary": "v1.32 Inspiration Confirmation UX & Candidate Governance passed manual spot review. Conflict memory source proof, hard conflict confirmation prompt, dedup member source proof, and conflicting candidate self-proof are confirmed.",
   "branch": "v132-inspiration-confirmation-ux-candidate-governance",
   "theme": "Inspiration Confirmation UX & Candidate Governance",
   "generated_at": "2026-06-23T14:40:41Z",

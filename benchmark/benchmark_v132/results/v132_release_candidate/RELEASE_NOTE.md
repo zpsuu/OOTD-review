@@ -2,7 +2,7 @@
 
 ## Status
 
-PASS CANDIDATE pending manual review.
+PASS CANDIDATE confirmed after conflict / dedup self-proof review.
 
 ## Theme
 

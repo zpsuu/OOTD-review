@@ -6,7 +6,7 @@ v1.32 verifies Inspiration Confirmation UX & Candidate Governance: confirmation 
 
 ## Status
 
-PASS CANDIDATE pending manual review.
+PASS CANDIDATE confirmed after conflict / dedup self-proof review.
 
 ## Entrypoint
 
