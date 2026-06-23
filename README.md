@@ -14,12 +14,12 @@ The private development repository remains private. This mirror only contains re
 
 ## Current Review Target
 
-v1.29.8 - Daily Outfit Beta Readiness
+v1.30 - Ideal-Reality Bridge Alpha
 
 Entrypoint:
 
-`benchmark/benchmark_v129/results/v1298_release_candidate/REVIEW_MANIFEST.json`
+`benchmark/benchmark_v130/results/v130_release_candidate/REVIEW_MANIFEST.json`
 
 ## Status
 
-v1.29.8 Daily Outfit Beta Readiness is PASS CANDIDATE confirmed.
+PASS CANDIDATE pending manual review.

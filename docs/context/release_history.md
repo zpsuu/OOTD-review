@@ -82,15 +82,30 @@ Focus:
 
 ## v1.29.8 - Daily Outfit Beta Readiness
 
-Status: PASS CANDIDATE confirmed
+Status: PASS CANDIDATE pending manual review
 
-Focus:
-- internal beta / dogfood readiness evidence
+Current review focus:
+- internal beta readiness
 - multi-user beta fixture runs
-- daily card generation or honest fallback
-- fallback preview consistency
-- fallback scorecard semantics
-- separation of Daily Outfit Cards and fallback notices in score summaries
-- observability summary completeness
-- human review scorecard summary
-- injected defect detection for beta-readiness regressions
+- Daily Outfit Card or honest fallback
+- quality guardrail retention
+- closet reliability retention
+- Memory UX action routing
+- multi-day state stability
+- observability summary
+- human review scorecard
+
+## v1.30 - Ideal-Reality Bridge Alpha
+
+Status: PASS CANDIDATE pending manual review
+
+Current review focus:
+- ideal direction decomposition
+- user memory fit / conflict analysis
+- closet reality mapping
+- grounded reality outfit generation
+- specific gap diagnosis
+- no-buy and one-item category-level next steps
+- match score self-proof
+- Memory UX confirmation and write safety
+- injected defect detection for bridge regressions

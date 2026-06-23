@@ -1,0 +1,69 @@
+{
+  "version": "v1.30",
+  "release_candidate_status": "pass_candidate_pending_manual_review",
+  "branch": "v130-ideal-reality-bridge-alpha",
+  "theme": "Ideal-Reality Bridge Alpha",
+  "generated_at": "2026-06-23T11:13:11Z",
+  "scope": {
+    "goals": [
+      "Translate structured ideal directions into closet-grounded reality outfits",
+      "Provide trace-backed user memory fit analysis",
+      "Provide specific gap diagnosis",
+      "Provide no-buy and one-item category-level next steps",
+      "Require user confirmation before ideal direction memory writes"
+    ],
+    "non_goals": [
+      "No external inspiration intake",
+      "No multimodal clean acceptance dependency",
+      "No AIGC image generation",
+      "No shopping or product recommendations",
+      "No public beta launch",
+      "No complete UI"
+    ]
+  },
+  "reports": {
+    "clean_report": "clean_report.json",
+    "mixed_strict_report": "mixed_strict_report.json",
+    "injected_summary": "injected_defect_detection_summary.json",
+    "bridge_run_summary": "bridge_run_summary.json",
+    "gap_diagnosis_summary": "gap_diagnosis_summary.json",
+    "match_score_summary": "match_score_summary.json"
+  },
+  "required_gates": [
+    "ideal_reality_bridge_card_schema_valid_rate",
+    "ideal_decomposition_schema_valid_rate",
+    "ideal_core_elements_traceable_rate",
+    "user_memory_fit_trace_coverage_rate",
+    "ideal_memory_conflict_detected_rate",
+    "misuse_correction_blocks_cliche_interpretation_rate",
+    "reality_outfit_uses_only_closet_items_rate",
+    "reality_outfit_does_not_use_gap_suggestion_as_closet_item_rate",
+    "gap_diagnosis_primary_gap_supported_rate",
+    "gap_suggestion_category_only_rate",
+    "no_buy_step_present_rate",
+    "one_item_step_not_product_recommendation_rate",
+    "match_score_component_breakdown_present_rate",
+    "match_score_not_overstated_when_key_gap_missing_rate",
+    "ideal_direction_memory_write_requires_confirmation_rate",
+    "bridge_card_user_visible_claim_trace_coverage_rate",
+    "scenario_precondition_satisfied_rate",
+    "no_vacuous_bridge_case_pass_rate"
+  ],
+  "must_review_samples": [
+    "sample_artifacts/low_saturation_city_bridge.json",
+    "sample_artifacts/ideal_supported_by_memory.json",
+    "sample_artifacts/ideal_conflicts_with_avoid_boundary.json",
+    "sample_artifacts/closet_lacks_key_outerwear_gap.json",
+    "sample_artifacts/no_buy_step_bridge.json",
+    "sample_artifacts/one_item_category_step.json",
+    "sample_artifacts/match_score_self_proof.json",
+    "sample_artifacts/exploratory_ideal_no_write.json",
+    "sample_artifacts/remember_contextual_ideal_write_gate.json",
+    "sample_artifacts/misuse_correction_blocks_cliche_bridge.json"
+  ],
+  "known_p2_backlog": [
+    "Improve bridge card natural-language polish after gates pass",
+    "Add optional shadow support for visual inspiration later",
+    "Add more human-eval calibration before public beta"
+  ]
+}

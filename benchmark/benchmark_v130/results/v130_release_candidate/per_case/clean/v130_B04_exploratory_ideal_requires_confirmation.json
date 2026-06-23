@@ -1,0 +1,449 @@
+{
+  "case_id": "v130_B04_exploratory_ideal_requires_confirmation",
+  "version": "v1.30",
+  "scenario": "B04_exploratory_ideal_requires_confirmation",
+  "scenario_preconditions": {
+    "expected": [
+      "ideal_direction_present"
+    ],
+    "satisfied": true,
+    "proof_refs": [
+      "ideal_direction"
+    ]
+  },
+  "ideal_direction": {
+    "ideal_direction_id": "ideal_v130_09",
+    "title": "低饱和、松弛但有结构的城市感",
+    "source_type": "structured_ideal_fixture",
+    "source_refs": [
+      "ideal_fixture_B04_exploratory_ideal_requires_confirmation"
+    ],
+    "raw_user_prompt": "我想要更松弛一点但不要邋遢",
+    "intended_contexts": [
+      "office_daily",
+      "daily_city_walk"
+    ],
+    "risk_level": "low",
+    "requires_user_confirmation_before_memory_write": true
+  },
+  "ideal_decomposition": {
+    "decomposition_id": "decomp_v130_09",
+    "ideal_direction_id": "ideal_v130_09",
+    "core_elements": [
+      {
+        "element_id": "ideal_el_low_saturation",
+        "concept": "low_saturation_palette",
+        "element_type": "color_palette",
+        "importance": "core",
+        "trace_refs": [
+          "ideal_v130_09"
+        ]
+      },
+      {
+        "element_id": "ideal_el_clean_lines",
+        "concept": "clean_long_lines",
+        "element_type": "line_quality",
+        "importance": "core",
+        "trace_refs": [
+          "ideal_v130_09"
+        ]
+      },
+      {
+        "element_id": "ideal_el_light_structure",
+        "concept": "light_structure",
+        "element_type": "silhouette_structure",
+        "importance": "core",
+        "trace_refs": [
+          "ideal_v130_09"
+        ]
+      }
+    ],
+    "non_core_elements": [
+      {
+        "concept": "exact model styling",
+        "reason": "not required for user reality mapping"
+      }
+    ],
+    "excluded_interpretations": [
+      {
+        "concept": "full athletic look",
+        "reason": "not part of this ideal direction"
+      }
+    ]
+  },
+  "user_memory_fit_report": {
+    "memory_fit_report_id": "memfit_v130_09",
+    "ideal_direction_id": "ideal_v130_09",
+    "fit_status": "exploratory",
+    "supported_by_memory": [],
+    "conflicts_with_memory": [],
+    "do_not_use_as_positive_signal": [],
+    "requires_confirmation": true,
+    "user_visible_fit_claim_refs": []
+  },
+  "closet_reality_mapping": {
+    "closet_reality_mapping_id": "crm_v130_09",
+    "ideal_direction_id": "ideal_v130_09",
+    "closet_fixture_id": "closet_v130_09",
+    "component_scores": {
+      "color_palette": 0.8,
+      "clean_lines": 0.75,
+      "light_structure": 0.55,
+      "shoe_bag_polish": 0.65
+    },
+    "closet_match_score": 0.54,
+    "matched_elements": [
+      {
+        "ideal_element": "low_saturation_palette",
+        "supporting_closet_item_ids": [
+          "top_ivory_knit",
+          "bottom_gray_trousers"
+        ],
+        "support_strength": 0.8
+      },
+      {
+        "ideal_element": "clean_long_lines",
+        "supporting_closet_item_ids": [
+          "bottom_gray_trousers"
+        ],
+        "support_strength": 0.75
+      }
+    ],
+    "missing_or_weak_elements": [
+      {
+        "ideal_element": "light_structure",
+        "gap_type": "missing_key_item",
+        "reason": "closet lacks confirmed daily context for this ideal",
+        "support_strength": 0.55
+      }
+    ],
+    "score_explanation": [
+      "Color palette is supported by ivory and gray closet items.",
+      "Match score is limited because preference not yet confirmed."
+    ],
+    "low_confidence_items_excluded": []
+  },
+  "reality_outfit": {
+    "reality_outfit_id": "realfit_v130_09",
+    "source_ideal_direction_id": "ideal_v130_09",
+    "item_ids": [
+      "top_ivory_knit",
+      "bottom_gray_trousers",
+      "shoes_black_loafers"
+    ],
+    "grounding": {
+      "all_items_from_closet": true,
+      "invented_item_ids": []
+    },
+    "preserved_ideal_elements": [
+      "low_saturation_palette",
+      "clean_long_lines"
+    ],
+    "not_preserved_ideal_elements": [
+      {
+        "ideal_element": "light_structure",
+        "reason": "missing confirmed daily context for this ideal"
+      }
+    ],
+    "quality_guardrails": {
+      "occasion_fit": "pass",
+      "weather_fit": "pass",
+      "formality_fit": "pass",
+      "memory_boundary_violation_free": true
+    }
+  },
+  "gap_diagnosis": {
+    "gap_diagnosis_id": "gap_v130_09",
+    "primary_gap": {
+      "gap_type": "missing_key_item",
+      "category": "confirmed daily context for this ideal",
+      "supports_ideal_element": "light_structure",
+      "evidence_refs": [
+        "crm_v130_09.missing_or_weak_elements[0]"
+      ]
+    },
+    "secondary_gaps": [
+      {
+        "gap_type": "polish_incomplete",
+        "category": "shoe-bag polish",
+        "reason": "closet has usable shoes but polish metadata is incomplete"
+      }
+    ],
+    "not_the_gap": [
+      "not more basic tops",
+      "not a full style replacement"
+    ],
+    "gap_specificity": "specific"
+  },
+  "next_steps": {
+    "next_steps_id": "next_v130_09",
+    "no_buy_step": {
+      "text": "先用现有黑色乐福鞋和灰色裤子降低颜色噪音。",
+      "uses_existing_closet_only": true,
+      "requires_purchase": false
+    },
+    "one_item_step": {
+      "category": "confirmed daily context for this ideal",
+      "recommended_attributes": {
+        "color": [
+          "warm gray",
+          "charcoal",
+          "stone"
+        ],
+        "structure": "light but not stiff",
+        "length": "hip or slightly above hip"
+      },
+      "avoid": [
+        "too soft and slouchy",
+        "too formal blazer",
+        "overly sweet details"
+      ],
+      "commerce_recommendation_included": false,
+      "merchant_ref_included": false
+    }
+  },
+  "memory_write_decisions": [
+    {
+      "decision_id": "wgd_v130_09",
+      "action": "just_exploring",
+      "route": "no_write",
+      "production_write": false,
+      "requires_confirmation": false
+    }
+  ],
+  "bridge_trace": {
+    "bridge_trace_id": "bridge_trace_v130_09",
+    "ideal_direction_id": "ideal_v130_09",
+    "consumed_memory_ids": [],
+    "excluded_memory_ids": [],
+    "conflicting_memory_ids": [],
+    "closet_item_ids_used": [
+      "top_ivory_knit",
+      "bottom_gray_trousers",
+      "shoes_black_loafers"
+    ],
+    "gap_evidence_refs": [
+      "crm_v130_09"
+    ],
+    "user_visible_claim_refs": [
+      "crm_v130_09"
+    ],
+    "memory_write_decision_ids": [
+      "wgd_v130_09"
+    ],
+    "violations": []
+  },
+  "bridge_card": {
+    "bridge_card_id": "bridge_v130_09",
+    "card_type": "ideal_reality_bridge",
+    "ideal_direction": {
+      "ideal_direction_id": "ideal_v130_09",
+      "title": "低饱和、松弛但有结构的城市感",
+      "source_type": "structured_ideal_fixture",
+      "source_refs": [
+        "ideal_fixture_B04_exploratory_ideal_requires_confirmation"
+      ],
+      "raw_user_prompt": "我想要更松弛一点但不要邋遢",
+      "intended_contexts": [
+        "office_daily",
+        "daily_city_walk"
+      ],
+      "risk_level": "low",
+      "requires_user_confirmation_before_memory_write": true
+    },
+    "ideal_decomposition": {
+      "decomposition_id": "decomp_v130_09",
+      "ideal_direction_id": "ideal_v130_09",
+      "core_elements": [
+        {
+          "element_id": "ideal_el_low_saturation",
+          "concept": "low_saturation_palette",
+          "element_type": "color_palette",
+          "importance": "core",
+          "trace_refs": [
+            "ideal_v130_09"
+          ]
+        },
+        {
+          "element_id": "ideal_el_clean_lines",
+          "concept": "clean_long_lines",
+          "element_type": "line_quality",
+          "importance": "core",
+          "trace_refs": [
+            "ideal_v130_09"
+          ]
+        },
+        {
+          "element_id": "ideal_el_light_structure",
+          "concept": "light_structure",
+          "element_type": "silhouette_structure",
+          "importance": "core",
+          "trace_refs": [
+            "ideal_v130_09"
+          ]
+        }
+      ],
+      "non_core_elements": [
+        {
+          "concept": "exact model styling",
+          "reason": "not required for user reality mapping"
+        }
+      ],
+      "excluded_interpretations": [
+        {
+          "concept": "full athletic look",
+          "reason": "not part of this ideal direction"
+        }
+      ]
+    },
+    "memory_fit_summary": {
+      "memory_fit_report_id": "memfit_v130_09",
+      "ideal_direction_id": "ideal_v130_09",
+      "fit_status": "exploratory",
+      "supported_by_memory": [],
+      "conflicts_with_memory": [],
+      "do_not_use_as_positive_signal": [],
+      "requires_confirmation": true,
+      "user_visible_fit_claim_refs": []
+    },
+    "closet_reality_mapping": {
+      "closet_reality_mapping_id": "crm_v130_09",
+      "ideal_direction_id": "ideal_v130_09",
+      "closet_fixture_id": "closet_v130_09",
+      "component_scores": {
+        "color_palette": 0.8,
+        "clean_lines": 0.75,
+        "light_structure": 0.55,
+        "shoe_bag_polish": 0.65
+      },
+      "closet_match_score": 0.54,
+      "matched_elements": [
+        {
+          "ideal_element": "low_saturation_palette",
+          "supporting_closet_item_ids": [
+            "top_ivory_knit",
+            "bottom_gray_trousers"
+          ],
+          "support_strength": 0.8
+        },
+        {
+          "ideal_element": "clean_long_lines",
+          "supporting_closet_item_ids": [
+            "bottom_gray_trousers"
+          ],
+          "support_strength": 0.75
+        }
+      ],
+      "missing_or_weak_elements": [
+        {
+          "ideal_element": "light_structure",
+          "gap_type": "missing_key_item",
+          "reason": "closet lacks confirmed daily context for this ideal",
+          "support_strength": 0.55
+        }
+      ],
+      "score_explanation": [
+        "Color palette is supported by ivory and gray closet items.",
+        "Match score is limited because preference not yet confirmed."
+      ],
+      "low_confidence_items_excluded": []
+    },
+    "today_reality_outfit": {
+      "reality_outfit_id": "realfit_v130_09",
+      "source_ideal_direction_id": "ideal_v130_09",
+      "item_ids": [
+        "top_ivory_knit",
+        "bottom_gray_trousers",
+        "shoes_black_loafers"
+      ],
+      "grounding": {
+        "all_items_from_closet": true,
+        "invented_item_ids": []
+      },
+      "preserved_ideal_elements": [
+        "low_saturation_palette",
+        "clean_long_lines"
+      ],
+      "not_preserved_ideal_elements": [
+        {
+          "ideal_element": "light_structure",
+          "reason": "missing confirmed daily context for this ideal"
+        }
+      ],
+      "quality_guardrails": {
+        "occasion_fit": "pass",
+        "weather_fit": "pass",
+        "formality_fit": "pass",
+        "memory_boundary_violation_free": true
+      }
+    },
+    "gap_diagnosis": {
+      "gap_diagnosis_id": "gap_v130_09",
+      "primary_gap": {
+        "gap_type": "missing_key_item",
+        "category": "confirmed daily context for this ideal",
+        "supports_ideal_element": "light_structure",
+        "evidence_refs": [
+          "crm_v130_09.missing_or_weak_elements[0]"
+        ]
+      },
+      "secondary_gaps": [
+        {
+          "gap_type": "polish_incomplete",
+          "category": "shoe-bag polish",
+          "reason": "closet has usable shoes but polish metadata is incomplete"
+        }
+      ],
+      "not_the_gap": [
+        "not more basic tops",
+        "not a full style replacement"
+      ],
+      "gap_specificity": "specific"
+    },
+    "next_steps": {
+      "next_steps_id": "next_v130_09",
+      "no_buy_step": {
+        "text": "先用现有黑色乐福鞋和灰色裤子降低颜色噪音。",
+        "uses_existing_closet_only": true,
+        "requires_purchase": false
+      },
+      "one_item_step": {
+        "category": "confirmed daily context for this ideal",
+        "recommended_attributes": {
+          "color": [
+            "warm gray",
+            "charcoal",
+            "stone"
+          ],
+          "structure": "light but not stiff",
+          "length": "hip or slightly above hip"
+        },
+        "avoid": [
+          "too soft and slouchy",
+          "too formal blazer",
+          "overly sweet details"
+        ],
+        "commerce_recommendation_included": false,
+        "merchant_ref_included": false
+      }
+    },
+    "memory_ux": {
+      "question": "你想把这个方向作为通勤/日常想靠近的风格之一吗？",
+      "actions": [
+        "remember_long_term",
+        "remember_for_context",
+        "just_exploring",
+        "not_this_direction",
+        "correct_interpretation"
+      ],
+      "selected_fixture_action": "just_exploring",
+      "requires_confirmation_before_write": true
+    },
+    "user_visible_claim_refs": [
+      "crm_v130_09"
+    ],
+    "trace_refs": {
+      "bridge_trace_id": "bridge_trace_v130_09"
+    }
+  }
+}

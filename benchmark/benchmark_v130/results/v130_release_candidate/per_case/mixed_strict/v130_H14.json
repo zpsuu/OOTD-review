@@ -1,0 +1,169 @@
+{
+  "case_id": "v130_H14",
+  "version": "v1.30",
+  "defect_type": "match_score_component_math_inconsistent",
+  "expected_failure": true,
+  "source_clean_case_id": "v130_A01_low_saturation_city_style_decomposed",
+  "failed_check_ids": [
+    "match_score_component_math_consistent_rate"
+  ],
+  "failure_reason": "Injected defect detected: match_score_component_math_inconsistent",
+  "checks": [
+    {
+      "check_id": "ideal_reality_bridge_card_schema_valid_rate",
+      "passed": true
+    },
+    {
+      "check_id": "ideal_decomposition_schema_valid_rate",
+      "passed": true
+    },
+    {
+      "check_id": "ideal_core_elements_traceable_rate",
+      "passed": true
+    },
+    {
+      "check_id": "ideal_non_core_elements_identified_rate",
+      "passed": true
+    },
+    {
+      "check_id": "user_memory_fit_trace_coverage_rate",
+      "passed": true
+    },
+    {
+      "check_id": "ideal_memory_conflict_detected_rate",
+      "passed": true
+    },
+    {
+      "check_id": "misuse_correction_blocks_cliche_interpretation_rate",
+      "passed": true
+    },
+    {
+      "check_id": "unsupported_ideal_not_overstated_as_fit_rate",
+      "passed": true
+    },
+    {
+      "check_id": "exploratory_ideal_requires_confirmation_rate",
+      "passed": true
+    },
+    {
+      "check_id": "closet_reality_mapping_schema_valid_rate",
+      "passed": true
+    },
+    {
+      "check_id": "reality_outfit_uses_only_closet_items_rate",
+      "passed": true
+    },
+    {
+      "check_id": "reality_outfit_does_not_use_gap_suggestion_as_closet_item_rate",
+      "passed": true
+    },
+    {
+      "check_id": "low_confidence_closet_item_not_used_for_reality_mapping_rate",
+      "passed": true
+    },
+    {
+      "check_id": "reality_outfit_preserves_core_supported_elements_rate",
+      "passed": true
+    },
+    {
+      "check_id": "reality_outfit_boundary_violation_free_rate",
+      "passed": true
+    },
+    {
+      "check_id": "reality_outfit_context_weather_quality_pass_rate",
+      "passed": true
+    },
+    {
+      "check_id": "ideal_overfit_does_not_break_context_fit_rate",
+      "passed": true
+    },
+    {
+      "check_id": "gap_diagnosis_primary_gap_supported_rate",
+      "passed": true
+    },
+    {
+      "check_id": "gap_diagnosis_specificity_rate",
+      "passed": true
+    },
+    {
+      "check_id": "gap_suggestion_category_only_rate",
+      "passed": true
+    },
+    {
+      "check_id": "gap_suggestion_not_memory_preference_rate",
+      "passed": true
+    },
+    {
+      "check_id": "bridge_card_no_product_link_or_sku_rate",
+      "passed": true
+    },
+    {
+      "check_id": "no_buy_step_present_rate",
+      "passed": true
+    },
+    {
+      "check_id": "no_buy_step_uses_existing_closet_only_rate",
+      "passed": true
+    },
+    {
+      "check_id": "one_item_step_present_rate",
+      "passed": true
+    },
+    {
+      "check_id": "one_item_step_not_product_recommendation_rate",
+      "passed": true
+    },
+    {
+      "check_id": "match_score_component_breakdown_present_rate",
+      "passed": true
+    },
+    {
+      "check_id": "match_score_component_math_consistent_rate",
+      "passed": false
+    },
+    {
+      "check_id": "match_score_not_overstated_when_key_gap_missing_rate",
+      "passed": true
+    },
+    {
+      "check_id": "limited_closet_match_score_not_overstated_rate",
+      "passed": true
+    },
+    {
+      "check_id": "ideal_direction_memory_write_requires_confirmation_rate",
+      "passed": true
+    },
+    {
+      "check_id": "remember_contextual_ideal_routes_to_write_gate_rate",
+      "passed": true
+    },
+    {
+      "check_id": "just_exploring_no_production_write_rate",
+      "passed": true
+    },
+    {
+      "check_id": "not_this_direction_no_positive_memory_rate",
+      "passed": true
+    },
+    {
+      "check_id": "correct_interpretation_supersedes_wrong_ideal_rate",
+      "passed": true
+    },
+    {
+      "check_id": "bridge_card_user_visible_claim_trace_coverage_rate",
+      "passed": true
+    },
+    {
+      "check_id": "bridge_trace_consistency_rate",
+      "passed": true
+    },
+    {
+      "check_id": "scenario_precondition_satisfied_rate",
+      "passed": true
+    },
+    {
+      "check_id": "no_vacuous_bridge_case_pass_rate",
+      "passed": true
+    }
+  ]
+}

@@ -2,42 +2,42 @@
 
 ## Current Active Version
 
-v1.29.8 - Daily Outfit Beta Readiness
+v1.30 - Ideal-Reality Bridge Alpha
 
 Current branch:
-`v1298-daily-outfit-beta-readiness`
+`v130-ideal-reality-bridge-alpha`
 
 Current status:
-`PASS CANDIDATE confirmed`
+`PASS CANDIDATE pending manual review`
 
-## Confirmed Review Focus
+## Current Review Focus
 
-This version confirms beta-readiness evidence for:
+This iteration verifies Ideal-Reality Bridge Alpha evidence across:
 
-- Daily Outfit Card generation or honest fallback
-- complete trace-backed card output
-- fallback preview consistency
-- fallback scorecard semantics
-- separation of Daily Outfit scorecards and fallback scorecards
-- observability summaries
-- human review scorecard summaries
-- injected defect detection for beta-readiness regressions
+- ideal direction decomposition
+- user memory fit / conflict analysis
+- closet reality mapping
+- closet-grounded reality outfit generation
+- match score component self-proof
+- specific gap diagnosis
+- no-buy and one-item category-level next steps
+- Memory UX confirmation and write safety
+- injected defect detection for bridge regressions
 
 ## Latest Evidence Pack
 
-`benchmark/benchmark_v129/results/v1298_release_candidate/`
+`benchmark/benchmark_v130/results/v130_release_candidate/`
 
 ## Key Files To Review
 
-- `benchmark/benchmark_v129/results/v1298_release_candidate/REVIEW_MANIFEST.json`
-- `benchmark/benchmark_v129/results/v1298_release_candidate/clean_report.json`
-- `benchmark/benchmark_v129/results/v1298_release_candidate/mixed_strict_report.json`
-- `benchmark/benchmark_v129/results/v1298_release_candidate/injected_defect_detection_summary.json`
-- `benchmark/benchmark_v129/results/v1298_release_candidate/beta_run_summary.json`
-- `benchmark/benchmark_v129/results/v1298_release_candidate/failure_summary.json`
-- `benchmark/benchmark_v129/results/v1298_release_candidate/observability_summary.json`
-- `benchmark/benchmark_v129/results/v1298_release_candidate/human_review_scorecard_summary.json`
-- `benchmark/benchmark_v129/results/v1298_release_candidate/sample_artifacts/beta_user_small_closet_7day.json`
-- `benchmark/benchmark_v129/results/v1298_release_candidate/sample_artifacts/beta_user_incomplete_closet_7day.json`
-- `benchmark/benchmark_v129/results/v1298_release_candidate/sample_artifacts/beta_user_low_confidence_metadata_7day.json`
-- `benchmark/benchmark_v129/results/v1298_release_candidate/sample_artifacts/honest_fallback_closet_insufficient.json`
+- `benchmark/benchmark_v130/results/v130_release_candidate/REVIEW_MANIFEST.json`
+- `benchmark/benchmark_v130/results/v130_release_candidate/clean_report.json`
+- `benchmark/benchmark_v130/results/v130_release_candidate/mixed_strict_report.json`
+- `benchmark/benchmark_v130/results/v130_release_candidate/injected_defect_detection_summary.json`
+- `benchmark/benchmark_v130/results/v130_release_candidate/bridge_run_summary.json`
+- `benchmark/benchmark_v130/results/v130_release_candidate/gap_diagnosis_summary.json`
+- `benchmark/benchmark_v130/results/v130_release_candidate/match_score_summary.json`
+- `benchmark/benchmark_v130/results/v130_release_candidate/sample_artifacts/low_saturation_city_bridge.json`
+- `benchmark/benchmark_v130/results/v130_release_candidate/sample_artifacts/ideal_supported_by_memory.json`
+- `benchmark/benchmark_v130/results/v130_release_candidate/sample_artifacts/ideal_conflicts_with_avoid_boundary.json`
+- `benchmark/benchmark_v130/results/v130_release_candidate/sample_artifacts/closet_lacks_key_outerwear_gap.json`

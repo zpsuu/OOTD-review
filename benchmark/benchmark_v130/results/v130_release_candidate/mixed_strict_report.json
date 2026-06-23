@@ -1,0 +1,260 @@
+{
+  "benchmark_id": "v1.30.ideal_reality_bridge_alpha.mixed_strict",
+  "schema_version": "v1.30",
+  "generated_at": "2026-06-23T11:13:11Z",
+  "verdicts": {
+    "mixed_strict_verdict": "fail",
+    "injected_defect_detection_verdict": "pass"
+  },
+  "suite_summary": {
+    "total_cases": 60,
+    "clean_cases": 45,
+    "injected_defect_cases": 15,
+    "expected_failed_cases": 15,
+    "unexpected_clean_case_failures": 0,
+    "unexpected_injected_passes": 0
+  },
+  "detected_defects": [
+    {
+      "case_id": "v130_H01",
+      "defect_type": "ideal_element_hallucinated_from_user_memory",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "ideal_core_elements_traceable_rate",
+        "user_memory_fit_trace_coverage_rate"
+      ],
+      "expected_failed_check_ids": [
+        "ideal_core_elements_traceable_rate",
+        "user_memory_fit_trace_coverage_rate"
+      ],
+      "failure_reason": "Injected defect detected: ideal_element_hallucinated_from_user_memory",
+      "raw_artifact_ref": "per_case/mixed_strict/v130_H01.json"
+    },
+    {
+      "case_id": "v130_H02",
+      "defect_type": "avoid_boundary_conflict_ignored",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "ideal_memory_conflict_detected_rate",
+        "reality_outfit_boundary_violation_free_rate"
+      ],
+      "expected_failed_check_ids": [
+        "ideal_memory_conflict_detected_rate",
+        "reality_outfit_boundary_violation_free_rate"
+      ],
+      "failure_reason": "Injected defect detected: avoid_boundary_conflict_ignored",
+      "raw_artifact_ref": "per_case/mixed_strict/v130_H02.json"
+    },
+    {
+      "case_id": "v130_H03",
+      "defect_type": "reality_outfit_invents_missing_closet_item",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "reality_outfit_uses_only_closet_items_rate"
+      ],
+      "expected_failed_check_ids": [
+        "reality_outfit_uses_only_closet_items_rate"
+      ],
+      "failure_reason": "Injected defect detected: reality_outfit_invents_missing_closet_item",
+      "raw_artifact_ref": "per_case/mixed_strict/v130_H03.json"
+    },
+    {
+      "case_id": "v130_H04",
+      "defect_type": "gap_suggestion_includes_product_link",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "bridge_card_no_product_link_or_sku_rate",
+        "one_item_step_not_product_recommendation_rate"
+      ],
+      "expected_failed_check_ids": [
+        "bridge_card_no_product_link_or_sku_rate",
+        "one_item_step_not_product_recommendation_rate"
+      ],
+      "failure_reason": "Injected defect detected: gap_suggestion_includes_product_link",
+      "raw_artifact_ref": "per_case/mixed_strict/v130_H04.json"
+    },
+    {
+      "case_id": "v130_H05",
+      "defect_type": "match_score_overstated_despite_key_gap",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "match_score_not_overstated_when_key_gap_missing_rate"
+      ],
+      "expected_failed_check_ids": [
+        "match_score_not_overstated_when_key_gap_missing_rate"
+      ],
+      "failure_reason": "Injected defect detected: match_score_overstated_despite_key_gap",
+      "raw_artifact_ref": "per_case/mixed_strict/v130_H05.json"
+    },
+    {
+      "case_id": "v130_H06",
+      "defect_type": "no_buy_step_missing",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "no_buy_step_present_rate"
+      ],
+      "expected_failed_check_ids": [
+        "no_buy_step_present_rate"
+      ],
+      "failure_reason": "Injected defect detected: no_buy_step_missing",
+      "raw_artifact_ref": "per_case/mixed_strict/v130_H06.json"
+    },
+    {
+      "case_id": "v130_H07",
+      "defect_type": "one_item_step_treated_as_closet_item",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "reality_outfit_does_not_use_gap_suggestion_as_closet_item_rate"
+      ],
+      "expected_failed_check_ids": [
+        "reality_outfit_does_not_use_gap_suggestion_as_closet_item_rate"
+      ],
+      "failure_reason": "Injected defect detected: one_item_step_treated_as_closet_item",
+      "raw_artifact_ref": "per_case/mixed_strict/v130_H07.json"
+    },
+    {
+      "case_id": "v130_H08",
+      "defect_type": "ideal_direction_written_without_confirmation",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "ideal_direction_memory_write_requires_confirmation_rate"
+      ],
+      "expected_failed_check_ids": [
+        "ideal_direction_memory_write_requires_confirmation_rate"
+      ],
+      "failure_reason": "Injected defect detected: ideal_direction_written_without_confirmation",
+      "raw_artifact_ref": "per_case/mixed_strict/v130_H08.json"
+    },
+    {
+      "case_id": "v130_H09",
+      "defect_type": "cliche_interpretation_violates_misuse_correction",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "misuse_correction_blocks_cliche_interpretation_rate"
+      ],
+      "expected_failed_check_ids": [
+        "misuse_correction_blocks_cliche_interpretation_rate"
+      ],
+      "failure_reason": "Injected defect detected: cliche_interpretation_violates_misuse_correction",
+      "raw_artifact_ref": "per_case/mixed_strict/v130_H09.json"
+    },
+    {
+      "case_id": "v130_H10",
+      "defect_type": "bridge_card_claims_unsupported_memory_fit",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "unsupported_ideal_not_overstated_as_fit_rate",
+        "bridge_card_user_visible_claim_trace_coverage_rate"
+      ],
+      "expected_failed_check_ids": [
+        "unsupported_ideal_not_overstated_as_fit_rate",
+        "bridge_card_user_visible_claim_trace_coverage_rate"
+      ],
+      "failure_reason": "Injected defect detected: bridge_card_claims_unsupported_memory_fit",
+      "raw_artifact_ref": "per_case/mixed_strict/v130_H10.json"
+    },
+    {
+      "case_id": "v130_H11",
+      "defect_type": "reality_outfit_uses_gap_suggestion_as_item",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "reality_outfit_does_not_use_gap_suggestion_as_closet_item_rate"
+      ],
+      "expected_failed_check_ids": [
+        "reality_outfit_does_not_use_gap_suggestion_as_closet_item_rate"
+      ],
+      "failure_reason": "Injected defect detected: reality_outfit_uses_gap_suggestion_as_item",
+      "raw_artifact_ref": "per_case/mixed_strict/v130_H11.json"
+    },
+    {
+      "case_id": "v130_H12",
+      "defect_type": "product_identifier_or_merchant_ref_leaks_into_one_item_step",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "bridge_card_no_product_link_or_sku_rate",
+        "one_item_step_not_product_recommendation_rate"
+      ],
+      "expected_failed_check_ids": [
+        "bridge_card_no_product_link_or_sku_rate",
+        "one_item_step_not_product_recommendation_rate"
+      ],
+      "failure_reason": "Injected defect detected: product_identifier_or_merchant_ref_leaks_into_one_item_step",
+      "raw_artifact_ref": "per_case/mixed_strict/v130_H12.json"
+    },
+    {
+      "case_id": "v130_H13",
+      "defect_type": "exploratory_ideal_overstated_as_supported",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "exploratory_ideal_requires_confirmation_rate",
+        "unsupported_ideal_not_overstated_as_fit_rate"
+      ],
+      "expected_failed_check_ids": [
+        "exploratory_ideal_requires_confirmation_rate",
+        "unsupported_ideal_not_overstated_as_fit_rate"
+      ],
+      "failure_reason": "Injected defect detected: exploratory_ideal_overstated_as_supported",
+      "raw_artifact_ref": "per_case/mixed_strict/v130_H13.json"
+    },
+    {
+      "case_id": "v130_H14",
+      "defect_type": "match_score_component_math_inconsistent",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "match_score_component_math_consistent_rate"
+      ],
+      "expected_failed_check_ids": [
+        "match_score_component_math_consistent_rate"
+      ],
+      "failure_reason": "Injected defect detected: match_score_component_math_inconsistent",
+      "raw_artifact_ref": "per_case/mixed_strict/v130_H14.json"
+    },
+    {
+      "case_id": "v130_H15",
+      "defect_type": "user_visible_claim_without_trace",
+      "expected_failure": true,
+      "actual_failure": true,
+      "detected": true,
+      "failed_check_ids": [
+        "bridge_card_user_visible_claim_trace_coverage_rate",
+        "bridge_trace_consistency_rate"
+      ],
+      "expected_failed_check_ids": [
+        "bridge_card_user_visible_claim_trace_coverage_rate",
+        "bridge_trace_consistency_rate"
+      ],
+      "failure_reason": "Injected defect detected: user_visible_claim_without_trace",
+      "raw_artifact_ref": "per_case/mixed_strict/v130_H15.json"
+    }
+  ],
+  "unexpected_clean_case_failures": [],
+  "unexpected_injected_passes": []
+}

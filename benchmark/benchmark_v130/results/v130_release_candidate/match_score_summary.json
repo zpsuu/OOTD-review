@@ -1,0 +1,10 @@
+{
+  "match_score_summary_id": "mss_v130",
+  "score_count": 45,
+  "average_match_score": 0.7256,
+  "min_match_score": 0.42,
+  "max_match_score": 0.78,
+  "component_breakdown_present": true,
+  "component_math_consistent": true,
+  "not_overstated_when_key_gap_missing": true
+}
