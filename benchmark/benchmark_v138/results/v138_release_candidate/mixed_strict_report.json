@@ -1,15 +1,15 @@
 {
   "benchmark_id": "v1.38.runtime_governance_operations.mixed_strict",
   "schema_version": "v1.38",
-  "generated_at": "2026-06-24T06:53:16Z",
+  "generated_at": "2026-06-24T07:06:17Z",
   "verdicts": {
     "mixed_strict_verdict": "fail",
     "injected_defect_detection_verdict": "pass"
   },
   "suite_summary": {
-    "total_cases": 18,
+    "total_cases": 20,
     "passed_cases": 0,
-    "failed_cases": 18,
+    "failed_cases": 20,
     "total_checks": 23,
     "passed_checks": 0,
     "failed_checks": 23
@@ -322,6 +322,22 @@
         "report_consistency_with_independent_validation_rate"
       ],
       "artifact_ref": "per_case/mixed_strict/v138_ADV_L18_clean_report_pass_but_independent_validator_fail.json"
+    },
+    {
+      "case_id": "v138_ADV_L19_open_clarification_item_missing_request",
+      "passed": false,
+      "failed_check_ids": [
+        "clarification_request_trace_backed_rate"
+      ],
+      "artifact_ref": "per_case/mixed_strict/v138_ADV_L19_open_clarification_item_missing_request.json"
+    },
+    {
+      "case_id": "v138_ADV_L20_open_review_item_missing_payload",
+      "passed": false,
+      "failed_check_ids": [
+        "human_review_payload_has_raw_evidence_rate"
+      ],
+      "artifact_ref": "per_case/mixed_strict/v138_ADV_L20_open_review_item_missing_payload.json"
     }
   ]
 }

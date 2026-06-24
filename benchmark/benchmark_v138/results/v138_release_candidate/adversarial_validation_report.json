@@ -1,12 +1,12 @@
 {
   "validator": "v1.38.independent.governance_operations_validator",
-  "generated_at": "2026-06-24T06:53:16Z",
+  "generated_at": "2026-06-24T07:06:17Z",
   "result_dir": "benchmark/benchmark_v138/results/v138_release_candidate",
   "subset": "adversarial",
   "suite_summary": {
-    "total_cases": 18,
+    "total_cases": 20,
     "passed_cases": 0,
-    "failed_cases": 18,
+    "failed_cases": 20,
     "total_checks": 23,
     "passed_checks": 4,
     "failed_checks": 19
@@ -14,9 +14,9 @@
   "checks": [
     {
       "check_id": "governance_queue_created_from_runtime_trigger_rate",
-      "applicable_cases": 18,
-      "passed_cases": 17,
-      "value": 0.9444444444444444,
+      "applicable_cases": 20,
+      "passed_cases": 19,
+      "value": 0.95,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -31,9 +31,9 @@
     },
     {
       "check_id": "queue_item_status_consistency_rate",
-      "applicable_cases": 18,
-      "passed_cases": 15,
-      "value": 0.8333333333333334,
+      "applicable_cases": 20,
+      "passed_cases": 17,
+      "value": 0.85,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -62,9 +62,9 @@
     },
     {
       "check_id": "queue_dedupe_blocks_duplicate_open_items_rate",
-      "applicable_cases": 18,
-      "passed_cases": 17,
-      "value": 0.9444444444444444,
+      "applicable_cases": 20,
+      "passed_cases": 19,
+      "value": 0.95,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -79,9 +79,9 @@
     },
     {
       "check_id": "clarification_request_trace_backed_rate",
-      "applicable_cases": 18,
-      "passed_cases": 17,
-      "value": 0.9444444444444444,
+      "applicable_cases": 20,
+      "passed_cases": 18,
+      "value": 0.9,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -91,14 +91,21 @@
           "failures": [
             "clarification_request_trace_backed_rate failed from raw governance validation"
           ]
+        },
+        {
+          "case_id": "v138_ADV_L19_open_clarification_item_missing_request",
+          "artifact_ref": "per_case/adversarial/v138_ADV_L19_open_clarification_item_missing_request.json",
+          "failures": [
+            "clarification_request_trace_backed_rate failed from raw governance validation"
+          ]
         }
       ]
     },
     {
       "check_id": "clarification_no_write_preserves_memory_state_rate",
-      "applicable_cases": 18,
-      "passed_cases": 17,
-      "value": 0.9444444444444444,
+      "applicable_cases": 20,
+      "passed_cases": 19,
+      "value": 0.95,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -113,9 +120,9 @@
     },
     {
       "check_id": "clarification_write_candidate_routes_to_gate_rate",
-      "applicable_cases": 18,
-      "passed_cases": 17,
-      "value": 0.9444444444444444,
+      "applicable_cases": 20,
+      "passed_cases": 19,
+      "value": 0.95,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -130,15 +137,29 @@
     },
     {
       "check_id": "human_review_payload_has_raw_evidence_rate",
-      "applicable_cases": 18,
+      "applicable_cases": 20,
       "passed_cases": 17,
-      "value": 0.9444444444444444,
+      "value": 0.85,
       "threshold": 1.0,
       "passed": false,
       "failures": [
         {
+          "case_id": "v138_ADV_L04_duplicate_open_items_not_deduped",
+          "artifact_ref": "per_case/adversarial/v138_ADV_L04_duplicate_open_items_not_deduped.json",
+          "failures": [
+            "human_review_payload_has_raw_evidence_rate failed from raw governance validation"
+          ]
+        },
+        {
           "case_id": "v138_ADV_L08_review_payload_missing_raw_evidence",
           "artifact_ref": "per_case/adversarial/v138_ADV_L08_review_payload_missing_raw_evidence.json",
+          "failures": [
+            "human_review_payload_has_raw_evidence_rate failed from raw governance validation"
+          ]
+        },
+        {
+          "case_id": "v138_ADV_L20_open_review_item_missing_payload",
+          "artifact_ref": "per_case/adversarial/v138_ADV_L20_open_review_item_missing_payload.json",
           "failures": [
             "human_review_payload_has_raw_evidence_rate failed from raw governance validation"
           ]
@@ -147,9 +168,9 @@
     },
     {
       "check_id": "human_review_resolution_uses_write_gate_rate",
-      "applicable_cases": 18,
-      "passed_cases": 17,
-      "value": 0.9444444444444444,
+      "applicable_cases": 20,
+      "passed_cases": 19,
+      "value": 0.95,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -164,9 +185,9 @@
     },
     {
       "check_id": "review_rejection_no_write_preserves_memory_state_rate",
-      "applicable_cases": 18,
-      "passed_cases": 17,
-      "value": 0.9444444444444444,
+      "applicable_cases": 20,
+      "passed_cases": 19,
+      "value": 0.95,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -181,9 +202,9 @@
     },
     {
       "check_id": "temporary_hold_current_turn_only_rate",
-      "applicable_cases": 18,
-      "passed_cases": 17,
-      "value": 0.9444444444444444,
+      "applicable_cases": 20,
+      "passed_cases": 19,
+      "value": 0.95,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -198,9 +219,9 @@
     },
     {
       "check_id": "temporary_hold_release_packet_rebuild_rate",
-      "applicable_cases": 18,
-      "passed_cases": 17,
-      "value": 0.9444444444444444,
+      "applicable_cases": 20,
+      "passed_cases": 19,
+      "value": 0.95,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -215,9 +236,9 @@
     },
     {
       "check_id": "expired_item_no_write_rate",
-      "applicable_cases": 18,
-      "passed_cases": 17,
-      "value": 0.9444444444444444,
+      "applicable_cases": 20,
+      "passed_cases": 19,
+      "value": 0.95,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -232,9 +253,9 @@
     },
     {
       "check_id": "post_resolution_packet_matches_resolution_rate",
-      "applicable_cases": 18,
-      "passed_cases": 13,
-      "value": 0.7222222222222222,
+      "applicable_cases": 20,
+      "passed_cases": 15,
+      "value": 0.75,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -277,9 +298,9 @@
     },
     {
       "check_id": "rollback_audit_absence_proof_rate",
-      "applicable_cases": 18,
-      "passed_cases": 17,
-      "value": 0.9444444444444444,
+      "applicable_cases": 20,
+      "passed_cases": 19,
+      "value": 0.95,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -294,8 +315,8 @@
     },
     {
       "check_id": "blocked_memory_future_absence_proof_rate",
-      "applicable_cases": 18,
-      "passed_cases": 18,
+      "applicable_cases": 20,
+      "passed_cases": 20,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
@@ -303,9 +324,9 @@
     },
     {
       "check_id": "reviewer_forbidden_actions_blocked_rate",
-      "applicable_cases": 18,
-      "passed_cases": 17,
-      "value": 0.9444444444444444,
+      "applicable_cases": 20,
+      "passed_cases": 19,
+      "value": 0.95,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -320,9 +341,9 @@
     },
     {
       "check_id": "ledger_hash_chain_valid_rate",
-      "applicable_cases": 18,
-      "passed_cases": 14,
-      "value": 0.7777777777777778,
+      "applicable_cases": 20,
+      "passed_cases": 16,
+      "value": 0.8,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -358,9 +379,9 @@
     },
     {
       "check_id": "ledger_append_only_replay_rate",
-      "applicable_cases": 18,
-      "passed_cases": 17,
-      "value": 0.9444444444444444,
+      "applicable_cases": 20,
+      "passed_cases": 19,
+      "value": 0.95,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -375,8 +396,8 @@
     },
     {
       "check_id": "trace_backed_resolution_claims_rate",
-      "applicable_cases": 18,
-      "passed_cases": 18,
+      "applicable_cases": 20,
+      "passed_cases": 20,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
@@ -384,9 +405,9 @@
     },
     {
       "check_id": "sample_artifacts_match_per_case_rate",
-      "applicable_cases": 18,
-      "passed_cases": 17,
-      "value": 0.9444444444444444,
+      "applicable_cases": 20,
+      "passed_cases": 19,
+      "value": 0.95,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -401,9 +422,9 @@
     },
     {
       "check_id": "report_consistency_with_independent_validation_rate",
-      "applicable_cases": 18,
-      "passed_cases": 17,
-      "value": 0.9444444444444444,
+      "applicable_cases": 20,
+      "passed_cases": 19,
+      "value": 0.95,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -418,8 +439,8 @@
     },
     {
       "check_id": "adversarial_detection_rate",
-      "applicable_cases": 18,
-      "passed_cases": 18,
+      "applicable_cases": 20,
+      "passed_cases": 20,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
@@ -427,8 +448,8 @@
     },
     {
       "check_id": "v137_validation_replay_pass_rate",
-      "applicable_cases": 18,
-      "passed_cases": 18,
+      "applicable_cases": 20,
+      "passed_cases": 20,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
@@ -477,6 +498,7 @@
       "artifact_ref": "per_case/adversarial/v138_ADV_L04_duplicate_open_items_not_deduped.json",
       "passed": false,
       "failed_check_ids": [
+        "human_review_payload_has_raw_evidence_rate",
         "queue_dedupe_blocks_duplicate_open_items_rate",
         "queue_item_status_consistency_rate"
       ],
@@ -662,6 +684,30 @@
         "report_consistency_with_independent_validation_rate"
       ],
       "defect_type": "clean_report_pass_but_independent_validator_fail"
+    },
+    {
+      "case_id": "v138_ADV_L19_open_clarification_item_missing_request",
+      "artifact_ref": "per_case/adversarial/v138_ADV_L19_open_clarification_item_missing_request.json",
+      "passed": false,
+      "failed_check_ids": [
+        "clarification_request_trace_backed_rate"
+      ],
+      "expected_failed_check_ids": [
+        "clarification_request_trace_backed_rate"
+      ],
+      "defect_type": "open_clarification_item_missing_request"
+    },
+    {
+      "case_id": "v138_ADV_L20_open_review_item_missing_payload",
+      "artifact_ref": "per_case/adversarial/v138_ADV_L20_open_review_item_missing_payload.json",
+      "passed": false,
+      "failed_check_ids": [
+        "human_review_payload_has_raw_evidence_rate"
+      ],
+      "expected_failed_check_ids": [
+        "human_review_payload_has_raw_evidence_rate"
+      ],
+      "defect_type": "open_review_item_missing_payload"
     }
   ],
   "detected_defects": [
@@ -705,6 +751,7 @@
         "queue_dedupe_blocks_duplicate_open_items_rate"
       ],
       "failed_check_ids": [
+        "human_review_payload_has_raw_evidence_rate",
         "queue_dedupe_blocks_duplicate_open_items_rate",
         "queue_item_status_consistency_rate"
       ],
@@ -873,7 +920,29 @@
         "report_consistency_with_independent_validation_rate"
       ],
       "detected": true
+    },
+    {
+      "case_id": "v138_ADV_L19_open_clarification_item_missing_request",
+      "defect_type": "open_clarification_item_missing_request",
+      "expected_failed_check_ids": [
+        "clarification_request_trace_backed_rate"
+      ],
+      "failed_check_ids": [
+        "clarification_request_trace_backed_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v138_ADV_L20_open_review_item_missing_payload",
+      "defect_type": "open_review_item_missing_payload",
+      "expected_failed_check_ids": [
+        "human_review_payload_has_raw_evidence_rate"
+      ],
+      "failed_check_ids": [
+        "human_review_payload_has_raw_evidence_rate"
+      ],
+      "detected": true
     }
   ],
-  "detected_defect_count": 18
+  "detected_defect_count": 20
 }

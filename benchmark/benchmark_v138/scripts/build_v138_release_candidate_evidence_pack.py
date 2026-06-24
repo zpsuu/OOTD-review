@@ -99,6 +99,8 @@ DEFECTS = [
     ("ADV_L16", "ledger_hash_chain_broken", ["ledger_hash_chain_valid_rate"]),
     ("ADV_L17", "sample_artifact_stale_relative_to_per_case", ["sample_artifacts_match_per_case_rate"]),
     ("ADV_L18", "clean_report_pass_but_independent_validator_fail", ["report_consistency_with_independent_validation_rate"]),
+    ("ADV_L19", "open_clarification_item_missing_request", ["clarification_request_trace_backed_rate"]),
+    ("ADV_L20", "open_review_item_missing_payload", ["human_review_payload_has_raw_evidence_rate"]),
 ]
 
 SAMPLE_CASES = {
@@ -228,6 +230,7 @@ def _case(case_code: str, scenario: str, kind: str, index: int) -> dict[str, Any
     claims = [{"claim_id": f"claim_{suffix}", "text": "I applied the resolved governance decision for this outfit packet.", "trace_refs": [decision_id, post_packet_id]}]
     clarification_request: dict[str, Any] | None = None
     clarification_resolution: dict[str, Any] | None = None
+    additional_clarification_requests: list[dict[str, Any]] = []
     human_review_payload: dict[str, Any] | None = None
     human_review_resolution: dict[str, Any] | None = None
     rollback_absence = None
@@ -305,7 +308,20 @@ def _case(case_code: str, scenario: str, kind: str, index: int) -> dict[str, Any
         elif kind == "review_request_clarification":
             resolution_type = "review_rejected_no_write"
             human_review_resolution = {"human_review_resolution_id": f"hrr_{suffix}", "reviewer_action": "request_clarification", "blocked_forbidden_action": False, "trace_refs": [item_id, human_review_payload["human_review_payload_id"]]}
-            duplicate_items.append(_queue_item(f"gqi_followup_{suffix}", "clarification_required", decision_id, memory_id, runtime_trace_id, packet_id, feedback_id, "open"))
+            followup_item_id = f"gqi_followup_{suffix}"
+            duplicate_items.append(_queue_item(followup_item_id, "clarification_required", decision_id, memory_id, runtime_trace_id, packet_id, feedback_id, "open"))
+            additional_clarification_requests.append({
+                "clarification_request_id": f"cr_followup_{suffix}",
+                "governance_queue_item_id": followup_item_id,
+                "question_type": "review_followup_ambiguity",
+                "question_text": "Which reviewed aspect should I clarify before changing future outfit memory?",
+                "allowed_response_kinds": ["choose_aspect", "this_time_only", "do_not_change_memory", "remember_for_context"],
+                "must_not_suggest": ["global_memory", "body_inference", "commerce_targeting"],
+                "current_turn_hold_ref": temporary_hold["temporary_hold_id"],
+                "memory_changed_claim": False,
+                "source_review_resolution_ref": human_review_resolution["human_review_resolution_id"],
+                "trace_refs": [runtime_trace_id, feedback_id, item_id, human_review_payload["human_review_payload_id"], human_review_resolution["human_review_resolution_id"], followup_item_id],
+            })
         elif kind == "forbidden_globalize":
             resolution_type = "review_rejected_no_write"
             human_review_resolution = {"human_review_resolution_id": f"hrr_{suffix}", "reviewer_action": "globalize_memory", "blocked_forbidden_action": True, "trace_refs": [item_id, human_review_payload["human_review_payload_id"]]}
@@ -407,6 +423,8 @@ def _case(case_code: str, scenario: str, kind: str, index: int) -> dict[str, Any
     ledger = _ledger(runtime_trace_id, item_id, decision_id, before, after, write_executed, [runtime_trace_id, item_id, decision_id] if decision_id else [])
     if resolution_type in {"review_rejected_no_write", "clarified_no_write", "expired_no_write"} and not write_executed and after != before:
         raise AssertionError(case_id)
+    clarification_requests = ([clarification_request] if clarification_request else []) + additional_clarification_requests
+    human_review_payloads = [human_review_payload] if human_review_payload else []
     artifact = {
         "case_id": case_id,
         "version": VERSION,
@@ -416,8 +434,10 @@ def _case(case_code: str, scenario: str, kind: str, index: int) -> dict[str, Any
         "governance_trigger": trigger,
         "runtime_governance_queue": queue,
         "clarification_request": clarification_request,
+        "clarification_requests": clarification_requests,
         "clarification_resolution": clarification_resolution,
         "human_review_payload": human_review_payload,
+        "human_review_payloads": human_review_payloads,
         "human_review_resolution": human_review_resolution,
         "temporary_hold_lifecycle": temporary_hold,
         "governance_resolution_decision": decision,
@@ -518,6 +538,31 @@ def _defect(defect_id: str, defect_type: str, gates: list[str]) -> dict[str, Any
         artifact["sample_consistency_probe"] = {"sample_artifact_content": {"case_id": artifact["case_id"], "manual_only_patch": True}, "source_artifact_content": {"case_id": artifact["case_id"]}}
     elif defect_type == "clean_report_pass_but_independent_validator_fail":
         artifact["report_consistency_probe"] = {"clean_report_summary": {"passed_cases": 32, "failed_cases": 0}, "independent_validation_summary": {"passed_cases": 31, "failed_cases": 1}}
+    elif defect_type == "open_clarification_item_missing_request":
+        artifact.update(_case(defect_id, defect_type, "review_request_clarification", 900 + int(defect_id.split("_L")[-1])))
+        artifact["case_id"] = f"v138_{defect_id}_{defect_type}"
+        artifact["defect_type"] = defect_type
+        artifact["expected_failure"] = True
+        artifact["expected_failed_check_ids"] = gates
+        open_clarification_ids = {
+            item["governance_queue_item_id"]
+            for item in artifact["runtime_governance_queue"]["queue_items"]
+            if item.get("status") == "open" and item.get("trigger_type") == "clarification_required"
+        }
+        artifact["clarification_requests"] = [
+            request
+            for request in artifact.get("clarification_requests", [])
+            if request.get("governance_queue_item_id") not in open_clarification_ids
+        ]
+        artifact["clarification_request"] = artifact["clarification_requests"][0] if artifact["clarification_requests"] else None
+    elif defect_type == "open_review_item_missing_payload":
+        artifact.update(_case(defect_id, defect_type, "review_open", 900 + int(defect_id.split("_L")[-1])))
+        artifact["case_id"] = f"v138_{defect_id}_{defect_type}"
+        artifact["defect_type"] = defect_type
+        artifact["expected_failure"] = True
+        artifact["expected_failed_check_ids"] = gates
+        artifact["human_review_payload"] = None
+        artifact["human_review_payloads"] = []
     return artifact
 
 

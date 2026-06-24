@@ -94,8 +94,10 @@
     "expired_item_count": 0
   },
   "clarification_request": null,
+  "clarification_requests": [],
   "clarification_resolution": null,
   "human_review_payload": null,
+  "human_review_payloads": [],
   "human_review_resolution": null,
   "temporary_hold_lifecycle": {
     "temporary_hold_id": "th_v138_003",

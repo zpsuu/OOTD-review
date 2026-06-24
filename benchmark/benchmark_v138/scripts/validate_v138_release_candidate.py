@@ -62,6 +62,14 @@ def _same_state(a: dict[str, Any], b: dict[str, Any]) -> bool:
     return {k: v for k, v in a.items() if k not in ignored} == {k: v for k, v in b.items() if k not in ignored}
 
 
+def _artifact_list(artifact: dict[str, Any], list_key: str, singleton_key: str) -> list[dict[str, Any]]:
+    values = artifact.get(list_key)
+    if isinstance(values, list):
+        return [value for value in values if isinstance(value, dict)]
+    singleton = artifact.get(singleton_key)
+    return [singleton] if isinstance(singleton, dict) else []
+
+
 def _structural_failures(artifact: dict[str, Any]) -> list[str]:
     failures: list[str] = []
     trigger = artifact.get("governance_trigger") or {}
@@ -73,8 +81,10 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
     after = artifact.get("after_memory_lifecycle_state") or {}
     post = artifact.get("post_resolution_task_memory_packet") or {}
     hold = artifact.get("temporary_hold_lifecycle") or {}
+    clarification_requests = _artifact_list(artifact, "clarification_requests", "clarification_request")
     clarification = artifact.get("clarification_request")
     clarification_resolution = artifact.get("clarification_resolution")
+    human_review_payloads = _artifact_list(artifact, "human_review_payloads", "human_review_payload")
     payload = artifact.get("human_review_payload")
     review = artifact.get("human_review_resolution")
     ledger = artifact.get("governance_decision_ledger") or {}
@@ -126,11 +136,21 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
         if item.get("status") == "deduped" and not item.get("canonical_queue_item_id"):
             failures.append("queue_dedupe_blocks_duplicate_open_items_rate")
 
-    if clarification:
-        if not clarification.get("trace_refs") or clarification.get("memory_changed_claim") is True or "global_memory" not in (clarification.get("must_not_suggest") or []):
+    clarification_by_item = {request.get("governance_queue_item_id"): request for request in clarification_requests}
+    for request in clarification_requests:
+        if not request.get("trace_refs") or request.get("memory_changed_claim") is True or "global_memory" not in (request.get("must_not_suggest") or []):
             failures.append("clarification_request_trace_backed_rate")
-        if not clarification.get("current_turn_hold_ref"):
+        if not request.get("current_turn_hold_ref"):
             failures.append("clarification_request_trace_backed_rate")
+    for item in items:
+        if item.get("status") == "open" and item.get("trigger_type") == "clarification_required":
+            item_id = item.get("governance_queue_item_id")
+            request = clarification_by_item.get(item_id)
+            if not request:
+                failures.append("clarification_request_trace_backed_rate")
+                continue
+            if item_id not in (request.get("trace_refs") or []) or request.get("current_turn_hold_ref") != hold.get("temporary_hold_id"):
+                failures.append("clarification_request_trace_backed_rate")
     if decision and decision.get("resolution_type") == "clarified_no_write":
         if decision.get("production_write_executed") is True or not _same_state(before, after):
             failures.append("clarification_no_write_preserves_memory_state_rate")
@@ -140,11 +160,22 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
         if not clarification_resolution or clarification_resolution.get("production_write_requested") is not True:
             failures.append("clarification_write_candidate_routes_to_gate_rate")
 
-    if payload:
-        if not payload.get("raw_evidence_refs") or payload.get("production_write_blocked_until_resolution") is not True:
+    human_review_payload_by_item = {review_payload.get("governance_queue_item_id"): review_payload for review_payload in human_review_payloads}
+    for review_payload in human_review_payloads:
+        if not review_payload.get("raw_evidence_refs") or review_payload.get("production_write_blocked_until_resolution") is not True:
             failures.append("human_review_payload_has_raw_evidence_rate")
-        if not payload.get("forbidden_reviewer_actions"):
+        if not review_payload.get("forbidden_reviewer_actions"):
             failures.append("human_review_payload_has_raw_evidence_rate")
+    for item in items:
+        if item.get("status") == "open" and item.get("trigger_type") == "human_review_required":
+            item_id = item.get("governance_queue_item_id")
+            review_payload = human_review_payload_by_item.get(item_id)
+            if not review_payload:
+                failures.append("human_review_payload_has_raw_evidence_rate")
+                continue
+            trace_refs = set(review_payload.get("raw_evidence_refs") or []) | set(review_payload.get("trace_refs") or [])
+            if not trace_refs or review_payload.get("production_write_blocked_until_resolution") is not True:
+                failures.append("human_review_payload_has_raw_evidence_rate")
     if decision and decision.get("resolution_type") == "review_approved_write":
         if not decision.get("production_write_gate_ref") or gate.get("decision") != "allow" or gate.get("production_write_executed") is not True:
             failures.append("human_review_resolution_uses_write_gate_rate")
@@ -191,8 +222,10 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
         confirmed = review.get("confirmed_aspects") or before.get("confirmed_aspects") or []
         if any(aspect not in confirmed for aspect in proposed) and review.get("blocked_forbidden_action") is not True:
             failures.append("reviewer_forbidden_actions_blocked_rate")
-    if payload and not {"globalize_memory", "add_unconfirmed_aspect"}.issubset(set(payload.get("forbidden_reviewer_actions") or [])):
-        failures.append("reviewer_forbidden_actions_blocked_rate")
+    for review_payload in human_review_payloads:
+        if not {"globalize_memory", "add_unconfirmed_aspect"}.issubset(set(review_payload.get("forbidden_reviewer_actions") or [])):
+            failures.append("reviewer_forbidden_actions_blocked_rate")
+            break
 
     previous = None
     for entry in ledger.get("ledger_entries") or []:

@@ -94,6 +94,7 @@
     "expired_item_count": 0
   },
   "clarification_request": null,
+  "clarification_requests": [],
   "clarification_resolution": null,
   "human_review_payload": {
     "human_review_payload_id": "hrp_v138_913",
@@ -122,6 +123,35 @@
     ],
     "production_write_blocked_until_resolution": true
   },
+  "human_review_payloads": [
+    {
+      "human_review_payload_id": "hrp_v138_913",
+      "governance_queue_item_id": "gqi_v138_913",
+      "risk_reasons": [
+        "context_scope_change_requires_review"
+      ],
+      "proposed_action_summary": "narrow context handling for a promoted inspiration memory",
+      "raw_evidence_refs": [
+        "rt_v138_913",
+        "tmp_v138_913",
+        "pmf_v138_913",
+        "state_before_v138_913"
+      ],
+      "allowed_reviewer_actions": [
+        "approve_no_write",
+        "approve_write",
+        "reject",
+        "request_clarification",
+        "rollback"
+      ],
+      "forbidden_reviewer_actions": [
+        "globalize_memory",
+        "add_unconfirmed_aspect",
+        "infer_body_or_identity"
+      ],
+      "production_write_blocked_until_resolution": true
+    }
+  ],
   "human_review_resolution": {
     "human_review_resolution_id": "hrr_v138_913",
     "reviewer_action": "approve_write",

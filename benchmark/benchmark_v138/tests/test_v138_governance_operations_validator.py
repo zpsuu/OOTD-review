@@ -52,8 +52,8 @@ class V138GovernanceOperationsValidatorTests(unittest.TestCase):
             self.assertEqual(clean["suite_summary"]["passed_cases"], 32)
             self.assertEqual(clean["suite_summary"]["passed_checks"], 23)
             self.assertEqual(adversarial["suite_summary"]["passed_cases"], 0)
-            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 18)
-            self.assertEqual(adversarial["detected_defect_count"], 18)
+            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 20)
+            self.assertEqual(adversarial["detected_defect_count"], 20)
             self.assertTrue(sample["passed"], sample["failures"])
             self.assertTrue(consistency["passed"], consistency["failures"])
 
@@ -104,6 +104,39 @@ class V138GovernanceOperationsValidatorTests(unittest.TestCase):
             report = validator.validate_directory(result_dir, "clean")
             failed = {case["case_id"]: case["failed_check_ids"] for case in report["case_results"] if not case["passed"]}
             self.assertIn("human_review_resolution_uses_write_gate_rate", failed["v138_C02_review_approve_write_still_uses_write_gate"])
+
+    def test_open_clarification_item_requires_matching_request(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dir = self._build(tmp)
+            path = next((result_dir / "per_case" / "clean").glob("*C04_review_request_clarification_creates_clarification_item.json"))
+            case = json.loads(path.read_text(encoding="utf-8"))
+            open_item_ids = {
+                item["governance_queue_item_id"]
+                for item in case["runtime_governance_queue"]["queue_items"]
+                if item.get("status") == "open" and item.get("trigger_type") == "clarification_required"
+            }
+            case["clarification_requests"] = [
+                request
+                for request in case.get("clarification_requests", [])
+                if request.get("governance_queue_item_id") not in open_item_ids
+            ]
+            case["clarification_request"] = case["clarification_requests"][0] if case["clarification_requests"] else None
+            _write_json(path, case)
+            report = validator.validate_directory(result_dir, "clean")
+            failed = {case["case_id"]: case["failed_check_ids"] for case in report["case_results"] if not case["passed"]}
+            self.assertIn("clarification_request_trace_backed_rate", failed["v138_C04_review_request_clarification_creates_clarification_item"])
+
+    def test_open_human_review_item_requires_matching_payload(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dir = self._build(tmp)
+            path = next((result_dir / "per_case" / "clean").glob("*A02_human_review_trigger_creates_open_queue_item.json"))
+            case = json.loads(path.read_text(encoding="utf-8"))
+            case["human_review_payload"] = None
+            case["human_review_payloads"] = []
+            _write_json(path, case)
+            report = validator.validate_directory(result_dir, "clean")
+            failed = {case["case_id"]: case["failed_check_ids"] for case in report["case_results"] if not case["passed"]}
+            self.assertIn("human_review_payload_has_raw_evidence_rate", failed["v138_A02_human_review_trigger_creates_open_queue_item"])
 
     def test_expired_hold_write_is_detected(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -165,8 +198,8 @@ class V138GovernanceOperationsValidatorTests(unittest.TestCase):
                 _write_json(path, case)
             adversarial = validator.validate_directory(result_dir, "adversarial")
             self.assertEqual(adversarial["suite_summary"]["passed_cases"], 0)
-            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 18)
-            self.assertEqual(adversarial["detected_defect_count"], 18)
+            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 20)
+            self.assertEqual(adversarial["detected_defect_count"], 20)
 
 
 if __name__ == "__main__":

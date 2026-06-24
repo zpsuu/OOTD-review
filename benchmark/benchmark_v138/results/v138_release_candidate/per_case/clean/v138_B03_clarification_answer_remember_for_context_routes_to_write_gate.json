@@ -117,6 +117,32 @@
       "gqi_v138_007"
     ]
   },
+  "clarification_requests": [
+    {
+      "clarification_request_id": "cr_v138_007",
+      "governance_queue_item_id": "gqi_v138_007",
+      "question_type": "ambiguity",
+      "question_text": "Which aspect should I adjust for future outfits?",
+      "allowed_response_kinds": [
+        "choose_aspect",
+        "this_time_only",
+        "do_not_change_memory",
+        "remember_for_context"
+      ],
+      "must_not_suggest": [
+        "global_memory",
+        "body_inference",
+        "commerce_targeting"
+      ],
+      "current_turn_hold_ref": "th_v138_007",
+      "memory_changed_claim": false,
+      "trace_refs": [
+        "rt_v138_007",
+        "pmf_v138_007",
+        "gqi_v138_007"
+      ]
+    }
+  ],
   "clarification_resolution": {
     "clarification_resolution_id": "cra_v138_007",
     "answer_kind": "remember_for_context",
@@ -127,6 +153,7 @@
     ]
   },
   "human_review_payload": null,
+  "human_review_payloads": [],
   "human_review_resolution": null,
   "temporary_hold_lifecycle": {
     "temporary_hold_id": "th_v138_007",
