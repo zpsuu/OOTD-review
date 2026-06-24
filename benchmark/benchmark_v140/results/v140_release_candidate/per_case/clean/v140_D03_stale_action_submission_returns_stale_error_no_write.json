@@ -1,0 +1,321 @@
+{
+  "case_id": "v140_D03_stale_action_submission_returns_stale_error_no_write",
+  "version": "v1.40",
+  "scenario_kind": "stale_action",
+  "gate_assertions": {
+    "api_request_response_envelope_valid_rate": true,
+    "route_handler_maps_to_raw_artifacts_rate": true,
+    "action_surface_api_matches_v139_surface_rate": true,
+    "action_submission_contract_valid_rate": true,
+    "no_write_error_preserves_memory_state_rate": true,
+    "idempotent_submission_contract_rate": true,
+    "expired_stale_action_contract_rate": true,
+    "action_result_api_links_response_rate": true,
+    "conversation_turn_claims_trace_backed_rate": true,
+    "contract_snapshot_hash_reproducible_rate": true,
+    "source_artifact_hashes_match_raw_rate": true,
+    "backward_compatibility_replay_rate": true,
+    "redaction_policy_safe_response_rate": true,
+    "schema_version_consistency_rate": true,
+    "sample_artifacts_match_per_case_rate": true,
+    "report_consistency_with_independent_validation_rate": true,
+    "adversarial_detection_rate": true,
+    "v139_validation_replay_pass_rate": true
+  },
+  "source_v139_artifact_ref": "per_case/clean/v139_D05_stale_action_suppressed_after_resolution.json",
+  "source_v139_artifact_hash": "9e67488f73837f41d6e0e296ab3c0b785a27f205af7c1f8909ae920ce2046a04",
+  "source_v139_case_id": "v139_D05_stale_action_suppressed_after_resolution",
+  "local_api_request_envelope": {
+    "api_request_id": "api_req_v140_D03_stale_action_submission_returns_stale_error_no_write",
+    "contract_version": "v1.40",
+    "schema_version": "product_api.v1",
+    "route": "POST /local/action-submission",
+    "method": "POST",
+    "request_context": "office_daily",
+    "query": {},
+    "body": {
+      "submitted_action": "this_time_only",
+      "user_action_card_id": "uac_v139_018"
+    },
+    "idempotency_key": "idem_v140_D03_stale_action_submission_returns_stale_error_no_write",
+    "trace_refs": [
+      "rt_v139_018",
+      "gas_v139_018"
+    ]
+  },
+  "local_api_response_envelope": {
+    "api_response_id": "api_res_v140_D03_stale_action_submission_returns_stale_error_no_write",
+    "api_request_id": "api_req_v140_D03_stale_action_submission_returns_stale_error_no_write",
+    "contract_version": "v1.40",
+    "schema_version": "product_api.v1",
+    "status_code": 409,
+    "response_type": "error",
+    "body": {
+      "contract_version": "v1.40",
+      "schema_version": "product_api.v1",
+      "safe_error": "That action was already resolved and did not change memory.",
+      "action_result": {
+        "action_result_api_resource_id": "res_api_v140_D03_stale_action_submission_returns_stale_error_no_write",
+        "action_result_packet_id": "arp_v139_018",
+        "result_type": "no_write_current_turn",
+        "production_write_executed": false,
+        "post_action_task_memory_packet_id": "tmp_post_action_v139_018",
+        "user_visible_response_block_ids": [
+          "urb_v139_018"
+        ],
+        "response_block_refs": [
+          "urb_v139_018"
+        ],
+        "governance_resolution_decision_id": "grd_v139_018",
+        "trace_refs": [
+          "rt_v139_018",
+          "gqi_v139_018",
+          "grd_v139_018"
+        ]
+      }
+    },
+    "error": {
+      "error_id": "api_err_v140_D03_stale_action_submission_returns_stale_error_no_write",
+      "error_type": "stale_action",
+      "status_code": 409,
+      "safe_message": "That action was already resolved and did not change memory.",
+      "developer_debug_ref": "trace:rt_v139_018",
+      "production_write_executed": false,
+      "trace_refs": [
+        "rt_v139_018",
+        "gas_v139_018"
+      ]
+    },
+    "trace_refs": [
+      "api_req_v140_D03_stale_action_submission_returns_stale_error_no_write",
+      "rt_v139_018",
+      "gas_v139_018"
+    ]
+  },
+  "product_route_handler_proof": {
+    "route_handler_proof_id": "rhp_v140_D03_stale_action_submission_returns_stale_error_no_write",
+    "route": "POST /local/action-submission",
+    "source_artifact_refs": [
+      "per_case/clean/v139_D05_stale_action_suppressed_after_resolution.json"
+    ],
+    "derived_resource_refs": [],
+    "field_mapping": [
+      {
+        "response_field": "action_result",
+        "source": "raw_v139_artifact"
+      },
+      {
+        "response_field": "contract_version",
+        "source": "derived_constant"
+      },
+      {
+        "response_field": "safe_error",
+        "source": "raw_v139_artifact"
+      },
+      {
+        "response_field": "schema_version",
+        "source": "derived_constant"
+      }
+    ],
+    "redaction_proof": {
+      "raw_human_review_evidence_exposed": false,
+      "internal_only_fields_exposed": false,
+      "excluded_terms": [
+        "raw_evidence_refs",
+        "risk_reasons",
+        "internal_only_fields"
+      ]
+    },
+    "trace_refs": [
+      "rt_v139_018",
+      "gas_v139_018"
+    ]
+  },
+  "contract_snapshot": {
+    "contract_snapshot_id": "cs_v140_D03_stale_action_submission_returns_stale_error_no_write",
+    "api_request_id": "api_req_v140_D03_stale_action_submission_returns_stale_error_no_write",
+    "api_response_id": "api_res_v140_D03_stale_action_submission_returns_stale_error_no_write",
+    "canonical_request_hash": "dbb1462c601ddd0a87154cf455e0933a443ba0bfec6bed12bfc12c56d871278a",
+    "canonical_response_hash": "aa9b97efb66eac50ee650550c8080fee19a18b9876405fbfd7b0e0aca891461b",
+    "source_artifact_hashes": {
+      "per_case/clean/v139_D05_stale_action_suppressed_after_resolution.json": "9e67488f73837f41d6e0e296ab3c0b785a27f205af7c1f8909ae920ce2046a04"
+    },
+    "schema_version": "product_api.v1",
+    "backward_compatibility_key": "stable:POST /local/action-submission:error",
+    "trace_refs": [
+      "api_req_v140_D03_stale_action_submission_returns_stale_error_no_write",
+      "api_res_v140_D03_stale_action_submission_returns_stale_error_no_write",
+      "per_case/clean/v139_D05_stale_action_suppressed_after_resolution.json"
+    ]
+  },
+  "api_error_envelope": {
+    "error_id": "api_err_v140_D03_stale_action_submission_returns_stale_error_no_write",
+    "error_type": "stale_action",
+    "status_code": 409,
+    "safe_message": "That action was already resolved and did not change memory.",
+    "developer_debug_ref": "trace:rt_v139_018",
+    "production_write_executed": false,
+    "trace_refs": [
+      "rt_v139_018",
+      "gas_v139_018"
+    ]
+  },
+  "action_surface_api_resource": {
+    "action_surface_api_resource_id": "asr_v139_D05_stale_action_suppressed_after_resolution",
+    "source_governance_action_surface_id": "gas_v139_018",
+    "cards": [
+      {
+        "card_id": "uac_v139_018",
+        "governance_queue_item_id": "gqi_v139_018",
+        "card_type": "clarification",
+        "display_state": "resolved",
+        "title": "Clarify this preference",
+        "body": "Which outfit context should this apply to?",
+        "allowed_actions": [],
+        "disabled_reason": null,
+        "trace_refs": [
+          "rt_v139_018",
+          "gqi_v139_018",
+          "cr_v139_018"
+        ]
+      }
+    ],
+    "response_blocks": [
+      {
+        "response_block_id": "urb_v139_018",
+        "block_type": "action_result_notice",
+        "text": "The earlier hold is resolved, so I removed the stale action.",
+        "claim_refs": [
+          "claim_v139_018"
+        ],
+        "trace_refs": [
+          "rt_v139_018",
+          "arp_v139_018",
+          "grd_v139_018"
+        ]
+      }
+    ],
+    "trace_refs": [
+      "gas_v139_018",
+      "v139_D05_stale_action_suppressed_after_resolution",
+      "rt_v139_018"
+    ]
+  },
+  "action_submission_api_resource": {
+    "action_submission_api_resource_id": "sub_api_v140_D03_stale_action_submission_returns_stale_error_no_write",
+    "accepted": false,
+    "submitted_action": "this_time_only",
+    "idempotency_key": "idem_v140_D03_stale_action_submission_returns_stale_error_no_write",
+    "user_action_card_id": "uac_v139_018",
+    "governance_queue_item_id": "gqi_v139_018",
+    "allowed_actions_at_submission": [],
+    "card_display_state_at_submission": "resolved",
+    "production_write_executed": false,
+    "trace_refs": [
+      "rt_v139_018",
+      "uac_v139_018",
+      "gqi_v139_018"
+    ]
+  },
+  "action_result_api_resource": {
+    "action_result_api_resource_id": "res_api_v140_D03_stale_action_submission_returns_stale_error_no_write",
+    "action_result_packet_id": "arp_v139_018",
+    "result_type": "no_write_current_turn",
+    "production_write_executed": false,
+    "post_action_task_memory_packet_id": "tmp_post_action_v139_018",
+    "user_visible_response_block_ids": [
+      "urb_v139_018"
+    ],
+    "response_block_refs": [
+      "urb_v139_018"
+    ],
+    "governance_resolution_decision_id": "grd_v139_018",
+    "trace_refs": [
+      "rt_v139_018",
+      "gqi_v139_018",
+      "grd_v139_018"
+    ]
+  },
+  "conversation_turn_state": {
+    "conversation_turn_state_id": "cts_v140_D03_stale_action_submission_returns_stale_error_no_write",
+    "api_request_id": "api_req_v140_D03_stale_action_submission_returns_stale_error_no_write",
+    "api_response_id": "api_res_v140_D03_stale_action_submission_returns_stale_error_no_write",
+    "visible_response_block_ids": [],
+    "user_visible_claims": [],
+    "memory_change_claimed": false,
+    "production_write_executed": false,
+    "trace_refs": [
+      "api_res_v140_D03_stale_action_submission_returns_stale_error_no_write",
+      "rt_v139_018"
+    ]
+  },
+  "schema_compatibility_report": {
+    "schema_compatibility_report_id": "scr_v140_D03_stale_action_submission_returns_stale_error_no_write",
+    "current_schema_version": "product_api.v1",
+    "previous_schema_version": "product_api.v1",
+    "required_fields_present": true,
+    "removed_fields": [],
+    "current_schema_adapter": "product_api.v1.local_adapter",
+    "replay_status": "pass",
+    "trace_refs": [
+      "cs_v140_D03_stale_action_submission_returns_stale_error_no_write"
+    ]
+  },
+  "contract_replay_trace": {
+    "contract_replay_trace_id": "crt_v140_D03_stale_action_submission_returns_stale_error_no_write",
+    "replayed_snapshot_id": "cs_v140_D03_stale_action_submission_returns_stale_error_no_write",
+    "replay_result": "pass",
+    "current_schema_adapter_version": "product_api.v1.local_adapter",
+    "backward_compatibility_key": "stable:POST /local/action-submission:error",
+    "reproduced_request_hash": "dbb1462c601ddd0a87154cf455e0933a443ba0bfec6bed12bfc12c56d871278a",
+    "reproduced_response_hash": "aa9b97efb66eac50ee650550c8080fee19a18b9876405fbfd7b0e0aca891461b",
+    "trace_refs": [
+      "cs_v140_D03_stale_action_submission_returns_stale_error_no_write"
+    ]
+  },
+  "before_memory_lifecycle_state": {
+    "memory_id": "mem_v139_018",
+    "state_snapshot_id": "state_active_v139_018",
+    "current_status": "active",
+    "contexts": [
+      "office_daily"
+    ],
+    "confirmed_aspects": [
+      "soft tailoring",
+      "muted contrast"
+    ],
+    "context_exclusions": [],
+    "global_memory_write": false
+  },
+  "after_memory_lifecycle_state": {
+    "memory_id": "mem_v139_018",
+    "state_snapshot_id": "state_active_v139_018",
+    "current_status": "active",
+    "contexts": [
+      "office_daily"
+    ],
+    "confirmed_aspects": [
+      "soft tailoring",
+      "muted contrast"
+    ],
+    "context_exclusions": [],
+    "global_memory_write": false
+  },
+  "production_memory_write_gate": {
+    "gate_id": "pmwg_v139_018",
+    "decision": "block",
+    "production_write_executed": false,
+    "environment": "deterministic_local_fixture"
+  },
+  "policy_surface_audit": {
+    "no_raw_review_evidence_exposed": true,
+    "no_internal_debug_exposed": true,
+    "no_global_memory_claim": true,
+    "no_sensitive_or_commerce_or_aigc": true
+  },
+  "reviewer_checklist_refs": [],
+  "runner_reproducibility_proof": {},
+  "v139_replay_proof": {
+    "run_v139_validation_suite": "PASS"
+  }
+}

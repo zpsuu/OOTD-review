@@ -1,0 +1,81 @@
+{
+  "validator": "benchmark.common.sample_consistency",
+  "total_samples": 7,
+  "passed_samples": 7,
+  "failed_samples": 0,
+  "passed": true,
+  "failures": [],
+  "samples": [
+    {
+      "artifact_ref": "sample_artifacts/get_action_surface_contract.json",
+      "source_artifact_ref": "per_case/clean/v140_A02_get_action_surface_returns_cards_and_response_blocks.json",
+      "case_id": "v140_A02_get_action_surface_returns_cards_and_response_blocks",
+      "exists": true,
+      "sample_hash": "a430d9a428fb5914f0f81b5374b2da606e351becc2b821a701a305e8f5f19a8d",
+      "source_hash": "a430d9a428fb5914f0f81b5374b2da606e351becc2b821a701a305e8f5f19a8d",
+      "manifest_hash": "a430d9a428fb5914f0f81b5374b2da606e351becc2b821a701a305e8f5f19a8d",
+      "passed": true
+    },
+    {
+      "artifact_ref": "sample_artifacts/post_this_time_only_contract.json",
+      "source_artifact_ref": "per_case/clean/v140_C01_post_this_time_only_submission_no_write.json",
+      "case_id": "v140_C01_post_this_time_only_submission_no_write",
+      "exists": true,
+      "sample_hash": "94ffcdd549fae960d99a9682a391b0dc8ef835923968e0451604df72062d1b65",
+      "source_hash": "94ffcdd549fae960d99a9682a391b0dc8ef835923968e0451604df72062d1b65",
+      "manifest_hash": "94ffcdd549fae960d99a9682a391b0dc8ef835923968e0451604df72062d1b65",
+      "passed": true
+    },
+    {
+      "artifact_ref": "sample_artifacts/remember_for_context_contract.json",
+      "source_artifact_ref": "per_case/clean/v140_C03_post_remember_for_context_routes_to_write_gate.json",
+      "case_id": "v140_C03_post_remember_for_context_routes_to_write_gate",
+      "exists": true,
+      "sample_hash": "dea429f7dfbe1280bfc073a2368a8fbcf2a184dfce3cccb5442f96d3631dbefc",
+      "source_hash": "dea429f7dfbe1280bfc073a2368a8fbcf2a184dfce3cccb5442f96d3631dbefc",
+      "manifest_hash": "dea429f7dfbe1280bfc073a2368a8fbcf2a184dfce3cccb5442f96d3631dbefc",
+      "passed": true
+    },
+    {
+      "artifact_ref": "sample_artifacts/duplicate_submission_contract.json",
+      "source_artifact_ref": "per_case/clean/v140_C04_duplicate_submission_returns_idempotent_result.json",
+      "case_id": "v140_C04_duplicate_submission_returns_idempotent_result",
+      "exists": true,
+      "sample_hash": "34af449266348748c3d6eefc0ae62923882c534149408717e21d54f50a2279c5",
+      "source_hash": "34af449266348748c3d6eefc0ae62923882c534149408717e21d54f50a2279c5",
+      "manifest_hash": "34af449266348748c3d6eefc0ae62923882c534149408717e21d54f50a2279c5",
+      "passed": true
+    },
+    {
+      "artifact_ref": "sample_artifacts/expired_action_error_contract.json",
+      "source_artifact_ref": "per_case/clean/v140_D02_expired_action_submission_returns_expired_error_no_write.json",
+      "case_id": "v140_D02_expired_action_submission_returns_expired_error_no_write",
+      "exists": true,
+      "sample_hash": "02943cd5456ebb0ccd4d5f0d7753f06f53ed685e71d9d2aec13896c0e708164f",
+      "source_hash": "02943cd5456ebb0ccd4d5f0d7753f06f53ed685e71d9d2aec13896c0e708164f",
+      "manifest_hash": "02943cd5456ebb0ccd4d5f0d7753f06f53ed685e71d9d2aec13896c0e708164f",
+      "passed": true
+    },
+    {
+      "artifact_ref": "sample_artifacts/contract_snapshot.json",
+      "source_artifact_ref": "per_case/clean/v140_F01_contract_snapshot_hashes_reproducible.json",
+      "case_id": "v140_F01_contract_snapshot_hashes_reproducible",
+      "exists": true,
+      "sample_hash": "3abe4583e7b3632a47783b5cb60ae6f426c98ee68c3528c80fac8f423b8b77b8",
+      "source_hash": "3abe4583e7b3632a47783b5cb60ae6f426c98ee68c3528c80fac8f423b8b77b8",
+      "manifest_hash": "3abe4583e7b3632a47783b5cb60ae6f426c98ee68c3528c80fac8f423b8b77b8",
+      "passed": true
+    },
+    {
+      "artifact_ref": "sample_artifacts/review_redaction_contract.json",
+      "source_artifact_ref": "per_case/clean/v140_G01_response_redacts_raw_human_review_evidence.json",
+      "case_id": "v140_G01_response_redacts_raw_human_review_evidence",
+      "exists": true,
+      "sample_hash": "89b24a98fe4ec045f71c04f31988e471a287c4859b7aa736d90dd3e49e2ce7d6",
+      "source_hash": "89b24a98fe4ec045f71c04f31988e471a287c4859b7aa736d90dd3e49e2ce7d6",
+      "manifest_hash": "89b24a98fe4ec045f71c04f31988e471a287c4859b7aa736d90dd3e49e2ce7d6",
+      "passed": true
+    }
+  ],
+  "generated_at": "2026-06-24T08:58:05Z"
+}

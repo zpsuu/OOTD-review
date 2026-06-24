@@ -1,0 +1,360 @@
+{
+  "case_id": "v140_C03_post_remember_for_context_routes_to_write_gate",
+  "version": "v1.40",
+  "scenario_kind": "post_action",
+  "gate_assertions": {
+    "api_request_response_envelope_valid_rate": true,
+    "route_handler_maps_to_raw_artifacts_rate": true,
+    "action_surface_api_matches_v139_surface_rate": true,
+    "action_submission_contract_valid_rate": true,
+    "no_write_error_preserves_memory_state_rate": true,
+    "idempotent_submission_contract_rate": true,
+    "expired_stale_action_contract_rate": true,
+    "action_result_api_links_response_rate": true,
+    "conversation_turn_claims_trace_backed_rate": true,
+    "contract_snapshot_hash_reproducible_rate": true,
+    "source_artifact_hashes_match_raw_rate": true,
+    "backward_compatibility_replay_rate": true,
+    "redaction_policy_safe_response_rate": true,
+    "schema_version_consistency_rate": true,
+    "sample_artifacts_match_per_case_rate": true,
+    "report_consistency_with_independent_validation_rate": true,
+    "adversarial_detection_rate": true,
+    "v139_validation_replay_pass_rate": true
+  },
+  "source_v139_artifact_ref": "per_case/clean/v139_B04_remember_for_context_submission_routes_to_write_gate.json",
+  "source_v139_artifact_hash": "cc0363f695f8d78e492dc65b2ba3d0d9f02c4324374c74653cc1d6eed59d2f3e",
+  "source_v139_case_id": "v139_B04_remember_for_context_submission_routes_to_write_gate",
+  "local_api_request_envelope": {
+    "api_request_id": "api_req_v140_C03_post_remember_for_context_routes_to_write_gate",
+    "contract_version": "v1.40",
+    "schema_version": "product_api.v1",
+    "route": "POST /local/action-submission",
+    "method": "POST",
+    "request_context": "office_daily",
+    "query": {},
+    "body": {
+      "submitted_action": "remember_for_context",
+      "user_action_card_id": "uac_v139_008"
+    },
+    "idempotency_key": "idem_v140_C03_post_remember_for_context_routes_to_write_gate",
+    "trace_refs": [
+      "rt_v139_008",
+      "gas_v139_008"
+    ]
+  },
+  "local_api_response_envelope": {
+    "api_response_id": "api_res_v140_C03_post_remember_for_context_routes_to_write_gate",
+    "api_request_id": "api_req_v140_C03_post_remember_for_context_routes_to_write_gate",
+    "contract_version": "v1.40",
+    "schema_version": "product_api.v1",
+    "status_code": 200,
+    "response_type": "action_submission_result",
+    "body": {
+      "contract_version": "v1.40",
+      "schema_version": "product_api.v1",
+      "action_submission": {
+        "action_submission_api_resource_id": "sub_api_v140_C03_post_remember_for_context_routes_to_write_gate",
+        "accepted": true,
+        "submitted_action": "remember_for_context",
+        "idempotency_key": "idem_v140_C03_post_remember_for_context_routes_to_write_gate",
+        "user_action_card_id": "uac_v139_008",
+        "governance_queue_item_id": "gqi_v139_008",
+        "allowed_actions_at_submission": [
+          "this_time_only",
+          "do_not_change_memory",
+          "remember_for_context"
+        ],
+        "card_display_state_at_submission": "resolved",
+        "production_write_executed": true,
+        "trace_refs": [
+          "rt_v139_008",
+          "uac_v139_008",
+          "gqi_v139_008"
+        ]
+      },
+      "action_result": {
+        "action_result_api_resource_id": "res_api_v140_C03_post_remember_for_context_routes_to_write_gate",
+        "action_result_packet_id": "arp_v139_008",
+        "result_type": "write_candidate_submitted",
+        "production_write_executed": true,
+        "post_action_task_memory_packet_id": "tmp_post_action_v139_008",
+        "user_visible_response_block_ids": [
+          "urb_v139_008"
+        ],
+        "response_block_refs": [
+          "urb_v139_008"
+        ],
+        "governance_resolution_decision_id": "grd_v139_008",
+        "trace_refs": [
+          "rt_v139_008",
+          "uas_v139_008",
+          "grd_v139_008"
+        ]
+      },
+      "response_blocks": [
+        {
+          "response_block_id": "urb_v139_008",
+          "block_type": "action_result_notice",
+          "text": "I saved this as a context-specific outfit preference.",
+          "claim_refs": [
+            "claim_v139_008"
+          ],
+          "trace_refs": [
+            "rt_v139_008",
+            "arp_v139_008",
+            "grd_v139_008"
+          ]
+        }
+      ]
+    },
+    "error": null,
+    "trace_refs": [
+      "api_req_v140_C03_post_remember_for_context_routes_to_write_gate",
+      "rt_v139_008",
+      "gas_v139_008"
+    ]
+  },
+  "product_route_handler_proof": {
+    "route_handler_proof_id": "rhp_v140_C03_post_remember_for_context_routes_to_write_gate",
+    "route": "POST /local/action-submission",
+    "source_artifact_refs": [
+      "per_case/clean/v139_B04_remember_for_context_submission_routes_to_write_gate.json"
+    ],
+    "derived_resource_refs": [],
+    "field_mapping": [
+      {
+        "response_field": "action_result",
+        "source": "raw_v139_artifact"
+      },
+      {
+        "response_field": "action_submission",
+        "source": "raw_v139_artifact"
+      },
+      {
+        "response_field": "contract_version",
+        "source": "derived_constant"
+      },
+      {
+        "response_field": "response_blocks",
+        "source": "raw_v139_artifact"
+      },
+      {
+        "response_field": "schema_version",
+        "source": "derived_constant"
+      }
+    ],
+    "redaction_proof": {
+      "raw_human_review_evidence_exposed": false,
+      "internal_only_fields_exposed": false,
+      "excluded_terms": [
+        "raw_evidence_refs",
+        "risk_reasons",
+        "internal_only_fields"
+      ]
+    },
+    "trace_refs": [
+      "rt_v139_008",
+      "gas_v139_008"
+    ]
+  },
+  "contract_snapshot": {
+    "contract_snapshot_id": "cs_v140_C03_post_remember_for_context_routes_to_write_gate",
+    "api_request_id": "api_req_v140_C03_post_remember_for_context_routes_to_write_gate",
+    "api_response_id": "api_res_v140_C03_post_remember_for_context_routes_to_write_gate",
+    "canonical_request_hash": "c76d118f8ce88ead69795c2e42527a30c64c4d0b51c4543dcd8c251b30e1b3d3",
+    "canonical_response_hash": "cbc2a72597a206165bccbf47459e7518a596b86c16fe309e17a423d55e0e9afc",
+    "source_artifact_hashes": {
+      "per_case/clean/v139_B04_remember_for_context_submission_routes_to_write_gate.json": "cc0363f695f8d78e492dc65b2ba3d0d9f02c4324374c74653cc1d6eed59d2f3e"
+    },
+    "schema_version": "product_api.v1",
+    "backward_compatibility_key": "stable:POST /local/action-submission:action_submission_result",
+    "trace_refs": [
+      "api_req_v140_C03_post_remember_for_context_routes_to_write_gate",
+      "api_res_v140_C03_post_remember_for_context_routes_to_write_gate",
+      "per_case/clean/v139_B04_remember_for_context_submission_routes_to_write_gate.json"
+    ]
+  },
+  "api_error_envelope": null,
+  "action_surface_api_resource": {
+    "action_surface_api_resource_id": "asr_v139_B04_remember_for_context_submission_routes_to_write_gate",
+    "source_governance_action_surface_id": "gas_v139_008",
+    "cards": [
+      {
+        "card_id": "uac_v139_008",
+        "governance_queue_item_id": "gqi_v139_008",
+        "card_type": "clarification",
+        "display_state": "resolved",
+        "title": "Clarify this preference",
+        "body": "Which outfit context should this apply to?",
+        "allowed_actions": [
+          "this_time_only",
+          "do_not_change_memory",
+          "remember_for_context"
+        ],
+        "disabled_reason": null,
+        "trace_refs": [
+          "rt_v139_008",
+          "gqi_v139_008",
+          "cr_v139_008"
+        ]
+      }
+    ],
+    "response_blocks": [
+      {
+        "response_block_id": "urb_v139_008",
+        "block_type": "action_result_notice",
+        "text": "I saved this as a context-specific outfit preference.",
+        "claim_refs": [
+          "claim_v139_008"
+        ],
+        "trace_refs": [
+          "rt_v139_008",
+          "arp_v139_008",
+          "grd_v139_008"
+        ]
+      }
+    ],
+    "trace_refs": [
+      "gas_v139_008",
+      "v139_B04_remember_for_context_submission_routes_to_write_gate",
+      "rt_v139_008"
+    ]
+  },
+  "action_submission_api_resource": {
+    "action_submission_api_resource_id": "sub_api_v140_C03_post_remember_for_context_routes_to_write_gate",
+    "accepted": true,
+    "submitted_action": "remember_for_context",
+    "idempotency_key": "idem_v140_C03_post_remember_for_context_routes_to_write_gate",
+    "user_action_card_id": "uac_v139_008",
+    "governance_queue_item_id": "gqi_v139_008",
+    "allowed_actions_at_submission": [
+      "this_time_only",
+      "do_not_change_memory",
+      "remember_for_context"
+    ],
+    "card_display_state_at_submission": "resolved",
+    "production_write_executed": true,
+    "trace_refs": [
+      "rt_v139_008",
+      "uac_v139_008",
+      "gqi_v139_008"
+    ]
+  },
+  "action_result_api_resource": {
+    "action_result_api_resource_id": "res_api_v140_C03_post_remember_for_context_routes_to_write_gate",
+    "action_result_packet_id": "arp_v139_008",
+    "result_type": "write_candidate_submitted",
+    "production_write_executed": true,
+    "post_action_task_memory_packet_id": "tmp_post_action_v139_008",
+    "user_visible_response_block_ids": [
+      "urb_v139_008"
+    ],
+    "response_block_refs": [
+      "urb_v139_008"
+    ],
+    "governance_resolution_decision_id": "grd_v139_008",
+    "trace_refs": [
+      "rt_v139_008",
+      "uas_v139_008",
+      "grd_v139_008"
+    ]
+  },
+  "conversation_turn_state": {
+    "conversation_turn_state_id": "cts_v140_C03_post_remember_for_context_routes_to_write_gate",
+    "api_request_id": "api_req_v140_C03_post_remember_for_context_routes_to_write_gate",
+    "api_response_id": "api_res_v140_C03_post_remember_for_context_routes_to_write_gate",
+    "visible_response_block_ids": [
+      "urb_v139_008"
+    ],
+    "user_visible_claims": [
+      {
+        "claim_id": "api_claim_urb_v139_008",
+        "text": "I saved this as a context-specific outfit preference.",
+        "trace_refs": [
+          "api_res_v140_C03_post_remember_for_context_routes_to_write_gate",
+          "urb_v139_008",
+          "arp_v139_008",
+          "grd_v139_008"
+        ]
+      }
+    ],
+    "memory_change_claimed": true,
+    "production_write_executed": true,
+    "trace_refs": [
+      "api_res_v140_C03_post_remember_for_context_routes_to_write_gate",
+      "rt_v139_008"
+    ]
+  },
+  "schema_compatibility_report": {
+    "schema_compatibility_report_id": "scr_v140_C03_post_remember_for_context_routes_to_write_gate",
+    "current_schema_version": "product_api.v1",
+    "previous_schema_version": "product_api.v1",
+    "required_fields_present": true,
+    "removed_fields": [],
+    "current_schema_adapter": "product_api.v1.local_adapter",
+    "replay_status": "pass",
+    "trace_refs": [
+      "cs_v140_C03_post_remember_for_context_routes_to_write_gate"
+    ]
+  },
+  "contract_replay_trace": {
+    "contract_replay_trace_id": "crt_v140_C03_post_remember_for_context_routes_to_write_gate",
+    "replayed_snapshot_id": "cs_v140_C03_post_remember_for_context_routes_to_write_gate",
+    "replay_result": "pass",
+    "current_schema_adapter_version": "product_api.v1.local_adapter",
+    "backward_compatibility_key": "stable:POST /local/action-submission:action_submission_result",
+    "reproduced_request_hash": "c76d118f8ce88ead69795c2e42527a30c64c4d0b51c4543dcd8c251b30e1b3d3",
+    "reproduced_response_hash": "cbc2a72597a206165bccbf47459e7518a596b86c16fe309e17a423d55e0e9afc",
+    "trace_refs": [
+      "cs_v140_C03_post_remember_for_context_routes_to_write_gate"
+    ]
+  },
+  "before_memory_lifecycle_state": {
+    "memory_id": "mem_v139_008",
+    "state_snapshot_id": "state_active_v139_008",
+    "current_status": "active",
+    "contexts": [
+      "office_daily"
+    ],
+    "confirmed_aspects": [
+      "soft tailoring",
+      "muted contrast"
+    ],
+    "context_exclusions": [],
+    "global_memory_write": false
+  },
+  "after_memory_lifecycle_state": {
+    "memory_id": "mem_v139_008",
+    "state_snapshot_id": "state_after_write_v139_008",
+    "current_status": "active",
+    "contexts": [
+      "office_daily"
+    ],
+    "confirmed_aspects": [
+      "soft tailoring",
+      "muted contrast"
+    ],
+    "context_exclusions": [
+      "formal_client_meeting"
+    ],
+    "global_memory_write": false
+  },
+  "production_memory_write_gate": {
+    "gate_id": "pmwg_v139_008",
+    "decision": "allow",
+    "production_write_executed": true,
+    "environment": "deterministic_local_fixture"
+  },
+  "policy_surface_audit": {
+    "no_raw_review_evidence_exposed": true,
+    "no_internal_debug_exposed": true,
+    "no_global_memory_claim": true,
+    "no_sensitive_or_commerce_or_aigc": true
+  },
+  "reviewer_checklist_refs": [],
+  "runner_reproducibility_proof": {},
+  "v139_replay_proof": {
+    "run_v139_validation_suite": "PASS"
+  }
+}

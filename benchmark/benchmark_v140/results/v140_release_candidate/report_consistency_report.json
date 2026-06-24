@@ -1,0 +1,36 @@
+{
+  "validator": "benchmark.common.report_consistency",
+  "manifest_hash": "4d748acc12fc92a9eb92fa8eff5d7773ce1eaf37fb1f355d400faf8e959506b6",
+  "required_reports": [
+    "clean_report.json",
+    "mixed_strict_report.json",
+    "independent_validation_report.json",
+    "adversarial_validation_report.json",
+    "report_consistency_report.json",
+    "sample_consistency_report.json",
+    "injected_defect_detection_summary.json"
+  ],
+  "checked_gates": [
+    "api_request_response_envelope_valid_rate",
+    "route_handler_maps_to_raw_artifacts_rate",
+    "action_surface_api_matches_v139_surface_rate",
+    "action_submission_contract_valid_rate",
+    "no_write_error_preserves_memory_state_rate",
+    "idempotent_submission_contract_rate",
+    "expired_stale_action_contract_rate",
+    "action_result_api_links_response_rate",
+    "conversation_turn_claims_trace_backed_rate",
+    "contract_snapshot_hash_reproducible_rate",
+    "source_artifact_hashes_match_raw_rate",
+    "backward_compatibility_replay_rate",
+    "redaction_policy_safe_response_rate",
+    "schema_version_consistency_rate",
+    "sample_artifacts_match_per_case_rate",
+    "report_consistency_with_independent_validation_rate",
+    "adversarial_detection_rate",
+    "v139_validation_replay_pass_rate"
+  ],
+  "passed": true,
+  "failures": [],
+  "generated_at": "2026-06-24T08:58:05Z"
+}
