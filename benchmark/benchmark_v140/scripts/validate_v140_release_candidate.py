@@ -277,18 +277,26 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
             failures.append("expired_stale_action_contract_rate")
             failures.append("no_write_error_preserves_memory_state_rate")
 
-    if action_result:
+    route = request.get("route")
+    response_type = response.get("response_type")
+    body_result = body.get("action_result")
+    result_bearing = (
+        (route == "GET /local/action-result" and response_type == "action_result")
+        or (route == "POST /local/action-submission" and response_type == "action_submission_result" and response.get("status_code") == 200)
+        or scenario == "conversation_result"
+        or isinstance(body_result, dict)
+    )
+    if result_bearing:
+        if not isinstance(action_result, dict) or not isinstance(body_result, dict):
+            failures.append("action_result_api_links_response_rate")
+        elif body_result != action_result:
+            failures.append("action_result_api_links_response_rate")
+
+    if isinstance(action_result, dict):
         response_block_ids = {block.get("response_block_id") for block in surface.get("response_blocks") or []}
         for block_id in action_result.get("user_visible_response_block_ids") or []:
             if block_id not in response_block_ids or block_id not in set(action_result.get("response_block_refs") or []):
                 failures.append("action_result_api_links_response_rate")
-        body_result = (body.get("action_result") or {})
-        if request.get("route") == "GET /local/action-result" and response.get("response_type") == "action_result" and not body_result:
-            failures.append("action_result_api_links_response_rate")
-        if request.get("route") == "POST /local/action-submission" and response.get("response_type") == "action_submission_result" and not body_result:
-            failures.append("action_result_api_links_response_rate")
-        if body_result and body_result != action_result:
-            failures.append("action_result_api_links_response_rate")
 
     response_block_ids = {block.get("response_block_id") for block in surface.get("response_blocks") or []}
     result_id = (action_result or {}).get("action_result_packet_id")
@@ -301,6 +309,9 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
         if conversation.get("api_request_id") != request.get("api_request_id") or conversation.get("api_response_id") != response.get("api_response_id"):
             failures.append("conversation_turn_claims_trace_backed_rate")
         if visible_blocks and not claims:
+            failures.append("conversation_turn_claims_trace_backed_rate")
+        visible_block_ids = [block.get("response_block_id") for block in visible_blocks]
+        if visible_block_ids and conversation.get("visible_response_block_ids") != visible_block_ids:
             failures.append("conversation_turn_claims_trace_backed_rate")
     claim_refs: set[Any] = set()
     for claim in claims:

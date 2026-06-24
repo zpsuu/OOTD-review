@@ -1,6 +1,6 @@
 {
   "validator": "benchmark.common.report_consistency",
-  "manifest_hash": "73d186ebddd27e4dc3dc7234e6c3f75be968dbde902039fac9e6ebb032b8d5bc",
+  "manifest_hash": "936013ad40da606bf7f62ced02d57b0b4dd023b67c1e9d721543eb9a7d7d8fbf",
   "required_reports": [
     "clean_report.json",
     "mixed_strict_report.json",
@@ -32,5 +32,5 @@
   ],
   "passed": true,
   "failures": [],
-  "generated_at": "2026-06-24T09:08:02Z"
+  "generated_at": "2026-06-24T09:18:15Z"
 }

@@ -1,15 +1,15 @@
 {
   "benchmark_id": "v1.40.local_product_api_contract.mixed_strict",
   "schema_version": "v1.40",
-  "generated_at": "2026-06-24T09:08:02Z",
+  "generated_at": "2026-06-24T09:18:15Z",
   "verdicts": {
     "mixed_strict_verdict": "fail",
     "injected_defect_detection_verdict": "pass"
   },
   "suite_summary": {
-    "total_cases": 31,
+    "total_cases": 36,
     "passed_cases": 0,
-    "failed_cases": 31,
+    "failed_cases": 36,
     "total_checks": 18,
     "passed_checks": 0,
     "failed_checks": 18
@@ -396,6 +396,46 @@
         "action_surface_api_matches_v139_surface_rate"
       ],
       "artifact_ref": "per_case/mixed_strict/v140_ADV_N31_missing_response_blocks.json"
+    },
+    {
+      "case_id": "v140_ADV_N32_missing_action_result_resource_get_result",
+      "passed": false,
+      "failed_check_ids": [
+        "action_result_api_links_response_rate"
+      ],
+      "artifact_ref": "per_case/mixed_strict/v140_ADV_N32_missing_action_result_resource_get_result.json"
+    },
+    {
+      "case_id": "v140_ADV_N33_missing_action_result_resource_post_success",
+      "passed": false,
+      "failed_check_ids": [
+        "action_result_api_links_response_rate"
+      ],
+      "artifact_ref": "per_case/mixed_strict/v140_ADV_N33_missing_action_result_resource_post_success.json"
+    },
+    {
+      "case_id": "v140_ADV_N34_missing_action_result_resource_conversation_result",
+      "passed": false,
+      "failed_check_ids": [
+        "action_result_api_links_response_rate"
+      ],
+      "artifact_ref": "per_case/mixed_strict/v140_ADV_N34_missing_action_result_resource_conversation_result.json"
+    },
+    {
+      "case_id": "v140_ADV_N35_empty_conversation_visible_response_block_ids",
+      "passed": false,
+      "failed_check_ids": [
+        "conversation_turn_claims_trace_backed_rate"
+      ],
+      "artifact_ref": "per_case/mixed_strict/v140_ADV_N35_empty_conversation_visible_response_block_ids.json"
+    },
+    {
+      "case_id": "v140_ADV_N36_stale_conversation_visible_response_block_ids",
+      "passed": false,
+      "failed_check_ids": [
+        "conversation_turn_claims_trace_backed_rate"
+      ],
+      "artifact_ref": "per_case/mixed_strict/v140_ADV_N36_stale_conversation_visible_response_block_ids.json"
     }
   ]
 }

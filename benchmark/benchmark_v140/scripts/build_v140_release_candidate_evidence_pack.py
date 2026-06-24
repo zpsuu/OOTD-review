@@ -128,6 +128,11 @@ DEFECTS = [
     ("ADV_N29", "missing_action_result_body", ["action_result_api_links_response_rate"]),
     ("ADV_N30", "missing_action_submission_resource", ["action_submission_contract_valid_rate"]),
     ("ADV_N31", "missing_response_blocks", ["action_surface_api_matches_v139_surface_rate"]),
+    ("ADV_N32", "missing_action_result_resource_get_result", ["action_result_api_links_response_rate"]),
+    ("ADV_N33", "missing_action_result_resource_post_success", ["action_result_api_links_response_rate"]),
+    ("ADV_N34", "missing_action_result_resource_conversation_result", ["action_result_api_links_response_rate"]),
+    ("ADV_N35", "empty_conversation_visible_response_block_ids", ["conversation_turn_claims_trace_backed_rate"]),
+    ("ADV_N36", "stale_conversation_visible_response_block_ids", ["conversation_turn_claims_trace_backed_rate"]),
 ]
 
 SAMPLE_CASES = {
@@ -588,6 +593,21 @@ def _defect(defect_id: str, defect_type: str, gates: list[str]) -> dict[str, Any
         artifact = _set_case_meta(_case(defect_id, defect_type, "action_surface", "open_clarification", idx), defect_id, defect_type, gates)
         artifact["local_api_response_envelope"]["body"]["response_blocks"] = []
         artifact["local_api_response_envelope"]["body"]["action_surface"]["response_blocks"] = []
+    elif defect_type == "missing_action_result_resource_get_result":
+        artifact = _set_case_meta(_case(defect_id, defect_type, "action_result", "this_time_only", idx), defect_id, defect_type, gates)
+        artifact["action_result_api_resource"] = None
+    elif defect_type == "missing_action_result_resource_post_success":
+        artifact = _set_case_meta(_case(defect_id, defect_type, "post_action", "this_time_only", idx), defect_id, defect_type, gates)
+        artifact["action_result_api_resource"] = None
+    elif defect_type == "missing_action_result_resource_conversation_result":
+        artifact = _set_case_meta(_case(defect_id, defect_type, "conversation_result", "claims", idx), defect_id, defect_type, gates)
+        artifact["action_result_api_resource"] = None
+    elif defect_type == "empty_conversation_visible_response_block_ids":
+        artifact = _set_case_meta(_case(defect_id, defect_type, "conversation_result", "claims", idx), defect_id, defect_type, gates)
+        artifact["conversation_turn_state"]["visible_response_block_ids"] = []
+    elif defect_type == "stale_conversation_visible_response_block_ids":
+        artifact = _set_case_meta(_case(defect_id, defect_type, "conversation_result", "claims", idx), defect_id, defect_type, gates)
+        artifact["conversation_turn_state"]["visible_response_block_ids"] = ["stale_response_block_id"]
     return artifact
 
 

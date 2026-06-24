@@ -4,7 +4,7 @@
   "theme": "Local Product API Contract",
   "branch": "v140-local-product-api-contract",
   "entrypoint": "benchmark/benchmark_v140/results/v140_release_candidate/REVIEW_MANIFEST.json",
-  "generated_at": "2026-06-24T09:08:02Z",
+  "generated_at": "2026-06-24T09:18:15Z",
   "builder_script": "benchmark/benchmark_v140/scripts/build_v140_release_candidate_evidence_pack.py",
   "validator_script": "benchmark/benchmark_v140/scripts/validate_v140_release_candidate.py",
   "runner_script": "benchmark/benchmark_v140/scripts/run_v140_validation_suite.py",

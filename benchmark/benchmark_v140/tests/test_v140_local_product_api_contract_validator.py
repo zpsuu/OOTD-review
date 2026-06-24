@@ -51,8 +51,8 @@ class V140LocalProductAPIContractValidatorTests(unittest.TestCase):
             self.assertEqual(clean["suite_summary"]["passed_cases"], 36)
             self.assertEqual(clean["suite_summary"]["passed_checks"], 18)
             self.assertEqual(adversarial["suite_summary"]["passed_cases"], 0)
-            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 31)
-            self.assertEqual(adversarial["detected_defect_count"], 31)
+            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 36)
+            self.assertEqual(adversarial["detected_defect_count"], 36)
             self.assertTrue(sample["passed"], sample["failures"])
             self.assertTrue(consistency["passed"], consistency["failures"])
 
@@ -157,6 +157,26 @@ class V140LocalProductAPIContractValidatorTests(unittest.TestCase):
         failed = self._mutate("*A02_get_action_surface_returns_cards_and_response_blocks.json", mutate)
         self.assertIn("action_surface_api_matches_v139_surface_rate", failed["v140_A02_get_action_surface_returns_cards_and_response_blocks"])
 
+    def test_missing_action_result_resource_get_result_is_detected(self) -> None:
+        failed = self._mutate("*A03_get_action_result_returns_result_packet.json", lambda case: case.__setitem__("action_result_api_resource", None))
+        self.assertIn("action_result_api_links_response_rate", failed["v140_A03_get_action_result_returns_result_packet"])
+
+    def test_missing_action_result_resource_post_success_is_detected(self) -> None:
+        failed = self._mutate("*C05_submission_response_links_to_action_result.json", lambda case: case.__setitem__("action_result_api_resource", None))
+        self.assertIn("action_result_api_links_response_rate", failed["v140_C05_submission_response_links_to_action_result"])
+
+    def test_missing_action_result_resource_conversation_result_is_detected(self) -> None:
+        failed = self._mutate("*E02_conversation_turn_after_action_includes_result_notice.json", lambda case: case.__setitem__("action_result_api_resource", None))
+        self.assertIn("action_result_api_links_response_rate", failed["v140_E02_conversation_turn_after_action_includes_result_notice"])
+
+    def test_empty_conversation_visible_response_block_ids_are_detected(self) -> None:
+        failed = self._mutate("*E03_conversation_turn_claims_trace_to_response_and_action_result.json", lambda case: case["conversation_turn_state"].__setitem__("visible_response_block_ids", []))
+        self.assertIn("conversation_turn_claims_trace_backed_rate", failed["v140_E03_conversation_turn_claims_trace_to_response_and_action_result"])
+
+    def test_stale_conversation_visible_response_block_ids_are_detected(self) -> None:
+        failed = self._mutate("*E03_conversation_turn_claims_trace_to_response_and_action_result.json", lambda case: case["conversation_turn_state"].__setitem__("visible_response_block_ids", ["stale_response_block_id"]))
+        self.assertIn("conversation_turn_claims_trace_backed_rate", failed["v140_E03_conversation_turn_claims_trace_to_response_and_action_result"])
+
     def test_adversarial_detection_does_not_depend_on_gate_assertions(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             result_dir = self._build(tmp)
@@ -168,8 +188,8 @@ class V140LocalProductAPIContractValidatorTests(unittest.TestCase):
                 _write_json(path, case)
             adversarial = validator.validate_directory(result_dir, "adversarial")
             self.assertEqual(adversarial["suite_summary"]["passed_cases"], 0)
-            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 31)
-            self.assertEqual(adversarial["detected_defect_count"], 31)
+            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 36)
+            self.assertEqual(adversarial["detected_defect_count"], 36)
 
     def _mutate(self, pattern: str, mutate) -> dict[str, list[str]]:
         with tempfile.TemporaryDirectory() as tmp:
