@@ -1,0 +1,636 @@
+{
+  "case_id": "v141_H03_reviewer_checklist_refs_raw_handler_cases",
+  "version": "v1.41",
+  "scenario_kind": "reviewer_checklist_refs_raw_handler_cases",
+  "gate_assertions": {
+    "adapter_route_registry_complete_rate": true,
+    "route_handler_invocation_valid_rate": true,
+    "handler_dispatch_trace_complete_rate": true,
+    "handler_uses_raw_source_artifacts_rate": true,
+    "handler_output_matches_v140_contract_rate": true,
+    "action_submission_handler_contract_rate": true,
+    "no_write_handler_preserves_memory_state_rate": true,
+    "idempotent_handler_replay_rate": true,
+    "expired_stale_handler_no_write_rate": true,
+    "runtime_action_result_links_response_rate": true,
+    "conversation_claims_trace_backed_after_handler_rate": true,
+    "runtime_snapshot_hash_reproducible_rate": true,
+    "runtime_source_hashes_match_raw_rate": true,
+    "golden_contract_replay_rate": true,
+    "runtime_error_safety_rate": true,
+    "runtime_redaction_policy_safe_rate": true,
+    "sample_artifacts_match_per_case_rate": true,
+    "report_consistency_with_independent_validation_rate": true,
+    "adversarial_detection_rate": true,
+    "v140_validation_replay_pass_rate": true
+  },
+  "source_v140_artifact_ref": "per_case/clean/v140_H03_reviewer_checklist_refs_raw_cases.json",
+  "source_v140_artifact_hash": "cc31c67176bd659fbe466d1da149021a98254f9cd50b37e59fb3b4262932db4f",
+  "source_v140_case_id": "v140_H03_reviewer_checklist_refs_raw_cases",
+  "source_v139_artifact_ref": "per_case/clean/v139_D04_duplicate_action_submission_idempotent.json",
+  "source_v139_artifact_hash": "94cfea6b2027318cab7698660dd4b6d4b26f79eccd0a4aeeb00de937e1876bec",
+  "product_runtime_adapter": {
+    "product_runtime_adapter_id": "pra_001",
+    "version": "v1.41",
+    "contract_version": "v1.40",
+    "schema_version": "product_runtime_adapter.v1",
+    "route_registry_id": "route_registry_001",
+    "supported_routes": [
+      "GET /local/daily-outfit",
+      "GET /local/action-surface",
+      "POST /local/action-submission",
+      "GET /local/action-result"
+    ],
+    "non_goals": [
+      "no_http_server",
+      "no_frontend",
+      "no_auth",
+      "no_production_db",
+      "no_commerce",
+      "no_aigc",
+      "no_global_memory_writes"
+    ],
+    "trace_refs": [
+      "route_registry_001",
+      "v140_release_candidate_fixture_bundle"
+    ]
+  },
+  "product_route_registry": {
+    "product_route_registry_id": "route_registry_001",
+    "version": "v1.41",
+    "unsupported_route_policy": {
+      "handler_name": "handle_unsupported_route",
+      "response_type": "error",
+      "safe_error_only": true,
+      "production_write_executed": false
+    },
+    "routes": [
+      {
+        "route": "GET /local/daily-outfit",
+        "method": "GET",
+        "handler_name": "handle_get_daily_outfit",
+        "handler_version": "v1.41",
+        "source_contract": "product_api.v1",
+        "trace_refs": [
+          "route_registry_001",
+          "handle_get_daily_outfit"
+        ]
+      },
+      {
+        "route": "GET /local/action-surface",
+        "method": "GET",
+        "handler_name": "handle_get_action_surface",
+        "handler_version": "v1.41",
+        "source_contract": "product_api.v1",
+        "trace_refs": [
+          "route_registry_001",
+          "handle_get_action_surface"
+        ]
+      },
+      {
+        "route": "POST /local/action-submission",
+        "method": "POST",
+        "handler_name": "handle_post_action_submission",
+        "handler_version": "v1.41",
+        "source_contract": "product_api.v1",
+        "trace_refs": [
+          "route_registry_001",
+          "handle_post_action_submission"
+        ]
+      },
+      {
+        "route": "GET /local/action-result",
+        "method": "GET",
+        "handler_name": "handle_get_action_result",
+        "handler_version": "v1.41",
+        "source_contract": "product_api.v1",
+        "trace_refs": [
+          "route_registry_001",
+          "handle_get_action_result"
+        ]
+      }
+    ]
+  },
+  "route_handler_invocation": {
+    "route_handler_invocation_id": "rhi_v141_H03_reviewer_checklist_refs_raw_handler_cases",
+    "api_request_id": "api_req_v140_H03_reviewer_checklist_refs_raw_cases",
+    "route": "GET /local/action-surface",
+    "method": "GET",
+    "handler_name": "handle_get_action_surface",
+    "input_envelope": {
+      "api_request_id": "api_req_v140_H03_reviewer_checklist_refs_raw_cases",
+      "contract_version": "v1.40",
+      "schema_version": "product_api.v1",
+      "route": "GET /local/action-surface",
+      "method": "GET",
+      "request_context": "office_daily",
+      "query": {},
+      "body": {},
+      "idempotency_key": null,
+      "trace_refs": [
+        "rt_v139_017",
+        "gas_v139_017"
+      ]
+    },
+    "runtime_context": {
+      "fixture_user_id": "local_user_001",
+      "request_context": "office_daily",
+      "source_case_id": "v140_H03_reviewer_checklist_refs_raw_cases",
+      "source_artifact_ref": "per_case/clean/v140_H03_reviewer_checklist_refs_raw_cases.json"
+    },
+    "idempotency_key": null,
+    "trace_refs": [
+      "pra_001",
+      "route_registry_001",
+      "v140_H03_reviewer_checklist_refs_raw_cases"
+    ]
+  },
+  "route_handler_result": {
+    "route_handler_result_id": "rhr_v141_H03_reviewer_checklist_refs_raw_handler_cases",
+    "route_handler_invocation_id": "rhi_v141_H03_reviewer_checklist_refs_raw_handler_cases",
+    "api_response_id": "api_res_v140_H03_reviewer_checklist_refs_raw_cases",
+    "output_envelope": {
+      "api_response_id": "api_res_v140_H03_reviewer_checklist_refs_raw_cases",
+      "api_request_id": "api_req_v140_H03_reviewer_checklist_refs_raw_cases",
+      "contract_version": "v1.40",
+      "schema_version": "product_api.v1",
+      "status_code": 200,
+      "response_type": "action_surface",
+      "body": {
+        "contract_version": "v1.40",
+        "schema_version": "product_api.v1",
+        "action_surface": {
+          "action_surface_api_resource_id": "asr_v139_D04_duplicate_action_submission_idempotent",
+          "source_governance_action_surface_id": "gas_v139_017",
+          "cards": [
+            {
+              "card_id": "uac_v139_017",
+              "governance_queue_item_id": "gqi_v139_017",
+              "card_type": "clarification",
+              "display_state": "resolved",
+              "title": "Clarify this preference",
+              "body": "Which outfit context should this apply to?",
+              "allowed_actions": [
+                "this_time_only",
+                "do_not_change_memory",
+                "remember_for_context"
+              ],
+              "disabled_reason": null,
+              "trace_refs": [
+                "rt_v139_017",
+                "gqi_v139_017",
+                "cr_v139_017"
+              ]
+            }
+          ],
+          "response_blocks": [
+            {
+              "response_block_id": "urb_v139_017",
+              "block_type": "action_result_notice",
+              "text": "I already handled that action once.",
+              "claim_refs": [
+                "claim_v139_017"
+              ],
+              "trace_refs": [
+                "rt_v139_017",
+                "arp_v139_017",
+                "grd_v139_017"
+              ]
+            }
+          ],
+          "trace_refs": [
+            "gas_v139_017",
+            "v139_D04_duplicate_action_submission_idempotent",
+            "rt_v139_017"
+          ]
+        },
+        "response_blocks": [
+          {
+            "response_block_id": "urb_v139_017",
+            "block_type": "action_result_notice",
+            "text": "I already handled that action once.",
+            "claim_refs": [
+              "claim_v139_017"
+            ],
+            "trace_refs": [
+              "rt_v139_017",
+              "arp_v139_017",
+              "grd_v139_017"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "trace_refs": [
+        "api_req_v140_H03_reviewer_checklist_refs_raw_cases",
+        "rt_v139_017",
+        "gas_v139_017"
+      ]
+    },
+    "response_type": "action_surface",
+    "status_code": 200,
+    "production_write_executed": false,
+    "trace_refs": [
+      "rhi_v141_H03_reviewer_checklist_refs_raw_handler_cases",
+      "rhet_v141_H03_reviewer_checklist_refs_raw_handler_cases",
+      "v140_H03_reviewer_checklist_refs_raw_cases"
+    ]
+  },
+  "runtime_handler_execution_trace": {
+    "runtime_handler_execution_trace_id": "rhet_v141_H03_reviewer_checklist_refs_raw_handler_cases",
+    "route_handler_invocation_id": "rhi_v141_H03_reviewer_checklist_refs_raw_handler_cases",
+    "route_handler_result_id": "rhr_v141_H03_reviewer_checklist_refs_raw_handler_cases",
+    "handler_name": "handle_get_action_surface",
+    "dispatch_steps": [
+      {
+        "step_id": "dispatch_001",
+        "operation": "resolve_route",
+        "input_ref": "api_req_v140_H03_reviewer_checklist_refs_raw_cases",
+        "output_ref": "handle_get_action_surface"
+      },
+      {
+        "step_id": "dispatch_002",
+        "operation": "invoke_handler",
+        "input_ref": "rhi_v141_H03_reviewer_checklist_refs_raw_handler_cases",
+        "output_ref": "rhr_v141_H03_reviewer_checklist_refs_raw_handler_cases"
+      },
+      {
+        "step_id": "dispatch_003",
+        "operation": "produce_response",
+        "input_ref": "v140_H03_reviewer_checklist_refs_raw_cases",
+        "output_ref": "api_res_v140_H03_reviewer_checklist_refs_raw_cases"
+      }
+    ],
+    "source_resolution_refs": [
+      "rsrp_v141_H03_reviewer_checklist_refs_raw_handler_cases",
+      "per_case/clean/v140_H03_reviewer_checklist_refs_raw_cases.json"
+    ],
+    "contract_projection_refs": [
+      "api_req_v140_H03_reviewer_checklist_refs_raw_cases",
+      "api_res_v140_H03_reviewer_checklist_refs_raw_cases",
+      "cs_v140_H03_reviewer_checklist_refs_raw_cases"
+    ],
+    "safety_filter_refs": [
+      "handler_error_safety_proof",
+      "runtime_redaction_policy"
+    ],
+    "claim_trace_refs": [
+      "api_claim_urb_v139_017"
+    ],
+    "trace_refs": [
+      "rhi_v141_H03_reviewer_checklist_refs_raw_handler_cases",
+      "rhr_v141_H03_reviewer_checklist_refs_raw_handler_cases",
+      "v140_H03_reviewer_checklist_refs_raw_cases"
+    ]
+  },
+  "runtime_source_resolution_proof": {
+    "runtime_source_resolution_proof_id": "rsrp_v141_H03_reviewer_checklist_refs_raw_handler_cases",
+    "route_handler_invocation_id": "rhi_v141_H03_reviewer_checklist_refs_raw_handler_cases",
+    "source_v140_artifact_ref": "per_case/clean/v140_H03_reviewer_checklist_refs_raw_cases.json",
+    "source_v140_artifact_hash": "cc31c67176bd659fbe466d1da149021a98254f9cd50b37e59fb3b4262932db4f",
+    "source_v139_artifact_ref": "per_case/clean/v139_D04_duplicate_action_submission_idempotent.json",
+    "source_v139_artifact_hash": "94cfea6b2027318cab7698660dd4b6d4b26f79eccd0a4aeeb00de937e1876bec",
+    "allowed_source_types": [
+      "per_case_clean_artifact",
+      "sample_artifact_full_copy"
+    ],
+    "forbidden_source_types_observed": [],
+    "trace_refs": [
+      "rhi_v141_H03_reviewer_checklist_refs_raw_handler_cases",
+      "v140_H03_reviewer_checklist_refs_raw_cases",
+      "benchmark/benchmark_v140/results/v140_release_candidate/per_case/clean/v140_H03_reviewer_checklist_refs_raw_cases.json"
+    ]
+  },
+  "runtime_adapter_snapshot": {
+    "runtime_adapter_snapshot_id": "ras_v141_H03_reviewer_checklist_refs_raw_handler_cases",
+    "route_handler_invocation_id": "rhi_v141_H03_reviewer_checklist_refs_raw_handler_cases",
+    "route_handler_result_id": "rhr_v141_H03_reviewer_checklist_refs_raw_handler_cases",
+    "canonical_input_hash": "06c3919d2755f4ed8d4f20a5130f64369b05134ea07ebcb70026258f7b8ae6e6",
+    "canonical_output_hash": "a001a148e02f1bd49d5086030ff33ff5f3866e7f3e258fbbedadc122b874bec9",
+    "canonical_handler_trace_hash": "4b75a68a9917036a1f72e56ef9dddac6cfd34f1a3830f0e820731703a6ba6d2f",
+    "source_artifact_hashes": {
+      "per_case/clean/v140_H03_reviewer_checklist_refs_raw_cases.json": "cc31c67176bd659fbe466d1da149021a98254f9cd50b37e59fb3b4262932db4f",
+      "per_case/clean/v139_D04_duplicate_action_submission_idempotent.json": "94cfea6b2027318cab7698660dd4b6d4b26f79eccd0a4aeeb00de937e1876bec"
+    },
+    "golden_contract_key": "GET /local/action-surface:v140_H03_reviewer_checklist_refs_raw_cases",
+    "trace_refs": [
+      "rhi_v141_H03_reviewer_checklist_refs_raw_handler_cases",
+      "rhr_v141_H03_reviewer_checklist_refs_raw_handler_cases",
+      "rhet_v141_H03_reviewer_checklist_refs_raw_handler_cases",
+      "rsrp_v141_H03_reviewer_checklist_refs_raw_handler_cases"
+    ]
+  },
+  "golden_contract_replay": {
+    "golden_contract_replay_id": "gcr_v141_H03_reviewer_checklist_refs_raw_handler_cases",
+    "source_v140_case_id": "v140_H03_reviewer_checklist_refs_raw_cases",
+    "runtime_case_id": "v141_H03_reviewer_checklist_refs_raw_handler_cases",
+    "request_match": true,
+    "response_match": true,
+    "trace_semantics_match": true,
+    "snapshot_hash_match": true,
+    "replay_status": "pass",
+    "diff": [],
+    "allowed_runtime_only_fields": [],
+    "trace_refs": [
+      "rhi_v141_H03_reviewer_checklist_refs_raw_handler_cases",
+      "rhr_v141_H03_reviewer_checklist_refs_raw_handler_cases",
+      "ras_v141_H03_reviewer_checklist_refs_raw_handler_cases"
+    ]
+  },
+  "local_api_request_envelope": {
+    "api_request_id": "api_req_v140_H03_reviewer_checklist_refs_raw_cases",
+    "contract_version": "v1.40",
+    "schema_version": "product_api.v1",
+    "route": "GET /local/action-surface",
+    "method": "GET",
+    "request_context": "office_daily",
+    "query": {},
+    "body": {},
+    "idempotency_key": null,
+    "trace_refs": [
+      "rt_v139_017",
+      "gas_v139_017"
+    ]
+  },
+  "local_api_response_envelope": {
+    "api_response_id": "api_res_v140_H03_reviewer_checklist_refs_raw_cases",
+    "api_request_id": "api_req_v140_H03_reviewer_checklist_refs_raw_cases",
+    "contract_version": "v1.40",
+    "schema_version": "product_api.v1",
+    "status_code": 200,
+    "response_type": "action_surface",
+    "body": {
+      "contract_version": "v1.40",
+      "schema_version": "product_api.v1",
+      "action_surface": {
+        "action_surface_api_resource_id": "asr_v139_D04_duplicate_action_submission_idempotent",
+        "source_governance_action_surface_id": "gas_v139_017",
+        "cards": [
+          {
+            "card_id": "uac_v139_017",
+            "governance_queue_item_id": "gqi_v139_017",
+            "card_type": "clarification",
+            "display_state": "resolved",
+            "title": "Clarify this preference",
+            "body": "Which outfit context should this apply to?",
+            "allowed_actions": [
+              "this_time_only",
+              "do_not_change_memory",
+              "remember_for_context"
+            ],
+            "disabled_reason": null,
+            "trace_refs": [
+              "rt_v139_017",
+              "gqi_v139_017",
+              "cr_v139_017"
+            ]
+          }
+        ],
+        "response_blocks": [
+          {
+            "response_block_id": "urb_v139_017",
+            "block_type": "action_result_notice",
+            "text": "I already handled that action once.",
+            "claim_refs": [
+              "claim_v139_017"
+            ],
+            "trace_refs": [
+              "rt_v139_017",
+              "arp_v139_017",
+              "grd_v139_017"
+            ]
+          }
+        ],
+        "trace_refs": [
+          "gas_v139_017",
+          "v139_D04_duplicate_action_submission_idempotent",
+          "rt_v139_017"
+        ]
+      },
+      "response_blocks": [
+        {
+          "response_block_id": "urb_v139_017",
+          "block_type": "action_result_notice",
+          "text": "I already handled that action once.",
+          "claim_refs": [
+            "claim_v139_017"
+          ],
+          "trace_refs": [
+            "rt_v139_017",
+            "arp_v139_017",
+            "grd_v139_017"
+          ]
+        }
+      ]
+    },
+    "error": null,
+    "trace_refs": [
+      "api_req_v140_H03_reviewer_checklist_refs_raw_cases",
+      "rt_v139_017",
+      "gas_v139_017"
+    ]
+  },
+  "action_surface_api_resource": {
+    "action_surface_api_resource_id": "asr_v139_D04_duplicate_action_submission_idempotent",
+    "source_governance_action_surface_id": "gas_v139_017",
+    "cards": [
+      {
+        "card_id": "uac_v139_017",
+        "governance_queue_item_id": "gqi_v139_017",
+        "card_type": "clarification",
+        "display_state": "resolved",
+        "title": "Clarify this preference",
+        "body": "Which outfit context should this apply to?",
+        "allowed_actions": [
+          "this_time_only",
+          "do_not_change_memory",
+          "remember_for_context"
+        ],
+        "disabled_reason": null,
+        "trace_refs": [
+          "rt_v139_017",
+          "gqi_v139_017",
+          "cr_v139_017"
+        ]
+      }
+    ],
+    "response_blocks": [
+      {
+        "response_block_id": "urb_v139_017",
+        "block_type": "action_result_notice",
+        "text": "I already handled that action once.",
+        "claim_refs": [
+          "claim_v139_017"
+        ],
+        "trace_refs": [
+          "rt_v139_017",
+          "arp_v139_017",
+          "grd_v139_017"
+        ]
+      }
+    ],
+    "trace_refs": [
+      "gas_v139_017",
+      "v139_D04_duplicate_action_submission_idempotent",
+      "rt_v139_017"
+    ]
+  },
+  "action_submission_api_resource": null,
+  "action_result_api_resource": {
+    "action_result_api_resource_id": "res_api_v140_H03_reviewer_checklist_refs_raw_cases",
+    "action_result_packet_id": "arp_v139_017",
+    "result_type": "duplicate_ignored",
+    "production_write_executed": false,
+    "post_action_task_memory_packet_id": "tmp_post_action_v139_017",
+    "user_visible_response_block_ids": [
+      "urb_v139_017"
+    ],
+    "response_block_refs": [
+      "urb_v139_017"
+    ],
+    "governance_resolution_decision_id": "grd_v139_017",
+    "trace_refs": [
+      "rt_v139_017",
+      "uas_v139_017",
+      "grd_v139_017"
+    ]
+  },
+  "conversation_turn_state": {
+    "conversation_turn_state_id": "cts_v140_H03_reviewer_checklist_refs_raw_cases",
+    "api_request_id": "api_req_v140_H03_reviewer_checklist_refs_raw_cases",
+    "api_response_id": "api_res_v140_H03_reviewer_checklist_refs_raw_cases",
+    "visible_response_block_ids": [
+      "urb_v139_017"
+    ],
+    "user_visible_claims": [
+      {
+        "claim_id": "api_claim_urb_v139_017",
+        "text": "I already handled that action once.",
+        "trace_refs": [
+          "api_res_v140_H03_reviewer_checklist_refs_raw_cases",
+          "urb_v139_017",
+          "arp_v139_017",
+          "grd_v139_017"
+        ]
+      }
+    ],
+    "memory_change_claimed": false,
+    "production_write_executed": false,
+    "trace_refs": [
+      "api_res_v140_H03_reviewer_checklist_refs_raw_cases",
+      "rt_v139_017"
+    ]
+  },
+  "handler_idempotency_proof": {
+    "idempotency_key": null,
+    "duplicate_created_result": null,
+    "canonical_action_result_packet_id": null,
+    "repeated_invocation_output_hash": "a001a148e02f1bd49d5086030ff33ff5f3866e7f3e258fbbedadc122b874bec9",
+    "trace_refs": [
+      "rhi_v141_H03_reviewer_checklist_refs_raw_handler_cases",
+      "rhr_v141_H03_reviewer_checklist_refs_raw_handler_cases"
+    ]
+  },
+  "handler_no_write_proof": {
+    "before_memory_lifecycle_state": {
+      "memory_id": "mem_v139_017",
+      "state_snapshot_id": "state_active_v139_017",
+      "current_status": "active",
+      "contexts": [
+        "office_daily"
+      ],
+      "confirmed_aspects": [
+        "soft tailoring",
+        "muted contrast"
+      ],
+      "context_exclusions": [],
+      "global_memory_write": false
+    },
+    "after_memory_lifecycle_state": {
+      "memory_id": "mem_v139_017",
+      "state_snapshot_id": "state_active_v139_017",
+      "current_status": "active",
+      "contexts": [
+        "office_daily"
+      ],
+      "confirmed_aspects": [
+        "soft tailoring",
+        "muted contrast"
+      ],
+      "context_exclusions": [],
+      "global_memory_write": false
+    },
+    "production_write_executed": false,
+    "trace_refs": [
+      "rhr_v141_H03_reviewer_checklist_refs_raw_handler_cases"
+    ]
+  },
+  "handler_error_safety_proof": {
+    "response_type": "action_surface",
+    "safe_error_only": true,
+    "production_write_executed": false,
+    "trace_refs": [
+      "rhr_v141_H03_reviewer_checklist_refs_raw_handler_cases"
+    ]
+  },
+  "handler_claim_trace_proof": {
+    "visible_response_block_ids": [
+      "urb_v139_017"
+    ],
+    "user_visible_claim_ids": [
+      "api_claim_urb_v139_017"
+    ],
+    "trace_refs": [
+      "api_res_v140_H03_reviewer_checklist_refs_raw_cases"
+    ]
+  },
+  "production_memory_write_gate": {
+    "gate_id": "pmwg_v139_017",
+    "decision": "block",
+    "production_write_executed": false,
+    "environment": "deterministic_local_fixture"
+  },
+  "before_memory_lifecycle_state": {
+    "memory_id": "mem_v139_017",
+    "state_snapshot_id": "state_active_v139_017",
+    "current_status": "active",
+    "contexts": [
+      "office_daily"
+    ],
+    "confirmed_aspects": [
+      "soft tailoring",
+      "muted contrast"
+    ],
+    "context_exclusions": [],
+    "global_memory_write": false
+  },
+  "after_memory_lifecycle_state": {
+    "memory_id": "mem_v139_017",
+    "state_snapshot_id": "state_active_v139_017",
+    "current_status": "active",
+    "contexts": [
+      "office_daily"
+    ],
+    "confirmed_aspects": [
+      "soft tailoring",
+      "muted contrast"
+    ],
+    "context_exclusions": [],
+    "global_memory_write": false
+  },
+  "policy_surface_audit": {
+    "no_raw_review_evidence_exposed": true,
+    "no_internal_debug_exposed": true,
+    "no_global_memory_claim": true,
+    "no_sensitive_or_commerce_or_aigc": true
+  },
+  "reviewer_checklist_refs": [
+    "per_case/clean/v141_A04_get_action_surface_handler_matches_v140_contract.json",
+    "per_case/clean/v141_C01_post_this_time_only_handler_no_write_matches_contract.json",
+    "per_case/clean/v141_E01_runtime_adapter_snapshot_hashes_reproducible.json"
+  ],
+  "runner_reproducibility_proof": {},
+  "v140_replay_proof": {
+    "run_v140_validation_suite": "PASS"
+  }
+}

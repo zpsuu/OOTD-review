@@ -1,0 +1,120 @@
+{
+  "version": "v1.41",
+  "release_candidate_status": "pass_candidate_pending_manual_review",
+  "theme": "In-Process Product Runtime Adapter",
+  "branch": "v141-in-process-product-runtime-adapter",
+  "entrypoint": "benchmark/benchmark_v141/results/v141_release_candidate/REVIEW_MANIFEST.json",
+  "generated_at": "2026-06-24T10:16:48Z",
+  "builder_script": "benchmark/benchmark_v141/scripts/build_v141_release_candidate_evidence_pack.py",
+  "validator_script": "benchmark/benchmark_v141/scripts/validate_v141_release_candidate.py",
+  "adversarial_generator": "benchmark/benchmark_v141/scripts/generate_v141_adversarial_cases.py",
+  "runner_script": "benchmark/benchmark_v141/scripts/run_v141_validation_suite.py",
+  "source_v140_evidence_path": "benchmark/benchmark_v140/results/v140_release_candidate",
+  "required_reports": [
+    "clean_report.json",
+    "mixed_strict_report.json",
+    "independent_validation_report.json",
+    "adversarial_validation_report.json",
+    "report_consistency_report.json",
+    "sample_consistency_report.json",
+    "injected_defect_detection_summary.json"
+  ],
+  "required_gates": [
+    "adapter_route_registry_complete_rate",
+    "route_handler_invocation_valid_rate",
+    "handler_dispatch_trace_complete_rate",
+    "handler_uses_raw_source_artifacts_rate",
+    "handler_output_matches_v140_contract_rate",
+    "action_submission_handler_contract_rate",
+    "no_write_handler_preserves_memory_state_rate",
+    "idempotent_handler_replay_rate",
+    "expired_stale_handler_no_write_rate",
+    "runtime_action_result_links_response_rate",
+    "conversation_claims_trace_backed_after_handler_rate",
+    "runtime_snapshot_hash_reproducible_rate",
+    "runtime_source_hashes_match_raw_rate",
+    "golden_contract_replay_rate",
+    "runtime_error_safety_rate",
+    "runtime_redaction_policy_safe_rate",
+    "sample_artifacts_match_per_case_rate",
+    "report_consistency_with_independent_validation_rate",
+    "adversarial_detection_rate",
+    "v140_validation_replay_pass_rate"
+  ],
+  "validator_commands": [
+    "benchmark/benchmark_v135/scripts/validate_v135_release_candidate.py",
+    "python benchmark/benchmark_v140/scripts/run_v140_validation_suite.py",
+    "python benchmark/benchmark_v141/scripts/run_v141_validation_suite.py",
+    "python -m unittest discover -s benchmark/benchmark_v141/tests"
+  ],
+  "sample_artifacts": [
+    {
+      "case_id": "v141_A04_get_action_surface_handler_matches_v140_contract",
+      "artifact_ref": "sample_artifacts/runtime_action_surface_handler.json",
+      "source_artifact_ref": "per_case/clean/v141_A04_get_action_surface_handler_matches_v140_contract.json",
+      "canonical_sha256": "e23b2776fbe21ac73584a4423ad8c3b175c77cc31fa5478a2f420741f25e3795",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v141_C01_post_this_time_only_handler_no_write_matches_contract",
+      "artifact_ref": "sample_artifacts/runtime_post_this_time_only_handler.json",
+      "source_artifact_ref": "per_case/clean/v141_C01_post_this_time_only_handler_no_write_matches_contract.json",
+      "canonical_sha256": "4556a78d08e93b88475ceb5847dd165fa242c2464a387a9231484645fce36ee4",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v141_C03_post_remember_for_context_handler_routes_to_write_gate",
+      "artifact_ref": "sample_artifacts/runtime_remember_for_context_handler.json",
+      "source_artifact_ref": "per_case/clean/v141_C03_post_remember_for_context_handler_routes_to_write_gate.json",
+      "canonical_sha256": "4da3af99a56f85a1b7635fec6ed35c8783676c7dd11ad7d35e8988a75890085c",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v141_C04_duplicate_submission_handler_is_idempotent",
+      "artifact_ref": "sample_artifacts/runtime_duplicate_submission_handler.json",
+      "source_artifact_ref": "per_case/clean/v141_C04_duplicate_submission_handler_is_idempotent.json",
+      "canonical_sha256": "8911ac7ff2f81f0464d178376a2e1df31cc09c08643dae06f4a04c74c98274ad",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v141_A06_unsupported_route_handler_returns_safe_error",
+      "artifact_ref": "sample_artifacts/runtime_safe_error_handler.json",
+      "source_artifact_ref": "per_case/clean/v141_A06_unsupported_route_handler_returns_safe_error.json",
+      "canonical_sha256": "97da5132a5e44f702d2ceba9d79df68d933328728667ae8e72f5c591dfb90caf",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v141_E01_runtime_adapter_snapshot_hashes_reproducible",
+      "artifact_ref": "sample_artifacts/runtime_snapshot.json",
+      "source_artifact_ref": "per_case/clean/v141_E01_runtime_adapter_snapshot_hashes_reproducible.json",
+      "canonical_sha256": "6b732983dffee3a4c47b7bd052c4254605b4443880a79b69f43ba95e38fc62f3",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v141_G01_runtime_redacts_raw_human_review_evidence",
+      "artifact_ref": "sample_artifacts/runtime_redaction_handler.json",
+      "source_artifact_ref": "per_case/clean/v141_G01_runtime_redacts_raw_human_review_evidence.json",
+      "canonical_sha256": "a2f0f2facadee318020d977417c139f3287bc8d60255ea12501790ef95ccaf13",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    }
+  ],
+  "manual_reviewer_checklist_refs": [
+    "reviewer_checklist.md"
+  ],
+  "non_goals": [
+    "No real HTTP server",
+    "No frontend",
+    "No auth service",
+    "No production DB",
+    "No commerce",
+    "No AIGC",
+    "No global memory writes"
+  ]
+}

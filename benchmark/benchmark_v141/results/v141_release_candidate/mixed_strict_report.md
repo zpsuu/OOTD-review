@@ -1,0 +1,22 @@
+# v1.41 Mixed Strict Report
+
+- EXPECTED FAIL `adapter_route_registry_complete_rate`
+- EXPECTED FAIL `route_handler_invocation_valid_rate`
+- EXPECTED FAIL `handler_dispatch_trace_complete_rate`
+- EXPECTED FAIL `handler_uses_raw_source_artifacts_rate`
+- EXPECTED FAIL `handler_output_matches_v140_contract_rate`
+- EXPECTED FAIL `action_submission_handler_contract_rate`
+- EXPECTED FAIL `no_write_handler_preserves_memory_state_rate`
+- EXPECTED FAIL `idempotent_handler_replay_rate`
+- EXPECTED FAIL `expired_stale_handler_no_write_rate`
+- EXPECTED FAIL `runtime_action_result_links_response_rate`
+- EXPECTED FAIL `conversation_claims_trace_backed_after_handler_rate`
+- EXPECTED FAIL `runtime_snapshot_hash_reproducible_rate`
+- EXPECTED FAIL `runtime_source_hashes_match_raw_rate`
+- EXPECTED FAIL `golden_contract_replay_rate`
+- EXPECTED FAIL `runtime_error_safety_rate`
+- EXPECTED FAIL `runtime_redaction_policy_safe_rate`
+- EXPECTED FAIL `sample_artifacts_match_per_case_rate`
+- EXPECTED FAIL `report_consistency_with_independent_validation_rate`
+- EXPECTED FAIL `adversarial_detection_rate`
+- EXPECTED FAIL `v140_validation_replay_pass_rate`

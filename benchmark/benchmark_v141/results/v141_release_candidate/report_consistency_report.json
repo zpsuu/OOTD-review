@@ -1,0 +1,38 @@
+{
+  "validator": "benchmark.common.report_consistency",
+  "manifest_hash": "8576ae45300201cfbf7f819b5cc03926f387eba18b0ee238136a55837d4be972",
+  "required_reports": [
+    "clean_report.json",
+    "mixed_strict_report.json",
+    "independent_validation_report.json",
+    "adversarial_validation_report.json",
+    "report_consistency_report.json",
+    "sample_consistency_report.json",
+    "injected_defect_detection_summary.json"
+  ],
+  "checked_gates": [
+    "adapter_route_registry_complete_rate",
+    "route_handler_invocation_valid_rate",
+    "handler_dispatch_trace_complete_rate",
+    "handler_uses_raw_source_artifacts_rate",
+    "handler_output_matches_v140_contract_rate",
+    "action_submission_handler_contract_rate",
+    "no_write_handler_preserves_memory_state_rate",
+    "idempotent_handler_replay_rate",
+    "expired_stale_handler_no_write_rate",
+    "runtime_action_result_links_response_rate",
+    "conversation_claims_trace_backed_after_handler_rate",
+    "runtime_snapshot_hash_reproducible_rate",
+    "runtime_source_hashes_match_raw_rate",
+    "golden_contract_replay_rate",
+    "runtime_error_safety_rate",
+    "runtime_redaction_policy_safe_rate",
+    "sample_artifacts_match_per_case_rate",
+    "report_consistency_with_independent_validation_rate",
+    "adversarial_detection_rate",
+    "v140_validation_replay_pass_rate"
+  ],
+  "passed": true,
+  "failures": [],
+  "generated_at": "2026-06-24T10:16:49Z"
+}

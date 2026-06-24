@@ -1,0 +1,22 @@
+# v1.41 Clean Acceptance Report
+
+- PASS `adapter_route_registry_complete_rate`
+- PASS `route_handler_invocation_valid_rate`
+- PASS `handler_dispatch_trace_complete_rate`
+- PASS `handler_uses_raw_source_artifacts_rate`
+- PASS `handler_output_matches_v140_contract_rate`
+- PASS `action_submission_handler_contract_rate`
+- PASS `no_write_handler_preserves_memory_state_rate`
+- PASS `idempotent_handler_replay_rate`
+- PASS `expired_stale_handler_no_write_rate`
+- PASS `runtime_action_result_links_response_rate`
+- PASS `conversation_claims_trace_backed_after_handler_rate`
+- PASS `runtime_snapshot_hash_reproducible_rate`
+- PASS `runtime_source_hashes_match_raw_rate`
+- PASS `golden_contract_replay_rate`
+- PASS `runtime_error_safety_rate`
+- PASS `runtime_redaction_policy_safe_rate`
+- PASS `sample_artifacts_match_per_case_rate`
+- PASS `report_consistency_with_independent_validation_rate`
+- PASS `adversarial_detection_rate`
+- PASS `v140_validation_replay_pass_rate`

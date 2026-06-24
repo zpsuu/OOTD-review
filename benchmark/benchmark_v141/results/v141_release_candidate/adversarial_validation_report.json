@@ -1,0 +1,1810 @@
+{
+  "validator": "v1.41.independent.in_process_product_runtime_adapter_validator",
+  "generated_at": "2026-06-24T10:16:49Z",
+  "result_dir": "benchmark/benchmark_v141/results/v141_release_candidate",
+  "subset": "adversarial",
+  "suite_summary": {
+    "total_cases": 35,
+    "passed_cases": 0,
+    "failed_cases": 35,
+    "total_checks": 20,
+    "passed_checks": 1,
+    "failed_checks": 19
+  },
+  "checks": [
+    {
+      "check_id": "adapter_route_registry_complete_rate",
+      "applicable_cases": 35,
+      "passed_cases": 33,
+      "value": 0.9428571428571428,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v141_ADV_P01_missing_supported_route_binding",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P01_missing_supported_route_binding.json",
+          "failures": [
+            "adapter_route_registry_complete_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P02_duplicate_route_binding",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P02_duplicate_route_binding.json",
+          "failures": [
+            "adapter_route_registry_complete_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "route_handler_invocation_valid_rate",
+      "applicable_cases": 35,
+      "passed_cases": 33,
+      "value": 0.9428571428571428,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v141_ADV_P03_handler_name_mismatch_registry",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P03_handler_name_mismatch_registry.json",
+          "failures": [
+            "route_handler_invocation_valid_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P04_invocation_method_route_mismatch",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P04_invocation_method_route_mismatch.json",
+          "failures": [
+            "route_handler_invocation_valid_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "handler_dispatch_trace_complete_rate",
+      "applicable_cases": 35,
+      "passed_cases": 31,
+      "value": 0.8857142857142857,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v141_ADV_P03_handler_name_mismatch_registry",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P03_handler_name_mismatch_registry.json",
+          "failures": [
+            "handler_dispatch_trace_complete_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P05_handler_trace_missing_dispatch_step",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P05_handler_trace_missing_dispatch_step.json",
+          "failures": [
+            "handler_dispatch_trace_complete_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P06_handler_trace_missing_source_resolution",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P06_handler_trace_missing_source_resolution.json",
+          "failures": [
+            "handler_dispatch_trace_complete_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P07_handler_trace_missing_contract_projection",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P07_handler_trace_missing_contract_projection.json",
+          "failures": [
+            "handler_dispatch_trace_complete_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "handler_uses_raw_source_artifacts_rate",
+      "applicable_cases": 35,
+      "passed_cases": 32,
+      "value": 0.9142857142857143,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v141_ADV_P06_handler_trace_missing_source_resolution",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P06_handler_trace_missing_source_resolution.json",
+          "failures": [
+            "handler_uses_raw_source_artifacts_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P08_handler_uses_clean_report_as_source",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P08_handler_uses_clean_report_as_source.json",
+          "failures": [
+            "handler_uses_raw_source_artifacts_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P09_handler_uses_readme_or_release_note_as_source",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P09_handler_uses_readme_or_release_note_as_source.json",
+          "failures": [
+            "handler_uses_raw_source_artifacts_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "handler_output_matches_v140_contract_rate",
+      "applicable_cases": 35,
+      "passed_cases": 20,
+      "value": 0.5714285714285714,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v141_ADV_P08_handler_uses_clean_report_as_source",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P08_handler_uses_clean_report_as_source.json",
+          "failures": [
+            "handler_output_matches_v140_contract_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P09_handler_uses_readme_or_release_note_as_source",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P09_handler_uses_readme_or_release_note_as_source.json",
+          "failures": [
+            "handler_output_matches_v140_contract_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P11_output_response_contract_version_mismatch",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P11_output_response_contract_version_mismatch.json",
+          "failures": [
+            "handler_output_matches_v140_contract_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P12_output_schema_version_mismatch",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P12_output_schema_version_mismatch.json",
+          "failures": [
+            "handler_output_matches_v140_contract_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P13_handler_output_missing_action_surface_body",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P13_handler_output_missing_action_surface_body.json",
+          "failures": [
+            "handler_output_matches_v140_contract_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P15_post_action_handler_accepts_disallowed_action",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P15_post_action_handler_accepts_disallowed_action.json",
+          "failures": [
+            "handler_output_matches_v140_contract_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P16_post_action_handler_missing_idempotency_key_accepted",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P16_post_action_handler_missing_idempotency_key_accepted.json",
+          "failures": [
+            "handler_output_matches_v140_contract_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P19_duplicate_submission_creates_new_result",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P19_duplicate_submission_creates_new_result.json",
+          "failures": [
+            "handler_output_matches_v140_contract_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P20_expired_action_executes_write",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P20_expired_action_executes_write.json",
+          "failures": [
+            "handler_output_matches_v140_contract_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P21_stale_action_executes_write",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P21_stale_action_executes_write.json",
+          "failures": [
+            "handler_output_matches_v140_contract_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P22_unsupported_route_exposes_unsafe_error",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P22_unsupported_route_exposes_unsafe_error.json",
+          "failures": [
+            "handler_output_matches_v140_contract_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P23_error_exposes_internal_path_or_traceback",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P23_error_exposes_internal_path_or_traceback.json",
+          "failures": [
+            "handler_output_matches_v140_contract_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P25_handler_output_exposes_raw_review_evidence",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P25_handler_output_exposes_raw_review_evidence.json",
+          "failures": [
+            "handler_output_matches_v140_contract_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P26_handler_output_globalizes_contextual_memory",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P26_handler_output_globalizes_contextual_memory.json",
+          "failures": [
+            "handler_output_matches_v140_contract_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P27_handler_output_exposes_sensitive_commerce_or_aigc_terms",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P27_handler_output_exposes_sensitive_commerce_or_aigc_terms.json",
+          "failures": [
+            "handler_output_matches_v140_contract_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "action_submission_handler_contract_rate",
+      "applicable_cases": 35,
+      "passed_cases": 31,
+      "value": 0.8857142857142857,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v141_ADV_P04_invocation_method_route_mismatch",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P04_invocation_method_route_mismatch.json",
+          "failures": [
+            "action_submission_handler_contract_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P15_post_action_handler_accepts_disallowed_action",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P15_post_action_handler_accepts_disallowed_action.json",
+          "failures": [
+            "action_submission_handler_contract_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P16_post_action_handler_missing_idempotency_key_accepted",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P16_post_action_handler_missing_idempotency_key_accepted.json",
+          "failures": [
+            "action_submission_handler_contract_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P18_remember_for_context_bypasses_write_gate",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P18_remember_for_context_bypasses_write_gate.json",
+          "failures": [
+            "action_submission_handler_contract_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "no_write_handler_preserves_memory_state_rate",
+      "applicable_cases": 35,
+      "passed_cases": 32,
+      "value": 0.9142857142857143,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v141_ADV_P17_no_write_action_executes_memory_write",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P17_no_write_action_executes_memory_write.json",
+          "failures": [
+            "no_write_handler_preserves_memory_state_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P20_expired_action_executes_write",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P20_expired_action_executes_write.json",
+          "failures": [
+            "no_write_handler_preserves_memory_state_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P21_stale_action_executes_write",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P21_stale_action_executes_write.json",
+          "failures": [
+            "no_write_handler_preserves_memory_state_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "idempotent_handler_replay_rate",
+      "applicable_cases": 35,
+      "passed_cases": 34,
+      "value": 0.9714285714285714,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v141_ADV_P19_duplicate_submission_creates_new_result",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P19_duplicate_submission_creates_new_result.json",
+          "failures": [
+            "idempotent_handler_replay_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "expired_stale_handler_no_write_rate",
+      "applicable_cases": 35,
+      "passed_cases": 33,
+      "value": 0.9428571428571428,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v141_ADV_P20_expired_action_executes_write",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P20_expired_action_executes_write.json",
+          "failures": [
+            "expired_stale_handler_no_write_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P21_stale_action_executes_write",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P21_stale_action_executes_write.json",
+          "failures": [
+            "expired_stale_handler_no_write_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "runtime_action_result_links_response_rate",
+      "applicable_cases": 35,
+      "passed_cases": 34,
+      "value": 0.9714285714285714,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v141_ADV_P14_handler_output_missing_action_result_resource",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P14_handler_output_missing_action_result_resource.json",
+          "failures": [
+            "runtime_action_result_links_response_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "conversation_claims_trace_backed_after_handler_rate",
+      "applicable_cases": 35,
+      "passed_cases": 31,
+      "value": 0.8857142857142857,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v141_ADV_P24_review_pending_handler_claims_memory_changed",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P24_review_pending_handler_claims_memory_changed.json",
+          "failures": [
+            "conversation_claims_trace_backed_after_handler_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P30_conversation_claim_missing_response_block_ref",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P30_conversation_claim_missing_response_block_ref.json",
+          "failures": [
+            "conversation_claims_trace_backed_after_handler_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P31_conversation_claim_missing_action_result_ref",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P31_conversation_claim_missing_action_result_ref.json",
+          "failures": [
+            "conversation_claims_trace_backed_after_handler_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P32_visible_response_block_ids_stale",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P32_visible_response_block_ids_stale.json",
+          "failures": [
+            "conversation_claims_trace_backed_after_handler_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "runtime_snapshot_hash_reproducible_rate",
+      "applicable_cases": 35,
+      "passed_cases": 15,
+      "value": 0.42857142857142855,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v141_ADV_P05_handler_trace_missing_dispatch_step",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P05_handler_trace_missing_dispatch_step.json",
+          "failures": [
+            "runtime_snapshot_hash_reproducible_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P06_handler_trace_missing_source_resolution",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P06_handler_trace_missing_source_resolution.json",
+          "failures": [
+            "runtime_snapshot_hash_reproducible_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P07_handler_trace_missing_contract_projection",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P07_handler_trace_missing_contract_projection.json",
+          "failures": [
+            "runtime_snapshot_hash_reproducible_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P08_handler_uses_clean_report_as_source",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P08_handler_uses_clean_report_as_source.json",
+          "failures": [
+            "runtime_snapshot_hash_reproducible_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P09_handler_uses_readme_or_release_note_as_source",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P09_handler_uses_readme_or_release_note_as_source.json",
+          "failures": [
+            "runtime_snapshot_hash_reproducible_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P10_source_v140_artifact_hash_stale",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P10_source_v140_artifact_hash_stale.json",
+          "failures": [
+            "runtime_snapshot_hash_reproducible_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P11_output_response_contract_version_mismatch",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P11_output_response_contract_version_mismatch.json",
+          "failures": [
+            "runtime_snapshot_hash_reproducible_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P12_output_schema_version_mismatch",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P12_output_schema_version_mismatch.json",
+          "failures": [
+            "runtime_snapshot_hash_reproducible_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P13_handler_output_missing_action_surface_body",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P13_handler_output_missing_action_surface_body.json",
+          "failures": [
+            "runtime_snapshot_hash_reproducible_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P15_post_action_handler_accepts_disallowed_action",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P15_post_action_handler_accepts_disallowed_action.json",
+          "failures": [
+            "runtime_snapshot_hash_reproducible_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P16_post_action_handler_missing_idempotency_key_accepted",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P16_post_action_handler_missing_idempotency_key_accepted.json",
+          "failures": [
+            "runtime_snapshot_hash_reproducible_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P19_duplicate_submission_creates_new_result",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P19_duplicate_submission_creates_new_result.json",
+          "failures": [
+            "runtime_snapshot_hash_reproducible_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P20_expired_action_executes_write",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P20_expired_action_executes_write.json",
+          "failures": [
+            "runtime_snapshot_hash_reproducible_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P21_stale_action_executes_write",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P21_stale_action_executes_write.json",
+          "failures": [
+            "runtime_snapshot_hash_reproducible_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P22_unsupported_route_exposes_unsafe_error",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P22_unsupported_route_exposes_unsafe_error.json",
+          "failures": [
+            "runtime_snapshot_hash_reproducible_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P23_error_exposes_internal_path_or_traceback",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P23_error_exposes_internal_path_or_traceback.json",
+          "failures": [
+            "runtime_snapshot_hash_reproducible_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P25_handler_output_exposes_raw_review_evidence",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P25_handler_output_exposes_raw_review_evidence.json",
+          "failures": [
+            "runtime_snapshot_hash_reproducible_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P26_handler_output_globalizes_contextual_memory",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P26_handler_output_globalizes_contextual_memory.json",
+          "failures": [
+            "runtime_snapshot_hash_reproducible_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P27_handler_output_exposes_sensitive_commerce_or_aigc_terms",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P27_handler_output_exposes_sensitive_commerce_or_aigc_terms.json",
+          "failures": [
+            "runtime_snapshot_hash_reproducible_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P28_runtime_snapshot_hash_mismatch",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P28_runtime_snapshot_hash_mismatch.json",
+          "failures": [
+            "runtime_snapshot_hash_reproducible_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "runtime_source_hashes_match_raw_rate",
+      "applicable_cases": 35,
+      "passed_cases": 32,
+      "value": 0.9142857142857143,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v141_ADV_P08_handler_uses_clean_report_as_source",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P08_handler_uses_clean_report_as_source.json",
+          "failures": [
+            "runtime_source_hashes_match_raw_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P09_handler_uses_readme_or_release_note_as_source",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P09_handler_uses_readme_or_release_note_as_source.json",
+          "failures": [
+            "runtime_source_hashes_match_raw_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P10_source_v140_artifact_hash_stale",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P10_source_v140_artifact_hash_stale.json",
+          "failures": [
+            "runtime_source_hashes_match_raw_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "golden_contract_replay_rate",
+      "applicable_cases": 35,
+      "passed_cases": 21,
+      "value": 0.6,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v141_ADV_P11_output_response_contract_version_mismatch",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P11_output_response_contract_version_mismatch.json",
+          "failures": [
+            "golden_contract_replay_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P12_output_schema_version_mismatch",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P12_output_schema_version_mismatch.json",
+          "failures": [
+            "golden_contract_replay_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P13_handler_output_missing_action_surface_body",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P13_handler_output_missing_action_surface_body.json",
+          "failures": [
+            "golden_contract_replay_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P15_post_action_handler_accepts_disallowed_action",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P15_post_action_handler_accepts_disallowed_action.json",
+          "failures": [
+            "golden_contract_replay_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P16_post_action_handler_missing_idempotency_key_accepted",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P16_post_action_handler_missing_idempotency_key_accepted.json",
+          "failures": [
+            "golden_contract_replay_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P19_duplicate_submission_creates_new_result",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P19_duplicate_submission_creates_new_result.json",
+          "failures": [
+            "golden_contract_replay_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P20_expired_action_executes_write",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P20_expired_action_executes_write.json",
+          "failures": [
+            "golden_contract_replay_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P21_stale_action_executes_write",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P21_stale_action_executes_write.json",
+          "failures": [
+            "golden_contract_replay_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P22_unsupported_route_exposes_unsafe_error",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P22_unsupported_route_exposes_unsafe_error.json",
+          "failures": [
+            "golden_contract_replay_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P23_error_exposes_internal_path_or_traceback",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P23_error_exposes_internal_path_or_traceback.json",
+          "failures": [
+            "golden_contract_replay_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P25_handler_output_exposes_raw_review_evidence",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P25_handler_output_exposes_raw_review_evidence.json",
+          "failures": [
+            "golden_contract_replay_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P26_handler_output_globalizes_contextual_memory",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P26_handler_output_globalizes_contextual_memory.json",
+          "failures": [
+            "golden_contract_replay_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P27_handler_output_exposes_sensitive_commerce_or_aigc_terms",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P27_handler_output_exposes_sensitive_commerce_or_aigc_terms.json",
+          "failures": [
+            "golden_contract_replay_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P29_golden_contract_replay_has_undocumented_diff",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P29_golden_contract_replay_has_undocumented_diff.json",
+          "failures": [
+            "golden_contract_replay_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "runtime_error_safety_rate",
+      "applicable_cases": 35,
+      "passed_cases": 31,
+      "value": 0.8857142857142857,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v141_ADV_P20_expired_action_executes_write",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P20_expired_action_executes_write.json",
+          "failures": [
+            "runtime_error_safety_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P21_stale_action_executes_write",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P21_stale_action_executes_write.json",
+          "failures": [
+            "runtime_error_safety_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P22_unsupported_route_exposes_unsafe_error",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P22_unsupported_route_exposes_unsafe_error.json",
+          "failures": [
+            "runtime_error_safety_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P23_error_exposes_internal_path_or_traceback",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P23_error_exposes_internal_path_or_traceback.json",
+          "failures": [
+            "runtime_error_safety_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "runtime_redaction_policy_safe_rate",
+      "applicable_cases": 35,
+      "passed_cases": 27,
+      "value": 0.7714285714285715,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v141_ADV_P20_expired_action_executes_write",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P20_expired_action_executes_write.json",
+          "failures": [
+            "runtime_redaction_policy_safe_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P21_stale_action_executes_write",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P21_stale_action_executes_write.json",
+          "failures": [
+            "runtime_redaction_policy_safe_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P22_unsupported_route_exposes_unsafe_error",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P22_unsupported_route_exposes_unsafe_error.json",
+          "failures": [
+            "runtime_redaction_policy_safe_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P23_error_exposes_internal_path_or_traceback",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P23_error_exposes_internal_path_or_traceback.json",
+          "failures": [
+            "runtime_redaction_policy_safe_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P24_review_pending_handler_claims_memory_changed",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P24_review_pending_handler_claims_memory_changed.json",
+          "failures": [
+            "runtime_redaction_policy_safe_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P25_handler_output_exposes_raw_review_evidence",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P25_handler_output_exposes_raw_review_evidence.json",
+          "failures": [
+            "runtime_redaction_policy_safe_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P26_handler_output_globalizes_contextual_memory",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P26_handler_output_globalizes_contextual_memory.json",
+          "failures": [
+            "runtime_redaction_policy_safe_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P27_handler_output_exposes_sensitive_commerce_or_aigc_terms",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P27_handler_output_exposes_sensitive_commerce_or_aigc_terms.json",
+          "failures": [
+            "runtime_redaction_policy_safe_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "sample_artifacts_match_per_case_rate",
+      "applicable_cases": 35,
+      "passed_cases": 34,
+      "value": 0.9714285714285714,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v141_ADV_P33_sample_artifact_stale_relative_to_per_case",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P33_sample_artifact_stale_relative_to_per_case.json",
+          "failures": [
+            "sample_artifacts_match_per_case_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "report_consistency_with_independent_validation_rate",
+      "applicable_cases": 35,
+      "passed_cases": 34,
+      "value": 0.9714285714285714,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v141_ADV_P34_clean_report_pass_but_independent_validator_fail",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P34_clean_report_pass_but_independent_validator_fail.json",
+          "failures": [
+            "report_consistency_with_independent_validation_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "adversarial_detection_rate",
+      "applicable_cases": 35,
+      "passed_cases": 35,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "v140_validation_replay_pass_rate",
+      "applicable_cases": 35,
+      "passed_cases": 34,
+      "value": 0.9714285714285714,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v141_ADV_P35_v140_replay_missing_or_failed",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P35_v140_replay_missing_or_failed.json",
+          "failures": [
+            "v140_validation_replay_pass_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        }
+      ]
+    }
+  ],
+  "case_results": [
+    {
+      "case_id": "v141_ADV_P01_missing_supported_route_binding",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P01_missing_supported_route_binding.json",
+      "passed": false,
+      "failed_check_ids": [
+        "adapter_route_registry_complete_rate"
+      ],
+      "expected_failed_check_ids": [
+        "adapter_route_registry_complete_rate"
+      ],
+      "defect_type": "missing_supported_route_binding"
+    },
+    {
+      "case_id": "v141_ADV_P02_duplicate_route_binding",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P02_duplicate_route_binding.json",
+      "passed": false,
+      "failed_check_ids": [
+        "adapter_route_registry_complete_rate"
+      ],
+      "expected_failed_check_ids": [
+        "adapter_route_registry_complete_rate"
+      ],
+      "defect_type": "duplicate_route_binding"
+    },
+    {
+      "case_id": "v141_ADV_P03_handler_name_mismatch_registry",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P03_handler_name_mismatch_registry.json",
+      "passed": false,
+      "failed_check_ids": [
+        "handler_dispatch_trace_complete_rate",
+        "route_handler_invocation_valid_rate"
+      ],
+      "expected_failed_check_ids": [
+        "route_handler_invocation_valid_rate",
+        "handler_dispatch_trace_complete_rate"
+      ],
+      "defect_type": "handler_name_mismatch_registry"
+    },
+    {
+      "case_id": "v141_ADV_P04_invocation_method_route_mismatch",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P04_invocation_method_route_mismatch.json",
+      "passed": false,
+      "failed_check_ids": [
+        "action_submission_handler_contract_rate",
+        "route_handler_invocation_valid_rate"
+      ],
+      "expected_failed_check_ids": [
+        "route_handler_invocation_valid_rate"
+      ],
+      "defect_type": "invocation_method_route_mismatch"
+    },
+    {
+      "case_id": "v141_ADV_P05_handler_trace_missing_dispatch_step",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P05_handler_trace_missing_dispatch_step.json",
+      "passed": false,
+      "failed_check_ids": [
+        "handler_dispatch_trace_complete_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "expected_failed_check_ids": [
+        "handler_dispatch_trace_complete_rate"
+      ],
+      "defect_type": "handler_trace_missing_dispatch_step"
+    },
+    {
+      "case_id": "v141_ADV_P06_handler_trace_missing_source_resolution",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P06_handler_trace_missing_source_resolution.json",
+      "passed": false,
+      "failed_check_ids": [
+        "handler_dispatch_trace_complete_rate",
+        "handler_uses_raw_source_artifacts_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "expected_failed_check_ids": [
+        "handler_dispatch_trace_complete_rate",
+        "handler_uses_raw_source_artifacts_rate"
+      ],
+      "defect_type": "handler_trace_missing_source_resolution"
+    },
+    {
+      "case_id": "v141_ADV_P07_handler_trace_missing_contract_projection",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P07_handler_trace_missing_contract_projection.json",
+      "passed": false,
+      "failed_check_ids": [
+        "handler_dispatch_trace_complete_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "expected_failed_check_ids": [
+        "handler_dispatch_trace_complete_rate"
+      ],
+      "defect_type": "handler_trace_missing_contract_projection"
+    },
+    {
+      "case_id": "v141_ADV_P08_handler_uses_clean_report_as_source",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P08_handler_uses_clean_report_as_source.json",
+      "passed": false,
+      "failed_check_ids": [
+        "handler_output_matches_v140_contract_rate",
+        "handler_uses_raw_source_artifacts_rate",
+        "runtime_snapshot_hash_reproducible_rate",
+        "runtime_source_hashes_match_raw_rate"
+      ],
+      "expected_failed_check_ids": [
+        "handler_uses_raw_source_artifacts_rate",
+        "runtime_source_hashes_match_raw_rate"
+      ],
+      "defect_type": "handler_uses_clean_report_as_source"
+    },
+    {
+      "case_id": "v141_ADV_P09_handler_uses_readme_or_release_note_as_source",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P09_handler_uses_readme_or_release_note_as_source.json",
+      "passed": false,
+      "failed_check_ids": [
+        "handler_output_matches_v140_contract_rate",
+        "handler_uses_raw_source_artifacts_rate",
+        "runtime_snapshot_hash_reproducible_rate",
+        "runtime_source_hashes_match_raw_rate"
+      ],
+      "expected_failed_check_ids": [
+        "handler_uses_raw_source_artifacts_rate",
+        "runtime_source_hashes_match_raw_rate"
+      ],
+      "defect_type": "handler_uses_readme_or_release_note_as_source"
+    },
+    {
+      "case_id": "v141_ADV_P10_source_v140_artifact_hash_stale",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P10_source_v140_artifact_hash_stale.json",
+      "passed": false,
+      "failed_check_ids": [
+        "runtime_snapshot_hash_reproducible_rate",
+        "runtime_source_hashes_match_raw_rate"
+      ],
+      "expected_failed_check_ids": [
+        "runtime_source_hashes_match_raw_rate"
+      ],
+      "defect_type": "source_v140_artifact_hash_stale"
+    },
+    {
+      "case_id": "v141_ADV_P11_output_response_contract_version_mismatch",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P11_output_response_contract_version_mismatch.json",
+      "passed": false,
+      "failed_check_ids": [
+        "golden_contract_replay_rate",
+        "handler_output_matches_v140_contract_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "expected_failed_check_ids": [
+        "handler_output_matches_v140_contract_rate"
+      ],
+      "defect_type": "output_response_contract_version_mismatch"
+    },
+    {
+      "case_id": "v141_ADV_P12_output_schema_version_mismatch",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P12_output_schema_version_mismatch.json",
+      "passed": false,
+      "failed_check_ids": [
+        "golden_contract_replay_rate",
+        "handler_output_matches_v140_contract_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "expected_failed_check_ids": [
+        "handler_output_matches_v140_contract_rate"
+      ],
+      "defect_type": "output_schema_version_mismatch"
+    },
+    {
+      "case_id": "v141_ADV_P13_handler_output_missing_action_surface_body",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P13_handler_output_missing_action_surface_body.json",
+      "passed": false,
+      "failed_check_ids": [
+        "golden_contract_replay_rate",
+        "handler_output_matches_v140_contract_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "expected_failed_check_ids": [
+        "handler_output_matches_v140_contract_rate"
+      ],
+      "defect_type": "handler_output_missing_action_surface_body"
+    },
+    {
+      "case_id": "v141_ADV_P14_handler_output_missing_action_result_resource",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P14_handler_output_missing_action_result_resource.json",
+      "passed": false,
+      "failed_check_ids": [
+        "runtime_action_result_links_response_rate"
+      ],
+      "expected_failed_check_ids": [
+        "runtime_action_result_links_response_rate"
+      ],
+      "defect_type": "handler_output_missing_action_result_resource"
+    },
+    {
+      "case_id": "v141_ADV_P15_post_action_handler_accepts_disallowed_action",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P15_post_action_handler_accepts_disallowed_action.json",
+      "passed": false,
+      "failed_check_ids": [
+        "action_submission_handler_contract_rate",
+        "golden_contract_replay_rate",
+        "handler_output_matches_v140_contract_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "expected_failed_check_ids": [
+        "action_submission_handler_contract_rate"
+      ],
+      "defect_type": "post_action_handler_accepts_disallowed_action"
+    },
+    {
+      "case_id": "v141_ADV_P16_post_action_handler_missing_idempotency_key_accepted",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P16_post_action_handler_missing_idempotency_key_accepted.json",
+      "passed": false,
+      "failed_check_ids": [
+        "action_submission_handler_contract_rate",
+        "golden_contract_replay_rate",
+        "handler_output_matches_v140_contract_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "expected_failed_check_ids": [
+        "action_submission_handler_contract_rate"
+      ],
+      "defect_type": "post_action_handler_missing_idempotency_key_accepted"
+    },
+    {
+      "case_id": "v141_ADV_P17_no_write_action_executes_memory_write",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P17_no_write_action_executes_memory_write.json",
+      "passed": false,
+      "failed_check_ids": [
+        "no_write_handler_preserves_memory_state_rate"
+      ],
+      "expected_failed_check_ids": [
+        "no_write_handler_preserves_memory_state_rate"
+      ],
+      "defect_type": "no_write_action_executes_memory_write"
+    },
+    {
+      "case_id": "v141_ADV_P18_remember_for_context_bypasses_write_gate",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P18_remember_for_context_bypasses_write_gate.json",
+      "passed": false,
+      "failed_check_ids": [
+        "action_submission_handler_contract_rate"
+      ],
+      "expected_failed_check_ids": [
+        "action_submission_handler_contract_rate"
+      ],
+      "defect_type": "remember_for_context_bypasses_write_gate"
+    },
+    {
+      "case_id": "v141_ADV_P19_duplicate_submission_creates_new_result",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P19_duplicate_submission_creates_new_result.json",
+      "passed": false,
+      "failed_check_ids": [
+        "golden_contract_replay_rate",
+        "handler_output_matches_v140_contract_rate",
+        "idempotent_handler_replay_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "expected_failed_check_ids": [
+        "idempotent_handler_replay_rate"
+      ],
+      "defect_type": "duplicate_submission_creates_new_result"
+    },
+    {
+      "case_id": "v141_ADV_P20_expired_action_executes_write",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P20_expired_action_executes_write.json",
+      "passed": false,
+      "failed_check_ids": [
+        "expired_stale_handler_no_write_rate",
+        "golden_contract_replay_rate",
+        "handler_output_matches_v140_contract_rate",
+        "no_write_handler_preserves_memory_state_rate",
+        "runtime_error_safety_rate",
+        "runtime_redaction_policy_safe_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "expected_failed_check_ids": [
+        "expired_stale_handler_no_write_rate",
+        "no_write_handler_preserves_memory_state_rate"
+      ],
+      "defect_type": "expired_action_executes_write"
+    },
+    {
+      "case_id": "v141_ADV_P21_stale_action_executes_write",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P21_stale_action_executes_write.json",
+      "passed": false,
+      "failed_check_ids": [
+        "expired_stale_handler_no_write_rate",
+        "golden_contract_replay_rate",
+        "handler_output_matches_v140_contract_rate",
+        "no_write_handler_preserves_memory_state_rate",
+        "runtime_error_safety_rate",
+        "runtime_redaction_policy_safe_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "expected_failed_check_ids": [
+        "expired_stale_handler_no_write_rate",
+        "no_write_handler_preserves_memory_state_rate"
+      ],
+      "defect_type": "stale_action_executes_write"
+    },
+    {
+      "case_id": "v141_ADV_P22_unsupported_route_exposes_unsafe_error",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P22_unsupported_route_exposes_unsafe_error.json",
+      "passed": false,
+      "failed_check_ids": [
+        "golden_contract_replay_rate",
+        "handler_output_matches_v140_contract_rate",
+        "runtime_error_safety_rate",
+        "runtime_redaction_policy_safe_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "expected_failed_check_ids": [
+        "runtime_error_safety_rate",
+        "runtime_redaction_policy_safe_rate"
+      ],
+      "defect_type": "unsupported_route_exposes_unsafe_error"
+    },
+    {
+      "case_id": "v141_ADV_P23_error_exposes_internal_path_or_traceback",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P23_error_exposes_internal_path_or_traceback.json",
+      "passed": false,
+      "failed_check_ids": [
+        "golden_contract_replay_rate",
+        "handler_output_matches_v140_contract_rate",
+        "runtime_error_safety_rate",
+        "runtime_redaction_policy_safe_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "expected_failed_check_ids": [
+        "runtime_error_safety_rate",
+        "runtime_redaction_policy_safe_rate"
+      ],
+      "defect_type": "error_exposes_internal_path_or_traceback"
+    },
+    {
+      "case_id": "v141_ADV_P24_review_pending_handler_claims_memory_changed",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P24_review_pending_handler_claims_memory_changed.json",
+      "passed": false,
+      "failed_check_ids": [
+        "conversation_claims_trace_backed_after_handler_rate",
+        "runtime_redaction_policy_safe_rate"
+      ],
+      "expected_failed_check_ids": [
+        "conversation_claims_trace_backed_after_handler_rate",
+        "runtime_redaction_policy_safe_rate"
+      ],
+      "defect_type": "review_pending_handler_claims_memory_changed"
+    },
+    {
+      "case_id": "v141_ADV_P25_handler_output_exposes_raw_review_evidence",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P25_handler_output_exposes_raw_review_evidence.json",
+      "passed": false,
+      "failed_check_ids": [
+        "golden_contract_replay_rate",
+        "handler_output_matches_v140_contract_rate",
+        "runtime_redaction_policy_safe_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "expected_failed_check_ids": [
+        "runtime_redaction_policy_safe_rate"
+      ],
+      "defect_type": "handler_output_exposes_raw_review_evidence"
+    },
+    {
+      "case_id": "v141_ADV_P26_handler_output_globalizes_contextual_memory",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P26_handler_output_globalizes_contextual_memory.json",
+      "passed": false,
+      "failed_check_ids": [
+        "golden_contract_replay_rate",
+        "handler_output_matches_v140_contract_rate",
+        "runtime_redaction_policy_safe_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "expected_failed_check_ids": [
+        "runtime_redaction_policy_safe_rate"
+      ],
+      "defect_type": "handler_output_globalizes_contextual_memory"
+    },
+    {
+      "case_id": "v141_ADV_P27_handler_output_exposes_sensitive_commerce_or_aigc_terms",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P27_handler_output_exposes_sensitive_commerce_or_aigc_terms.json",
+      "passed": false,
+      "failed_check_ids": [
+        "golden_contract_replay_rate",
+        "handler_output_matches_v140_contract_rate",
+        "runtime_redaction_policy_safe_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "expected_failed_check_ids": [
+        "runtime_redaction_policy_safe_rate"
+      ],
+      "defect_type": "handler_output_exposes_sensitive_commerce_or_aigc_terms"
+    },
+    {
+      "case_id": "v141_ADV_P28_runtime_snapshot_hash_mismatch",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P28_runtime_snapshot_hash_mismatch.json",
+      "passed": false,
+      "failed_check_ids": [
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "expected_failed_check_ids": [
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "defect_type": "runtime_snapshot_hash_mismatch"
+    },
+    {
+      "case_id": "v141_ADV_P29_golden_contract_replay_has_undocumented_diff",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P29_golden_contract_replay_has_undocumented_diff.json",
+      "passed": false,
+      "failed_check_ids": [
+        "golden_contract_replay_rate"
+      ],
+      "expected_failed_check_ids": [
+        "golden_contract_replay_rate"
+      ],
+      "defect_type": "golden_contract_replay_has_undocumented_diff"
+    },
+    {
+      "case_id": "v141_ADV_P30_conversation_claim_missing_response_block_ref",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P30_conversation_claim_missing_response_block_ref.json",
+      "passed": false,
+      "failed_check_ids": [
+        "conversation_claims_trace_backed_after_handler_rate"
+      ],
+      "expected_failed_check_ids": [
+        "conversation_claims_trace_backed_after_handler_rate"
+      ],
+      "defect_type": "conversation_claim_missing_response_block_ref"
+    },
+    {
+      "case_id": "v141_ADV_P31_conversation_claim_missing_action_result_ref",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P31_conversation_claim_missing_action_result_ref.json",
+      "passed": false,
+      "failed_check_ids": [
+        "conversation_claims_trace_backed_after_handler_rate"
+      ],
+      "expected_failed_check_ids": [
+        "conversation_claims_trace_backed_after_handler_rate"
+      ],
+      "defect_type": "conversation_claim_missing_action_result_ref"
+    },
+    {
+      "case_id": "v141_ADV_P32_visible_response_block_ids_stale",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P32_visible_response_block_ids_stale.json",
+      "passed": false,
+      "failed_check_ids": [
+        "conversation_claims_trace_backed_after_handler_rate"
+      ],
+      "expected_failed_check_ids": [
+        "conversation_claims_trace_backed_after_handler_rate"
+      ],
+      "defect_type": "visible_response_block_ids_stale"
+    },
+    {
+      "case_id": "v141_ADV_P33_sample_artifact_stale_relative_to_per_case",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P33_sample_artifact_stale_relative_to_per_case.json",
+      "passed": false,
+      "failed_check_ids": [
+        "sample_artifacts_match_per_case_rate"
+      ],
+      "expected_failed_check_ids": [
+        "sample_artifacts_match_per_case_rate"
+      ],
+      "defect_type": "sample_artifact_stale_relative_to_per_case"
+    },
+    {
+      "case_id": "v141_ADV_P34_clean_report_pass_but_independent_validator_fail",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P34_clean_report_pass_but_independent_validator_fail.json",
+      "passed": false,
+      "failed_check_ids": [
+        "report_consistency_with_independent_validation_rate"
+      ],
+      "expected_failed_check_ids": [
+        "report_consistency_with_independent_validation_rate"
+      ],
+      "defect_type": "clean_report_pass_but_independent_validator_fail"
+    },
+    {
+      "case_id": "v141_ADV_P35_v140_replay_missing_or_failed",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P35_v140_replay_missing_or_failed.json",
+      "passed": false,
+      "failed_check_ids": [
+        "v140_validation_replay_pass_rate"
+      ],
+      "expected_failed_check_ids": [
+        "v140_validation_replay_pass_rate"
+      ],
+      "defect_type": "v140_replay_missing_or_failed"
+    }
+  ],
+  "detected_defects": [
+    {
+      "case_id": "v141_ADV_P01_missing_supported_route_binding",
+      "defect_type": "missing_supported_route_binding",
+      "expected_failed_check_ids": [
+        "adapter_route_registry_complete_rate"
+      ],
+      "failed_check_ids": [
+        "adapter_route_registry_complete_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P02_duplicate_route_binding",
+      "defect_type": "duplicate_route_binding",
+      "expected_failed_check_ids": [
+        "adapter_route_registry_complete_rate"
+      ],
+      "failed_check_ids": [
+        "adapter_route_registry_complete_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P03_handler_name_mismatch_registry",
+      "defect_type": "handler_name_mismatch_registry",
+      "expected_failed_check_ids": [
+        "route_handler_invocation_valid_rate",
+        "handler_dispatch_trace_complete_rate"
+      ],
+      "failed_check_ids": [
+        "handler_dispatch_trace_complete_rate",
+        "route_handler_invocation_valid_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P04_invocation_method_route_mismatch",
+      "defect_type": "invocation_method_route_mismatch",
+      "expected_failed_check_ids": [
+        "route_handler_invocation_valid_rate"
+      ],
+      "failed_check_ids": [
+        "action_submission_handler_contract_rate",
+        "route_handler_invocation_valid_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P05_handler_trace_missing_dispatch_step",
+      "defect_type": "handler_trace_missing_dispatch_step",
+      "expected_failed_check_ids": [
+        "handler_dispatch_trace_complete_rate"
+      ],
+      "failed_check_ids": [
+        "handler_dispatch_trace_complete_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P06_handler_trace_missing_source_resolution",
+      "defect_type": "handler_trace_missing_source_resolution",
+      "expected_failed_check_ids": [
+        "handler_dispatch_trace_complete_rate",
+        "handler_uses_raw_source_artifacts_rate"
+      ],
+      "failed_check_ids": [
+        "handler_dispatch_trace_complete_rate",
+        "handler_uses_raw_source_artifacts_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P07_handler_trace_missing_contract_projection",
+      "defect_type": "handler_trace_missing_contract_projection",
+      "expected_failed_check_ids": [
+        "handler_dispatch_trace_complete_rate"
+      ],
+      "failed_check_ids": [
+        "handler_dispatch_trace_complete_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P08_handler_uses_clean_report_as_source",
+      "defect_type": "handler_uses_clean_report_as_source",
+      "expected_failed_check_ids": [
+        "handler_uses_raw_source_artifacts_rate",
+        "runtime_source_hashes_match_raw_rate"
+      ],
+      "failed_check_ids": [
+        "handler_output_matches_v140_contract_rate",
+        "handler_uses_raw_source_artifacts_rate",
+        "runtime_snapshot_hash_reproducible_rate",
+        "runtime_source_hashes_match_raw_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P09_handler_uses_readme_or_release_note_as_source",
+      "defect_type": "handler_uses_readme_or_release_note_as_source",
+      "expected_failed_check_ids": [
+        "handler_uses_raw_source_artifacts_rate",
+        "runtime_source_hashes_match_raw_rate"
+      ],
+      "failed_check_ids": [
+        "handler_output_matches_v140_contract_rate",
+        "handler_uses_raw_source_artifacts_rate",
+        "runtime_snapshot_hash_reproducible_rate",
+        "runtime_source_hashes_match_raw_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P10_source_v140_artifact_hash_stale",
+      "defect_type": "source_v140_artifact_hash_stale",
+      "expected_failed_check_ids": [
+        "runtime_source_hashes_match_raw_rate"
+      ],
+      "failed_check_ids": [
+        "runtime_snapshot_hash_reproducible_rate",
+        "runtime_source_hashes_match_raw_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P11_output_response_contract_version_mismatch",
+      "defect_type": "output_response_contract_version_mismatch",
+      "expected_failed_check_ids": [
+        "handler_output_matches_v140_contract_rate"
+      ],
+      "failed_check_ids": [
+        "golden_contract_replay_rate",
+        "handler_output_matches_v140_contract_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P12_output_schema_version_mismatch",
+      "defect_type": "output_schema_version_mismatch",
+      "expected_failed_check_ids": [
+        "handler_output_matches_v140_contract_rate"
+      ],
+      "failed_check_ids": [
+        "golden_contract_replay_rate",
+        "handler_output_matches_v140_contract_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P13_handler_output_missing_action_surface_body",
+      "defect_type": "handler_output_missing_action_surface_body",
+      "expected_failed_check_ids": [
+        "handler_output_matches_v140_contract_rate"
+      ],
+      "failed_check_ids": [
+        "golden_contract_replay_rate",
+        "handler_output_matches_v140_contract_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P14_handler_output_missing_action_result_resource",
+      "defect_type": "handler_output_missing_action_result_resource",
+      "expected_failed_check_ids": [
+        "runtime_action_result_links_response_rate"
+      ],
+      "failed_check_ids": [
+        "runtime_action_result_links_response_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P15_post_action_handler_accepts_disallowed_action",
+      "defect_type": "post_action_handler_accepts_disallowed_action",
+      "expected_failed_check_ids": [
+        "action_submission_handler_contract_rate"
+      ],
+      "failed_check_ids": [
+        "action_submission_handler_contract_rate",
+        "golden_contract_replay_rate",
+        "handler_output_matches_v140_contract_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P16_post_action_handler_missing_idempotency_key_accepted",
+      "defect_type": "post_action_handler_missing_idempotency_key_accepted",
+      "expected_failed_check_ids": [
+        "action_submission_handler_contract_rate"
+      ],
+      "failed_check_ids": [
+        "action_submission_handler_contract_rate",
+        "golden_contract_replay_rate",
+        "handler_output_matches_v140_contract_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P17_no_write_action_executes_memory_write",
+      "defect_type": "no_write_action_executes_memory_write",
+      "expected_failed_check_ids": [
+        "no_write_handler_preserves_memory_state_rate"
+      ],
+      "failed_check_ids": [
+        "no_write_handler_preserves_memory_state_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P18_remember_for_context_bypasses_write_gate",
+      "defect_type": "remember_for_context_bypasses_write_gate",
+      "expected_failed_check_ids": [
+        "action_submission_handler_contract_rate"
+      ],
+      "failed_check_ids": [
+        "action_submission_handler_contract_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P19_duplicate_submission_creates_new_result",
+      "defect_type": "duplicate_submission_creates_new_result",
+      "expected_failed_check_ids": [
+        "idempotent_handler_replay_rate"
+      ],
+      "failed_check_ids": [
+        "golden_contract_replay_rate",
+        "handler_output_matches_v140_contract_rate",
+        "idempotent_handler_replay_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P20_expired_action_executes_write",
+      "defect_type": "expired_action_executes_write",
+      "expected_failed_check_ids": [
+        "expired_stale_handler_no_write_rate",
+        "no_write_handler_preserves_memory_state_rate"
+      ],
+      "failed_check_ids": [
+        "expired_stale_handler_no_write_rate",
+        "golden_contract_replay_rate",
+        "handler_output_matches_v140_contract_rate",
+        "no_write_handler_preserves_memory_state_rate",
+        "runtime_error_safety_rate",
+        "runtime_redaction_policy_safe_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P21_stale_action_executes_write",
+      "defect_type": "stale_action_executes_write",
+      "expected_failed_check_ids": [
+        "expired_stale_handler_no_write_rate",
+        "no_write_handler_preserves_memory_state_rate"
+      ],
+      "failed_check_ids": [
+        "expired_stale_handler_no_write_rate",
+        "golden_contract_replay_rate",
+        "handler_output_matches_v140_contract_rate",
+        "no_write_handler_preserves_memory_state_rate",
+        "runtime_error_safety_rate",
+        "runtime_redaction_policy_safe_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P22_unsupported_route_exposes_unsafe_error",
+      "defect_type": "unsupported_route_exposes_unsafe_error",
+      "expected_failed_check_ids": [
+        "runtime_error_safety_rate",
+        "runtime_redaction_policy_safe_rate"
+      ],
+      "failed_check_ids": [
+        "golden_contract_replay_rate",
+        "handler_output_matches_v140_contract_rate",
+        "runtime_error_safety_rate",
+        "runtime_redaction_policy_safe_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P23_error_exposes_internal_path_or_traceback",
+      "defect_type": "error_exposes_internal_path_or_traceback",
+      "expected_failed_check_ids": [
+        "runtime_error_safety_rate",
+        "runtime_redaction_policy_safe_rate"
+      ],
+      "failed_check_ids": [
+        "golden_contract_replay_rate",
+        "handler_output_matches_v140_contract_rate",
+        "runtime_error_safety_rate",
+        "runtime_redaction_policy_safe_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P24_review_pending_handler_claims_memory_changed",
+      "defect_type": "review_pending_handler_claims_memory_changed",
+      "expected_failed_check_ids": [
+        "conversation_claims_trace_backed_after_handler_rate",
+        "runtime_redaction_policy_safe_rate"
+      ],
+      "failed_check_ids": [
+        "conversation_claims_trace_backed_after_handler_rate",
+        "runtime_redaction_policy_safe_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P25_handler_output_exposes_raw_review_evidence",
+      "defect_type": "handler_output_exposes_raw_review_evidence",
+      "expected_failed_check_ids": [
+        "runtime_redaction_policy_safe_rate"
+      ],
+      "failed_check_ids": [
+        "golden_contract_replay_rate",
+        "handler_output_matches_v140_contract_rate",
+        "runtime_redaction_policy_safe_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P26_handler_output_globalizes_contextual_memory",
+      "defect_type": "handler_output_globalizes_contextual_memory",
+      "expected_failed_check_ids": [
+        "runtime_redaction_policy_safe_rate"
+      ],
+      "failed_check_ids": [
+        "golden_contract_replay_rate",
+        "handler_output_matches_v140_contract_rate",
+        "runtime_redaction_policy_safe_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P27_handler_output_exposes_sensitive_commerce_or_aigc_terms",
+      "defect_type": "handler_output_exposes_sensitive_commerce_or_aigc_terms",
+      "expected_failed_check_ids": [
+        "runtime_redaction_policy_safe_rate"
+      ],
+      "failed_check_ids": [
+        "golden_contract_replay_rate",
+        "handler_output_matches_v140_contract_rate",
+        "runtime_redaction_policy_safe_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P28_runtime_snapshot_hash_mismatch",
+      "defect_type": "runtime_snapshot_hash_mismatch",
+      "expected_failed_check_ids": [
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "failed_check_ids": [
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P29_golden_contract_replay_has_undocumented_diff",
+      "defect_type": "golden_contract_replay_has_undocumented_diff",
+      "expected_failed_check_ids": [
+        "golden_contract_replay_rate"
+      ],
+      "failed_check_ids": [
+        "golden_contract_replay_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P30_conversation_claim_missing_response_block_ref",
+      "defect_type": "conversation_claim_missing_response_block_ref",
+      "expected_failed_check_ids": [
+        "conversation_claims_trace_backed_after_handler_rate"
+      ],
+      "failed_check_ids": [
+        "conversation_claims_trace_backed_after_handler_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P31_conversation_claim_missing_action_result_ref",
+      "defect_type": "conversation_claim_missing_action_result_ref",
+      "expected_failed_check_ids": [
+        "conversation_claims_trace_backed_after_handler_rate"
+      ],
+      "failed_check_ids": [
+        "conversation_claims_trace_backed_after_handler_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P32_visible_response_block_ids_stale",
+      "defect_type": "visible_response_block_ids_stale",
+      "expected_failed_check_ids": [
+        "conversation_claims_trace_backed_after_handler_rate"
+      ],
+      "failed_check_ids": [
+        "conversation_claims_trace_backed_after_handler_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P33_sample_artifact_stale_relative_to_per_case",
+      "defect_type": "sample_artifact_stale_relative_to_per_case",
+      "expected_failed_check_ids": [
+        "sample_artifacts_match_per_case_rate"
+      ],
+      "failed_check_ids": [
+        "sample_artifacts_match_per_case_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P34_clean_report_pass_but_independent_validator_fail",
+      "defect_type": "clean_report_pass_but_independent_validator_fail",
+      "expected_failed_check_ids": [
+        "report_consistency_with_independent_validation_rate"
+      ],
+      "failed_check_ids": [
+        "report_consistency_with_independent_validation_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P35_v140_replay_missing_or_failed",
+      "defect_type": "v140_replay_missing_or_failed",
+      "expected_failed_check_ids": [
+        "v140_validation_replay_pass_rate"
+      ],
+      "failed_check_ids": [
+        "v140_validation_replay_pass_rate"
+      ],
+      "detected": true
+    }
+  ],
+  "detected_defect_count": 35
+}

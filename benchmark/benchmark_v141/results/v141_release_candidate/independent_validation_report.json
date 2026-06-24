@@ -1,0 +1,542 @@
+{
+  "validator": "v1.41.independent.in_process_product_runtime_adapter_validator",
+  "generated_at": "2026-06-24T10:16:48Z",
+  "result_dir": "benchmark/benchmark_v141/results/v141_release_candidate",
+  "subset": "clean",
+  "suite_summary": {
+    "total_cases": 43,
+    "passed_cases": 43,
+    "failed_cases": 0,
+    "total_checks": 20,
+    "passed_checks": 20,
+    "failed_checks": 0
+  },
+  "checks": [
+    {
+      "check_id": "adapter_route_registry_complete_rate",
+      "applicable_cases": 43,
+      "passed_cases": 43,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "route_handler_invocation_valid_rate",
+      "applicable_cases": 43,
+      "passed_cases": 43,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "handler_dispatch_trace_complete_rate",
+      "applicable_cases": 43,
+      "passed_cases": 43,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "handler_uses_raw_source_artifacts_rate",
+      "applicable_cases": 43,
+      "passed_cases": 43,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "handler_output_matches_v140_contract_rate",
+      "applicable_cases": 43,
+      "passed_cases": 43,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "action_submission_handler_contract_rate",
+      "applicable_cases": 43,
+      "passed_cases": 43,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "no_write_handler_preserves_memory_state_rate",
+      "applicable_cases": 43,
+      "passed_cases": 43,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "idempotent_handler_replay_rate",
+      "applicable_cases": 43,
+      "passed_cases": 43,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "expired_stale_handler_no_write_rate",
+      "applicable_cases": 43,
+      "passed_cases": 43,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "runtime_action_result_links_response_rate",
+      "applicable_cases": 43,
+      "passed_cases": 43,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "conversation_claims_trace_backed_after_handler_rate",
+      "applicable_cases": 43,
+      "passed_cases": 43,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "runtime_snapshot_hash_reproducible_rate",
+      "applicable_cases": 43,
+      "passed_cases": 43,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "runtime_source_hashes_match_raw_rate",
+      "applicable_cases": 43,
+      "passed_cases": 43,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "golden_contract_replay_rate",
+      "applicable_cases": 43,
+      "passed_cases": 43,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "runtime_error_safety_rate",
+      "applicable_cases": 43,
+      "passed_cases": 43,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "runtime_redaction_policy_safe_rate",
+      "applicable_cases": 43,
+      "passed_cases": 43,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "sample_artifacts_match_per_case_rate",
+      "applicable_cases": 43,
+      "passed_cases": 43,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "report_consistency_with_independent_validation_rate",
+      "applicable_cases": 43,
+      "passed_cases": 43,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "adversarial_detection_rate",
+      "applicable_cases": 43,
+      "passed_cases": 43,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "v140_validation_replay_pass_rate",
+      "applicable_cases": 43,
+      "passed_cases": 43,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    }
+  ],
+  "case_results": [
+    {
+      "case_id": "v141_A01_adapter_declares_supported_routes",
+      "artifact_ref": "per_case/clean/v141_A01_adapter_declares_supported_routes.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_A02_route_registry_binds_each_supported_route_once",
+      "artifact_ref": "per_case/clean/v141_A02_route_registry_binds_each_supported_route_once.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_A03_get_daily_outfit_handler_matches_v140_contract",
+      "artifact_ref": "per_case/clean/v141_A03_get_daily_outfit_handler_matches_v140_contract.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_A04_get_action_surface_handler_matches_v140_contract",
+      "artifact_ref": "per_case/clean/v141_A04_get_action_surface_handler_matches_v140_contract.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_A05_get_action_result_handler_matches_v140_contract",
+      "artifact_ref": "per_case/clean/v141_A05_get_action_result_handler_matches_v140_contract.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_A06_unsupported_route_handler_returns_safe_error",
+      "artifact_ref": "per_case/clean/v141_A06_unsupported_route_handler_returns_safe_error.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_B01_action_surface_handler_uses_raw_v140_artifact_not_report",
+      "artifact_ref": "per_case/clean/v141_B01_action_surface_handler_uses_raw_v140_artifact_not_report.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_B02_daily_outfit_handler_uses_raw_v140_artifact_not_report",
+      "artifact_ref": "per_case/clean/v141_B02_daily_outfit_handler_uses_raw_v140_artifact_not_report.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_B03_action_result_handler_uses_raw_v140_artifact_not_report",
+      "artifact_ref": "per_case/clean/v141_B03_action_result_handler_uses_raw_v140_artifact_not_report.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_B04_route_handler_trace_records_dispatch_steps",
+      "artifact_ref": "per_case/clean/v141_B04_route_handler_trace_records_dispatch_steps.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_B05_route_handler_trace_records_source_resolution",
+      "artifact_ref": "per_case/clean/v141_B05_route_handler_trace_records_source_resolution.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_B06_route_handler_trace_records_contract_projection",
+      "artifact_ref": "per_case/clean/v141_B06_route_handler_trace_records_contract_projection.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_C01_post_this_time_only_handler_no_write_matches_contract",
+      "artifact_ref": "per_case/clean/v141_C01_post_this_time_only_handler_no_write_matches_contract.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_C02_post_do_not_change_memory_handler_no_write_matches_contract",
+      "artifact_ref": "per_case/clean/v141_C02_post_do_not_change_memory_handler_no_write_matches_contract.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_C03_post_remember_for_context_handler_routes_to_write_gate",
+      "artifact_ref": "per_case/clean/v141_C03_post_remember_for_context_handler_routes_to_write_gate.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_C04_duplicate_submission_handler_is_idempotent",
+      "artifact_ref": "per_case/clean/v141_C04_duplicate_submission_handler_is_idempotent.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_C05_invalid_action_handler_returns_safe_error_no_write",
+      "artifact_ref": "per_case/clean/v141_C05_invalid_action_handler_returns_safe_error_no_write.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_C06_missing_idempotency_key_handler_rejects_no_write",
+      "artifact_ref": "per_case/clean/v141_C06_missing_idempotency_key_handler_rejects_no_write.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_C07_malformed_payload_handler_returns_contract_error_no_write",
+      "artifact_ref": "per_case/clean/v141_C07_malformed_payload_handler_returns_contract_error_no_write.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_D01_expired_action_handler_returns_expired_error_no_write",
+      "artifact_ref": "per_case/clean/v141_D01_expired_action_handler_returns_expired_error_no_write.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_D02_stale_action_handler_returns_stale_error_no_write",
+      "artifact_ref": "per_case/clean/v141_D02_stale_action_handler_returns_stale_error_no_write.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_D03_duplicate_handler_reuses_canonical_action_result",
+      "artifact_ref": "per_case/clean/v141_D03_duplicate_handler_reuses_canonical_action_result.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_D04_repeated_handler_invocation_is_deterministic",
+      "artifact_ref": "per_case/clean/v141_D04_repeated_handler_invocation_is_deterministic.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_D05_idempotency_scope_is_trace_backed",
+      "artifact_ref": "per_case/clean/v141_D05_idempotency_scope_is_trace_backed.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_E01_runtime_adapter_snapshot_hashes_reproducible",
+      "artifact_ref": "per_case/clean/v141_E01_runtime_adapter_snapshot_hashes_reproducible.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_E02_runtime_source_artifact_hashes_match_raw_v140",
+      "artifact_ref": "per_case/clean/v141_E02_runtime_source_artifact_hashes_match_raw_v140.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_E03_golden_contract_replay_request_response_match",
+      "artifact_ref": "per_case/clean/v141_E03_golden_contract_replay_request_response_match.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_E04_golden_contract_replay_rejects_undocumented_diff",
+      "artifact_ref": "per_case/clean/v141_E04_golden_contract_replay_rejects_undocumented_diff.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_E05_v140_contract_snapshot_compatibility_preserved",
+      "artifact_ref": "per_case/clean/v141_E05_v140_contract_snapshot_compatibility_preserved.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_F01_conversation_turn_claims_survive_handler_execution",
+      "artifact_ref": "per_case/clean/v141_F01_conversation_turn_claims_survive_handler_execution.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_F02_visible_response_block_ids_match_handler_output",
+      "artifact_ref": "per_case/clean/v141_F02_visible_response_block_ids_match_handler_output.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_F03_action_result_claims_trace_to_handler_result",
+      "artifact_ref": "per_case/clean/v141_F03_action_result_claims_trace_to_handler_result.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_F04_error_claims_are_safe_and_trace_backed",
+      "artifact_ref": "per_case/clean/v141_F04_error_claims_are_safe_and_trace_backed.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_F05_review_pending_handler_does_not_claim_memory_change",
+      "artifact_ref": "per_case/clean/v141_F05_review_pending_handler_does_not_claim_memory_change.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_G01_runtime_redacts_raw_human_review_evidence",
+      "artifact_ref": "per_case/clean/v141_G01_runtime_redacts_raw_human_review_evidence.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_G02_runtime_redacts_internal_paths_and_stack_traces",
+      "artifact_ref": "per_case/clean/v141_G02_runtime_redacts_internal_paths_and_stack_traces.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_G03_runtime_does_not_globalize_contextual_memory",
+      "artifact_ref": "per_case/clean/v141_G03_runtime_does_not_globalize_contextual_memory.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_G04_runtime_does_not_expose_sensitive_commerce_or_aigc_terms",
+      "artifact_ref": "per_case/clean/v141_G04_runtime_does_not_expose_sensitive_commerce_or_aigc_terms.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_H01_sample_artifact_matches_per_case",
+      "artifact_ref": "per_case/clean/v141_H01_sample_artifact_matches_per_case.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_H02_clean_report_cannot_override_raw_failure",
+      "artifact_ref": "per_case/clean/v141_H02_clean_report_cannot_override_raw_failure.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_H03_reviewer_checklist_refs_raw_handler_cases",
+      "artifact_ref": "per_case/clean/v141_H03_reviewer_checklist_refs_raw_handler_cases.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_I01_v140_replay_passes_before_v141_validation",
+      "artifact_ref": "per_case/clean/v141_I01_v140_replay_passes_before_v141_validation.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v141_I02_v141_runner_is_one_command_reproducible",
+      "artifact_ref": "per_case/clean/v141_I02_v141_runner_is_one_command_reproducible.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    }
+  ]
+}

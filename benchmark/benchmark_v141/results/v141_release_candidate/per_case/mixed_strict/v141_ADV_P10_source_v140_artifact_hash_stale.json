@@ -1,0 +1,617 @@
+{
+  "case_id": "v141_ADV_P10_source_v140_artifact_hash_stale",
+  "version": "v1.41",
+  "scenario_kind": "source_v140_artifact_hash_stale",
+  "gate_assertions": {
+    "adapter_route_registry_complete_rate": true,
+    "route_handler_invocation_valid_rate": true,
+    "handler_dispatch_trace_complete_rate": true,
+    "handler_uses_raw_source_artifacts_rate": true,
+    "handler_output_matches_v140_contract_rate": true,
+    "action_submission_handler_contract_rate": true,
+    "no_write_handler_preserves_memory_state_rate": true,
+    "idempotent_handler_replay_rate": true,
+    "expired_stale_handler_no_write_rate": true,
+    "runtime_action_result_links_response_rate": true,
+    "conversation_claims_trace_backed_after_handler_rate": true,
+    "runtime_snapshot_hash_reproducible_rate": true,
+    "runtime_source_hashes_match_raw_rate": true,
+    "golden_contract_replay_rate": true,
+    "runtime_error_safety_rate": true,
+    "runtime_redaction_policy_safe_rate": true,
+    "sample_artifacts_match_per_case_rate": true,
+    "report_consistency_with_independent_validation_rate": true,
+    "adversarial_detection_rate": true,
+    "v140_validation_replay_pass_rate": true
+  },
+  "source_v140_artifact_ref": "per_case/clean/v140_A02_get_action_surface_returns_cards_and_response_blocks.json",
+  "source_v140_artifact_hash": "a430d9a428fb5914f0f81b5374b2da606e351becc2b821a701a305e8f5f19a8d",
+  "source_v140_case_id": "v140_A02_get_action_surface_returns_cards_and_response_blocks",
+  "source_v139_artifact_ref": "per_case/clean/v139_A01_open_clarification_queue_item_creates_active_action_card.json",
+  "source_v139_artifact_hash": "9894318b460deb221bf1ccfe307a488491e0bc1aebe011ba9c17b3b9bd763cab",
+  "product_runtime_adapter": {
+    "product_runtime_adapter_id": "pra_001",
+    "version": "v1.41",
+    "contract_version": "v1.40",
+    "schema_version": "product_runtime_adapter.v1",
+    "route_registry_id": "route_registry_001",
+    "supported_routes": [
+      "GET /local/daily-outfit",
+      "GET /local/action-surface",
+      "POST /local/action-submission",
+      "GET /local/action-result"
+    ],
+    "non_goals": [
+      "no_http_server",
+      "no_frontend",
+      "no_auth",
+      "no_production_db",
+      "no_commerce",
+      "no_aigc",
+      "no_global_memory_writes"
+    ],
+    "trace_refs": [
+      "route_registry_001",
+      "v140_release_candidate_fixture_bundle"
+    ]
+  },
+  "product_route_registry": {
+    "product_route_registry_id": "route_registry_001",
+    "version": "v1.41",
+    "unsupported_route_policy": {
+      "handler_name": "handle_unsupported_route",
+      "response_type": "error",
+      "safe_error_only": true,
+      "production_write_executed": false
+    },
+    "routes": [
+      {
+        "route": "GET /local/daily-outfit",
+        "method": "GET",
+        "handler_name": "handle_get_daily_outfit",
+        "handler_version": "v1.41",
+        "source_contract": "product_api.v1",
+        "trace_refs": [
+          "route_registry_001",
+          "handle_get_daily_outfit"
+        ]
+      },
+      {
+        "route": "GET /local/action-surface",
+        "method": "GET",
+        "handler_name": "handle_get_action_surface",
+        "handler_version": "v1.41",
+        "source_contract": "product_api.v1",
+        "trace_refs": [
+          "route_registry_001",
+          "handle_get_action_surface"
+        ]
+      },
+      {
+        "route": "POST /local/action-submission",
+        "method": "POST",
+        "handler_name": "handle_post_action_submission",
+        "handler_version": "v1.41",
+        "source_contract": "product_api.v1",
+        "trace_refs": [
+          "route_registry_001",
+          "handle_post_action_submission"
+        ]
+      },
+      {
+        "route": "GET /local/action-result",
+        "method": "GET",
+        "handler_name": "handle_get_action_result",
+        "handler_version": "v1.41",
+        "source_contract": "product_api.v1",
+        "trace_refs": [
+          "route_registry_001",
+          "handle_get_action_result"
+        ]
+      }
+    ]
+  },
+  "route_handler_invocation": {
+    "route_handler_invocation_id": "rhi_v141_ADV_P10_source_v140_artifact_hash_stale",
+    "api_request_id": "api_req_v140_A02_get_action_surface_returns_cards_and_response_blocks",
+    "route": "GET /local/action-surface",
+    "method": "GET",
+    "handler_name": "handle_get_action_surface",
+    "input_envelope": {
+      "api_request_id": "api_req_v140_A02_get_action_surface_returns_cards_and_response_blocks",
+      "contract_version": "v1.40",
+      "schema_version": "product_api.v1",
+      "route": "GET /local/action-surface",
+      "method": "GET",
+      "request_context": "office_daily",
+      "query": {},
+      "body": {},
+      "idempotency_key": null,
+      "trace_refs": [
+        "rt_v139_001",
+        "gas_v139_001"
+      ]
+    },
+    "runtime_context": {
+      "fixture_user_id": "local_user_001",
+      "request_context": "office_daily",
+      "source_case_id": "v140_A02_get_action_surface_returns_cards_and_response_blocks",
+      "source_artifact_ref": "per_case/clean/v140_A02_get_action_surface_returns_cards_and_response_blocks.json"
+    },
+    "idempotency_key": null,
+    "trace_refs": [
+      "pra_001",
+      "route_registry_001",
+      "v140_A02_get_action_surface_returns_cards_and_response_blocks"
+    ]
+  },
+  "route_handler_result": {
+    "route_handler_result_id": "rhr_v141_ADV_P10_source_v140_artifact_hash_stale",
+    "route_handler_invocation_id": "rhi_v141_ADV_P10_source_v140_artifact_hash_stale",
+    "api_response_id": "api_res_v140_A02_get_action_surface_returns_cards_and_response_blocks",
+    "output_envelope": {
+      "api_response_id": "api_res_v140_A02_get_action_surface_returns_cards_and_response_blocks",
+      "api_request_id": "api_req_v140_A02_get_action_surface_returns_cards_and_response_blocks",
+      "contract_version": "v1.40",
+      "schema_version": "product_api.v1",
+      "status_code": 200,
+      "response_type": "action_surface",
+      "body": {
+        "contract_version": "v1.40",
+        "schema_version": "product_api.v1",
+        "action_surface": {
+          "action_surface_api_resource_id": "asr_v139_A01_open_clarification_queue_item_creates_active_action_card",
+          "source_governance_action_surface_id": "gas_v139_001",
+          "cards": [
+            {
+              "card_id": "uac_v139_001",
+              "governance_queue_item_id": "gqi_v139_001",
+              "card_type": "clarification",
+              "display_state": "active",
+              "title": "Clarify this preference",
+              "body": "Which outfit context should this apply to?",
+              "allowed_actions": [
+                "this_time_only",
+                "do_not_change_memory",
+                "remember_for_context"
+              ],
+              "disabled_reason": null,
+              "trace_refs": [
+                "rt_v139_001",
+                "gqi_v139_001",
+                "cr_v139_001"
+              ]
+            }
+          ],
+          "response_blocks": [
+            {
+              "response_block_id": "urb_v139_001",
+              "block_type": "clarification_prompt",
+              "text": "Please clarify how to use this preference for this outfit.",
+              "claim_refs": [
+                "claim_v139_001"
+              ],
+              "trace_refs": [
+                "rt_v139_001",
+                "gqi_v139_001",
+                "gqi_v139_001"
+              ]
+            }
+          ],
+          "trace_refs": [
+            "gas_v139_001",
+            "v139_A01_open_clarification_queue_item_creates_active_action_card",
+            "rt_v139_001"
+          ]
+        },
+        "response_blocks": [
+          {
+            "response_block_id": "urb_v139_001",
+            "block_type": "clarification_prompt",
+            "text": "Please clarify how to use this preference for this outfit.",
+            "claim_refs": [
+              "claim_v139_001"
+            ],
+            "trace_refs": [
+              "rt_v139_001",
+              "gqi_v139_001",
+              "gqi_v139_001"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "trace_refs": [
+        "api_req_v140_A02_get_action_surface_returns_cards_and_response_blocks",
+        "rt_v139_001",
+        "gas_v139_001"
+      ]
+    },
+    "response_type": "action_surface",
+    "status_code": 200,
+    "production_write_executed": false,
+    "trace_refs": [
+      "rhi_v141_ADV_P10_source_v140_artifact_hash_stale",
+      "rhet_v141_ADV_P10_source_v140_artifact_hash_stale",
+      "v140_A02_get_action_surface_returns_cards_and_response_blocks"
+    ]
+  },
+  "runtime_handler_execution_trace": {
+    "runtime_handler_execution_trace_id": "rhet_v141_ADV_P10_source_v140_artifact_hash_stale",
+    "route_handler_invocation_id": "rhi_v141_ADV_P10_source_v140_artifact_hash_stale",
+    "route_handler_result_id": "rhr_v141_ADV_P10_source_v140_artifact_hash_stale",
+    "handler_name": "handle_get_action_surface",
+    "dispatch_steps": [
+      {
+        "step_id": "dispatch_001",
+        "operation": "resolve_route",
+        "input_ref": "api_req_v140_A02_get_action_surface_returns_cards_and_response_blocks",
+        "output_ref": "handle_get_action_surface"
+      },
+      {
+        "step_id": "dispatch_002",
+        "operation": "invoke_handler",
+        "input_ref": "rhi_v141_ADV_P10_source_v140_artifact_hash_stale",
+        "output_ref": "rhr_v141_ADV_P10_source_v140_artifact_hash_stale"
+      },
+      {
+        "step_id": "dispatch_003",
+        "operation": "produce_response",
+        "input_ref": "v140_A02_get_action_surface_returns_cards_and_response_blocks",
+        "output_ref": "api_res_v140_A02_get_action_surface_returns_cards_and_response_blocks"
+      }
+    ],
+    "source_resolution_refs": [
+      "rsrp_v141_ADV_P10_source_v140_artifact_hash_stale",
+      "per_case/clean/v140_A02_get_action_surface_returns_cards_and_response_blocks.json"
+    ],
+    "contract_projection_refs": [
+      "api_req_v140_A02_get_action_surface_returns_cards_and_response_blocks",
+      "api_res_v140_A02_get_action_surface_returns_cards_and_response_blocks",
+      "cs_v140_A02_get_action_surface_returns_cards_and_response_blocks"
+    ],
+    "safety_filter_refs": [
+      "handler_error_safety_proof",
+      "runtime_redaction_policy"
+    ],
+    "claim_trace_refs": [
+      "api_claim_urb_v139_001"
+    ],
+    "trace_refs": [
+      "rhi_v141_ADV_P10_source_v140_artifact_hash_stale",
+      "rhr_v141_ADV_P10_source_v140_artifact_hash_stale",
+      "v140_A02_get_action_surface_returns_cards_and_response_blocks"
+    ]
+  },
+  "runtime_source_resolution_proof": {
+    "runtime_source_resolution_proof_id": "rsrp_v141_ADV_P10_source_v140_artifact_hash_stale",
+    "route_handler_invocation_id": "rhi_v141_ADV_P10_source_v140_artifact_hash_stale",
+    "source_v140_artifact_ref": "per_case/clean/v140_A02_get_action_surface_returns_cards_and_response_blocks.json",
+    "source_v140_artifact_hash": "sha256-stale",
+    "source_v139_artifact_ref": "per_case/clean/v139_A01_open_clarification_queue_item_creates_active_action_card.json",
+    "source_v139_artifact_hash": "9894318b460deb221bf1ccfe307a488491e0bc1aebe011ba9c17b3b9bd763cab",
+    "allowed_source_types": [
+      "per_case_clean_artifact",
+      "sample_artifact_full_copy"
+    ],
+    "forbidden_source_types_observed": [],
+    "trace_refs": [
+      "rhi_v141_ADV_P10_source_v140_artifact_hash_stale",
+      "v140_A02_get_action_surface_returns_cards_and_response_blocks",
+      "benchmark/benchmark_v140/results/v140_release_candidate/per_case/clean/v140_A02_get_action_surface_returns_cards_and_response_blocks.json"
+    ]
+  },
+  "runtime_adapter_snapshot": {
+    "runtime_adapter_snapshot_id": "ras_v141_ADV_P10_source_v140_artifact_hash_stale",
+    "route_handler_invocation_id": "rhi_v141_ADV_P10_source_v140_artifact_hash_stale",
+    "route_handler_result_id": "rhr_v141_ADV_P10_source_v140_artifact_hash_stale",
+    "canonical_input_hash": "b76e8714f3f9b3e3f36df2cfc442997c102e2614c3a168f75c629f397f3fb699",
+    "canonical_output_hash": "d2abf8dd6a94d36bc4346945ea000f1d639201f39a0d20aa212024c113267916",
+    "canonical_handler_trace_hash": "7a25eec67e28310dc4be2bd17a778ee26826ead67828c17f2582933b007d9cc3",
+    "source_artifact_hashes": {
+      "per_case/clean/v140_A02_get_action_surface_returns_cards_and_response_blocks.json": "sha256-stale",
+      "per_case/clean/v139_A01_open_clarification_queue_item_creates_active_action_card.json": "9894318b460deb221bf1ccfe307a488491e0bc1aebe011ba9c17b3b9bd763cab"
+    },
+    "golden_contract_key": "GET /local/action-surface:v140_A02_get_action_surface_returns_cards_and_response_blocks",
+    "trace_refs": [
+      "rhi_v141_ADV_P10_source_v140_artifact_hash_stale",
+      "rhr_v141_ADV_P10_source_v140_artifact_hash_stale",
+      "rhet_v141_ADV_P10_source_v140_artifact_hash_stale",
+      "rsrp_v141_ADV_P10_source_v140_artifact_hash_stale"
+    ]
+  },
+  "golden_contract_replay": {
+    "golden_contract_replay_id": "gcr_v141_ADV_P10_source_v140_artifact_hash_stale",
+    "source_v140_case_id": "v140_A02_get_action_surface_returns_cards_and_response_blocks",
+    "runtime_case_id": "v141_ADV_P10_source_v140_artifact_hash_stale",
+    "request_match": true,
+    "response_match": true,
+    "trace_semantics_match": true,
+    "snapshot_hash_match": true,
+    "replay_status": "pass",
+    "diff": [],
+    "allowed_runtime_only_fields": [],
+    "trace_refs": [
+      "rhi_v141_ADV_P10_source_v140_artifact_hash_stale",
+      "rhr_v141_ADV_P10_source_v140_artifact_hash_stale",
+      "ras_v141_ADV_P10_source_v140_artifact_hash_stale"
+    ]
+  },
+  "local_api_request_envelope": {
+    "api_request_id": "api_req_v140_A02_get_action_surface_returns_cards_and_response_blocks",
+    "contract_version": "v1.40",
+    "schema_version": "product_api.v1",
+    "route": "GET /local/action-surface",
+    "method": "GET",
+    "request_context": "office_daily",
+    "query": {},
+    "body": {},
+    "idempotency_key": null,
+    "trace_refs": [
+      "rt_v139_001",
+      "gas_v139_001"
+    ]
+  },
+  "local_api_response_envelope": {
+    "api_response_id": "api_res_v140_A02_get_action_surface_returns_cards_and_response_blocks",
+    "api_request_id": "api_req_v140_A02_get_action_surface_returns_cards_and_response_blocks",
+    "contract_version": "v1.40",
+    "schema_version": "product_api.v1",
+    "status_code": 200,
+    "response_type": "action_surface",
+    "body": {
+      "contract_version": "v1.40",
+      "schema_version": "product_api.v1",
+      "action_surface": {
+        "action_surface_api_resource_id": "asr_v139_A01_open_clarification_queue_item_creates_active_action_card",
+        "source_governance_action_surface_id": "gas_v139_001",
+        "cards": [
+          {
+            "card_id": "uac_v139_001",
+            "governance_queue_item_id": "gqi_v139_001",
+            "card_type": "clarification",
+            "display_state": "active",
+            "title": "Clarify this preference",
+            "body": "Which outfit context should this apply to?",
+            "allowed_actions": [
+              "this_time_only",
+              "do_not_change_memory",
+              "remember_for_context"
+            ],
+            "disabled_reason": null,
+            "trace_refs": [
+              "rt_v139_001",
+              "gqi_v139_001",
+              "cr_v139_001"
+            ]
+          }
+        ],
+        "response_blocks": [
+          {
+            "response_block_id": "urb_v139_001",
+            "block_type": "clarification_prompt",
+            "text": "Please clarify how to use this preference for this outfit.",
+            "claim_refs": [
+              "claim_v139_001"
+            ],
+            "trace_refs": [
+              "rt_v139_001",
+              "gqi_v139_001",
+              "gqi_v139_001"
+            ]
+          }
+        ],
+        "trace_refs": [
+          "gas_v139_001",
+          "v139_A01_open_clarification_queue_item_creates_active_action_card",
+          "rt_v139_001"
+        ]
+      },
+      "response_blocks": [
+        {
+          "response_block_id": "urb_v139_001",
+          "block_type": "clarification_prompt",
+          "text": "Please clarify how to use this preference for this outfit.",
+          "claim_refs": [
+            "claim_v139_001"
+          ],
+          "trace_refs": [
+            "rt_v139_001",
+            "gqi_v139_001",
+            "gqi_v139_001"
+          ]
+        }
+      ]
+    },
+    "error": null,
+    "trace_refs": [
+      "api_req_v140_A02_get_action_surface_returns_cards_and_response_blocks",
+      "rt_v139_001",
+      "gas_v139_001"
+    ]
+  },
+  "action_surface_api_resource": {
+    "action_surface_api_resource_id": "asr_v139_A01_open_clarification_queue_item_creates_active_action_card",
+    "source_governance_action_surface_id": "gas_v139_001",
+    "cards": [
+      {
+        "card_id": "uac_v139_001",
+        "governance_queue_item_id": "gqi_v139_001",
+        "card_type": "clarification",
+        "display_state": "active",
+        "title": "Clarify this preference",
+        "body": "Which outfit context should this apply to?",
+        "allowed_actions": [
+          "this_time_only",
+          "do_not_change_memory",
+          "remember_for_context"
+        ],
+        "disabled_reason": null,
+        "trace_refs": [
+          "rt_v139_001",
+          "gqi_v139_001",
+          "cr_v139_001"
+        ]
+      }
+    ],
+    "response_blocks": [
+      {
+        "response_block_id": "urb_v139_001",
+        "block_type": "clarification_prompt",
+        "text": "Please clarify how to use this preference for this outfit.",
+        "claim_refs": [
+          "claim_v139_001"
+        ],
+        "trace_refs": [
+          "rt_v139_001",
+          "gqi_v139_001",
+          "gqi_v139_001"
+        ]
+      }
+    ],
+    "trace_refs": [
+      "gas_v139_001",
+      "v139_A01_open_clarification_queue_item_creates_active_action_card",
+      "rt_v139_001"
+    ]
+  },
+  "action_submission_api_resource": null,
+  "action_result_api_resource": null,
+  "conversation_turn_state": {
+    "conversation_turn_state_id": "cts_v140_A02_get_action_surface_returns_cards_and_response_blocks",
+    "api_request_id": "api_req_v140_A02_get_action_surface_returns_cards_and_response_blocks",
+    "api_response_id": "api_res_v140_A02_get_action_surface_returns_cards_and_response_blocks",
+    "visible_response_block_ids": [
+      "urb_v139_001"
+    ],
+    "user_visible_claims": [
+      {
+        "claim_id": "api_claim_urb_v139_001",
+        "text": "Please clarify how to use this preference for this outfit.",
+        "trace_refs": [
+          "api_res_v140_A02_get_action_surface_returns_cards_and_response_blocks",
+          "urb_v139_001"
+        ]
+      }
+    ],
+    "memory_change_claimed": false,
+    "production_write_executed": false,
+    "trace_refs": [
+      "api_res_v140_A02_get_action_surface_returns_cards_and_response_blocks",
+      "rt_v139_001"
+    ]
+  },
+  "handler_idempotency_proof": {
+    "idempotency_key": null,
+    "duplicate_created_result": null,
+    "canonical_action_result_packet_id": null,
+    "repeated_invocation_output_hash": "d2abf8dd6a94d36bc4346945ea000f1d639201f39a0d20aa212024c113267916",
+    "trace_refs": [
+      "rhi_v141_ADV_P10_source_v140_artifact_hash_stale",
+      "rhr_v141_ADV_P10_source_v140_artifact_hash_stale"
+    ]
+  },
+  "handler_no_write_proof": {
+    "before_memory_lifecycle_state": {
+      "memory_id": "mem_v139_001",
+      "state_snapshot_id": "state_active_v139_001",
+      "current_status": "active",
+      "contexts": [
+        "office_daily"
+      ],
+      "confirmed_aspects": [
+        "soft tailoring",
+        "muted contrast"
+      ],
+      "context_exclusions": [],
+      "global_memory_write": false
+    },
+    "after_memory_lifecycle_state": {
+      "memory_id": "mem_v139_001",
+      "state_snapshot_id": "state_active_v139_001",
+      "current_status": "active",
+      "contexts": [
+        "office_daily"
+      ],
+      "confirmed_aspects": [
+        "soft tailoring",
+        "muted contrast"
+      ],
+      "context_exclusions": [],
+      "global_memory_write": false
+    },
+    "production_write_executed": false,
+    "trace_refs": [
+      "rhr_v141_ADV_P10_source_v140_artifact_hash_stale"
+    ]
+  },
+  "handler_error_safety_proof": {
+    "response_type": "action_surface",
+    "safe_error_only": true,
+    "production_write_executed": false,
+    "trace_refs": [
+      "rhr_v141_ADV_P10_source_v140_artifact_hash_stale"
+    ]
+  },
+  "handler_claim_trace_proof": {
+    "visible_response_block_ids": [
+      "urb_v139_001"
+    ],
+    "user_visible_claim_ids": [
+      "api_claim_urb_v139_001"
+    ],
+    "trace_refs": [
+      "api_res_v140_A02_get_action_surface_returns_cards_and_response_blocks"
+    ]
+  },
+  "production_memory_write_gate": {
+    "gate_id": "pmwg_v139_001",
+    "decision": "block",
+    "production_write_executed": false,
+    "environment": "deterministic_local_fixture"
+  },
+  "before_memory_lifecycle_state": {
+    "memory_id": "mem_v139_001",
+    "state_snapshot_id": "state_active_v139_001",
+    "current_status": "active",
+    "contexts": [
+      "office_daily"
+    ],
+    "confirmed_aspects": [
+      "soft tailoring",
+      "muted contrast"
+    ],
+    "context_exclusions": [],
+    "global_memory_write": false
+  },
+  "after_memory_lifecycle_state": {
+    "memory_id": "mem_v139_001",
+    "state_snapshot_id": "state_active_v139_001",
+    "current_status": "active",
+    "contexts": [
+      "office_daily"
+    ],
+    "confirmed_aspects": [
+      "soft tailoring",
+      "muted contrast"
+    ],
+    "context_exclusions": [],
+    "global_memory_write": false
+  },
+  "policy_surface_audit": {
+    "no_raw_review_evidence_exposed": true,
+    "no_internal_debug_exposed": true,
+    "no_global_memory_claim": true,
+    "no_sensitive_or_commerce_or_aigc": true
+  },
+  "reviewer_checklist_refs": [],
+  "runner_reproducibility_proof": {},
+  "v140_replay_proof": {
+    "run_v140_validation_suite": "PASS"
+  },
+  "defect_type": "source_v140_artifact_hash_stale",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "runtime_source_hashes_match_raw_rate"
+  ]
+}
