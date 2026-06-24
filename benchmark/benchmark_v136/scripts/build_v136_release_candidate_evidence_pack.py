@@ -37,6 +37,7 @@ GATES = [
     "rollback_removes_future_packet_consumption_rate",
     "rollback_read_after_absence_proof_rate",
     "high_risk_feedback_requires_review_rate",
+    "review_pending_does_not_claim_applied_lifecycle_effect_rate",
     "ambiguous_feedback_requires_clarification_rate",
     "multi_day_lifecycle_stability_rate",
     "sample_artifacts_match_per_case_rate",
@@ -111,6 +112,7 @@ DEFECTS = [
     ("J10", "high_risk_feedback_allowed_without_review", ["high_risk_feedback_requires_review_rate"]),
     ("J11", "sample_artifact_stale_relative_to_per_case", ["sample_artifacts_match_per_case_rate"]),
     ("J12", "clean_report_pass_but_independent_validator_fail", ["report_consistency_with_independent_validation_rate"]),
+    ("J13", "review_pending_applied_effect_claim", ["review_pending_does_not_claim_applied_lifecycle_effect_rate"]),
 ]
 
 SAMPLE_CASES = {
@@ -157,7 +159,7 @@ def _behavior(kind: str) -> dict[str, Any]:
     elif kind == "too_strong":
         base.update(action="use_was_too_strong", intent="reduce_strength", proposal="reduce_confidence", expected="consume_less_strongly", confidence_delta=-0.08, weight_delta=-0.20, confidence=0.70, weight=0.42, claims_after=True)
     elif kind == "repeated_too_strong":
-        base.update(action="use_was_too_strong", intent="review_required", proposal="review_required", decision="human_review_required", status="review_pending", expected="consume_less_strongly", confidence_delta=-0.05, weight_delta=-0.12, confidence=0.68, weight=0.36, requires_review=True, risk="medium")
+        base.update(action="use_was_too_strong", intent="review_required", proposal="review_required", decision="human_review_required", status="review_pending", expected="unchanged_reinforced", consumed_after=False, claims_after=False, confidence_delta=0.0, weight_delta=0.0, confidence=0.76, weight=0.60, requires_review=True, risk="medium")
     elif kind == "wrong_aspect":
         base.update(action="wrong_aspect", intent="aspect_correction", proposal="correct_aspect", expected="consume_less_strongly", confidence_delta=-0.03, weight_delta=-0.10, confidence=0.75, weight=0.50)
     elif kind == "wrong_context":
@@ -171,9 +173,9 @@ def _behavior(kind: str) -> dict[str, Any]:
     elif kind == "undo":
         base.update(action="undo_last_memory_effect", intent="rollback_request", proposal="rollback_memory", status="active", expected="unchanged_reinforced", confidence_delta=0.0, weight_delta=0.0, confidence=0.76, weight=0.60)
     elif kind == "high_risk":
-        base.update(action="wrong_context", intent="review_required", proposal="review_required", decision="human_review_required", status="review_pending", expected="unchanged_reinforced", requires_review=True, risk="high", confidence_delta=0.0, weight_delta=0.0)
+        base.update(action="wrong_context", intent="review_required", proposal="review_required", decision="human_review_required", status="review_pending", expected="unchanged_reinforced", consumed_after=False, claims_after=False, requires_review=True, risk="high", confidence_delta=0.0, weight_delta=0.0)
     elif kind == "conflict":
-        base.update(action="wrong_aspect", intent="review_required", proposal="review_required", decision="human_review_required", status="review_pending", expected="unchanged_reinforced", requires_review=True, risk="medium")
+        base.update(action="wrong_aspect", intent="review_required", proposal="review_required", decision="human_review_required", status="review_pending", expected="unchanged_reinforced", consumed_after=False, claims_after=False, requires_review=True, risk="medium")
     elif kind == "ambiguous":
         base.update(action="wrong_aspect", intent="clarification_required", proposal="no_op", decision="clarification_required", expected="clarification_required", consumed_after=False, claims_after=False, requires_confirmation=True, risk="medium", confidence_delta=0.0, weight_delta=0.0)
     return base
@@ -194,6 +196,9 @@ def _case(case_id: str, scenario: str, kind: str, index: int) -> dict[str, Any]:
     consumed_before = kind != "missing_trace"
     consumed_after = behavior["consumed_after"]
     claims_after = behavior["claims_after"] and consumed_after
+    request_context_after = behavior["contexts"][0] if behavior["contexts"] else "office_daily"
+    if behavior["expected"] == "exclude_in_context" and behavior["context_exclusions"]:
+        request_context_after = behavior["context_exclusions"][0]
     return {
         "case_id": f"v136_{case_id}_{scenario}",
         "version": VERSION,
@@ -312,7 +317,7 @@ def _case(case_id: str, scenario: str, kind: str, index: int) -> dict[str, Any]:
                 "consumed_promoted_memory_ids": [memory_id] if consumed_after else [],
                 "excluded_memory_ids": [] if consumed_after else [memory_id],
                 "exclusion_reasons": {} if consumed_after else {memory_id: behavior["expected"]},
-                "request_context": behavior["contexts"][0] if behavior["contexts"] else "office_daily",
+                "request_context": request_context_after,
             },
             "response_claims_after_feedback": [{"claim_id": f"claim_after_{suffix}", "trace_refs": [memory_id], "text": "I used the softened color cue."}] if claims_after else [],
             "proof_result": "pass",
@@ -367,6 +372,17 @@ def _defect(defect_id: str, defect_type: str, failed_gates: list[str]) -> dict[s
     elif defect_type == "high_risk_feedback_allowed_without_review":
         artifact["feedback_interpretation"]["risk_level"] = "high"
         artifact["feedback_write_decision"]["gate_decision"] = "allow"
+    elif defect_type == "review_pending_applied_effect_claim":
+        artifact["feedback_write_decision"]["gate_decision"] = "human_review_required"
+        artifact["feedback_write_decision"]["production_write_executed"] = False
+        artifact["updated_memory_lifecycle_state"]["current_status"] = "review_pending"
+        artifact["post_feedback_consumption_proof"]["response_claims_after_feedback"] = [
+            {
+                "claim_id": "bad_review_pending_claim",
+                "trace_refs": [artifact["promoted_memory_atom"]["memory_id"]],
+                "text": "I softened this memory for future outfits.",
+            }
+        ]
     return artifact
 
 

@@ -1,8 +1,8 @@
 # v1.36 Clean Acceptance Report
 
-- generated_at: 2026-06-24T03:34:24Z
+- generated_at: 2026-06-24T04:00:39Z
 - total_cases: 50
-- total_checks: 24
+- total_checks: 25
 
 ## Checks
 
@@ -24,6 +24,7 @@
 - PASS `rollback_removes_future_packet_consumption_rate`
 - PASS `rollback_read_after_absence_proof_rate`
 - PASS `high_risk_feedback_requires_review_rate`
+- PASS `review_pending_does_not_claim_applied_lifecycle_effect_rate`
 - PASS `ambiguous_feedback_requires_clarification_rate`
 - PASS `multi_day_lifecycle_stability_rate`
 - PASS `sample_artifacts_match_per_case_rate`

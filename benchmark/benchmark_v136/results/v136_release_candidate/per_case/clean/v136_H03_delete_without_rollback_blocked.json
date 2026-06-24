@@ -41,6 +41,7 @@
     "rollback_removes_future_packet_consumption_rate": true,
     "rollback_read_after_absence_proof_rate": true,
     "high_risk_feedback_requires_review_rate": true,
+    "review_pending_does_not_claim_applied_lifecycle_effect_rate": true,
     "ambiguous_feedback_requires_clarification_rate": true,
     "multi_day_lifecycle_stability_rate": true,
     "sample_artifacts_match_per_case_rate": true,
@@ -213,22 +214,16 @@
     "task_after_feedback_id": "task_after_v136_038",
     "expected_behavior": "unchanged_reinforced",
     "task_memory_packet_after_feedback": {
-      "consumed_promoted_memory_ids": [
+      "consumed_promoted_memory_ids": [],
+      "excluded_memory_ids": [
         "mem_insp_low_sat_office_001"
       ],
-      "excluded_memory_ids": [],
-      "exclusion_reasons": {},
+      "exclusion_reasons": {
+        "mem_insp_low_sat_office_001": "unchanged_reinforced"
+      },
       "request_context": "office_daily"
     },
-    "response_claims_after_feedback": [
-      {
-        "claim_id": "claim_after_v136_038",
-        "trace_refs": [
-          "mem_insp_low_sat_office_001"
-        ],
-        "text": "I used the softened color cue."
-      }
-    ],
+    "response_claims_after_feedback": [],
     "proof_result": "pass",
     "proof_refs": [
       "updated_memory_lifecycle_state",

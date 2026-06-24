@@ -47,9 +47,9 @@ class V136FeedbackLifecycleValidatorTests(unittest.TestCase):
             sample, consistency = validator.write_consistency_reports(result_dir)
 
             self.assertEqual(clean["suite_summary"]["passed_cases"], 50)
-            self.assertEqual(clean["suite_summary"]["passed_checks"], 24)
+            self.assertEqual(clean["suite_summary"]["passed_checks"], 25)
             self.assertEqual(adversarial["suite_summary"]["passed_cases"], 0)
-            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 12)
+            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 13)
             self.assertTrue(sample["passed"], sample["failures"])
             self.assertTrue(consistency["passed"], consistency["failures"])
 
@@ -80,6 +80,41 @@ class V136FeedbackLifecycleValidatorTests(unittest.TestCase):
             failed = {case["case_id"]: case["failed_check_ids"] for case in report["case_results"] if not case["passed"]}
             self.assertIn("single_feedback_does_not_globalize_rate", failed["v136_E01_wrong_context_adds_context_exclusion"])
 
+    def test_wrong_context_exclusion_must_test_excluded_context(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dir = Path(tmp) / "v136_release_candidate"
+            builder.build(result_dir)
+            path = next((result_dir / "per_case" / "clean").glob("*E04_future_mismatching_context_excludes_memory.json"))
+            case = json.loads(path.read_text(encoding="utf-8"))
+            case["post_feedback_consumption_proof"]["task_memory_packet_after_feedback"]["request_context"] = "office_daily"
+            _write_json(path, case)
+
+            report = validator.validate_directory(result_dir, "clean")
+            failed = {case["case_id"]: case["failed_check_ids"] for case in report["case_results"] if not case["passed"]}
+            self.assertIn("wrong_context_future_exclusion_rate", failed["v136_E04_future_mismatching_context_excludes_memory"])
+
+    def test_review_pending_applied_effect_claim_is_detected(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dir = Path(tmp) / "v136_release_candidate"
+            builder.build(result_dir)
+            path = next((result_dir / "per_case" / "clean").glob("*H01_globalize_request_from_feedback_requires_review.json"))
+            case = json.loads(path.read_text(encoding="utf-8"))
+            case["post_feedback_consumption_proof"]["response_claims_after_feedback"] = [
+                {
+                    "claim_id": "bad_review_pending_claim",
+                    "trace_refs": [case["promoted_memory_atom"]["memory_id"]],
+                    "text": "I softened this memory for future outfits.",
+                }
+            ]
+            _write_json(path, case)
+
+            report = validator.validate_directory(result_dir, "clean")
+            failed = {case["case_id"]: case["failed_check_ids"] for case in report["case_results"] if not case["passed"]}
+            self.assertIn(
+                "review_pending_does_not_claim_applied_lifecycle_effect_rate",
+                failed["v136_H01_globalize_request_from_feedback_requires_review"],
+            )
+
     def test_stale_sample_artifact_is_detected(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             result_dir = Path(tmp) / "v136_release_candidate"
@@ -100,4 +135,3 @@ class V136FeedbackLifecycleValidatorTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

@@ -1,6 +1,6 @@
 {
   "version": "v1.36",
-  "generated_at": "2026-06-24T03:34:24Z",
+  "generated_at": "2026-06-24T04:00:39Z",
   "source_result_dir": "benchmark/benchmark_v136/results/v136_release_candidate",
   "cases": [
     {
@@ -98,6 +98,14 @@
       "defect_type": "clean_report_pass_but_independent_validator_fail",
       "expected_failed_check_ids": [
         "report_consistency_with_independent_validation_rate"
+      ]
+    },
+    {
+      "case_id": "v136_ADV_J13_review_pending_applied_effect_claim",
+      "artifact_ref": "per_case/adversarial/v136_ADV_J13_review_pending_applied_effect_claim.json",
+      "defect_type": "review_pending_applied_effect_claim",
+      "expected_failed_check_ids": [
+        "review_pending_does_not_claim_applied_lifecycle_effect_rate"
       ]
     }
   ]

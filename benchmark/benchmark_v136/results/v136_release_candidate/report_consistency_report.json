@@ -1,6 +1,6 @@
 {
   "validator": "benchmark.common.report_consistency",
-  "manifest_hash": "1aa0bab9143cf4684717bacb46dd7d1ec7633d2e410ceaa1d08c01398d130e2d",
+  "manifest_hash": "c14ddfee670f3affed6ef0d8215d3d0c413e3f3ccd51ed9ae57847508a34461d",
   "required_reports": [
     "clean_report.json",
     "mixed_strict_report.json",
@@ -32,6 +32,7 @@
     "rollback_removes_future_packet_consumption_rate",
     "rollback_read_after_absence_proof_rate",
     "high_risk_feedback_requires_review_rate",
+    "review_pending_does_not_claim_applied_lifecycle_effect_rate",
     "ambiguous_feedback_requires_clarification_rate",
     "multi_day_lifecycle_stability_rate",
     "sample_artifacts_match_per_case_rate",
@@ -41,5 +42,5 @@
   ],
   "passed": true,
   "failures": [],
-  "generated_at": "2026-06-24T03:34:24Z"
+  "generated_at": "2026-06-24T04:00:39Z"
 }

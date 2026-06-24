@@ -35,6 +35,7 @@ GATES = [
     "rollback_removes_future_packet_consumption_rate",
     "rollback_read_after_absence_proof_rate",
     "high_risk_feedback_requires_review_rate",
+    "review_pending_does_not_claim_applied_lifecycle_effect_rate",
     "ambiguous_feedback_requires_clarification_rate",
     "multi_day_lifecycle_stability_rate",
     "sample_artifacts_match_per_case_rate",
@@ -87,10 +88,11 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
             failures.append("reinforcement_confidence_cap_respected_rate")
     if action == "use_was_too_strong":
         patch = proposal.get("proposed_patch") or {}
-        if status == "rolled_back" or patch.get("weight_delta", 0) >= 0:
-            failures.append("too_strong_feedback_reduces_weight_not_deletes_rate")
-        if proof.get("expected_behavior") != "consume_less_strongly":
-            failures.append("too_strong_future_consumption_softened_rate")
+        if decision.get("gate_decision") != "human_review_required":
+            if status == "rolled_back" or patch.get("weight_delta", 0) >= 0:
+                failures.append("too_strong_feedback_reduces_weight_not_deletes_rate")
+            if proof.get("expected_behavior") != "consume_less_strongly":
+                failures.append("too_strong_future_consumption_softened_rate")
     if action == "wrong_aspect" and intent == "aspect_correction":
         if proposal_type != "correct_aspect":
             failures.append("wrong_aspect_creates_aspect_correction_rate")
@@ -102,8 +104,11 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
         if not state.get("context_exclusions") and proposal_type != "narrow_scope":
             failures.append("wrong_context_narrows_scope_rate")
         packet = proof.get("task_memory_packet_after_feedback") or {}
-        if proof.get("expected_behavior") == "exclude_in_context" and memory_id in (packet.get("consumed_promoted_memory_ids") or []):
-            failures.append("wrong_context_future_exclusion_rate")
+        if proof.get("expected_behavior") == "exclude_in_context":
+            if memory_id in (packet.get("consumed_promoted_memory_ids") or []):
+                failures.append("wrong_context_future_exclusion_rate")
+            if packet.get("request_context") not in (state.get("context_exclusions") or []):
+                failures.append("wrong_context_future_exclusion_rate")
     if action == "do_not_use_this_inspiration":
         packet = proof.get("task_memory_packet_after_feedback") or {}
         if status != "blocked" or memory_id in (packet.get("consumed_promoted_memory_ids") or []):
@@ -121,6 +126,15 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
             failures.append("rollback_read_after_absence_proof_rate")
     if interp.get("risk_level") in {"high", "critical"} and decision.get("gate_decision") not in {"human_review_required", "block"}:
         failures.append("high_risk_feedback_requires_review_rate")
+    if decision.get("gate_decision") == "human_review_required":
+        claims_text = " ".join(
+            str(claim.get("text", ""))
+            for claim in (proof.get("response_claims_after_feedback") or [])
+            if isinstance(claim, dict)
+        ).lower()
+        applied_effect_terms = ["softened", "narrowed", "blocked", "rolled back", "reinforced", "reduced", "changed"]
+        if any(term in claims_text for term in applied_effect_terms):
+            failures.append("review_pending_does_not_claim_applied_lifecycle_effect_rate")
     if intent == "clarification_required" and decision.get("gate_decision") != "clarification_required":
         failures.append("ambiguous_feedback_requires_clarification_rate")
     if (artifact.get("multi_day_lifecycle_proof") or {}).get("stable") is not True:
@@ -204,4 +218,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

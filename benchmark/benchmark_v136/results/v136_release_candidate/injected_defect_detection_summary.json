@@ -1,9 +1,9 @@
 {
   "version": "v1.36",
-  "generated_at": "2026-06-24T03:34:24Z",
+  "generated_at": "2026-06-24T04:00:39Z",
   "verdict": "pass",
-  "seeded_defects": 12,
-  "detected_defects": 12,
+  "seeded_defects": 13,
+  "detected_defects": 13,
   "unexpected_clean_case_failures": [],
   "unexpected_injected_passes": [],
   "detected": [
@@ -102,6 +102,14 @@
       "detected": true,
       "failed_check_ids": [
         "report_consistency_with_independent_validation_rate"
+      ]
+    },
+    {
+      "case_id": "v136_ADV_J13_review_pending_applied_effect_claim",
+      "defect_type": "review_pending_applied_effect_claim",
+      "detected": true,
+      "failed_check_ids": [
+        "review_pending_does_not_claim_applied_lifecycle_effect_rate"
       ]
     }
   ]

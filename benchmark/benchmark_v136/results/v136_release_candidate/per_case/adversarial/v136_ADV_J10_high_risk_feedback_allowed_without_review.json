@@ -41,6 +41,7 @@
     "rollback_removes_future_packet_consumption_rate": true,
     "rollback_read_after_absence_proof_rate": true,
     "high_risk_feedback_requires_review_rate": false,
+    "review_pending_does_not_claim_applied_lifecycle_effect_rate": true,
     "ambiguous_feedback_requires_clarification_rate": true,
     "multi_day_lifecycle_stability_rate": true,
     "sample_artifacts_match_per_case_rate": true,

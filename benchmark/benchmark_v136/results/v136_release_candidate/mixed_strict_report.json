@@ -1,17 +1,17 @@
 {
   "benchmark_id": "v1.36.promoted_inspiration_memory_feedback_lifecycle.mixed_strict",
   "schema_version": "v1.36",
-  "generated_at": "2026-06-24T03:34:24Z",
+  "generated_at": "2026-06-24T04:00:39Z",
   "verdicts": {
     "mixed_strict_verdict": "fail",
     "injected_defect_detection_verdict": "pass"
   },
   "suite_summary": {
-    "total_cases": 62,
+    "total_cases": 63,
     "passed_cases": 50,
-    "failed_cases": 12,
-    "total_checks": 24,
-    "passed_checks": 24,
+    "failed_cases": 13,
+    "total_checks": 25,
+    "passed_checks": 25,
     "failed_checks": 0
   },
   "checks": [
@@ -136,6 +136,13 @@
     },
     {
       "check_id": "high_risk_feedback_requires_review_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "review_pending_does_not_claim_applied_lifecycle_effect_rate",
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
@@ -281,6 +288,14 @@
         "report_consistency_with_independent_validation_rate"
       ],
       "artifact_ref": "per_case/mixed_strict/v136_ADV_J12_clean_report_pass_but_independent_validator_fail.json"
+    },
+    {
+      "case_id": "v136_ADV_J13_review_pending_applied_effect_claim",
+      "passed": false,
+      "failed_check_ids": [
+        "review_pending_does_not_claim_applied_lifecycle_effect_rate"
+      ],
+      "artifact_ref": "per_case/mixed_strict/v136_ADV_J13_review_pending_applied_effect_claim.json"
     }
   ]
 }

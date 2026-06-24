@@ -1,22 +1,22 @@
 {
   "validator": "v1.36.independent.feedback_lifecycle_validator",
-  "generated_at": "2026-06-24T03:34:24Z",
+  "generated_at": "2026-06-24T04:00:39Z",
   "result_dir": "benchmark/benchmark_v136/results/v136_release_candidate",
   "subset": "adversarial",
   "suite_summary": {
-    "total_cases": 12,
+    "total_cases": 13,
     "passed_cases": 0,
-    "failed_cases": 12,
-    "total_checks": 24,
+    "failed_cases": 13,
+    "total_checks": 25,
     "passed_checks": 12,
-    "failed_checks": 12
+    "failed_checks": 13
   },
   "checks": [
     {
       "check_id": "feedback_event_trace_refs_consumed_memory_rate",
-      "applicable_cases": 12,
-      "passed_cases": 11,
-      "value": 0.9166666666666666,
+      "applicable_cases": 13,
+      "passed_cases": 12,
+      "value": 0.9230769230769231,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -31,8 +31,8 @@
     },
     {
       "check_id": "feedback_event_consumption_report_ref_present_rate",
-      "applicable_cases": 12,
-      "passed_cases": 12,
+      "applicable_cases": 13,
+      "passed_cases": 13,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
@@ -40,8 +40,8 @@
     },
     {
       "check_id": "feedback_missing_trace_requires_clarification_rate",
-      "applicable_cases": 12,
-      "passed_cases": 12,
+      "applicable_cases": 13,
+      "passed_cases": 13,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
@@ -49,8 +49,8 @@
     },
     {
       "check_id": "right_feedback_reinforces_without_scope_expansion_rate",
-      "applicable_cases": 12,
-      "passed_cases": 12,
+      "applicable_cases": 13,
+      "passed_cases": 13,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
@@ -58,8 +58,8 @@
     },
     {
       "check_id": "reinforcement_confidence_cap_respected_rate",
-      "applicable_cases": 12,
-      "passed_cases": 12,
+      "applicable_cases": 13,
+      "passed_cases": 13,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
@@ -67,9 +67,9 @@
     },
     {
       "check_id": "too_strong_feedback_reduces_weight_not_deletes_rate",
-      "applicable_cases": 12,
-      "passed_cases": 11,
-      "value": 0.9166666666666666,
+      "applicable_cases": 13,
+      "passed_cases": 12,
+      "value": 0.9230769230769231,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -84,8 +84,8 @@
     },
     {
       "check_id": "too_strong_future_consumption_softened_rate",
-      "applicable_cases": 12,
-      "passed_cases": 12,
+      "applicable_cases": 13,
+      "passed_cases": 13,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
@@ -93,8 +93,8 @@
     },
     {
       "check_id": "wrong_aspect_creates_aspect_correction_rate",
-      "applicable_cases": 12,
-      "passed_cases": 12,
+      "applicable_cases": 13,
+      "passed_cases": 13,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
@@ -102,9 +102,9 @@
     },
     {
       "check_id": "wrong_aspect_preserves_confirmed_aspects_rate",
-      "applicable_cases": 12,
-      "passed_cases": 11,
-      "value": 0.9166666666666666,
+      "applicable_cases": 13,
+      "passed_cases": 12,
+      "value": 0.9230769230769231,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -119,9 +119,9 @@
     },
     {
       "check_id": "wrong_context_narrows_scope_rate",
-      "applicable_cases": 12,
-      "passed_cases": 11,
-      "value": 0.9166666666666666,
+      "applicable_cases": 13,
+      "passed_cases": 12,
+      "value": 0.9230769230769231,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -136,8 +136,8 @@
     },
     {
       "check_id": "wrong_context_future_exclusion_rate",
-      "applicable_cases": 12,
-      "passed_cases": 12,
+      "applicable_cases": 13,
+      "passed_cases": 13,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
@@ -145,9 +145,9 @@
     },
     {
       "check_id": "single_feedback_does_not_globalize_rate",
-      "applicable_cases": 12,
-      "passed_cases": 10,
-      "value": 0.8333333333333334,
+      "applicable_cases": 13,
+      "passed_cases": 11,
+      "value": 0.8461538461538461,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -169,9 +169,9 @@
     },
     {
       "check_id": "do_not_use_blocks_future_consumption_rate",
-      "applicable_cases": 12,
-      "passed_cases": 11,
-      "value": 0.9166666666666666,
+      "applicable_cases": 13,
+      "passed_cases": 12,
+      "value": 0.9230769230769231,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -186,9 +186,9 @@
     },
     {
       "check_id": "blocked_memory_not_claimed_rate",
-      "applicable_cases": 12,
-      "passed_cases": 11,
-      "value": 0.9166666666666666,
+      "applicable_cases": 13,
+      "passed_cases": 12,
+      "value": 0.9230769230769231,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -203,9 +203,9 @@
     },
     {
       "check_id": "forget_memory_routes_to_rollback_gate_rate",
-      "applicable_cases": 12,
-      "passed_cases": 11,
-      "value": 0.9166666666666666,
+      "applicable_cases": 13,
+      "passed_cases": 12,
+      "value": 0.9230769230769231,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -220,9 +220,9 @@
     },
     {
       "check_id": "rollback_removes_future_packet_consumption_rate",
-      "applicable_cases": 12,
-      "passed_cases": 11,
-      "value": 0.9166666666666666,
+      "applicable_cases": 13,
+      "passed_cases": 12,
+      "value": 0.9230769230769231,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -237,8 +237,8 @@
     },
     {
       "check_id": "rollback_read_after_absence_proof_rate",
-      "applicable_cases": 12,
-      "passed_cases": 12,
+      "applicable_cases": 13,
+      "passed_cases": 13,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
@@ -246,9 +246,9 @@
     },
     {
       "check_id": "high_risk_feedback_requires_review_rate",
-      "applicable_cases": 12,
-      "passed_cases": 11,
-      "value": 0.9166666666666666,
+      "applicable_cases": 13,
+      "passed_cases": 12,
+      "value": 0.9230769230769231,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -262,9 +262,26 @@
       ]
     },
     {
-      "check_id": "ambiguous_feedback_requires_clarification_rate",
-      "applicable_cases": 12,
+      "check_id": "review_pending_does_not_claim_applied_lifecycle_effect_rate",
+      "applicable_cases": 13,
       "passed_cases": 12,
+      "value": 0.9230769230769231,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v136_ADV_J13_review_pending_applied_effect_claim",
+          "artifact_ref": "per_case/adversarial/v136_ADV_J13_review_pending_applied_effect_claim.json",
+          "failures": [
+            "review_pending_does_not_claim_applied_lifecycle_effect_rate failed from raw artifact validation"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "ambiguous_feedback_requires_clarification_rate",
+      "applicable_cases": 13,
+      "passed_cases": 13,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
@@ -272,8 +289,8 @@
     },
     {
       "check_id": "multi_day_lifecycle_stability_rate",
-      "applicable_cases": 12,
-      "passed_cases": 12,
+      "applicable_cases": 13,
+      "passed_cases": 13,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
@@ -281,9 +298,9 @@
     },
     {
       "check_id": "sample_artifacts_match_per_case_rate",
-      "applicable_cases": 12,
-      "passed_cases": 11,
-      "value": 0.9166666666666666,
+      "applicable_cases": 13,
+      "passed_cases": 12,
+      "value": 0.9230769230769231,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -298,9 +315,9 @@
     },
     {
       "check_id": "report_consistency_with_independent_validation_rate",
-      "applicable_cases": 12,
-      "passed_cases": 11,
-      "value": 0.9166666666666666,
+      "applicable_cases": 13,
+      "passed_cases": 12,
+      "value": 0.9230769230769231,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -315,8 +332,8 @@
     },
     {
       "check_id": "adversarial_detection_rate",
-      "applicable_cases": 12,
-      "passed_cases": 12,
+      "applicable_cases": 13,
+      "passed_cases": 13,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
@@ -324,8 +341,8 @@
     },
     {
       "check_id": "v135_validation_replay_pass_rate",
-      "applicable_cases": 12,
-      "passed_cases": 12,
+      "applicable_cases": 13,
+      "passed_cases": 13,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
@@ -478,6 +495,18 @@
         "report_consistency_with_independent_validation_rate"
       ],
       "defect_type": "clean_report_pass_but_independent_validator_fail"
+    },
+    {
+      "case_id": "v136_ADV_J13_review_pending_applied_effect_claim",
+      "artifact_ref": "per_case/adversarial/v136_ADV_J13_review_pending_applied_effect_claim.json",
+      "passed": false,
+      "failed_check_ids": [
+        "review_pending_does_not_claim_applied_lifecycle_effect_rate"
+      ],
+      "expected_failed_check_ids": [
+        "review_pending_does_not_claim_applied_lifecycle_effect_rate"
+      ],
+      "defect_type": "review_pending_applied_effect_claim"
     }
   ],
   "detected_defects": [
@@ -614,7 +643,18 @@
         "report_consistency_with_independent_validation_rate"
       ],
       "detected": true
+    },
+    {
+      "case_id": "v136_ADV_J13_review_pending_applied_effect_claim",
+      "defect_type": "review_pending_applied_effect_claim",
+      "expected_failed_check_ids": [
+        "review_pending_does_not_claim_applied_lifecycle_effect_rate"
+      ],
+      "failed_check_ids": [
+        "review_pending_does_not_claim_applied_lifecycle_effect_rate"
+      ],
+      "detected": true
     }
   ],
-  "detected_defect_count": 12
+  "detected_defect_count": 13
 }

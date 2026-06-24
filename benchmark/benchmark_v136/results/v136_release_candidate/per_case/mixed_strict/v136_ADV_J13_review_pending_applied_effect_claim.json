@@ -1,8 +1,8 @@
 {
-  "case_id": "v136_G02_allowed_rollback_removes_memory_from_future_packets",
+  "case_id": "v136_ADV_J13_review_pending_applied_effect_claim",
   "version": "v1.36",
-  "scenario": "allowed_rollback_removes_memory_from_future_packets",
-  "scenario_kind": "forget",
+  "scenario": "review_pending_applied_effect_claim",
+  "scenario_kind": "reinforce",
   "scenario_preconditions": {
     "expected": [
       "downstream_consumption_present",
@@ -41,7 +41,7 @@
     "rollback_removes_future_packet_consumption_rate": true,
     "rollback_read_after_absence_proof_rate": true,
     "high_risk_feedback_requires_review_rate": true,
-    "review_pending_does_not_claim_applied_lifecycle_effect_rate": true,
+    "review_pending_does_not_claim_applied_lifecycle_effect_rate": false,
     "ambiguous_feedback_requires_clarification_rate": true,
     "multi_day_lifecycle_stability_rate": true,
     "sample_artifacts_match_per_case_rate": true,
@@ -72,28 +72,28 @@
     ]
   },
   "downstream_consumption": {
-    "task_memory_packet_id": "tmp_v136_032",
+    "task_memory_packet_id": "tmp_v136_913",
     "consumed_promoted_memory_ids": [
       "mem_insp_low_sat_office_001"
     ],
-    "consumption_report_id": "pmcr_v136_032",
+    "consumption_report_id": "pmcr_v136_913",
     "response_claim_ids": [
-      "claim_v136_032"
+      "claim_v136_913"
     ],
-    "daily_outfit_card_id": "card_v136_032",
+    "daily_outfit_card_id": "card_v136_913",
     "confirmed_aspects_used": [
       "color_palette"
     ],
     "consumption_mode": "soft_bias"
   },
   "promoted_memory_feedback_event": {
-    "feedback_event_id": "pmf_v136_032",
+    "feedback_event_id": "pmf_v136_913",
     "user_id": "fixture_user_001",
-    "task_id": "task_v136_032",
+    "task_id": "task_v136_913",
     "promoted_memory_id": "mem_insp_low_sat_office_001",
-    "consumption_report_id": "pmcr_v136_032",
-    "feedback_action": "forget_this_inspiration_memory",
-    "raw_user_text": "fixture feedback for allowed_rollback_removes_memory_from_future_packets",
+    "consumption_report_id": "pmcr_v136_913",
+    "feedback_action": "use_was_right",
+    "raw_user_text": "fixture feedback for review_pending_applied_effect_claim",
     "selected_aspect_refs": [
       "color_palette"
     ],
@@ -102,17 +102,17 @@
     ],
     "created_at": "2026-06-24T00:00:00Z",
     "trace_refs": {
-      "task_memory_packet_id": "tmp_v136_032",
+      "task_memory_packet_id": "tmp_v136_913",
       "response_claim_ids": [
-        "claim_v136_032"
+        "claim_v136_913"
       ],
-      "daily_outfit_card_id": "card_v136_032"
+      "daily_outfit_card_id": "card_v136_913"
     }
   },
   "feedback_interpretation": {
-    "feedback_interpretation_id": "fi_v136_032",
-    "feedback_event_id": "pmf_v136_032",
-    "interpreted_intent": "rollback_request",
+    "feedback_interpretation_id": "fi_v136_913",
+    "feedback_event_id": "pmf_v136_913",
+    "interpreted_intent": "reinforce",
     "confidence": 0.91,
     "affected_memory_id": "mem_insp_low_sat_office_001",
     "affected_aspects": [
@@ -135,17 +135,17 @@
     ]
   },
   "memory_lifecycle_proposal": {
-    "lifecycle_proposal_id": "mlp_v136_032",
-    "feedback_interpretation_id": "fi_v136_032",
-    "proposal_type": "rollback_memory",
+    "lifecycle_proposal_id": "mlp_v136_913",
+    "feedback_interpretation_id": "fi_v136_913",
+    "proposal_type": "reinforce",
     "target_memory_id": "mem_insp_low_sat_office_001",
     "proposed_patch": {
-      "confidence_delta": -0.76,
-      "weight_delta": -0.6,
+      "confidence_delta": 0.04,
+      "weight_delta": 0.05,
       "scope_delta": null,
       "context_exclusions_to_add": [],
       "aspects_to_remove_from_downstream_use": [],
-      "future_consumption_status": "rolled_back"
+      "future_consumption_status": "active"
     },
     "must_not_do": [
       "expand_scope",
@@ -153,23 +153,23 @@
       "add_unconfirmed_aspect",
       "delete_without_rollback"
     ],
-    "source_feedback_event_id": "pmf_v136_032",
-    "source_consumption_report_id": "pmcr_v136_032",
+    "source_feedback_event_id": "pmf_v136_913",
+    "source_consumption_report_id": "pmcr_v136_913",
     "risk_level": "low",
     "requires_gate": true
   },
   "feedback_write_decision": {
-    "feedback_write_decision_id": "fwd_v136_032",
-    "lifecycle_proposal_id": "mlp_v136_032",
-    "gate_decision": "allow",
+    "feedback_write_decision_id": "fwd_v136_913",
+    "lifecycle_proposal_id": "mlp_v136_913",
+    "gate_decision": "human_review_required",
     "risk_level": "low",
     "allowed_action_ids": [
-      "mlp_v136_032"
+      "mlp_v136_913"
     ],
     "blocked_action_ids": [],
     "review_action_ids": [],
-    "production_write_executed": true,
-    "rollback_ref": "rollback_v136_032",
+    "production_write_executed": false,
+    "rollback_ref": null,
     "human_review_payload": null,
     "decision_reasons": [
       "single feedback cannot globalize memory",
@@ -177,17 +177,20 @@
     ]
   },
   "updated_memory_lifecycle_state": {
-    "memory_lifecycle_state_id": "mls_v136_032",
+    "memory_lifecycle_state_id": "mls_v136_913",
     "memory_id": "mem_insp_low_sat_office_001",
     "previous_state_ref": "mls_prev_001",
-    "current_status": "rolled_back",
-    "confidence": 0.0,
-    "weight": 0.0,
+    "current_status": "review_pending",
+    "confidence": 0.82,
+    "weight": 0.68,
     "contexts": [
       "office_daily"
     ],
     "context_exclusions": [],
-    "allowed_downstream_use": [],
+    "allowed_downstream_use": [
+      "candidate_ranking",
+      "color_palette_preference"
+    ],
     "blocked_downstream_use": [
       "hard_filter",
       "commerce_targeting",
@@ -195,29 +198,35 @@
       "silhouette_preference"
     ],
     "source_feedback_event_ids": [
-      "pmf_v136_032"
+      "pmf_v136_913"
     ],
     "audit_refs": [
-      "audit_feedback_v136_032"
+      "audit_feedback_v136_913"
     ],
-    "rollback_window_ref": "rollback_window_v136_032"
+    "rollback_window_ref": "rollback_window_v136_913"
   },
   "post_feedback_consumption_proof": {
-    "post_feedback_consumption_proof_id": "pfcp_v136_032",
+    "post_feedback_consumption_proof_id": "pfcp_v136_913",
     "memory_id": "mem_insp_low_sat_office_001",
-    "task_after_feedback_id": "task_after_v136_032",
-    "expected_behavior": "rollback_absent",
+    "task_after_feedback_id": "task_after_v136_913",
+    "expected_behavior": "unchanged_reinforced",
     "task_memory_packet_after_feedback": {
-      "consumed_promoted_memory_ids": [],
-      "excluded_memory_ids": [
+      "consumed_promoted_memory_ids": [
         "mem_insp_low_sat_office_001"
       ],
-      "exclusion_reasons": {
-        "mem_insp_low_sat_office_001": "rollback_absent"
-      },
+      "excluded_memory_ids": [],
+      "exclusion_reasons": {},
       "request_context": "office_daily"
     },
-    "response_claims_after_feedback": [],
+    "response_claims_after_feedback": [
+      {
+        "claim_id": "bad_review_pending_claim",
+        "trace_refs": [
+          "mem_insp_low_sat_office_001"
+        ],
+        "text": "I softened this memory for future outfits."
+      }
+    ],
     "proof_result": "pass",
     "proof_refs": [
       "updated_memory_lifecycle_state",
@@ -225,23 +234,24 @@
     ]
   },
   "rollback_proof": {
-    "rollback_ref": "rollback_v136_032",
-    "read_after_rollback": {
-      "status": "not_found",
-      "memory_id": "mem_insp_low_sat_office_001",
-      "memory_present": false
-    },
-    "future_packet_absent": true
+    "rollback_ref": null,
+    "read_after_rollback": null,
+    "future_packet_absent": false
   },
   "multi_day_lifecycle_proof": {
     "days_checked": 3,
     "status_by_day": [
-      "rolled_back",
-      "rolled_back",
-      "rolled_back"
+      "active",
+      "active",
+      "active"
     ],
     "blocked_context_consumed": false,
     "dominates_every_day": false,
     "stable": true
-  }
+  },
+  "defect_type": "review_pending_applied_effect_claim",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "review_pending_does_not_claim_applied_lifecycle_effect_rate"
+  ]
 }
