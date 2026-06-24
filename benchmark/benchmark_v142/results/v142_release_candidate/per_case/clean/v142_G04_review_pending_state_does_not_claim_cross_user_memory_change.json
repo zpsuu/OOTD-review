@@ -1,0 +1,661 @@
+{
+  "case_id": "v142_G04_review_pending_state_does_not_claim_cross_user_memory_change",
+  "version": "v1.42",
+  "scenario_kind": "review_pending_state_does_not_claim_cross_user_memory_change",
+  "gate_assertions": {
+    "local_user_fixture_namespace_complete_rate": true,
+    "session_envelope_valid_rate": true,
+    "user_state_namespace_isolation_rate": true,
+    "session_scoped_invocation_matches_v141_adapter_rate": true,
+    "cross_user_leakage_absent_rate": true,
+    "idempotency_scope_is_user_session_bound_rate": true,
+    "same_scope_duplicate_reuses_result_rate": true,
+    "different_scope_duplicate_does_not_reuse_result_rate": true,
+    "expired_session_no_write_error_rate": true,
+    "stale_session_action_no_write_rate": true,
+    "session_no_write_preserves_user_state_rate": true,
+    "session_boundary_trace_complete_rate": true,
+    "session_boundary_snapshot_hash_reproducible_rate": true,
+    "session_source_hashes_match_raw_rate": true,
+    "trace_safe_debug_refs_rate": true,
+    "conversation_claims_user_session_scoped_rate": true,
+    "runtime_redaction_policy_safe_under_session_rate": true,
+    "sample_artifacts_match_per_case_rate": true,
+    "report_consistency_with_independent_validation_rate": true,
+    "adversarial_detection_rate": true,
+    "v141_validation_replay_pass_rate": true
+  },
+  "local_user_fixtures": [
+    {
+      "local_user_fixture_id": "user_fixture_A",
+      "local_user_id": "local_user_A",
+      "fixture_persona": "office_daily_minimal",
+      "memory_namespace_id": "mem_ns_local_user_A",
+      "governance_namespace_id": "gov_ns_local_user_A",
+      "closet_namespace_id": "closet_ns_local_user_A",
+      "allowed_session_ids": [
+        "sess_A_001",
+        "sess_A_002"
+      ],
+      "source_v141_case_refs": [],
+      "trace_refs": [
+        "local_user_A",
+        "mem_ns_local_user_A",
+        "gov_ns_local_user_A"
+      ]
+    },
+    {
+      "local_user_fixture_id": "user_fixture_B",
+      "local_user_id": "local_user_B",
+      "fixture_persona": "office_daily_color",
+      "memory_namespace_id": "mem_ns_local_user_B",
+      "governance_namespace_id": "gov_ns_local_user_B",
+      "closet_namespace_id": "closet_ns_local_user_B",
+      "allowed_session_ids": [
+        "sess_B_001"
+      ],
+      "source_v141_case_refs": [],
+      "trace_refs": [
+        "local_user_B",
+        "mem_ns_local_user_B",
+        "gov_ns_local_user_B"
+      ]
+    }
+  ],
+  "local_session_envelope": {
+    "local_session_envelope_id": "session_env_sess_A_001",
+    "version": "v1.42",
+    "schema_version": "local_session_boundary.v1",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "session_state_version": 1,
+    "session_status": "active",
+    "request_context": "office_daily",
+    "session_started_at": "2026-06-24T00:00:00Z",
+    "expires_at": "2026-06-24T02:00:00Z",
+    "trace_refs": [
+      "local_user_A",
+      "sess_A_001",
+      "session_state_v1"
+    ]
+  },
+  "user_state_namespace": {
+    "user_state_namespace_id": "state_ns_local_user_A_sess_A_001",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "memory_namespace_id": "mem_ns_local_user_A",
+    "governance_namespace_id": "gov_ns_local_user_A",
+    "closet_namespace_id": "closet_ns_local_user_A",
+    "action_namespace_id": "action_ns_sess_A_001",
+    "idempotency_namespace_id": "idem_ns_sess_A_001",
+    "snapshot_namespace_id": "snap_ns_sess_A_001",
+    "trace_refs": [
+      "local_user_A",
+      "sess_A_001",
+      "mem_ns_local_user_A",
+      "gov_ns_local_user_A"
+    ]
+  },
+  "session_scoped_runtime_invocation": {
+    "session_scoped_runtime_invocation_id": "ssri_v142_G04_review_pending_state_does_not_claim_cross_user_memory_change",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "session_state_version": 1,
+    "route_handler_invocation_ref": "rhi_v141_F05_review_pending_handler_does_not_claim_memory_change",
+    "input_envelope": {
+      "api_request_id": "api_req_v140_E04_conversation_turn_does_not_claim_review_pending_memory_change",
+      "contract_version": "v1.40",
+      "schema_version": "product_api.v1",
+      "route": "GET /local/action-surface",
+      "method": "GET",
+      "request_context": "office_daily",
+      "query": {},
+      "body": {},
+      "idempotency_key": null,
+      "trace_refs": [
+        "rt_v139_010",
+        "gas_v139_010"
+      ]
+    },
+    "user_state_namespace_ref": "state_ns_local_user_A_sess_A_001",
+    "idempotency_scope_key": "local_user_A:sess_A_001:GET /local/action-surface:no_card:no_idempotency_key",
+    "v141_callable_execution_ref": "hep_v141_F05_review_pending_handler_does_not_claim_memory_change",
+    "trace_refs": [
+      "local_user_A",
+      "sess_A_001",
+      "state_ns_local_user_A_sess_A_001",
+      "rhi_v141_F05_review_pending_handler_does_not_claim_memory_change"
+    ]
+  },
+  "session_scoped_route_handler_result": {
+    "session_scoped_route_handler_result_id": "ssrhr_v142_G04_review_pending_state_does_not_claim_cross_user_memory_change",
+    "session_scoped_runtime_invocation_id": "ssri_v142_G04_review_pending_state_does_not_claim_cross_user_memory_change",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "route_handler_result_ref": "rhr_v141_F05_review_pending_handler_does_not_claim_memory_change",
+    "output_envelope": {
+      "api_response_id": "api_res_v140_E04_conversation_turn_does_not_claim_review_pending_memory_change",
+      "api_request_id": "api_req_v140_E04_conversation_turn_does_not_claim_review_pending_memory_change",
+      "contract_version": "v1.40",
+      "schema_version": "product_api.v1",
+      "status_code": 200,
+      "response_type": "action_surface",
+      "body": {
+        "contract_version": "v1.40",
+        "schema_version": "product_api.v1",
+        "action_surface": {
+          "action_surface_api_resource_id": "asr_v139_C01_review_pending_notice_hides_raw_review_evidence",
+          "source_governance_action_surface_id": "gas_v139_010",
+          "cards": [
+            {
+              "card_id": "uac_v139_010",
+              "governance_queue_item_id": "gqi_v139_010",
+              "card_type": "review_pending",
+              "display_state": "pending",
+              "title": "Review pending",
+              "body": "I am holding this preference until review is complete.",
+              "allowed_actions": [
+                "retry_after_review",
+                "dismiss"
+              ],
+              "disabled_reason": null,
+              "trace_refs": [
+                "rt_v139_010",
+                "gqi_v139_010",
+                "gt_v139_010"
+              ]
+            }
+          ],
+          "response_blocks": [
+            {
+              "response_block_id": "urb_v139_010",
+              "block_type": "review_pending_notice",
+              "text": "This preference is pending review and has not changed memory.",
+              "claim_refs": [
+                "claim_v139_010"
+              ],
+              "trace_refs": [
+                "rt_v139_010",
+                "gqi_v139_010",
+                "gqi_v139_010"
+              ]
+            }
+          ],
+          "trace_refs": [
+            "gas_v139_010",
+            "v139_C01_review_pending_notice_hides_raw_review_evidence",
+            "rt_v139_010"
+          ]
+        },
+        "response_blocks": [
+          {
+            "response_block_id": "urb_v139_010",
+            "block_type": "review_pending_notice",
+            "text": "This preference is pending review and has not changed memory.",
+            "claim_refs": [
+              "claim_v139_010"
+            ],
+            "trace_refs": [
+              "rt_v139_010",
+              "gqi_v139_010",
+              "gqi_v139_010"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "trace_refs": [
+        "api_req_v140_E04_conversation_turn_does_not_claim_review_pending_memory_change",
+        "rt_v139_010",
+        "gas_v139_010"
+      ]
+    },
+    "response_type": "action_surface",
+    "production_write_executed": false,
+    "trace_refs": [
+      "ssri_v142_G04_review_pending_state_does_not_claim_cross_user_memory_change",
+      "rhr_v141_F05_review_pending_handler_does_not_claim_memory_change",
+      "local_user_A",
+      "sess_A_001"
+    ]
+  },
+  "session_scoped_idempotency_record": {
+    "session_scoped_idempotency_record_id": "idem_rec_v142_G04_review_pending_state_does_not_claim_cross_user_memory_change",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "idempotency_key": null,
+    "idempotency_scope_key": "local_user_A:sess_A_001:GET /local/action-surface:no_card:no_idempotency_key",
+    "canonical_action_result_ref": "action_result_local_user_A_sess_A_001_455df9085249",
+    "duplicate_created_result": null,
+    "same_raw_key_other_scope_action_result_refs": [],
+    "trace_refs": [
+      "local_user_A",
+      "sess_A_001",
+      "local_user_A:sess_A_001:GET /local/action-surface:no_card:no_idempotency_key",
+      "action_result_local_user_A_sess_A_001_455df9085249"
+    ]
+  },
+  "session_scoped_action_result": {
+    "session_scoped_action_result_id": "ssar_v142_G04_review_pending_state_does_not_claim_cross_user_memory_change",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "action_result_ref": "action_result_local_user_A_sess_A_001_455df9085249",
+    "source_v141_action_result_ref": null,
+    "memory_state_ref": "mem_ns_local_user_A:state:v142_G04_review_pending_state_does_not_claim_cross_user_memory_change",
+    "governance_ref": "gov_ns_local_user_A:decision:v142_G04_review_pending_state_does_not_claim_cross_user_memory_change",
+    "idempotency_scope_key": "local_user_A:sess_A_001:GET /local/action-surface:no_card:no_idempotency_key",
+    "production_write_executed": false,
+    "trace_refs": [
+      "local_user_A",
+      "sess_A_001",
+      "action_ns_sess_A_001",
+      "action_result_local_user_A_sess_A_001_455df9085249"
+    ]
+  },
+  "session_scoped_memory_state_ref": {
+    "session_scoped_memory_state_ref_id": "mem_ref_v142_G04_review_pending_state_does_not_claim_cross_user_memory_change",
+    "local_user_id": "local_user_A",
+    "memory_namespace_id": "mem_ns_local_user_A",
+    "before_state": {
+      "state_snapshot_id": "state_before_local_user_A",
+      "local_user_id": "local_user_A",
+      "memory_namespace_id": "mem_ns_local_user_A",
+      "facts": [
+        "office_daily"
+      ]
+    },
+    "after_state": {
+      "state_snapshot_id": "state_after_local_user_A",
+      "local_user_id": "local_user_A",
+      "memory_namespace_id": "mem_ns_local_user_A",
+      "facts": [
+        "office_daily"
+      ]
+    },
+    "trace_refs": [
+      "local_user_A",
+      "mem_ns_local_user_A"
+    ]
+  },
+  "session_scoped_governance_ref": {
+    "session_scoped_governance_ref_id": "gov_ref_v142_G04_review_pending_state_does_not_claim_cross_user_memory_change",
+    "local_user_id": "local_user_A",
+    "governance_namespace_id": "gov_ns_local_user_A",
+    "source_v141_gate_ref": "block",
+    "trace_refs": [
+      "local_user_A",
+      "gov_ns_local_user_A"
+    ]
+  },
+  "session_boundary_trace": {
+    "session_boundary_trace_id": "sbt_v142_G04_review_pending_state_does_not_claim_cross_user_memory_change",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "boundary_steps": [
+      {
+        "step_id": "boundary_001",
+        "operation": "resolve_user_namespace",
+        "input_ref": "local_user_A",
+        "output_ref": "state_ns_local_user_A_sess_A_001"
+      },
+      {
+        "step_id": "boundary_002",
+        "operation": "validate_session",
+        "input_ref": "sess_A_001",
+        "output_ref": "active"
+      },
+      {
+        "step_id": "boundary_003",
+        "operation": "resolve_idempotency_scope",
+        "input_ref": "no_idempotency_key",
+        "output_ref": "local_user_A:sess_A_001:GET /local/action-surface:no_card:no_idempotency_key"
+      },
+      {
+        "step_id": "boundary_004",
+        "operation": "run_cross_user_leakage_audit",
+        "input_ref": "ssrhr_v142_G04_review_pending_state_does_not_claim_cross_user_memory_change",
+        "output_ref": "cula_v142_G04_review_pending_state_does_not_claim_cross_user_memory_change"
+      },
+      {
+        "step_id": "boundary_005",
+        "operation": "invoke_v141_callable_adapter",
+        "input_ref": "rhi_v141_F05_review_pending_handler_does_not_claim_memory_change",
+        "output_ref": "rhr_v141_F05_review_pending_handler_does_not_claim_memory_change"
+      }
+    ],
+    "cross_user_refs_observed": [],
+    "session_mismatch_refs_observed": [],
+    "trace_safe_debug_refs": [
+      "trace:v142:local_user_A:sess_A_001:v142_G04_review_pending_state_does_not_claim_cross_user_memory_change"
+    ],
+    "v141_callable_execution_ref": "hep_v141_F05_review_pending_handler_does_not_claim_memory_change",
+    "trace_refs": [
+      "local_user_A",
+      "sess_A_001",
+      "state_ns_local_user_A_sess_A_001",
+      "cula_v142_G04_review_pending_state_does_not_claim_cross_user_memory_change"
+    ]
+  },
+  "cross_user_leakage_audit": {
+    "cross_user_leakage_audit_id": "cula_v142_G04_review_pending_state_does_not_claim_cross_user_memory_change",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "audited_artifact_refs": [
+      "output_envelope",
+      "session_action_result",
+      "idempotency_record",
+      "memory_ref",
+      "governance_ref",
+      "snapshot_refs",
+      "debug_ref"
+    ],
+    "foreign_user_refs_detected": [],
+    "foreign_session_refs_detected": [],
+    "foreign_namespace_refs_detected": [],
+    "passed": true,
+    "trace_refs": [
+      "local_user_A",
+      "sess_A_001",
+      "ssrhr_v142_G04_review_pending_state_does_not_claim_cross_user_memory_change",
+      "ssar_v142_G04_review_pending_state_does_not_claim_cross_user_memory_change"
+    ]
+  },
+  "session_boundary_snapshot": {
+    "session_boundary_snapshot_id": "sbs_v142_G04_review_pending_state_does_not_claim_cross_user_memory_change",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "canonical_session_hash": "71e3d2a7f61e117945e1f179d159bbdc7ea07956d753993ff55667b572ab1314",
+    "canonical_invocation_hash": "56bcd70d7cc518cc3bccd26ac40a756eb6013d7eae13a6e46831c99c18d7d689",
+    "canonical_output_hash": "988ee09964b9f0f6b0eca4e74c58a60b6d26f84306c568dc55142aa1702d18e5",
+    "canonical_boundary_trace_hash": "e3328b55cf7ea2bae6134c1288b5ea41325f2dec54a90946d97dbc77b380b199",
+    "source_artifact_hashes": {
+      "per_case/clean/v141_F05_review_pending_handler_does_not_claim_memory_change.json": "10717ccfae83a8f130a34f37d4e37967e5b1df770f09d2f4653d90f804653019",
+      "per_case/clean/v140_E04_conversation_turn_does_not_claim_review_pending_memory_change.json": "6e9ae4ec647f3f94a5dc419a6ec6d2632d8721cf1b058e3fe791e738255e640f",
+      "per_case/clean/v139_C01_review_pending_notice_hides_raw_review_evidence.json": "db4de7f4111ca586b5f7b4034f9eb4057671c4f13d9287463b18eed99ebc13e3"
+    },
+    "trace_refs": [
+      "local_user_A",
+      "sess_A_001",
+      "ssri_v142_G04_review_pending_state_does_not_claim_cross_user_memory_change",
+      "ssrhr_v142_G04_review_pending_state_does_not_claim_cross_user_memory_change",
+      "sbt_v142_G04_review_pending_state_does_not_claim_cross_user_memory_change"
+    ]
+  },
+  "session_expiry_and_stale_action_proof": {
+    "session_expiry_and_stale_action_proof_id": "expiry_v142_G04_review_pending_state_does_not_claim_cross_user_memory_change",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "session_status": "active",
+    "accepted_action": true,
+    "response_type": "action_surface",
+    "production_write_executed": false,
+    "no_write_required": false,
+    "trace_refs": [
+      "local_user_A",
+      "sess_A_001",
+      "ssrhr_v142_G04_review_pending_state_does_not_claim_cross_user_memory_change"
+    ]
+  },
+  "trace_safe_debug_ref": {
+    "trace_safe_debug_ref_id": "debug_v142_G04_review_pending_state_does_not_claim_cross_user_memory_change",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "debug_ref": "trace:v142:local_user_A:sess_A_001:v142_G04_review_pending_state_does_not_claim_cross_user_memory_change",
+    "filesystem_path_exposed": false,
+    "foreign_user_or_session_exposed": false,
+    "trace_refs": [
+      "local_user_A",
+      "sess_A_001",
+      "v142_G04_review_pending_state_does_not_claim_cross_user_memory_change"
+    ]
+  },
+  "conversation_turn_state": {
+    "conversation_turn_state_id": "cts_v140_E04_conversation_turn_does_not_claim_review_pending_memory_change",
+    "api_request_id": "api_req_v140_E04_conversation_turn_does_not_claim_review_pending_memory_change",
+    "api_response_id": "api_res_v140_E04_conversation_turn_does_not_claim_review_pending_memory_change",
+    "visible_response_block_ids": [
+      "urb_v139_010"
+    ],
+    "user_visible_claims": [
+      {
+        "claim_id": "api_claim_urb_v139_010",
+        "text": "This preference is pending review and has not changed memory.",
+        "trace_refs": [
+          "api_res_v140_E04_conversation_turn_does_not_claim_review_pending_memory_change",
+          "urb_v139_010"
+        ]
+      }
+    ],
+    "memory_change_claimed": false,
+    "production_write_executed": false,
+    "trace_refs": [
+      "api_res_v140_E04_conversation_turn_does_not_claim_review_pending_memory_change",
+      "rt_v139_010"
+    ]
+  },
+  "source_v141_artifact_ref": "per_case/clean/v141_F05_review_pending_handler_does_not_claim_memory_change.json",
+  "source_v141_artifact_hash": "10717ccfae83a8f130a34f37d4e37967e5b1df770f09d2f4653d90f804653019",
+  "source_v141_case_id": "v141_F05_review_pending_handler_does_not_claim_memory_change",
+  "source_v140_artifact_ref": "per_case/clean/v140_E04_conversation_turn_does_not_claim_review_pending_memory_change.json",
+  "source_v140_artifact_hash": "6e9ae4ec647f3f94a5dc419a6ec6d2632d8721cf1b058e3fe791e738255e640f",
+  "source_v139_artifact_ref": "per_case/clean/v139_C01_review_pending_notice_hides_raw_review_evidence.json",
+  "source_v139_artifact_hash": "db4de7f4111ca586b5f7b4034f9eb4057671c4f13d9287463b18eed99ebc13e3",
+  "v141_route_handler_invocation": {
+    "route_handler_invocation_id": "rhi_v141_F05_review_pending_handler_does_not_claim_memory_change",
+    "api_request_id": "api_req_v140_E04_conversation_turn_does_not_claim_review_pending_memory_change",
+    "route": "GET /local/action-surface",
+    "method": "GET",
+    "handler_name": "handle_get_action_surface",
+    "resolved_callable_name": "handle_get_action_surface",
+    "input_envelope": {
+      "api_request_id": "api_req_v140_E04_conversation_turn_does_not_claim_review_pending_memory_change",
+      "contract_version": "v1.40",
+      "schema_version": "product_api.v1",
+      "route": "GET /local/action-surface",
+      "method": "GET",
+      "request_context": "office_daily",
+      "query": {},
+      "body": {},
+      "idempotency_key": null,
+      "trace_refs": [
+        "rt_v139_010",
+        "gas_v139_010"
+      ]
+    },
+    "runtime_context": {
+      "fixture_user_id": "local_user_001",
+      "request_context": "office_daily",
+      "source_case_id": "v140_E04_conversation_turn_does_not_claim_review_pending_memory_change",
+      "source_artifact_ref": "per_case/clean/v140_E04_conversation_turn_does_not_claim_review_pending_memory_change.json"
+    },
+    "idempotency_key": null,
+    "trace_refs": [
+      "pra_001",
+      "route_registry_001",
+      "v140_E04_conversation_turn_does_not_claim_review_pending_memory_change"
+    ]
+  },
+  "v141_route_handler_result": {
+    "route_handler_result_id": "rhr_v141_F05_review_pending_handler_does_not_claim_memory_change",
+    "route_handler_invocation_id": "rhi_v141_F05_review_pending_handler_does_not_claim_memory_change",
+    "api_response_id": "api_res_v140_E04_conversation_turn_does_not_claim_review_pending_memory_change",
+    "output_envelope": {
+      "api_response_id": "api_res_v140_E04_conversation_turn_does_not_claim_review_pending_memory_change",
+      "api_request_id": "api_req_v140_E04_conversation_turn_does_not_claim_review_pending_memory_change",
+      "contract_version": "v1.40",
+      "schema_version": "product_api.v1",
+      "status_code": 200,
+      "response_type": "action_surface",
+      "body": {
+        "contract_version": "v1.40",
+        "schema_version": "product_api.v1",
+        "action_surface": {
+          "action_surface_api_resource_id": "asr_v139_C01_review_pending_notice_hides_raw_review_evidence",
+          "source_governance_action_surface_id": "gas_v139_010",
+          "cards": [
+            {
+              "card_id": "uac_v139_010",
+              "governance_queue_item_id": "gqi_v139_010",
+              "card_type": "review_pending",
+              "display_state": "pending",
+              "title": "Review pending",
+              "body": "I am holding this preference until review is complete.",
+              "allowed_actions": [
+                "retry_after_review",
+                "dismiss"
+              ],
+              "disabled_reason": null,
+              "trace_refs": [
+                "rt_v139_010",
+                "gqi_v139_010",
+                "gt_v139_010"
+              ]
+            }
+          ],
+          "response_blocks": [
+            {
+              "response_block_id": "urb_v139_010",
+              "block_type": "review_pending_notice",
+              "text": "This preference is pending review and has not changed memory.",
+              "claim_refs": [
+                "claim_v139_010"
+              ],
+              "trace_refs": [
+                "rt_v139_010",
+                "gqi_v139_010",
+                "gqi_v139_010"
+              ]
+            }
+          ],
+          "trace_refs": [
+            "gas_v139_010",
+            "v139_C01_review_pending_notice_hides_raw_review_evidence",
+            "rt_v139_010"
+          ]
+        },
+        "response_blocks": [
+          {
+            "response_block_id": "urb_v139_010",
+            "block_type": "review_pending_notice",
+            "text": "This preference is pending review and has not changed memory.",
+            "claim_refs": [
+              "claim_v139_010"
+            ],
+            "trace_refs": [
+              "rt_v139_010",
+              "gqi_v139_010",
+              "gqi_v139_010"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "trace_refs": [
+        "api_req_v140_E04_conversation_turn_does_not_claim_review_pending_memory_change",
+        "rt_v139_010",
+        "gas_v139_010"
+      ]
+    },
+    "response_type": "action_surface",
+    "status_code": 200,
+    "callable_handler_name": "handle_get_action_surface",
+    "handler_execution_proof_id": "hep_v141_F05_review_pending_handler_does_not_claim_memory_change",
+    "produced_by_callable": true,
+    "production_write_executed": false,
+    "trace_refs": [
+      "rhi_v141_F05_review_pending_handler_does_not_claim_memory_change",
+      "rhet_v141_F05_review_pending_handler_does_not_claim_memory_change",
+      "v140_E04_conversation_turn_does_not_claim_review_pending_memory_change"
+    ]
+  },
+  "v141_runtime_handler_execution_trace": {
+    "runtime_handler_execution_trace_id": "rhet_v141_F05_review_pending_handler_does_not_claim_memory_change",
+    "route_handler_invocation_id": "rhi_v141_F05_review_pending_handler_does_not_claim_memory_change",
+    "route_handler_result_id": "rhr_v141_F05_review_pending_handler_does_not_claim_memory_change",
+    "handler_name": "handle_get_action_surface",
+    "callable_execution_proof": {
+      "handler_execution_proof_id": "hep_v141_F05_review_pending_handler_does_not_claim_memory_change",
+      "handler_name": "handle_get_action_surface",
+      "callable_name": "handle_get_action_surface",
+      "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+      "callable_resolved": true,
+      "callable_invoked": true,
+      "input_envelope_hash": "e78e468b5d4bcdce368eb469f8c806cf46d45e1f39d9517988ba9515938198a4",
+      "output_envelope_hash": "85d680d6fec8eb6a237ba5a3227062419179cc740e8525fb24493c985ef35897",
+      "handler_returned_route_handler_result_id": "rhr_v141_F05_review_pending_handler_does_not_claim_memory_change",
+      "route_specific_projection": {
+        "expected_route": "GET /local/action-surface",
+        "actual_route": "GET /local/action-surface",
+        "expected_response_type": "action_surface",
+        "actual_response_type": "action_surface",
+        "projected_body_fields": [
+          "action_surface",
+          "response_blocks"
+        ],
+        "source_case_id": "v140_E04_conversation_turn_does_not_claim_review_pending_memory_change",
+        "source_contract_snapshot_id": "cs_v140_E04_conversation_turn_does_not_claim_review_pending_memory_change"
+      },
+      "direct_source_output_copy": false
+    },
+    "dispatch_steps": [
+      {
+        "step_id": "dispatch_001",
+        "operation": "resolve_route",
+        "input_ref": "api_req_v140_E04_conversation_turn_does_not_claim_review_pending_memory_change",
+        "output_ref": "handle_get_action_surface"
+      },
+      {
+        "step_id": "dispatch_002",
+        "operation": "resolve_callable",
+        "input_ref": "handle_get_action_surface",
+        "output_ref": "benchmark.benchmark_v141.runtime.product_runtime_adapter.handle_get_action_surface"
+      },
+      {
+        "step_id": "dispatch_003",
+        "operation": "invoke_handler",
+        "input_ref": "rhi_v141_F05_review_pending_handler_does_not_claim_memory_change",
+        "output_ref": "rhr_v141_F05_review_pending_handler_does_not_claim_memory_change",
+        "callable_ref": "benchmark.benchmark_v141.runtime.product_runtime_adapter.handle_get_action_surface",
+        "handler_execution_proof_id": "hep_v141_F05_review_pending_handler_does_not_claim_memory_change"
+      },
+      {
+        "step_id": "dispatch_004",
+        "operation": "produce_response",
+        "input_ref": "v140_E04_conversation_turn_does_not_claim_review_pending_memory_change",
+        "output_ref": "api_res_v140_E04_conversation_turn_does_not_claim_review_pending_memory_change"
+      }
+    ],
+    "source_resolution_refs": [
+      "rsrp_v141_F05_review_pending_handler_does_not_claim_memory_change",
+      "per_case/clean/v140_E04_conversation_turn_does_not_claim_review_pending_memory_change.json"
+    ],
+    "contract_projection_refs": [
+      "api_req_v140_E04_conversation_turn_does_not_claim_review_pending_memory_change",
+      "api_res_v140_E04_conversation_turn_does_not_claim_review_pending_memory_change",
+      "cs_v140_E04_conversation_turn_does_not_claim_review_pending_memory_change"
+    ],
+    "safety_filter_refs": [
+      "handler_error_safety_proof",
+      "runtime_redaction_policy"
+    ],
+    "claim_trace_refs": [
+      "api_claim_urb_v139_010"
+    ],
+    "trace_refs": [
+      "rhi_v141_F05_review_pending_handler_does_not_claim_memory_change",
+      "rhr_v141_F05_review_pending_handler_does_not_claim_memory_change",
+      "v140_E04_conversation_turn_does_not_claim_review_pending_memory_change"
+    ]
+  },
+  "policy_surface_audit": {
+    "no_raw_review_evidence_exposed": true,
+    "no_internal_debug_exposed": true,
+    "no_global_memory_claim": true,
+    "no_sensitive_or_commerce_or_aigc": true
+  },
+  "reviewer_checklist_refs": [],
+  "runner_reproducibility_proof": {},
+  "v141_replay_proof": {
+    "run_v141_validation_suite": "PASS"
+  }
+}

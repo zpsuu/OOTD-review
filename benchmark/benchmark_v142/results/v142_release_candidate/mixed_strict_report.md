@@ -1,0 +1,23 @@
+# v1.42 Mixed Strict Report
+
+- EXPECTED FAIL `local_user_fixture_namespace_complete_rate`
+- EXPECTED FAIL `session_envelope_valid_rate`
+- EXPECTED FAIL `user_state_namespace_isolation_rate`
+- EXPECTED FAIL `session_scoped_invocation_matches_v141_adapter_rate`
+- EXPECTED FAIL `cross_user_leakage_absent_rate`
+- EXPECTED FAIL `idempotency_scope_is_user_session_bound_rate`
+- EXPECTED FAIL `same_scope_duplicate_reuses_result_rate`
+- EXPECTED FAIL `different_scope_duplicate_does_not_reuse_result_rate`
+- EXPECTED FAIL `expired_session_no_write_error_rate`
+- EXPECTED FAIL `stale_session_action_no_write_rate`
+- EXPECTED FAIL `session_no_write_preserves_user_state_rate`
+- EXPECTED FAIL `session_boundary_trace_complete_rate`
+- EXPECTED FAIL `session_boundary_snapshot_hash_reproducible_rate`
+- EXPECTED FAIL `session_source_hashes_match_raw_rate`
+- EXPECTED FAIL `trace_safe_debug_refs_rate`
+- EXPECTED FAIL `conversation_claims_user_session_scoped_rate`
+- EXPECTED FAIL `runtime_redaction_policy_safe_under_session_rate`
+- EXPECTED FAIL `sample_artifacts_match_per_case_rate`
+- EXPECTED FAIL `report_consistency_with_independent_validation_rate`
+- EXPECTED FAIL `adversarial_detection_rate`
+- EXPECTED FAIL `v141_validation_replay_pass_rate`

@@ -1,0 +1,39 @@
+{
+  "validator": "benchmark.common.report_consistency",
+  "manifest_hash": "07731263f1698eec14b316de6ed23c9ff84171531edd3a6798137240e2d612d8",
+  "required_reports": [
+    "clean_report.json",
+    "mixed_strict_report.json",
+    "independent_validation_report.json",
+    "adversarial_validation_report.json",
+    "report_consistency_report.json",
+    "sample_consistency_report.json",
+    "injected_defect_detection_summary.json"
+  ],
+  "checked_gates": [
+    "local_user_fixture_namespace_complete_rate",
+    "session_envelope_valid_rate",
+    "user_state_namespace_isolation_rate",
+    "session_scoped_invocation_matches_v141_adapter_rate",
+    "cross_user_leakage_absent_rate",
+    "idempotency_scope_is_user_session_bound_rate",
+    "same_scope_duplicate_reuses_result_rate",
+    "different_scope_duplicate_does_not_reuse_result_rate",
+    "expired_session_no_write_error_rate",
+    "stale_session_action_no_write_rate",
+    "session_no_write_preserves_user_state_rate",
+    "session_boundary_trace_complete_rate",
+    "session_boundary_snapshot_hash_reproducible_rate",
+    "session_source_hashes_match_raw_rate",
+    "trace_safe_debug_refs_rate",
+    "conversation_claims_user_session_scoped_rate",
+    "runtime_redaction_policy_safe_under_session_rate",
+    "sample_artifacts_match_per_case_rate",
+    "report_consistency_with_independent_validation_rate",
+    "adversarial_detection_rate",
+    "v141_validation_replay_pass_rate"
+  ],
+  "passed": true,
+  "failures": [],
+  "generated_at": "2026-06-24T10:56:44Z"
+}

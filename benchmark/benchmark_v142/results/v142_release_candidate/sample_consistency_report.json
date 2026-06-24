@@ -1,0 +1,81 @@
+{
+  "validator": "benchmark.common.sample_consistency",
+  "total_samples": 7,
+  "passed_samples": 7,
+  "failed_samples": 0,
+  "passed": true,
+  "failures": [],
+  "samples": [
+    {
+      "artifact_ref": "sample_artifacts/session_user_A_action_surface.json",
+      "source_artifact_ref": "per_case/clean/v142_B02_user_A_get_action_surface_does_not_include_user_B_refs.json",
+      "case_id": "v142_B02_user_A_get_action_surface_does_not_include_user_B_refs",
+      "exists": true,
+      "sample_hash": "7eb4a4b853cffded7ba2ba1548de29d7a1ea06fa8e72c25b76364be7fcb65a7b",
+      "source_hash": "7eb4a4b853cffded7ba2ba1548de29d7a1ea06fa8e72c25b76364be7fcb65a7b",
+      "manifest_hash": "7eb4a4b853cffded7ba2ba1548de29d7a1ea06fa8e72c25b76364be7fcb65a7b",
+      "passed": true
+    },
+    {
+      "artifact_ref": "sample_artifacts/session_user_B_action_surface.json",
+      "source_artifact_ref": "per_case/clean/v142_B04_user_B_get_action_surface_does_not_include_user_A_refs.json",
+      "case_id": "v142_B04_user_B_get_action_surface_does_not_include_user_A_refs",
+      "exists": true,
+      "sample_hash": "14a71842ba4b8ce43e6f51b228e99391984f07d78c8b8205df177bee2cf5d42a",
+      "source_hash": "14a71842ba4b8ce43e6f51b228e99391984f07d78c8b8205df177bee2cf5d42a",
+      "manifest_hash": "14a71842ba4b8ce43e6f51b228e99391984f07d78c8b8205df177bee2cf5d42a",
+      "passed": true
+    },
+    {
+      "artifact_ref": "sample_artifacts/same_scope_duplicate.json",
+      "source_artifact_ref": "per_case/clean/v142_D01_same_user_same_session_duplicate_reuses_canonical_result.json",
+      "case_id": "v142_D01_same_user_same_session_duplicate_reuses_canonical_result",
+      "exists": true,
+      "sample_hash": "6903c8eaa8be87c18022ec7bf716888b1119069809911b9934aec92576110941",
+      "source_hash": "6903c8eaa8be87c18022ec7bf716888b1119069809911b9934aec92576110941",
+      "manifest_hash": "6903c8eaa8be87c18022ec7bf716888b1119069809911b9934aec92576110941",
+      "passed": true
+    },
+    {
+      "artifact_ref": "sample_artifacts/different_user_non_reuse.json",
+      "source_artifact_ref": "per_case/clean/v142_D03_different_user_same_key_does_not_reuse_result.json",
+      "case_id": "v142_D03_different_user_same_key_does_not_reuse_result",
+      "exists": true,
+      "sample_hash": "76af1ee692b1f6004963c815341d0188b9133ad57f6fba2b746b774d1606e4b3",
+      "source_hash": "76af1ee692b1f6004963c815341d0188b9133ad57f6fba2b746b774d1606e4b3",
+      "manifest_hash": "76af1ee692b1f6004963c815341d0188b9133ad57f6fba2b746b774d1606e4b3",
+      "passed": true
+    },
+    {
+      "artifact_ref": "sample_artifacts/expired_session_error.json",
+      "source_artifact_ref": "per_case/clean/v142_E01_expired_session_rejects_action_no_write.json",
+      "case_id": "v142_E01_expired_session_rejects_action_no_write",
+      "exists": true,
+      "sample_hash": "a9c21221460fe4c317dc18c04869cc9211736b618c9e3a8b8257d02fc5b8b5ea",
+      "source_hash": "a9c21221460fe4c317dc18c04869cc9211736b618c9e3a8b8257d02fc5b8b5ea",
+      "manifest_hash": "a9c21221460fe4c317dc18c04869cc9211736b618c9e3a8b8257d02fc5b8b5ea",
+      "passed": true
+    },
+    {
+      "artifact_ref": "sample_artifacts/session_boundary_snapshot.json",
+      "source_artifact_ref": "per_case/clean/v142_F05_session_boundary_snapshot_hashes_reproducible.json",
+      "case_id": "v142_F05_session_boundary_snapshot_hashes_reproducible",
+      "exists": true,
+      "sample_hash": "0a292b163f420c3d21e3eb72a84d2b7da83a14a90af3d66f2cebb3ec4c56a97b",
+      "source_hash": "0a292b163f420c3d21e3eb72a84d2b7da83a14a90af3d66f2cebb3ec4c56a97b",
+      "manifest_hash": "0a292b163f420c3d21e3eb72a84d2b7da83a14a90af3d66f2cebb3ec4c56a97b",
+      "passed": true
+    },
+    {
+      "artifact_ref": "sample_artifacts/trace_safe_debug_ref.json",
+      "source_artifact_ref": "per_case/clean/v142_H01_debug_refs_do_not_expose_filesystem_paths.json",
+      "case_id": "v142_H01_debug_refs_do_not_expose_filesystem_paths",
+      "exists": true,
+      "sample_hash": "a7bb034fd9d5f44c30dc6f68d1fd800135fbfaeb39f694261c9610d709f30b40",
+      "source_hash": "a7bb034fd9d5f44c30dc6f68d1fd800135fbfaeb39f694261c9610d709f30b40",
+      "manifest_hash": "a7bb034fd9d5f44c30dc6f68d1fd800135fbfaeb39f694261c9610d709f30b40",
+      "passed": true
+    }
+  ],
+  "generated_at": "2026-06-24T10:56:44Z"
+}

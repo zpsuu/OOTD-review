@@ -1,0 +1,23 @@
+# v1.42 Clean Acceptance Report
+
+- PASS `local_user_fixture_namespace_complete_rate`
+- PASS `session_envelope_valid_rate`
+- PASS `user_state_namespace_isolation_rate`
+- PASS `session_scoped_invocation_matches_v141_adapter_rate`
+- PASS `cross_user_leakage_absent_rate`
+- PASS `idempotency_scope_is_user_session_bound_rate`
+- PASS `same_scope_duplicate_reuses_result_rate`
+- PASS `different_scope_duplicate_does_not_reuse_result_rate`
+- PASS `expired_session_no_write_error_rate`
+- PASS `stale_session_action_no_write_rate`
+- PASS `session_no_write_preserves_user_state_rate`
+- PASS `session_boundary_trace_complete_rate`
+- PASS `session_boundary_snapshot_hash_reproducible_rate`
+- PASS `session_source_hashes_match_raw_rate`
+- PASS `trace_safe_debug_refs_rate`
+- PASS `conversation_claims_user_session_scoped_rate`
+- PASS `runtime_redaction_policy_safe_under_session_rate`
+- PASS `sample_artifacts_match_per_case_rate`
+- PASS `report_consistency_with_independent_validation_rate`
+- PASS `adversarial_detection_rate`
+- PASS `v141_validation_replay_pass_rate`

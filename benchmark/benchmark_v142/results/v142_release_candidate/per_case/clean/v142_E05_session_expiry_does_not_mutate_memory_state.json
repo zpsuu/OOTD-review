@@ -1,0 +1,598 @@
+{
+  "case_id": "v142_E05_session_expiry_does_not_mutate_memory_state",
+  "version": "v1.42",
+  "scenario_kind": "session_expiry_does_not_mutate_memory_state",
+  "gate_assertions": {
+    "local_user_fixture_namespace_complete_rate": true,
+    "session_envelope_valid_rate": true,
+    "user_state_namespace_isolation_rate": true,
+    "session_scoped_invocation_matches_v141_adapter_rate": true,
+    "cross_user_leakage_absent_rate": true,
+    "idempotency_scope_is_user_session_bound_rate": true,
+    "same_scope_duplicate_reuses_result_rate": true,
+    "different_scope_duplicate_does_not_reuse_result_rate": true,
+    "expired_session_no_write_error_rate": true,
+    "stale_session_action_no_write_rate": true,
+    "session_no_write_preserves_user_state_rate": true,
+    "session_boundary_trace_complete_rate": true,
+    "session_boundary_snapshot_hash_reproducible_rate": true,
+    "session_source_hashes_match_raw_rate": true,
+    "trace_safe_debug_refs_rate": true,
+    "conversation_claims_user_session_scoped_rate": true,
+    "runtime_redaction_policy_safe_under_session_rate": true,
+    "sample_artifacts_match_per_case_rate": true,
+    "report_consistency_with_independent_validation_rate": true,
+    "adversarial_detection_rate": true,
+    "v141_validation_replay_pass_rate": true
+  },
+  "local_user_fixtures": [
+    {
+      "local_user_fixture_id": "user_fixture_A",
+      "local_user_id": "local_user_A",
+      "fixture_persona": "office_daily_minimal",
+      "memory_namespace_id": "mem_ns_local_user_A",
+      "governance_namespace_id": "gov_ns_local_user_A",
+      "closet_namespace_id": "closet_ns_local_user_A",
+      "allowed_session_ids": [
+        "sess_A_001",
+        "sess_A_002"
+      ],
+      "source_v141_case_refs": [],
+      "trace_refs": [
+        "local_user_A",
+        "mem_ns_local_user_A",
+        "gov_ns_local_user_A"
+      ]
+    },
+    {
+      "local_user_fixture_id": "user_fixture_B",
+      "local_user_id": "local_user_B",
+      "fixture_persona": "office_daily_color",
+      "memory_namespace_id": "mem_ns_local_user_B",
+      "governance_namespace_id": "gov_ns_local_user_B",
+      "closet_namespace_id": "closet_ns_local_user_B",
+      "allowed_session_ids": [
+        "sess_B_001"
+      ],
+      "source_v141_case_refs": [],
+      "trace_refs": [
+        "local_user_B",
+        "mem_ns_local_user_B",
+        "gov_ns_local_user_B"
+      ]
+    }
+  ],
+  "local_session_envelope": {
+    "local_session_envelope_id": "session_env_sess_A_001",
+    "version": "v1.42",
+    "schema_version": "local_session_boundary.v1",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "session_state_version": 1,
+    "session_status": "expired",
+    "request_context": "office_daily",
+    "session_started_at": "2026-06-24T00:00:00Z",
+    "expires_at": "2026-06-24T02:00:00Z",
+    "trace_refs": [
+      "local_user_A",
+      "sess_A_001",
+      "session_state_v1"
+    ]
+  },
+  "user_state_namespace": {
+    "user_state_namespace_id": "state_ns_local_user_A_sess_A_001",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "memory_namespace_id": "mem_ns_local_user_A",
+    "governance_namespace_id": "gov_ns_local_user_A",
+    "closet_namespace_id": "closet_ns_local_user_A",
+    "action_namespace_id": "action_ns_sess_A_001",
+    "idempotency_namespace_id": "idem_ns_sess_A_001",
+    "snapshot_namespace_id": "snap_ns_sess_A_001",
+    "trace_refs": [
+      "local_user_A",
+      "sess_A_001",
+      "mem_ns_local_user_A",
+      "gov_ns_local_user_A"
+    ]
+  },
+  "session_scoped_runtime_invocation": {
+    "session_scoped_runtime_invocation_id": "ssri_v142_E05_session_expiry_does_not_mutate_memory_state",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "session_state_version": 1,
+    "route_handler_invocation_ref": "rhi_v141_D01_expired_action_handler_returns_expired_error_no_write",
+    "input_envelope": {
+      "api_request_id": "api_req_v140_D02_expired_action_submission_returns_expired_error_no_write",
+      "contract_version": "v1.40",
+      "schema_version": "product_api.v1",
+      "route": "POST /local/action-submission",
+      "method": "POST",
+      "request_context": "office_daily",
+      "query": {},
+      "body": {
+        "submitted_action": "this_time_only",
+        "user_action_card_id": "uac_v139_016"
+      },
+      "idempotency_key": "idem_v140_D02_expired_action_submission_returns_expired_error_no_write",
+      "trace_refs": [
+        "rt_v139_016",
+        "gas_v139_016"
+      ]
+    },
+    "user_state_namespace_ref": "state_ns_local_user_A_sess_A_001",
+    "idempotency_scope_key": "local_user_A:sess_A_001:POST /local/action-submission:uac_v139_016:idem_v140_D02_expired_action_submission_returns_expired_error_no_write",
+    "v141_callable_execution_ref": "hep_v141_D01_expired_action_handler_returns_expired_error_no_write",
+    "trace_refs": [
+      "local_user_A",
+      "sess_A_001",
+      "state_ns_local_user_A_sess_A_001",
+      "rhi_v141_D01_expired_action_handler_returns_expired_error_no_write"
+    ]
+  },
+  "session_scoped_route_handler_result": {
+    "session_scoped_route_handler_result_id": "ssrhr_v142_E05_session_expiry_does_not_mutate_memory_state",
+    "session_scoped_runtime_invocation_id": "ssri_v142_E05_session_expiry_does_not_mutate_memory_state",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "route_handler_result_ref": "rhr_v141_D01_expired_action_handler_returns_expired_error_no_write",
+    "output_envelope": {
+      "api_response_id": "api_res_v140_D02_expired_action_submission_returns_expired_error_no_write",
+      "api_request_id": "api_req_v140_D02_expired_action_submission_returns_expired_error_no_write",
+      "contract_version": "v1.40",
+      "schema_version": "product_api.v1",
+      "status_code": 409,
+      "response_type": "error",
+      "body": {
+        "contract_version": "v1.40",
+        "schema_version": "product_api.v1",
+        "safe_error": "That action expired and did not change memory.",
+        "action_result": {
+          "action_result_api_resource_id": "res_api_v140_D02_expired_action_submission_returns_expired_error_no_write",
+          "action_result_packet_id": "arp_v139_016",
+          "result_type": "expired_noop",
+          "production_write_executed": false,
+          "post_action_task_memory_packet_id": "tmp_post_action_v139_016",
+          "user_visible_response_block_ids": [
+            "urb_v139_016"
+          ],
+          "response_block_refs": [
+            "urb_v139_016"
+          ],
+          "governance_resolution_decision_id": null,
+          "trace_refs": [
+            "rt_v139_016",
+            "uas_v139_016",
+            "gqi_v139_016"
+          ]
+        }
+      },
+      "error": {
+        "error_id": "api_err_v140_D02_expired_action_submission_returns_expired_error_no_write",
+        "error_type": "expired_action",
+        "status_code": 409,
+        "safe_message": "That action expired and did not change memory.",
+        "developer_debug_ref": "trace:rt_v139_016",
+        "production_write_executed": false,
+        "trace_refs": [
+          "rt_v139_016",
+          "gas_v139_016"
+        ]
+      },
+      "trace_refs": [
+        "api_req_v140_D02_expired_action_submission_returns_expired_error_no_write",
+        "rt_v139_016",
+        "gas_v139_016"
+      ]
+    },
+    "response_type": "error",
+    "production_write_executed": false,
+    "trace_refs": [
+      "ssri_v142_E05_session_expiry_does_not_mutate_memory_state",
+      "rhr_v141_D01_expired_action_handler_returns_expired_error_no_write",
+      "local_user_A",
+      "sess_A_001"
+    ]
+  },
+  "session_scoped_idempotency_record": {
+    "session_scoped_idempotency_record_id": "idem_rec_v142_E05_session_expiry_does_not_mutate_memory_state",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "idempotency_key": "idem_v140_D02_expired_action_submission_returns_expired_error_no_write",
+    "idempotency_scope_key": "local_user_A:sess_A_001:POST /local/action-submission:uac_v139_016:idem_v140_D02_expired_action_submission_returns_expired_error_no_write",
+    "canonical_action_result_ref": "action_result_local_user_A_sess_A_001_37b070539924",
+    "duplicate_created_result": null,
+    "same_raw_key_other_scope_action_result_refs": [],
+    "trace_refs": [
+      "local_user_A",
+      "sess_A_001",
+      "local_user_A:sess_A_001:POST /local/action-submission:uac_v139_016:idem_v140_D02_expired_action_submission_returns_expired_error_no_write",
+      "action_result_local_user_A_sess_A_001_37b070539924"
+    ]
+  },
+  "session_scoped_action_result": {
+    "session_scoped_action_result_id": "ssar_v142_E05_session_expiry_does_not_mutate_memory_state",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "action_result_ref": "action_result_local_user_A_sess_A_001_37b070539924",
+    "source_v141_action_result_ref": "arp_v139_016",
+    "memory_state_ref": "mem_ns_local_user_A:state:v142_E05_session_expiry_does_not_mutate_memory_state",
+    "governance_ref": "gov_ns_local_user_A:decision:v142_E05_session_expiry_does_not_mutate_memory_state",
+    "idempotency_scope_key": "local_user_A:sess_A_001:POST /local/action-submission:uac_v139_016:idem_v140_D02_expired_action_submission_returns_expired_error_no_write",
+    "production_write_executed": false,
+    "trace_refs": [
+      "local_user_A",
+      "sess_A_001",
+      "action_ns_sess_A_001",
+      "action_result_local_user_A_sess_A_001_37b070539924"
+    ]
+  },
+  "session_scoped_memory_state_ref": {
+    "session_scoped_memory_state_ref_id": "mem_ref_v142_E05_session_expiry_does_not_mutate_memory_state",
+    "local_user_id": "local_user_A",
+    "memory_namespace_id": "mem_ns_local_user_A",
+    "before_state": {
+      "state_snapshot_id": "state_before_local_user_A",
+      "local_user_id": "local_user_A",
+      "memory_namespace_id": "mem_ns_local_user_A",
+      "facts": [
+        "office_daily"
+      ]
+    },
+    "after_state": {
+      "state_snapshot_id": "state_after_local_user_A",
+      "local_user_id": "local_user_A",
+      "memory_namespace_id": "mem_ns_local_user_A",
+      "facts": [
+        "office_daily"
+      ]
+    },
+    "trace_refs": [
+      "local_user_A",
+      "mem_ns_local_user_A"
+    ]
+  },
+  "session_scoped_governance_ref": {
+    "session_scoped_governance_ref_id": "gov_ref_v142_E05_session_expiry_does_not_mutate_memory_state",
+    "local_user_id": "local_user_A",
+    "governance_namespace_id": "gov_ns_local_user_A",
+    "source_v141_gate_ref": "block",
+    "trace_refs": [
+      "local_user_A",
+      "gov_ns_local_user_A"
+    ]
+  },
+  "session_boundary_trace": {
+    "session_boundary_trace_id": "sbt_v142_E05_session_expiry_does_not_mutate_memory_state",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "boundary_steps": [
+      {
+        "step_id": "boundary_001",
+        "operation": "resolve_user_namespace",
+        "input_ref": "local_user_A",
+        "output_ref": "state_ns_local_user_A_sess_A_001"
+      },
+      {
+        "step_id": "boundary_002",
+        "operation": "validate_session",
+        "input_ref": "sess_A_001",
+        "output_ref": "expired"
+      },
+      {
+        "step_id": "boundary_003",
+        "operation": "resolve_idempotency_scope",
+        "input_ref": "idem_v140_D02_expired_action_submission_returns_expired_error_no_write",
+        "output_ref": "local_user_A:sess_A_001:POST /local/action-submission:uac_v139_016:idem_v140_D02_expired_action_submission_returns_expired_error_no_write"
+      },
+      {
+        "step_id": "boundary_004",
+        "operation": "run_cross_user_leakage_audit",
+        "input_ref": "ssrhr_v142_E05_session_expiry_does_not_mutate_memory_state",
+        "output_ref": "cula_v142_E05_session_expiry_does_not_mutate_memory_state"
+      },
+      {
+        "step_id": "boundary_005",
+        "operation": "invoke_v141_callable_adapter",
+        "input_ref": "rhi_v141_D01_expired_action_handler_returns_expired_error_no_write",
+        "output_ref": "rhr_v141_D01_expired_action_handler_returns_expired_error_no_write"
+      }
+    ],
+    "cross_user_refs_observed": [],
+    "session_mismatch_refs_observed": [],
+    "trace_safe_debug_refs": [
+      "trace:v142:local_user_A:sess_A_001:v142_E05_session_expiry_does_not_mutate_memory_state"
+    ],
+    "v141_callable_execution_ref": "hep_v141_D01_expired_action_handler_returns_expired_error_no_write",
+    "trace_refs": [
+      "local_user_A",
+      "sess_A_001",
+      "state_ns_local_user_A_sess_A_001",
+      "cula_v142_E05_session_expiry_does_not_mutate_memory_state"
+    ]
+  },
+  "cross_user_leakage_audit": {
+    "cross_user_leakage_audit_id": "cula_v142_E05_session_expiry_does_not_mutate_memory_state",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "audited_artifact_refs": [
+      "output_envelope",
+      "session_action_result",
+      "idempotency_record",
+      "memory_ref",
+      "governance_ref",
+      "snapshot_refs",
+      "debug_ref"
+    ],
+    "foreign_user_refs_detected": [],
+    "foreign_session_refs_detected": [],
+    "foreign_namespace_refs_detected": [],
+    "passed": true,
+    "trace_refs": [
+      "local_user_A",
+      "sess_A_001",
+      "ssrhr_v142_E05_session_expiry_does_not_mutate_memory_state",
+      "ssar_v142_E05_session_expiry_does_not_mutate_memory_state"
+    ]
+  },
+  "session_boundary_snapshot": {
+    "session_boundary_snapshot_id": "sbs_v142_E05_session_expiry_does_not_mutate_memory_state",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "canonical_session_hash": "6cd6d8deb286351233948b9cd52eff9338d3fc7a3f064222fffe1aec26a36c32",
+    "canonical_invocation_hash": "1a4bd171c55407d04ab74a89189704f36abdd1021079214563fd5beb87648b73",
+    "canonical_output_hash": "374b4f321524fe74b538ff6a1e46abfeb8e8abf812c32d3d320587a747eab5c2",
+    "canonical_boundary_trace_hash": "f21239d0d7b91735848b585198857949307d7aa2811117cc9e4258af15a34178",
+    "source_artifact_hashes": {
+      "per_case/clean/v141_D01_expired_action_handler_returns_expired_error_no_write.json": "0140db9439648f216e3d0377a8e30e2beb501b1046b6a0c7e2347f7622951f3f",
+      "per_case/clean/v140_D02_expired_action_submission_returns_expired_error_no_write.json": "02943cd5456ebb0ccd4d5f0d7753f06f53ed685e71d9d2aec13896c0e708164f",
+      "per_case/clean/v139_D03_expired_action_submission_noop.json": "807e0866200d1ddc8f01a9625cbfb77667e69af6349af2785046e3a8225fa668"
+    },
+    "trace_refs": [
+      "local_user_A",
+      "sess_A_001",
+      "ssri_v142_E05_session_expiry_does_not_mutate_memory_state",
+      "ssrhr_v142_E05_session_expiry_does_not_mutate_memory_state",
+      "sbt_v142_E05_session_expiry_does_not_mutate_memory_state"
+    ]
+  },
+  "session_expiry_and_stale_action_proof": {
+    "session_expiry_and_stale_action_proof_id": "expiry_v142_E05_session_expiry_does_not_mutate_memory_state",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "session_status": "expired",
+    "accepted_action": false,
+    "response_type": "error",
+    "production_write_executed": false,
+    "no_write_required": true,
+    "trace_refs": [
+      "local_user_A",
+      "sess_A_001",
+      "ssrhr_v142_E05_session_expiry_does_not_mutate_memory_state"
+    ]
+  },
+  "trace_safe_debug_ref": {
+    "trace_safe_debug_ref_id": "debug_v142_E05_session_expiry_does_not_mutate_memory_state",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "debug_ref": "trace:v142:local_user_A:sess_A_001:v142_E05_session_expiry_does_not_mutate_memory_state",
+    "filesystem_path_exposed": false,
+    "foreign_user_or_session_exposed": false,
+    "trace_refs": [
+      "local_user_A",
+      "sess_A_001",
+      "v142_E05_session_expiry_does_not_mutate_memory_state"
+    ]
+  },
+  "conversation_turn_state": {
+    "conversation_turn_state_id": "cts_v140_D02_expired_action_submission_returns_expired_error_no_write",
+    "api_request_id": "api_req_v140_D02_expired_action_submission_returns_expired_error_no_write",
+    "api_response_id": "api_res_v140_D02_expired_action_submission_returns_expired_error_no_write",
+    "visible_response_block_ids": [],
+    "user_visible_claims": [],
+    "memory_change_claimed": false,
+    "production_write_executed": false,
+    "trace_refs": [
+      "api_res_v140_D02_expired_action_submission_returns_expired_error_no_write",
+      "rt_v139_016"
+    ]
+  },
+  "source_v141_artifact_ref": "per_case/clean/v141_D01_expired_action_handler_returns_expired_error_no_write.json",
+  "source_v141_artifact_hash": "0140db9439648f216e3d0377a8e30e2beb501b1046b6a0c7e2347f7622951f3f",
+  "source_v141_case_id": "v141_D01_expired_action_handler_returns_expired_error_no_write",
+  "source_v140_artifact_ref": "per_case/clean/v140_D02_expired_action_submission_returns_expired_error_no_write.json",
+  "source_v140_artifact_hash": "02943cd5456ebb0ccd4d5f0d7753f06f53ed685e71d9d2aec13896c0e708164f",
+  "source_v139_artifact_ref": "per_case/clean/v139_D03_expired_action_submission_noop.json",
+  "source_v139_artifact_hash": "807e0866200d1ddc8f01a9625cbfb77667e69af6349af2785046e3a8225fa668",
+  "v141_route_handler_invocation": {
+    "route_handler_invocation_id": "rhi_v141_D01_expired_action_handler_returns_expired_error_no_write",
+    "api_request_id": "api_req_v140_D02_expired_action_submission_returns_expired_error_no_write",
+    "route": "POST /local/action-submission",
+    "method": "POST",
+    "handler_name": "handle_post_action_submission",
+    "resolved_callable_name": "handle_post_action_submission",
+    "input_envelope": {
+      "api_request_id": "api_req_v140_D02_expired_action_submission_returns_expired_error_no_write",
+      "contract_version": "v1.40",
+      "schema_version": "product_api.v1",
+      "route": "POST /local/action-submission",
+      "method": "POST",
+      "request_context": "office_daily",
+      "query": {},
+      "body": {
+        "submitted_action": "this_time_only",
+        "user_action_card_id": "uac_v139_016"
+      },
+      "idempotency_key": "idem_v140_D02_expired_action_submission_returns_expired_error_no_write",
+      "trace_refs": [
+        "rt_v139_016",
+        "gas_v139_016"
+      ]
+    },
+    "runtime_context": {
+      "fixture_user_id": "local_user_001",
+      "request_context": "office_daily",
+      "source_case_id": "v140_D02_expired_action_submission_returns_expired_error_no_write",
+      "source_artifact_ref": "per_case/clean/v140_D02_expired_action_submission_returns_expired_error_no_write.json"
+    },
+    "idempotency_key": "idem_v140_D02_expired_action_submission_returns_expired_error_no_write",
+    "trace_refs": [
+      "pra_001",
+      "route_registry_001",
+      "v140_D02_expired_action_submission_returns_expired_error_no_write"
+    ]
+  },
+  "v141_route_handler_result": {
+    "route_handler_result_id": "rhr_v141_D01_expired_action_handler_returns_expired_error_no_write",
+    "route_handler_invocation_id": "rhi_v141_D01_expired_action_handler_returns_expired_error_no_write",
+    "api_response_id": "api_res_v140_D02_expired_action_submission_returns_expired_error_no_write",
+    "output_envelope": {
+      "api_response_id": "api_res_v140_D02_expired_action_submission_returns_expired_error_no_write",
+      "api_request_id": "api_req_v140_D02_expired_action_submission_returns_expired_error_no_write",
+      "contract_version": "v1.40",
+      "schema_version": "product_api.v1",
+      "status_code": 409,
+      "response_type": "error",
+      "body": {
+        "contract_version": "v1.40",
+        "schema_version": "product_api.v1",
+        "safe_error": "That action expired and did not change memory.",
+        "action_result": {
+          "action_result_api_resource_id": "res_api_v140_D02_expired_action_submission_returns_expired_error_no_write",
+          "action_result_packet_id": "arp_v139_016",
+          "result_type": "expired_noop",
+          "production_write_executed": false,
+          "post_action_task_memory_packet_id": "tmp_post_action_v139_016",
+          "user_visible_response_block_ids": [
+            "urb_v139_016"
+          ],
+          "response_block_refs": [
+            "urb_v139_016"
+          ],
+          "governance_resolution_decision_id": null,
+          "trace_refs": [
+            "rt_v139_016",
+            "uas_v139_016",
+            "gqi_v139_016"
+          ]
+        }
+      },
+      "error": {
+        "error_id": "api_err_v140_D02_expired_action_submission_returns_expired_error_no_write",
+        "error_type": "expired_action",
+        "status_code": 409,
+        "safe_message": "That action expired and did not change memory.",
+        "developer_debug_ref": "trace:rt_v139_016",
+        "production_write_executed": false,
+        "trace_refs": [
+          "rt_v139_016",
+          "gas_v139_016"
+        ]
+      },
+      "trace_refs": [
+        "api_req_v140_D02_expired_action_submission_returns_expired_error_no_write",
+        "rt_v139_016",
+        "gas_v139_016"
+      ]
+    },
+    "response_type": "error",
+    "status_code": 409,
+    "callable_handler_name": "handle_post_action_submission",
+    "handler_execution_proof_id": "hep_v141_D01_expired_action_handler_returns_expired_error_no_write",
+    "produced_by_callable": true,
+    "production_write_executed": false,
+    "trace_refs": [
+      "rhi_v141_D01_expired_action_handler_returns_expired_error_no_write",
+      "rhet_v141_D01_expired_action_handler_returns_expired_error_no_write",
+      "v140_D02_expired_action_submission_returns_expired_error_no_write"
+    ]
+  },
+  "v141_runtime_handler_execution_trace": {
+    "runtime_handler_execution_trace_id": "rhet_v141_D01_expired_action_handler_returns_expired_error_no_write",
+    "route_handler_invocation_id": "rhi_v141_D01_expired_action_handler_returns_expired_error_no_write",
+    "route_handler_result_id": "rhr_v141_D01_expired_action_handler_returns_expired_error_no_write",
+    "handler_name": "handle_post_action_submission",
+    "callable_execution_proof": {
+      "handler_execution_proof_id": "hep_v141_D01_expired_action_handler_returns_expired_error_no_write",
+      "handler_name": "handle_post_action_submission",
+      "callable_name": "handle_post_action_submission",
+      "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+      "callable_resolved": true,
+      "callable_invoked": true,
+      "input_envelope_hash": "92c8e3cca413700a1cebae52d0f4f9a46da2813e885f75587bd643ac66dfa9b5",
+      "output_envelope_hash": "32fbfffa66e7874dc3fabdc03d9fdbd09c5d61308dd5ae706f6439039096a6a7",
+      "handler_returned_route_handler_result_id": "rhr_v141_D01_expired_action_handler_returns_expired_error_no_write",
+      "route_specific_projection": {
+        "expected_route": "POST /local/action-submission",
+        "actual_route": "POST /local/action-submission",
+        "expected_response_type": "error",
+        "actual_response_type": "error",
+        "projected_body_fields": [
+          "action_result",
+          "safe_error"
+        ],
+        "source_case_id": "v140_D02_expired_action_submission_returns_expired_error_no_write",
+        "source_contract_snapshot_id": "cs_v140_D02_expired_action_submission_returns_expired_error_no_write"
+      },
+      "direct_source_output_copy": false
+    },
+    "dispatch_steps": [
+      {
+        "step_id": "dispatch_001",
+        "operation": "resolve_route",
+        "input_ref": "api_req_v140_D02_expired_action_submission_returns_expired_error_no_write",
+        "output_ref": "handle_post_action_submission"
+      },
+      {
+        "step_id": "dispatch_002",
+        "operation": "resolve_callable",
+        "input_ref": "handle_post_action_submission",
+        "output_ref": "benchmark.benchmark_v141.runtime.product_runtime_adapter.handle_post_action_submission"
+      },
+      {
+        "step_id": "dispatch_003",
+        "operation": "invoke_handler",
+        "input_ref": "rhi_v141_D01_expired_action_handler_returns_expired_error_no_write",
+        "output_ref": "rhr_v141_D01_expired_action_handler_returns_expired_error_no_write",
+        "callable_ref": "benchmark.benchmark_v141.runtime.product_runtime_adapter.handle_post_action_submission",
+        "handler_execution_proof_id": "hep_v141_D01_expired_action_handler_returns_expired_error_no_write"
+      },
+      {
+        "step_id": "dispatch_004",
+        "operation": "produce_response",
+        "input_ref": "v140_D02_expired_action_submission_returns_expired_error_no_write",
+        "output_ref": "api_res_v140_D02_expired_action_submission_returns_expired_error_no_write"
+      }
+    ],
+    "source_resolution_refs": [
+      "rsrp_v141_D01_expired_action_handler_returns_expired_error_no_write",
+      "per_case/clean/v140_D02_expired_action_submission_returns_expired_error_no_write.json"
+    ],
+    "contract_projection_refs": [
+      "api_req_v140_D02_expired_action_submission_returns_expired_error_no_write",
+      "api_res_v140_D02_expired_action_submission_returns_expired_error_no_write",
+      "cs_v140_D02_expired_action_submission_returns_expired_error_no_write"
+    ],
+    "safety_filter_refs": [
+      "handler_error_safety_proof",
+      "runtime_redaction_policy"
+    ],
+    "claim_trace_refs": [],
+    "trace_refs": [
+      "rhi_v141_D01_expired_action_handler_returns_expired_error_no_write",
+      "rhr_v141_D01_expired_action_handler_returns_expired_error_no_write",
+      "v140_D02_expired_action_submission_returns_expired_error_no_write"
+    ]
+  },
+  "policy_surface_audit": {
+    "no_raw_review_evidence_exposed": true,
+    "no_internal_debug_exposed": true,
+    "no_global_memory_claim": true,
+    "no_sensitive_or_commerce_or_aigc": true
+  },
+  "reviewer_checklist_refs": [],
+  "runner_reproducibility_proof": {},
+  "v141_replay_proof": {
+    "run_v141_validation_suite": "PASS"
+  }
+}

@@ -1,0 +1,676 @@
+{
+  "case_id": "v142_ADV_Q25_boundary_trace_missing_idempotency_scope_resolution",
+  "version": "v1.42",
+  "scenario_kind": "boundary_trace_missing_idempotency_scope_resolution",
+  "gate_assertions": {
+    "local_user_fixture_namespace_complete_rate": true,
+    "session_envelope_valid_rate": true,
+    "user_state_namespace_isolation_rate": true,
+    "session_scoped_invocation_matches_v141_adapter_rate": true,
+    "cross_user_leakage_absent_rate": true,
+    "idempotency_scope_is_user_session_bound_rate": true,
+    "same_scope_duplicate_reuses_result_rate": true,
+    "different_scope_duplicate_does_not_reuse_result_rate": true,
+    "expired_session_no_write_error_rate": true,
+    "stale_session_action_no_write_rate": true,
+    "session_no_write_preserves_user_state_rate": true,
+    "session_boundary_trace_complete_rate": true,
+    "session_boundary_snapshot_hash_reproducible_rate": true,
+    "session_source_hashes_match_raw_rate": true,
+    "trace_safe_debug_refs_rate": true,
+    "conversation_claims_user_session_scoped_rate": true,
+    "runtime_redaction_policy_safe_under_session_rate": true,
+    "sample_artifacts_match_per_case_rate": true,
+    "report_consistency_with_independent_validation_rate": true,
+    "adversarial_detection_rate": true,
+    "v141_validation_replay_pass_rate": true
+  },
+  "local_user_fixtures": [
+    {
+      "local_user_fixture_id": "user_fixture_A",
+      "local_user_id": "local_user_A",
+      "fixture_persona": "office_daily_minimal",
+      "memory_namespace_id": "mem_ns_local_user_A",
+      "governance_namespace_id": "gov_ns_local_user_A",
+      "closet_namespace_id": "closet_ns_local_user_A",
+      "allowed_session_ids": [
+        "sess_A_001",
+        "sess_A_002"
+      ],
+      "source_v141_case_refs": [],
+      "trace_refs": [
+        "local_user_A",
+        "mem_ns_local_user_A",
+        "gov_ns_local_user_A"
+      ]
+    },
+    {
+      "local_user_fixture_id": "user_fixture_B",
+      "local_user_id": "local_user_B",
+      "fixture_persona": "office_daily_color",
+      "memory_namespace_id": "mem_ns_local_user_B",
+      "governance_namespace_id": "gov_ns_local_user_B",
+      "closet_namespace_id": "closet_ns_local_user_B",
+      "allowed_session_ids": [
+        "sess_B_001"
+      ],
+      "source_v141_case_refs": [],
+      "trace_refs": [
+        "local_user_B",
+        "mem_ns_local_user_B",
+        "gov_ns_local_user_B"
+      ]
+    }
+  ],
+  "local_session_envelope": {
+    "local_session_envelope_id": "session_env_sess_A_001",
+    "version": "v1.42",
+    "schema_version": "local_session_boundary.v1",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "session_state_version": 1,
+    "session_status": "active",
+    "request_context": "office_daily",
+    "session_started_at": "2026-06-24T00:00:00Z",
+    "expires_at": "2026-06-24T02:00:00Z",
+    "trace_refs": [
+      "local_user_A",
+      "sess_A_001",
+      "session_state_v1"
+    ]
+  },
+  "user_state_namespace": {
+    "user_state_namespace_id": "state_ns_local_user_A_sess_A_001",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "memory_namespace_id": "mem_ns_local_user_A",
+    "governance_namespace_id": "gov_ns_local_user_A",
+    "closet_namespace_id": "closet_ns_local_user_A",
+    "action_namespace_id": "action_ns_sess_A_001",
+    "idempotency_namespace_id": "idem_ns_sess_A_001",
+    "snapshot_namespace_id": "snap_ns_sess_A_001",
+    "trace_refs": [
+      "local_user_A",
+      "sess_A_001",
+      "mem_ns_local_user_A",
+      "gov_ns_local_user_A"
+    ]
+  },
+  "session_scoped_runtime_invocation": {
+    "session_scoped_runtime_invocation_id": "ssri_v142_ADV_Q25_boundary_trace_missing_idempotency_scope_resolution",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "session_state_version": 1,
+    "route_handler_invocation_ref": "rhi_v141_C04_duplicate_submission_handler_is_idempotent",
+    "input_envelope": {
+      "api_request_id": "api_req_v140_C04_duplicate_submission_returns_idempotent_result",
+      "contract_version": "v1.40",
+      "schema_version": "product_api.v1",
+      "route": "POST /local/action-submission",
+      "method": "POST",
+      "request_context": "office_daily",
+      "query": {},
+      "body": {
+        "submitted_action": "this_time_only",
+        "user_action_card_id": "uac_v139_017"
+      },
+      "idempotency_key": "idem_v140_C04_duplicate_submission_returns_idempotent_result",
+      "trace_refs": [
+        "rt_v139_017",
+        "gas_v139_017"
+      ]
+    },
+    "user_state_namespace_ref": "state_ns_local_user_A_sess_A_001",
+    "idempotency_scope_key": "local_user_A:sess_A_001:POST /local/action-submission:uac_v139_017:idem_v140_C04_duplicate_submission_returns_idempotent_result",
+    "v141_callable_execution_ref": "hep_v141_C04_duplicate_submission_handler_is_idempotent",
+    "trace_refs": [
+      "local_user_A",
+      "sess_A_001",
+      "state_ns_local_user_A_sess_A_001",
+      "rhi_v141_C04_duplicate_submission_handler_is_idempotent"
+    ]
+  },
+  "session_scoped_route_handler_result": {
+    "session_scoped_route_handler_result_id": "ssrhr_v142_ADV_Q25_boundary_trace_missing_idempotency_scope_resolution",
+    "session_scoped_runtime_invocation_id": "ssri_v142_ADV_Q25_boundary_trace_missing_idempotency_scope_resolution",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "route_handler_result_ref": "rhr_v141_C04_duplicate_submission_handler_is_idempotent",
+    "output_envelope": {
+      "api_response_id": "api_res_v140_C04_duplicate_submission_returns_idempotent_result",
+      "api_request_id": "api_req_v140_C04_duplicate_submission_returns_idempotent_result",
+      "contract_version": "v1.40",
+      "schema_version": "product_api.v1",
+      "status_code": 200,
+      "response_type": "action_submission_result",
+      "body": {
+        "contract_version": "v1.40",
+        "schema_version": "product_api.v1",
+        "action_submission": {
+          "action_submission_api_resource_id": "sub_api_v140_C04_duplicate_submission_returns_idempotent_result",
+          "accepted": true,
+          "submitted_action": "this_time_only",
+          "idempotency_key": "idem_v140_C04_duplicate_submission_returns_idempotent_result",
+          "user_action_card_id": "uac_v139_017",
+          "governance_queue_item_id": "gqi_v139_017",
+          "allowed_actions_at_submission": [
+            "this_time_only",
+            "do_not_change_memory",
+            "remember_for_context"
+          ],
+          "card_display_state_at_submission": "resolved",
+          "production_write_executed": false,
+          "trace_refs": [
+            "rt_v139_017",
+            "uac_v139_017",
+            "gqi_v139_017"
+          ]
+        },
+        "action_result": {
+          "action_result_api_resource_id": "res_api_v140_C04_duplicate_submission_returns_idempotent_result",
+          "action_result_packet_id": "arp_v139_017",
+          "result_type": "duplicate_ignored",
+          "production_write_executed": false,
+          "post_action_task_memory_packet_id": "tmp_post_action_v139_017",
+          "user_visible_response_block_ids": [
+            "urb_v139_017"
+          ],
+          "response_block_refs": [
+            "urb_v139_017"
+          ],
+          "governance_resolution_decision_id": "grd_v139_017",
+          "trace_refs": [
+            "rt_v139_017",
+            "uas_v139_017",
+            "grd_v139_017"
+          ]
+        },
+        "response_blocks": [
+          {
+            "response_block_id": "urb_v139_017",
+            "block_type": "action_result_notice",
+            "text": "I already handled that action once.",
+            "claim_refs": [
+              "claim_v139_017"
+            ],
+            "trace_refs": [
+              "rt_v139_017",
+              "arp_v139_017",
+              "grd_v139_017"
+            ]
+          }
+        ],
+        "idempotency": {
+          "duplicate_created_result": false,
+          "canonical_action_result_packet_id": "arp_v139_017",
+          "trace_refs": [
+            "idem_v140_C04_duplicate_submission_returns_idempotent_result",
+            "arp_v139_017"
+          ]
+        }
+      },
+      "error": null,
+      "trace_refs": [
+        "api_req_v140_C04_duplicate_submission_returns_idempotent_result",
+        "rt_v139_017",
+        "gas_v139_017"
+      ]
+    },
+    "response_type": "action_submission_result",
+    "production_write_executed": false,
+    "trace_refs": [
+      "ssri_v142_ADV_Q25_boundary_trace_missing_idempotency_scope_resolution",
+      "rhr_v141_C04_duplicate_submission_handler_is_idempotent",
+      "local_user_A",
+      "sess_A_001"
+    ]
+  },
+  "session_scoped_idempotency_record": {
+    "session_scoped_idempotency_record_id": "idem_rec_v142_ADV_Q25_boundary_trace_missing_idempotency_scope_resolution",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "idempotency_key": "idem_v140_C04_duplicate_submission_returns_idempotent_result",
+    "idempotency_scope_key": "local_user_A:sess_A_001:POST /local/action-submission:uac_v139_017:idem_v140_C04_duplicate_submission_returns_idempotent_result",
+    "canonical_action_result_ref": "action_result_local_user_A_sess_A_001_2cf14fa9697d",
+    "duplicate_created_result": false,
+    "same_raw_key_other_scope_action_result_refs": [],
+    "trace_refs": [
+      "local_user_A",
+      "sess_A_001",
+      "local_user_A:sess_A_001:POST /local/action-submission:uac_v139_017:idem_v140_C04_duplicate_submission_returns_idempotent_result",
+      "action_result_local_user_A_sess_A_001_2cf14fa9697d"
+    ]
+  },
+  "session_scoped_action_result": {
+    "session_scoped_action_result_id": "ssar_v142_ADV_Q25_boundary_trace_missing_idempotency_scope_resolution",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "action_result_ref": "action_result_local_user_A_sess_A_001_2cf14fa9697d",
+    "source_v141_action_result_ref": "arp_v139_017",
+    "memory_state_ref": "mem_ns_local_user_A:state:v142_ADV_Q25_boundary_trace_missing_idempotency_scope_resolution",
+    "governance_ref": "gov_ns_local_user_A:decision:v142_ADV_Q25_boundary_trace_missing_idempotency_scope_resolution",
+    "idempotency_scope_key": "local_user_A:sess_A_001:POST /local/action-submission:uac_v139_017:idem_v140_C04_duplicate_submission_returns_idempotent_result",
+    "production_write_executed": false,
+    "trace_refs": [
+      "local_user_A",
+      "sess_A_001",
+      "action_ns_sess_A_001",
+      "action_result_local_user_A_sess_A_001_2cf14fa9697d"
+    ]
+  },
+  "session_scoped_memory_state_ref": {
+    "session_scoped_memory_state_ref_id": "mem_ref_v142_ADV_Q25_boundary_trace_missing_idempotency_scope_resolution",
+    "local_user_id": "local_user_A",
+    "memory_namespace_id": "mem_ns_local_user_A",
+    "before_state": {
+      "state_snapshot_id": "state_before_local_user_A",
+      "local_user_id": "local_user_A",
+      "memory_namespace_id": "mem_ns_local_user_A",
+      "facts": [
+        "office_daily"
+      ]
+    },
+    "after_state": {
+      "state_snapshot_id": "state_after_local_user_A",
+      "local_user_id": "local_user_A",
+      "memory_namespace_id": "mem_ns_local_user_A",
+      "facts": [
+        "office_daily"
+      ]
+    },
+    "trace_refs": [
+      "local_user_A",
+      "mem_ns_local_user_A"
+    ]
+  },
+  "session_scoped_governance_ref": {
+    "session_scoped_governance_ref_id": "gov_ref_v142_ADV_Q25_boundary_trace_missing_idempotency_scope_resolution",
+    "local_user_id": "local_user_A",
+    "governance_namespace_id": "gov_ns_local_user_A",
+    "source_v141_gate_ref": "block",
+    "trace_refs": [
+      "local_user_A",
+      "gov_ns_local_user_A"
+    ]
+  },
+  "session_boundary_trace": {
+    "session_boundary_trace_id": "sbt_v142_ADV_Q25_boundary_trace_missing_idempotency_scope_resolution",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "boundary_steps": [
+      {
+        "step_id": "boundary_001",
+        "operation": "resolve_user_namespace",
+        "input_ref": "local_user_A",
+        "output_ref": "state_ns_local_user_A_sess_A_001"
+      },
+      {
+        "step_id": "boundary_002",
+        "operation": "validate_session",
+        "input_ref": "sess_A_001",
+        "output_ref": "active"
+      },
+      {
+        "step_id": "boundary_004",
+        "operation": "run_cross_user_leakage_audit",
+        "input_ref": "ssrhr_v142_ADV_Q25_boundary_trace_missing_idempotency_scope_resolution",
+        "output_ref": "cula_v142_ADV_Q25_boundary_trace_missing_idempotency_scope_resolution"
+      },
+      {
+        "step_id": "boundary_005",
+        "operation": "invoke_v141_callable_adapter",
+        "input_ref": "rhi_v141_C04_duplicate_submission_handler_is_idempotent",
+        "output_ref": "rhr_v141_C04_duplicate_submission_handler_is_idempotent"
+      }
+    ],
+    "cross_user_refs_observed": [],
+    "session_mismatch_refs_observed": [],
+    "trace_safe_debug_refs": [
+      "trace:v142:local_user_A:sess_A_001:v142_ADV_Q25_boundary_trace_missing_idempotency_scope_resolution"
+    ],
+    "v141_callable_execution_ref": "hep_v141_C04_duplicate_submission_handler_is_idempotent",
+    "trace_refs": [
+      "local_user_A",
+      "sess_A_001",
+      "state_ns_local_user_A_sess_A_001",
+      "cula_v142_ADV_Q25_boundary_trace_missing_idempotency_scope_resolution"
+    ]
+  },
+  "cross_user_leakage_audit": {
+    "cross_user_leakage_audit_id": "cula_v142_ADV_Q25_boundary_trace_missing_idempotency_scope_resolution",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "audited_artifact_refs": [
+      "output_envelope",
+      "session_action_result",
+      "idempotency_record",
+      "memory_ref",
+      "governance_ref",
+      "snapshot_refs",
+      "debug_ref"
+    ],
+    "foreign_user_refs_detected": [],
+    "foreign_session_refs_detected": [],
+    "foreign_namespace_refs_detected": [],
+    "passed": true,
+    "trace_refs": [
+      "local_user_A",
+      "sess_A_001",
+      "ssrhr_v142_ADV_Q25_boundary_trace_missing_idempotency_scope_resolution",
+      "ssar_v142_ADV_Q25_boundary_trace_missing_idempotency_scope_resolution"
+    ]
+  },
+  "session_boundary_snapshot": {
+    "session_boundary_snapshot_id": "sbs_v142_ADV_Q25_boundary_trace_missing_idempotency_scope_resolution",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "canonical_session_hash": "71e3d2a7f61e117945e1f179d159bbdc7ea07956d753993ff55667b572ab1314",
+    "canonical_invocation_hash": "62c6275287add231d5313c20919cf5d58cbf8574fef42558f26a88789c341f40",
+    "canonical_output_hash": "2857f20bf5adce578dcd552f514a7c7748720d164ce9f9e8f4938394170c2ae9",
+    "canonical_boundary_trace_hash": "a6d47fa5e55f843e87f02ea92aab00c95c4729e389000e02a33f8e257a705b26",
+    "source_artifact_hashes": {
+      "per_case/clean/v141_C04_duplicate_submission_handler_is_idempotent.json": "7d24ea54d17f46619234db53904073799fabb35ebe5e4a9ce852ae7e26b7e198",
+      "per_case/clean/v140_C04_duplicate_submission_returns_idempotent_result.json": "34af449266348748c3d6eefc0ae62923882c534149408717e21d54f50a2279c5",
+      "per_case/clean/v139_D04_duplicate_action_submission_idempotent.json": "94cfea6b2027318cab7698660dd4b6d4b26f79eccd0a4aeeb00de937e1876bec"
+    },
+    "trace_refs": [
+      "local_user_A",
+      "sess_A_001",
+      "ssri_v142_ADV_Q25_boundary_trace_missing_idempotency_scope_resolution",
+      "ssrhr_v142_ADV_Q25_boundary_trace_missing_idempotency_scope_resolution",
+      "sbt_v142_ADV_Q25_boundary_trace_missing_idempotency_scope_resolution"
+    ]
+  },
+  "session_expiry_and_stale_action_proof": {
+    "session_expiry_and_stale_action_proof_id": "expiry_v142_ADV_Q25_boundary_trace_missing_idempotency_scope_resolution",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "session_status": "active",
+    "accepted_action": true,
+    "response_type": "action_submission_result",
+    "production_write_executed": false,
+    "no_write_required": false,
+    "trace_refs": [
+      "local_user_A",
+      "sess_A_001",
+      "ssrhr_v142_ADV_Q25_boundary_trace_missing_idempotency_scope_resolution"
+    ]
+  },
+  "trace_safe_debug_ref": {
+    "trace_safe_debug_ref_id": "debug_v142_ADV_Q25_boundary_trace_missing_idempotency_scope_resolution",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "debug_ref": "trace:v142:local_user_A:sess_A_001:v142_ADV_Q25_boundary_trace_missing_idempotency_scope_resolution",
+    "filesystem_path_exposed": false,
+    "foreign_user_or_session_exposed": false,
+    "trace_refs": [
+      "local_user_A",
+      "sess_A_001",
+      "v142_ADV_Q25_boundary_trace_missing_idempotency_scope_resolution"
+    ]
+  },
+  "conversation_turn_state": {
+    "conversation_turn_state_id": "cts_v140_C04_duplicate_submission_returns_idempotent_result",
+    "api_request_id": "api_req_v140_C04_duplicate_submission_returns_idempotent_result",
+    "api_response_id": "api_res_v140_C04_duplicate_submission_returns_idempotent_result",
+    "visible_response_block_ids": [
+      "urb_v139_017"
+    ],
+    "user_visible_claims": [
+      {
+        "claim_id": "api_claim_urb_v139_017",
+        "text": "I already handled that action once.",
+        "trace_refs": [
+          "api_res_v140_C04_duplicate_submission_returns_idempotent_result",
+          "urb_v139_017",
+          "arp_v139_017",
+          "grd_v139_017"
+        ]
+      }
+    ],
+    "memory_change_claimed": false,
+    "production_write_executed": false,
+    "trace_refs": [
+      "api_res_v140_C04_duplicate_submission_returns_idempotent_result",
+      "rt_v139_017"
+    ]
+  },
+  "source_v141_artifact_ref": "per_case/clean/v141_C04_duplicate_submission_handler_is_idempotent.json",
+  "source_v141_artifact_hash": "7d24ea54d17f46619234db53904073799fabb35ebe5e4a9ce852ae7e26b7e198",
+  "source_v141_case_id": "v141_C04_duplicate_submission_handler_is_idempotent",
+  "source_v140_artifact_ref": "per_case/clean/v140_C04_duplicate_submission_returns_idempotent_result.json",
+  "source_v140_artifact_hash": "34af449266348748c3d6eefc0ae62923882c534149408717e21d54f50a2279c5",
+  "source_v139_artifact_ref": "per_case/clean/v139_D04_duplicate_action_submission_idempotent.json",
+  "source_v139_artifact_hash": "94cfea6b2027318cab7698660dd4b6d4b26f79eccd0a4aeeb00de937e1876bec",
+  "v141_route_handler_invocation": {
+    "route_handler_invocation_id": "rhi_v141_C04_duplicate_submission_handler_is_idempotent",
+    "api_request_id": "api_req_v140_C04_duplicate_submission_returns_idempotent_result",
+    "route": "POST /local/action-submission",
+    "method": "POST",
+    "handler_name": "handle_post_action_submission",
+    "resolved_callable_name": "handle_post_action_submission",
+    "input_envelope": {
+      "api_request_id": "api_req_v140_C04_duplicate_submission_returns_idempotent_result",
+      "contract_version": "v1.40",
+      "schema_version": "product_api.v1",
+      "route": "POST /local/action-submission",
+      "method": "POST",
+      "request_context": "office_daily",
+      "query": {},
+      "body": {
+        "submitted_action": "this_time_only",
+        "user_action_card_id": "uac_v139_017"
+      },
+      "idempotency_key": "idem_v140_C04_duplicate_submission_returns_idempotent_result",
+      "trace_refs": [
+        "rt_v139_017",
+        "gas_v139_017"
+      ]
+    },
+    "runtime_context": {
+      "fixture_user_id": "local_user_001",
+      "request_context": "office_daily",
+      "source_case_id": "v140_C04_duplicate_submission_returns_idempotent_result",
+      "source_artifact_ref": "per_case/clean/v140_C04_duplicate_submission_returns_idempotent_result.json"
+    },
+    "idempotency_key": "idem_v140_C04_duplicate_submission_returns_idempotent_result",
+    "trace_refs": [
+      "pra_001",
+      "route_registry_001",
+      "v140_C04_duplicate_submission_returns_idempotent_result"
+    ]
+  },
+  "v141_route_handler_result": {
+    "route_handler_result_id": "rhr_v141_C04_duplicate_submission_handler_is_idempotent",
+    "route_handler_invocation_id": "rhi_v141_C04_duplicate_submission_handler_is_idempotent",
+    "api_response_id": "api_res_v140_C04_duplicate_submission_returns_idempotent_result",
+    "output_envelope": {
+      "api_response_id": "api_res_v140_C04_duplicate_submission_returns_idempotent_result",
+      "api_request_id": "api_req_v140_C04_duplicate_submission_returns_idempotent_result",
+      "contract_version": "v1.40",
+      "schema_version": "product_api.v1",
+      "status_code": 200,
+      "response_type": "action_submission_result",
+      "body": {
+        "contract_version": "v1.40",
+        "schema_version": "product_api.v1",
+        "action_submission": {
+          "action_submission_api_resource_id": "sub_api_v140_C04_duplicate_submission_returns_idempotent_result",
+          "accepted": true,
+          "submitted_action": "this_time_only",
+          "idempotency_key": "idem_v140_C04_duplicate_submission_returns_idempotent_result",
+          "user_action_card_id": "uac_v139_017",
+          "governance_queue_item_id": "gqi_v139_017",
+          "allowed_actions_at_submission": [
+            "this_time_only",
+            "do_not_change_memory",
+            "remember_for_context"
+          ],
+          "card_display_state_at_submission": "resolved",
+          "production_write_executed": false,
+          "trace_refs": [
+            "rt_v139_017",
+            "uac_v139_017",
+            "gqi_v139_017"
+          ]
+        },
+        "action_result": {
+          "action_result_api_resource_id": "res_api_v140_C04_duplicate_submission_returns_idempotent_result",
+          "action_result_packet_id": "arp_v139_017",
+          "result_type": "duplicate_ignored",
+          "production_write_executed": false,
+          "post_action_task_memory_packet_id": "tmp_post_action_v139_017",
+          "user_visible_response_block_ids": [
+            "urb_v139_017"
+          ],
+          "response_block_refs": [
+            "urb_v139_017"
+          ],
+          "governance_resolution_decision_id": "grd_v139_017",
+          "trace_refs": [
+            "rt_v139_017",
+            "uas_v139_017",
+            "grd_v139_017"
+          ]
+        },
+        "response_blocks": [
+          {
+            "response_block_id": "urb_v139_017",
+            "block_type": "action_result_notice",
+            "text": "I already handled that action once.",
+            "claim_refs": [
+              "claim_v139_017"
+            ],
+            "trace_refs": [
+              "rt_v139_017",
+              "arp_v139_017",
+              "grd_v139_017"
+            ]
+          }
+        ],
+        "idempotency": {
+          "duplicate_created_result": false,
+          "canonical_action_result_packet_id": "arp_v139_017",
+          "trace_refs": [
+            "idem_v140_C04_duplicate_submission_returns_idempotent_result",
+            "arp_v139_017"
+          ]
+        }
+      },
+      "error": null,
+      "trace_refs": [
+        "api_req_v140_C04_duplicate_submission_returns_idempotent_result",
+        "rt_v139_017",
+        "gas_v139_017"
+      ]
+    },
+    "response_type": "action_submission_result",
+    "status_code": 200,
+    "callable_handler_name": "handle_post_action_submission",
+    "handler_execution_proof_id": "hep_v141_C04_duplicate_submission_handler_is_idempotent",
+    "produced_by_callable": true,
+    "production_write_executed": false,
+    "trace_refs": [
+      "rhi_v141_C04_duplicate_submission_handler_is_idempotent",
+      "rhet_v141_C04_duplicate_submission_handler_is_idempotent",
+      "v140_C04_duplicate_submission_returns_idempotent_result"
+    ]
+  },
+  "v141_runtime_handler_execution_trace": {
+    "runtime_handler_execution_trace_id": "rhet_v141_C04_duplicate_submission_handler_is_idempotent",
+    "route_handler_invocation_id": "rhi_v141_C04_duplicate_submission_handler_is_idempotent",
+    "route_handler_result_id": "rhr_v141_C04_duplicate_submission_handler_is_idempotent",
+    "handler_name": "handle_post_action_submission",
+    "callable_execution_proof": {
+      "handler_execution_proof_id": "hep_v141_C04_duplicate_submission_handler_is_idempotent",
+      "handler_name": "handle_post_action_submission",
+      "callable_name": "handle_post_action_submission",
+      "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+      "callable_resolved": true,
+      "callable_invoked": true,
+      "input_envelope_hash": "fb87fd6dad946a80bfebaed3a484b6eec38b328e127376e575d1284b6bf274a4",
+      "output_envelope_hash": "73e464dfc3c1c3becbd080df8c21931ab274878016c3b6360ea857ac278cafcd",
+      "handler_returned_route_handler_result_id": "rhr_v141_C04_duplicate_submission_handler_is_idempotent",
+      "route_specific_projection": {
+        "expected_route": "POST /local/action-submission",
+        "actual_route": "POST /local/action-submission",
+        "expected_response_type": "action_submission_result",
+        "actual_response_type": "action_submission_result",
+        "projected_body_fields": [
+          "action_result",
+          "action_submission",
+          "idempotency",
+          "response_blocks"
+        ],
+        "source_case_id": "v140_C04_duplicate_submission_returns_idempotent_result",
+        "source_contract_snapshot_id": "cs_v140_C04_duplicate_submission_returns_idempotent_result"
+      },
+      "direct_source_output_copy": false
+    },
+    "dispatch_steps": [
+      {
+        "step_id": "dispatch_001",
+        "operation": "resolve_route",
+        "input_ref": "api_req_v140_C04_duplicate_submission_returns_idempotent_result",
+        "output_ref": "handle_post_action_submission"
+      },
+      {
+        "step_id": "dispatch_002",
+        "operation": "resolve_callable",
+        "input_ref": "handle_post_action_submission",
+        "output_ref": "benchmark.benchmark_v141.runtime.product_runtime_adapter.handle_post_action_submission"
+      },
+      {
+        "step_id": "dispatch_003",
+        "operation": "invoke_handler",
+        "input_ref": "rhi_v141_C04_duplicate_submission_handler_is_idempotent",
+        "output_ref": "rhr_v141_C04_duplicate_submission_handler_is_idempotent",
+        "callable_ref": "benchmark.benchmark_v141.runtime.product_runtime_adapter.handle_post_action_submission",
+        "handler_execution_proof_id": "hep_v141_C04_duplicate_submission_handler_is_idempotent"
+      },
+      {
+        "step_id": "dispatch_004",
+        "operation": "produce_response",
+        "input_ref": "v140_C04_duplicate_submission_returns_idempotent_result",
+        "output_ref": "api_res_v140_C04_duplicate_submission_returns_idempotent_result"
+      }
+    ],
+    "source_resolution_refs": [
+      "rsrp_v141_C04_duplicate_submission_handler_is_idempotent",
+      "per_case/clean/v140_C04_duplicate_submission_returns_idempotent_result.json"
+    ],
+    "contract_projection_refs": [
+      "api_req_v140_C04_duplicate_submission_returns_idempotent_result",
+      "api_res_v140_C04_duplicate_submission_returns_idempotent_result",
+      "cs_v140_C04_duplicate_submission_returns_idempotent_result"
+    ],
+    "safety_filter_refs": [
+      "handler_error_safety_proof",
+      "runtime_redaction_policy"
+    ],
+    "claim_trace_refs": [
+      "api_claim_urb_v139_017"
+    ],
+    "trace_refs": [
+      "rhi_v141_C04_duplicate_submission_handler_is_idempotent",
+      "rhr_v141_C04_duplicate_submission_handler_is_idempotent",
+      "v140_C04_duplicate_submission_returns_idempotent_result"
+    ]
+  },
+  "policy_surface_audit": {
+    "no_raw_review_evidence_exposed": true,
+    "no_internal_debug_exposed": true,
+    "no_global_memory_claim": true,
+    "no_sensitive_or_commerce_or_aigc": true
+  },
+  "reviewer_checklist_refs": [],
+  "runner_reproducibility_proof": {},
+  "v141_replay_proof": {
+    "run_v141_validation_suite": "PASS"
+  },
+  "defect_type": "boundary_trace_missing_idempotency_scope_resolution",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "session_boundary_trace_complete_rate"
+  ]
+}

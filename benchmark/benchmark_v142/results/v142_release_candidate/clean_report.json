@@ -1,0 +1,432 @@
+{
+  "benchmark_id": "v1.42.local_session_user_state_boundary",
+  "schema_version": "v1.42",
+  "generated_at": "2026-06-24T10:56:44Z",
+  "verdicts": {
+    "clean_acceptance_verdict": "pass",
+    "release_candidate_verdict": "pass_candidate"
+  },
+  "suite_summary": {
+    "total_cases": 44,
+    "passed_cases": 44,
+    "failed_cases": 0,
+    "total_checks": 21,
+    "passed_checks": 21,
+    "failed_checks": 0
+  },
+  "checks": [
+    {
+      "check_id": "local_user_fixture_namespace_complete_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "session_envelope_valid_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "user_state_namespace_isolation_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "session_scoped_invocation_matches_v141_adapter_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "cross_user_leakage_absent_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "idempotency_scope_is_user_session_bound_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "same_scope_duplicate_reuses_result_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "different_scope_duplicate_does_not_reuse_result_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "expired_session_no_write_error_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "stale_session_action_no_write_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "session_no_write_preserves_user_state_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "session_boundary_trace_complete_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "session_boundary_snapshot_hash_reproducible_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "session_source_hashes_match_raw_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "trace_safe_debug_refs_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "conversation_claims_user_session_scoped_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "runtime_redaction_policy_safe_under_session_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "sample_artifacts_match_per_case_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "report_consistency_with_independent_validation_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "adversarial_detection_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "v141_validation_replay_pass_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    }
+  ],
+  "case_results": [
+    {
+      "case_id": "v142_A01_two_local_users_have_distinct_namespaces",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_A01_two_local_users_have_distinct_namespaces.json"
+    },
+    {
+      "case_id": "v142_A02_session_envelope_binds_to_exactly_one_user",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_A02_session_envelope_binds_to_exactly_one_user.json"
+    },
+    {
+      "case_id": "v142_A03_user_state_namespace_is_user_and_session_scoped",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_A03_user_state_namespace_is_user_and_session_scoped.json"
+    },
+    {
+      "case_id": "v142_A04_adapter_invocation_preserves_user_session_scope",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_A04_adapter_invocation_preserves_user_session_scope.json"
+    },
+    {
+      "case_id": "v142_A05_trace_safe_debug_refs_are_session_scoped",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_A05_trace_safe_debug_refs_are_session_scoped.json"
+    },
+    {
+      "case_id": "v142_B01_user_A_get_daily_outfit_does_not_include_user_B_refs",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_B01_user_A_get_daily_outfit_does_not_include_user_B_refs.json"
+    },
+    {
+      "case_id": "v142_B02_user_A_get_action_surface_does_not_include_user_B_refs",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_B02_user_A_get_action_surface_does_not_include_user_B_refs.json"
+    },
+    {
+      "case_id": "v142_B03_user_A_get_action_result_does_not_include_user_B_refs",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_B03_user_A_get_action_result_does_not_include_user_B_refs.json"
+    },
+    {
+      "case_id": "v142_B04_user_B_get_action_surface_does_not_include_user_A_refs",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_B04_user_B_get_action_surface_does_not_include_user_A_refs.json"
+    },
+    {
+      "case_id": "v142_B05_cross_user_leakage_audit_scans_output_and_refs",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_B05_cross_user_leakage_audit_scans_output_and_refs.json"
+    },
+    {
+      "case_id": "v142_C01_user_A_this_time_only_no_write_is_session_scoped",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_C01_user_A_this_time_only_no_write_is_session_scoped.json"
+    },
+    {
+      "case_id": "v142_C02_user_A_do_not_change_memory_no_write_is_session_scoped",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_C02_user_A_do_not_change_memory_no_write_is_session_scoped.json"
+    },
+    {
+      "case_id": "v142_C03_user_A_remember_for_context_write_gate_is_user_scoped",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_C03_user_A_remember_for_context_write_gate_is_user_scoped.json"
+    },
+    {
+      "case_id": "v142_C04_user_B_remember_for_context_does_not_use_user_A_gate",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_C04_user_B_remember_for_context_does_not_use_user_A_gate.json"
+    },
+    {
+      "case_id": "v142_C05_no_write_error_preserves_only_current_user_state",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_C05_no_write_error_preserves_only_current_user_state.json"
+    },
+    {
+      "case_id": "v142_D01_same_user_same_session_duplicate_reuses_canonical_result",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_D01_same_user_same_session_duplicate_reuses_canonical_result.json"
+    },
+    {
+      "case_id": "v142_D02_same_user_different_session_same_key_does_not_reuse_result",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_D02_same_user_different_session_same_key_does_not_reuse_result.json"
+    },
+    {
+      "case_id": "v142_D03_different_user_same_key_does_not_reuse_result",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_D03_different_user_same_key_does_not_reuse_result.json"
+    },
+    {
+      "case_id": "v142_D04_idempotency_scope_key_contains_user_session_route_card_key",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_D04_idempotency_scope_key_contains_user_session_route_card_key.json"
+    },
+    {
+      "case_id": "v142_D05_duplicate_result_trace_refs_stay_in_session_namespace",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_D05_duplicate_result_trace_refs_stay_in_session_namespace.json"
+    },
+    {
+      "case_id": "v142_E01_expired_session_rejects_action_no_write",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_E01_expired_session_rejects_action_no_write.json"
+    },
+    {
+      "case_id": "v142_E02_advanced_session_state_suppresses_stale_action",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_E02_advanced_session_state_suppresses_stale_action.json"
+    },
+    {
+      "case_id": "v142_E03_expired_session_error_is_safe_and_trace_backed",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_E03_expired_session_error_is_safe_and_trace_backed.json"
+    },
+    {
+      "case_id": "v142_E04_stale_action_error_does_not_leak_prior_session_refs",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_E04_stale_action_error_does_not_leak_prior_session_refs.json"
+    },
+    {
+      "case_id": "v142_E05_session_expiry_does_not_mutate_memory_state",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_E05_session_expiry_does_not_mutate_memory_state.json"
+    },
+    {
+      "case_id": "v142_F01_session_boundary_trace_records_user_namespace_resolution",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_F01_session_boundary_trace_records_user_namespace_resolution.json"
+    },
+    {
+      "case_id": "v142_F02_session_boundary_trace_records_session_validation",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_F02_session_boundary_trace_records_session_validation.json"
+    },
+    {
+      "case_id": "v142_F03_session_boundary_trace_records_idempotency_scope_resolution",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_F03_session_boundary_trace_records_idempotency_scope_resolution.json"
+    },
+    {
+      "case_id": "v142_F04_session_boundary_trace_records_cross_user_audit",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_F04_session_boundary_trace_records_cross_user_audit.json"
+    },
+    {
+      "case_id": "v142_F05_session_boundary_snapshot_hashes_reproducible",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_F05_session_boundary_snapshot_hashes_reproducible.json"
+    },
+    {
+      "case_id": "v142_F06_source_artifact_hashes_match_raw_v141",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_F06_source_artifact_hashes_match_raw_v141.json"
+    },
+    {
+      "case_id": "v142_G01_conversation_claims_remain_user_scoped",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_G01_conversation_claims_remain_user_scoped.json"
+    },
+    {
+      "case_id": "v142_G02_visible_response_block_ids_remain_session_scoped",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_G02_visible_response_block_ids_remain_session_scoped.json"
+    },
+    {
+      "case_id": "v142_G03_action_result_claims_trace_to_session_result",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_G03_action_result_claims_trace_to_session_result.json"
+    },
+    {
+      "case_id": "v142_G04_review_pending_state_does_not_claim_cross_user_memory_change",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_G04_review_pending_state_does_not_claim_cross_user_memory_change.json"
+    },
+    {
+      "case_id": "v142_H01_debug_refs_do_not_expose_filesystem_paths",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_H01_debug_refs_do_not_expose_filesystem_paths.json"
+    },
+    {
+      "case_id": "v142_H02_debug_refs_do_not_expose_foreign_user_or_session",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_H02_debug_refs_do_not_expose_foreign_user_or_session.json"
+    },
+    {
+      "case_id": "v142_H03_response_redacts_raw_review_evidence_under_session_wrapper",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_H03_response_redacts_raw_review_evidence_under_session_wrapper.json"
+    },
+    {
+      "case_id": "v142_H04_response_does_not_expose_sensitive_commerce_or_aigc_terms",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_H04_response_does_not_expose_sensitive_commerce_or_aigc_terms.json"
+    },
+    {
+      "case_id": "v142_I01_sample_artifact_matches_per_case",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_I01_sample_artifact_matches_per_case.json"
+    },
+    {
+      "case_id": "v142_I02_clean_report_cannot_override_raw_failure",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_I02_clean_report_cannot_override_raw_failure.json"
+    },
+    {
+      "case_id": "v142_I03_reviewer_checklist_refs_raw_session_cases",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_I03_reviewer_checklist_refs_raw_session_cases.json"
+    },
+    {
+      "case_id": "v142_J01_v141_replay_passes_before_v142_validation",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_J01_v141_replay_passes_before_v142_validation.json"
+    },
+    {
+      "case_id": "v142_J02_v142_runner_is_one_command_reproducible",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v142_J02_v142_runner_is_one_command_reproducible.json"
+    }
+  ]
+}

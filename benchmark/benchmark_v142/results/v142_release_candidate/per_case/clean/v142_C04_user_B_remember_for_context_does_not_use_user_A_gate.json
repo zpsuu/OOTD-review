@@ -1,0 +1,660 @@
+{
+  "case_id": "v142_C04_user_B_remember_for_context_does_not_use_user_A_gate",
+  "version": "v1.42",
+  "scenario_kind": "user_B_remember_for_context_does_not_use_user_A_gate",
+  "gate_assertions": {
+    "local_user_fixture_namespace_complete_rate": true,
+    "session_envelope_valid_rate": true,
+    "user_state_namespace_isolation_rate": true,
+    "session_scoped_invocation_matches_v141_adapter_rate": true,
+    "cross_user_leakage_absent_rate": true,
+    "idempotency_scope_is_user_session_bound_rate": true,
+    "same_scope_duplicate_reuses_result_rate": true,
+    "different_scope_duplicate_does_not_reuse_result_rate": true,
+    "expired_session_no_write_error_rate": true,
+    "stale_session_action_no_write_rate": true,
+    "session_no_write_preserves_user_state_rate": true,
+    "session_boundary_trace_complete_rate": true,
+    "session_boundary_snapshot_hash_reproducible_rate": true,
+    "session_source_hashes_match_raw_rate": true,
+    "trace_safe_debug_refs_rate": true,
+    "conversation_claims_user_session_scoped_rate": true,
+    "runtime_redaction_policy_safe_under_session_rate": true,
+    "sample_artifacts_match_per_case_rate": true,
+    "report_consistency_with_independent_validation_rate": true,
+    "adversarial_detection_rate": true,
+    "v141_validation_replay_pass_rate": true
+  },
+  "local_user_fixtures": [
+    {
+      "local_user_fixture_id": "user_fixture_A",
+      "local_user_id": "local_user_A",
+      "fixture_persona": "office_daily_minimal",
+      "memory_namespace_id": "mem_ns_local_user_A",
+      "governance_namespace_id": "gov_ns_local_user_A",
+      "closet_namespace_id": "closet_ns_local_user_A",
+      "allowed_session_ids": [
+        "sess_A_001",
+        "sess_A_002"
+      ],
+      "source_v141_case_refs": [],
+      "trace_refs": [
+        "local_user_A",
+        "mem_ns_local_user_A",
+        "gov_ns_local_user_A"
+      ]
+    },
+    {
+      "local_user_fixture_id": "user_fixture_B",
+      "local_user_id": "local_user_B",
+      "fixture_persona": "office_daily_color",
+      "memory_namespace_id": "mem_ns_local_user_B",
+      "governance_namespace_id": "gov_ns_local_user_B",
+      "closet_namespace_id": "closet_ns_local_user_B",
+      "allowed_session_ids": [
+        "sess_B_001"
+      ],
+      "source_v141_case_refs": [],
+      "trace_refs": [
+        "local_user_B",
+        "mem_ns_local_user_B",
+        "gov_ns_local_user_B"
+      ]
+    }
+  ],
+  "local_session_envelope": {
+    "local_session_envelope_id": "session_env_sess_B_001",
+    "version": "v1.42",
+    "schema_version": "local_session_boundary.v1",
+    "local_user_id": "local_user_B",
+    "local_session_id": "sess_B_001",
+    "session_state_version": 1,
+    "session_status": "active",
+    "request_context": "office_daily",
+    "session_started_at": "2026-06-24T00:00:00Z",
+    "expires_at": "2026-06-24T02:00:00Z",
+    "trace_refs": [
+      "local_user_B",
+      "sess_B_001",
+      "session_state_v1"
+    ]
+  },
+  "user_state_namespace": {
+    "user_state_namespace_id": "state_ns_local_user_B_sess_B_001",
+    "local_user_id": "local_user_B",
+    "local_session_id": "sess_B_001",
+    "memory_namespace_id": "mem_ns_local_user_B",
+    "governance_namespace_id": "gov_ns_local_user_B",
+    "closet_namespace_id": "closet_ns_local_user_B",
+    "action_namespace_id": "action_ns_sess_B_001",
+    "idempotency_namespace_id": "idem_ns_sess_B_001",
+    "snapshot_namespace_id": "snap_ns_sess_B_001",
+    "trace_refs": [
+      "local_user_B",
+      "sess_B_001",
+      "mem_ns_local_user_B",
+      "gov_ns_local_user_B"
+    ]
+  },
+  "session_scoped_runtime_invocation": {
+    "session_scoped_runtime_invocation_id": "ssri_v142_C04_user_B_remember_for_context_does_not_use_user_A_gate",
+    "local_user_id": "local_user_B",
+    "local_session_id": "sess_B_001",
+    "session_state_version": 1,
+    "route_handler_invocation_ref": "rhi_v141_C03_post_remember_for_context_handler_routes_to_write_gate",
+    "input_envelope": {
+      "api_request_id": "api_req_v140_C03_post_remember_for_context_routes_to_write_gate",
+      "contract_version": "v1.40",
+      "schema_version": "product_api.v1",
+      "route": "POST /local/action-submission",
+      "method": "POST",
+      "request_context": "office_daily",
+      "query": {},
+      "body": {
+        "submitted_action": "remember_for_context",
+        "user_action_card_id": "uac_v139_008"
+      },
+      "idempotency_key": "idem_v140_C03_post_remember_for_context_routes_to_write_gate",
+      "trace_refs": [
+        "rt_v139_008",
+        "gas_v139_008"
+      ]
+    },
+    "user_state_namespace_ref": "state_ns_local_user_B_sess_B_001",
+    "idempotency_scope_key": "local_user_B:sess_B_001:POST /local/action-submission:uac_v139_008:idem_v140_C03_post_remember_for_context_routes_to_write_gate",
+    "v141_callable_execution_ref": "hep_v141_C03_post_remember_for_context_handler_routes_to_write_gate",
+    "trace_refs": [
+      "local_user_B",
+      "sess_B_001",
+      "state_ns_local_user_B_sess_B_001",
+      "rhi_v141_C03_post_remember_for_context_handler_routes_to_write_gate"
+    ]
+  },
+  "session_scoped_route_handler_result": {
+    "session_scoped_route_handler_result_id": "ssrhr_v142_C04_user_B_remember_for_context_does_not_use_user_A_gate",
+    "session_scoped_runtime_invocation_id": "ssri_v142_C04_user_B_remember_for_context_does_not_use_user_A_gate",
+    "local_user_id": "local_user_B",
+    "local_session_id": "sess_B_001",
+    "route_handler_result_ref": "rhr_v141_C03_post_remember_for_context_handler_routes_to_write_gate",
+    "output_envelope": {
+      "api_response_id": "api_res_v140_C03_post_remember_for_context_routes_to_write_gate",
+      "api_request_id": "api_req_v140_C03_post_remember_for_context_routes_to_write_gate",
+      "contract_version": "v1.40",
+      "schema_version": "product_api.v1",
+      "status_code": 200,
+      "response_type": "action_submission_result",
+      "body": {
+        "contract_version": "v1.40",
+        "schema_version": "product_api.v1",
+        "action_submission": {
+          "action_submission_api_resource_id": "sub_api_v140_C03_post_remember_for_context_routes_to_write_gate",
+          "accepted": true,
+          "submitted_action": "remember_for_context",
+          "idempotency_key": "idem_v140_C03_post_remember_for_context_routes_to_write_gate",
+          "user_action_card_id": "uac_v139_008",
+          "governance_queue_item_id": "gqi_v139_008",
+          "allowed_actions_at_submission": [
+            "this_time_only",
+            "do_not_change_memory",
+            "remember_for_context"
+          ],
+          "card_display_state_at_submission": "resolved",
+          "production_write_executed": true,
+          "trace_refs": [
+            "rt_v139_008",
+            "uac_v139_008",
+            "gqi_v139_008"
+          ]
+        },
+        "action_result": {
+          "action_result_api_resource_id": "res_api_v140_C03_post_remember_for_context_routes_to_write_gate",
+          "action_result_packet_id": "arp_v139_008",
+          "result_type": "write_candidate_submitted",
+          "production_write_executed": true,
+          "post_action_task_memory_packet_id": "tmp_post_action_v139_008",
+          "user_visible_response_block_ids": [
+            "urb_v139_008"
+          ],
+          "response_block_refs": [
+            "urb_v139_008"
+          ],
+          "governance_resolution_decision_id": "grd_v139_008",
+          "trace_refs": [
+            "rt_v139_008",
+            "uas_v139_008",
+            "grd_v139_008"
+          ]
+        },
+        "response_blocks": [
+          {
+            "response_block_id": "urb_v139_008",
+            "block_type": "action_result_notice",
+            "text": "I saved this as a context-specific outfit preference.",
+            "claim_refs": [
+              "claim_v139_008"
+            ],
+            "trace_refs": [
+              "rt_v139_008",
+              "arp_v139_008",
+              "grd_v139_008"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "trace_refs": [
+        "api_req_v140_C03_post_remember_for_context_routes_to_write_gate",
+        "rt_v139_008",
+        "gas_v139_008"
+      ]
+    },
+    "response_type": "action_submission_result",
+    "production_write_executed": true,
+    "trace_refs": [
+      "ssri_v142_C04_user_B_remember_for_context_does_not_use_user_A_gate",
+      "rhr_v141_C03_post_remember_for_context_handler_routes_to_write_gate",
+      "local_user_B",
+      "sess_B_001"
+    ]
+  },
+  "session_scoped_idempotency_record": {
+    "session_scoped_idempotency_record_id": "idem_rec_v142_C04_user_B_remember_for_context_does_not_use_user_A_gate",
+    "local_user_id": "local_user_B",
+    "local_session_id": "sess_B_001",
+    "idempotency_key": "idem_v140_C03_post_remember_for_context_routes_to_write_gate",
+    "idempotency_scope_key": "local_user_B:sess_B_001:POST /local/action-submission:uac_v139_008:idem_v140_C03_post_remember_for_context_routes_to_write_gate",
+    "canonical_action_result_ref": "action_result_local_user_B_sess_B_001_59b5a9f80d0f",
+    "duplicate_created_result": null,
+    "same_raw_key_other_scope_action_result_refs": [],
+    "trace_refs": [
+      "local_user_B",
+      "sess_B_001",
+      "local_user_B:sess_B_001:POST /local/action-submission:uac_v139_008:idem_v140_C03_post_remember_for_context_routes_to_write_gate",
+      "action_result_local_user_B_sess_B_001_59b5a9f80d0f"
+    ]
+  },
+  "session_scoped_action_result": {
+    "session_scoped_action_result_id": "ssar_v142_C04_user_B_remember_for_context_does_not_use_user_A_gate",
+    "local_user_id": "local_user_B",
+    "local_session_id": "sess_B_001",
+    "action_result_ref": "action_result_local_user_B_sess_B_001_59b5a9f80d0f",
+    "source_v141_action_result_ref": "arp_v139_008",
+    "memory_state_ref": "mem_ns_local_user_B:state:v142_C04_user_B_remember_for_context_does_not_use_user_A_gate",
+    "governance_ref": "gov_ns_local_user_B:decision:v142_C04_user_B_remember_for_context_does_not_use_user_A_gate",
+    "idempotency_scope_key": "local_user_B:sess_B_001:POST /local/action-submission:uac_v139_008:idem_v140_C03_post_remember_for_context_routes_to_write_gate",
+    "production_write_executed": true,
+    "trace_refs": [
+      "local_user_B",
+      "sess_B_001",
+      "action_ns_sess_B_001",
+      "action_result_local_user_B_sess_B_001_59b5a9f80d0f"
+    ]
+  },
+  "session_scoped_memory_state_ref": {
+    "session_scoped_memory_state_ref_id": "mem_ref_v142_C04_user_B_remember_for_context_does_not_use_user_A_gate",
+    "local_user_id": "local_user_B",
+    "memory_namespace_id": "mem_ns_local_user_B",
+    "before_state": {
+      "state_snapshot_id": "state_before_local_user_B",
+      "local_user_id": "local_user_B",
+      "memory_namespace_id": "mem_ns_local_user_B",
+      "facts": [
+        "office_daily"
+      ]
+    },
+    "after_state": {
+      "state_snapshot_id": "state_after_local_user_B",
+      "local_user_id": "local_user_B",
+      "memory_namespace_id": "mem_ns_local_user_B",
+      "facts": [
+        "office_daily"
+      ]
+    },
+    "trace_refs": [
+      "local_user_B",
+      "mem_ns_local_user_B"
+    ]
+  },
+  "session_scoped_governance_ref": {
+    "session_scoped_governance_ref_id": "gov_ref_v142_C04_user_B_remember_for_context_does_not_use_user_A_gate",
+    "local_user_id": "local_user_B",
+    "governance_namespace_id": "gov_ns_local_user_B",
+    "source_v141_gate_ref": "allow",
+    "trace_refs": [
+      "local_user_B",
+      "gov_ns_local_user_B"
+    ]
+  },
+  "session_boundary_trace": {
+    "session_boundary_trace_id": "sbt_v142_C04_user_B_remember_for_context_does_not_use_user_A_gate",
+    "local_user_id": "local_user_B",
+    "local_session_id": "sess_B_001",
+    "boundary_steps": [
+      {
+        "step_id": "boundary_001",
+        "operation": "resolve_user_namespace",
+        "input_ref": "local_user_B",
+        "output_ref": "state_ns_local_user_B_sess_B_001"
+      },
+      {
+        "step_id": "boundary_002",
+        "operation": "validate_session",
+        "input_ref": "sess_B_001",
+        "output_ref": "active"
+      },
+      {
+        "step_id": "boundary_003",
+        "operation": "resolve_idempotency_scope",
+        "input_ref": "idem_v140_C03_post_remember_for_context_routes_to_write_gate",
+        "output_ref": "local_user_B:sess_B_001:POST /local/action-submission:uac_v139_008:idem_v140_C03_post_remember_for_context_routes_to_write_gate"
+      },
+      {
+        "step_id": "boundary_004",
+        "operation": "run_cross_user_leakage_audit",
+        "input_ref": "ssrhr_v142_C04_user_B_remember_for_context_does_not_use_user_A_gate",
+        "output_ref": "cula_v142_C04_user_B_remember_for_context_does_not_use_user_A_gate"
+      },
+      {
+        "step_id": "boundary_005",
+        "operation": "invoke_v141_callable_adapter",
+        "input_ref": "rhi_v141_C03_post_remember_for_context_handler_routes_to_write_gate",
+        "output_ref": "rhr_v141_C03_post_remember_for_context_handler_routes_to_write_gate"
+      }
+    ],
+    "cross_user_refs_observed": [],
+    "session_mismatch_refs_observed": [],
+    "trace_safe_debug_refs": [
+      "trace:v142:local_user_B:sess_B_001:v142_C04_user_B_remember_for_context_does_not_use_user_A_gate"
+    ],
+    "v141_callable_execution_ref": "hep_v141_C03_post_remember_for_context_handler_routes_to_write_gate",
+    "trace_refs": [
+      "local_user_B",
+      "sess_B_001",
+      "state_ns_local_user_B_sess_B_001",
+      "cula_v142_C04_user_B_remember_for_context_does_not_use_user_A_gate"
+    ]
+  },
+  "cross_user_leakage_audit": {
+    "cross_user_leakage_audit_id": "cula_v142_C04_user_B_remember_for_context_does_not_use_user_A_gate",
+    "local_user_id": "local_user_B",
+    "local_session_id": "sess_B_001",
+    "audited_artifact_refs": [
+      "output_envelope",
+      "session_action_result",
+      "idempotency_record",
+      "memory_ref",
+      "governance_ref",
+      "snapshot_refs",
+      "debug_ref"
+    ],
+    "foreign_user_refs_detected": [],
+    "foreign_session_refs_detected": [],
+    "foreign_namespace_refs_detected": [],
+    "passed": true,
+    "trace_refs": [
+      "local_user_B",
+      "sess_B_001",
+      "ssrhr_v142_C04_user_B_remember_for_context_does_not_use_user_A_gate",
+      "ssar_v142_C04_user_B_remember_for_context_does_not_use_user_A_gate"
+    ]
+  },
+  "session_boundary_snapshot": {
+    "session_boundary_snapshot_id": "sbs_v142_C04_user_B_remember_for_context_does_not_use_user_A_gate",
+    "local_user_id": "local_user_B",
+    "local_session_id": "sess_B_001",
+    "canonical_session_hash": "7435f2685f793d9bd6099880eb14b47c7353b528a946643440e0355e63124b6a",
+    "canonical_invocation_hash": "28329efc7a196d294774a3453dca9450a31edfe63f41ff630129b51f4da5c43d",
+    "canonical_output_hash": "da3f5466d4c1089626ac13f11f9a0c4d01ea4a87d3deb20ed14698dd3650e14e",
+    "canonical_boundary_trace_hash": "cbd58619450d846bf52460151c2560bbb9ae68c12f059e9e0d3868e55296d3e4",
+    "source_artifact_hashes": {
+      "per_case/clean/v141_C03_post_remember_for_context_handler_routes_to_write_gate.json": "06b9a7bd53b45faa7b1fe9ba83c1235f68459ebc1b4c516c8aea5d70352fbe43",
+      "per_case/clean/v140_C03_post_remember_for_context_routes_to_write_gate.json": "dea429f7dfbe1280bfc073a2368a8fbcf2a184dfce3cccb5442f96d3631dbefc",
+      "per_case/clean/v139_B04_remember_for_context_submission_routes_to_write_gate.json": "cc0363f695f8d78e492dc65b2ba3d0d9f02c4324374c74653cc1d6eed59d2f3e"
+    },
+    "trace_refs": [
+      "local_user_B",
+      "sess_B_001",
+      "ssri_v142_C04_user_B_remember_for_context_does_not_use_user_A_gate",
+      "ssrhr_v142_C04_user_B_remember_for_context_does_not_use_user_A_gate",
+      "sbt_v142_C04_user_B_remember_for_context_does_not_use_user_A_gate"
+    ]
+  },
+  "session_expiry_and_stale_action_proof": {
+    "session_expiry_and_stale_action_proof_id": "expiry_v142_C04_user_B_remember_for_context_does_not_use_user_A_gate",
+    "local_user_id": "local_user_B",
+    "local_session_id": "sess_B_001",
+    "session_status": "active",
+    "accepted_action": true,
+    "response_type": "action_submission_result",
+    "production_write_executed": true,
+    "no_write_required": false,
+    "trace_refs": [
+      "local_user_B",
+      "sess_B_001",
+      "ssrhr_v142_C04_user_B_remember_for_context_does_not_use_user_A_gate"
+    ]
+  },
+  "trace_safe_debug_ref": {
+    "trace_safe_debug_ref_id": "debug_v142_C04_user_B_remember_for_context_does_not_use_user_A_gate",
+    "local_user_id": "local_user_B",
+    "local_session_id": "sess_B_001",
+    "debug_ref": "trace:v142:local_user_B:sess_B_001:v142_C04_user_B_remember_for_context_does_not_use_user_A_gate",
+    "filesystem_path_exposed": false,
+    "foreign_user_or_session_exposed": false,
+    "trace_refs": [
+      "local_user_B",
+      "sess_B_001",
+      "v142_C04_user_B_remember_for_context_does_not_use_user_A_gate"
+    ]
+  },
+  "conversation_turn_state": {
+    "conversation_turn_state_id": "cts_v140_C03_post_remember_for_context_routes_to_write_gate",
+    "api_request_id": "api_req_v140_C03_post_remember_for_context_routes_to_write_gate",
+    "api_response_id": "api_res_v140_C03_post_remember_for_context_routes_to_write_gate",
+    "visible_response_block_ids": [
+      "urb_v139_008"
+    ],
+    "user_visible_claims": [
+      {
+        "claim_id": "api_claim_urb_v139_008",
+        "text": "I saved this as a context-specific outfit preference.",
+        "trace_refs": [
+          "api_res_v140_C03_post_remember_for_context_routes_to_write_gate",
+          "urb_v139_008",
+          "arp_v139_008",
+          "grd_v139_008"
+        ]
+      }
+    ],
+    "memory_change_claimed": true,
+    "production_write_executed": true,
+    "trace_refs": [
+      "api_res_v140_C03_post_remember_for_context_routes_to_write_gate",
+      "rt_v139_008"
+    ]
+  },
+  "source_v141_artifact_ref": "per_case/clean/v141_C03_post_remember_for_context_handler_routes_to_write_gate.json",
+  "source_v141_artifact_hash": "06b9a7bd53b45faa7b1fe9ba83c1235f68459ebc1b4c516c8aea5d70352fbe43",
+  "source_v141_case_id": "v141_C03_post_remember_for_context_handler_routes_to_write_gate",
+  "source_v140_artifact_ref": "per_case/clean/v140_C03_post_remember_for_context_routes_to_write_gate.json",
+  "source_v140_artifact_hash": "dea429f7dfbe1280bfc073a2368a8fbcf2a184dfce3cccb5442f96d3631dbefc",
+  "source_v139_artifact_ref": "per_case/clean/v139_B04_remember_for_context_submission_routes_to_write_gate.json",
+  "source_v139_artifact_hash": "cc0363f695f8d78e492dc65b2ba3d0d9f02c4324374c74653cc1d6eed59d2f3e",
+  "v141_route_handler_invocation": {
+    "route_handler_invocation_id": "rhi_v141_C03_post_remember_for_context_handler_routes_to_write_gate",
+    "api_request_id": "api_req_v140_C03_post_remember_for_context_routes_to_write_gate",
+    "route": "POST /local/action-submission",
+    "method": "POST",
+    "handler_name": "handle_post_action_submission",
+    "resolved_callable_name": "handle_post_action_submission",
+    "input_envelope": {
+      "api_request_id": "api_req_v140_C03_post_remember_for_context_routes_to_write_gate",
+      "contract_version": "v1.40",
+      "schema_version": "product_api.v1",
+      "route": "POST /local/action-submission",
+      "method": "POST",
+      "request_context": "office_daily",
+      "query": {},
+      "body": {
+        "submitted_action": "remember_for_context",
+        "user_action_card_id": "uac_v139_008"
+      },
+      "idempotency_key": "idem_v140_C03_post_remember_for_context_routes_to_write_gate",
+      "trace_refs": [
+        "rt_v139_008",
+        "gas_v139_008"
+      ]
+    },
+    "runtime_context": {
+      "fixture_user_id": "local_user_001",
+      "request_context": "office_daily",
+      "source_case_id": "v140_C03_post_remember_for_context_routes_to_write_gate",
+      "source_artifact_ref": "per_case/clean/v140_C03_post_remember_for_context_routes_to_write_gate.json"
+    },
+    "idempotency_key": "idem_v140_C03_post_remember_for_context_routes_to_write_gate",
+    "trace_refs": [
+      "pra_001",
+      "route_registry_001",
+      "v140_C03_post_remember_for_context_routes_to_write_gate"
+    ]
+  },
+  "v141_route_handler_result": {
+    "route_handler_result_id": "rhr_v141_C03_post_remember_for_context_handler_routes_to_write_gate",
+    "route_handler_invocation_id": "rhi_v141_C03_post_remember_for_context_handler_routes_to_write_gate",
+    "api_response_id": "api_res_v140_C03_post_remember_for_context_routes_to_write_gate",
+    "output_envelope": {
+      "api_response_id": "api_res_v140_C03_post_remember_for_context_routes_to_write_gate",
+      "api_request_id": "api_req_v140_C03_post_remember_for_context_routes_to_write_gate",
+      "contract_version": "v1.40",
+      "schema_version": "product_api.v1",
+      "status_code": 200,
+      "response_type": "action_submission_result",
+      "body": {
+        "contract_version": "v1.40",
+        "schema_version": "product_api.v1",
+        "action_submission": {
+          "action_submission_api_resource_id": "sub_api_v140_C03_post_remember_for_context_routes_to_write_gate",
+          "accepted": true,
+          "submitted_action": "remember_for_context",
+          "idempotency_key": "idem_v140_C03_post_remember_for_context_routes_to_write_gate",
+          "user_action_card_id": "uac_v139_008",
+          "governance_queue_item_id": "gqi_v139_008",
+          "allowed_actions_at_submission": [
+            "this_time_only",
+            "do_not_change_memory",
+            "remember_for_context"
+          ],
+          "card_display_state_at_submission": "resolved",
+          "production_write_executed": true,
+          "trace_refs": [
+            "rt_v139_008",
+            "uac_v139_008",
+            "gqi_v139_008"
+          ]
+        },
+        "action_result": {
+          "action_result_api_resource_id": "res_api_v140_C03_post_remember_for_context_routes_to_write_gate",
+          "action_result_packet_id": "arp_v139_008",
+          "result_type": "write_candidate_submitted",
+          "production_write_executed": true,
+          "post_action_task_memory_packet_id": "tmp_post_action_v139_008",
+          "user_visible_response_block_ids": [
+            "urb_v139_008"
+          ],
+          "response_block_refs": [
+            "urb_v139_008"
+          ],
+          "governance_resolution_decision_id": "grd_v139_008",
+          "trace_refs": [
+            "rt_v139_008",
+            "uas_v139_008",
+            "grd_v139_008"
+          ]
+        },
+        "response_blocks": [
+          {
+            "response_block_id": "urb_v139_008",
+            "block_type": "action_result_notice",
+            "text": "I saved this as a context-specific outfit preference.",
+            "claim_refs": [
+              "claim_v139_008"
+            ],
+            "trace_refs": [
+              "rt_v139_008",
+              "arp_v139_008",
+              "grd_v139_008"
+            ]
+          }
+        ]
+      },
+      "error": null,
+      "trace_refs": [
+        "api_req_v140_C03_post_remember_for_context_routes_to_write_gate",
+        "rt_v139_008",
+        "gas_v139_008"
+      ]
+    },
+    "response_type": "action_submission_result",
+    "status_code": 200,
+    "callable_handler_name": "handle_post_action_submission",
+    "handler_execution_proof_id": "hep_v141_C03_post_remember_for_context_handler_routes_to_write_gate",
+    "produced_by_callable": true,
+    "production_write_executed": true,
+    "trace_refs": [
+      "rhi_v141_C03_post_remember_for_context_handler_routes_to_write_gate",
+      "rhet_v141_C03_post_remember_for_context_handler_routes_to_write_gate",
+      "v140_C03_post_remember_for_context_routes_to_write_gate"
+    ]
+  },
+  "v141_runtime_handler_execution_trace": {
+    "runtime_handler_execution_trace_id": "rhet_v141_C03_post_remember_for_context_handler_routes_to_write_gate",
+    "route_handler_invocation_id": "rhi_v141_C03_post_remember_for_context_handler_routes_to_write_gate",
+    "route_handler_result_id": "rhr_v141_C03_post_remember_for_context_handler_routes_to_write_gate",
+    "handler_name": "handle_post_action_submission",
+    "callable_execution_proof": {
+      "handler_execution_proof_id": "hep_v141_C03_post_remember_for_context_handler_routes_to_write_gate",
+      "handler_name": "handle_post_action_submission",
+      "callable_name": "handle_post_action_submission",
+      "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+      "callable_resolved": true,
+      "callable_invoked": true,
+      "input_envelope_hash": "c76d118f8ce88ead69795c2e42527a30c64c4d0b51c4543dcd8c251b30e1b3d3",
+      "output_envelope_hash": "cbc2a72597a206165bccbf47459e7518a596b86c16fe309e17a423d55e0e9afc",
+      "handler_returned_route_handler_result_id": "rhr_v141_C03_post_remember_for_context_handler_routes_to_write_gate",
+      "route_specific_projection": {
+        "expected_route": "POST /local/action-submission",
+        "actual_route": "POST /local/action-submission",
+        "expected_response_type": "action_submission_result",
+        "actual_response_type": "action_submission_result",
+        "projected_body_fields": [
+          "action_result",
+          "action_submission",
+          "response_blocks"
+        ],
+        "source_case_id": "v140_C03_post_remember_for_context_routes_to_write_gate",
+        "source_contract_snapshot_id": "cs_v140_C03_post_remember_for_context_routes_to_write_gate"
+      },
+      "direct_source_output_copy": false
+    },
+    "dispatch_steps": [
+      {
+        "step_id": "dispatch_001",
+        "operation": "resolve_route",
+        "input_ref": "api_req_v140_C03_post_remember_for_context_routes_to_write_gate",
+        "output_ref": "handle_post_action_submission"
+      },
+      {
+        "step_id": "dispatch_002",
+        "operation": "resolve_callable",
+        "input_ref": "handle_post_action_submission",
+        "output_ref": "benchmark.benchmark_v141.runtime.product_runtime_adapter.handle_post_action_submission"
+      },
+      {
+        "step_id": "dispatch_003",
+        "operation": "invoke_handler",
+        "input_ref": "rhi_v141_C03_post_remember_for_context_handler_routes_to_write_gate",
+        "output_ref": "rhr_v141_C03_post_remember_for_context_handler_routes_to_write_gate",
+        "callable_ref": "benchmark.benchmark_v141.runtime.product_runtime_adapter.handle_post_action_submission",
+        "handler_execution_proof_id": "hep_v141_C03_post_remember_for_context_handler_routes_to_write_gate"
+      },
+      {
+        "step_id": "dispatch_004",
+        "operation": "produce_response",
+        "input_ref": "v140_C03_post_remember_for_context_routes_to_write_gate",
+        "output_ref": "api_res_v140_C03_post_remember_for_context_routes_to_write_gate"
+      }
+    ],
+    "source_resolution_refs": [
+      "rsrp_v141_C03_post_remember_for_context_handler_routes_to_write_gate",
+      "per_case/clean/v140_C03_post_remember_for_context_routes_to_write_gate.json"
+    ],
+    "contract_projection_refs": [
+      "api_req_v140_C03_post_remember_for_context_routes_to_write_gate",
+      "api_res_v140_C03_post_remember_for_context_routes_to_write_gate",
+      "cs_v140_C03_post_remember_for_context_routes_to_write_gate"
+    ],
+    "safety_filter_refs": [
+      "handler_error_safety_proof",
+      "runtime_redaction_policy"
+    ],
+    "claim_trace_refs": [
+      "api_claim_urb_v139_008"
+    ],
+    "trace_refs": [
+      "rhi_v141_C03_post_remember_for_context_handler_routes_to_write_gate",
+      "rhr_v141_C03_post_remember_for_context_handler_routes_to_write_gate",
+      "v140_C03_post_remember_for_context_routes_to_write_gate"
+    ]
+  },
+  "policy_surface_audit": {
+    "no_raw_review_evidence_exposed": true,
+    "no_internal_debug_exposed": true,
+    "no_global_memory_claim": true,
+    "no_sensitive_or_commerce_or_aigc": true
+  },
+  "reviewer_checklist_refs": [],
+  "runner_reproducibility_proof": {},
+  "v141_replay_proof": {
+    "run_v141_validation_suite": "PASS"
+  }
+}
