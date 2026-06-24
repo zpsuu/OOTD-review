@@ -35,7 +35,7 @@
     "query": {},
     "body": {
       "submitted_action": null,
-      "user_action_card_id": null
+      "user_action_card_id": "uac_v139_001"
     },
     "idempotency_key": "idem_v140_ADV_N14_malformed_payload_returns_unsafe_error",
     "trace_refs": [
@@ -112,7 +112,7 @@
     "contract_snapshot_id": "cs_v140_ADV_N14_malformed_payload_returns_unsafe_error",
     "api_request_id": "api_req_v140_ADV_N14_malformed_payload_returns_unsafe_error",
     "api_response_id": "api_res_v140_ADV_N14_malformed_payload_returns_unsafe_error",
-    "canonical_request_hash": "60f78f04dc5c18111825364e7777f2fd04105b3420b8c2308006a4cdf687366b",
+    "canonical_request_hash": "86afd13b4ec2b3db1b9163099f4c1ce8ea9d1df19c809bbaf79a35b1f28a6143",
     "canonical_response_hash": "517a7fae337b4f4e04579c8d69304abd6c7965dff5ff3fa88f1044e6af5d0585",
     "source_artifact_hashes": {
       "per_case/clean/v139_A01_open_clarification_queue_item_creates_active_action_card.json": "9894318b460deb221bf1ccfe307a488491e0bc1aebe011ba9c17b3b9bd763cab"
@@ -182,7 +182,26 @@
       "rt_v139_001"
     ]
   },
-  "action_submission_api_resource": null,
+  "action_submission_api_resource": {
+    "action_submission_api_resource_id": "sub_api_v140_ADV_N14_malformed_payload_returns_unsafe_error",
+    "accepted": false,
+    "submitted_action": null,
+    "idempotency_key": "idem_v140_ADV_N14_malformed_payload_returns_unsafe_error",
+    "user_action_card_id": "uac_v139_001",
+    "governance_queue_item_id": "gqi_v139_001",
+    "allowed_actions_at_submission": [
+      "this_time_only",
+      "do_not_change_memory",
+      "remember_for_context"
+    ],
+    "card_display_state_at_submission": "active",
+    "production_write_executed": false,
+    "trace_refs": [
+      "rt_v139_001",
+      "uac_v139_001",
+      "gqi_v139_001"
+    ]
+  },
   "action_result_api_resource": null,
   "conversation_turn_state": {
     "conversation_turn_state_id": "cts_v140_ADV_N14_malformed_payload_returns_unsafe_error",
@@ -215,7 +234,7 @@
     "replay_result": "pass",
     "current_schema_adapter_version": "product_api.v1.local_adapter",
     "backward_compatibility_key": "stable:POST /local/action-submission:error",
-    "reproduced_request_hash": "60f78f04dc5c18111825364e7777f2fd04105b3420b8c2308006a4cdf687366b",
+    "reproduced_request_hash": "86afd13b4ec2b3db1b9163099f4c1ce8ea9d1df19c809bbaf79a35b1f28a6143",
     "reproduced_response_hash": "517a7fae337b4f4e04579c8d69304abd6c7965dff5ff3fa88f1044e6af5d0585",
     "trace_refs": [
       "cs_v140_ADV_N14_malformed_payload_returns_unsafe_error"

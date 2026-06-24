@@ -121,6 +121,13 @@ DEFECTS = [
     ("ADV_N22", "backward_compatibility_replay_uses_stale_schema", ["backward_compatibility_replay_rate", "schema_version_consistency_rate"]),
     ("ADV_N23", "sample_artifact_stale_relative_to_per_case", ["sample_artifacts_match_per_case_rate"]),
     ("ADV_N24", "clean_report_pass_but_independent_validator_fail", ["report_consistency_with_independent_validation_rate"]),
+    ("ADV_N25", "missing_conversation_turn_state", ["conversation_turn_claims_trace_backed_rate"]),
+    ("ADV_N26", "empty_user_visible_claims", ["conversation_turn_claims_trace_backed_rate"]),
+    ("ADV_N27", "missing_action_surface_body", ["action_surface_api_matches_v139_surface_rate"]),
+    ("ADV_N28", "missing_daily_outfit_cards_and_response_blocks", ["action_surface_api_matches_v139_surface_rate"]),
+    ("ADV_N29", "missing_action_result_body", ["action_result_api_links_response_rate"]),
+    ("ADV_N30", "missing_action_submission_resource", ["action_submission_contract_valid_rate"]),
+    ("ADV_N31", "missing_response_blocks", ["action_surface_api_matches_v139_surface_rate"]),
 ]
 
 SAMPLE_CASES = {
@@ -208,8 +215,6 @@ def _error(case_id: str, error_type: str, status_code: int, message: str, source
 def _action_submission_resource(case_id: str, source: dict[str, Any], action: str | None, accepted: bool, idem: str | None) -> dict[str, Any] | None:
     cards = source["governance_action_surface"].get("cards", [])
     card = cards[0] if cards else {}
-    if action is None and not accepted:
-        return None
     return {
         "action_submission_api_resource_id": f"sub_api_{case_id}",
         "accepted": accepted,
@@ -262,7 +267,8 @@ def _route_proof(case_id: str, route: str, source_ref: str, source: dict[str, An
 
 
 def _conversation(case_id: str, source: dict[str, Any], response: dict[str, Any], action_result: dict[str, Any] | None) -> dict[str, Any]:
-    blocks = (response.get("body") or {}).get("response_blocks") or (response.get("body") or {}).get("action_surface", {}).get("response_blocks") or []
+    body = response.get("body") or {}
+    blocks = body.get("response_blocks") or body.get("action_surface", {}).get("response_blocks") or body.get("daily_outfit_card", {}).get("response_blocks") or []
     decision_id = (source.get("governance_resolution_decision") or {}).get("governance_resolution_decision_id")
     result_id = (action_result or {}).get("action_result_packet_id")
     claims = []
@@ -403,6 +409,7 @@ def _case(case_code: str, scenario: str, kind: str, source_key: str, index: int)
         method = "POST"
         response_type = "error"
         status_code = 400
+        submission = _action_submission_resource(case_id, source, "this_time_only", False, None)
         error = _error(case_id, "missing_required_field", status_code, "An idempotency key is required for this action.", source)
         body = {"contract_version": CONTRACT_VERSION, "schema_version": SCHEMA_VERSION, "safe_error": error["safe_message"]}
     elif kind == "malformed_payload":
@@ -411,6 +418,7 @@ def _case(case_code: str, scenario: str, kind: str, source_key: str, index: int)
         response_type = "error"
         status_code = 400
         idem = f"idem_{case_id}"
+        submission = _action_submission_resource(case_id, source, None, False, idem)
         error = _error(case_id, "contract_violation", status_code, "The action payload did not match the local contract.", source)
         body = {"contract_version": CONTRACT_VERSION, "schema_version": SCHEMA_VERSION, "safe_error": error["safe_message"]}
     elif kind in {"snapshot", "compatibility_replay", "sample_consistency", "report_consistency", "reviewer_checklist", "v139_replay", "runner_reproducible", "redaction_review", "conversation_surface", "conversation_result"}:
@@ -557,6 +565,29 @@ def _defect(defect_id: str, defect_type: str, gates: list[str]) -> dict[str, Any
         artifact["sample_consistency_probe"] = {"sample_artifact_content": {"case_id": artifact["case_id"], "stale": True}, "source_artifact_content": {"case_id": artifact["case_id"]}}
     elif defect_type == "clean_report_pass_but_independent_validator_fail":
         artifact["report_consistency_probe"] = {"clean_report_summary": {"passed_cases": 36, "failed_cases": 0}, "independent_validation_summary": {"passed_cases": 35, "failed_cases": 1}}
+    elif defect_type == "missing_conversation_turn_state":
+        artifact = _set_case_meta(_case(defect_id, defect_type, "conversation_result", "claims", idx), defect_id, defect_type, gates)
+        artifact["conversation_turn_state"] = None
+    elif defect_type == "empty_user_visible_claims":
+        artifact = _set_case_meta(_case(defect_id, defect_type, "conversation_result", "claims", idx), defect_id, defect_type, gates)
+        artifact["conversation_turn_state"]["user_visible_claims"] = []
+    elif defect_type == "missing_action_surface_body":
+        artifact = _set_case_meta(_case(defect_id, defect_type, "action_surface", "open_clarification", idx), defect_id, defect_type, gates)
+        artifact["local_api_response_envelope"]["body"].pop("action_surface", None)
+    elif defect_type == "missing_daily_outfit_cards_and_response_blocks":
+        artifact = _set_case_meta(_case(defect_id, defect_type, "daily_outfit", "open_clarification", idx), defect_id, defect_type, gates)
+        artifact["local_api_response_envelope"]["body"]["daily_outfit_card"]["cards"] = []
+        artifact["local_api_response_envelope"]["body"]["daily_outfit_card"]["response_blocks"] = []
+    elif defect_type == "missing_action_result_body":
+        artifact = _set_case_meta(_case(defect_id, defect_type, "action_result", "this_time_only", idx), defect_id, defect_type, gates)
+        artifact["local_api_response_envelope"]["body"].pop("action_result", None)
+    elif defect_type == "missing_action_submission_resource":
+        artifact = _set_case_meta(_case(defect_id, defect_type, "post_action", "this_time_only", idx), defect_id, defect_type, gates)
+        artifact["action_submission_api_resource"] = None
+    elif defect_type == "missing_response_blocks":
+        artifact = _set_case_meta(_case(defect_id, defect_type, "action_surface", "open_clarification", idx), defect_id, defect_type, gates)
+        artifact["local_api_response_envelope"]["body"]["response_blocks"] = []
+        artifact["local_api_response_envelope"]["body"]["action_surface"]["response_blocks"] = []
     return artifact
 
 

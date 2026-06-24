@@ -1,22 +1,22 @@
 {
   "validator": "v1.40.independent.local_product_api_contract_validator",
-  "generated_at": "2026-06-24T08:58:05Z",
+  "generated_at": "2026-06-24T09:08:02Z",
   "result_dir": "benchmark/benchmark_v140/results/v140_release_candidate",
   "subset": "adversarial",
   "suite_summary": {
-    "total_cases": 24,
+    "total_cases": 31,
     "passed_cases": 0,
-    "failed_cases": 24,
+    "failed_cases": 31,
     "total_checks": 18,
-    "passed_checks": 3,
-    "failed_checks": 15
+    "passed_checks": 2,
+    "failed_checks": 16
   },
   "checks": [
     {
       "check_id": "api_request_response_envelope_valid_rate",
-      "applicable_cases": 24,
-      "passed_cases": 20,
-      "value": 0.8333333333333334,
+      "applicable_cases": 31,
+      "passed_cases": 27,
+      "value": 0.8709677419354839,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -52,9 +52,9 @@
     },
     {
       "check_id": "route_handler_maps_to_raw_artifacts_rate",
-      "applicable_cases": 24,
-      "passed_cases": 23,
-      "value": 0.9583333333333334,
+      "applicable_cases": 31,
+      "passed_cases": 30,
+      "value": 0.967741935483871,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -69,9 +69,9 @@
     },
     {
       "check_id": "action_surface_api_matches_v139_surface_rate",
-      "applicable_cases": 24,
-      "passed_cases": 18,
-      "value": 0.75,
+      "applicable_cases": 31,
+      "passed_cases": 22,
+      "value": 0.7096774193548387,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -116,14 +116,35 @@
           "failures": [
             "action_surface_api_matches_v139_surface_rate failed from raw v1.40 local API contract validation"
           ]
+        },
+        {
+          "case_id": "v140_ADV_N27_missing_action_surface_body",
+          "artifact_ref": "per_case/adversarial/v140_ADV_N27_missing_action_surface_body.json",
+          "failures": [
+            "action_surface_api_matches_v139_surface_rate failed from raw v1.40 local API contract validation"
+          ]
+        },
+        {
+          "case_id": "v140_ADV_N28_missing_daily_outfit_cards_and_response_blocks",
+          "artifact_ref": "per_case/adversarial/v140_ADV_N28_missing_daily_outfit_cards_and_response_blocks.json",
+          "failures": [
+            "action_surface_api_matches_v139_surface_rate failed from raw v1.40 local API contract validation"
+          ]
+        },
+        {
+          "case_id": "v140_ADV_N31_missing_response_blocks",
+          "artifact_ref": "per_case/adversarial/v140_ADV_N31_missing_response_blocks.json",
+          "failures": [
+            "action_surface_api_matches_v139_surface_rate failed from raw v1.40 local API contract validation"
+          ]
         }
       ]
     },
     {
       "check_id": "action_submission_contract_valid_rate",
-      "applicable_cases": 24,
-      "passed_cases": 21,
-      "value": 0.875,
+      "applicable_cases": 31,
+      "passed_cases": 27,
+      "value": 0.8709677419354839,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -147,14 +168,21 @@
           "failures": [
             "action_submission_contract_valid_rate failed from raw v1.40 local API contract validation"
           ]
+        },
+        {
+          "case_id": "v140_ADV_N30_missing_action_submission_resource",
+          "artifact_ref": "per_case/adversarial/v140_ADV_N30_missing_action_submission_resource.json",
+          "failures": [
+            "action_submission_contract_valid_rate failed from raw v1.40 local API contract validation"
+          ]
         }
       ]
     },
     {
       "check_id": "no_write_error_preserves_memory_state_rate",
-      "applicable_cases": 24,
-      "passed_cases": 20,
-      "value": 0.8333333333333334,
+      "applicable_cases": 31,
+      "passed_cases": 27,
+      "value": 0.8709677419354839,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -190,9 +218,9 @@
     },
     {
       "check_id": "idempotent_submission_contract_rate",
-      "applicable_cases": 24,
-      "passed_cases": 23,
-      "value": 0.9583333333333334,
+      "applicable_cases": 31,
+      "passed_cases": 30,
+      "value": 0.967741935483871,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -207,9 +235,9 @@
     },
     {
       "check_id": "expired_stale_action_contract_rate",
-      "applicable_cases": 24,
-      "passed_cases": 22,
-      "value": 0.9166666666666666,
+      "applicable_cases": 31,
+      "passed_cases": 29,
+      "value": 0.9354838709677419,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -231,18 +259,26 @@
     },
     {
       "check_id": "action_result_api_links_response_rate",
-      "applicable_cases": 24,
-      "passed_cases": 24,
-      "value": 1.0,
+      "applicable_cases": 31,
+      "passed_cases": 30,
+      "value": 0.967741935483871,
       "threshold": 1.0,
-      "passed": true,
-      "failures": []
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v140_ADV_N29_missing_action_result_body",
+          "artifact_ref": "per_case/adversarial/v140_ADV_N29_missing_action_result_body.json",
+          "failures": [
+            "action_result_api_links_response_rate failed from raw v1.40 local API contract validation"
+          ]
+        }
+      ]
     },
     {
       "check_id": "conversation_turn_claims_trace_backed_rate",
-      "applicable_cases": 24,
-      "passed_cases": 23,
-      "value": 0.9583333333333334,
+      "applicable_cases": 31,
+      "passed_cases": 27,
+      "value": 0.8709677419354839,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -252,14 +288,35 @@
           "failures": [
             "conversation_turn_claims_trace_backed_rate failed from raw v1.40 local API contract validation"
           ]
+        },
+        {
+          "case_id": "v140_ADV_N25_missing_conversation_turn_state",
+          "artifact_ref": "per_case/adversarial/v140_ADV_N25_missing_conversation_turn_state.json",
+          "failures": [
+            "conversation_turn_claims_trace_backed_rate failed from raw v1.40 local API contract validation"
+          ]
+        },
+        {
+          "case_id": "v140_ADV_N26_empty_user_visible_claims",
+          "artifact_ref": "per_case/adversarial/v140_ADV_N26_empty_user_visible_claims.json",
+          "failures": [
+            "conversation_turn_claims_trace_backed_rate failed from raw v1.40 local API contract validation"
+          ]
+        },
+        {
+          "case_id": "v140_ADV_N31_missing_response_blocks",
+          "artifact_ref": "per_case/adversarial/v140_ADV_N31_missing_response_blocks.json",
+          "failures": [
+            "conversation_turn_claims_trace_backed_rate failed from raw v1.40 local API contract validation"
+          ]
         }
       ]
     },
     {
       "check_id": "contract_snapshot_hash_reproducible_rate",
-      "applicable_cases": 24,
-      "passed_cases": 6,
-      "value": 0.25,
+      "applicable_cases": 31,
+      "passed_cases": 9,
+      "value": 0.2903225806451613,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -388,14 +445,42 @@
           "failures": [
             "contract_snapshot_hash_reproducible_rate failed from raw v1.40 local API contract validation"
           ]
+        },
+        {
+          "case_id": "v140_ADV_N27_missing_action_surface_body",
+          "artifact_ref": "per_case/adversarial/v140_ADV_N27_missing_action_surface_body.json",
+          "failures": [
+            "contract_snapshot_hash_reproducible_rate failed from raw v1.40 local API contract validation"
+          ]
+        },
+        {
+          "case_id": "v140_ADV_N28_missing_daily_outfit_cards_and_response_blocks",
+          "artifact_ref": "per_case/adversarial/v140_ADV_N28_missing_daily_outfit_cards_and_response_blocks.json",
+          "failures": [
+            "contract_snapshot_hash_reproducible_rate failed from raw v1.40 local API contract validation"
+          ]
+        },
+        {
+          "case_id": "v140_ADV_N29_missing_action_result_body",
+          "artifact_ref": "per_case/adversarial/v140_ADV_N29_missing_action_result_body.json",
+          "failures": [
+            "contract_snapshot_hash_reproducible_rate failed from raw v1.40 local API contract validation"
+          ]
+        },
+        {
+          "case_id": "v140_ADV_N31_missing_response_blocks",
+          "artifact_ref": "per_case/adversarial/v140_ADV_N31_missing_response_blocks.json",
+          "failures": [
+            "contract_snapshot_hash_reproducible_rate failed from raw v1.40 local API contract validation"
+          ]
         }
       ]
     },
     {
       "check_id": "source_artifact_hashes_match_raw_rate",
-      "applicable_cases": 24,
-      "passed_cases": 23,
-      "value": 0.9583333333333334,
+      "applicable_cases": 31,
+      "passed_cases": 30,
+      "value": 0.967741935483871,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -410,9 +495,9 @@
     },
     {
       "check_id": "backward_compatibility_replay_rate",
-      "applicable_cases": 24,
-      "passed_cases": 22,
-      "value": 0.9166666666666666,
+      "applicable_cases": 31,
+      "passed_cases": 29,
+      "value": 0.9354838709677419,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -434,9 +519,9 @@
     },
     {
       "check_id": "redaction_policy_safe_response_rate",
-      "applicable_cases": 24,
-      "passed_cases": 18,
-      "value": 0.75,
+      "applicable_cases": 31,
+      "passed_cases": 25,
+      "value": 0.8064516129032258,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -486,9 +571,9 @@
     },
     {
       "check_id": "schema_version_consistency_rate",
-      "applicable_cases": 24,
-      "passed_cases": 21,
-      "value": 0.875,
+      "applicable_cases": 31,
+      "passed_cases": 28,
+      "value": 0.9032258064516129,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -517,9 +602,9 @@
     },
     {
       "check_id": "sample_artifacts_match_per_case_rate",
-      "applicable_cases": 24,
-      "passed_cases": 23,
-      "value": 0.9583333333333334,
+      "applicable_cases": 31,
+      "passed_cases": 30,
+      "value": 0.967741935483871,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -534,9 +619,9 @@
     },
     {
       "check_id": "report_consistency_with_independent_validation_rate",
-      "applicable_cases": 24,
-      "passed_cases": 23,
-      "value": 0.9583333333333334,
+      "applicable_cases": 31,
+      "passed_cases": 30,
+      "value": 0.967741935483871,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -551,8 +636,8 @@
     },
     {
       "check_id": "adversarial_detection_rate",
-      "applicable_cases": 24,
-      "passed_cases": 24,
+      "applicable_cases": 31,
+      "passed_cases": 31,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
@@ -560,8 +645,8 @@
     },
     {
       "check_id": "v139_validation_replay_pass_rate",
-      "applicable_cases": 24,
-      "passed_cases": 24,
+      "applicable_cases": 31,
+      "passed_cases": 31,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
@@ -892,6 +977,95 @@
         "report_consistency_with_independent_validation_rate"
       ],
       "defect_type": "clean_report_pass_but_independent_validator_fail"
+    },
+    {
+      "case_id": "v140_ADV_N25_missing_conversation_turn_state",
+      "artifact_ref": "per_case/adversarial/v140_ADV_N25_missing_conversation_turn_state.json",
+      "passed": false,
+      "failed_check_ids": [
+        "conversation_turn_claims_trace_backed_rate"
+      ],
+      "expected_failed_check_ids": [
+        "conversation_turn_claims_trace_backed_rate"
+      ],
+      "defect_type": "missing_conversation_turn_state"
+    },
+    {
+      "case_id": "v140_ADV_N26_empty_user_visible_claims",
+      "artifact_ref": "per_case/adversarial/v140_ADV_N26_empty_user_visible_claims.json",
+      "passed": false,
+      "failed_check_ids": [
+        "conversation_turn_claims_trace_backed_rate"
+      ],
+      "expected_failed_check_ids": [
+        "conversation_turn_claims_trace_backed_rate"
+      ],
+      "defect_type": "empty_user_visible_claims"
+    },
+    {
+      "case_id": "v140_ADV_N27_missing_action_surface_body",
+      "artifact_ref": "per_case/adversarial/v140_ADV_N27_missing_action_surface_body.json",
+      "passed": false,
+      "failed_check_ids": [
+        "action_surface_api_matches_v139_surface_rate",
+        "contract_snapshot_hash_reproducible_rate"
+      ],
+      "expected_failed_check_ids": [
+        "action_surface_api_matches_v139_surface_rate"
+      ],
+      "defect_type": "missing_action_surface_body"
+    },
+    {
+      "case_id": "v140_ADV_N28_missing_daily_outfit_cards_and_response_blocks",
+      "artifact_ref": "per_case/adversarial/v140_ADV_N28_missing_daily_outfit_cards_and_response_blocks.json",
+      "passed": false,
+      "failed_check_ids": [
+        "action_surface_api_matches_v139_surface_rate",
+        "contract_snapshot_hash_reproducible_rate"
+      ],
+      "expected_failed_check_ids": [
+        "action_surface_api_matches_v139_surface_rate"
+      ],
+      "defect_type": "missing_daily_outfit_cards_and_response_blocks"
+    },
+    {
+      "case_id": "v140_ADV_N29_missing_action_result_body",
+      "artifact_ref": "per_case/adversarial/v140_ADV_N29_missing_action_result_body.json",
+      "passed": false,
+      "failed_check_ids": [
+        "action_result_api_links_response_rate",
+        "contract_snapshot_hash_reproducible_rate"
+      ],
+      "expected_failed_check_ids": [
+        "action_result_api_links_response_rate"
+      ],
+      "defect_type": "missing_action_result_body"
+    },
+    {
+      "case_id": "v140_ADV_N30_missing_action_submission_resource",
+      "artifact_ref": "per_case/adversarial/v140_ADV_N30_missing_action_submission_resource.json",
+      "passed": false,
+      "failed_check_ids": [
+        "action_submission_contract_valid_rate"
+      ],
+      "expected_failed_check_ids": [
+        "action_submission_contract_valid_rate"
+      ],
+      "defect_type": "missing_action_submission_resource"
+    },
+    {
+      "case_id": "v140_ADV_N31_missing_response_blocks",
+      "artifact_ref": "per_case/adversarial/v140_ADV_N31_missing_response_blocks.json",
+      "passed": false,
+      "failed_check_ids": [
+        "action_surface_api_matches_v139_surface_rate",
+        "contract_snapshot_hash_reproducible_rate",
+        "conversation_turn_claims_trace_backed_rate"
+      ],
+      "expected_failed_check_ids": [
+        "action_surface_api_matches_v139_surface_rate"
+      ],
+      "defect_type": "missing_response_blocks"
     }
   ],
   "detected_defects": [
@@ -1194,7 +1368,89 @@
         "report_consistency_with_independent_validation_rate"
       ],
       "detected": true
+    },
+    {
+      "case_id": "v140_ADV_N25_missing_conversation_turn_state",
+      "defect_type": "missing_conversation_turn_state",
+      "expected_failed_check_ids": [
+        "conversation_turn_claims_trace_backed_rate"
+      ],
+      "failed_check_ids": [
+        "conversation_turn_claims_trace_backed_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v140_ADV_N26_empty_user_visible_claims",
+      "defect_type": "empty_user_visible_claims",
+      "expected_failed_check_ids": [
+        "conversation_turn_claims_trace_backed_rate"
+      ],
+      "failed_check_ids": [
+        "conversation_turn_claims_trace_backed_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v140_ADV_N27_missing_action_surface_body",
+      "defect_type": "missing_action_surface_body",
+      "expected_failed_check_ids": [
+        "action_surface_api_matches_v139_surface_rate"
+      ],
+      "failed_check_ids": [
+        "action_surface_api_matches_v139_surface_rate",
+        "contract_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v140_ADV_N28_missing_daily_outfit_cards_and_response_blocks",
+      "defect_type": "missing_daily_outfit_cards_and_response_blocks",
+      "expected_failed_check_ids": [
+        "action_surface_api_matches_v139_surface_rate"
+      ],
+      "failed_check_ids": [
+        "action_surface_api_matches_v139_surface_rate",
+        "contract_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v140_ADV_N29_missing_action_result_body",
+      "defect_type": "missing_action_result_body",
+      "expected_failed_check_ids": [
+        "action_result_api_links_response_rate"
+      ],
+      "failed_check_ids": [
+        "action_result_api_links_response_rate",
+        "contract_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v140_ADV_N30_missing_action_submission_resource",
+      "defect_type": "missing_action_submission_resource",
+      "expected_failed_check_ids": [
+        "action_submission_contract_valid_rate"
+      ],
+      "failed_check_ids": [
+        "action_submission_contract_valid_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v140_ADV_N31_missing_response_blocks",
+      "defect_type": "missing_response_blocks",
+      "expected_failed_check_ids": [
+        "action_surface_api_matches_v139_surface_rate"
+      ],
+      "failed_check_ids": [
+        "action_surface_api_matches_v139_surface_rate",
+        "contract_snapshot_hash_reproducible_rate",
+        "conversation_turn_claims_trace_backed_rate"
+      ],
+      "detected": true
     }
   ],
-  "detected_defect_count": 24
+  "detected_defect_count": 31
 }

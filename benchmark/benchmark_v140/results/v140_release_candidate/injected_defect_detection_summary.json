@@ -1,9 +1,9 @@
 {
   "version": "v1.40",
-  "generated_at": "2026-06-24T08:58:05Z",
+  "generated_at": "2026-06-24T09:08:02Z",
   "verdict": "pass",
-  "seeded_defects": 24,
-  "detected_defects": 24,
+  "seeded_defects": 31,
+  "detected_defects": 31,
   "unexpected_injected_passes": [],
   "detected": [
     {
@@ -303,6 +303,88 @@
       ],
       "failed_check_ids": [
         "report_consistency_with_independent_validation_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v140_ADV_N25_missing_conversation_turn_state",
+      "defect_type": "missing_conversation_turn_state",
+      "expected_failed_check_ids": [
+        "conversation_turn_claims_trace_backed_rate"
+      ],
+      "failed_check_ids": [
+        "conversation_turn_claims_trace_backed_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v140_ADV_N26_empty_user_visible_claims",
+      "defect_type": "empty_user_visible_claims",
+      "expected_failed_check_ids": [
+        "conversation_turn_claims_trace_backed_rate"
+      ],
+      "failed_check_ids": [
+        "conversation_turn_claims_trace_backed_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v140_ADV_N27_missing_action_surface_body",
+      "defect_type": "missing_action_surface_body",
+      "expected_failed_check_ids": [
+        "action_surface_api_matches_v139_surface_rate"
+      ],
+      "failed_check_ids": [
+        "action_surface_api_matches_v139_surface_rate",
+        "contract_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v140_ADV_N28_missing_daily_outfit_cards_and_response_blocks",
+      "defect_type": "missing_daily_outfit_cards_and_response_blocks",
+      "expected_failed_check_ids": [
+        "action_surface_api_matches_v139_surface_rate"
+      ],
+      "failed_check_ids": [
+        "action_surface_api_matches_v139_surface_rate",
+        "contract_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v140_ADV_N29_missing_action_result_body",
+      "defect_type": "missing_action_result_body",
+      "expected_failed_check_ids": [
+        "action_result_api_links_response_rate"
+      ],
+      "failed_check_ids": [
+        "action_result_api_links_response_rate",
+        "contract_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v140_ADV_N30_missing_action_submission_resource",
+      "defect_type": "missing_action_submission_resource",
+      "expected_failed_check_ids": [
+        "action_submission_contract_valid_rate"
+      ],
+      "failed_check_ids": [
+        "action_submission_contract_valid_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v140_ADV_N31_missing_response_blocks",
+      "defect_type": "missing_response_blocks",
+      "expected_failed_check_ids": [
+        "action_surface_api_matches_v139_surface_rate"
+      ],
+      "failed_check_ids": [
+        "action_surface_api_matches_v139_surface_rate",
+        "contract_snapshot_hash_reproducible_rate",
+        "conversation_turn_claims_trace_backed_rate"
       ],
       "detected": true
     }

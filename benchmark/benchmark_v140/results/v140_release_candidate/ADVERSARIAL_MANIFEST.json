@@ -1,6 +1,6 @@
 {
   "version": "v1.40",
-  "generated_at": "2026-06-24T08:58:05Z",
+  "generated_at": "2026-06-24T09:08:02Z",
   "source_result_dir": "benchmark/benchmark_v140/results/v140_release_candidate",
   "cases": [
     {
@@ -199,6 +199,62 @@
       "defect_type": "clean_report_pass_but_independent_validator_fail",
       "expected_failed_check_ids": [
         "report_consistency_with_independent_validation_rate"
+      ]
+    },
+    {
+      "case_id": "v140_ADV_N25_missing_conversation_turn_state",
+      "artifact_ref": "per_case/adversarial/v140_ADV_N25_missing_conversation_turn_state.json",
+      "defect_type": "missing_conversation_turn_state",
+      "expected_failed_check_ids": [
+        "conversation_turn_claims_trace_backed_rate"
+      ]
+    },
+    {
+      "case_id": "v140_ADV_N26_empty_user_visible_claims",
+      "artifact_ref": "per_case/adversarial/v140_ADV_N26_empty_user_visible_claims.json",
+      "defect_type": "empty_user_visible_claims",
+      "expected_failed_check_ids": [
+        "conversation_turn_claims_trace_backed_rate"
+      ]
+    },
+    {
+      "case_id": "v140_ADV_N27_missing_action_surface_body",
+      "artifact_ref": "per_case/adversarial/v140_ADV_N27_missing_action_surface_body.json",
+      "defect_type": "missing_action_surface_body",
+      "expected_failed_check_ids": [
+        "action_surface_api_matches_v139_surface_rate"
+      ]
+    },
+    {
+      "case_id": "v140_ADV_N28_missing_daily_outfit_cards_and_response_blocks",
+      "artifact_ref": "per_case/adversarial/v140_ADV_N28_missing_daily_outfit_cards_and_response_blocks.json",
+      "defect_type": "missing_daily_outfit_cards_and_response_blocks",
+      "expected_failed_check_ids": [
+        "action_surface_api_matches_v139_surface_rate"
+      ]
+    },
+    {
+      "case_id": "v140_ADV_N29_missing_action_result_body",
+      "artifact_ref": "per_case/adversarial/v140_ADV_N29_missing_action_result_body.json",
+      "defect_type": "missing_action_result_body",
+      "expected_failed_check_ids": [
+        "action_result_api_links_response_rate"
+      ]
+    },
+    {
+      "case_id": "v140_ADV_N30_missing_action_submission_resource",
+      "artifact_ref": "per_case/adversarial/v140_ADV_N30_missing_action_submission_resource.json",
+      "defect_type": "missing_action_submission_resource",
+      "expected_failed_check_ids": [
+        "action_submission_contract_valid_rate"
+      ]
+    },
+    {
+      "case_id": "v140_ADV_N31_missing_response_blocks",
+      "artifact_ref": "per_case/adversarial/v140_ADV_N31_missing_response_blocks.json",
+      "defect_type": "missing_response_blocks",
+      "expected_failed_check_ids": [
+        "action_surface_api_matches_v139_surface_rate"
       ]
     }
   ]

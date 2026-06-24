@@ -1,7 +1,7 @@
 {
-  "case_id": "v140_D04_missing_idempotency_key_rejected_no_write",
+  "case_id": "v140_ADV_N29_missing_action_result_body",
   "version": "v1.40",
-  "scenario_kind": "missing_idempotency_key",
+  "scenario_kind": "action_result",
   "gate_assertions": {
     "api_request_response_envelope_valid_rate": true,
     "route_handler_maps_to_raw_artifacts_rate": true,
@@ -26,17 +26,14 @@
   "source_v139_artifact_hash": "d589033e39b1470eba426e2ce75085592512d540e06c26fe0c79b2acfd50e70f",
   "source_v139_case_id": "v139_B02_this_time_only_submission_no_write_result",
   "local_api_request_envelope": {
-    "api_request_id": "api_req_v140_D04_missing_idempotency_key_rejected_no_write",
+    "api_request_id": "api_req_v140_ADV_N29_missing_action_result_body",
     "contract_version": "v1.40",
     "schema_version": "product_api.v1",
-    "route": "POST /local/action-submission",
-    "method": "POST",
+    "route": "GET /local/action-result",
+    "method": "GET",
     "request_context": "office_daily",
     "query": {},
-    "body": {
-      "submitted_action": "this_time_only",
-      "user_action_card_id": "uac_v139_006"
-    },
+    "body": {},
     "idempotency_key": null,
     "trace_refs": [
       "rt_v139_006",
@@ -44,49 +41,56 @@
     ]
   },
   "local_api_response_envelope": {
-    "api_response_id": "api_res_v140_D04_missing_idempotency_key_rejected_no_write",
-    "api_request_id": "api_req_v140_D04_missing_idempotency_key_rejected_no_write",
+    "api_response_id": "api_res_v140_ADV_N29_missing_action_result_body",
+    "api_request_id": "api_req_v140_ADV_N29_missing_action_result_body",
     "contract_version": "v1.40",
     "schema_version": "product_api.v1",
-    "status_code": 400,
-    "response_type": "error",
+    "status_code": 200,
+    "response_type": "action_result",
     "body": {
       "contract_version": "v1.40",
       "schema_version": "product_api.v1",
-      "safe_error": "An idempotency key is required for this action."
-    },
-    "error": {
-      "error_id": "api_err_v140_D04_missing_idempotency_key_rejected_no_write",
-      "error_type": "missing_required_field",
-      "status_code": 400,
-      "safe_message": "An idempotency key is required for this action.",
-      "developer_debug_ref": "trace:rt_v139_006",
-      "production_write_executed": false,
-      "trace_refs": [
-        "rt_v139_006",
-        "gas_v139_006"
+      "response_blocks": [
+        {
+          "response_block_id": "urb_v139_006",
+          "block_type": "action_result_notice",
+          "text": "I will use that only for this outfit.",
+          "claim_refs": [
+            "claim_v139_006"
+          ],
+          "trace_refs": [
+            "rt_v139_006",
+            "arp_v139_006",
+            "grd_v139_006"
+          ]
+        }
       ]
     },
+    "error": null,
     "trace_refs": [
-      "api_req_v140_D04_missing_idempotency_key_rejected_no_write",
+      "api_req_v140_ADV_N29_missing_action_result_body",
       "rt_v139_006",
       "gas_v139_006"
     ]
   },
   "product_route_handler_proof": {
-    "route_handler_proof_id": "rhp_v140_D04_missing_idempotency_key_rejected_no_write",
-    "route": "POST /local/action-submission",
+    "route_handler_proof_id": "rhp_v140_ADV_N29_missing_action_result_body",
+    "route": "GET /local/action-result",
     "source_artifact_refs": [
       "per_case/clean/v139_B02_this_time_only_submission_no_write_result.json"
     ],
     "derived_resource_refs": [],
     "field_mapping": [
       {
+        "response_field": "action_result",
+        "source": "raw_v139_artifact"
+      },
+      {
         "response_field": "contract_version",
         "source": "derived_constant"
       },
       {
-        "response_field": "safe_error",
+        "response_field": "response_blocks",
         "source": "raw_v139_artifact"
       },
       {
@@ -109,34 +113,23 @@
     ]
   },
   "contract_snapshot": {
-    "contract_snapshot_id": "cs_v140_D04_missing_idempotency_key_rejected_no_write",
-    "api_request_id": "api_req_v140_D04_missing_idempotency_key_rejected_no_write",
-    "api_response_id": "api_res_v140_D04_missing_idempotency_key_rejected_no_write",
-    "canonical_request_hash": "f52249322443c20cd9b8dba6e8c474256e55be270f4d5bb2222a083968181d58",
-    "canonical_response_hash": "2a3bd783f8dec96bbe54f2288e5660b06de0ad16c4d14196c699dab90f9d7d92",
+    "contract_snapshot_id": "cs_v140_ADV_N29_missing_action_result_body",
+    "api_request_id": "api_req_v140_ADV_N29_missing_action_result_body",
+    "api_response_id": "api_res_v140_ADV_N29_missing_action_result_body",
+    "canonical_request_hash": "73ea7c9c0827ef3421c28bdd851e00ae34ebb5ae252fbd993496379519af73af",
+    "canonical_response_hash": "f8b0f782911782f50a09e81ea00feb935409fe869807f050dc5e637b46b80d6e",
     "source_artifact_hashes": {
       "per_case/clean/v139_B02_this_time_only_submission_no_write_result.json": "d589033e39b1470eba426e2ce75085592512d540e06c26fe0c79b2acfd50e70f"
     },
     "schema_version": "product_api.v1",
-    "backward_compatibility_key": "stable:POST /local/action-submission:error",
+    "backward_compatibility_key": "stable:GET /local/action-result:action_result",
     "trace_refs": [
-      "api_req_v140_D04_missing_idempotency_key_rejected_no_write",
-      "api_res_v140_D04_missing_idempotency_key_rejected_no_write",
+      "api_req_v140_ADV_N29_missing_action_result_body",
+      "api_res_v140_ADV_N29_missing_action_result_body",
       "per_case/clean/v139_B02_this_time_only_submission_no_write_result.json"
     ]
   },
-  "api_error_envelope": {
-    "error_id": "api_err_v140_D04_missing_idempotency_key_rejected_no_write",
-    "error_type": "missing_required_field",
-    "status_code": 400,
-    "safe_message": "An idempotency key is required for this action.",
-    "developer_debug_ref": "trace:rt_v139_006",
-    "production_write_executed": false,
-    "trace_refs": [
-      "rt_v139_006",
-      "gas_v139_006"
-    ]
-  },
+  "api_error_envelope": null,
   "action_surface_api_resource": {
     "action_surface_api_resource_id": "asr_v139_B02_this_time_only_submission_no_write_result",
     "source_governance_action_surface_id": "gas_v139_006",
@@ -182,28 +175,9 @@
       "rt_v139_006"
     ]
   },
-  "action_submission_api_resource": {
-    "action_submission_api_resource_id": "sub_api_v140_D04_missing_idempotency_key_rejected_no_write",
-    "accepted": false,
-    "submitted_action": "this_time_only",
-    "idempotency_key": null,
-    "user_action_card_id": "uac_v139_006",
-    "governance_queue_item_id": "gqi_v139_006",
-    "allowed_actions_at_submission": [
-      "this_time_only",
-      "do_not_change_memory",
-      "remember_for_context"
-    ],
-    "card_display_state_at_submission": "resolved",
-    "production_write_executed": false,
-    "trace_refs": [
-      "rt_v139_006",
-      "uac_v139_006",
-      "gqi_v139_006"
-    ]
-  },
+  "action_submission_api_resource": null,
   "action_result_api_resource": {
-    "action_result_api_resource_id": "res_api_v140_D04_missing_idempotency_key_rejected_no_write",
+    "action_result_api_resource_id": "res_api_v140_ADV_N29_missing_action_result_body",
     "action_result_packet_id": "arp_v139_006",
     "result_type": "no_write_current_turn",
     "production_write_executed": false,
@@ -222,20 +196,33 @@
     ]
   },
   "conversation_turn_state": {
-    "conversation_turn_state_id": "cts_v140_D04_missing_idempotency_key_rejected_no_write",
-    "api_request_id": "api_req_v140_D04_missing_idempotency_key_rejected_no_write",
-    "api_response_id": "api_res_v140_D04_missing_idempotency_key_rejected_no_write",
-    "visible_response_block_ids": [],
-    "user_visible_claims": [],
+    "conversation_turn_state_id": "cts_v140_ADV_N29_missing_action_result_body",
+    "api_request_id": "api_req_v140_ADV_N29_missing_action_result_body",
+    "api_response_id": "api_res_v140_ADV_N29_missing_action_result_body",
+    "visible_response_block_ids": [
+      "urb_v139_006"
+    ],
+    "user_visible_claims": [
+      {
+        "claim_id": "api_claim_urb_v139_006",
+        "text": "I will use that only for this outfit.",
+        "trace_refs": [
+          "api_res_v140_ADV_N29_missing_action_result_body",
+          "urb_v139_006",
+          "arp_v139_006",
+          "grd_v139_006"
+        ]
+      }
+    ],
     "memory_change_claimed": false,
     "production_write_executed": false,
     "trace_refs": [
-      "api_res_v140_D04_missing_idempotency_key_rejected_no_write",
+      "api_res_v140_ADV_N29_missing_action_result_body",
       "rt_v139_006"
     ]
   },
   "schema_compatibility_report": {
-    "schema_compatibility_report_id": "scr_v140_D04_missing_idempotency_key_rejected_no_write",
+    "schema_compatibility_report_id": "scr_v140_ADV_N29_missing_action_result_body",
     "current_schema_version": "product_api.v1",
     "previous_schema_version": "product_api.v1",
     "required_fields_present": true,
@@ -243,19 +230,19 @@
     "current_schema_adapter": "product_api.v1.local_adapter",
     "replay_status": "pass",
     "trace_refs": [
-      "cs_v140_D04_missing_idempotency_key_rejected_no_write"
+      "cs_v140_ADV_N29_missing_action_result_body"
     ]
   },
   "contract_replay_trace": {
-    "contract_replay_trace_id": "crt_v140_D04_missing_idempotency_key_rejected_no_write",
-    "replayed_snapshot_id": "cs_v140_D04_missing_idempotency_key_rejected_no_write",
+    "contract_replay_trace_id": "crt_v140_ADV_N29_missing_action_result_body",
+    "replayed_snapshot_id": "cs_v140_ADV_N29_missing_action_result_body",
     "replay_result": "pass",
     "current_schema_adapter_version": "product_api.v1.local_adapter",
-    "backward_compatibility_key": "stable:POST /local/action-submission:error",
-    "reproduced_request_hash": "f52249322443c20cd9b8dba6e8c474256e55be270f4d5bb2222a083968181d58",
-    "reproduced_response_hash": "2a3bd783f8dec96bbe54f2288e5660b06de0ad16c4d14196c699dab90f9d7d92",
+    "backward_compatibility_key": "stable:GET /local/action-result:action_result",
+    "reproduced_request_hash": "73ea7c9c0827ef3421c28bdd851e00ae34ebb5ae252fbd993496379519af73af",
+    "reproduced_response_hash": "f8b0f782911782f50a09e81ea00feb935409fe869807f050dc5e637b46b80d6e",
     "trace_refs": [
-      "cs_v140_D04_missing_idempotency_key_rejected_no_write"
+      "cs_v140_ADV_N29_missing_action_result_body"
     ]
   },
   "before_memory_lifecycle_state": {
@@ -302,5 +289,10 @@
   "runner_reproducibility_proof": {},
   "v139_replay_proof": {
     "run_v139_validation_suite": "PASS"
-  }
+  },
+  "defect_type": "missing_action_result_body",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "action_result_api_links_response_rate"
+  ]
 }

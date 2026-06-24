@@ -99,6 +99,18 @@ def _visible_texts(response: dict[str, Any], error: dict[str, Any] | None, conve
     return texts
 
 
+def _response_blocks_from_body(body: dict[str, Any]) -> list[dict[str, Any]]:
+    if isinstance(body.get("response_blocks"), list):
+        return body["response_blocks"]
+    action_surface = body.get("action_surface") or {}
+    if isinstance(action_surface.get("response_blocks"), list):
+        return action_surface["response_blocks"]
+    daily = body.get("daily_outfit_card") or {}
+    if isinstance(daily.get("response_blocks"), list):
+        return daily["response_blocks"]
+    return []
+
+
 def _project_v139_surface(source: dict[str, Any]) -> dict[str, Any]:
     surface = source["governance_action_surface"]
     return {
@@ -149,7 +161,8 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
     surface = artifact.get("action_surface_api_resource") or {}
     submission = artifact.get("action_submission_api_resource")
     action_result = artifact.get("action_result_api_resource")
-    conversation = artifact.get("conversation_turn_state") or {}
+    conversation_raw = artifact.get("conversation_turn_state")
+    conversation = conversation_raw if isinstance(conversation_raw, dict) else {}
     compatibility = artifact.get("schema_compatibility_report") or {}
     replay = artifact.get("contract_replay_trace") or {}
     before = artifact.get("before_memory_lifecycle_state") or {}
@@ -157,6 +170,7 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
     gate = artifact.get("production_memory_write_gate") or {}
     scenario = artifact.get("scenario_kind")
     source_path, source = _source_artifact(artifact)
+    body = response.get("body") or {}
 
     if request.get("contract_version") != CONTRACT_VERSION or response.get("contract_version") != CONTRACT_VERSION:
         failures.append("api_request_response_envelope_valid_rate")
@@ -196,12 +210,39 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
         projected = _project_v139_surface(source)
         if surface.get("cards") != projected["cards"] or surface.get("response_blocks") != projected["response_blocks"]:
             failures.append("action_surface_api_matches_v139_surface_rate")
-        body = response.get("body") or {}
-        body_surface = body.get("action_surface") or body.get("daily_outfit_card", {}).get("action_surface")
-        if body_surface and body_surface.get("cards") != projected["cards"]:
+        route = request.get("route")
+        response_type = response.get("response_type")
+        if route == "GET /local/action-surface" and response_type == "action_surface":
+            body_surface = body.get("action_surface")
+            if not isinstance(body_surface, dict) or body_surface.get("cards") != projected["cards"] or body_surface.get("response_blocks") != projected["response_blocks"]:
+                failures.append("action_surface_api_matches_v139_surface_rate")
+            if body.get("response_blocks") != projected["response_blocks"]:
+                failures.append("action_surface_api_matches_v139_surface_rate")
+        elif route == "GET /local/daily-outfit" and response_type == "daily_outfit":
+            daily = body.get("daily_outfit_card")
+            if not isinstance(daily, dict) or daily.get("cards") != projected["cards"] or daily.get("response_blocks") != projected["response_blocks"]:
+                failures.append("action_surface_api_matches_v139_surface_rate")
+        elif body.get("response_blocks") is not None and body.get("response_blocks") != projected["response_blocks"]:
             failures.append("action_surface_api_matches_v139_surface_rate")
-        if body.get("response_blocks") and body.get("response_blocks") != projected["response_blocks"]:
+
+        if response_type in {"action_surface", "daily_outfit", "action_result", "action_submission_result"} and not _response_blocks_from_body(body):
             failures.append("action_surface_api_matches_v139_surface_rate")
+
+    post_action_submission = request.get("route") == "POST /local/action-submission"
+    if post_action_submission and not isinstance(submission, dict):
+        failures.append("action_submission_contract_valid_rate")
+    if post_action_submission and isinstance(submission, dict):
+        request_body = request.get("body") or {}
+        if request_body.get("submitted_action") != submission.get("submitted_action") or request_body.get("user_action_card_id") != submission.get("user_action_card_id"):
+            failures.append("action_submission_contract_valid_rate")
+        if request.get("idempotency_key") != submission.get("idempotency_key"):
+            failures.append("action_submission_contract_valid_rate")
+        if response.get("response_type") == "action_submission_result" and (body.get("action_submission") or {}) != submission:
+            failures.append("action_submission_contract_valid_rate")
+        if response.get("response_type") == "error":
+            if submission.get("accepted") is not False or submission.get("production_write_executed") is not False:
+                failures.append("action_submission_contract_valid_rate")
+                failures.append("no_write_error_preserves_memory_state_rate")
 
     if submission:
         action = submission.get("submitted_action")
@@ -242,13 +283,27 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
             if block_id not in response_block_ids or block_id not in set(action_result.get("response_block_refs") or []):
                 failures.append("action_result_api_links_response_rate")
         body_result = (body.get("action_result") or {})
-        if body_result and body_result.get("action_result_packet_id") != action_result.get("action_result_packet_id"):
+        if request.get("route") == "GET /local/action-result" and response.get("response_type") == "action_result" and not body_result:
+            failures.append("action_result_api_links_response_rate")
+        if request.get("route") == "POST /local/action-submission" and response.get("response_type") == "action_submission_result" and not body_result:
+            failures.append("action_result_api_links_response_rate")
+        if body_result and body_result != action_result:
             failures.append("action_result_api_links_response_rate")
 
     response_block_ids = {block.get("response_block_id") for block in surface.get("response_blocks") or []}
     result_id = (action_result or {}).get("action_result_packet_id")
     decision_id = (action_result or {}).get("governance_resolution_decision_id")
-    for claim in conversation.get("user_visible_claims") or []:
+    visible_blocks = _response_blocks_from_body(body)
+    claims = conversation.get("user_visible_claims") or []
+    if not isinstance(conversation_raw, dict):
+        failures.append("conversation_turn_claims_trace_backed_rate")
+    else:
+        if conversation.get("api_request_id") != request.get("api_request_id") or conversation.get("api_response_id") != response.get("api_response_id"):
+            failures.append("conversation_turn_claims_trace_backed_rate")
+        if visible_blocks and not claims:
+            failures.append("conversation_turn_claims_trace_backed_rate")
+    claim_refs: set[Any] = set()
+    for claim in claims:
         refs = set(claim.get("trace_refs") or [])
         if conversation.get("api_response_id") not in refs:
             failures.append("conversation_turn_claims_trace_backed_rate")
@@ -257,6 +312,10 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
         if result_id and result_id not in refs:
             failures.append("conversation_turn_claims_trace_backed_rate")
         if decision_id and decision_id not in refs:
+            failures.append("conversation_turn_claims_trace_backed_rate")
+        claim_refs.update(refs)
+    for block in visible_blocks:
+        if block.get("response_block_id") not in claim_refs:
             failures.append("conversation_turn_claims_trace_backed_rate")
     visible_texts = _visible_texts(response, error, conversation)
     claims_memory_change_without_write = any("saved" in text or "applied" in text for text in visible_texts) and not conversation.get("production_write_executed")

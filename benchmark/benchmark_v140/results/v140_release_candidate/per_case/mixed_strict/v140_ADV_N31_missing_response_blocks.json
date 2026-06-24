@@ -1,7 +1,7 @@
 {
-  "case_id": "v140_A01_get_daily_outfit_returns_contract_envelope",
+  "case_id": "v140_ADV_N31_missing_response_blocks",
   "version": "v1.40",
-  "scenario_kind": "daily_outfit",
+  "scenario_kind": "action_surface",
   "gate_assertions": {
     "api_request_response_envelope_valid_rate": true,
     "route_handler_maps_to_raw_artifacts_rate": true,
@@ -26,10 +26,10 @@
   "source_v139_artifact_hash": "9894318b460deb221bf1ccfe307a488491e0bc1aebe011ba9c17b3b9bd763cab",
   "source_v139_case_id": "v139_A01_open_clarification_queue_item_creates_active_action_card",
   "local_api_request_envelope": {
-    "api_request_id": "api_req_v140_A01_get_daily_outfit_returns_contract_envelope",
+    "api_request_id": "api_req_v140_ADV_N31_missing_response_blocks",
     "contract_version": "v1.40",
     "schema_version": "product_api.v1",
-    "route": "GET /local/daily-outfit",
+    "route": "GET /local/action-surface",
     "method": "GET",
     "request_context": "office_daily",
     "query": {},
@@ -41,18 +41,18 @@
     ]
   },
   "local_api_response_envelope": {
-    "api_response_id": "api_res_v140_A01_get_daily_outfit_returns_contract_envelope",
-    "api_request_id": "api_req_v140_A01_get_daily_outfit_returns_contract_envelope",
+    "api_response_id": "api_res_v140_ADV_N31_missing_response_blocks",
+    "api_request_id": "api_req_v140_ADV_N31_missing_response_blocks",
     "contract_version": "v1.40",
     "schema_version": "product_api.v1",
     "status_code": 200,
-    "response_type": "daily_outfit",
+    "response_type": "action_surface",
     "body": {
       "contract_version": "v1.40",
       "schema_version": "product_api.v1",
-      "daily_outfit_card": {
-        "request_context": "office_daily",
-        "action_surface_ref": "asr_v139_A01_open_clarification_queue_item_creates_active_action_card",
+      "action_surface": {
+        "action_surface_api_resource_id": "asr_v139_A01_open_clarification_queue_item_creates_active_action_card",
+        "source_governance_action_surface_id": "gas_v139_001",
         "cards": [
           {
             "card_id": "uac_v139_001",
@@ -74,44 +74,40 @@
             ]
           }
         ],
-        "response_blocks": [
-          {
-            "response_block_id": "urb_v139_001",
-            "block_type": "clarification_prompt",
-            "text": "Please clarify how to use this preference for this outfit.",
-            "claim_refs": [
-              "claim_v139_001"
-            ],
-            "trace_refs": [
-              "rt_v139_001",
-              "gqi_v139_001",
-              "gqi_v139_001"
-            ]
-          }
+        "response_blocks": [],
+        "trace_refs": [
+          "gas_v139_001",
+          "v139_A01_open_clarification_queue_item_creates_active_action_card",
+          "rt_v139_001"
         ]
-      }
+      },
+      "response_blocks": []
     },
     "error": null,
     "trace_refs": [
-      "api_req_v140_A01_get_daily_outfit_returns_contract_envelope",
+      "api_req_v140_ADV_N31_missing_response_blocks",
       "rt_v139_001",
       "gas_v139_001"
     ]
   },
   "product_route_handler_proof": {
-    "route_handler_proof_id": "rhp_v140_A01_get_daily_outfit_returns_contract_envelope",
-    "route": "GET /local/daily-outfit",
+    "route_handler_proof_id": "rhp_v140_ADV_N31_missing_response_blocks",
+    "route": "GET /local/action-surface",
     "source_artifact_refs": [
       "per_case/clean/v139_A01_open_clarification_queue_item_creates_active_action_card.json"
     ],
     "derived_resource_refs": [],
     "field_mapping": [
       {
+        "response_field": "action_surface",
+        "source": "raw_v139_artifact"
+      },
+      {
         "response_field": "contract_version",
         "source": "derived_constant"
       },
       {
-        "response_field": "daily_outfit_card",
+        "response_field": "response_blocks",
         "source": "raw_v139_artifact"
       },
       {
@@ -134,19 +130,19 @@
     ]
   },
   "contract_snapshot": {
-    "contract_snapshot_id": "cs_v140_A01_get_daily_outfit_returns_contract_envelope",
-    "api_request_id": "api_req_v140_A01_get_daily_outfit_returns_contract_envelope",
-    "api_response_id": "api_res_v140_A01_get_daily_outfit_returns_contract_envelope",
-    "canonical_request_hash": "b2e70262ac024c492200f38d2a986bf4a4a376395edc61785c9adf9c268d4bf3",
-    "canonical_response_hash": "0a94786bb443f52d37b298a61268c019bf5bcd61e05af670a62dd15de0d0f301",
+    "contract_snapshot_id": "cs_v140_ADV_N31_missing_response_blocks",
+    "api_request_id": "api_req_v140_ADV_N31_missing_response_blocks",
+    "api_response_id": "api_res_v140_ADV_N31_missing_response_blocks",
+    "canonical_request_hash": "6dc1b91d39a4e0f45b231960262b79267ac4b62f9dd3b89f3789056dd496a735",
+    "canonical_response_hash": "2bf01db58958203d4a83197bed0995f864266ed10a7f64e7a7184724e9970c97",
     "source_artifact_hashes": {
       "per_case/clean/v139_A01_open_clarification_queue_item_creates_active_action_card.json": "9894318b460deb221bf1ccfe307a488491e0bc1aebe011ba9c17b3b9bd763cab"
     },
     "schema_version": "product_api.v1",
-    "backward_compatibility_key": "stable:GET /local/daily-outfit:daily_outfit",
+    "backward_compatibility_key": "stable:GET /local/action-surface:action_surface",
     "trace_refs": [
-      "api_req_v140_A01_get_daily_outfit_returns_contract_envelope",
-      "api_res_v140_A01_get_daily_outfit_returns_contract_envelope",
+      "api_req_v140_ADV_N31_missing_response_blocks",
+      "api_res_v140_ADV_N31_missing_response_blocks",
       "per_case/clean/v139_A01_open_clarification_queue_item_creates_active_action_card.json"
     ]
   },
@@ -175,21 +171,7 @@
         ]
       }
     ],
-    "response_blocks": [
-      {
-        "response_block_id": "urb_v139_001",
-        "block_type": "clarification_prompt",
-        "text": "Please clarify how to use this preference for this outfit.",
-        "claim_refs": [
-          "claim_v139_001"
-        ],
-        "trace_refs": [
-          "rt_v139_001",
-          "gqi_v139_001",
-          "gqi_v139_001"
-        ]
-      }
-    ],
+    "response_blocks": [],
     "trace_refs": [
       "gas_v139_001",
       "v139_A01_open_clarification_queue_item_creates_active_action_card",
@@ -199,9 +181,9 @@
   "action_submission_api_resource": null,
   "action_result_api_resource": null,
   "conversation_turn_state": {
-    "conversation_turn_state_id": "cts_v140_A01_get_daily_outfit_returns_contract_envelope",
-    "api_request_id": "api_req_v140_A01_get_daily_outfit_returns_contract_envelope",
-    "api_response_id": "api_res_v140_A01_get_daily_outfit_returns_contract_envelope",
+    "conversation_turn_state_id": "cts_v140_ADV_N31_missing_response_blocks",
+    "api_request_id": "api_req_v140_ADV_N31_missing_response_blocks",
+    "api_response_id": "api_res_v140_ADV_N31_missing_response_blocks",
     "visible_response_block_ids": [
       "urb_v139_001"
     ],
@@ -210,7 +192,7 @@
         "claim_id": "api_claim_urb_v139_001",
         "text": "Please clarify how to use this preference for this outfit.",
         "trace_refs": [
-          "api_res_v140_A01_get_daily_outfit_returns_contract_envelope",
+          "api_res_v140_ADV_N31_missing_response_blocks",
           "urb_v139_001"
         ]
       }
@@ -218,12 +200,12 @@
     "memory_change_claimed": false,
     "production_write_executed": false,
     "trace_refs": [
-      "api_res_v140_A01_get_daily_outfit_returns_contract_envelope",
+      "api_res_v140_ADV_N31_missing_response_blocks",
       "rt_v139_001"
     ]
   },
   "schema_compatibility_report": {
-    "schema_compatibility_report_id": "scr_v140_A01_get_daily_outfit_returns_contract_envelope",
+    "schema_compatibility_report_id": "scr_v140_ADV_N31_missing_response_blocks",
     "current_schema_version": "product_api.v1",
     "previous_schema_version": "product_api.v1",
     "required_fields_present": true,
@@ -231,19 +213,19 @@
     "current_schema_adapter": "product_api.v1.local_adapter",
     "replay_status": "pass",
     "trace_refs": [
-      "cs_v140_A01_get_daily_outfit_returns_contract_envelope"
+      "cs_v140_ADV_N31_missing_response_blocks"
     ]
   },
   "contract_replay_trace": {
-    "contract_replay_trace_id": "crt_v140_A01_get_daily_outfit_returns_contract_envelope",
-    "replayed_snapshot_id": "cs_v140_A01_get_daily_outfit_returns_contract_envelope",
+    "contract_replay_trace_id": "crt_v140_ADV_N31_missing_response_blocks",
+    "replayed_snapshot_id": "cs_v140_ADV_N31_missing_response_blocks",
     "replay_result": "pass",
     "current_schema_adapter_version": "product_api.v1.local_adapter",
-    "backward_compatibility_key": "stable:GET /local/daily-outfit:daily_outfit",
-    "reproduced_request_hash": "b2e70262ac024c492200f38d2a986bf4a4a376395edc61785c9adf9c268d4bf3",
-    "reproduced_response_hash": "0a94786bb443f52d37b298a61268c019bf5bcd61e05af670a62dd15de0d0f301",
+    "backward_compatibility_key": "stable:GET /local/action-surface:action_surface",
+    "reproduced_request_hash": "6dc1b91d39a4e0f45b231960262b79267ac4b62f9dd3b89f3789056dd496a735",
+    "reproduced_response_hash": "2bf01db58958203d4a83197bed0995f864266ed10a7f64e7a7184724e9970c97",
     "trace_refs": [
-      "cs_v140_A01_get_daily_outfit_returns_contract_envelope"
+      "cs_v140_ADV_N31_missing_response_blocks"
     ]
   },
   "before_memory_lifecycle_state": {
@@ -290,5 +272,10 @@
   "runner_reproducibility_proof": {},
   "v139_replay_proof": {
     "run_v139_validation_suite": "PASS"
-  }
+  },
+  "defect_type": "missing_response_blocks",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "action_surface_api_matches_v139_surface_rate"
+  ]
 }

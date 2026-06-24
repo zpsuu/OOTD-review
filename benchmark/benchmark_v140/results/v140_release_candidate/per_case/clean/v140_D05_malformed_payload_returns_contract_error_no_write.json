@@ -35,7 +35,7 @@
     "query": {},
     "body": {
       "submitted_action": null,
-      "user_action_card_id": null
+      "user_action_card_id": "uac_v139_001"
     },
     "idempotency_key": "idem_v140_D05_malformed_payload_returns_contract_error_no_write",
     "trace_refs": [
@@ -112,7 +112,7 @@
     "contract_snapshot_id": "cs_v140_D05_malformed_payload_returns_contract_error_no_write",
     "api_request_id": "api_req_v140_D05_malformed_payload_returns_contract_error_no_write",
     "api_response_id": "api_res_v140_D05_malformed_payload_returns_contract_error_no_write",
-    "canonical_request_hash": "cda8ec7293bfa161a5159078a83d70af8bb319f7d7deca3c7dca45e4b04ec8ca",
+    "canonical_request_hash": "26bcd7849faeae93c06400931b2c925764cd45124068b96600272c02f518219c",
     "canonical_response_hash": "1e74f8941b066ab4a042bcc98d99512f200e6d2dc17cdf26ab7a578a72fa69f1",
     "source_artifact_hashes": {
       "per_case/clean/v139_A01_open_clarification_queue_item_creates_active_action_card.json": "9894318b460deb221bf1ccfe307a488491e0bc1aebe011ba9c17b3b9bd763cab"
@@ -182,7 +182,26 @@
       "rt_v139_001"
     ]
   },
-  "action_submission_api_resource": null,
+  "action_submission_api_resource": {
+    "action_submission_api_resource_id": "sub_api_v140_D05_malformed_payload_returns_contract_error_no_write",
+    "accepted": false,
+    "submitted_action": null,
+    "idempotency_key": "idem_v140_D05_malformed_payload_returns_contract_error_no_write",
+    "user_action_card_id": "uac_v139_001",
+    "governance_queue_item_id": "gqi_v139_001",
+    "allowed_actions_at_submission": [
+      "this_time_only",
+      "do_not_change_memory",
+      "remember_for_context"
+    ],
+    "card_display_state_at_submission": "active",
+    "production_write_executed": false,
+    "trace_refs": [
+      "rt_v139_001",
+      "uac_v139_001",
+      "gqi_v139_001"
+    ]
+  },
   "action_result_api_resource": null,
   "conversation_turn_state": {
     "conversation_turn_state_id": "cts_v140_D05_malformed_payload_returns_contract_error_no_write",
@@ -215,7 +234,7 @@
     "replay_result": "pass",
     "current_schema_adapter_version": "product_api.v1.local_adapter",
     "backward_compatibility_key": "stable:POST /local/action-submission:error",
-    "reproduced_request_hash": "cda8ec7293bfa161a5159078a83d70af8bb319f7d7deca3c7dca45e4b04ec8ca",
+    "reproduced_request_hash": "26bcd7849faeae93c06400931b2c925764cd45124068b96600272c02f518219c",
     "reproduced_response_hash": "1e74f8941b066ab4a042bcc98d99512f200e6d2dc17cdf26ab7a578a72fa69f1",
     "trace_refs": [
       "cs_v140_D05_malformed_payload_returns_contract_error_no_write"
