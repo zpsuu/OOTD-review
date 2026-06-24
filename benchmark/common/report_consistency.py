@@ -1,4 +1,4 @@
-"""Report consistency checks used by v1.35 release evidence."""
+"""Report consistency checks used by release evidence packs."""
 from __future__ import annotations
 
 from pathlib import Path
@@ -69,10 +69,11 @@ def check_report_consistency(result_dir: Path, required_gates: list[str]) -> dic
     sample = read_json(result_dir / "sample_consistency_report.json")
 
     failures: list[str] = []
-    required_reports = manifest.get("required_reports", [])
+    required_reports = manifest.get("required_reports", REQUIRED_REPORTS)
     for report in REQUIRED_REPORTS:
         if report not in required_reports:
-            failures.append(f"manifest missing required report {report}")
+            failures.append(f"manifest missing base required report {report}")
+    for report in required_reports:
         if not (result_dir / report).exists():
             failures.append(f"required report file missing {report}")
 
@@ -112,9 +113,8 @@ def check_report_consistency(result_dir: Path, required_gates: list[str]) -> dic
     return {
         "validator": "benchmark.common.report_consistency",
         "manifest_hash": canonical_json_hash(manifest),
-        "required_reports": REQUIRED_REPORTS,
+        "required_reports": required_reports,
         "checked_gates": required_gates,
         "passed": not failures,
         "failures": failures,
     }
-

@@ -1,0 +1,242 @@
+{
+  "case_id": "v136_F02_blocked_memory_is_not_cited_in_response",
+  "version": "v1.36",
+  "scenario": "blocked_memory_is_not_cited_in_response",
+  "scenario_kind": "do_not_use",
+  "scenario_preconditions": {
+    "expected": [
+      "downstream_consumption_present",
+      "feedback_event_present",
+      "lifecycle_proposal_present",
+      "post_feedback_proof_present"
+    ],
+    "satisfied": true,
+    "proof_refs": [
+      "downstream_consumption",
+      "promoted_memory_feedback_event",
+      "feedback_interpretation",
+      "memory_lifecycle_proposal",
+      "feedback_write_decision",
+      "updated_memory_lifecycle_state",
+      "post_feedback_consumption_proof"
+    ],
+    "missing_preconditions": []
+  },
+  "gate_assertions": {
+    "feedback_event_trace_refs_consumed_memory_rate": true,
+    "feedback_event_consumption_report_ref_present_rate": true,
+    "feedback_missing_trace_requires_clarification_rate": true,
+    "right_feedback_reinforces_without_scope_expansion_rate": true,
+    "reinforcement_confidence_cap_respected_rate": true,
+    "too_strong_feedback_reduces_weight_not_deletes_rate": true,
+    "too_strong_future_consumption_softened_rate": true,
+    "wrong_aspect_creates_aspect_correction_rate": true,
+    "wrong_aspect_preserves_confirmed_aspects_rate": true,
+    "wrong_context_narrows_scope_rate": true,
+    "wrong_context_future_exclusion_rate": true,
+    "single_feedback_does_not_globalize_rate": true,
+    "do_not_use_blocks_future_consumption_rate": true,
+    "blocked_memory_not_claimed_rate": true,
+    "forget_memory_routes_to_rollback_gate_rate": true,
+    "rollback_removes_future_packet_consumption_rate": true,
+    "rollback_read_after_absence_proof_rate": true,
+    "high_risk_feedback_requires_review_rate": true,
+    "ambiguous_feedback_requires_clarification_rate": true,
+    "multi_day_lifecycle_stability_rate": true,
+    "sample_artifacts_match_per_case_rate": true,
+    "report_consistency_with_independent_validation_rate": true,
+    "adversarial_detection_rate": true,
+    "v135_validation_replay_pass_rate": true
+  },
+  "promoted_memory_atom": {
+    "memory_id": "mem_insp_low_sat_office_001",
+    "concept": "low saturation color palette",
+    "scope": "contextual",
+    "contexts": [
+      "office_daily"
+    ],
+    "confirmed_aspects": [
+      "color_palette"
+    ],
+    "excluded_aspects": [
+      "silhouette",
+      "exact_items",
+      "model_body",
+      "photo_lighting"
+    ],
+    "polarity": "soft_prefer",
+    "downstream_use": [
+      "candidate_ranking",
+      "color_palette_preference"
+    ]
+  },
+  "downstream_consumption": {
+    "task_memory_packet_id": "tmp_v136_027",
+    "consumed_promoted_memory_ids": [
+      "mem_insp_low_sat_office_001"
+    ],
+    "consumption_report_id": "pmcr_v136_027",
+    "response_claim_ids": [
+      "claim_v136_027"
+    ],
+    "daily_outfit_card_id": "card_v136_027",
+    "confirmed_aspects_used": [
+      "color_palette"
+    ],
+    "consumption_mode": "soft_bias"
+  },
+  "promoted_memory_feedback_event": {
+    "feedback_event_id": "pmf_v136_027",
+    "user_id": "fixture_user_001",
+    "task_id": "task_v136_027",
+    "promoted_memory_id": "mem_insp_low_sat_office_001",
+    "consumption_report_id": "pmcr_v136_027",
+    "feedback_action": "do_not_use_this_inspiration",
+    "raw_user_text": "fixture feedback for blocked_memory_is_not_cited_in_response",
+    "selected_aspect_refs": [
+      "color_palette"
+    ],
+    "selected_context_refs": [
+      "office_daily"
+    ],
+    "created_at": "2026-06-24T00:00:00Z",
+    "trace_refs": {
+      "task_memory_packet_id": "tmp_v136_027",
+      "response_claim_ids": [
+        "claim_v136_027"
+      ],
+      "daily_outfit_card_id": "card_v136_027"
+    }
+  },
+  "feedback_interpretation": {
+    "feedback_interpretation_id": "fi_v136_027",
+    "feedback_event_id": "pmf_v136_027",
+    "interpreted_intent": "future_consumption_block",
+    "confidence": 0.91,
+    "affected_memory_id": "mem_insp_low_sat_office_001",
+    "affected_aspects": [
+      "color_palette"
+    ],
+    "affected_contexts": [
+      "office_daily"
+    ],
+    "not_affected_aspects": [
+      "silhouette",
+      "exact_items",
+      "model_body"
+    ],
+    "risk_level": "low",
+    "requires_user_confirmation": false,
+    "requires_human_review": false,
+    "interpretation_evidence_refs": [
+      "promoted_memory_feedback_event.raw_user_text",
+      "downstream_consumption.confirmed_aspects_used"
+    ]
+  },
+  "memory_lifecycle_proposal": {
+    "lifecycle_proposal_id": "mlp_v136_027",
+    "feedback_interpretation_id": "fi_v136_027",
+    "proposal_type": "block_future_consumption",
+    "target_memory_id": "mem_insp_low_sat_office_001",
+    "proposed_patch": {
+      "confidence_delta": -0.2,
+      "weight_delta": -0.55,
+      "scope_delta": null,
+      "context_exclusions_to_add": [],
+      "aspects_to_remove_from_downstream_use": [],
+      "future_consumption_status": "blocked"
+    },
+    "must_not_do": [
+      "expand_scope",
+      "create_global_memory",
+      "add_unconfirmed_aspect",
+      "delete_without_rollback"
+    ],
+    "source_feedback_event_id": "pmf_v136_027",
+    "source_consumption_report_id": "pmcr_v136_027",
+    "risk_level": "low",
+    "requires_gate": true
+  },
+  "feedback_write_decision": {
+    "feedback_write_decision_id": "fwd_v136_027",
+    "lifecycle_proposal_id": "mlp_v136_027",
+    "gate_decision": "allow",
+    "risk_level": "low",
+    "allowed_action_ids": [
+      "mlp_v136_027"
+    ],
+    "blocked_action_ids": [],
+    "review_action_ids": [],
+    "production_write_executed": true,
+    "rollback_ref": null,
+    "human_review_payload": null,
+    "decision_reasons": [
+      "single feedback cannot globalize memory",
+      "governed lifecycle update only"
+    ]
+  },
+  "updated_memory_lifecycle_state": {
+    "memory_lifecycle_state_id": "mls_v136_027",
+    "memory_id": "mem_insp_low_sat_office_001",
+    "previous_state_ref": "mls_prev_001",
+    "current_status": "blocked",
+    "confidence": 0.6,
+    "weight": 0.0,
+    "contexts": [
+      "office_daily"
+    ],
+    "context_exclusions": [],
+    "allowed_downstream_use": [],
+    "blocked_downstream_use": [
+      "hard_filter",
+      "commerce_targeting",
+      "body_inference",
+      "silhouette_preference"
+    ],
+    "source_feedback_event_ids": [
+      "pmf_v136_027"
+    ],
+    "audit_refs": [
+      "audit_feedback_v136_027"
+    ],
+    "rollback_window_ref": "rollback_window_v136_027"
+  },
+  "post_feedback_consumption_proof": {
+    "post_feedback_consumption_proof_id": "pfcp_v136_027",
+    "memory_id": "mem_insp_low_sat_office_001",
+    "task_after_feedback_id": "task_after_v136_027",
+    "expected_behavior": "block_consumption",
+    "task_memory_packet_after_feedback": {
+      "consumed_promoted_memory_ids": [],
+      "excluded_memory_ids": [
+        "mem_insp_low_sat_office_001"
+      ],
+      "exclusion_reasons": {
+        "mem_insp_low_sat_office_001": "block_consumption"
+      },
+      "request_context": "office_daily"
+    },
+    "response_claims_after_feedback": [],
+    "proof_result": "pass",
+    "proof_refs": [
+      "updated_memory_lifecycle_state",
+      "task_memory_packet_after_feedback"
+    ]
+  },
+  "rollback_proof": {
+    "rollback_ref": null,
+    "read_after_rollback": null,
+    "future_packet_absent": false
+  },
+  "multi_day_lifecycle_proof": {
+    "days_checked": 3,
+    "status_by_day": [
+      "blocked",
+      "blocked",
+      "blocked"
+    ],
+    "blocked_context_consumed": false,
+    "dominates_every_day": false,
+    "stable": true
+  }
+}

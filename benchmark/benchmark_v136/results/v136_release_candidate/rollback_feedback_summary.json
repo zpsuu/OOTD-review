@@ -1,0 +1,5 @@
+{
+  "rollback_request_cases": 6,
+  "rollback_gate_routed_cases": 6,
+  "read_after_rollback_absence_proofs": 6
+}

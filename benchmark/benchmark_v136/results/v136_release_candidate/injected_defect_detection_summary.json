@@ -1,0 +1,108 @@
+{
+  "version": "v1.36",
+  "generated_at": "2026-06-24T03:34:24Z",
+  "verdict": "pass",
+  "seeded_defects": 12,
+  "detected_defects": 12,
+  "unexpected_clean_case_failures": [],
+  "unexpected_injected_passes": [],
+  "detected": [
+    {
+      "case_id": "v136_ADV_J01_feedback_targets_unconsumed_memory",
+      "defect_type": "feedback_targets_unconsumed_memory",
+      "detected": true,
+      "failed_check_ids": [
+        "feedback_event_trace_refs_consumed_memory_rate"
+      ]
+    },
+    {
+      "case_id": "v136_ADV_J02_too_strong_deletes_memory",
+      "defect_type": "too_strong_deletes_memory",
+      "detected": true,
+      "failed_check_ids": [
+        "too_strong_feedback_reduces_weight_not_deletes_rate"
+      ]
+    },
+    {
+      "case_id": "v136_ADV_J03_wrong_aspect_removes_confirmed_aspect",
+      "defect_type": "wrong_aspect_removes_confirmed_aspect",
+      "detected": true,
+      "failed_check_ids": [
+        "wrong_aspect_preserves_confirmed_aspects_rate"
+      ]
+    },
+    {
+      "case_id": "v136_ADV_J04_wrong_context_creates_global_avoid",
+      "defect_type": "wrong_context_creates_global_avoid",
+      "detected": true,
+      "failed_check_ids": [
+        "wrong_context_narrows_scope_rate",
+        "single_feedback_does_not_globalize_rate"
+      ]
+    },
+    {
+      "case_id": "v136_ADV_J05_do_not_use_still_consumed_later",
+      "defect_type": "do_not_use_still_consumed_later",
+      "detected": true,
+      "failed_check_ids": [
+        "do_not_use_blocks_future_consumption_rate"
+      ]
+    },
+    {
+      "case_id": "v136_ADV_J06_forget_bypasses_rollback_gate",
+      "defect_type": "forget_bypasses_rollback_gate",
+      "detected": true,
+      "failed_check_ids": [
+        "forget_memory_routes_to_rollback_gate_rate"
+      ]
+    },
+    {
+      "case_id": "v136_ADV_J07_rollback_memory_still_appears_in_task_memory_packet",
+      "defect_type": "rollback_memory_still_appears_in_task_memory_packet",
+      "detected": true,
+      "failed_check_ids": [
+        "rollback_removes_future_packet_consumption_rate"
+      ]
+    },
+    {
+      "case_id": "v136_ADV_J08_response_claims_blocked_memory",
+      "defect_type": "response_claims_blocked_memory",
+      "detected": true,
+      "failed_check_ids": [
+        "blocked_memory_not_claimed_rate"
+      ]
+    },
+    {
+      "case_id": "v136_ADV_J09_single_positive_feedback_creates_global_style_memory",
+      "defect_type": "single_positive_feedback_creates_global_style_memory",
+      "detected": true,
+      "failed_check_ids": [
+        "single_feedback_does_not_globalize_rate"
+      ]
+    },
+    {
+      "case_id": "v136_ADV_J10_high_risk_feedback_allowed_without_review",
+      "defect_type": "high_risk_feedback_allowed_without_review",
+      "detected": true,
+      "failed_check_ids": [
+        "high_risk_feedback_requires_review_rate"
+      ]
+    },
+    {
+      "case_id": "v136_ADV_J11_sample_artifact_stale_relative_to_per_case",
+      "defect_type": "sample_artifact_stale_relative_to_per_case",
+      "detected": true,
+      "failed_check_ids": [
+        "sample_artifacts_match_per_case_rate"
+      ]
+    },
+    {
+      "case_id": "v136_ADV_J12_clean_report_pass_but_independent_validator_fail",
+      "defect_type": "clean_report_pass_but_independent_validator_fail",
+      "detected": true,
+      "failed_check_ids": [
+        "report_consistency_with_independent_validation_rate"
+      ]
+    }
+  ]
+}

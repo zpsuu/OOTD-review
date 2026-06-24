@@ -1,0 +1,255 @@
+{
+  "case_id": "v136_ADV_J08_response_claims_blocked_memory",
+  "version": "v1.36",
+  "scenario": "response_claims_blocked_memory",
+  "scenario_kind": "reinforce",
+  "scenario_preconditions": {
+    "expected": [
+      "downstream_consumption_present",
+      "feedback_event_present",
+      "lifecycle_proposal_present",
+      "post_feedback_proof_present"
+    ],
+    "satisfied": true,
+    "proof_refs": [
+      "downstream_consumption",
+      "promoted_memory_feedback_event",
+      "feedback_interpretation",
+      "memory_lifecycle_proposal",
+      "feedback_write_decision",
+      "updated_memory_lifecycle_state",
+      "post_feedback_consumption_proof"
+    ],
+    "missing_preconditions": []
+  },
+  "gate_assertions": {
+    "feedback_event_trace_refs_consumed_memory_rate": true,
+    "feedback_event_consumption_report_ref_present_rate": true,
+    "feedback_missing_trace_requires_clarification_rate": true,
+    "right_feedback_reinforces_without_scope_expansion_rate": true,
+    "reinforcement_confidence_cap_respected_rate": true,
+    "too_strong_feedback_reduces_weight_not_deletes_rate": true,
+    "too_strong_future_consumption_softened_rate": true,
+    "wrong_aspect_creates_aspect_correction_rate": true,
+    "wrong_aspect_preserves_confirmed_aspects_rate": true,
+    "wrong_context_narrows_scope_rate": true,
+    "wrong_context_future_exclusion_rate": true,
+    "single_feedback_does_not_globalize_rate": true,
+    "do_not_use_blocks_future_consumption_rate": true,
+    "blocked_memory_not_claimed_rate": false,
+    "forget_memory_routes_to_rollback_gate_rate": true,
+    "rollback_removes_future_packet_consumption_rate": true,
+    "rollback_read_after_absence_proof_rate": true,
+    "high_risk_feedback_requires_review_rate": true,
+    "ambiguous_feedback_requires_clarification_rate": true,
+    "multi_day_lifecycle_stability_rate": true,
+    "sample_artifacts_match_per_case_rate": true,
+    "report_consistency_with_independent_validation_rate": true,
+    "adversarial_detection_rate": true,
+    "v135_validation_replay_pass_rate": true
+  },
+  "promoted_memory_atom": {
+    "memory_id": "mem_insp_low_sat_office_001",
+    "concept": "low saturation color palette",
+    "scope": "contextual",
+    "contexts": [
+      "office_daily"
+    ],
+    "confirmed_aspects": [
+      "color_palette"
+    ],
+    "excluded_aspects": [
+      "silhouette",
+      "exact_items",
+      "model_body",
+      "photo_lighting"
+    ],
+    "polarity": "soft_prefer",
+    "downstream_use": [
+      "candidate_ranking",
+      "color_palette_preference"
+    ]
+  },
+  "downstream_consumption": {
+    "task_memory_packet_id": "tmp_v136_908",
+    "consumed_promoted_memory_ids": [
+      "mem_insp_low_sat_office_001"
+    ],
+    "consumption_report_id": "pmcr_v136_908",
+    "response_claim_ids": [
+      "claim_v136_908"
+    ],
+    "daily_outfit_card_id": "card_v136_908",
+    "confirmed_aspects_used": [
+      "color_palette"
+    ],
+    "consumption_mode": "soft_bias"
+  },
+  "promoted_memory_feedback_event": {
+    "feedback_event_id": "pmf_v136_908",
+    "user_id": "fixture_user_001",
+    "task_id": "task_v136_908",
+    "promoted_memory_id": "mem_insp_low_sat_office_001",
+    "consumption_report_id": "pmcr_v136_908",
+    "feedback_action": "use_was_right",
+    "raw_user_text": "fixture feedback for response_claims_blocked_memory",
+    "selected_aspect_refs": [
+      "color_palette"
+    ],
+    "selected_context_refs": [
+      "office_daily"
+    ],
+    "created_at": "2026-06-24T00:00:00Z",
+    "trace_refs": {
+      "task_memory_packet_id": "tmp_v136_908",
+      "response_claim_ids": [
+        "claim_v136_908"
+      ],
+      "daily_outfit_card_id": "card_v136_908"
+    }
+  },
+  "feedback_interpretation": {
+    "feedback_interpretation_id": "fi_v136_908",
+    "feedback_event_id": "pmf_v136_908",
+    "interpreted_intent": "reinforce",
+    "confidence": 0.91,
+    "affected_memory_id": "mem_insp_low_sat_office_001",
+    "affected_aspects": [
+      "color_palette"
+    ],
+    "affected_contexts": [
+      "office_daily"
+    ],
+    "not_affected_aspects": [
+      "silhouette",
+      "exact_items",
+      "model_body"
+    ],
+    "risk_level": "low",
+    "requires_user_confirmation": false,
+    "requires_human_review": false,
+    "interpretation_evidence_refs": [
+      "promoted_memory_feedback_event.raw_user_text",
+      "downstream_consumption.confirmed_aspects_used"
+    ]
+  },
+  "memory_lifecycle_proposal": {
+    "lifecycle_proposal_id": "mlp_v136_908",
+    "feedback_interpretation_id": "fi_v136_908",
+    "proposal_type": "reinforce",
+    "target_memory_id": "mem_insp_low_sat_office_001",
+    "proposed_patch": {
+      "confidence_delta": 0.04,
+      "weight_delta": 0.05,
+      "scope_delta": null,
+      "context_exclusions_to_add": [],
+      "aspects_to_remove_from_downstream_use": [],
+      "future_consumption_status": "active"
+    },
+    "must_not_do": [
+      "expand_scope",
+      "create_global_memory",
+      "add_unconfirmed_aspect",
+      "delete_without_rollback"
+    ],
+    "source_feedback_event_id": "pmf_v136_908",
+    "source_consumption_report_id": "pmcr_v136_908",
+    "risk_level": "low",
+    "requires_gate": true
+  },
+  "feedback_write_decision": {
+    "feedback_write_decision_id": "fwd_v136_908",
+    "lifecycle_proposal_id": "mlp_v136_908",
+    "gate_decision": "allow",
+    "risk_level": "low",
+    "allowed_action_ids": [
+      "mlp_v136_908"
+    ],
+    "blocked_action_ids": [],
+    "review_action_ids": [],
+    "production_write_executed": true,
+    "rollback_ref": null,
+    "human_review_payload": null,
+    "decision_reasons": [
+      "single feedback cannot globalize memory",
+      "governed lifecycle update only"
+    ]
+  },
+  "updated_memory_lifecycle_state": {
+    "memory_lifecycle_state_id": "mls_v136_908",
+    "memory_id": "mem_insp_low_sat_office_001",
+    "previous_state_ref": "mls_prev_001",
+    "current_status": "blocked",
+    "confidence": 0.82,
+    "weight": 0.68,
+    "contexts": [
+      "office_daily"
+    ],
+    "context_exclusions": [],
+    "allowed_downstream_use": [
+      "candidate_ranking",
+      "color_palette_preference"
+    ],
+    "blocked_downstream_use": [
+      "hard_filter",
+      "commerce_targeting",
+      "body_inference",
+      "silhouette_preference"
+    ],
+    "source_feedback_event_ids": [
+      "pmf_v136_908"
+    ],
+    "audit_refs": [
+      "audit_feedback_v136_908"
+    ],
+    "rollback_window_ref": "rollback_window_v136_908"
+  },
+  "post_feedback_consumption_proof": {
+    "post_feedback_consumption_proof_id": "pfcp_v136_908",
+    "memory_id": "mem_insp_low_sat_office_001",
+    "task_after_feedback_id": "task_after_v136_908",
+    "expected_behavior": "unchanged_reinforced",
+    "task_memory_packet_after_feedback": {
+      "consumed_promoted_memory_ids": [
+        "mem_insp_low_sat_office_001"
+      ],
+      "excluded_memory_ids": [],
+      "exclusion_reasons": {},
+      "request_context": "office_daily"
+    },
+    "response_claims_after_feedback": [
+      {
+        "claim_id": "bad_claim",
+        "trace_refs": [
+          "mem_insp_low_sat_office_001"
+        ]
+      }
+    ],
+    "proof_result": "pass",
+    "proof_refs": [
+      "updated_memory_lifecycle_state",
+      "task_memory_packet_after_feedback"
+    ]
+  },
+  "rollback_proof": {
+    "rollback_ref": null,
+    "read_after_rollback": null,
+    "future_packet_absent": false
+  },
+  "multi_day_lifecycle_proof": {
+    "days_checked": 3,
+    "status_by_day": [
+      "active",
+      "active",
+      "active"
+    ],
+    "blocked_context_consumed": false,
+    "dominates_every_day": false,
+    "stable": true
+  },
+  "defect_type": "response_claims_blocked_memory",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "blocked_memory_not_claimed_rate"
+  ]
+}

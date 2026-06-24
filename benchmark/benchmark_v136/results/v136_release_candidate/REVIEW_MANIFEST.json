@@ -1,0 +1,115 @@
+{
+  "version": "v1.36",
+  "release_candidate_status": "pass_candidate_pending_manual_review",
+  "theme": "Promoted Inspiration Memory Feedback Lifecycle",
+  "branch": "v136-promoted-inspiration-memory-feedback-lifecycle",
+  "entrypoint": "benchmark/benchmark_v136/results/v136_release_candidate/REVIEW_MANIFEST.json",
+  "generated_at": "2026-06-24T03:34:24Z",
+  "builder_script": "benchmark/benchmark_v136/scripts/build_v136_release_candidate_evidence_pack.py",
+  "validator_script": "benchmark/benchmark_v136/scripts/validate_v136_release_candidate.py",
+  "adversarial_generator_script": "benchmark/benchmark_v136/scripts/generate_v136_adversarial_cases.py",
+  "runner_script": "benchmark/benchmark_v136/scripts/run_v136_validation_suite.py",
+  "required_reports": [
+    "clean_report.json",
+    "mixed_strict_report.json",
+    "independent_validation_report.json",
+    "adversarial_validation_report.json",
+    "report_consistency_report.json",
+    "sample_consistency_report.json",
+    "injected_defect_detection_summary.json",
+    "feedback_lifecycle_summary.json",
+    "rollback_feedback_summary.json",
+    "post_feedback_consumption_summary.json"
+  ],
+  "required_gates": [
+    "feedback_event_trace_refs_consumed_memory_rate",
+    "feedback_event_consumption_report_ref_present_rate",
+    "feedback_missing_trace_requires_clarification_rate",
+    "right_feedback_reinforces_without_scope_expansion_rate",
+    "reinforcement_confidence_cap_respected_rate",
+    "too_strong_feedback_reduces_weight_not_deletes_rate",
+    "too_strong_future_consumption_softened_rate",
+    "wrong_aspect_creates_aspect_correction_rate",
+    "wrong_aspect_preserves_confirmed_aspects_rate",
+    "wrong_context_narrows_scope_rate",
+    "wrong_context_future_exclusion_rate",
+    "single_feedback_does_not_globalize_rate",
+    "do_not_use_blocks_future_consumption_rate",
+    "blocked_memory_not_claimed_rate",
+    "forget_memory_routes_to_rollback_gate_rate",
+    "rollback_removes_future_packet_consumption_rate",
+    "rollback_read_after_absence_proof_rate",
+    "high_risk_feedback_requires_review_rate",
+    "ambiguous_feedback_requires_clarification_rate",
+    "multi_day_lifecycle_stability_rate",
+    "sample_artifacts_match_per_case_rate",
+    "report_consistency_with_independent_validation_rate",
+    "adversarial_detection_rate",
+    "v135_validation_replay_pass_rate"
+  ],
+  "validator_commands": [
+    "benchmark/benchmark_v135/scripts/validate_v135_release_candidate.py",
+    "python benchmark/benchmark_v135/scripts/run_v135_validation_suite.py",
+    "python benchmark/benchmark_v136/scripts/validate_v136_release_candidate.py",
+    "python benchmark/benchmark_v136/scripts/run_v136_validation_suite.py",
+    "python -m unittest discover -s benchmark/benchmark_v136/tests"
+  ],
+  "sample_artifacts": [
+    {
+      "case_id": "v136_C01_use_was_too_strong_reduces_weight",
+      "artifact_ref": "sample_artifacts/too_strong_reduces_weight_not_delete.json",
+      "source_artifact_ref": "per_case/clean/v136_C01_use_was_too_strong_reduces_weight.json",
+      "canonical_sha256": "440b19124416014ba7d44e7205dffb93776c46aa55b2b33d8dd020d6bc2e120f",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v136_D03_wrong_aspect_does_not_remove_confirmed_aspect",
+      "artifact_ref": "sample_artifacts/wrong_aspect_preserves_confirmed_aspect.json",
+      "source_artifact_ref": "per_case/clean/v136_D03_wrong_aspect_does_not_remove_confirmed_aspect.json",
+      "canonical_sha256": "750ae549f33ad4b27e4e3cb38570da07b5309dfc8220f50d472510aebea29f2b",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v136_E04_future_mismatching_context_excludes_memory",
+      "artifact_ref": "sample_artifacts/wrong_context_future_exclusion.json",
+      "source_artifact_ref": "per_case/clean/v136_E04_future_mismatching_context_excludes_memory.json",
+      "canonical_sha256": "810cb6a73681fcff9ff3f603b28edf353279927010e53e42be2243366987e071",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v136_F01_do_not_use_this_inspiration_blocks_future_packet_consumption",
+      "artifact_ref": "sample_artifacts/do_not_use_blocks_future_consumption.json",
+      "source_artifact_ref": "per_case/clean/v136_F01_do_not_use_this_inspiration_blocks_future_packet_consumption.json",
+      "canonical_sha256": "667ad49580a7f85c9ae37d1628c497947f4d441a5206f3bbc6490dc8667b2570",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v136_G01_forget_this_inspiration_memory_routes_to_rollback_gate",
+      "artifact_ref": "sample_artifacts/forget_routes_to_rollback_gate.json",
+      "source_artifact_ref": "per_case/clean/v136_G01_forget_this_inspiration_memory_routes_to_rollback_gate.json",
+      "canonical_sha256": "564b060738524339aa6460ee31db457aae1aeebdf3139b11ffad8a96322032d5",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v136_I05_do_not_use_remains_blocked_across_later_days",
+      "artifact_ref": "sample_artifacts/multi_day_lifecycle_stability.json",
+      "source_artifact_ref": "per_case/clean/v136_I05_do_not_use_remains_blocked_across_later_days.json",
+      "canonical_sha256": "e03032477f97ae9eabd2bd23ad1d2d0e3b325fd265af522b7ad4c8e6dcbe7016",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    }
+  ],
+  "non_goals": [
+    "No social platform integrations",
+    "No commerce, SKU, merchant, or product links",
+    "No AIGC image generation",
+    "No expanded inspiration promotion allowlist",
+    "No global inspiration memory writes from single feedback",
+    "No full frontend implementation"
+  ]
+}

@@ -14,12 +14,12 @@ The private development repository remains private. This mirror only contains re
 
 ## Current Review Target
 
-v1.35 - Runtime Path Independent Validation & Evidence Hardening
+v1.36 - Promoted Inspiration Memory Feedback Lifecycle
 
 Entrypoint:
 
-`benchmark/benchmark_v135/results/v135_release_candidate/REVIEW_MANIFEST.json`
+`benchmark/benchmark_v136/results/v136_release_candidate/REVIEW_MANIFEST.json`
 
 ## Status
 
-v1.35 Runtime Path Independent Validation & Evidence Hardening is PASS CANDIDATE pending manual review.
+v1.36 Promoted Inspiration Memory Feedback Lifecycle is PASS CANDIDATE pending manual review.

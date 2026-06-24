@@ -1,0 +1,104 @@
+{
+  "version": "v1.36",
+  "generated_at": "2026-06-24T03:34:24Z",
+  "source_result_dir": "benchmark/benchmark_v136/results/v136_release_candidate",
+  "cases": [
+    {
+      "case_id": "v136_ADV_J01_feedback_targets_unconsumed_memory",
+      "artifact_ref": "per_case/adversarial/v136_ADV_J01_feedback_targets_unconsumed_memory.json",
+      "defect_type": "feedback_targets_unconsumed_memory",
+      "expected_failed_check_ids": [
+        "feedback_event_trace_refs_consumed_memory_rate"
+      ]
+    },
+    {
+      "case_id": "v136_ADV_J02_too_strong_deletes_memory",
+      "artifact_ref": "per_case/adversarial/v136_ADV_J02_too_strong_deletes_memory.json",
+      "defect_type": "too_strong_deletes_memory",
+      "expected_failed_check_ids": [
+        "too_strong_feedback_reduces_weight_not_deletes_rate"
+      ]
+    },
+    {
+      "case_id": "v136_ADV_J03_wrong_aspect_removes_confirmed_aspect",
+      "artifact_ref": "per_case/adversarial/v136_ADV_J03_wrong_aspect_removes_confirmed_aspect.json",
+      "defect_type": "wrong_aspect_removes_confirmed_aspect",
+      "expected_failed_check_ids": [
+        "wrong_aspect_preserves_confirmed_aspects_rate"
+      ]
+    },
+    {
+      "case_id": "v136_ADV_J04_wrong_context_creates_global_avoid",
+      "artifact_ref": "per_case/adversarial/v136_ADV_J04_wrong_context_creates_global_avoid.json",
+      "defect_type": "wrong_context_creates_global_avoid",
+      "expected_failed_check_ids": [
+        "wrong_context_narrows_scope_rate",
+        "single_feedback_does_not_globalize_rate"
+      ]
+    },
+    {
+      "case_id": "v136_ADV_J05_do_not_use_still_consumed_later",
+      "artifact_ref": "per_case/adversarial/v136_ADV_J05_do_not_use_still_consumed_later.json",
+      "defect_type": "do_not_use_still_consumed_later",
+      "expected_failed_check_ids": [
+        "do_not_use_blocks_future_consumption_rate"
+      ]
+    },
+    {
+      "case_id": "v136_ADV_J06_forget_bypasses_rollback_gate",
+      "artifact_ref": "per_case/adversarial/v136_ADV_J06_forget_bypasses_rollback_gate.json",
+      "defect_type": "forget_bypasses_rollback_gate",
+      "expected_failed_check_ids": [
+        "forget_memory_routes_to_rollback_gate_rate"
+      ]
+    },
+    {
+      "case_id": "v136_ADV_J07_rollback_memory_still_appears_in_task_memory_packet",
+      "artifact_ref": "per_case/adversarial/v136_ADV_J07_rollback_memory_still_appears_in_task_memory_packet.json",
+      "defect_type": "rollback_memory_still_appears_in_task_memory_packet",
+      "expected_failed_check_ids": [
+        "rollback_removes_future_packet_consumption_rate"
+      ]
+    },
+    {
+      "case_id": "v136_ADV_J08_response_claims_blocked_memory",
+      "artifact_ref": "per_case/adversarial/v136_ADV_J08_response_claims_blocked_memory.json",
+      "defect_type": "response_claims_blocked_memory",
+      "expected_failed_check_ids": [
+        "blocked_memory_not_claimed_rate"
+      ]
+    },
+    {
+      "case_id": "v136_ADV_J09_single_positive_feedback_creates_global_style_memory",
+      "artifact_ref": "per_case/adversarial/v136_ADV_J09_single_positive_feedback_creates_global_style_memory.json",
+      "defect_type": "single_positive_feedback_creates_global_style_memory",
+      "expected_failed_check_ids": [
+        "single_feedback_does_not_globalize_rate"
+      ]
+    },
+    {
+      "case_id": "v136_ADV_J10_high_risk_feedback_allowed_without_review",
+      "artifact_ref": "per_case/adversarial/v136_ADV_J10_high_risk_feedback_allowed_without_review.json",
+      "defect_type": "high_risk_feedback_allowed_without_review",
+      "expected_failed_check_ids": [
+        "high_risk_feedback_requires_review_rate"
+      ]
+    },
+    {
+      "case_id": "v136_ADV_J11_sample_artifact_stale_relative_to_per_case",
+      "artifact_ref": "per_case/adversarial/v136_ADV_J11_sample_artifact_stale_relative_to_per_case.json",
+      "defect_type": "sample_artifact_stale_relative_to_per_case",
+      "expected_failed_check_ids": [
+        "sample_artifacts_match_per_case_rate"
+      ]
+    },
+    {
+      "case_id": "v136_ADV_J12_clean_report_pass_but_independent_validator_fail",
+      "artifact_ref": "per_case/adversarial/v136_ADV_J12_clean_report_pass_but_independent_validator_fail.json",
+      "defect_type": "clean_report_pass_but_independent_validator_fail",
+      "expected_failed_check_ids": [
+        "report_consistency_with_independent_validation_rate"
+      ]
+    }
+  ]
+}

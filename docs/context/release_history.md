@@ -173,13 +173,26 @@ Focus:
 
 ## v1.35 - Runtime Path Independent Validation & Evidence Hardening
 
+Status: PASS CANDIDATE confirmed after independent validation, adversarial validation, sample consistency, report consistency, v1.34 replay, and unit tests
+
+Focus:
+- independent raw-artifact validator as required release workflow
+- builder / validator separation proof
+- report-vs-validator consistency checks
+- complete raw adversarial mutation suite
+- sample_artifacts vs per_case canonical hash consistency
+- one-command validation runner
+- v1.34 replay remains independently valid
+
+## v1.36 - Promoted Inspiration Memory Feedback Lifecycle
+
 Status: PASS CANDIDATE pending manual review
 
 Focus:
-- independent raw-artifact validation as a required release workflow
-- builder / validator separation proof
-- clean report vs independent validator consistency
-- sample_artifacts vs per_case canonical equality
-- complete adversarial mutation validation
-- v1.34 independent validation replay
-- one-command validation runner for release evidence
+- feedback events for consumed promoted inspiration memory
+- feedback interpretation and memory lifecycle proposals
+- governed write decisions for feedback lifecycle changes
+- too-strong, wrong-aspect, wrong-context, do-not-use, forget, and undo behavior
+- post-feedback TaskMemoryPacket and response claim proof
+- rollback and multi-day lifecycle stability
+- v1.35 validation replay, independent validation, adversarial detection, sample consistency, and report consistency
