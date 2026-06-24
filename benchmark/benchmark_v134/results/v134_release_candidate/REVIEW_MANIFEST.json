@@ -4,7 +4,7 @@
   "theme": "Inspiration Memory Consumption Quality",
   "branch": "v134-inspiration-memory-consumption-quality",
   "entrypoint": "benchmark/benchmark_v134/results/v134_release_candidate/REVIEW_MANIFEST.json",
-  "generated_at": "2026-06-24T02:43:17Z",
+  "generated_at": "2026-06-24T03:07:28Z",
   "required_gates": [
     "promoted_memory_consumption_report_present_rate",
     "promoted_memory_consumed_in_matching_context_rate",

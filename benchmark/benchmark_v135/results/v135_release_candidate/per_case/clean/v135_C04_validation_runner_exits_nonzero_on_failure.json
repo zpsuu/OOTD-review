@@ -1,0 +1,74 @@
+{
+  "case_id": "v135_C04_validation_runner_exits_nonzero_on_failure",
+  "version": "v1.35",
+  "scenario": "validation_runner_exits_nonzero_on_failure",
+  "primary_gate": "validation_runner_reproducible_rate",
+  "scenario_preconditions": {
+    "expected": [
+      "raw_artifact_present",
+      "gate_assertions_present",
+      "validator_evidence_present"
+    ],
+    "satisfied": true,
+    "proof_refs": [
+      "gate_assertions",
+      "runtime_path_evidence",
+      "expected_validator_behavior"
+    ],
+    "missing_preconditions": []
+  },
+  "gate_assertions": {
+    "independent_validator_required_rate": true,
+    "independent_validator_report_present_rate": true,
+    "clean_report_matches_independent_validation_rate": true,
+    "raw_case_failure_overrides_aggregate_pass_rate": true,
+    "report_only_pass_prevented_rate": true,
+    "builder_validator_separation_rate": true,
+    "adversarial_mutation_suite_present_rate": true,
+    "adversarial_mutation_detection_rate": true,
+    "sample_artifacts_match_per_case_rate": true,
+    "sample_artifact_staleness_detected_rate": true,
+    "manifest_declares_validator_reports_rate": true,
+    "validation_runner_reproducible_rate": true,
+    "validator_unit_tests_pass_rate": true,
+    "v134_replay_independent_validation_pass_rate": true,
+    "v134_replay_adversarial_detection_pass_rate": true
+  },
+  "runtime_path_evidence": {
+    "builder_script": "benchmark/benchmark_v135/scripts/build_v135_release_candidate_evidence_pack.py",
+    "validator_script": "benchmark/benchmark_v135/scripts/validate_v135_release_candidate.py",
+    "runner_script": "benchmark/benchmark_v135/scripts/run_v135_validation_suite.py",
+    "builder_and_validator_are_separate": true,
+    "acceptance_source": "independent_raw_artifact_validator",
+    "aggregate_reports_are_inputs_not_authority": true
+  },
+  "report_consistency_evidence": {
+    "clean_report_compared_to_independent_validation": true,
+    "raw_failure_overrides_summary_pass": true,
+    "missing_validator_reports_block_release": true
+  },
+  "sample_consistency_evidence": {
+    "sample_artifacts_are_full_copies": true,
+    "canonical_json_hash_required": true,
+    "manual_only_sample_patch_blocked": true
+  },
+  "v134_replay_evidence": {
+    "clean_independent_validation_expected": {
+      "total_cases": 40,
+      "passed_cases": 40,
+      "total_checks": 19,
+      "passed_checks": 19
+    },
+    "adversarial_validation_expected": {
+      "total_cases": 10,
+      "passed_cases": 0,
+      "failed_cases": 10
+    },
+    "unit_tests_expected": "PASS"
+  },
+  "expected_validator_behavior": {
+    "clean_case_should_pass": true,
+    "adversarial_mutation_should_fail": true,
+    "runner_exits_nonzero_on_failure": true
+  }
+}

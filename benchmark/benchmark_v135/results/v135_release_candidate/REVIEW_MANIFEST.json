@@ -1,0 +1,84 @@
+{
+  "version": "v1.35",
+  "release_candidate_status": "pass_candidate_pending_manual_review",
+  "theme": "Runtime Path Independent Validation & Evidence Hardening",
+  "branch": "v135-runtime-path-independent-validation",
+  "entrypoint": "benchmark/benchmark_v135/results/v135_release_candidate/REVIEW_MANIFEST.json",
+  "generated_at": "2026-06-24T03:07:28Z",
+  "builder_script": "benchmark/benchmark_v135/scripts/build_v135_release_candidate_evidence_pack.py",
+  "validator_script": "benchmark/benchmark_v135/scripts/validate_v135_release_candidate.py",
+  "runner_script": "benchmark/benchmark_v135/scripts/run_v135_validation_suite.py",
+  "required_reports": [
+    "clean_report.json",
+    "mixed_strict_report.json",
+    "independent_validation_report.json",
+    "adversarial_validation_report.json",
+    "report_consistency_report.json",
+    "sample_consistency_report.json",
+    "injected_defect_detection_summary.json"
+  ],
+  "required_gates": [
+    "independent_validator_required_rate",
+    "independent_validator_report_present_rate",
+    "clean_report_matches_independent_validation_rate",
+    "raw_case_failure_overrides_aggregate_pass_rate",
+    "report_only_pass_prevented_rate",
+    "builder_validator_separation_rate",
+    "adversarial_mutation_suite_present_rate",
+    "adversarial_mutation_detection_rate",
+    "sample_artifacts_match_per_case_rate",
+    "sample_artifact_staleness_detected_rate",
+    "manifest_declares_validator_reports_rate",
+    "validation_runner_reproducible_rate",
+    "validator_unit_tests_pass_rate",
+    "v134_replay_independent_validation_pass_rate",
+    "v134_replay_adversarial_detection_pass_rate"
+  ],
+  "validator_commands": [
+    "benchmark/benchmark_v135/scripts/validate_v135_release_candidate.py",
+    "python benchmark/benchmark_v135/scripts/run_v135_validation_suite.py",
+    "python -m unittest discover -s benchmark/benchmark_v135/tests"
+  ],
+  "sample_artifacts": [
+    {
+      "case_id": "v135_A01_clean_report_matches_independent_validation",
+      "artifact_ref": "sample_artifacts/clean_report_matches_independent_validation.json",
+      "source_artifact_ref": "per_case/clean/v135_A01_clean_report_matches_independent_validation.json",
+      "canonical_sha256": "2eec73d1f338bc8353292693a61923e283b8b5728cf6cd1d1e111014ef793455",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v135_A04_sample_artifact_matches_per_case",
+      "artifact_ref": "sample_artifacts/sample_artifact_matches_per_case.json",
+      "source_artifact_ref": "per_case/clean/v135_A04_sample_artifact_matches_per_case.json",
+      "canonical_sha256": "64f279e5cf17fce099a8be243317d63f17bd47771c0e0037da3c6de5e931ac4c",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v135_B01_report_only_pass_is_blocked",
+      "artifact_ref": "sample_artifacts/report_only_pass_is_blocked.json",
+      "source_artifact_ref": "per_case/clean/v135_B01_report_only_pass_is_blocked.json",
+      "canonical_sha256": "254b1a7993643bba1971316a70167dc2a929551838e3432357021cb64bb62ab8",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v135_C01_v134_independent_validator_replay_passes",
+      "artifact_ref": "sample_artifacts/v134_replay_independent_validation_passes.json",
+      "source_artifact_ref": "per_case/clean/v135_C01_v134_independent_validator_replay_passes.json",
+      "canonical_sha256": "94ee7073f267457e004c2e9e7ffc381e9d2ecf92ea4e9b1d78ebeaa362b26075",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    }
+  ],
+  "non_goals": [
+    "No new external platform integrations",
+    "No commerce, SKU, merchant, or product-link targeting",
+    "No AIGC image generation",
+    "No expanded inspiration promotion allowlist",
+    "No global inspiration memory writes",
+    "No new recommendation product behavior"
+  ]
+}

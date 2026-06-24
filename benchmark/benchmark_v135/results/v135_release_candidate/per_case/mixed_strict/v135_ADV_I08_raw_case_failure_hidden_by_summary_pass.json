@@ -1,0 +1,36 @@
+{
+  "case_id": "v135_ADV_I08_raw_case_failure_hidden_by_summary_pass",
+  "version": "v1.35",
+  "defect_type": "raw_case_failure_hidden_by_summary_pass",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "raw_case_failure_overrides_aggregate_pass_rate",
+    "report_only_pass_prevented_rate"
+  ],
+  "gate_assertions": {
+    "independent_validator_required_rate": true,
+    "independent_validator_report_present_rate": true,
+    "clean_report_matches_independent_validation_rate": true,
+    "raw_case_failure_overrides_aggregate_pass_rate": false,
+    "report_only_pass_prevented_rate": false,
+    "builder_validator_separation_rate": true,
+    "adversarial_mutation_suite_present_rate": true,
+    "adversarial_mutation_detection_rate": true,
+    "sample_artifacts_match_per_case_rate": true,
+    "sample_artifact_staleness_detected_rate": true,
+    "manifest_declares_validator_reports_rate": true,
+    "validation_runner_reproducible_rate": true,
+    "validator_unit_tests_pass_rate": true,
+    "v134_replay_independent_validation_pass_rate": true,
+    "v134_replay_adversarial_detection_pass_rate": true
+  },
+  "broken_gate_assertions": {
+    "raw_case_failure_overrides_aggregate_pass_rate": "injected defect intentionally violates this gate",
+    "report_only_pass_prevented_rate": "injected defect intentionally violates this gate"
+  },
+  "runtime_path_evidence": {
+    "aggregate_report_claim": "pass",
+    "raw_artifact_truth": "fail",
+    "independent_validator_must_fail_case": true
+  }
+}

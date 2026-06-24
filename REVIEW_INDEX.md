@@ -2,61 +2,50 @@
 
 ## Current Active Version
 
-v1.34 - Inspiration Memory Consumption Quality
+v1.35 - Runtime Path Independent Validation & Evidence Hardening
 
 Current branch:
-`v134-inspiration-memory-consumption-quality`
+`v135-runtime-path-independent-validation`
 
 Current status:
 `PASS CANDIDATE pending manual review`
 
 ## Current Review Focus
 
-This iteration verifies Inspiration Memory Consumption Quality evidence across:
+This iteration verifies runtime-path independent validation evidence across:
 
-- matching-context consumption for promoted inspiration memories
-- mismatching-context exclusion proof
-- confirmed aspect-only downstream use
-- soft-bias behavior without hard-filter misuse
-- Daily Outfit quality non-regression
-- Ideal-Reality Bridge component-level use without score inflation
-- multi-day stability and rollback safety
-- response claim accuracy without overstatement
-- injected defect detection for consumption quality regressions
+- independent raw-artifact validation as a release requirement
+- builder / validator separation proof
+- report-vs-validator consistency checks
+- sample_artifacts vs per_case consistency checks
+- full raw adversarial mutation detection
+- v1.34 replay of independent and adversarial validation
+- one-command validation runner
 
 ## Latest Evidence Pack
 
-`benchmark/benchmark_v134/results/v134_release_candidate/`
+`benchmark/benchmark_v135/results/v135_release_candidate/`
 
 ## Key Files To Review
 
-- `benchmark/benchmark_v134/results/v134_release_candidate/REVIEW_MANIFEST.json`
-- `benchmark/benchmark_v134/results/v134_release_candidate/clean_report.json`
-- `benchmark/benchmark_v134/results/v134_release_candidate/mixed_strict_report.json`
-- `benchmark/benchmark_v134/results/v134_release_candidate/injected_defect_detection_summary.json`
-- `benchmark/benchmark_v134/results/v134_release_candidate/promoted_memory_consumption_summary.json`
-- `benchmark/benchmark_v134/results/v134_release_candidate/inspiration_memory_impact_summary.json`
-- `benchmark/benchmark_v134/results/v134_release_candidate/quality_non_regression_summary.json`
-- `benchmark/benchmark_v134/results/v134_release_candidate/bridge_consumption_summary.json`
-- `benchmark/benchmark_v134/results/v134_release_candidate/response_claim_accuracy_summary.json`
-- `benchmark/benchmark_v134/results/v134_release_candidate/sample_artifacts/office_low_saturation_consumed_matching_context.json`
-- `benchmark/benchmark_v134/results/v134_release_candidate/sample_artifacts/date_night_presence_consumed_matching_context.json`
-- `benchmark/benchmark_v134/results/v134_release_candidate/sample_artifacts/office_memory_excluded_date_night.json`
-- `benchmark/benchmark_v134/results/v134_release_candidate/sample_artifacts/color_only_memory_affects_color_only.json`
-- `benchmark/benchmark_v134/results/v134_release_candidate/sample_artifacts/soft_bias_yields_to_weather_requirement.json`
-- `benchmark/benchmark_v134/results/v134_release_candidate/sample_artifacts/promoted_memory_delta_visible_output.json`
-- `benchmark/benchmark_v134/results/v134_release_candidate/sample_artifacts/bridge_uses_promoted_memory_without_score_inflation.json`
-- `benchmark/benchmark_v134/results/v134_release_candidate/sample_artifacts/rolledback_promoted_memory_not_consumed.json`
-- `benchmark/benchmark_v134/results/v134_release_candidate/sample_artifacts/response_claim_no_overstatement.json`
+- `benchmark/benchmark_v135/results/v135_release_candidate/REVIEW_MANIFEST.json`
+- `benchmark/benchmark_v135/results/v135_release_candidate/clean_report.json`
+- `benchmark/benchmark_v135/results/v135_release_candidate/independent_validation_report.json`
+- `benchmark/benchmark_v135/results/v135_release_candidate/adversarial_validation_report.json`
+- `benchmark/benchmark_v135/results/v135_release_candidate/report_consistency_report.json`
+- `benchmark/benchmark_v135/results/v135_release_candidate/sample_consistency_report.json`
+- `benchmark/benchmark_v135/results/v135_release_candidate/injected_defect_detection_summary.json`
+- `benchmark/benchmark_v135/results/v135_release_candidate/per_case/clean/v135_A01_clean_report_matches_independent_validation.json`
+- `benchmark/benchmark_v135/results/v135_release_candidate/per_case/adversarial/v135_ADV_I01_clean_report_pass_but_independent_validation_fail.json`
+- `benchmark/benchmark_v135/results/v135_release_candidate/sample_artifacts/sample_artifact_matches_per_case.json`
 
-## v1.34 - Inspiration Memory Consumption Quality
+## v1.35 - Runtime Path Independent Validation & Evidence Hardening
 
 Status: PASS CANDIDATE pending manual review
 
 Current review focus:
-- promoted memory enters TaskMemoryPacket only in matching context
-- promoted memory is consumed as scoped soft bias
-- confirmed aspect boundaries are preserved downstream
-- Daily Outfit and Bridge quality do not regress
-- rolled-back or mismatched promoted memories are not consumed or claimed
-- response claims are trace-backed and not overstated
+- independent validator recomputes gates from raw artifacts
+- report-only pass cannot override raw validation failure
+- sample artifacts are canonical full-copy matches of per_case artifacts
+- adversarial mutation suite is complete and detected
+- v1.34 replay remains reproducible

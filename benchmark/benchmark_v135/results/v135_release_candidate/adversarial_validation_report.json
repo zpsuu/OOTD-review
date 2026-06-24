@@ -1,0 +1,522 @@
+{
+  "validator": "v1.35.independent.runtime_path_validator",
+  "generated_at": "2026-06-24T03:07:28Z",
+  "result_dir": "benchmark/benchmark_v135/results/v135_release_candidate",
+  "subset": "adversarial",
+  "suite_summary": {
+    "total_cases": 10,
+    "passed_cases": 0,
+    "failed_cases": 10,
+    "total_checks": 15,
+    "passed_checks": 4,
+    "failed_checks": 11
+  },
+  "checks": [
+    {
+      "check_id": "independent_validator_required_rate",
+      "applicable_cases": 10,
+      "passed_cases": 9,
+      "value": 0.9,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v135_ADV_I10_validator_report_schema_missing_required_gate",
+          "artifact_ref": "per_case/adversarial/v135_ADV_I10_validator_report_schema_missing_required_gate.json",
+          "failures": [
+            "independent_validator_required_rate is false or missing in raw gate_assertions"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "independent_validator_report_present_rate",
+      "applicable_cases": 10,
+      "passed_cases": 9,
+      "value": 0.9,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v135_ADV_I02_missing_independent_validation_report",
+          "artifact_ref": "per_case/adversarial/v135_ADV_I02_missing_independent_validation_report.json",
+          "failures": [
+            "independent_validator_report_present_rate is false or missing in raw gate_assertions"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "clean_report_matches_independent_validation_rate",
+      "applicable_cases": 10,
+      "passed_cases": 9,
+      "value": 0.9,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v135_ADV_I01_clean_report_pass_but_independent_validation_fail",
+          "artifact_ref": "per_case/adversarial/v135_ADV_I01_clean_report_pass_but_independent_validation_fail.json",
+          "failures": [
+            "clean_report_matches_independent_validation_rate is false or missing in raw gate_assertions"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "raw_case_failure_overrides_aggregate_pass_rate",
+      "applicable_cases": 10,
+      "passed_cases": 8,
+      "value": 0.8,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v135_ADV_I01_clean_report_pass_but_independent_validation_fail",
+          "artifact_ref": "per_case/adversarial/v135_ADV_I01_clean_report_pass_but_independent_validation_fail.json",
+          "failures": [
+            "raw_case_failure_overrides_aggregate_pass_rate is false or missing in raw gate_assertions"
+          ]
+        },
+        {
+          "case_id": "v135_ADV_I08_raw_case_failure_hidden_by_summary_pass",
+          "artifact_ref": "per_case/adversarial/v135_ADV_I08_raw_case_failure_hidden_by_summary_pass.json",
+          "failures": [
+            "raw_case_failure_overrides_aggregate_pass_rate is false or missing in raw gate_assertions"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "report_only_pass_prevented_rate",
+      "applicable_cases": 10,
+      "passed_cases": 9,
+      "value": 0.9,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v135_ADV_I08_raw_case_failure_hidden_by_summary_pass",
+          "artifact_ref": "per_case/adversarial/v135_ADV_I08_raw_case_failure_hidden_by_summary_pass.json",
+          "failures": [
+            "report_only_pass_prevented_rate is false or missing in raw gate_assertions"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "builder_validator_separation_rate",
+      "applicable_cases": 10,
+      "passed_cases": 9,
+      "value": 0.9,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v135_ADV_I07_builder_and_validator_same_file_or_same_pass_source",
+          "artifact_ref": "per_case/adversarial/v135_ADV_I07_builder_and_validator_same_file_or_same_pass_source.json",
+          "failures": [
+            "builder_validator_separation_rate is false or missing in raw gate_assertions"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "adversarial_mutation_suite_present_rate",
+      "applicable_cases": 10,
+      "passed_cases": 9,
+      "value": 0.9,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v135_ADV_I03_missing_adversarial_validation_report",
+          "artifact_ref": "per_case/adversarial/v135_ADV_I03_missing_adversarial_validation_report.json",
+          "failures": [
+            "adversarial_mutation_suite_present_rate is false or missing in raw gate_assertions"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "adversarial_mutation_detection_rate",
+      "applicable_cases": 10,
+      "passed_cases": 9,
+      "value": 0.9,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v135_ADV_I06_adversarial_case_unexpectedly_passes",
+          "artifact_ref": "per_case/adversarial/v135_ADV_I06_adversarial_case_unexpectedly_passes.json",
+          "failures": [
+            "adversarial_mutation_detection_rate is false or missing in raw gate_assertions"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "sample_artifacts_match_per_case_rate",
+      "applicable_cases": 10,
+      "passed_cases": 8,
+      "value": 0.8,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v135_ADV_I04_stale_sample_artifact_differs_from_per_case",
+          "artifact_ref": "per_case/adversarial/v135_ADV_I04_stale_sample_artifact_differs_from_per_case.json",
+          "failures": [
+            "sample_artifacts_match_per_case_rate is false or missing in raw gate_assertions"
+          ]
+        },
+        {
+          "case_id": "v135_ADV_I09_sample_artifact_has_manual_only_patch",
+          "artifact_ref": "per_case/adversarial/v135_ADV_I09_sample_artifact_has_manual_only_patch.json",
+          "failures": [
+            "sample_artifacts_match_per_case_rate is false or missing in raw gate_assertions"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "sample_artifact_staleness_detected_rate",
+      "applicable_cases": 10,
+      "passed_cases": 9,
+      "value": 0.9,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v135_ADV_I04_stale_sample_artifact_differs_from_per_case",
+          "artifact_ref": "per_case/adversarial/v135_ADV_I04_stale_sample_artifact_differs_from_per_case.json",
+          "failures": [
+            "sample_artifact_staleness_detected_rate is false or missing in raw gate_assertions"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "manifest_declares_validator_reports_rate",
+      "applicable_cases": 10,
+      "passed_cases": 7,
+      "value": 0.7,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v135_ADV_I02_missing_independent_validation_report",
+          "artifact_ref": "per_case/adversarial/v135_ADV_I02_missing_independent_validation_report.json",
+          "failures": [
+            "manifest_declares_validator_reports_rate is false or missing in raw gate_assertions"
+          ]
+        },
+        {
+          "case_id": "v135_ADV_I03_missing_adversarial_validation_report",
+          "artifact_ref": "per_case/adversarial/v135_ADV_I03_missing_adversarial_validation_report.json",
+          "failures": [
+            "manifest_declares_validator_reports_rate is false or missing in raw gate_assertions"
+          ]
+        },
+        {
+          "case_id": "v135_ADV_I05_manifest_lists_nonexistent_validator_report",
+          "artifact_ref": "per_case/adversarial/v135_ADV_I05_manifest_lists_nonexistent_validator_report.json",
+          "failures": [
+            "manifest_declares_validator_reports_rate is false or missing in raw gate_assertions"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "validation_runner_reproducible_rate",
+      "applicable_cases": 10,
+      "passed_cases": 10,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "validator_unit_tests_pass_rate",
+      "applicable_cases": 10,
+      "passed_cases": 10,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "v134_replay_independent_validation_pass_rate",
+      "applicable_cases": 10,
+      "passed_cases": 10,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "v134_replay_adversarial_detection_pass_rate",
+      "applicable_cases": 10,
+      "passed_cases": 10,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    }
+  ],
+  "case_results": [
+    {
+      "case_id": "v135_ADV_I01_clean_report_pass_but_independent_validation_fail",
+      "artifact_ref": "per_case/adversarial/v135_ADV_I01_clean_report_pass_but_independent_validation_fail.json",
+      "passed": false,
+      "failed_check_ids": [
+        "clean_report_matches_independent_validation_rate",
+        "raw_case_failure_overrides_aggregate_pass_rate"
+      ],
+      "expected_failed_check_ids": [
+        "clean_report_matches_independent_validation_rate",
+        "raw_case_failure_overrides_aggregate_pass_rate"
+      ],
+      "defect_type": "clean_report_pass_but_independent_validation_fail"
+    },
+    {
+      "case_id": "v135_ADV_I02_missing_independent_validation_report",
+      "artifact_ref": "per_case/adversarial/v135_ADV_I02_missing_independent_validation_report.json",
+      "passed": false,
+      "failed_check_ids": [
+        "independent_validator_report_present_rate",
+        "manifest_declares_validator_reports_rate"
+      ],
+      "expected_failed_check_ids": [
+        "independent_validator_report_present_rate",
+        "manifest_declares_validator_reports_rate"
+      ],
+      "defect_type": "missing_independent_validation_report"
+    },
+    {
+      "case_id": "v135_ADV_I03_missing_adversarial_validation_report",
+      "artifact_ref": "per_case/adversarial/v135_ADV_I03_missing_adversarial_validation_report.json",
+      "passed": false,
+      "failed_check_ids": [
+        "adversarial_mutation_suite_present_rate",
+        "manifest_declares_validator_reports_rate"
+      ],
+      "expected_failed_check_ids": [
+        "manifest_declares_validator_reports_rate",
+        "adversarial_mutation_suite_present_rate"
+      ],
+      "defect_type": "missing_adversarial_validation_report"
+    },
+    {
+      "case_id": "v135_ADV_I04_stale_sample_artifact_differs_from_per_case",
+      "artifact_ref": "per_case/adversarial/v135_ADV_I04_stale_sample_artifact_differs_from_per_case.json",
+      "passed": false,
+      "failed_check_ids": [
+        "sample_artifact_staleness_detected_rate",
+        "sample_artifacts_match_per_case_rate"
+      ],
+      "expected_failed_check_ids": [
+        "sample_artifacts_match_per_case_rate",
+        "sample_artifact_staleness_detected_rate"
+      ],
+      "defect_type": "stale_sample_artifact_differs_from_per_case"
+    },
+    {
+      "case_id": "v135_ADV_I05_manifest_lists_nonexistent_validator_report",
+      "artifact_ref": "per_case/adversarial/v135_ADV_I05_manifest_lists_nonexistent_validator_report.json",
+      "passed": false,
+      "failed_check_ids": [
+        "manifest_declares_validator_reports_rate"
+      ],
+      "expected_failed_check_ids": [
+        "manifest_declares_validator_reports_rate"
+      ],
+      "defect_type": "manifest_lists_nonexistent_validator_report"
+    },
+    {
+      "case_id": "v135_ADV_I06_adversarial_case_unexpectedly_passes",
+      "artifact_ref": "per_case/adversarial/v135_ADV_I06_adversarial_case_unexpectedly_passes.json",
+      "passed": false,
+      "failed_check_ids": [
+        "adversarial_mutation_detection_rate"
+      ],
+      "expected_failed_check_ids": [
+        "adversarial_mutation_detection_rate"
+      ],
+      "defect_type": "adversarial_case_unexpectedly_passes"
+    },
+    {
+      "case_id": "v135_ADV_I07_builder_and_validator_same_file_or_same_pass_source",
+      "artifact_ref": "per_case/adversarial/v135_ADV_I07_builder_and_validator_same_file_or_same_pass_source.json",
+      "passed": false,
+      "failed_check_ids": [
+        "builder_validator_separation_rate"
+      ],
+      "expected_failed_check_ids": [
+        "builder_validator_separation_rate"
+      ],
+      "defect_type": "builder_and_validator_same_file_or_same_pass_source"
+    },
+    {
+      "case_id": "v135_ADV_I08_raw_case_failure_hidden_by_summary_pass",
+      "artifact_ref": "per_case/adversarial/v135_ADV_I08_raw_case_failure_hidden_by_summary_pass.json",
+      "passed": false,
+      "failed_check_ids": [
+        "raw_case_failure_overrides_aggregate_pass_rate",
+        "report_only_pass_prevented_rate"
+      ],
+      "expected_failed_check_ids": [
+        "raw_case_failure_overrides_aggregate_pass_rate",
+        "report_only_pass_prevented_rate"
+      ],
+      "defect_type": "raw_case_failure_hidden_by_summary_pass"
+    },
+    {
+      "case_id": "v135_ADV_I09_sample_artifact_has_manual_only_patch",
+      "artifact_ref": "per_case/adversarial/v135_ADV_I09_sample_artifact_has_manual_only_patch.json",
+      "passed": false,
+      "failed_check_ids": [
+        "sample_artifacts_match_per_case_rate"
+      ],
+      "expected_failed_check_ids": [
+        "sample_artifacts_match_per_case_rate"
+      ],
+      "defect_type": "sample_artifact_has_manual_only_patch"
+    },
+    {
+      "case_id": "v135_ADV_I10_validator_report_schema_missing_required_gate",
+      "artifact_ref": "per_case/adversarial/v135_ADV_I10_validator_report_schema_missing_required_gate.json",
+      "passed": false,
+      "failed_check_ids": [
+        "independent_validator_required_rate"
+      ],
+      "expected_failed_check_ids": [
+        "independent_validator_required_rate"
+      ],
+      "defect_type": "validator_report_schema_missing_required_gate"
+    }
+  ],
+  "detected_defects": [
+    {
+      "case_id": "v135_ADV_I01_clean_report_pass_but_independent_validation_fail",
+      "defect_type": "clean_report_pass_but_independent_validation_fail",
+      "expected_failed_check_ids": [
+        "clean_report_matches_independent_validation_rate",
+        "raw_case_failure_overrides_aggregate_pass_rate"
+      ],
+      "failed_check_ids": [
+        "clean_report_matches_independent_validation_rate",
+        "raw_case_failure_overrides_aggregate_pass_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v135_ADV_I02_missing_independent_validation_report",
+      "defect_type": "missing_independent_validation_report",
+      "expected_failed_check_ids": [
+        "independent_validator_report_present_rate",
+        "manifest_declares_validator_reports_rate"
+      ],
+      "failed_check_ids": [
+        "independent_validator_report_present_rate",
+        "manifest_declares_validator_reports_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v135_ADV_I03_missing_adversarial_validation_report",
+      "defect_type": "missing_adversarial_validation_report",
+      "expected_failed_check_ids": [
+        "manifest_declares_validator_reports_rate",
+        "adversarial_mutation_suite_present_rate"
+      ],
+      "failed_check_ids": [
+        "adversarial_mutation_suite_present_rate",
+        "manifest_declares_validator_reports_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v135_ADV_I04_stale_sample_artifact_differs_from_per_case",
+      "defect_type": "stale_sample_artifact_differs_from_per_case",
+      "expected_failed_check_ids": [
+        "sample_artifacts_match_per_case_rate",
+        "sample_artifact_staleness_detected_rate"
+      ],
+      "failed_check_ids": [
+        "sample_artifact_staleness_detected_rate",
+        "sample_artifacts_match_per_case_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v135_ADV_I05_manifest_lists_nonexistent_validator_report",
+      "defect_type": "manifest_lists_nonexistent_validator_report",
+      "expected_failed_check_ids": [
+        "manifest_declares_validator_reports_rate"
+      ],
+      "failed_check_ids": [
+        "manifest_declares_validator_reports_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v135_ADV_I06_adversarial_case_unexpectedly_passes",
+      "defect_type": "adversarial_case_unexpectedly_passes",
+      "expected_failed_check_ids": [
+        "adversarial_mutation_detection_rate"
+      ],
+      "failed_check_ids": [
+        "adversarial_mutation_detection_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v135_ADV_I07_builder_and_validator_same_file_or_same_pass_source",
+      "defect_type": "builder_and_validator_same_file_or_same_pass_source",
+      "expected_failed_check_ids": [
+        "builder_validator_separation_rate"
+      ],
+      "failed_check_ids": [
+        "builder_validator_separation_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v135_ADV_I08_raw_case_failure_hidden_by_summary_pass",
+      "defect_type": "raw_case_failure_hidden_by_summary_pass",
+      "expected_failed_check_ids": [
+        "raw_case_failure_overrides_aggregate_pass_rate",
+        "report_only_pass_prevented_rate"
+      ],
+      "failed_check_ids": [
+        "raw_case_failure_overrides_aggregate_pass_rate",
+        "report_only_pass_prevented_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v135_ADV_I09_sample_artifact_has_manual_only_patch",
+      "defect_type": "sample_artifact_has_manual_only_patch",
+      "expected_failed_check_ids": [
+        "sample_artifacts_match_per_case_rate"
+      ],
+      "failed_check_ids": [
+        "sample_artifacts_match_per_case_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v135_ADV_I10_validator_report_schema_missing_required_gate",
+      "defect_type": "validator_report_schema_missing_required_gate",
+      "expected_failed_check_ids": [
+        "independent_validator_required_rate"
+      ],
+      "failed_check_ids": [
+        "independent_validator_required_rate"
+      ],
+      "detected": true
+    }
+  ],
+  "detected_defect_count": 10
+}

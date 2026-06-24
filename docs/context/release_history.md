@@ -159,7 +159,7 @@ Focus:
 
 ## v1.34 - Inspiration Memory Consumption Quality
 
-Status: PASS CANDIDATE pending manual review
+Status: PASS CANDIDATE confirmed after independent raw-artifact validation and adversarial validation
 
 Focus:
 - promoted inspiration memory consumption in matching context
@@ -170,3 +170,16 @@ Focus:
 - Ideal-Reality Bridge component-level use without score inflation
 - multi-day stability and rollback safety
 - response claim accuracy without overstatement
+
+## v1.35 - Runtime Path Independent Validation & Evidence Hardening
+
+Status: PASS CANDIDATE pending manual review
+
+Focus:
+- independent raw-artifact validation as a required release workflow
+- builder / validator separation proof
+- clean report vs independent validator consistency
+- sample_artifacts vs per_case canonical equality
+- complete adversarial mutation validation
+- v1.34 independent validation replay
+- one-command validation runner for release evidence

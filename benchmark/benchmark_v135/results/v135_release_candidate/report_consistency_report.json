@@ -1,0 +1,33 @@
+{
+  "validator": "benchmark.common.report_consistency",
+  "manifest_hash": "63cc6177ea2b5ff7a3eb3338b593ce3489634e0e810a0954fea2cf61fc74f4b5",
+  "required_reports": [
+    "clean_report.json",
+    "mixed_strict_report.json",
+    "independent_validation_report.json",
+    "adversarial_validation_report.json",
+    "report_consistency_report.json",
+    "sample_consistency_report.json",
+    "injected_defect_detection_summary.json"
+  ],
+  "checked_gates": [
+    "independent_validator_required_rate",
+    "independent_validator_report_present_rate",
+    "clean_report_matches_independent_validation_rate",
+    "raw_case_failure_overrides_aggregate_pass_rate",
+    "report_only_pass_prevented_rate",
+    "builder_validator_separation_rate",
+    "adversarial_mutation_suite_present_rate",
+    "adversarial_mutation_detection_rate",
+    "sample_artifacts_match_per_case_rate",
+    "sample_artifact_staleness_detected_rate",
+    "manifest_declares_validator_reports_rate",
+    "validation_runner_reproducible_rate",
+    "validator_unit_tests_pass_rate",
+    "v134_replay_independent_validation_pass_rate",
+    "v134_replay_adversarial_detection_pass_rate"
+  ],
+  "passed": true,
+  "failures": [],
+  "generated_at": "2026-06-24T03:07:28Z"
+}

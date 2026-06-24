@@ -1,0 +1,273 @@
+{
+  "validator": "v1.35.independent.runtime_path_validator",
+  "generated_at": "2026-06-24T03:07:28Z",
+  "result_dir": "benchmark/benchmark_v135/results/v135_release_candidate",
+  "subset": "clean",
+  "suite_summary": {
+    "total_cases": 15,
+    "passed_cases": 15,
+    "failed_cases": 0,
+    "total_checks": 15,
+    "passed_checks": 15,
+    "failed_checks": 0
+  },
+  "checks": [
+    {
+      "check_id": "independent_validator_required_rate",
+      "applicable_cases": 15,
+      "passed_cases": 15,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "independent_validator_report_present_rate",
+      "applicable_cases": 15,
+      "passed_cases": 15,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "clean_report_matches_independent_validation_rate",
+      "applicable_cases": 15,
+      "passed_cases": 15,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "raw_case_failure_overrides_aggregate_pass_rate",
+      "applicable_cases": 15,
+      "passed_cases": 15,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "report_only_pass_prevented_rate",
+      "applicable_cases": 15,
+      "passed_cases": 15,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "builder_validator_separation_rate",
+      "applicable_cases": 15,
+      "passed_cases": 15,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "adversarial_mutation_suite_present_rate",
+      "applicable_cases": 15,
+      "passed_cases": 15,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "adversarial_mutation_detection_rate",
+      "applicable_cases": 15,
+      "passed_cases": 15,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "sample_artifacts_match_per_case_rate",
+      "applicable_cases": 15,
+      "passed_cases": 15,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "sample_artifact_staleness_detected_rate",
+      "applicable_cases": 15,
+      "passed_cases": 15,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "manifest_declares_validator_reports_rate",
+      "applicable_cases": 15,
+      "passed_cases": 15,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "validation_runner_reproducible_rate",
+      "applicable_cases": 15,
+      "passed_cases": 15,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "validator_unit_tests_pass_rate",
+      "applicable_cases": 15,
+      "passed_cases": 15,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "v134_replay_independent_validation_pass_rate",
+      "applicable_cases": 15,
+      "passed_cases": 15,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "v134_replay_adversarial_detection_pass_rate",
+      "applicable_cases": 15,
+      "passed_cases": 15,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    }
+  ],
+  "case_results": [
+    {
+      "case_id": "v135_A01_clean_report_matches_independent_validation",
+      "artifact_ref": "per_case/clean/v135_A01_clean_report_matches_independent_validation.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v135_A02_manifest_declares_independent_validator",
+      "artifact_ref": "per_case/clean/v135_A02_manifest_declares_independent_validator.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v135_A03_manifest_declares_adversarial_validator",
+      "artifact_ref": "per_case/clean/v135_A03_manifest_declares_adversarial_validator.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v135_A04_sample_artifact_matches_per_case",
+      "artifact_ref": "per_case/clean/v135_A04_sample_artifact_matches_per_case.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v135_A05_builder_output_revalidated_after_regeneration",
+      "artifact_ref": "per_case/clean/v135_A05_builder_output_revalidated_after_regeneration.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v135_B01_report_only_pass_is_blocked",
+      "artifact_ref": "per_case/clean/v135_B01_report_only_pass_is_blocked.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v135_B02_stale_sample_artifact_is_blocked",
+      "artifact_ref": "per_case/clean/v135_B02_stale_sample_artifact_is_blocked.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v135_B03_missing_validator_report_is_blocked",
+      "artifact_ref": "per_case/clean/v135_B03_missing_validator_report_is_blocked.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v135_B04_adversarial_pass_is_blocked",
+      "artifact_ref": "per_case/clean/v135_B04_adversarial_pass_is_blocked.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v135_B05_raw_case_failure_overrides_aggregate_pass",
+      "artifact_ref": "per_case/clean/v135_B05_raw_case_failure_overrides_aggregate_pass.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v135_C01_v134_independent_validator_replay_passes",
+      "artifact_ref": "per_case/clean/v135_C01_v134_independent_validator_replay_passes.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v135_C02_v134_adversarial_mutation_replay_detects_defects",
+      "artifact_ref": "per_case/clean/v135_C02_v134_adversarial_mutation_replay_detects_defects.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v135_C03_validator_unit_tests_pass",
+      "artifact_ref": "per_case/clean/v135_C03_validator_unit_tests_pass.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v135_C04_validation_runner_exits_nonzero_on_failure",
+      "artifact_ref": "per_case/clean/v135_C04_validation_runner_exits_nonzero_on_failure.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v135_C05_generated_reports_have_required_schema",
+      "artifact_ref": "per_case/clean/v135_C05_generated_reports_have_required_schema.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    }
+  ]
+}

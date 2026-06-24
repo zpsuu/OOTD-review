@@ -1,0 +1,51 @@
+{
+  "validator": "benchmark.common.sample_consistency",
+  "total_samples": 4,
+  "passed_samples": 4,
+  "failed_samples": 0,
+  "passed": true,
+  "failures": [],
+  "samples": [
+    {
+      "artifact_ref": "sample_artifacts/clean_report_matches_independent_validation.json",
+      "source_artifact_ref": "per_case/clean/v135_A01_clean_report_matches_independent_validation.json",
+      "case_id": "v135_A01_clean_report_matches_independent_validation",
+      "exists": true,
+      "sample_hash": "2eec73d1f338bc8353292693a61923e283b8b5728cf6cd1d1e111014ef793455",
+      "source_hash": "2eec73d1f338bc8353292693a61923e283b8b5728cf6cd1d1e111014ef793455",
+      "manifest_hash": "2eec73d1f338bc8353292693a61923e283b8b5728cf6cd1d1e111014ef793455",
+      "passed": true
+    },
+    {
+      "artifact_ref": "sample_artifacts/sample_artifact_matches_per_case.json",
+      "source_artifact_ref": "per_case/clean/v135_A04_sample_artifact_matches_per_case.json",
+      "case_id": "v135_A04_sample_artifact_matches_per_case",
+      "exists": true,
+      "sample_hash": "64f279e5cf17fce099a8be243317d63f17bd47771c0e0037da3c6de5e931ac4c",
+      "source_hash": "64f279e5cf17fce099a8be243317d63f17bd47771c0e0037da3c6de5e931ac4c",
+      "manifest_hash": "64f279e5cf17fce099a8be243317d63f17bd47771c0e0037da3c6de5e931ac4c",
+      "passed": true
+    },
+    {
+      "artifact_ref": "sample_artifacts/report_only_pass_is_blocked.json",
+      "source_artifact_ref": "per_case/clean/v135_B01_report_only_pass_is_blocked.json",
+      "case_id": "v135_B01_report_only_pass_is_blocked",
+      "exists": true,
+      "sample_hash": "254b1a7993643bba1971316a70167dc2a929551838e3432357021cb64bb62ab8",
+      "source_hash": "254b1a7993643bba1971316a70167dc2a929551838e3432357021cb64bb62ab8",
+      "manifest_hash": "254b1a7993643bba1971316a70167dc2a929551838e3432357021cb64bb62ab8",
+      "passed": true
+    },
+    {
+      "artifact_ref": "sample_artifacts/v134_replay_independent_validation_passes.json",
+      "source_artifact_ref": "per_case/clean/v135_C01_v134_independent_validator_replay_passes.json",
+      "case_id": "v135_C01_v134_independent_validator_replay_passes",
+      "exists": true,
+      "sample_hash": "94ee7073f267457e004c2e9e7ffc381e9d2ecf92ea4e9b1d78ebeaa362b26075",
+      "source_hash": "94ee7073f267457e004c2e9e7ffc381e9d2ecf92ea4e9b1d78ebeaa362b26075",
+      "manifest_hash": "94ee7073f267457e004c2e9e7ffc381e9d2ecf92ea4e9b1d78ebeaa362b26075",
+      "passed": true
+    }
+  ],
+  "generated_at": "2026-06-24T03:07:28Z"
+}
