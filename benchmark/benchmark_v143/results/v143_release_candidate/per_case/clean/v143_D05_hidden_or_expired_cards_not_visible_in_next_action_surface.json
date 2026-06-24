@@ -377,7 +377,9 @@
       "visible_response_block_ids": [
         "vrb_v143_D05_hidden_or_expired_cards_not_visible_in_next_action_surface_turn_001"
       ],
-      "offered_action_card_ids": [],
+      "offered_action_card_ids": [
+        "card_v143_D05_hidden_or_expired_cards_not_visible_in_next_action_surface_primary"
+      ],
       "result_notice_ids": [],
       "production_write_executed": false,
       "source_v142_route_handler_result_ref": "ssrhr_v142_B01_user_A_get_daily_outfit_does_not_include_user_B_refs",
@@ -1348,7 +1350,7 @@
     "conversation_id": "conv_A_001",
     "canonical_script_hash": "b974ee5c466ad1a5ba106053d4e7855b636f3028e1f9b5c7735b001690ea4cfa",
     "canonical_session_hash": "7428ec86653390f7ee3c318b3bd4d9d35c7f48898a416b1f5211f08e23c45109",
-    "canonical_turn_sequence_hash": "a68263cf9c2fcb819a32fc1c93c1a09f7160c6efd9be187e416f9b48d473bbff",
+    "canonical_turn_sequence_hash": "a709de63a47781854752946121a6d76b21be91622965c4b81791c9e264c13440",
     "canonical_state_transition_hash": "55a03406f399945bbdeebaf79132ba3340bf0510e33b722966ee093cbff96b48",
     "canonical_boundary_audit_hash": "34926348d527a5122f5d86a2268b41810efb8d84e6806ce52849cb0529cfd553",
     "source_artifact_hashes": {

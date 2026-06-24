@@ -66,6 +66,17 @@ REQUIRED_BOUNDARY_GROUPS = {
     "trace_safe_debug_refs",
     "conversation_loop_snapshot",
 }
+ALLOWED_TRANSITION_KINDS = {
+    "offer_card",
+    "submit_action",
+    "result_notice",
+    "clarify",
+    "review_pending",
+    "feedback",
+    "stale_reject",
+    "expired_reject",
+    "next_response",
+}
 
 
 def _artifact_dir(result_dir: Path, subset: str) -> Path:
@@ -191,6 +202,8 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
 
     invocation_ids = {inv.get("conversation_turn_invocation_id") for inv in invocations}
     result_ids = {res.get("conversation_turn_runtime_result_id") for res in results}
+    results_by_turn = {res.get("turn_id"): res for res in results}
+    result_turns_by_notice_id: dict[str, list[str]] = {}
     for res in results:
         source = source_by_invocation.get(res.get("conversation_turn_invocation_id"))
         if res.get("conversation_turn_invocation_id") not in invocation_ids or source is None:
@@ -206,6 +219,18 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
             failures.append("turn_result_matches_v142_runtime_output_rate")
         if res.get("turn_id") not in turn_ids:
             failures.append("turn_result_matches_v142_runtime_output_rate")
+        body = (res.get("output_envelope") or {}).get("body") or {}
+        visible_blocks = body.get("conversation_visible_blocks") or []
+        actual_block_ids = [block.get("visible_response_block_id") for block in visible_blocks]
+        if sorted(res.get("visible_response_block_ids") or []) != sorted(actual_block_ids) or not actual_block_ids:
+            failures.append("visible_claims_trace_backed_rate")
+        claim_ids = {claim.get("claim_id") for claim in res.get("user_visible_claims") or []}
+        for block in visible_blocks:
+            block_claim_refs = set(block.get("claim_refs") or [])
+            if not block_claim_refs or not block_claim_refs.issubset(claim_ids):
+                failures.append("visible_claims_trace_backed_rate")
+        for notice_id in res.get("result_notice_ids") or []:
+            result_turns_by_notice_id.setdefault(notice_id, []).append(res.get("turn_id"))
 
     if len(transitions) != max(0, len(turn_ids) - 1):
         failures.append("conversation_state_transition_valid_rate")
@@ -214,6 +239,24 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
     if transition_pairs != expected_pairs:
         failures.append("conversation_state_transition_valid_rate")
     for tr in transitions:
+        if tr.get("transition_kind") not in ALLOWED_TRANSITION_KINDS:
+            failures.append("conversation_state_transition_valid_rate")
+        if tr.get("from_turn_id") == "turn_002" and tr.get("transition_kind") != "submit_action":
+            failures.append("conversation_state_transition_valid_rate")
+        if tr.get("from_turn_id") == "turn_003":
+            expected_kind = "result_notice"
+            if mode == "expired":
+                expected_kind = "expired_reject"
+            elif mode == "stale":
+                expected_kind = "stale_reject"
+            elif mode == "clarification":
+                expected_kind = "clarify"
+            elif mode == "review_pending":
+                expected_kind = "review_pending"
+            if tr.get("transition_kind") != expected_kind:
+                failures.append("conversation_state_transition_valid_rate")
+        if tr.get("from_turn_id") not in {"turn_002", "turn_003"} and tr.get("transition_kind") != "next_response":
+            failures.append("conversation_state_transition_valid_rate")
         pre = tr.get("pre_state") or {}
         post = tr.get("post_state") or {}
         if tr.get("pre_state_hash") != state_hash(pre) or tr.get("post_state_hash") != state_hash(post):
@@ -226,20 +269,52 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
         failures.append("conversation_state_transition_valid_rate")
 
     lifecycle_by_card = {life.get("action_card_id"): life for life in lifecycles}
+    submission_by_card = {sub.get("action_card_id"): sub for sub in submissions}
+    notice_by_id = {notice.get("conversation_action_result_notice_id"): notice for notice in notices}
     for res in results:
         for card_id in res.get("offered_action_card_ids") or []:
             life = lifecycle_by_card.get(card_id)
             if not life or life.get("card_state") == "hidden":
                 failures.append("action_card_lifecycle_complete_rate")
     for life in lifecycles:
+        for turn_key in ["offered_turn_id", "submitted_turn_id", "resolved_turn_id"]:
+            if life.get(turn_key) and life.get(turn_key) not in turn_ids:
+                failures.append("action_card_lifecycle_complete_rate")
+        offered_turn = results_by_turn.get(life.get("offered_turn_id")) or {}
+        if life.get("card_state") != "hidden" and life.get("action_card_id") not in (offered_turn.get("offered_action_card_ids") or []):
+            failures.append("action_card_lifecycle_complete_rate")
+        submission = submission_by_card.get(life.get("action_card_id"))
+        if life.get("submitted_turn_id") and (not submission or submission.get("turn_id") != life.get("submitted_turn_id")):
+            failures.append("action_card_lifecycle_complete_rate")
+        notice_turns = {notice.get("turn_id") for notice in notices if notice.get("source_action_result_ref") == (submission or {}).get("source_v142_action_result_ref")}
+        if life.get("resolved_turn_id") and life.get("resolved_turn_id") not in notice_turns:
+            failures.append("action_card_lifecycle_complete_rate")
         if life.get("card_state") in {"accepted", "submitted", "review_pending", "expired", "stale"} and not life.get("idempotency_scope_key"):
             failures.append("action_card_lifecycle_complete_rate")
         if life.get("card_state") in {"expired", "stale"} and life.get("source_v142_action_result_ref"):
             failures.append("expired_stale_card_no_write_rate")
+        if submission:
+            related_notices = [notice for notice in notices if notice.get("source_action_result_ref") == submission.get("source_v142_action_result_ref")]
+            notice_kinds = {notice.get("notice_kind") for notice in related_notices}
+            if life.get("card_state") == "accepted" and (submission.get("accepted") is not True or "accepted_result" not in notice_kinds):
+                failures.append("action_card_lifecycle_complete_rate")
+            if life.get("card_state") in {"completed", "submitted", "review_pending", "expired", "stale"} and (submission.get("accepted") is not False or "typed_no_write" not in notice_kinds):
+                failures.append("action_card_lifecycle_complete_rate")
 
     notice_refs = {notice.get("source_action_result_ref") for notice in notices}
     for notice in notices:
         if not notice.get("source_action_result_ref") or notice.get("source_action_result_ref") not in " ".join(str(x) for x in notice.get("trace_refs", [])):
+            failures.append("action_submission_result_notice_trace_rate")
+        notice_id = notice.get("conversation_action_result_notice_id")
+        rendered_turns = result_turns_by_notice_id.get(notice_id) or []
+        if len(rendered_turns) != 1 or notice.get("turn_id") not in turn_ids or rendered_turns[0] != notice.get("turn_id"):
+            failures.append("action_submission_result_notice_trace_rate")
+        result_for_notice = results_by_turn.get(notice.get("turn_id")) or {}
+        claim_ids_for_notice = {claim.get("claim_id") for claim in result_for_notice.get("user_visible_claims") or []}
+        if not set(notice.get("visible_claim_refs") or []).issubset(claim_ids_for_notice) or not notice.get("visible_claim_refs"):
+            failures.append("action_submission_result_notice_trace_rate")
+    for notice_id in result_turns_by_notice_id:
+        if notice_id not in notice_by_id:
             failures.append("action_submission_result_notice_trace_rate")
     for sub in submissions:
         if sub.get("source_v142_action_result_ref") not in notice_refs:
@@ -289,10 +364,22 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
         failures.append("next_turn_response_reflects_only_accepted_state_rate")
 
     valid_claim_sources = set(result_ids) | {tr.get("conversation_state_transition_id") for tr in transitions} | notice_refs | {review.get("governance_decision_ref") for review in reviews}
+    claim_audits_by_turn: dict[str, list[dict[str, Any]]] = {}
     for audit_row in claim_audits:
+        claim_audits_by_turn.setdefault(audit_row.get("turn_id"), []).append(audit_row)
+        if audit_row.get("local_user_id") != user_id or audit_row.get("local_session_id") != session_id or audit_row.get("conversation_id") != conversation_id or audit_row.get("turn_id") not in turn_ids:
+            failures.append("visible_claims_trace_backed_rate")
         if audit_row.get("passed") is not True or audit_row.get("missing_trace_refs") or audit_row.get("foreign_user_refs_detected") or audit_row.get("foreign_session_refs_detected") or audit_row.get("forbidden_visible_terms_detected"):
             failures.append("visible_claims_trace_backed_rate")
     for res in results:
+        audits_for_turn = claim_audits_by_turn.get(res.get("turn_id")) or []
+        claim_ids = {claim.get("claim_id") for claim in res.get("user_visible_claims") or []}
+        if len(audits_for_turn) != 1:
+            failures.append("visible_claims_trace_backed_rate")
+        else:
+            audit_row = audits_for_turn[0]
+            if set(audit_row.get("visible_claim_refs") or []) != claim_ids or res.get("conversation_turn_runtime_result_id") not in set(audit_row.get("required_source_refs") or []):
+                failures.append("visible_claims_trace_backed_rate")
         for claim in res.get("user_visible_claims") or []:
             refs = set(claim.get("trace_refs") or [])
             if not refs or not refs.intersection(valid_claim_sources):

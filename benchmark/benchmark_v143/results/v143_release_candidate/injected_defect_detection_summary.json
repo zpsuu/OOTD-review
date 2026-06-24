@@ -1,9 +1,9 @@
 {
   "version": "v1.43",
-  "generated_at": "2026-06-24T11:58:55Z",
+  "generated_at": "2026-06-24T12:12:25Z",
   "verdict": "pass",
-  "seeded_defects": 38,
-  "detected_defects": 38,
+  "seeded_defects": 47,
+  "detected_defects": 47,
   "unexpected_injected_passes": [],
   "detected": [
     {
@@ -52,8 +52,10 @@
         "turn_result_matches_v142_runtime_output_rate"
       ],
       "failed_check_ids": [
+        "action_card_lifecycle_complete_rate",
         "conversation_loop_snapshot_hash_reproducible_rate",
-        "turn_result_matches_v142_runtime_output_rate"
+        "turn_result_matches_v142_runtime_output_rate",
+        "visible_claims_trace_backed_rate"
       ],
       "detected": true
     },
@@ -147,6 +149,7 @@
         "expired_stale_card_no_write_rate"
       ],
       "failed_check_ids": [
+        "action_card_lifecycle_complete_rate",
         "conversation_state_transition_valid_rate",
         "expired_stale_card_no_write_rate"
       ],
@@ -448,6 +451,110 @@
       ],
       "failed_check_ids": [
         "adversarial_detection_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v143_ADV_Q39_result_visible_notice_id_bogus",
+      "defect_type": "result_visible_notice_id_bogus",
+      "expected_failed_check_ids": [
+        "action_submission_result_notice_trace_rate"
+      ],
+      "failed_check_ids": [
+        "action_submission_result_notice_trace_rate",
+        "conversation_loop_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v143_ADV_Q40_result_visible_notice_id_removed",
+      "defect_type": "result_visible_notice_id_removed",
+      "expected_failed_check_ids": [
+        "action_submission_result_notice_trace_rate"
+      ],
+      "failed_check_ids": [
+        "action_submission_result_notice_trace_rate",
+        "conversation_loop_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v143_ADV_Q41_notice_turn_id_bogus",
+      "defect_type": "notice_turn_id_bogus",
+      "expected_failed_check_ids": [
+        "action_submission_result_notice_trace_rate"
+      ],
+      "failed_check_ids": [
+        "action_card_lifecycle_complete_rate",
+        "action_submission_result_notice_trace_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v143_ADV_Q42_lifecycle_offered_turn_bogus",
+      "defect_type": "lifecycle_offered_turn_bogus",
+      "expected_failed_check_ids": [
+        "action_card_lifecycle_complete_rate"
+      ],
+      "failed_check_ids": [
+        "action_card_lifecycle_complete_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v143_ADV_Q43_lifecycle_submitted_turn_bogus",
+      "defect_type": "lifecycle_submitted_turn_bogus",
+      "expected_failed_check_ids": [
+        "action_card_lifecycle_complete_rate"
+      ],
+      "failed_check_ids": [
+        "action_card_lifecycle_complete_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v143_ADV_Q44_lifecycle_resolved_turn_bogus",
+      "defect_type": "lifecycle_resolved_turn_bogus",
+      "expected_failed_check_ids": [
+        "action_card_lifecycle_complete_rate"
+      ],
+      "failed_check_ids": [
+        "action_card_lifecycle_complete_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v143_ADV_Q45_visible_response_block_ids_bogus",
+      "defect_type": "visible_response_block_ids_bogus",
+      "expected_failed_check_ids": [
+        "visible_claims_trace_backed_rate"
+      ],
+      "failed_check_ids": [
+        "conversation_loop_snapshot_hash_reproducible_rate",
+        "visible_claims_trace_backed_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v143_ADV_Q46_claim_audits_removed",
+      "defect_type": "claim_audits_removed",
+      "expected_failed_check_ids": [
+        "visible_claims_trace_backed_rate"
+      ],
+      "failed_check_ids": [
+        "visible_claims_trace_backed_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v143_ADV_Q47_transition_kind_invalid",
+      "defect_type": "transition_kind_invalid",
+      "expected_failed_check_ids": [
+        "conversation_state_transition_valid_rate"
+      ],
+      "failed_check_ids": [
+        "conversation_loop_snapshot_hash_reproducible_rate",
+        "conversation_state_transition_valid_rate"
       ],
       "detected": true
     }

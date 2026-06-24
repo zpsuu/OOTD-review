@@ -51,8 +51,8 @@ class V143ProductConversationRuntimeLoopValidatorTests(unittest.TestCase):
             self.assertEqual(clean["suite_summary"]["passed_cases"], 49)
             self.assertEqual(clean["suite_summary"]["passed_checks"], 23)
             self.assertEqual(adversarial["suite_summary"]["passed_cases"], 0)
-            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 38)
-            self.assertEqual(adversarial["detected_defect_count"], 38)
+            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 47)
+            self.assertEqual(adversarial["detected_defect_count"], 47)
             self.assertTrue(sample["passed"], sample["failures"])
             self.assertTrue(consistency["passed"], consistency["failures"])
 
@@ -91,6 +91,36 @@ class V143ProductConversationRuntimeLoopValidatorTests(unittest.TestCase):
         failed = self._mutate("*C03_same_raw_key_different_conversation_does_not_reuse_result.json", mutate)
         self.assertIn("different_scope_duplicate_does_not_reuse_result_rate", failed["v143_C03_same_raw_key_different_conversation_does_not_reuse_result"])
 
+    def test_bogus_result_notice_id_is_detected(self) -> None:
+        failed = self._mutate("*B08_action_result_notice_traces_to_session_action_result.json", lambda case: case["conversation_turn_runtime_results"][3].__setitem__("result_notice_ids", ["notice_bogus"]))
+        self.assertIn("action_submission_result_notice_trace_rate", failed["v143_B08_action_result_notice_traces_to_session_action_result"])
+
+    def test_removed_result_notice_id_is_detected(self) -> None:
+        failed = self._mutate("*B08_action_result_notice_traces_to_session_action_result.json", lambda case: case["conversation_turn_runtime_results"][3].__setitem__("result_notice_ids", []))
+        self.assertIn("action_submission_result_notice_trace_rate", failed["v143_B08_action_result_notice_traces_to_session_action_result"])
+
+    def test_notice_turn_id_bogus_is_detected(self) -> None:
+        failed = self._mutate("*B08_action_result_notice_traces_to_session_action_result.json", lambda case: case["conversation_action_result_notices"][0].__setitem__("turn_id", "turn_999"))
+        self.assertIn("action_submission_result_notice_trace_rate", failed["v143_B08_action_result_notice_traces_to_session_action_result"])
+
+    def test_lifecycle_turn_refs_bogus_are_detected(self) -> None:
+        for field in ["offered_turn_id", "submitted_turn_id", "resolved_turn_id"]:
+            with self.subTest(field=field):
+                failed = self._mutate("*B01_get_daily_outfit_offers_trace_backed_action_cards.json", lambda case, field=field: case["conversation_action_card_lifecycles"][0].__setitem__(field, "turn_999"))
+                self.assertIn("action_card_lifecycle_complete_rate", failed["v143_B01_get_daily_outfit_offers_trace_backed_action_cards"])
+
+    def test_visible_response_block_id_bogus_is_detected(self) -> None:
+        failed = self._mutate("*H01_every_visible_claim_traces_to_turn_result_or_state_transition.json", lambda case: case["conversation_turn_runtime_results"][0].__setitem__("visible_response_block_ids", ["vrb_bogus"]))
+        self.assertIn("visible_claims_trace_backed_rate", failed["v143_H01_every_visible_claim_traces_to_turn_result_or_state_transition"])
+
+    def test_claim_audits_removed_are_detected(self) -> None:
+        failed = self._mutate("*H01_every_visible_claim_traces_to_turn_result_or_state_transition.json", lambda case: case.__setitem__("conversation_turn_claim_trace_audits", []))
+        self.assertIn("visible_claims_trace_backed_rate", failed["v143_H01_every_visible_claim_traces_to_turn_result_or_state_transition"])
+
+    def test_invalid_transition_kind_is_detected(self) -> None:
+        failed = self._mutate("*A02_conversation_session_has_ordered_turns.json", lambda case: case["conversation_state_transitions"][0].__setitem__("transition_kind", "teleport"))
+        self.assertIn("conversation_state_transition_valid_rate", failed["v143_A02_conversation_session_has_ordered_turns"])
+
     def test_adversarial_detection_does_not_depend_on_gate_assertions(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             result_dir = self._build(tmp)
@@ -102,8 +132,8 @@ class V143ProductConversationRuntimeLoopValidatorTests(unittest.TestCase):
                 _write_json(path, case)
             adversarial = validator.validate_directory(result_dir, "adversarial")
             self.assertEqual(adversarial["suite_summary"]["passed_cases"], 0)
-            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 38)
-            self.assertEqual(adversarial["detected_defect_count"], 38)
+            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 47)
+            self.assertEqual(adversarial["detected_defect_count"], 47)
 
     def _mutate(self, pattern: str, mutate) -> dict[str, list[str]]:
         with tempfile.TemporaryDirectory() as tmp:

@@ -173,6 +173,15 @@ DEFECTS = [
     ("ADV_Q36", "clean_report_pass_but_independent_validator_fail", ["report_consistency_with_independent_validation_rate"]),
     ("ADV_Q37", "v142_replay_missing_or_failed", ["v142_validation_replay_pass_rate"]),
     ("ADV_Q38", "gate_assertions_false_but_raw_artifact_valid", []),
+    ("ADV_Q39", "result_visible_notice_id_bogus", ["action_submission_result_notice_trace_rate"]),
+    ("ADV_Q40", "result_visible_notice_id_removed", ["action_submission_result_notice_trace_rate"]),
+    ("ADV_Q41", "notice_turn_id_bogus", ["action_submission_result_notice_trace_rate"]),
+    ("ADV_Q42", "lifecycle_offered_turn_bogus", ["action_card_lifecycle_complete_rate"]),
+    ("ADV_Q43", "lifecycle_submitted_turn_bogus", ["action_card_lifecycle_complete_rate"]),
+    ("ADV_Q44", "lifecycle_resolved_turn_bogus", ["action_card_lifecycle_complete_rate"]),
+    ("ADV_Q45", "visible_response_block_ids_bogus", ["visible_claims_trace_backed_rate"]),
+    ("ADV_Q46", "claim_audits_removed", ["visible_claims_trace_backed_rate"]),
+    ("ADV_Q47", "transition_kind_invalid", ["conversation_state_transition_valid_rate"]),
 ]
 
 SAMPLE_CASES = {
@@ -291,9 +300,9 @@ def _case(case_code: str, scenario: str, kind: str, *, user_id: str = "local_use
         )
         block_id = f"vrb_{case_id}_{turn_id}"
         claim_id = f"claim_{case_id}_{turn_id}"
-        offered = [action_card_id] if turn_id in {"turn_001", "turn_002"} and kind not in {"expired", "stale"} else []
-        if kind == "expired" and turn_id == "turn_002":
-            offered = []
+        offered = [action_card_id] if turn_id == "turn_001" else []
+        if turn_id == "turn_002" and kind not in {"expired", "stale"}:
+            offered = [action_card_id]
         output = copy.deepcopy(source_result["output_envelope"])
         output.setdefault("body", {})["conversation_visible_blocks"] = [{"visible_response_block_id": block_id, "text": _visible_result_text(kind, turn_id), "claim_refs": [claim_id]}]
         claim_trace_refs = [result_id]
@@ -664,6 +673,24 @@ def _defect(defect_id: str, defect_type: str, gates: list[str]) -> dict[str, Any
     elif defect_type == "gate_assertions_false_but_raw_artifact_valid":
         a["gate_assertions"] = {gate: False for gate in GATES}
         a["expected_failed_check_ids"] = ["adversarial_detection_rate"]
+    elif defect_type == "result_visible_notice_id_bogus":
+        a["conversation_turn_runtime_results"][3]["result_notice_ids"] = ["notice_bogus"]
+    elif defect_type == "result_visible_notice_id_removed":
+        a["conversation_turn_runtime_results"][3]["result_notice_ids"] = []
+    elif defect_type == "notice_turn_id_bogus":
+        a["conversation_action_result_notices"][0]["turn_id"] = "turn_999"
+    elif defect_type == "lifecycle_offered_turn_bogus":
+        a["conversation_action_card_lifecycles"][0]["offered_turn_id"] = "turn_999"
+    elif defect_type == "lifecycle_submitted_turn_bogus":
+        a["conversation_action_card_lifecycles"][0]["submitted_turn_id"] = "turn_999"
+    elif defect_type == "lifecycle_resolved_turn_bogus":
+        a["conversation_action_card_lifecycles"][0]["resolved_turn_id"] = "turn_999"
+    elif defect_type == "visible_response_block_ids_bogus":
+        a["conversation_turn_runtime_results"][0]["visible_response_block_ids"] = ["vrb_bogus"]
+    elif defect_type == "claim_audits_removed":
+        a["conversation_turn_claim_trace_audits"] = []
+    elif defect_type == "transition_kind_invalid":
+        a["conversation_state_transitions"][0]["transition_kind"] = "teleport"
     return a
 
 

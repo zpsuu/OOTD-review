@@ -1,13 +1,13 @@
 {
-  "case_id": "v143_ADV_Q30_conversation_snapshot_source_hash_stale",
+  "case_id": "v143_ADV_Q42_lifecycle_offered_turn_bogus",
   "version": "v1.43",
-  "scenario_kind": "conversation_snapshot_source_hash_stale",
-  "scenario_mode": "stale",
+  "scenario_kind": "lifecycle_offered_turn_bogus",
+  "scenario_mode": "baseline",
   "scenario_preconditions": {
     "source_v142_case_refs": [
       "per_case/clean/v142_B01_user_A_get_daily_outfit_does_not_include_user_B_refs.json",
       "per_case/clean/v142_B02_user_A_get_action_surface_does_not_include_user_B_refs.json",
-      "per_case/clean/v142_E02_advanced_session_state_suppresses_stale_action.json",
+      "per_case/clean/v142_C01_user_A_this_time_only_no_write_is_session_scoped.json",
       "per_case/clean/v142_B03_user_A_get_action_result_does_not_include_user_B_refs.json",
       "per_case/clean/v142_B01_user_A_get_daily_outfit_does_not_include_user_B_refs.json"
     ],
@@ -40,7 +40,7 @@
     "v142_validation_replay_pass_rate": true
   },
   "product_conversation_script": {
-    "product_conversation_script_id": "pcs_v143_ADV_Q30_conversation_snapshot_source_hash_stale",
+    "product_conversation_script_id": "pcs_v143_ADV_Q42_lifecycle_offered_turn_bogus",
     "local_user_id": "local_user_A",
     "local_session_id": "sess_A_001",
     "conversation_id": "conv_A_001",
@@ -80,7 +80,7 @@
     "source_v142_case_refs": [
       "per_case/clean/v142_B01_user_A_get_daily_outfit_does_not_include_user_B_refs.json",
       "per_case/clean/v142_B02_user_A_get_action_surface_does_not_include_user_B_refs.json",
-      "per_case/clean/v142_E02_advanced_session_state_suppresses_stale_action.json",
+      "per_case/clean/v142_C01_user_A_this_time_only_no_write_is_session_scoped.json",
       "per_case/clean/v142_B03_user_A_get_action_result_does_not_include_user_B_refs.json",
       "per_case/clean/v142_B01_user_A_get_daily_outfit_does_not_include_user_B_refs.json"
     ],
@@ -96,13 +96,13 @@
     ]
   },
   "product_conversation_session": {
-    "product_conversation_session_id": "pcsess_v143_ADV_Q30_conversation_snapshot_source_hash_stale",
+    "product_conversation_session_id": "pcsess_v143_ADV_Q42_lifecycle_offered_turn_bogus",
     "local_user_id": "local_user_A",
     "local_session_id": "sess_A_001",
     "conversation_id": "conv_A_001",
     "session_state_version_start": 1,
-    "session_state_version_end": 2,
-    "conversation_status": "advanced",
+    "session_state_version_end": 3,
+    "conversation_status": "active",
     "turn_ids": [
       "turn_001",
       "turn_002",
@@ -115,12 +115,12 @@
       "sess_A_001",
       "conv_A_001",
       "session_state_v1",
-      "session_state_v2"
+      "session_state_v3"
     ]
   },
   "conversation_turn_invocations": [
     {
-      "conversation_turn_invocation_id": "cti_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_001",
+      "conversation_turn_invocation_id": "cti_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_001",
       "local_user_id": "local_user_A",
       "local_session_id": "sess_A_001",
       "conversation_id": "conv_A_001",
@@ -155,7 +155,7 @@
       ]
     },
     {
-      "conversation_turn_invocation_id": "cti_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_002",
+      "conversation_turn_invocation_id": "cti_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_002",
       "local_user_id": "local_user_A",
       "local_session_id": "sess_A_001",
       "conversation_id": "conv_A_001",
@@ -190,7 +190,7 @@
       ]
     },
     {
-      "conversation_turn_invocation_id": "cti_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_003",
+      "conversation_turn_invocation_id": "cti_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_003",
       "local_user_id": "local_user_A",
       "local_session_id": "sess_A_001",
       "conversation_id": "conv_A_001",
@@ -198,7 +198,7 @@
       "turn_index": 3,
       "route": "POST /local/action-submission",
       "input_envelope": {
-        "api_request_id": "api_req_v140_D03_stale_action_submission_returns_stale_error_no_write",
+        "api_request_id": "api_req_v140_C01_post_this_time_only_submission_no_write",
         "contract_version": "v1.40",
         "schema_version": "product_api.v1",
         "route": "POST /local/action-submission",
@@ -207,28 +207,28 @@
         "query": {},
         "body": {
           "submitted_action": "this_time_only",
-          "user_action_card_id": "uac_v139_018"
+          "user_action_card_id": "uac_v139_006"
         },
-        "idempotency_key": "idem_v140_D03_stale_action_submission_returns_stale_error_no_write",
+        "idempotency_key": "idem_v140_C01_post_this_time_only_submission_no_write",
         "trace_refs": [
-          "rt_v139_018",
-          "gas_v139_018"
+          "rt_v139_006",
+          "gas_v139_006"
         ]
       },
-      "source_v142_artifact_ref": "per_case/clean/v142_E02_advanced_session_state_suppresses_stale_action.json",
-      "source_v142_artifact_hash": "9334b1272457b4ac9e6902af8ae231d71cfe1da468fcfbffa2c847e6cc692d15",
-      "source_v142_runtime_invocation_ref": "ssri_v142_E02_advanced_session_state_suppresses_stale_action",
-      "source_v142_boundary_audit_ref": "cula_v142_E02_advanced_session_state_suppresses_stale_action",
+      "source_v142_artifact_ref": "per_case/clean/v142_C01_user_A_this_time_only_no_write_is_session_scoped.json",
+      "source_v142_artifact_hash": "6473a8e8c034ec4b84919b57c10398adc3550fc0d06d955b11b556cd0dc13bff",
+      "source_v142_runtime_invocation_ref": "ssri_v142_C01_user_A_this_time_only_no_write_is_session_scoped",
+      "source_v142_boundary_audit_ref": "cula_v142_C01_user_A_this_time_only_no_write_is_session_scoped",
       "trace_refs": [
         "local_user_A",
         "sess_A_001",
         "conv_A_001",
         "turn_003",
-        "ssri_v142_E02_advanced_session_state_suppresses_stale_action"
+        "ssri_v142_C01_user_A_this_time_only_no_write_is_session_scoped"
       ]
     },
     {
-      "conversation_turn_invocation_id": "cti_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_004",
+      "conversation_turn_invocation_id": "cti_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_004",
       "local_user_id": "local_user_A",
       "local_session_id": "sess_A_001",
       "conversation_id": "conv_A_001",
@@ -263,7 +263,7 @@
       ]
     },
     {
-      "conversation_turn_invocation_id": "cti_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_005",
+      "conversation_turn_invocation_id": "cti_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_005",
       "local_user_id": "local_user_A",
       "local_session_id": "sess_A_001",
       "conversation_id": "conv_A_001",
@@ -300,8 +300,8 @@
   ],
   "conversation_turn_runtime_results": [
     {
-      "conversation_turn_runtime_result_id": "ctrr_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_001",
-      "conversation_turn_invocation_id": "cti_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_001",
+      "conversation_turn_runtime_result_id": "ctrr_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_001",
+      "conversation_turn_invocation_id": "cti_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_001",
       "local_user_id": "local_user_A",
       "local_session_id": "sess_A_001",
       "conversation_id": "conv_A_001",
@@ -359,10 +359,10 @@
           },
           "conversation_visible_blocks": [
             {
-              "visible_response_block_id": "vrb_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_001",
+              "visible_response_block_id": "vrb_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_001",
               "text": "Conversation turn is trace-backed to the local runtime result.",
               "claim_refs": [
-                "claim_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_001"
+                "claim_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_001"
               ]
             }
           ]
@@ -375,10 +375,10 @@
         ]
       },
       "visible_response_block_ids": [
-        "vrb_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_001"
+        "vrb_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_001"
       ],
       "offered_action_card_ids": [
-        "card_v143_ADV_Q30_conversation_snapshot_source_hash_stale_primary"
+        "card_v143_ADV_Q42_lifecycle_offered_turn_bogus_primary"
       ],
       "result_notice_ids": [],
       "production_write_executed": false,
@@ -393,17 +393,17 @@
       ],
       "user_visible_claims": [
         {
-          "claim_id": "claim_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_001",
+          "claim_id": "claim_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_001",
           "text": "Conversation turn is trace-backed to the local runtime result.",
           "trace_refs": [
-            "ctrr_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_001"
+            "ctrr_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_001"
           ]
         }
       ]
     },
     {
-      "conversation_turn_runtime_result_id": "ctrr_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_002",
-      "conversation_turn_invocation_id": "cti_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_002",
+      "conversation_turn_runtime_result_id": "ctrr_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_002",
+      "conversation_turn_invocation_id": "cti_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_002",
       "local_user_id": "local_user_A",
       "local_session_id": "sess_A_001",
       "conversation_id": "conv_A_001",
@@ -481,10 +481,10 @@
           ],
           "conversation_visible_blocks": [
             {
-              "visible_response_block_id": "vrb_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_002",
+              "visible_response_block_id": "vrb_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_002",
               "text": "Conversation turn is trace-backed to the local runtime result.",
               "claim_refs": [
-                "claim_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_002"
+                "claim_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_002"
               ]
             }
           ]
@@ -497,9 +497,11 @@
         ]
       },
       "visible_response_block_ids": [
-        "vrb_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_002"
+        "vrb_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_002"
       ],
-      "offered_action_card_ids": [],
+      "offered_action_card_ids": [
+        "card_v143_ADV_Q42_lifecycle_offered_turn_bogus_primary"
+      ],
       "result_notice_ids": [],
       "production_write_executed": false,
       "source_v142_route_handler_result_ref": "ssrhr_v142_B02_user_A_get_action_surface_does_not_include_user_B_refs",
@@ -513,108 +515,131 @@
       ],
       "user_visible_claims": [
         {
-          "claim_id": "claim_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_002",
+          "claim_id": "claim_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_002",
           "text": "Conversation turn is trace-backed to the local runtime result.",
           "trace_refs": [
-            "ctrr_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_002"
+            "ctrr_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_002"
           ]
         }
       ]
     },
     {
-      "conversation_turn_runtime_result_id": "ctrr_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_003",
-      "conversation_turn_invocation_id": "cti_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_003",
+      "conversation_turn_runtime_result_id": "ctrr_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_003",
+      "conversation_turn_invocation_id": "cti_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_003",
       "local_user_id": "local_user_A",
       "local_session_id": "sess_A_001",
       "conversation_id": "conv_A_001",
       "turn_id": "turn_003",
-      "response_type": "error",
+      "response_type": "action_submission_result",
       "output_envelope": {
-        "api_response_id": "api_res_v140_D03_stale_action_submission_returns_stale_error_no_write",
-        "api_request_id": "api_req_v140_D03_stale_action_submission_returns_stale_error_no_write",
+        "api_response_id": "api_res_v140_C01_post_this_time_only_submission_no_write",
+        "api_request_id": "api_req_v140_C01_post_this_time_only_submission_no_write",
         "contract_version": "v1.40",
         "schema_version": "product_api.v1",
-        "status_code": 409,
-        "response_type": "error",
+        "status_code": 200,
+        "response_type": "action_submission_result",
         "body": {
           "contract_version": "v1.40",
           "schema_version": "product_api.v1",
-          "safe_error": "That action was already resolved and did not change memory.",
-          "action_result": {
-            "action_result_api_resource_id": "res_api_v140_D03_stale_action_submission_returns_stale_error_no_write",
-            "action_result_packet_id": "arp_v139_018",
-            "result_type": "no_write_current_turn",
+          "action_submission": {
+            "action_submission_api_resource_id": "sub_api_v140_C01_post_this_time_only_submission_no_write",
+            "accepted": true,
+            "submitted_action": "this_time_only",
+            "idempotency_key": "idem_v140_C01_post_this_time_only_submission_no_write",
+            "user_action_card_id": "uac_v139_006",
+            "governance_queue_item_id": "gqi_v139_006",
+            "allowed_actions_at_submission": [
+              "this_time_only",
+              "do_not_change_memory",
+              "remember_for_context"
+            ],
+            "card_display_state_at_submission": "resolved",
             "production_write_executed": false,
-            "post_action_task_memory_packet_id": "tmp_post_action_v139_018",
-            "user_visible_response_block_ids": [
-              "urb_v139_018"
-            ],
-            "response_block_refs": [
-              "urb_v139_018"
-            ],
-            "governance_resolution_decision_id": "grd_v139_018",
             "trace_refs": [
-              "rt_v139_018",
-              "gqi_v139_018",
-              "grd_v139_018"
+              "rt_v139_006",
+              "uac_v139_006",
+              "gqi_v139_006"
             ]
           },
+          "action_result": {
+            "action_result_api_resource_id": "res_api_v140_C01_post_this_time_only_submission_no_write",
+            "action_result_packet_id": "arp_v139_006",
+            "result_type": "no_write_current_turn",
+            "production_write_executed": false,
+            "post_action_task_memory_packet_id": "tmp_post_action_v139_006",
+            "user_visible_response_block_ids": [
+              "urb_v139_006"
+            ],
+            "response_block_refs": [
+              "urb_v139_006"
+            ],
+            "governance_resolution_decision_id": "grd_v139_006",
+            "trace_refs": [
+              "rt_v139_006",
+              "uas_v139_006",
+              "grd_v139_006"
+            ]
+          },
+          "response_blocks": [
+            {
+              "response_block_id": "urb_v139_006",
+              "block_type": "action_result_notice",
+              "text": "I will use that only for this outfit.",
+              "claim_refs": [
+                "claim_v139_006"
+              ],
+              "trace_refs": [
+                "rt_v139_006",
+                "arp_v139_006",
+                "grd_v139_006"
+              ]
+            }
+          ],
           "conversation_visible_blocks": [
             {
-              "visible_response_block_id": "vrb_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_003",
-              "text": "That action is no longer active, so no memory state changed.",
+              "visible_response_block_id": "vrb_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_003",
+              "text": "Conversation turn is trace-backed to the local runtime result.",
               "claim_refs": [
-                "claim_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_003"
+                "claim_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_003"
               ]
             }
           ]
         },
-        "error": {
-          "error_id": "api_err_v140_D03_stale_action_submission_returns_stale_error_no_write",
-          "error_type": "stale_action",
-          "status_code": 409,
-          "safe_message": "That action was already resolved and did not change memory.",
-          "developer_debug_ref": "trace:rt_v139_018",
-          "production_write_executed": false,
-          "trace_refs": [
-            "rt_v139_018",
-            "gas_v139_018"
-          ]
-        },
+        "error": null,
         "trace_refs": [
-          "api_req_v140_D03_stale_action_submission_returns_stale_error_no_write",
-          "rt_v139_018",
-          "gas_v139_018"
+          "api_req_v140_C01_post_this_time_only_submission_no_write",
+          "rt_v139_006",
+          "gas_v139_006"
         ]
       },
       "visible_response_block_ids": [
-        "vrb_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_003"
+        "vrb_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_003"
       ],
       "offered_action_card_ids": [],
       "result_notice_ids": [],
       "production_write_executed": false,
-      "source_v142_route_handler_result_ref": "ssrhr_v142_E02_advanced_session_state_suppresses_stale_action",
-      "source_v142_artifact_ref": "per_case/clean/v142_E02_advanced_session_state_suppresses_stale_action.json",
+      "source_v142_route_handler_result_ref": "ssrhr_v142_C01_user_A_this_time_only_no_write_is_session_scoped",
+      "source_v142_artifact_ref": "per_case/clean/v142_C01_user_A_this_time_only_no_write_is_session_scoped.json",
       "trace_refs": [
         "local_user_A",
         "sess_A_001",
         "conv_A_001",
         "turn_003",
-        "ssrhr_v142_E02_advanced_session_state_suppresses_stale_action"
+        "ssrhr_v142_C01_user_A_this_time_only_no_write_is_session_scoped"
       ],
       "user_visible_claims": [
         {
-          "claim_id": "claim_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_003",
-          "text": "That action is no longer active, so no memory state changed.",
+          "claim_id": "claim_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_003",
+          "text": "Conversation turn is trace-backed to the local runtime result.",
           "trace_refs": [
-            "ctrr_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_003"
+            "ctrr_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_003"
           ]
         }
       ]
     },
     {
-      "conversation_turn_runtime_result_id": "ctrr_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_004",
-      "conversation_turn_invocation_id": "cti_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_004",
+      "conversation_turn_runtime_result_id": "ctrr_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_004",
+      "conversation_turn_invocation_id": "cti_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_004",
       "local_user_id": "local_user_A",
       "local_session_id": "sess_A_001",
       "conversation_id": "conv_A_001",
@@ -666,10 +691,10 @@
           ],
           "conversation_visible_blocks": [
             {
-              "visible_response_block_id": "vrb_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_004",
+              "visible_response_block_id": "vrb_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_004",
               "text": "Conversation turn is trace-backed to the local runtime result.",
               "claim_refs": [
-                "claim_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_004"
+                "claim_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_004"
               ]
             }
           ]
@@ -682,11 +707,11 @@
         ]
       },
       "visible_response_block_ids": [
-        "vrb_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_004"
+        "vrb_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_004"
       ],
       "offered_action_card_ids": [],
       "result_notice_ids": [
-        "notice_v143_ADV_Q30_conversation_snapshot_source_hash_stale"
+        "notice_v143_ADV_Q42_lifecycle_offered_turn_bogus"
       ],
       "production_write_executed": false,
       "source_v142_route_handler_result_ref": "ssrhr_v142_B03_user_A_get_action_result_does_not_include_user_B_refs",
@@ -700,17 +725,17 @@
       ],
       "user_visible_claims": [
         {
-          "claim_id": "claim_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_004",
+          "claim_id": "claim_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_004",
           "text": "Conversation turn is trace-backed to the local runtime result.",
           "trace_refs": [
-            "ctrr_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_004"
+            "ctrr_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_004"
           ]
         }
       ]
     },
     {
-      "conversation_turn_runtime_result_id": "ctrr_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_005",
-      "conversation_turn_invocation_id": "cti_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_005",
+      "conversation_turn_runtime_result_id": "ctrr_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_005",
+      "conversation_turn_invocation_id": "cti_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_005",
       "local_user_id": "local_user_A",
       "local_session_id": "sess_A_001",
       "conversation_id": "conv_A_001",
@@ -768,10 +793,10 @@
           },
           "conversation_visible_blocks": [
             {
-              "visible_response_block_id": "vrb_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_005",
+              "visible_response_block_id": "vrb_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_005",
               "text": "Conversation turn is trace-backed to the local runtime result.",
               "claim_refs": [
-                "claim_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_005"
+                "claim_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_005"
               ]
             }
           ]
@@ -784,7 +809,7 @@
         ]
       },
       "visible_response_block_ids": [
-        "vrb_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_005"
+        "vrb_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_005"
       ],
       "offered_action_card_ids": [],
       "result_notice_ids": [],
@@ -800,10 +825,11 @@
       ],
       "user_visible_claims": [
         {
-          "claim_id": "claim_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_005",
+          "claim_id": "claim_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_005",
           "text": "Conversation turn is trace-backed to the local runtime result.",
           "trace_refs": [
-            "ctrr_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_005"
+            "ctrr_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_005",
+            "conv_action_result_local_user_A_sess_A_001_conv_A_001_c062bbbf7a99"
           ]
         }
       ]
@@ -811,7 +837,7 @@
   ],
   "conversation_state_transitions": [
     {
-      "conversation_state_transition_id": "cst_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_001_turn_002",
+      "conversation_state_transition_id": "cst_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_001_turn_002",
       "local_user_id": "local_user_A",
       "local_session_id": "sess_A_001",
       "conversation_id": "conv_A_001",
@@ -849,7 +875,7 @@
       ]
     },
     {
-      "conversation_state_transition_id": "cst_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_002_turn_003",
+      "conversation_state_transition_id": "cst_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_002_turn_003",
       "local_user_id": "local_user_A",
       "local_session_id": "sess_A_001",
       "conversation_id": "conv_A_001",
@@ -887,13 +913,13 @@
       ]
     },
     {
-      "conversation_state_transition_id": "cst_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_003_turn_004",
+      "conversation_state_transition_id": "cst_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_003_turn_004",
       "local_user_id": "local_user_A",
       "local_session_id": "sess_A_001",
       "conversation_id": "conv_A_001",
       "from_turn_id": "turn_003",
       "to_turn_id": "turn_004",
-      "transition_kind": "stale_reject",
+      "transition_kind": "result_notice",
       "pre_state": {
         "local_user_id": "local_user_A",
         "local_session_id": "sess_A_001",
@@ -910,12 +936,14 @@
         "turn_id": "turn_004",
         "memory_namespace_id": "mem_ns_local_user_A",
         "governance_namespace_id": "gov_ns_local_user_A",
-        "accepted_action_result_refs": []
+        "accepted_action_result_refs": [
+          "conv_action_result_local_user_A_sess_A_001_conv_A_001_c062bbbf7a99"
+        ]
       },
       "pre_state_hash": "3ef849f936eea28d259124776e6ee47558f68e213ab8fb85db3a50999bc6a915",
-      "post_state_hash": "e3066732774303b0b8436e0db6dadd49d6b29a948906b66ec86877c523b9b5c0",
-      "accepted_action_result_ref": null,
-      "no_write_reason": "stale_no_write",
+      "post_state_hash": "abee4036b0656452cd021bb4ecd428ec0584a5d48fe2af8c199a2f163643a786",
+      "accepted_action_result_ref": "conv_action_result_local_user_A_sess_A_001_conv_A_001_c062bbbf7a99",
+      "no_write_reason": null,
       "trace_refs": [
         "local_user_A",
         "sess_A_001",
@@ -925,7 +953,7 @@
       ]
     },
     {
-      "conversation_state_transition_id": "cst_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_004_turn_005",
+      "conversation_state_transition_id": "cst_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_004_turn_005",
       "local_user_id": "local_user_A",
       "local_session_id": "sess_A_001",
       "conversation_id": "conv_A_001",
@@ -939,7 +967,9 @@
         "turn_id": "turn_004",
         "memory_namespace_id": "mem_ns_local_user_A",
         "governance_namespace_id": "gov_ns_local_user_A",
-        "accepted_action_result_refs": []
+        "accepted_action_result_refs": [
+          "conv_action_result_local_user_A_sess_A_001_conv_A_001_c062bbbf7a99"
+        ]
       },
       "post_state": {
         "local_user_id": "local_user_A",
@@ -948,10 +978,12 @@
         "turn_id": "turn_005",
         "memory_namespace_id": "mem_ns_local_user_A",
         "governance_namespace_id": "gov_ns_local_user_A",
-        "accepted_action_result_refs": []
+        "accepted_action_result_refs": [
+          "conv_action_result_local_user_A_sess_A_001_conv_A_001_c062bbbf7a99"
+        ]
       },
-      "pre_state_hash": "e3066732774303b0b8436e0db6dadd49d6b29a948906b66ec86877c523b9b5c0",
-      "post_state_hash": "55f4ac9945cb74fbbf683c84b03e68b88198d505aebb77f94dcd9fda4581a6cb",
+      "pre_state_hash": "abee4036b0656452cd021bb4ecd428ec0584a5d48fe2af8c199a2f163643a786",
+      "post_state_hash": "70e61b165e16a3824f7193b8ed741f77370436c34953ff0346bcf76d33cca7fc",
       "accepted_action_result_ref": null,
       "no_write_reason": null,
       "trace_refs": [
@@ -965,77 +997,77 @@
   ],
   "conversation_action_card_lifecycles": [
     {
-      "conversation_action_card_lifecycle_id": "cacl_v143_ADV_Q30_conversation_snapshot_source_hash_stale",
+      "conversation_action_card_lifecycle_id": "cacl_v143_ADV_Q42_lifecycle_offered_turn_bogus",
       "local_user_id": "local_user_A",
       "local_session_id": "sess_A_001",
       "conversation_id": "conv_A_001",
-      "action_card_id": "card_v143_ADV_Q30_conversation_snapshot_source_hash_stale_primary",
-      "offered_turn_id": "turn_001",
+      "action_card_id": "card_v143_ADV_Q42_lifecycle_offered_turn_bogus_primary",
+      "offered_turn_id": "turn_999",
       "submitted_turn_id": "turn_003",
       "resolved_turn_id": "turn_004",
-      "card_state": "stale",
-      "source_v142_action_result_ref": null,
-      "idempotency_scope_key": "local_user_A:sess_A_001:conv_A_001:card_v143_ADV_Q30_conversation_snapshot_source_hash_stale_primary:raw_feedback_key_001",
+      "card_state": "accepted",
+      "source_v142_action_result_ref": "conv_action_result_local_user_A_sess_A_001_conv_A_001_c062bbbf7a99",
+      "idempotency_scope_key": "local_user_A:sess_A_001:conv_A_001:card_v143_ADV_Q42_lifecycle_offered_turn_bogus_primary:raw_feedback_key_001",
       "trace_refs": [
         "local_user_A",
         "sess_A_001",
         "conv_A_001",
-        "card_v143_ADV_Q30_conversation_snapshot_source_hash_stale_primary",
-        "local_user_A:sess_A_001:conv_A_001:card_v143_ADV_Q30_conversation_snapshot_source_hash_stale_primary:raw_feedback_key_001"
+        "card_v143_ADV_Q42_lifecycle_offered_turn_bogus_primary",
+        "local_user_A:sess_A_001:conv_A_001:card_v143_ADV_Q42_lifecycle_offered_turn_bogus_primary:raw_feedback_key_001"
       ]
     }
   ],
   "conversation_action_submission_proofs": [
     {
-      "conversation_action_submission_proof_id": "casp_v143_ADV_Q30_conversation_snapshot_source_hash_stale",
+      "conversation_action_submission_proof_id": "casp_v143_ADV_Q42_lifecycle_offered_turn_bogus",
       "local_user_id": "local_user_A",
       "local_session_id": "sess_A_001",
       "conversation_id": "conv_A_001",
       "turn_id": "turn_003",
-      "action_card_id": "card_v143_ADV_Q30_conversation_snapshot_source_hash_stale_primary",
-      "idempotency_scope_key": "local_user_A:sess_A_001:conv_A_001:card_v143_ADV_Q30_conversation_snapshot_source_hash_stale_primary:raw_feedback_key_001",
-      "source_v142_action_result_ref": "conv_action_result_local_user_A_sess_A_001_conv_A_001_f08a7471f5b5",
-      "accepted": false,
-      "no_write_reason": "stale_no_write",
+      "action_card_id": "card_v143_ADV_Q42_lifecycle_offered_turn_bogus_primary",
+      "idempotency_scope_key": "local_user_A:sess_A_001:conv_A_001:card_v143_ADV_Q42_lifecycle_offered_turn_bogus_primary:raw_feedback_key_001",
+      "source_v142_action_result_ref": "conv_action_result_local_user_A_sess_A_001_conv_A_001_c062bbbf7a99",
+      "accepted": true,
+      "no_write_reason": null,
       "trace_refs": [
         "local_user_A",
         "sess_A_001",
         "conv_A_001",
         "turn_003",
-        "card_v143_ADV_Q30_conversation_snapshot_source_hash_stale_primary"
+        "card_v143_ADV_Q42_lifecycle_offered_turn_bogus_primary"
       ]
     }
   ],
   "conversation_action_result_notices": [
     {
-      "conversation_action_result_notice_id": "notice_v143_ADV_Q30_conversation_snapshot_source_hash_stale",
+      "conversation_action_result_notice_id": "notice_v143_ADV_Q42_lifecycle_offered_turn_bogus",
       "local_user_id": "local_user_A",
       "local_session_id": "sess_A_001",
       "conversation_id": "conv_A_001",
       "turn_id": "turn_004",
-      "notice_kind": "typed_no_write",
-      "source_action_result_ref": "conv_action_result_local_user_A_sess_A_001_conv_A_001_f08a7471f5b5",
+      "notice_kind": "accepted_result",
+      "source_action_result_ref": "conv_action_result_local_user_A_sess_A_001_conv_A_001_c062bbbf7a99",
       "visible_claim_refs": [
-        "claim_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_004"
+        "claim_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_004"
       ],
       "trace_refs": [
         "local_user_A",
         "sess_A_001",
         "conv_A_001",
         "turn_004",
-        "conv_action_result_local_user_A_sess_A_001_conv_A_001_f08a7471f5b5"
+        "conv_action_result_local_user_A_sess_A_001_conv_A_001_c062bbbf7a99"
       ]
     }
   ],
   "conversation_idempotency_replay_proofs": [
     {
-      "conversation_idempotency_replay_proof_id": "cirp_v143_ADV_Q30_conversation_snapshot_source_hash_stale",
+      "conversation_idempotency_replay_proof_id": "cirp_v143_ADV_Q42_lifecycle_offered_turn_bogus",
       "local_user_id": "local_user_A",
       "local_session_id": "sess_A_001",
       "conversation_id": "conv_A_001",
       "raw_idempotency_key": "raw_feedback_key_001",
-      "idempotency_scope_key": "local_user_A:sess_A_001:conv_A_001:card_v143_ADV_Q30_conversation_snapshot_source_hash_stale_primary:raw_feedback_key_001",
-      "canonical_action_result_ref": "conv_action_result_local_user_A_sess_A_001_conv_A_001_f08a7471f5b5",
+      "idempotency_scope_key": "local_user_A:sess_A_001:conv_A_001:card_v143_ADV_Q42_lifecycle_offered_turn_bogus_primary:raw_feedback_key_001",
+      "canonical_action_result_ref": "conv_action_result_local_user_A_sess_A_001_conv_A_001_c062bbbf7a99",
       "duplicate_action_result_ref": null,
       "different_scope_action_result_ref": null,
       "same_scope_reused": false,
@@ -1044,14 +1076,14 @@
         "local_user_A",
         "sess_A_001",
         "conv_A_001",
-        "local_user_A:sess_A_001:conv_A_001:card_v143_ADV_Q30_conversation_snapshot_source_hash_stale_primary:raw_feedback_key_001",
-        "conv_action_result_local_user_A_sess_A_001_conv_A_001_f08a7471f5b5"
+        "local_user_A:sess_A_001:conv_A_001:card_v143_ADV_Q42_lifecycle_offered_turn_bogus_primary:raw_feedback_key_001",
+        "conv_action_result_local_user_A_sess_A_001_conv_A_001_c062bbbf7a99"
       ]
     }
   ],
   "conversation_clarification_states": [
     {
-      "conversation_clarification_state_id": "ccs_v143_ADV_Q30_conversation_snapshot_source_hash_stale",
+      "conversation_clarification_state_id": "ccs_v143_ADV_Q42_lifecycle_offered_turn_bogus",
       "local_user_id": "local_user_A",
       "local_session_id": "sess_A_001",
       "conversation_id": "conv_A_001",
@@ -1069,33 +1101,33 @@
   ],
   "conversation_review_pending_states": [
     {
-      "conversation_review_pending_state_id": "crps_v143_ADV_Q30_conversation_snapshot_source_hash_stale",
+      "conversation_review_pending_state_id": "crps_v143_ADV_Q42_lifecycle_offered_turn_bogus",
       "local_user_id": "local_user_A",
       "local_session_id": "sess_A_001",
       "conversation_id": "conv_A_001",
       "turn_id": "turn_003",
       "review_pending": false,
       "memory_applied_claimed": false,
-      "governance_decision_ref": "gov_decision_v143_ADV_Q30_conversation_snapshot_source_hash_stale",
+      "governance_decision_ref": "gov_decision_v143_ADV_Q42_lifecycle_offered_turn_bogus",
       "trace_refs": [
         "local_user_A",
         "sess_A_001",
         "conv_A_001",
         "turn_003",
-        "gov_decision_v143_ADV_Q30_conversation_snapshot_source_hash_stale"
+        "gov_decision_v143_ADV_Q42_lifecycle_offered_turn_bogus"
       ]
     }
   ],
   "conversation_feedback_states": [
     {
-      "conversation_feedback_state_id": "cfs_v143_ADV_Q30_conversation_snapshot_source_hash_stale",
+      "conversation_feedback_state_id": "cfs_v143_ADV_Q42_lifecycle_offered_turn_bogus",
       "local_user_id": "local_user_A",
       "local_session_id": "sess_A_001",
       "conversation_id": "conv_A_001",
       "turn_id": "turn_003",
       "feedback_kind": "none",
       "memory_mutated": false,
-      "governed_transition_ref": "cst_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_003_turn_004",
+      "governed_transition_ref": "cst_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_003_turn_004",
       "trace_refs": [
         "local_user_A",
         "sess_A_001",
@@ -1106,16 +1138,16 @@
   ],
   "conversation_turn_claim_trace_audits": [
     {
-      "conversation_turn_claim_trace_audit_id": "ctcta_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_001",
+      "conversation_turn_claim_trace_audit_id": "ctcta_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_001",
       "local_user_id": "local_user_A",
       "local_session_id": "sess_A_001",
       "conversation_id": "conv_A_001",
       "turn_id": "turn_001",
       "visible_claim_refs": [
-        "claim_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_001"
+        "claim_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_001"
       ],
       "required_source_refs": [
-        "ctrr_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_001"
+        "ctrr_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_001"
       ],
       "missing_trace_refs": [],
       "foreign_user_refs_detected": [],
@@ -1127,20 +1159,20 @@
         "sess_A_001",
         "conv_A_001",
         "turn_001",
-        "ctrr_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_001"
+        "ctrr_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_001"
       ]
     },
     {
-      "conversation_turn_claim_trace_audit_id": "ctcta_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_002",
+      "conversation_turn_claim_trace_audit_id": "ctcta_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_002",
       "local_user_id": "local_user_A",
       "local_session_id": "sess_A_001",
       "conversation_id": "conv_A_001",
       "turn_id": "turn_002",
       "visible_claim_refs": [
-        "claim_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_002"
+        "claim_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_002"
       ],
       "required_source_refs": [
-        "ctrr_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_002"
+        "ctrr_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_002"
       ],
       "missing_trace_refs": [],
       "foreign_user_refs_detected": [],
@@ -1152,20 +1184,20 @@
         "sess_A_001",
         "conv_A_001",
         "turn_002",
-        "ctrr_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_002"
+        "ctrr_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_002"
       ]
     },
     {
-      "conversation_turn_claim_trace_audit_id": "ctcta_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_003",
+      "conversation_turn_claim_trace_audit_id": "ctcta_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_003",
       "local_user_id": "local_user_A",
       "local_session_id": "sess_A_001",
       "conversation_id": "conv_A_001",
       "turn_id": "turn_003",
       "visible_claim_refs": [
-        "claim_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_003"
+        "claim_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_003"
       ],
       "required_source_refs": [
-        "ctrr_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_003"
+        "ctrr_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_003"
       ],
       "missing_trace_refs": [],
       "foreign_user_refs_detected": [],
@@ -1177,20 +1209,20 @@
         "sess_A_001",
         "conv_A_001",
         "turn_003",
-        "ctrr_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_003"
+        "ctrr_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_003"
       ]
     },
     {
-      "conversation_turn_claim_trace_audit_id": "ctcta_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_004",
+      "conversation_turn_claim_trace_audit_id": "ctcta_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_004",
       "local_user_id": "local_user_A",
       "local_session_id": "sess_A_001",
       "conversation_id": "conv_A_001",
       "turn_id": "turn_004",
       "visible_claim_refs": [
-        "claim_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_004"
+        "claim_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_004"
       ],
       "required_source_refs": [
-        "ctrr_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_004"
+        "ctrr_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_004"
       ],
       "missing_trace_refs": [],
       "foreign_user_refs_detected": [],
@@ -1202,20 +1234,20 @@
         "sess_A_001",
         "conv_A_001",
         "turn_004",
-        "ctrr_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_004"
+        "ctrr_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_004"
       ]
     },
     {
-      "conversation_turn_claim_trace_audit_id": "ctcta_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_005",
+      "conversation_turn_claim_trace_audit_id": "ctcta_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_005",
       "local_user_id": "local_user_A",
       "local_session_id": "sess_A_001",
       "conversation_id": "conv_A_001",
       "turn_id": "turn_005",
       "visible_claim_refs": [
-        "claim_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_005"
+        "claim_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_005"
       ],
       "required_source_refs": [
-        "ctrr_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_005"
+        "ctrr_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_005"
       ],
       "missing_trace_refs": [],
       "foreign_user_refs_detected": [],
@@ -1227,13 +1259,13 @@
         "sess_A_001",
         "conv_A_001",
         "turn_005",
-        "ctrr_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_005"
+        "ctrr_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_005"
       ]
     }
   ],
   "trace_safe_debug_refs": [
     {
-      "trace_safe_debug_ref_id": "debug_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_001",
+      "trace_safe_debug_ref_id": "debug_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_001",
       "local_user_id": "local_user_A",
       "local_session_id": "sess_A_001",
       "conversation_id": "conv_A_001",
@@ -1246,7 +1278,7 @@
       ]
     },
     {
-      "trace_safe_debug_ref_id": "debug_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_002",
+      "trace_safe_debug_ref_id": "debug_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_002",
       "local_user_id": "local_user_A",
       "local_session_id": "sess_A_001",
       "conversation_id": "conv_A_001",
@@ -1259,7 +1291,7 @@
       ]
     },
     {
-      "trace_safe_debug_ref_id": "debug_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_003",
+      "trace_safe_debug_ref_id": "debug_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_003",
       "local_user_id": "local_user_A",
       "local_session_id": "sess_A_001",
       "conversation_id": "conv_A_001",
@@ -1272,7 +1304,7 @@
       ]
     },
     {
-      "trace_safe_debug_ref_id": "debug_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_004",
+      "trace_safe_debug_ref_id": "debug_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_004",
       "local_user_id": "local_user_A",
       "local_session_id": "sess_A_001",
       "conversation_id": "conv_A_001",
@@ -1285,7 +1317,7 @@
       ]
     },
     {
-      "trace_safe_debug_ref_id": "debug_v143_ADV_Q30_conversation_snapshot_source_hash_stale_turn_005",
+      "trace_safe_debug_ref_id": "debug_v143_ADV_Q42_lifecycle_offered_turn_bogus_turn_005",
       "local_user_id": "local_user_A",
       "local_session_id": "sess_A_001",
       "conversation_id": "conv_A_001",
@@ -1299,9 +1331,9 @@
     }
   ],
   "source_v142_artifact_hashes": {
-    "per_case/clean/v142_B01_user_A_get_daily_outfit_does_not_include_user_B_refs.json": "sha256-stale",
+    "per_case/clean/v142_B01_user_A_get_daily_outfit_does_not_include_user_B_refs.json": "1ede6a942c3bea6492f4fd2381cf4792bfee3b16b71a0e0dae3a54fe5533fdb2",
     "per_case/clean/v142_B02_user_A_get_action_surface_does_not_include_user_B_refs.json": "5f7685b5b3d8a1a17da97a4a1ea039365619bcf9737108664081d01f755136b7",
-    "per_case/clean/v142_E02_advanced_session_state_suppresses_stale_action.json": "9334b1272457b4ac9e6902af8ae231d71cfe1da468fcfbffa2c847e6cc692d15",
+    "per_case/clean/v142_C01_user_A_this_time_only_no_write_is_session_scoped.json": "6473a8e8c034ec4b84919b57c10398adc3550fc0d06d955b11b556cd0dc13bff",
     "per_case/clean/v142_B03_user_A_get_action_result_does_not_include_user_B_refs.json": "6f3970d88ea7a0d991074b8b9b592cc2b194ea69bd989c551639e0a8904026db"
   },
   "v142_replay_proof": {
@@ -1310,7 +1342,7 @@
   "runner_reproducibility_proof": {},
   "reviewer_checklist_refs": [],
   "conversation_boundary_audit": {
-    "conversation_boundary_audit_id": "cba_v143_ADV_Q30_conversation_snapshot_source_hash_stale",
+    "conversation_boundary_audit_id": "cba_v143_ADV_Q42_lifecycle_offered_turn_bogus",
     "local_user_id": "local_user_A",
     "local_session_id": "sess_A_001",
     "conversation_id": "conv_A_001",
@@ -1344,19 +1376,19 @@
     ]
   },
   "conversation_loop_snapshot": {
-    "conversation_loop_snapshot_id": "cls_v143_ADV_Q30_conversation_snapshot_source_hash_stale",
+    "conversation_loop_snapshot_id": "cls_v143_ADV_Q42_lifecycle_offered_turn_bogus",
     "local_user_id": "local_user_A",
     "local_session_id": "sess_A_001",
     "conversation_id": "conv_A_001",
-    "canonical_script_hash": "072d1bf278572244e1b6873db4cf72ecccda5c5faf64549fd35ba29f8d45e248",
-    "canonical_session_hash": "75907d5cfdad2776de80ebfad5d4192f10031109fbfc0d47a4fea39a733cb1df",
-    "canonical_turn_sequence_hash": "8c6052b8f423a0e562a28c0bf261b259be3587e3f7e457016665da6485a9ef11",
-    "canonical_state_transition_hash": "47e1ca9f12f549af8cff3b4323faa269fe532085e188fbe5169fb9b8b8b3a898",
-    "canonical_boundary_audit_hash": "66f616a3b35693f8f49fa909dc82f0a26f1cc9de1922ef7d09dd35ebff69f520",
+    "canonical_script_hash": "1bf2e394d07f0e2816c5708b82085f4925d2d63b368a9ac9c79605745e2f6ecc",
+    "canonical_session_hash": "dae1caa5c4ca27b3ee5a793a79e548b5143ac6d261a9088f554a20dd11ae4a0c",
+    "canonical_turn_sequence_hash": "21e27c1e1c258d21966ca19d2d074278447826317dc1254271b7938dd12c7de0",
+    "canonical_state_transition_hash": "fdb660db4282db5868ce4e0c5f78f68462984fb72154cf8cd8f5db578d38f85f",
+    "canonical_boundary_audit_hash": "8ce07d26429d3e79cbf66a749e2b519b29131ea550d330275787d229a4371e86",
     "source_artifact_hashes": {
-      "per_case/clean/v142_B01_user_A_get_daily_outfit_does_not_include_user_B_refs.json": "sha256-stale",
+      "per_case/clean/v142_B01_user_A_get_daily_outfit_does_not_include_user_B_refs.json": "1ede6a942c3bea6492f4fd2381cf4792bfee3b16b71a0e0dae3a54fe5533fdb2",
       "per_case/clean/v142_B02_user_A_get_action_surface_does_not_include_user_B_refs.json": "5f7685b5b3d8a1a17da97a4a1ea039365619bcf9737108664081d01f755136b7",
-      "per_case/clean/v142_E02_advanced_session_state_suppresses_stale_action.json": "9334b1272457b4ac9e6902af8ae231d71cfe1da468fcfbffa2c847e6cc692d15",
+      "per_case/clean/v142_C01_user_A_this_time_only_no_write_is_session_scoped.json": "6473a8e8c034ec4b84919b57c10398adc3550fc0d06d955b11b556cd0dc13bff",
       "per_case/clean/v142_B03_user_A_get_action_result_does_not_include_user_B_refs.json": "6f3970d88ea7a0d991074b8b9b592cc2b194ea69bd989c551639e0a8904026db"
     },
     "trace_refs": [
@@ -1366,9 +1398,9 @@
       "cls_trace"
     ]
   },
-  "defect_type": "conversation_snapshot_source_hash_stale",
+  "defect_type": "lifecycle_offered_turn_bogus",
   "expected_failure": true,
   "expected_failed_check_ids": [
-    "conversation_loop_snapshot_hash_reproducible_rate"
+    "action_card_lifecycle_complete_rate"
   ]
 }

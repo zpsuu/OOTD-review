@@ -1,6 +1,6 @@
 {
   "version": "v1.43",
-  "generated_at": "2026-06-24T11:58:55Z",
+  "generated_at": "2026-06-24T12:12:25Z",
   "source_result_dir": "benchmark/benchmark_v143/results/v143_release_candidate",
   "cases": [
     {
@@ -306,6 +306,78 @@
       "defect_type": "gate_assertions_false_but_raw_artifact_valid",
       "expected_failed_check_ids": [
         "adversarial_detection_rate"
+      ]
+    },
+    {
+      "case_id": "v143_ADV_Q39_result_visible_notice_id_bogus",
+      "artifact_ref": "per_case/adversarial/v143_ADV_Q39_result_visible_notice_id_bogus.json",
+      "defect_type": "result_visible_notice_id_bogus",
+      "expected_failed_check_ids": [
+        "action_submission_result_notice_trace_rate"
+      ]
+    },
+    {
+      "case_id": "v143_ADV_Q40_result_visible_notice_id_removed",
+      "artifact_ref": "per_case/adversarial/v143_ADV_Q40_result_visible_notice_id_removed.json",
+      "defect_type": "result_visible_notice_id_removed",
+      "expected_failed_check_ids": [
+        "action_submission_result_notice_trace_rate"
+      ]
+    },
+    {
+      "case_id": "v143_ADV_Q41_notice_turn_id_bogus",
+      "artifact_ref": "per_case/adversarial/v143_ADV_Q41_notice_turn_id_bogus.json",
+      "defect_type": "notice_turn_id_bogus",
+      "expected_failed_check_ids": [
+        "action_submission_result_notice_trace_rate"
+      ]
+    },
+    {
+      "case_id": "v143_ADV_Q42_lifecycle_offered_turn_bogus",
+      "artifact_ref": "per_case/adversarial/v143_ADV_Q42_lifecycle_offered_turn_bogus.json",
+      "defect_type": "lifecycle_offered_turn_bogus",
+      "expected_failed_check_ids": [
+        "action_card_lifecycle_complete_rate"
+      ]
+    },
+    {
+      "case_id": "v143_ADV_Q43_lifecycle_submitted_turn_bogus",
+      "artifact_ref": "per_case/adversarial/v143_ADV_Q43_lifecycle_submitted_turn_bogus.json",
+      "defect_type": "lifecycle_submitted_turn_bogus",
+      "expected_failed_check_ids": [
+        "action_card_lifecycle_complete_rate"
+      ]
+    },
+    {
+      "case_id": "v143_ADV_Q44_lifecycle_resolved_turn_bogus",
+      "artifact_ref": "per_case/adversarial/v143_ADV_Q44_lifecycle_resolved_turn_bogus.json",
+      "defect_type": "lifecycle_resolved_turn_bogus",
+      "expected_failed_check_ids": [
+        "action_card_lifecycle_complete_rate"
+      ]
+    },
+    {
+      "case_id": "v143_ADV_Q45_visible_response_block_ids_bogus",
+      "artifact_ref": "per_case/adversarial/v143_ADV_Q45_visible_response_block_ids_bogus.json",
+      "defect_type": "visible_response_block_ids_bogus",
+      "expected_failed_check_ids": [
+        "visible_claims_trace_backed_rate"
+      ]
+    },
+    {
+      "case_id": "v143_ADV_Q46_claim_audits_removed",
+      "artifact_ref": "per_case/adversarial/v143_ADV_Q46_claim_audits_removed.json",
+      "defect_type": "claim_audits_removed",
+      "expected_failed_check_ids": [
+        "visible_claims_trace_backed_rate"
+      ]
+    },
+    {
+      "case_id": "v143_ADV_Q47_transition_kind_invalid",
+      "artifact_ref": "per_case/adversarial/v143_ADV_Q47_transition_kind_invalid.json",
+      "defect_type": "transition_kind_invalid",
+      "expected_failed_check_ids": [
+        "conversation_state_transition_valid_rate"
       ]
     }
   ]

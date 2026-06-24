@@ -51,9 +51,9 @@
       "source_artifact_ref": "per_case/clean/v143_D01_expired_card_submission_returns_no_write_notice.json",
       "case_id": "v143_D01_expired_card_submission_returns_no_write_notice",
       "exists": true,
-      "sample_hash": "5da8a05967df98ed4c1631a04b3b17c62e80275c08ac368c9f5959915ad15e5f",
-      "source_hash": "5da8a05967df98ed4c1631a04b3b17c62e80275c08ac368c9f5959915ad15e5f",
-      "manifest_hash": "5da8a05967df98ed4c1631a04b3b17c62e80275c08ac368c9f5959915ad15e5f",
+      "sample_hash": "3857241032c0c8ac7b668442bb25255cc81d9f189ee1ccd9a33bf8c2fa99e51a",
+      "source_hash": "3857241032c0c8ac7b668442bb25255cc81d9f189ee1ccd9a33bf8c2fa99e51a",
+      "manifest_hash": "3857241032c0c8ac7b668442bb25255cc81d9f189ee1ccd9a33bf8c2fa99e51a",
       "passed": true
     },
     {
@@ -87,5 +87,5 @@
       "passed": true
     }
   ],
-  "generated_at": "2026-06-24T11:58:55Z"
+  "generated_at": "2026-06-24T12:12:25Z"
 }
