@@ -126,6 +126,11 @@ DEFECTS = [
     ("ADV_P33", "sample_artifact_stale_relative_to_per_case", ["sample_artifacts_match_per_case_rate"]),
     ("ADV_P34", "clean_report_pass_but_independent_validator_fail", ["report_consistency_with_independent_validation_rate"]),
     ("ADV_P35", "v140_replay_missing_or_failed", ["v140_validation_replay_pass_rate"]),
+    ("ADV_P36", "missing_callable_handler", ["adapter_route_registry_complete_rate"]),
+    ("ADV_P37", "registry_references_non_callable_handler", ["adapter_route_registry_complete_rate", "route_handler_invocation_valid_rate"]),
+    ("ADV_P38", "invocation_bypasses_handler_with_direct_copy", ["route_handler_invocation_valid_rate", "handler_dispatch_trace_complete_rate"]),
+    ("ADV_P39", "unsupported_route_missing_callable", ["adapter_route_registry_complete_rate"]),
+    ("ADV_P40", "invoke_handler_trace_without_callable_execution_proof", ["handler_dispatch_trace_complete_rate"]),
 ]
 
 SAMPLE_CASES = {
@@ -230,7 +235,7 @@ def _set_case_meta(artifact: dict[str, Any], defect_id: str, defect_type: str, g
 
 def _defect(defect_id: str, defect_type: str, gates: list[str]) -> dict[str, Any]:
     base_source = "v140_C01_post_this_time_only_submission_no_write"
-    if defect_type in {"missing_supported_route_binding", "duplicate_route_binding", "handler_name_mismatch_registry", "invocation_method_route_mismatch", "handler_trace_missing_dispatch_step", "handler_trace_missing_source_resolution", "handler_trace_missing_contract_projection", "handler_uses_clean_report_as_source", "handler_uses_readme_or_release_note_as_source", "source_v140_artifact_hash_stale", "runtime_snapshot_hash_mismatch", "golden_contract_replay_has_undocumented_diff", "sample_artifact_stale_relative_to_per_case", "clean_report_pass_but_independent_validator_fail", "v140_replay_missing_or_failed"}:
+    if defect_type in {"missing_supported_route_binding", "duplicate_route_binding", "handler_name_mismatch_registry", "invocation_method_route_mismatch", "handler_trace_missing_dispatch_step", "handler_trace_missing_source_resolution", "handler_trace_missing_contract_projection", "handler_uses_clean_report_as_source", "handler_uses_readme_or_release_note_as_source", "source_v140_artifact_hash_stale", "runtime_snapshot_hash_mismatch", "golden_contract_replay_has_undocumented_diff", "sample_artifact_stale_relative_to_per_case", "clean_report_pass_but_independent_validator_fail", "v140_replay_missing_or_failed", "missing_callable_handler", "registry_references_non_callable_handler", "invocation_bypasses_handler_with_direct_copy", "invoke_handler_trace_without_callable_execution_proof"}:
         base_source = "v140_A02_get_action_surface_returns_cards_and_response_blocks"
     elif "action_surface" in defect_type or "raw_review" in defect_type:
         base_source = "v140_A02_get_action_surface_returns_cards_and_response_blocks"
@@ -342,6 +347,26 @@ def _defect(defect_id: str, defect_type: str, gates: list[str]) -> dict[str, Any
         artifact["report_consistency_probe"] = {"clean_report_summary": {"passed_cases": len(CLEAN_CASES), "failed_cases": 0}, "independent_validation_summary": {"passed_cases": len(CLEAN_CASES) - 1, "failed_cases": 1}}
     elif defect_type == "v140_replay_missing_or_failed":
         artifact["v140_replay_proof"]["run_v140_validation_suite"] = "FAIL"
+    elif defect_type == "missing_callable_handler":
+        artifact["product_runtime_adapter"]["callable_handler_registry"] = [
+            row for row in artifact["product_runtime_adapter"].get("callable_handler_registry", []) if row.get("handler_name") != "handle_get_action_surface"
+        ]
+    elif defect_type == "registry_references_non_callable_handler":
+        artifact["product_route_registry"]["routes"][0]["handler_name"] = "not_a_callable_handler"
+        artifact["route_handler_invocation"]["handler_name"] = "not_a_callable_handler"
+        artifact["route_handler_invocation"]["resolved_callable_name"] = "not_a_callable_handler"
+        artifact["runtime_handler_execution_trace"]["handler_name"] = "not_a_callable_handler"
+        artifact["runtime_handler_execution_trace"]["callable_execution_proof"]["handler_name"] = "not_a_callable_handler"
+        artifact["runtime_handler_execution_trace"]["callable_execution_proof"]["callable_name"] = "not_a_callable_handler"
+    elif defect_type == "invocation_bypasses_handler_with_direct_copy":
+        artifact["route_handler_result"]["produced_by_callable"] = False
+        artifact["route_handler_result"].pop("handler_execution_proof_id", None)
+        artifact["runtime_handler_execution_trace"]["callable_execution_proof"]["direct_source_output_copy"] = True
+        artifact["runtime_handler_execution_trace"]["callable_execution_proof"]["callable_invoked"] = False
+    elif defect_type == "unsupported_route_missing_callable":
+        artifact["product_route_registry"]["unsupported_route_policy"]["handler_name"] = "handle_missing_unsupported_route"
+    elif defect_type == "invoke_handler_trace_without_callable_execution_proof":
+        artifact["runtime_handler_execution_trace"].pop("callable_execution_proof", None)
     return artifact
 
 

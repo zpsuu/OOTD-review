@@ -1,6 +1,6 @@
 {
   "version": "v1.41",
-  "generated_at": "2026-06-24T10:16:48Z",
+  "generated_at": "2026-06-24T10:27:44Z",
   "source_result_dir": "benchmark/benchmark_v141/results/v141_release_candidate",
   "cases": [
     {
@@ -290,6 +290,48 @@
       "defect_type": "v140_replay_missing_or_failed",
       "expected_failed_check_ids": [
         "v140_validation_replay_pass_rate"
+      ]
+    },
+    {
+      "case_id": "v141_ADV_P36_missing_callable_handler",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P36_missing_callable_handler.json",
+      "defect_type": "missing_callable_handler",
+      "expected_failed_check_ids": [
+        "adapter_route_registry_complete_rate"
+      ]
+    },
+    {
+      "case_id": "v141_ADV_P37_registry_references_non_callable_handler",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P37_registry_references_non_callable_handler.json",
+      "defect_type": "registry_references_non_callable_handler",
+      "expected_failed_check_ids": [
+        "adapter_route_registry_complete_rate",
+        "route_handler_invocation_valid_rate"
+      ]
+    },
+    {
+      "case_id": "v141_ADV_P38_invocation_bypasses_handler_with_direct_copy",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P38_invocation_bypasses_handler_with_direct_copy.json",
+      "defect_type": "invocation_bypasses_handler_with_direct_copy",
+      "expected_failed_check_ids": [
+        "route_handler_invocation_valid_rate",
+        "handler_dispatch_trace_complete_rate"
+      ]
+    },
+    {
+      "case_id": "v141_ADV_P39_unsupported_route_missing_callable",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P39_unsupported_route_missing_callable.json",
+      "defect_type": "unsupported_route_missing_callable",
+      "expected_failed_check_ids": [
+        "adapter_route_registry_complete_rate"
+      ]
+    },
+    {
+      "case_id": "v141_ADV_P40_invoke_handler_trace_without_callable_execution_proof",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P40_invoke_handler_trace_without_callable_execution_proof.json",
+      "defect_type": "invoke_handler_trace_without_callable_execution_proof",
+      "expected_failed_check_ids": [
+        "handler_dispatch_trace_complete_rate"
       ]
     }
   ]

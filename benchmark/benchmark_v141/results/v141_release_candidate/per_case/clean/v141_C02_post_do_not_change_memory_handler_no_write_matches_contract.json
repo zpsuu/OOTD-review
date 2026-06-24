@@ -41,6 +41,38 @@
       "POST /local/action-submission",
       "GET /local/action-result"
     ],
+    "callable_handler_registry": [
+      {
+        "handler_name": "handle_get_daily_outfit",
+        "callable_resolved": true,
+        "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+        "callable_kind": "module_function"
+      },
+      {
+        "handler_name": "handle_get_action_surface",
+        "callable_resolved": true,
+        "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+        "callable_kind": "module_function"
+      },
+      {
+        "handler_name": "handle_post_action_submission",
+        "callable_resolved": true,
+        "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+        "callable_kind": "module_function"
+      },
+      {
+        "handler_name": "handle_get_action_result",
+        "callable_resolved": true,
+        "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+        "callable_kind": "module_function"
+      },
+      {
+        "handler_name": "handle_unsupported_route",
+        "callable_resolved": true,
+        "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+        "callable_kind": "module_function"
+      }
+    ],
     "non_goals": [
       "no_http_server",
       "no_frontend",
@@ -117,6 +149,7 @@
     "route": "POST /local/action-submission",
     "method": "POST",
     "handler_name": "handle_post_action_submission",
+    "resolved_callable_name": "handle_post_action_submission",
     "input_envelope": {
       "api_request_id": "api_req_v140_C02_post_do_not_change_memory_submission_no_write",
       "contract_version": "v1.40",
@@ -226,6 +259,9 @@
     },
     "response_type": "action_submission_result",
     "status_code": 200,
+    "callable_handler_name": "handle_post_action_submission",
+    "handler_execution_proof_id": "hep_v141_C02_post_do_not_change_memory_handler_no_write_matches_contract",
+    "produced_by_callable": true,
     "production_write_executed": false,
     "trace_refs": [
       "rhi_v141_C02_post_do_not_change_memory_handler_no_write_matches_contract",
@@ -238,6 +274,31 @@
     "route_handler_invocation_id": "rhi_v141_C02_post_do_not_change_memory_handler_no_write_matches_contract",
     "route_handler_result_id": "rhr_v141_C02_post_do_not_change_memory_handler_no_write_matches_contract",
     "handler_name": "handle_post_action_submission",
+    "callable_execution_proof": {
+      "handler_execution_proof_id": "hep_v141_C02_post_do_not_change_memory_handler_no_write_matches_contract",
+      "handler_name": "handle_post_action_submission",
+      "callable_name": "handle_post_action_submission",
+      "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+      "callable_resolved": true,
+      "callable_invoked": true,
+      "input_envelope_hash": "fc6ff2b0b4665eeb8e643e5dad67b8e07329ac276ef7862522a8a8eabc9928d9",
+      "output_envelope_hash": "8163cca1dd9bb2807d50746b0efe0503f39b78b9b7b70ad6e1dea1e35cab7a6d",
+      "handler_returned_route_handler_result_id": "rhr_v141_C02_post_do_not_change_memory_handler_no_write_matches_contract",
+      "route_specific_projection": {
+        "expected_route": "POST /local/action-submission",
+        "actual_route": "POST /local/action-submission",
+        "expected_response_type": "action_submission_result",
+        "actual_response_type": "action_submission_result",
+        "projected_body_fields": [
+          "action_result",
+          "action_submission",
+          "response_blocks"
+        ],
+        "source_case_id": "v140_C02_post_do_not_change_memory_submission_no_write",
+        "source_contract_snapshot_id": "cs_v140_C02_post_do_not_change_memory_submission_no_write"
+      },
+      "direct_source_output_copy": false
+    },
     "dispatch_steps": [
       {
         "step_id": "dispatch_001",
@@ -247,12 +308,20 @@
       },
       {
         "step_id": "dispatch_002",
-        "operation": "invoke_handler",
-        "input_ref": "rhi_v141_C02_post_do_not_change_memory_handler_no_write_matches_contract",
-        "output_ref": "rhr_v141_C02_post_do_not_change_memory_handler_no_write_matches_contract"
+        "operation": "resolve_callable",
+        "input_ref": "handle_post_action_submission",
+        "output_ref": "benchmark.benchmark_v141.runtime.product_runtime_adapter.handle_post_action_submission"
       },
       {
         "step_id": "dispatch_003",
+        "operation": "invoke_handler",
+        "input_ref": "rhi_v141_C02_post_do_not_change_memory_handler_no_write_matches_contract",
+        "output_ref": "rhr_v141_C02_post_do_not_change_memory_handler_no_write_matches_contract",
+        "callable_ref": "benchmark.benchmark_v141.runtime.product_runtime_adapter.handle_post_action_submission",
+        "handler_execution_proof_id": "hep_v141_C02_post_do_not_change_memory_handler_no_write_matches_contract"
+      },
+      {
+        "step_id": "dispatch_004",
         "operation": "produce_response",
         "input_ref": "v140_C02_post_do_not_change_memory_submission_no_write",
         "output_ref": "api_res_v140_C02_post_do_not_change_memory_submission_no_write"
@@ -304,7 +373,7 @@
     "route_handler_result_id": "rhr_v141_C02_post_do_not_change_memory_handler_no_write_matches_contract",
     "canonical_input_hash": "fc6ff2b0b4665eeb8e643e5dad67b8e07329ac276ef7862522a8a8eabc9928d9",
     "canonical_output_hash": "8163cca1dd9bb2807d50746b0efe0503f39b78b9b7b70ad6e1dea1e35cab7a6d",
-    "canonical_handler_trace_hash": "62d6be8e92d71a98cda276290c7830eec01ca8892c9bfca3443924b9a90c6edb",
+    "canonical_handler_trace_hash": "9f7dde958f93033bca8be04af63a129d5a904577080cfe98bf85d5e67b260589",
     "source_artifact_hashes": {
       "per_case/clean/v140_C02_post_do_not_change_memory_submission_no_write.json": "cf84e3be6ee2b105270ad717028a50ab476e9be2153bfeec98d2ed6df383a650",
       "per_case/clean/v139_B03_do_not_change_memory_submission_no_write_result.json": "9b39af0f118a8051531fe2cfd00936d2da47882e35ab367915248ce2552dfe6d"

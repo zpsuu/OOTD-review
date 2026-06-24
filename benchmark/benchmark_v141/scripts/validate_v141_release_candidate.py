@@ -11,7 +11,8 @@ REPO_ROOT = Path(__file__).resolve().parents[3]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
-from benchmark.benchmark_v141.runtime.product_runtime_adapter import SUPPORTED_ROUTES
+from benchmark.benchmark_v141.runtime import product_runtime_adapter as runtime_module
+from benchmark.benchmark_v141.runtime.product_runtime_adapter import HANDLER_CALLABLES, SUPPORTED_ROUTES
 from benchmark.common.adversarial_validation import detected_defect_rows
 from benchmark.common.raw_artifact_validation import canonical_json_hash, file_json_hash, json_files, now_iso, read_json, write_json
 from benchmark.common.report_consistency import check_report_consistency, check_sample_consistency
@@ -108,6 +109,12 @@ def _registry_handler(registry: dict[str, Any], route: str) -> str | None:
     return matches[0].get("handler_name")
 
 
+def _handler_is_callable(handler_name: Any) -> bool:
+    if not isinstance(handler_name, str):
+        return False
+    return callable(getattr(runtime_module, handler_name, None)) or callable(HANDLER_CALLABLES.get(handler_name))
+
+
 def _visible_texts(output: dict[str, Any], error: dict[str, Any] | None, conversation: dict[str, Any]) -> list[str]:
     texts: list[str] = []
     body = output.get("body") or {}
@@ -154,14 +161,24 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
         failures.append("adapter_route_registry_complete_rate")
     if adapter.get("supported_routes") != supported or adapter.get("route_registry_id") != registry.get("product_route_registry_id"):
         failures.append("adapter_route_registry_complete_rate")
+    callable_registry = {row.get("handler_name"): row for row in adapter.get("callable_handler_registry") or []}
+    required_handlers = {handler_name for _, handler_name in SUPPORTED_ROUTES.values()} | {"handle_unsupported_route"}
+    for handler_name in required_handlers:
+        row = callable_registry.get(handler_name)
+        if not row or row.get("callable_resolved") is not True or row.get("callable_kind") != "module_function" or not _handler_is_callable(handler_name):
+            failures.append("adapter_route_registry_complete_rate")
     if sorted(route_keys) != sorted(supported) or len(route_keys) != len(set(route_keys)) or len(routes) != len(supported):
         failures.append("adapter_route_registry_complete_rate")
     for route, (method, handler_name) in SUPPORTED_ROUTES.items():
         matches = [row for row in routes if row.get("route") == route]
         if len(matches) != 1 or matches[0].get("method") != method or matches[0].get("handler_name") != handler_name or matches[0].get("source_contract") != API_SCHEMA_VERSION:
             failures.append("adapter_route_registry_complete_rate")
+        if matches and not _handler_is_callable(matches[0].get("handler_name")):
+            failures.append("adapter_route_registry_complete_rate")
     unsupported = registry.get("unsupported_route_policy") or {}
     if unsupported.get("handler_name") != "handle_unsupported_route" or unsupported.get("safe_error_only") is not True:
+        failures.append("adapter_route_registry_complete_rate")
+    if not _handler_is_callable(unsupported.get("handler_name")):
         failures.append("adapter_route_registry_complete_rate")
 
     request = invocation.get("input_envelope") or {}
@@ -177,7 +194,11 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
         failures.append("route_handler_invocation_valid_rate")
     if invocation.get("handler_name") != expected_handler:
         failures.append("route_handler_invocation_valid_rate")
+    if invocation.get("resolved_callable_name") != expected_handler or not _handler_is_callable(invocation.get("resolved_callable_name")):
+        failures.append("route_handler_invocation_valid_rate")
     if result.get("route_handler_invocation_id") != invocation.get("route_handler_invocation_id") or result.get("api_response_id") != output.get("api_response_id"):
+        failures.append("route_handler_invocation_valid_rate")
+    if result.get("produced_by_callable") is not True or result.get("callable_handler_name") != invocation.get("handler_name") or result.get("handler_execution_proof_id") != f"hep_{artifact.get('case_id')}":
         failures.append("route_handler_invocation_valid_rate")
     if request.get("api_request_id") != output.get("api_request_id"):
         failures.append("route_handler_invocation_valid_rate")
@@ -188,7 +209,27 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
     if trace.get("route_handler_invocation_id") != invocation.get("route_handler_invocation_id") or trace.get("route_handler_result_id") != result.get("route_handler_result_id") or trace.get("handler_name") != invocation.get("handler_name"):
         failures.append("handler_dispatch_trace_complete_rate")
     operations = {step.get("operation") for step in trace.get("dispatch_steps") or []}
-    if not {"resolve_route", "invoke_handler", "produce_response"}.issubset(operations):
+    if not {"resolve_route", "resolve_callable", "invoke_handler", "produce_response"}.issubset(operations):
+        failures.append("handler_dispatch_trace_complete_rate")
+    callable_proof = trace.get("callable_execution_proof") or {}
+    invoke_steps = [step for step in trace.get("dispatch_steps") or [] if step.get("operation") == "invoke_handler"]
+    if (
+        callable_proof.get("handler_execution_proof_id") != result.get("handler_execution_proof_id")
+        or callable_proof.get("handler_name") != invocation.get("handler_name")
+        or callable_proof.get("callable_name") != invocation.get("handler_name")
+        or callable_proof.get("callable_resolved") is not True
+        or callable_proof.get("callable_invoked") is not True
+        or callable_proof.get("input_envelope_hash") != canonical_json_hash(request)
+        or callable_proof.get("output_envelope_hash") != canonical_json_hash(output)
+        or callable_proof.get("handler_returned_route_handler_result_id") != result.get("route_handler_result_id")
+        or callable_proof.get("direct_source_output_copy") is not False
+        or not _handler_is_callable(callable_proof.get("handler_name"))
+        or not invoke_steps
+        or any(step.get("handler_execution_proof_id") != callable_proof.get("handler_execution_proof_id") or not step.get("callable_ref") for step in invoke_steps)
+    ):
+        failures.append("handler_dispatch_trace_complete_rate")
+    projection = callable_proof.get("route_specific_projection") or {}
+    if projection.get("actual_route") != request.get("route") or projection.get("actual_response_type") != output.get("response_type") or projection.get("source_case_id") != artifact.get("source_v140_case_id"):
         failures.append("handler_dispatch_trace_complete_rate")
     if not trace.get("source_resolution_refs"):
         failures.append("handler_dispatch_trace_complete_rate")

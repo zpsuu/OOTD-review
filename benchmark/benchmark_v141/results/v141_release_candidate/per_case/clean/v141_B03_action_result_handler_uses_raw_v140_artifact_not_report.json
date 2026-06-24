@@ -41,6 +41,38 @@
       "POST /local/action-submission",
       "GET /local/action-result"
     ],
+    "callable_handler_registry": [
+      {
+        "handler_name": "handle_get_daily_outfit",
+        "callable_resolved": true,
+        "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+        "callable_kind": "module_function"
+      },
+      {
+        "handler_name": "handle_get_action_surface",
+        "callable_resolved": true,
+        "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+        "callable_kind": "module_function"
+      },
+      {
+        "handler_name": "handle_post_action_submission",
+        "callable_resolved": true,
+        "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+        "callable_kind": "module_function"
+      },
+      {
+        "handler_name": "handle_get_action_result",
+        "callable_resolved": true,
+        "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+        "callable_kind": "module_function"
+      },
+      {
+        "handler_name": "handle_unsupported_route",
+        "callable_resolved": true,
+        "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+        "callable_kind": "module_function"
+      }
+    ],
     "non_goals": [
       "no_http_server",
       "no_frontend",
@@ -117,6 +149,7 @@
     "route": "GET /local/action-result",
     "method": "GET",
     "handler_name": "handle_get_action_result",
+    "resolved_callable_name": "handle_get_action_result",
     "input_envelope": {
       "api_request_id": "api_req_v140_A03_get_action_result_returns_result_packet",
       "contract_version": "v1.40",
@@ -203,6 +236,9 @@
     },
     "response_type": "action_result",
     "status_code": 200,
+    "callable_handler_name": "handle_get_action_result",
+    "handler_execution_proof_id": "hep_v141_B03_action_result_handler_uses_raw_v140_artifact_not_report",
+    "produced_by_callable": true,
     "production_write_executed": false,
     "trace_refs": [
       "rhi_v141_B03_action_result_handler_uses_raw_v140_artifact_not_report",
@@ -215,6 +251,30 @@
     "route_handler_invocation_id": "rhi_v141_B03_action_result_handler_uses_raw_v140_artifact_not_report",
     "route_handler_result_id": "rhr_v141_B03_action_result_handler_uses_raw_v140_artifact_not_report",
     "handler_name": "handle_get_action_result",
+    "callable_execution_proof": {
+      "handler_execution_proof_id": "hep_v141_B03_action_result_handler_uses_raw_v140_artifact_not_report",
+      "handler_name": "handle_get_action_result",
+      "callable_name": "handle_get_action_result",
+      "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+      "callable_resolved": true,
+      "callable_invoked": true,
+      "input_envelope_hash": "237d14edd4445dd3aae96ad303edc733dde46f668b86bcb2a7e5c289e72f5e68",
+      "output_envelope_hash": "3443328ee5e5107b8be3b4df3d6734f367568df6dbc062263f45262d2139bc73",
+      "handler_returned_route_handler_result_id": "rhr_v141_B03_action_result_handler_uses_raw_v140_artifact_not_report",
+      "route_specific_projection": {
+        "expected_route": "GET /local/action-result",
+        "actual_route": "GET /local/action-result",
+        "expected_response_type": "action_result",
+        "actual_response_type": "action_result",
+        "projected_body_fields": [
+          "action_result",
+          "response_blocks"
+        ],
+        "source_case_id": "v140_A03_get_action_result_returns_result_packet",
+        "source_contract_snapshot_id": "cs_v140_A03_get_action_result_returns_result_packet"
+      },
+      "direct_source_output_copy": false
+    },
     "dispatch_steps": [
       {
         "step_id": "dispatch_001",
@@ -224,12 +284,20 @@
       },
       {
         "step_id": "dispatch_002",
-        "operation": "invoke_handler",
-        "input_ref": "rhi_v141_B03_action_result_handler_uses_raw_v140_artifact_not_report",
-        "output_ref": "rhr_v141_B03_action_result_handler_uses_raw_v140_artifact_not_report"
+        "operation": "resolve_callable",
+        "input_ref": "handle_get_action_result",
+        "output_ref": "benchmark.benchmark_v141.runtime.product_runtime_adapter.handle_get_action_result"
       },
       {
         "step_id": "dispatch_003",
+        "operation": "invoke_handler",
+        "input_ref": "rhi_v141_B03_action_result_handler_uses_raw_v140_artifact_not_report",
+        "output_ref": "rhr_v141_B03_action_result_handler_uses_raw_v140_artifact_not_report",
+        "callable_ref": "benchmark.benchmark_v141.runtime.product_runtime_adapter.handle_get_action_result",
+        "handler_execution_proof_id": "hep_v141_B03_action_result_handler_uses_raw_v140_artifact_not_report"
+      },
+      {
+        "step_id": "dispatch_004",
         "operation": "produce_response",
         "input_ref": "v140_A03_get_action_result_returns_result_packet",
         "output_ref": "api_res_v140_A03_get_action_result_returns_result_packet"
@@ -281,7 +349,7 @@
     "route_handler_result_id": "rhr_v141_B03_action_result_handler_uses_raw_v140_artifact_not_report",
     "canonical_input_hash": "237d14edd4445dd3aae96ad303edc733dde46f668b86bcb2a7e5c289e72f5e68",
     "canonical_output_hash": "3443328ee5e5107b8be3b4df3d6734f367568df6dbc062263f45262d2139bc73",
-    "canonical_handler_trace_hash": "80176529a208a1d3fb1bb29a6e2f0e2dce31ed16f3c588e82d019ed854f26f67",
+    "canonical_handler_trace_hash": "678a8d48b41b42714434d80d0f6539154c3d355a761f4cd21ef06dcb5c08b3da",
     "source_artifact_hashes": {
       "per_case/clean/v140_A03_get_action_result_returns_result_packet.json": "ef18fbf832aedc382ebf2556796365cdf90b719d49b2b0a905a0a374f8858f94",
       "per_case/clean/v139_B02_this_time_only_submission_no_write_result.json": "d589033e39b1470eba426e2ce75085592512d540e06c26fe0c79b2acfd50e70f"

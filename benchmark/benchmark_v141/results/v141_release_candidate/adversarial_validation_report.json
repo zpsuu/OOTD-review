@@ -1,12 +1,12 @@
 {
   "validator": "v1.41.independent.in_process_product_runtime_adapter_validator",
-  "generated_at": "2026-06-24T10:16:49Z",
+  "generated_at": "2026-06-24T10:27:44Z",
   "result_dir": "benchmark/benchmark_v141/results/v141_release_candidate",
   "subset": "adversarial",
   "suite_summary": {
-    "total_cases": 35,
+    "total_cases": 40,
     "passed_cases": 0,
-    "failed_cases": 35,
+    "failed_cases": 40,
     "total_checks": 20,
     "passed_checks": 1,
     "failed_checks": 19
@@ -14,9 +14,9 @@
   "checks": [
     {
       "check_id": "adapter_route_registry_complete_rate",
-      "applicable_cases": 35,
-      "passed_cases": 33,
-      "value": 0.9428571428571428,
+      "applicable_cases": 40,
+      "passed_cases": 35,
+      "value": 0.875,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -33,14 +33,35 @@
           "failures": [
             "adapter_route_registry_complete_rate failed from raw v1.41 runtime adapter validation"
           ]
+        },
+        {
+          "case_id": "v141_ADV_P36_missing_callable_handler",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P36_missing_callable_handler.json",
+          "failures": [
+            "adapter_route_registry_complete_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P37_registry_references_non_callable_handler",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P37_registry_references_non_callable_handler.json",
+          "failures": [
+            "adapter_route_registry_complete_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P39_unsupported_route_missing_callable",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P39_unsupported_route_missing_callable.json",
+          "failures": [
+            "adapter_route_registry_complete_rate failed from raw v1.41 runtime adapter validation"
+          ]
         }
       ]
     },
     {
       "check_id": "route_handler_invocation_valid_rate",
-      "applicable_cases": 35,
-      "passed_cases": 33,
-      "value": 0.9428571428571428,
+      "applicable_cases": 40,
+      "passed_cases": 36,
+      "value": 0.9,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -57,14 +78,28 @@
           "failures": [
             "route_handler_invocation_valid_rate failed from raw v1.41 runtime adapter validation"
           ]
+        },
+        {
+          "case_id": "v141_ADV_P37_registry_references_non_callable_handler",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P37_registry_references_non_callable_handler.json",
+          "failures": [
+            "route_handler_invocation_valid_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P38_invocation_bypasses_handler_with_direct_copy",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P38_invocation_bypasses_handler_with_direct_copy.json",
+          "failures": [
+            "route_handler_invocation_valid_rate failed from raw v1.41 runtime adapter validation"
+          ]
         }
       ]
     },
     {
       "check_id": "handler_dispatch_trace_complete_rate",
-      "applicable_cases": 35,
-      "passed_cases": 31,
-      "value": 0.8857142857142857,
+      "applicable_cases": 40,
+      "passed_cases": 20,
+      "value": 0.5,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -95,14 +130,126 @@
           "failures": [
             "handler_dispatch_trace_complete_rate failed from raw v1.41 runtime adapter validation"
           ]
+        },
+        {
+          "case_id": "v141_ADV_P11_output_response_contract_version_mismatch",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P11_output_response_contract_version_mismatch.json",
+          "failures": [
+            "handler_dispatch_trace_complete_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P12_output_schema_version_mismatch",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P12_output_schema_version_mismatch.json",
+          "failures": [
+            "handler_dispatch_trace_complete_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P13_handler_output_missing_action_surface_body",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P13_handler_output_missing_action_surface_body.json",
+          "failures": [
+            "handler_dispatch_trace_complete_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P15_post_action_handler_accepts_disallowed_action",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P15_post_action_handler_accepts_disallowed_action.json",
+          "failures": [
+            "handler_dispatch_trace_complete_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P16_post_action_handler_missing_idempotency_key_accepted",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P16_post_action_handler_missing_idempotency_key_accepted.json",
+          "failures": [
+            "handler_dispatch_trace_complete_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P19_duplicate_submission_creates_new_result",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P19_duplicate_submission_creates_new_result.json",
+          "failures": [
+            "handler_dispatch_trace_complete_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P20_expired_action_executes_write",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P20_expired_action_executes_write.json",
+          "failures": [
+            "handler_dispatch_trace_complete_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P21_stale_action_executes_write",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P21_stale_action_executes_write.json",
+          "failures": [
+            "handler_dispatch_trace_complete_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P22_unsupported_route_exposes_unsafe_error",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P22_unsupported_route_exposes_unsafe_error.json",
+          "failures": [
+            "handler_dispatch_trace_complete_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P23_error_exposes_internal_path_or_traceback",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P23_error_exposes_internal_path_or_traceback.json",
+          "failures": [
+            "handler_dispatch_trace_complete_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P25_handler_output_exposes_raw_review_evidence",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P25_handler_output_exposes_raw_review_evidence.json",
+          "failures": [
+            "handler_dispatch_trace_complete_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P26_handler_output_globalizes_contextual_memory",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P26_handler_output_globalizes_contextual_memory.json",
+          "failures": [
+            "handler_dispatch_trace_complete_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P27_handler_output_exposes_sensitive_commerce_or_aigc_terms",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P27_handler_output_exposes_sensitive_commerce_or_aigc_terms.json",
+          "failures": [
+            "handler_dispatch_trace_complete_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P37_registry_references_non_callable_handler",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P37_registry_references_non_callable_handler.json",
+          "failures": [
+            "handler_dispatch_trace_complete_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P38_invocation_bypasses_handler_with_direct_copy",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P38_invocation_bypasses_handler_with_direct_copy.json",
+          "failures": [
+            "handler_dispatch_trace_complete_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P40_invoke_handler_trace_without_callable_execution_proof",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P40_invoke_handler_trace_without_callable_execution_proof.json",
+          "failures": [
+            "handler_dispatch_trace_complete_rate failed from raw v1.41 runtime adapter validation"
+          ]
         }
       ]
     },
     {
       "check_id": "handler_uses_raw_source_artifacts_rate",
-      "applicable_cases": 35,
-      "passed_cases": 32,
-      "value": 0.9142857142857143,
+      "applicable_cases": 40,
+      "passed_cases": 37,
+      "value": 0.925,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -131,9 +278,9 @@
     },
     {
       "check_id": "handler_output_matches_v140_contract_rate",
-      "applicable_cases": 35,
-      "passed_cases": 20,
-      "value": 0.5714285714285714,
+      "applicable_cases": 40,
+      "passed_cases": 25,
+      "value": 0.625,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -246,9 +393,9 @@
     },
     {
       "check_id": "action_submission_handler_contract_rate",
-      "applicable_cases": 35,
-      "passed_cases": 31,
-      "value": 0.8857142857142857,
+      "applicable_cases": 40,
+      "passed_cases": 36,
+      "value": 0.9,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -284,9 +431,9 @@
     },
     {
       "check_id": "no_write_handler_preserves_memory_state_rate",
-      "applicable_cases": 35,
-      "passed_cases": 32,
-      "value": 0.9142857142857143,
+      "applicable_cases": 40,
+      "passed_cases": 37,
+      "value": 0.925,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -315,9 +462,9 @@
     },
     {
       "check_id": "idempotent_handler_replay_rate",
-      "applicable_cases": 35,
-      "passed_cases": 34,
-      "value": 0.9714285714285714,
+      "applicable_cases": 40,
+      "passed_cases": 39,
+      "value": 0.975,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -332,9 +479,9 @@
     },
     {
       "check_id": "expired_stale_handler_no_write_rate",
-      "applicable_cases": 35,
-      "passed_cases": 33,
-      "value": 0.9428571428571428,
+      "applicable_cases": 40,
+      "passed_cases": 38,
+      "value": 0.95,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -356,9 +503,9 @@
     },
     {
       "check_id": "runtime_action_result_links_response_rate",
-      "applicable_cases": 35,
-      "passed_cases": 34,
-      "value": 0.9714285714285714,
+      "applicable_cases": 40,
+      "passed_cases": 39,
+      "value": 0.975,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -373,9 +520,9 @@
     },
     {
       "check_id": "conversation_claims_trace_backed_after_handler_rate",
-      "applicable_cases": 35,
-      "passed_cases": 31,
-      "value": 0.8857142857142857,
+      "applicable_cases": 40,
+      "passed_cases": 36,
+      "value": 0.9,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -411,9 +558,9 @@
     },
     {
       "check_id": "runtime_snapshot_hash_reproducible_rate",
-      "applicable_cases": 35,
-      "passed_cases": 15,
-      "value": 0.42857142857142855,
+      "applicable_cases": 40,
+      "passed_cases": 17,
+      "value": 0.425,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -556,14 +703,35 @@
           "failures": [
             "runtime_snapshot_hash_reproducible_rate failed from raw v1.41 runtime adapter validation"
           ]
+        },
+        {
+          "case_id": "v141_ADV_P37_registry_references_non_callable_handler",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P37_registry_references_non_callable_handler.json",
+          "failures": [
+            "runtime_snapshot_hash_reproducible_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P38_invocation_bypasses_handler_with_direct_copy",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P38_invocation_bypasses_handler_with_direct_copy.json",
+          "failures": [
+            "runtime_snapshot_hash_reproducible_rate failed from raw v1.41 runtime adapter validation"
+          ]
+        },
+        {
+          "case_id": "v141_ADV_P40_invoke_handler_trace_without_callable_execution_proof",
+          "artifact_ref": "per_case/adversarial/v141_ADV_P40_invoke_handler_trace_without_callable_execution_proof.json",
+          "failures": [
+            "runtime_snapshot_hash_reproducible_rate failed from raw v1.41 runtime adapter validation"
+          ]
         }
       ]
     },
     {
       "check_id": "runtime_source_hashes_match_raw_rate",
-      "applicable_cases": 35,
-      "passed_cases": 32,
-      "value": 0.9142857142857143,
+      "applicable_cases": 40,
+      "passed_cases": 37,
+      "value": 0.925,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -592,9 +760,9 @@
     },
     {
       "check_id": "golden_contract_replay_rate",
-      "applicable_cases": 35,
-      "passed_cases": 21,
-      "value": 0.6,
+      "applicable_cases": 40,
+      "passed_cases": 26,
+      "value": 0.65,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -700,9 +868,9 @@
     },
     {
       "check_id": "runtime_error_safety_rate",
-      "applicable_cases": 35,
-      "passed_cases": 31,
-      "value": 0.8857142857142857,
+      "applicable_cases": 40,
+      "passed_cases": 36,
+      "value": 0.9,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -738,9 +906,9 @@
     },
     {
       "check_id": "runtime_redaction_policy_safe_rate",
-      "applicable_cases": 35,
-      "passed_cases": 27,
-      "value": 0.7714285714285715,
+      "applicable_cases": 40,
+      "passed_cases": 32,
+      "value": 0.8,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -804,9 +972,9 @@
     },
     {
       "check_id": "sample_artifacts_match_per_case_rate",
-      "applicable_cases": 35,
-      "passed_cases": 34,
-      "value": 0.9714285714285714,
+      "applicable_cases": 40,
+      "passed_cases": 39,
+      "value": 0.975,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -821,9 +989,9 @@
     },
     {
       "check_id": "report_consistency_with_independent_validation_rate",
-      "applicable_cases": 35,
-      "passed_cases": 34,
-      "value": 0.9714285714285714,
+      "applicable_cases": 40,
+      "passed_cases": 39,
+      "value": 0.975,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -838,8 +1006,8 @@
     },
     {
       "check_id": "adversarial_detection_rate",
-      "applicable_cases": 35,
-      "passed_cases": 35,
+      "applicable_cases": 40,
+      "passed_cases": 40,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
@@ -847,9 +1015,9 @@
     },
     {
       "check_id": "v140_validation_replay_pass_rate",
-      "applicable_cases": 35,
-      "passed_cases": 34,
-      "value": 0.9714285714285714,
+      "applicable_cases": 40,
+      "passed_cases": 39,
+      "value": 0.975,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -1007,6 +1175,7 @@
       "passed": false,
       "failed_check_ids": [
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "runtime_snapshot_hash_reproducible_rate"
       ],
@@ -1021,6 +1190,7 @@
       "passed": false,
       "failed_check_ids": [
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "runtime_snapshot_hash_reproducible_rate"
       ],
@@ -1035,6 +1205,7 @@
       "passed": false,
       "failed_check_ids": [
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "runtime_snapshot_hash_reproducible_rate"
       ],
@@ -1062,6 +1233,7 @@
       "failed_check_ids": [
         "action_submission_handler_contract_rate",
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "runtime_snapshot_hash_reproducible_rate"
       ],
@@ -1077,6 +1249,7 @@
       "failed_check_ids": [
         "action_submission_handler_contract_rate",
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "runtime_snapshot_hash_reproducible_rate"
       ],
@@ -1115,6 +1288,7 @@
       "passed": false,
       "failed_check_ids": [
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "idempotent_handler_replay_rate",
         "runtime_snapshot_hash_reproducible_rate"
@@ -1131,6 +1305,7 @@
       "failed_check_ids": [
         "expired_stale_handler_no_write_rate",
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "no_write_handler_preserves_memory_state_rate",
         "runtime_error_safety_rate",
@@ -1150,6 +1325,7 @@
       "failed_check_ids": [
         "expired_stale_handler_no_write_rate",
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "no_write_handler_preserves_memory_state_rate",
         "runtime_error_safety_rate",
@@ -1168,6 +1344,7 @@
       "passed": false,
       "failed_check_ids": [
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "runtime_error_safety_rate",
         "runtime_redaction_policy_safe_rate",
@@ -1185,6 +1362,7 @@
       "passed": false,
       "failed_check_ids": [
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "runtime_error_safety_rate",
         "runtime_redaction_policy_safe_rate",
@@ -1216,6 +1394,7 @@
       "passed": false,
       "failed_check_ids": [
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "runtime_redaction_policy_safe_rate",
         "runtime_snapshot_hash_reproducible_rate"
@@ -1231,6 +1410,7 @@
       "passed": false,
       "failed_check_ids": [
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "runtime_redaction_policy_safe_rate",
         "runtime_snapshot_hash_reproducible_rate"
@@ -1246,6 +1426,7 @@
       "passed": false,
       "failed_check_ids": [
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "runtime_redaction_policy_safe_rate",
         "runtime_snapshot_hash_reproducible_rate"
@@ -1350,6 +1531,74 @@
         "v140_validation_replay_pass_rate"
       ],
       "defect_type": "v140_replay_missing_or_failed"
+    },
+    {
+      "case_id": "v141_ADV_P36_missing_callable_handler",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P36_missing_callable_handler.json",
+      "passed": false,
+      "failed_check_ids": [
+        "adapter_route_registry_complete_rate"
+      ],
+      "expected_failed_check_ids": [
+        "adapter_route_registry_complete_rate"
+      ],
+      "defect_type": "missing_callable_handler"
+    },
+    {
+      "case_id": "v141_ADV_P37_registry_references_non_callable_handler",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P37_registry_references_non_callable_handler.json",
+      "passed": false,
+      "failed_check_ids": [
+        "adapter_route_registry_complete_rate",
+        "handler_dispatch_trace_complete_rate",
+        "route_handler_invocation_valid_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "expected_failed_check_ids": [
+        "adapter_route_registry_complete_rate",
+        "route_handler_invocation_valid_rate"
+      ],
+      "defect_type": "registry_references_non_callable_handler"
+    },
+    {
+      "case_id": "v141_ADV_P38_invocation_bypasses_handler_with_direct_copy",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P38_invocation_bypasses_handler_with_direct_copy.json",
+      "passed": false,
+      "failed_check_ids": [
+        "handler_dispatch_trace_complete_rate",
+        "route_handler_invocation_valid_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "expected_failed_check_ids": [
+        "route_handler_invocation_valid_rate",
+        "handler_dispatch_trace_complete_rate"
+      ],
+      "defect_type": "invocation_bypasses_handler_with_direct_copy"
+    },
+    {
+      "case_id": "v141_ADV_P39_unsupported_route_missing_callable",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P39_unsupported_route_missing_callable.json",
+      "passed": false,
+      "failed_check_ids": [
+        "adapter_route_registry_complete_rate"
+      ],
+      "expected_failed_check_ids": [
+        "adapter_route_registry_complete_rate"
+      ],
+      "defect_type": "unsupported_route_missing_callable"
+    },
+    {
+      "case_id": "v141_ADV_P40_invoke_handler_trace_without_callable_execution_proof",
+      "artifact_ref": "per_case/adversarial/v141_ADV_P40_invoke_handler_trace_without_callable_execution_proof.json",
+      "passed": false,
+      "failed_check_ids": [
+        "handler_dispatch_trace_complete_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "expected_failed_check_ids": [
+        "handler_dispatch_trace_complete_rate"
+      ],
+      "defect_type": "invoke_handler_trace_without_callable_execution_proof"
     }
   ],
   "detected_defects": [
@@ -1488,6 +1737,7 @@
       ],
       "failed_check_ids": [
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "runtime_snapshot_hash_reproducible_rate"
       ],
@@ -1501,6 +1751,7 @@
       ],
       "failed_check_ids": [
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "runtime_snapshot_hash_reproducible_rate"
       ],
@@ -1514,6 +1765,7 @@
       ],
       "failed_check_ids": [
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "runtime_snapshot_hash_reproducible_rate"
       ],
@@ -1539,6 +1791,7 @@
       "failed_check_ids": [
         "action_submission_handler_contract_rate",
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "runtime_snapshot_hash_reproducible_rate"
       ],
@@ -1553,6 +1806,7 @@
       "failed_check_ids": [
         "action_submission_handler_contract_rate",
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "runtime_snapshot_hash_reproducible_rate"
       ],
@@ -1588,6 +1842,7 @@
       ],
       "failed_check_ids": [
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "idempotent_handler_replay_rate",
         "runtime_snapshot_hash_reproducible_rate"
@@ -1604,6 +1859,7 @@
       "failed_check_ids": [
         "expired_stale_handler_no_write_rate",
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "no_write_handler_preserves_memory_state_rate",
         "runtime_error_safety_rate",
@@ -1622,6 +1878,7 @@
       "failed_check_ids": [
         "expired_stale_handler_no_write_rate",
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "no_write_handler_preserves_memory_state_rate",
         "runtime_error_safety_rate",
@@ -1639,6 +1896,7 @@
       ],
       "failed_check_ids": [
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "runtime_error_safety_rate",
         "runtime_redaction_policy_safe_rate",
@@ -1655,6 +1913,7 @@
       ],
       "failed_check_ids": [
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "runtime_error_safety_rate",
         "runtime_redaction_policy_safe_rate",
@@ -1683,6 +1942,7 @@
       ],
       "failed_check_ids": [
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "runtime_redaction_policy_safe_rate",
         "runtime_snapshot_hash_reproducible_rate"
@@ -1697,6 +1957,7 @@
       ],
       "failed_check_ids": [
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "runtime_redaction_policy_safe_rate",
         "runtime_snapshot_hash_reproducible_rate"
@@ -1711,6 +1972,7 @@
       ],
       "failed_check_ids": [
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "runtime_redaction_policy_safe_rate",
         "runtime_snapshot_hash_reproducible_rate"
@@ -1804,7 +2066,70 @@
         "v140_validation_replay_pass_rate"
       ],
       "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P36_missing_callable_handler",
+      "defect_type": "missing_callable_handler",
+      "expected_failed_check_ids": [
+        "adapter_route_registry_complete_rate"
+      ],
+      "failed_check_ids": [
+        "adapter_route_registry_complete_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P37_registry_references_non_callable_handler",
+      "defect_type": "registry_references_non_callable_handler",
+      "expected_failed_check_ids": [
+        "adapter_route_registry_complete_rate",
+        "route_handler_invocation_valid_rate"
+      ],
+      "failed_check_ids": [
+        "adapter_route_registry_complete_rate",
+        "handler_dispatch_trace_complete_rate",
+        "route_handler_invocation_valid_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P38_invocation_bypasses_handler_with_direct_copy",
+      "defect_type": "invocation_bypasses_handler_with_direct_copy",
+      "expected_failed_check_ids": [
+        "route_handler_invocation_valid_rate",
+        "handler_dispatch_trace_complete_rate"
+      ],
+      "failed_check_ids": [
+        "handler_dispatch_trace_complete_rate",
+        "route_handler_invocation_valid_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P39_unsupported_route_missing_callable",
+      "defect_type": "unsupported_route_missing_callable",
+      "expected_failed_check_ids": [
+        "adapter_route_registry_complete_rate"
+      ],
+      "failed_check_ids": [
+        "adapter_route_registry_complete_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P40_invoke_handler_trace_without_callable_execution_proof",
+      "defect_type": "invoke_handler_trace_without_callable_execution_proof",
+      "expected_failed_check_ids": [
+        "handler_dispatch_trace_complete_rate"
+      ],
+      "failed_check_ids": [
+        "handler_dispatch_trace_complete_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
     }
   ],
-  "detected_defect_count": 35
+  "detected_defect_count": 40
 }

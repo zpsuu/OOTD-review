@@ -1,6 +1,6 @@
 {
   "validator": "v1.41.independent.in_process_product_runtime_adapter_validator",
-  "generated_at": "2026-06-24T10:16:48Z",
+  "generated_at": "2026-06-24T10:27:44Z",
   "result_dir": "benchmark/benchmark_v141/results/v141_release_candidate",
   "subset": "clean",
   "suite_summary": {

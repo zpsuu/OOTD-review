@@ -41,6 +41,38 @@
       "POST /local/action-submission",
       "GET /local/action-result"
     ],
+    "callable_handler_registry": [
+      {
+        "handler_name": "handle_get_daily_outfit",
+        "callable_resolved": true,
+        "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+        "callable_kind": "module_function"
+      },
+      {
+        "handler_name": "handle_get_action_surface",
+        "callable_resolved": true,
+        "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+        "callable_kind": "module_function"
+      },
+      {
+        "handler_name": "handle_post_action_submission",
+        "callable_resolved": true,
+        "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+        "callable_kind": "module_function"
+      },
+      {
+        "handler_name": "handle_get_action_result",
+        "callable_resolved": true,
+        "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+        "callable_kind": "module_function"
+      },
+      {
+        "handler_name": "handle_unsupported_route",
+        "callable_resolved": true,
+        "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+        "callable_kind": "module_function"
+      }
+    ],
     "non_goals": [
       "no_http_server",
       "no_frontend",
@@ -117,6 +149,7 @@
     "route": "POST /local/action-submission",
     "method": "POST",
     "handler_name": "handle_post_action_submission",
+    "resolved_callable_name": "handle_post_action_submission",
     "input_envelope": {
       "api_request_id": "api_req_v140_D05_malformed_payload_returns_contract_error_no_write",
       "contract_version": "v1.40",
@@ -184,6 +217,9 @@
     },
     "response_type": "error",
     "status_code": 400,
+    "callable_handler_name": "handle_post_action_submission",
+    "handler_execution_proof_id": "hep_v141_F04_error_claims_are_safe_and_trace_backed",
+    "produced_by_callable": true,
     "production_write_executed": false,
     "trace_refs": [
       "rhi_v141_F04_error_claims_are_safe_and_trace_backed",
@@ -196,6 +232,29 @@
     "route_handler_invocation_id": "rhi_v141_F04_error_claims_are_safe_and_trace_backed",
     "route_handler_result_id": "rhr_v141_F04_error_claims_are_safe_and_trace_backed",
     "handler_name": "handle_post_action_submission",
+    "callable_execution_proof": {
+      "handler_execution_proof_id": "hep_v141_F04_error_claims_are_safe_and_trace_backed",
+      "handler_name": "handle_post_action_submission",
+      "callable_name": "handle_post_action_submission",
+      "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+      "callable_resolved": true,
+      "callable_invoked": true,
+      "input_envelope_hash": "26bcd7849faeae93c06400931b2c925764cd45124068b96600272c02f518219c",
+      "output_envelope_hash": "1e74f8941b066ab4a042bcc98d99512f200e6d2dc17cdf26ab7a578a72fa69f1",
+      "handler_returned_route_handler_result_id": "rhr_v141_F04_error_claims_are_safe_and_trace_backed",
+      "route_specific_projection": {
+        "expected_route": "POST /local/action-submission",
+        "actual_route": "POST /local/action-submission",
+        "expected_response_type": "error",
+        "actual_response_type": "error",
+        "projected_body_fields": [
+          "safe_error"
+        ],
+        "source_case_id": "v140_D05_malformed_payload_returns_contract_error_no_write",
+        "source_contract_snapshot_id": "cs_v140_D05_malformed_payload_returns_contract_error_no_write"
+      },
+      "direct_source_output_copy": false
+    },
     "dispatch_steps": [
       {
         "step_id": "dispatch_001",
@@ -205,12 +264,20 @@
       },
       {
         "step_id": "dispatch_002",
-        "operation": "invoke_handler",
-        "input_ref": "rhi_v141_F04_error_claims_are_safe_and_trace_backed",
-        "output_ref": "rhr_v141_F04_error_claims_are_safe_and_trace_backed"
+        "operation": "resolve_callable",
+        "input_ref": "handle_post_action_submission",
+        "output_ref": "benchmark.benchmark_v141.runtime.product_runtime_adapter.handle_post_action_submission"
       },
       {
         "step_id": "dispatch_003",
+        "operation": "invoke_handler",
+        "input_ref": "rhi_v141_F04_error_claims_are_safe_and_trace_backed",
+        "output_ref": "rhr_v141_F04_error_claims_are_safe_and_trace_backed",
+        "callable_ref": "benchmark.benchmark_v141.runtime.product_runtime_adapter.handle_post_action_submission",
+        "handler_execution_proof_id": "hep_v141_F04_error_claims_are_safe_and_trace_backed"
+      },
+      {
+        "step_id": "dispatch_004",
         "operation": "produce_response",
         "input_ref": "v140_D05_malformed_payload_returns_contract_error_no_write",
         "output_ref": "api_res_v140_D05_malformed_payload_returns_contract_error_no_write"
@@ -260,7 +327,7 @@
     "route_handler_result_id": "rhr_v141_F04_error_claims_are_safe_and_trace_backed",
     "canonical_input_hash": "26bcd7849faeae93c06400931b2c925764cd45124068b96600272c02f518219c",
     "canonical_output_hash": "1e74f8941b066ab4a042bcc98d99512f200e6d2dc17cdf26ab7a578a72fa69f1",
-    "canonical_handler_trace_hash": "eeea78fca545c7cf72ebc343491a974330134ab508e43c1c888f9ef69f891621",
+    "canonical_handler_trace_hash": "581e74b0898cd5c8567a12cf710cb2a9b6e2c2e1a43723d852cdc37774316216",
     "source_artifact_hashes": {
       "per_case/clean/v140_D05_malformed_payload_returns_contract_error_no_write.json": "7069cf08d3cbcc055b7274ac175b6ea4e3c5a1e55e60db394192c8bcb64f92a7",
       "per_case/clean/v139_A01_open_clarification_queue_item_creates_active_action_card.json": "9894318b460deb221bf1ccfe307a488491e0bc1aebe011ba9c17b3b9bd763cab"

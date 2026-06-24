@@ -1,9 +1,9 @@
 {
   "version": "v1.41",
-  "generated_at": "2026-06-24T10:16:49Z",
+  "generated_at": "2026-06-24T10:27:44Z",
   "verdict": "pass",
-  "seeded_defects": 35,
-  "detected_defects": 35,
+  "seeded_defects": 40,
+  "detected_defects": 40,
   "unexpected_injected_passes": [],
   "detected": [
     {
@@ -141,6 +141,7 @@
       ],
       "failed_check_ids": [
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "runtime_snapshot_hash_reproducible_rate"
       ],
@@ -154,6 +155,7 @@
       ],
       "failed_check_ids": [
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "runtime_snapshot_hash_reproducible_rate"
       ],
@@ -167,6 +169,7 @@
       ],
       "failed_check_ids": [
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "runtime_snapshot_hash_reproducible_rate"
       ],
@@ -192,6 +195,7 @@
       "failed_check_ids": [
         "action_submission_handler_contract_rate",
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "runtime_snapshot_hash_reproducible_rate"
       ],
@@ -206,6 +210,7 @@
       "failed_check_ids": [
         "action_submission_handler_contract_rate",
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "runtime_snapshot_hash_reproducible_rate"
       ],
@@ -241,6 +246,7 @@
       ],
       "failed_check_ids": [
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "idempotent_handler_replay_rate",
         "runtime_snapshot_hash_reproducible_rate"
@@ -257,6 +263,7 @@
       "failed_check_ids": [
         "expired_stale_handler_no_write_rate",
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "no_write_handler_preserves_memory_state_rate",
         "runtime_error_safety_rate",
@@ -275,6 +282,7 @@
       "failed_check_ids": [
         "expired_stale_handler_no_write_rate",
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "no_write_handler_preserves_memory_state_rate",
         "runtime_error_safety_rate",
@@ -292,6 +300,7 @@
       ],
       "failed_check_ids": [
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "runtime_error_safety_rate",
         "runtime_redaction_policy_safe_rate",
@@ -308,6 +317,7 @@
       ],
       "failed_check_ids": [
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "runtime_error_safety_rate",
         "runtime_redaction_policy_safe_rate",
@@ -336,6 +346,7 @@
       ],
       "failed_check_ids": [
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "runtime_redaction_policy_safe_rate",
         "runtime_snapshot_hash_reproducible_rate"
@@ -350,6 +361,7 @@
       ],
       "failed_check_ids": [
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "runtime_redaction_policy_safe_rate",
         "runtime_snapshot_hash_reproducible_rate"
@@ -364,6 +376,7 @@
       ],
       "failed_check_ids": [
         "golden_contract_replay_rate",
+        "handler_dispatch_trace_complete_rate",
         "handler_output_matches_v140_contract_rate",
         "runtime_redaction_policy_safe_rate",
         "runtime_snapshot_hash_reproducible_rate"
@@ -455,6 +468,69 @@
       ],
       "failed_check_ids": [
         "v140_validation_replay_pass_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P36_missing_callable_handler",
+      "defect_type": "missing_callable_handler",
+      "expected_failed_check_ids": [
+        "adapter_route_registry_complete_rate"
+      ],
+      "failed_check_ids": [
+        "adapter_route_registry_complete_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P37_registry_references_non_callable_handler",
+      "defect_type": "registry_references_non_callable_handler",
+      "expected_failed_check_ids": [
+        "adapter_route_registry_complete_rate",
+        "route_handler_invocation_valid_rate"
+      ],
+      "failed_check_ids": [
+        "adapter_route_registry_complete_rate",
+        "handler_dispatch_trace_complete_rate",
+        "route_handler_invocation_valid_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P38_invocation_bypasses_handler_with_direct_copy",
+      "defect_type": "invocation_bypasses_handler_with_direct_copy",
+      "expected_failed_check_ids": [
+        "route_handler_invocation_valid_rate",
+        "handler_dispatch_trace_complete_rate"
+      ],
+      "failed_check_ids": [
+        "handler_dispatch_trace_complete_rate",
+        "route_handler_invocation_valid_rate",
+        "runtime_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P39_unsupported_route_missing_callable",
+      "defect_type": "unsupported_route_missing_callable",
+      "expected_failed_check_ids": [
+        "adapter_route_registry_complete_rate"
+      ],
+      "failed_check_ids": [
+        "adapter_route_registry_complete_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v141_ADV_P40_invoke_handler_trace_without_callable_execution_proof",
+      "defect_type": "invoke_handler_trace_without_callable_execution_proof",
+      "expected_failed_check_ids": [
+        "handler_dispatch_trace_complete_rate"
+      ],
+      "failed_check_ids": [
+        "handler_dispatch_trace_complete_rate",
+        "runtime_snapshot_hash_reproducible_rate"
       ],
       "detected": true
     }

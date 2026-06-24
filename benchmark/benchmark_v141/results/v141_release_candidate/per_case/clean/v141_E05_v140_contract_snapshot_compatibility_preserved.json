@@ -41,6 +41,38 @@
       "POST /local/action-submission",
       "GET /local/action-result"
     ],
+    "callable_handler_registry": [
+      {
+        "handler_name": "handle_get_daily_outfit",
+        "callable_resolved": true,
+        "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+        "callable_kind": "module_function"
+      },
+      {
+        "handler_name": "handle_get_action_surface",
+        "callable_resolved": true,
+        "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+        "callable_kind": "module_function"
+      },
+      {
+        "handler_name": "handle_post_action_submission",
+        "callable_resolved": true,
+        "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+        "callable_kind": "module_function"
+      },
+      {
+        "handler_name": "handle_get_action_result",
+        "callable_resolved": true,
+        "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+        "callable_kind": "module_function"
+      },
+      {
+        "handler_name": "handle_unsupported_route",
+        "callable_resolved": true,
+        "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+        "callable_kind": "module_function"
+      }
+    ],
     "non_goals": [
       "no_http_server",
       "no_frontend",
@@ -117,6 +149,7 @@
     "route": "GET /local/action-surface",
     "method": "GET",
     "handler_name": "handle_get_action_surface",
+    "resolved_callable_name": "handle_get_action_surface",
     "input_envelope": {
       "api_request_id": "api_req_v140_F04_old_snapshot_revalidation_uses_current_schema_adapter",
       "contract_version": "v1.40",
@@ -229,6 +262,9 @@
     },
     "response_type": "action_surface",
     "status_code": 200,
+    "callable_handler_name": "handle_get_action_surface",
+    "handler_execution_proof_id": "hep_v141_E05_v140_contract_snapshot_compatibility_preserved",
+    "produced_by_callable": true,
     "production_write_executed": false,
     "trace_refs": [
       "rhi_v141_E05_v140_contract_snapshot_compatibility_preserved",
@@ -241,6 +277,30 @@
     "route_handler_invocation_id": "rhi_v141_E05_v140_contract_snapshot_compatibility_preserved",
     "route_handler_result_id": "rhr_v141_E05_v140_contract_snapshot_compatibility_preserved",
     "handler_name": "handle_get_action_surface",
+    "callable_execution_proof": {
+      "handler_execution_proof_id": "hep_v141_E05_v140_contract_snapshot_compatibility_preserved",
+      "handler_name": "handle_get_action_surface",
+      "callable_name": "handle_get_action_surface",
+      "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+      "callable_resolved": true,
+      "callable_invoked": true,
+      "input_envelope_hash": "fa1044d30682983c405ed00724cde6adb0ba570f5c7419561be9720b85d67191",
+      "output_envelope_hash": "10bc20e9104c0ae72c2dd2ea71ce225ed5871422b00b3a1cdfb47c1f681cda85",
+      "handler_returned_route_handler_result_id": "rhr_v141_E05_v140_contract_snapshot_compatibility_preserved",
+      "route_specific_projection": {
+        "expected_route": "GET /local/action-surface",
+        "actual_route": "GET /local/action-surface",
+        "expected_response_type": "action_surface",
+        "actual_response_type": "action_surface",
+        "projected_body_fields": [
+          "action_surface",
+          "response_blocks"
+        ],
+        "source_case_id": "v140_F04_old_snapshot_revalidation_uses_current_schema_adapter",
+        "source_contract_snapshot_id": "cs_v140_F04_old_snapshot_revalidation_uses_current_schema_adapter"
+      },
+      "direct_source_output_copy": false
+    },
     "dispatch_steps": [
       {
         "step_id": "dispatch_001",
@@ -250,12 +310,20 @@
       },
       {
         "step_id": "dispatch_002",
-        "operation": "invoke_handler",
-        "input_ref": "rhi_v141_E05_v140_contract_snapshot_compatibility_preserved",
-        "output_ref": "rhr_v141_E05_v140_contract_snapshot_compatibility_preserved"
+        "operation": "resolve_callable",
+        "input_ref": "handle_get_action_surface",
+        "output_ref": "benchmark.benchmark_v141.runtime.product_runtime_adapter.handle_get_action_surface"
       },
       {
         "step_id": "dispatch_003",
+        "operation": "invoke_handler",
+        "input_ref": "rhi_v141_E05_v140_contract_snapshot_compatibility_preserved",
+        "output_ref": "rhr_v141_E05_v140_contract_snapshot_compatibility_preserved",
+        "callable_ref": "benchmark.benchmark_v141.runtime.product_runtime_adapter.handle_get_action_surface",
+        "handler_execution_proof_id": "hep_v141_E05_v140_contract_snapshot_compatibility_preserved"
+      },
+      {
+        "step_id": "dispatch_004",
         "operation": "produce_response",
         "input_ref": "v140_F04_old_snapshot_revalidation_uses_current_schema_adapter",
         "output_ref": "api_res_v140_F04_old_snapshot_revalidation_uses_current_schema_adapter"
@@ -307,7 +375,7 @@
     "route_handler_result_id": "rhr_v141_E05_v140_contract_snapshot_compatibility_preserved",
     "canonical_input_hash": "fa1044d30682983c405ed00724cde6adb0ba570f5c7419561be9720b85d67191",
     "canonical_output_hash": "10bc20e9104c0ae72c2dd2ea71ce225ed5871422b00b3a1cdfb47c1f681cda85",
-    "canonical_handler_trace_hash": "e5dd79b1f86a6603f481ae8e9f536d1586c3923d235ec47e22cd66aff32b1a0b",
+    "canonical_handler_trace_hash": "e78a6f149e19b28d3e39822cfb95ea8ccda0bbe146b00e2dbfa0ec33f135bd31",
     "source_artifact_hashes": {
       "per_case/clean/v140_F04_old_snapshot_revalidation_uses_current_schema_adapter.json": "165e4bd5fcc8ea9a64331124acdf400811f8c8bc218f6f37d0157de232824fb8",
       "per_case/clean/v139_A01_open_clarification_queue_item_creates_active_action_card.json": "9894318b460deb221bf1ccfe307a488491e0bc1aebe011ba9c17b3b9bd763cab"

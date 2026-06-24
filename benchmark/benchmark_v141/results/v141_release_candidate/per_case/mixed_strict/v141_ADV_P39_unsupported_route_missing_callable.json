@@ -1,0 +1,571 @@
+{
+  "case_id": "v141_ADV_P39_unsupported_route_missing_callable",
+  "version": "v1.41",
+  "scenario_kind": "unsupported_route_missing_callable",
+  "gate_assertions": {
+    "adapter_route_registry_complete_rate": true,
+    "route_handler_invocation_valid_rate": true,
+    "handler_dispatch_trace_complete_rate": true,
+    "handler_uses_raw_source_artifacts_rate": true,
+    "handler_output_matches_v140_contract_rate": true,
+    "action_submission_handler_contract_rate": true,
+    "no_write_handler_preserves_memory_state_rate": true,
+    "idempotent_handler_replay_rate": true,
+    "expired_stale_handler_no_write_rate": true,
+    "runtime_action_result_links_response_rate": true,
+    "conversation_claims_trace_backed_after_handler_rate": true,
+    "runtime_snapshot_hash_reproducible_rate": true,
+    "runtime_source_hashes_match_raw_rate": true,
+    "golden_contract_replay_rate": true,
+    "runtime_error_safety_rate": true,
+    "runtime_redaction_policy_safe_rate": true,
+    "sample_artifacts_match_per_case_rate": true,
+    "report_consistency_with_independent_validation_rate": true,
+    "adversarial_detection_rate": true,
+    "v140_validation_replay_pass_rate": true
+  },
+  "source_v140_artifact_ref": "per_case/clean/v140_A04_unsupported_route_returns_typed_error.json",
+  "source_v140_artifact_hash": "6b5d2abc3559a95c49d830a1c9b2770c0b14d5d97d57832c772b1ebe764b4152",
+  "source_v140_case_id": "v140_A04_unsupported_route_returns_typed_error",
+  "source_v139_artifact_ref": "per_case/clean/v139_A01_open_clarification_queue_item_creates_active_action_card.json",
+  "source_v139_artifact_hash": "9894318b460deb221bf1ccfe307a488491e0bc1aebe011ba9c17b3b9bd763cab",
+  "product_runtime_adapter": {
+    "product_runtime_adapter_id": "pra_001",
+    "version": "v1.41",
+    "contract_version": "v1.40",
+    "schema_version": "product_runtime_adapter.v1",
+    "route_registry_id": "route_registry_001",
+    "supported_routes": [
+      "GET /local/daily-outfit",
+      "GET /local/action-surface",
+      "POST /local/action-submission",
+      "GET /local/action-result"
+    ],
+    "callable_handler_registry": [
+      {
+        "handler_name": "handle_get_daily_outfit",
+        "callable_resolved": true,
+        "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+        "callable_kind": "module_function"
+      },
+      {
+        "handler_name": "handle_get_action_surface",
+        "callable_resolved": true,
+        "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+        "callable_kind": "module_function"
+      },
+      {
+        "handler_name": "handle_post_action_submission",
+        "callable_resolved": true,
+        "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+        "callable_kind": "module_function"
+      },
+      {
+        "handler_name": "handle_get_action_result",
+        "callable_resolved": true,
+        "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+        "callable_kind": "module_function"
+      },
+      {
+        "handler_name": "handle_unsupported_route",
+        "callable_resolved": true,
+        "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+        "callable_kind": "module_function"
+      }
+    ],
+    "non_goals": [
+      "no_http_server",
+      "no_frontend",
+      "no_auth",
+      "no_production_db",
+      "no_commerce",
+      "no_aigc",
+      "no_global_memory_writes"
+    ],
+    "trace_refs": [
+      "route_registry_001",
+      "v140_release_candidate_fixture_bundle"
+    ]
+  },
+  "product_route_registry": {
+    "product_route_registry_id": "route_registry_001",
+    "version": "v1.41",
+    "unsupported_route_policy": {
+      "handler_name": "handle_missing_unsupported_route",
+      "response_type": "error",
+      "safe_error_only": true,
+      "production_write_executed": false
+    },
+    "routes": [
+      {
+        "route": "GET /local/daily-outfit",
+        "method": "GET",
+        "handler_name": "handle_get_daily_outfit",
+        "handler_version": "v1.41",
+        "source_contract": "product_api.v1",
+        "trace_refs": [
+          "route_registry_001",
+          "handle_get_daily_outfit"
+        ]
+      },
+      {
+        "route": "GET /local/action-surface",
+        "method": "GET",
+        "handler_name": "handle_get_action_surface",
+        "handler_version": "v1.41",
+        "source_contract": "product_api.v1",
+        "trace_refs": [
+          "route_registry_001",
+          "handle_get_action_surface"
+        ]
+      },
+      {
+        "route": "POST /local/action-submission",
+        "method": "POST",
+        "handler_name": "handle_post_action_submission",
+        "handler_version": "v1.41",
+        "source_contract": "product_api.v1",
+        "trace_refs": [
+          "route_registry_001",
+          "handle_post_action_submission"
+        ]
+      },
+      {
+        "route": "GET /local/action-result",
+        "method": "GET",
+        "handler_name": "handle_get_action_result",
+        "handler_version": "v1.41",
+        "source_contract": "product_api.v1",
+        "trace_refs": [
+          "route_registry_001",
+          "handle_get_action_result"
+        ]
+      }
+    ]
+  },
+  "route_handler_invocation": {
+    "route_handler_invocation_id": "rhi_v141_ADV_P39_unsupported_route_missing_callable",
+    "api_request_id": "api_req_v140_A04_unsupported_route_returns_typed_error",
+    "route": "GET /local/unsupported",
+    "method": "GET",
+    "handler_name": "handle_unsupported_route",
+    "resolved_callable_name": "handle_unsupported_route",
+    "input_envelope": {
+      "api_request_id": "api_req_v140_A04_unsupported_route_returns_typed_error",
+      "contract_version": "v1.40",
+      "schema_version": "product_api.v1",
+      "route": "GET /local/unsupported",
+      "method": "GET",
+      "request_context": "office_daily",
+      "query": {},
+      "body": {},
+      "idempotency_key": null,
+      "trace_refs": [
+        "rt_v139_001",
+        "gas_v139_001"
+      ]
+    },
+    "runtime_context": {
+      "fixture_user_id": "local_user_001",
+      "request_context": "office_daily",
+      "source_case_id": "v140_A04_unsupported_route_returns_typed_error",
+      "source_artifact_ref": "per_case/clean/v140_A04_unsupported_route_returns_typed_error.json"
+    },
+    "idempotency_key": null,
+    "trace_refs": [
+      "pra_001",
+      "route_registry_001",
+      "v140_A04_unsupported_route_returns_typed_error"
+    ]
+  },
+  "route_handler_result": {
+    "route_handler_result_id": "rhr_v141_ADV_P39_unsupported_route_missing_callable",
+    "route_handler_invocation_id": "rhi_v141_ADV_P39_unsupported_route_missing_callable",
+    "api_response_id": "api_res_v140_A04_unsupported_route_returns_typed_error",
+    "output_envelope": {
+      "api_response_id": "api_res_v140_A04_unsupported_route_returns_typed_error",
+      "api_request_id": "api_req_v140_A04_unsupported_route_returns_typed_error",
+      "contract_version": "v1.40",
+      "schema_version": "product_api.v1",
+      "status_code": 404,
+      "response_type": "error",
+      "body": {
+        "contract_version": "v1.40",
+        "schema_version": "product_api.v1",
+        "safe_error": "That local route is not supported."
+      },
+      "error": {
+        "error_id": "api_err_v140_A04_unsupported_route_returns_typed_error",
+        "error_type": "unsupported_route",
+        "status_code": 404,
+        "safe_message": "That local route is not supported.",
+        "developer_debug_ref": "trace:rt_v139_001",
+        "production_write_executed": false,
+        "trace_refs": [
+          "rt_v139_001",
+          "gas_v139_001"
+        ]
+      },
+      "trace_refs": [
+        "api_req_v140_A04_unsupported_route_returns_typed_error",
+        "rt_v139_001",
+        "gas_v139_001"
+      ]
+    },
+    "response_type": "error",
+    "status_code": 404,
+    "callable_handler_name": "handle_unsupported_route",
+    "handler_execution_proof_id": "hep_v141_ADV_P39_unsupported_route_missing_callable",
+    "produced_by_callable": true,
+    "production_write_executed": false,
+    "trace_refs": [
+      "rhi_v141_ADV_P39_unsupported_route_missing_callable",
+      "rhet_v141_ADV_P39_unsupported_route_missing_callable",
+      "v140_A04_unsupported_route_returns_typed_error"
+    ]
+  },
+  "runtime_handler_execution_trace": {
+    "runtime_handler_execution_trace_id": "rhet_v141_ADV_P39_unsupported_route_missing_callable",
+    "route_handler_invocation_id": "rhi_v141_ADV_P39_unsupported_route_missing_callable",
+    "route_handler_result_id": "rhr_v141_ADV_P39_unsupported_route_missing_callable",
+    "handler_name": "handle_unsupported_route",
+    "callable_execution_proof": {
+      "handler_execution_proof_id": "hep_v141_ADV_P39_unsupported_route_missing_callable",
+      "handler_name": "handle_unsupported_route",
+      "callable_name": "handle_unsupported_route",
+      "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+      "callable_resolved": true,
+      "callable_invoked": true,
+      "input_envelope_hash": "34f002540fee800bc13aa911f0fcd4c5bf8911e915e7c9072c0f94169cc16a60",
+      "output_envelope_hash": "a63f2a7ac2323fcbdb0f1acfbcd9dca16dd92bc1bce7fe6a792cb8f926a4f20b",
+      "handler_returned_route_handler_result_id": "rhr_v141_ADV_P39_unsupported_route_missing_callable",
+      "route_specific_projection": {
+        "expected_route": "GET /local/unsupported",
+        "actual_route": "GET /local/unsupported",
+        "expected_response_type": "error",
+        "actual_response_type": "error",
+        "projected_body_fields": [
+          "safe_error"
+        ],
+        "source_case_id": "v140_A04_unsupported_route_returns_typed_error",
+        "source_contract_snapshot_id": "cs_v140_A04_unsupported_route_returns_typed_error"
+      },
+      "direct_source_output_copy": false
+    },
+    "dispatch_steps": [
+      {
+        "step_id": "dispatch_001",
+        "operation": "resolve_route",
+        "input_ref": "api_req_v140_A04_unsupported_route_returns_typed_error",
+        "output_ref": "handle_unsupported_route"
+      },
+      {
+        "step_id": "dispatch_002",
+        "operation": "resolve_callable",
+        "input_ref": "handle_unsupported_route",
+        "output_ref": "benchmark.benchmark_v141.runtime.product_runtime_adapter.handle_unsupported_route"
+      },
+      {
+        "step_id": "dispatch_003",
+        "operation": "invoke_handler",
+        "input_ref": "rhi_v141_ADV_P39_unsupported_route_missing_callable",
+        "output_ref": "rhr_v141_ADV_P39_unsupported_route_missing_callable",
+        "callable_ref": "benchmark.benchmark_v141.runtime.product_runtime_adapter.handle_unsupported_route",
+        "handler_execution_proof_id": "hep_v141_ADV_P39_unsupported_route_missing_callable"
+      },
+      {
+        "step_id": "dispatch_004",
+        "operation": "produce_response",
+        "input_ref": "v140_A04_unsupported_route_returns_typed_error",
+        "output_ref": "api_res_v140_A04_unsupported_route_returns_typed_error"
+      }
+    ],
+    "source_resolution_refs": [
+      "rsrp_v141_ADV_P39_unsupported_route_missing_callable",
+      "per_case/clean/v140_A04_unsupported_route_returns_typed_error.json"
+    ],
+    "contract_projection_refs": [
+      "api_req_v140_A04_unsupported_route_returns_typed_error",
+      "api_res_v140_A04_unsupported_route_returns_typed_error",
+      "cs_v140_A04_unsupported_route_returns_typed_error"
+    ],
+    "safety_filter_refs": [
+      "handler_error_safety_proof",
+      "runtime_redaction_policy"
+    ],
+    "claim_trace_refs": [],
+    "trace_refs": [
+      "rhi_v141_ADV_P39_unsupported_route_missing_callable",
+      "rhr_v141_ADV_P39_unsupported_route_missing_callable",
+      "v140_A04_unsupported_route_returns_typed_error"
+    ]
+  },
+  "runtime_source_resolution_proof": {
+    "runtime_source_resolution_proof_id": "rsrp_v141_ADV_P39_unsupported_route_missing_callable",
+    "route_handler_invocation_id": "rhi_v141_ADV_P39_unsupported_route_missing_callable",
+    "source_v140_artifact_ref": "per_case/clean/v140_A04_unsupported_route_returns_typed_error.json",
+    "source_v140_artifact_hash": "6b5d2abc3559a95c49d830a1c9b2770c0b14d5d97d57832c772b1ebe764b4152",
+    "source_v139_artifact_ref": "per_case/clean/v139_A01_open_clarification_queue_item_creates_active_action_card.json",
+    "source_v139_artifact_hash": "9894318b460deb221bf1ccfe307a488491e0bc1aebe011ba9c17b3b9bd763cab",
+    "allowed_source_types": [
+      "per_case_clean_artifact",
+      "sample_artifact_full_copy"
+    ],
+    "forbidden_source_types_observed": [],
+    "trace_refs": [
+      "rhi_v141_ADV_P39_unsupported_route_missing_callable",
+      "v140_A04_unsupported_route_returns_typed_error",
+      "benchmark/benchmark_v140/results/v140_release_candidate/per_case/clean/v140_A04_unsupported_route_returns_typed_error.json"
+    ]
+  },
+  "runtime_adapter_snapshot": {
+    "runtime_adapter_snapshot_id": "ras_v141_ADV_P39_unsupported_route_missing_callable",
+    "route_handler_invocation_id": "rhi_v141_ADV_P39_unsupported_route_missing_callable",
+    "route_handler_result_id": "rhr_v141_ADV_P39_unsupported_route_missing_callable",
+    "canonical_input_hash": "34f002540fee800bc13aa911f0fcd4c5bf8911e915e7c9072c0f94169cc16a60",
+    "canonical_output_hash": "a63f2a7ac2323fcbdb0f1acfbcd9dca16dd92bc1bce7fe6a792cb8f926a4f20b",
+    "canonical_handler_trace_hash": "298616f6ccb91e9b5b7575ad91b8cbf083331a28cee4f249cbb1a75b1874f940",
+    "source_artifact_hashes": {
+      "per_case/clean/v140_A04_unsupported_route_returns_typed_error.json": "6b5d2abc3559a95c49d830a1c9b2770c0b14d5d97d57832c772b1ebe764b4152",
+      "per_case/clean/v139_A01_open_clarification_queue_item_creates_active_action_card.json": "9894318b460deb221bf1ccfe307a488491e0bc1aebe011ba9c17b3b9bd763cab"
+    },
+    "golden_contract_key": "GET /local/unsupported:v140_A04_unsupported_route_returns_typed_error",
+    "trace_refs": [
+      "rhi_v141_ADV_P39_unsupported_route_missing_callable",
+      "rhr_v141_ADV_P39_unsupported_route_missing_callable",
+      "rhet_v141_ADV_P39_unsupported_route_missing_callable",
+      "rsrp_v141_ADV_P39_unsupported_route_missing_callable"
+    ]
+  },
+  "golden_contract_replay": {
+    "golden_contract_replay_id": "gcr_v141_ADV_P39_unsupported_route_missing_callable",
+    "source_v140_case_id": "v140_A04_unsupported_route_returns_typed_error",
+    "runtime_case_id": "v141_ADV_P39_unsupported_route_missing_callable",
+    "request_match": true,
+    "response_match": true,
+    "trace_semantics_match": true,
+    "snapshot_hash_match": true,
+    "replay_status": "pass",
+    "diff": [],
+    "allowed_runtime_only_fields": [],
+    "trace_refs": [
+      "rhi_v141_ADV_P39_unsupported_route_missing_callable",
+      "rhr_v141_ADV_P39_unsupported_route_missing_callable",
+      "ras_v141_ADV_P39_unsupported_route_missing_callable"
+    ]
+  },
+  "local_api_request_envelope": {
+    "api_request_id": "api_req_v140_A04_unsupported_route_returns_typed_error",
+    "contract_version": "v1.40",
+    "schema_version": "product_api.v1",
+    "route": "GET /local/unsupported",
+    "method": "GET",
+    "request_context": "office_daily",
+    "query": {},
+    "body": {},
+    "idempotency_key": null,
+    "trace_refs": [
+      "rt_v139_001",
+      "gas_v139_001"
+    ]
+  },
+  "local_api_response_envelope": {
+    "api_response_id": "api_res_v140_A04_unsupported_route_returns_typed_error",
+    "api_request_id": "api_req_v140_A04_unsupported_route_returns_typed_error",
+    "contract_version": "v1.40",
+    "schema_version": "product_api.v1",
+    "status_code": 404,
+    "response_type": "error",
+    "body": {
+      "contract_version": "v1.40",
+      "schema_version": "product_api.v1",
+      "safe_error": "That local route is not supported."
+    },
+    "error": {
+      "error_id": "api_err_v140_A04_unsupported_route_returns_typed_error",
+      "error_type": "unsupported_route",
+      "status_code": 404,
+      "safe_message": "That local route is not supported.",
+      "developer_debug_ref": "trace:rt_v139_001",
+      "production_write_executed": false,
+      "trace_refs": [
+        "rt_v139_001",
+        "gas_v139_001"
+      ]
+    },
+    "trace_refs": [
+      "api_req_v140_A04_unsupported_route_returns_typed_error",
+      "rt_v139_001",
+      "gas_v139_001"
+    ]
+  },
+  "action_surface_api_resource": {
+    "action_surface_api_resource_id": "asr_v139_A01_open_clarification_queue_item_creates_active_action_card",
+    "source_governance_action_surface_id": "gas_v139_001",
+    "cards": [
+      {
+        "card_id": "uac_v139_001",
+        "governance_queue_item_id": "gqi_v139_001",
+        "card_type": "clarification",
+        "display_state": "active",
+        "title": "Clarify this preference",
+        "body": "Which outfit context should this apply to?",
+        "allowed_actions": [
+          "this_time_only",
+          "do_not_change_memory",
+          "remember_for_context"
+        ],
+        "disabled_reason": null,
+        "trace_refs": [
+          "rt_v139_001",
+          "gqi_v139_001",
+          "cr_v139_001"
+        ]
+      }
+    ],
+    "response_blocks": [
+      {
+        "response_block_id": "urb_v139_001",
+        "block_type": "clarification_prompt",
+        "text": "Please clarify how to use this preference for this outfit.",
+        "claim_refs": [
+          "claim_v139_001"
+        ],
+        "trace_refs": [
+          "rt_v139_001",
+          "gqi_v139_001",
+          "gqi_v139_001"
+        ]
+      }
+    ],
+    "trace_refs": [
+      "gas_v139_001",
+      "v139_A01_open_clarification_queue_item_creates_active_action_card",
+      "rt_v139_001"
+    ]
+  },
+  "action_submission_api_resource": null,
+  "action_result_api_resource": null,
+  "conversation_turn_state": {
+    "conversation_turn_state_id": "cts_v140_A04_unsupported_route_returns_typed_error",
+    "api_request_id": "api_req_v140_A04_unsupported_route_returns_typed_error",
+    "api_response_id": "api_res_v140_A04_unsupported_route_returns_typed_error",
+    "visible_response_block_ids": [],
+    "user_visible_claims": [],
+    "memory_change_claimed": false,
+    "production_write_executed": false,
+    "trace_refs": [
+      "api_res_v140_A04_unsupported_route_returns_typed_error",
+      "rt_v139_001"
+    ]
+  },
+  "handler_idempotency_proof": {
+    "idempotency_key": null,
+    "duplicate_created_result": null,
+    "canonical_action_result_packet_id": null,
+    "repeated_invocation_output_hash": "a63f2a7ac2323fcbdb0f1acfbcd9dca16dd92bc1bce7fe6a792cb8f926a4f20b",
+    "trace_refs": [
+      "rhi_v141_ADV_P39_unsupported_route_missing_callable",
+      "rhr_v141_ADV_P39_unsupported_route_missing_callable"
+    ]
+  },
+  "handler_no_write_proof": {
+    "before_memory_lifecycle_state": {
+      "memory_id": "mem_v139_001",
+      "state_snapshot_id": "state_active_v139_001",
+      "current_status": "active",
+      "contexts": [
+        "office_daily"
+      ],
+      "confirmed_aspects": [
+        "soft tailoring",
+        "muted contrast"
+      ],
+      "context_exclusions": [],
+      "global_memory_write": false
+    },
+    "after_memory_lifecycle_state": {
+      "memory_id": "mem_v139_001",
+      "state_snapshot_id": "state_active_v139_001",
+      "current_status": "active",
+      "contexts": [
+        "office_daily"
+      ],
+      "confirmed_aspects": [
+        "soft tailoring",
+        "muted contrast"
+      ],
+      "context_exclusions": [],
+      "global_memory_write": false
+    },
+    "production_write_executed": false,
+    "trace_refs": [
+      "rhr_v141_ADV_P39_unsupported_route_missing_callable"
+    ]
+  },
+  "handler_error_safety_proof": {
+    "response_type": "error",
+    "safe_error_only": true,
+    "production_write_executed": false,
+    "trace_refs": [
+      "rhr_v141_ADV_P39_unsupported_route_missing_callable"
+    ]
+  },
+  "handler_claim_trace_proof": {
+    "visible_response_block_ids": [],
+    "user_visible_claim_ids": [],
+    "trace_refs": [
+      "api_res_v140_A04_unsupported_route_returns_typed_error"
+    ]
+  },
+  "production_memory_write_gate": {
+    "gate_id": "pmwg_v139_001",
+    "decision": "block",
+    "production_write_executed": false,
+    "environment": "deterministic_local_fixture"
+  },
+  "before_memory_lifecycle_state": {
+    "memory_id": "mem_v139_001",
+    "state_snapshot_id": "state_active_v139_001",
+    "current_status": "active",
+    "contexts": [
+      "office_daily"
+    ],
+    "confirmed_aspects": [
+      "soft tailoring",
+      "muted contrast"
+    ],
+    "context_exclusions": [],
+    "global_memory_write": false
+  },
+  "after_memory_lifecycle_state": {
+    "memory_id": "mem_v139_001",
+    "state_snapshot_id": "state_active_v139_001",
+    "current_status": "active",
+    "contexts": [
+      "office_daily"
+    ],
+    "confirmed_aspects": [
+      "soft tailoring",
+      "muted contrast"
+    ],
+    "context_exclusions": [],
+    "global_memory_write": false
+  },
+  "policy_surface_audit": {
+    "no_raw_review_evidence_exposed": true,
+    "no_internal_debug_exposed": true,
+    "no_global_memory_claim": true,
+    "no_sensitive_or_commerce_or_aigc": true
+  },
+  "reviewer_checklist_refs": [],
+  "runner_reproducibility_proof": {},
+  "v140_replay_proof": {
+    "run_v140_validation_suite": "PASS"
+  },
+  "defect_type": "unsupported_route_missing_callable",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "adapter_route_registry_complete_rate"
+  ]
+}

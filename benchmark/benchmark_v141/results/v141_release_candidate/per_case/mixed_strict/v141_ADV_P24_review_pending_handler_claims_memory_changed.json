@@ -41,6 +41,38 @@
       "POST /local/action-submission",
       "GET /local/action-result"
     ],
+    "callable_handler_registry": [
+      {
+        "handler_name": "handle_get_daily_outfit",
+        "callable_resolved": true,
+        "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+        "callable_kind": "module_function"
+      },
+      {
+        "handler_name": "handle_get_action_surface",
+        "callable_resolved": true,
+        "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+        "callable_kind": "module_function"
+      },
+      {
+        "handler_name": "handle_post_action_submission",
+        "callable_resolved": true,
+        "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+        "callable_kind": "module_function"
+      },
+      {
+        "handler_name": "handle_get_action_result",
+        "callable_resolved": true,
+        "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+        "callable_kind": "module_function"
+      },
+      {
+        "handler_name": "handle_unsupported_route",
+        "callable_resolved": true,
+        "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+        "callable_kind": "module_function"
+      }
+    ],
     "non_goals": [
       "no_http_server",
       "no_frontend",
@@ -117,6 +149,7 @@
     "route": "GET /local/action-surface",
     "method": "GET",
     "handler_name": "handle_get_action_surface",
+    "resolved_callable_name": "handle_get_action_surface",
     "input_envelope": {
       "api_request_id": "api_req_v140_E04_conversation_turn_does_not_claim_review_pending_memory_change",
       "contract_version": "v1.40",
@@ -228,6 +261,9 @@
     },
     "response_type": "action_surface",
     "status_code": 200,
+    "callable_handler_name": "handle_get_action_surface",
+    "handler_execution_proof_id": "hep_v141_ADV_P24_review_pending_handler_claims_memory_changed",
+    "produced_by_callable": true,
     "production_write_executed": false,
     "trace_refs": [
       "rhi_v141_ADV_P24_review_pending_handler_claims_memory_changed",
@@ -240,6 +276,30 @@
     "route_handler_invocation_id": "rhi_v141_ADV_P24_review_pending_handler_claims_memory_changed",
     "route_handler_result_id": "rhr_v141_ADV_P24_review_pending_handler_claims_memory_changed",
     "handler_name": "handle_get_action_surface",
+    "callable_execution_proof": {
+      "handler_execution_proof_id": "hep_v141_ADV_P24_review_pending_handler_claims_memory_changed",
+      "handler_name": "handle_get_action_surface",
+      "callable_name": "handle_get_action_surface",
+      "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+      "callable_resolved": true,
+      "callable_invoked": true,
+      "input_envelope_hash": "e78e468b5d4bcdce368eb469f8c806cf46d45e1f39d9517988ba9515938198a4",
+      "output_envelope_hash": "85d680d6fec8eb6a237ba5a3227062419179cc740e8525fb24493c985ef35897",
+      "handler_returned_route_handler_result_id": "rhr_v141_ADV_P24_review_pending_handler_claims_memory_changed",
+      "route_specific_projection": {
+        "expected_route": "GET /local/action-surface",
+        "actual_route": "GET /local/action-surface",
+        "expected_response_type": "action_surface",
+        "actual_response_type": "action_surface",
+        "projected_body_fields": [
+          "action_surface",
+          "response_blocks"
+        ],
+        "source_case_id": "v140_E04_conversation_turn_does_not_claim_review_pending_memory_change",
+        "source_contract_snapshot_id": "cs_v140_E04_conversation_turn_does_not_claim_review_pending_memory_change"
+      },
+      "direct_source_output_copy": false
+    },
     "dispatch_steps": [
       {
         "step_id": "dispatch_001",
@@ -249,12 +309,20 @@
       },
       {
         "step_id": "dispatch_002",
-        "operation": "invoke_handler",
-        "input_ref": "rhi_v141_ADV_P24_review_pending_handler_claims_memory_changed",
-        "output_ref": "rhr_v141_ADV_P24_review_pending_handler_claims_memory_changed"
+        "operation": "resolve_callable",
+        "input_ref": "handle_get_action_surface",
+        "output_ref": "benchmark.benchmark_v141.runtime.product_runtime_adapter.handle_get_action_surface"
       },
       {
         "step_id": "dispatch_003",
+        "operation": "invoke_handler",
+        "input_ref": "rhi_v141_ADV_P24_review_pending_handler_claims_memory_changed",
+        "output_ref": "rhr_v141_ADV_P24_review_pending_handler_claims_memory_changed",
+        "callable_ref": "benchmark.benchmark_v141.runtime.product_runtime_adapter.handle_get_action_surface",
+        "handler_execution_proof_id": "hep_v141_ADV_P24_review_pending_handler_claims_memory_changed"
+      },
+      {
+        "step_id": "dispatch_004",
         "operation": "produce_response",
         "input_ref": "v140_E04_conversation_turn_does_not_claim_review_pending_memory_change",
         "output_ref": "api_res_v140_E04_conversation_turn_does_not_claim_review_pending_memory_change"
@@ -306,7 +374,7 @@
     "route_handler_result_id": "rhr_v141_ADV_P24_review_pending_handler_claims_memory_changed",
     "canonical_input_hash": "e78e468b5d4bcdce368eb469f8c806cf46d45e1f39d9517988ba9515938198a4",
     "canonical_output_hash": "85d680d6fec8eb6a237ba5a3227062419179cc740e8525fb24493c985ef35897",
-    "canonical_handler_trace_hash": "bd322939c58e9a3003b1c3c45aba410a1ad0fcde2099c0eb2cde4037929043af",
+    "canonical_handler_trace_hash": "7a250c911bf5a29f8559877189ce949691a093019a6804c15e43ae4c3e8c44a9",
     "source_artifact_hashes": {
       "per_case/clean/v140_E04_conversation_turn_does_not_claim_review_pending_memory_change.json": "6e9ae4ec647f3f94a5dc419a6ec6d2632d8721cf1b058e3fe791e738255e640f",
       "per_case/clean/v139_C01_review_pending_notice_hides_raw_review_evidence.json": "db4de7f4111ca586b5f7b4034f9eb4057671c4f13d9287463b18eed99ebc13e3"

@@ -41,6 +41,38 @@
       "POST /local/action-submission",
       "GET /local/action-result"
     ],
+    "callable_handler_registry": [
+      {
+        "handler_name": "handle_get_daily_outfit",
+        "callable_resolved": true,
+        "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+        "callable_kind": "module_function"
+      },
+      {
+        "handler_name": "handle_get_action_surface",
+        "callable_resolved": true,
+        "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+        "callable_kind": "module_function"
+      },
+      {
+        "handler_name": "handle_post_action_submission",
+        "callable_resolved": true,
+        "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+        "callable_kind": "module_function"
+      },
+      {
+        "handler_name": "handle_get_action_result",
+        "callable_resolved": true,
+        "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+        "callable_kind": "module_function"
+      },
+      {
+        "handler_name": "handle_unsupported_route",
+        "callable_resolved": true,
+        "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+        "callable_kind": "module_function"
+      }
+    ],
     "non_goals": [
       "no_http_server",
       "no_frontend",
@@ -117,6 +149,7 @@
     "route": "GET /local/action-result",
     "method": "GET",
     "handler_name": "handle_get_action_result",
+    "resolved_callable_name": "handle_get_action_result",
     "input_envelope": {
       "api_request_id": "api_req_v140_E02_conversation_turn_after_action_includes_result_notice",
       "contract_version": "v1.40",
@@ -203,6 +236,9 @@
     },
     "response_type": "action_result",
     "status_code": 200,
+    "callable_handler_name": "handle_get_action_result",
+    "handler_execution_proof_id": "hep_v141_F03_action_result_claims_trace_to_handler_result",
+    "produced_by_callable": true,
     "production_write_executed": false,
     "trace_refs": [
       "rhi_v141_F03_action_result_claims_trace_to_handler_result",
@@ -215,6 +251,30 @@
     "route_handler_invocation_id": "rhi_v141_F03_action_result_claims_trace_to_handler_result",
     "route_handler_result_id": "rhr_v141_F03_action_result_claims_trace_to_handler_result",
     "handler_name": "handle_get_action_result",
+    "callable_execution_proof": {
+      "handler_execution_proof_id": "hep_v141_F03_action_result_claims_trace_to_handler_result",
+      "handler_name": "handle_get_action_result",
+      "callable_name": "handle_get_action_result",
+      "callable_module": "benchmark.benchmark_v141.runtime.product_runtime_adapter",
+      "callable_resolved": true,
+      "callable_invoked": true,
+      "input_envelope_hash": "72d37267328e80ca8f51d954d66868a813eb07aa64077da765278e5d69ee0f14",
+      "output_envelope_hash": "ebb607a9cf7736cb5f0e3d115020a29c4e321690c905256c6f1cb7eb169731f4",
+      "handler_returned_route_handler_result_id": "rhr_v141_F03_action_result_claims_trace_to_handler_result",
+      "route_specific_projection": {
+        "expected_route": "GET /local/action-result",
+        "actual_route": "GET /local/action-result",
+        "expected_response_type": "action_result",
+        "actual_response_type": "action_result",
+        "projected_body_fields": [
+          "action_result",
+          "response_blocks"
+        ],
+        "source_case_id": "v140_E02_conversation_turn_after_action_includes_result_notice",
+        "source_contract_snapshot_id": "cs_v140_E02_conversation_turn_after_action_includes_result_notice"
+      },
+      "direct_source_output_copy": false
+    },
     "dispatch_steps": [
       {
         "step_id": "dispatch_001",
@@ -224,12 +284,20 @@
       },
       {
         "step_id": "dispatch_002",
-        "operation": "invoke_handler",
-        "input_ref": "rhi_v141_F03_action_result_claims_trace_to_handler_result",
-        "output_ref": "rhr_v141_F03_action_result_claims_trace_to_handler_result"
+        "operation": "resolve_callable",
+        "input_ref": "handle_get_action_result",
+        "output_ref": "benchmark.benchmark_v141.runtime.product_runtime_adapter.handle_get_action_result"
       },
       {
         "step_id": "dispatch_003",
+        "operation": "invoke_handler",
+        "input_ref": "rhi_v141_F03_action_result_claims_trace_to_handler_result",
+        "output_ref": "rhr_v141_F03_action_result_claims_trace_to_handler_result",
+        "callable_ref": "benchmark.benchmark_v141.runtime.product_runtime_adapter.handle_get_action_result",
+        "handler_execution_proof_id": "hep_v141_F03_action_result_claims_trace_to_handler_result"
+      },
+      {
+        "step_id": "dispatch_004",
         "operation": "produce_response",
         "input_ref": "v140_E02_conversation_turn_after_action_includes_result_notice",
         "output_ref": "api_res_v140_E02_conversation_turn_after_action_includes_result_notice"
@@ -281,7 +349,7 @@
     "route_handler_result_id": "rhr_v141_F03_action_result_claims_trace_to_handler_result",
     "canonical_input_hash": "72d37267328e80ca8f51d954d66868a813eb07aa64077da765278e5d69ee0f14",
     "canonical_output_hash": "ebb607a9cf7736cb5f0e3d115020a29c4e321690c905256c6f1cb7eb169731f4",
-    "canonical_handler_trace_hash": "c3dd1a96d1c44a8cc3aed74da7361b098d11f6005fa645d3d879e4b9b49a9d4f",
+    "canonical_handler_trace_hash": "2ef527a63a6da41923236b146ff3f2faabafd2c81f6e9f49ad9e0ca570831124",
     "source_artifact_hashes": {
       "per_case/clean/v140_E02_conversation_turn_after_action_includes_result_notice.json": "81334b3c9363e4d5d3ae736668e56ee4c14cd11a932813b52f3e2d1476676335",
       "per_case/clean/v139_B02_this_time_only_submission_no_write_result.json": "d589033e39b1470eba426e2ce75085592512d540e06c26fe0c79b2acfd50e70f"

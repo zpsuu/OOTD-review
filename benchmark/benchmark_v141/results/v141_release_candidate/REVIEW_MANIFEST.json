@@ -4,7 +4,7 @@
   "theme": "In-Process Product Runtime Adapter",
   "branch": "v141-in-process-product-runtime-adapter",
   "entrypoint": "benchmark/benchmark_v141/results/v141_release_candidate/REVIEW_MANIFEST.json",
-  "generated_at": "2026-06-24T10:16:48Z",
+  "generated_at": "2026-06-24T10:27:44Z",
   "builder_script": "benchmark/benchmark_v141/scripts/build_v141_release_candidate_evidence_pack.py",
   "validator_script": "benchmark/benchmark_v141/scripts/validate_v141_release_candidate.py",
   "adversarial_generator": "benchmark/benchmark_v141/scripts/generate_v141_adversarial_cases.py",
@@ -52,7 +52,7 @@
       "case_id": "v141_A04_get_action_surface_handler_matches_v140_contract",
       "artifact_ref": "sample_artifacts/runtime_action_surface_handler.json",
       "source_artifact_ref": "per_case/clean/v141_A04_get_action_surface_handler_matches_v140_contract.json",
-      "canonical_sha256": "e23b2776fbe21ac73584a4423ad8c3b175c77cc31fa5478a2f420741f25e3795",
+      "canonical_sha256": "3016817578cbe26974ce21225307b3569ab20f0ea7902e344af97d42a0f313da",
       "sample_projection_schema": "full_copy",
       "allowed_omitted_fields": []
     },
@@ -60,7 +60,7 @@
       "case_id": "v141_C01_post_this_time_only_handler_no_write_matches_contract",
       "artifact_ref": "sample_artifacts/runtime_post_this_time_only_handler.json",
       "source_artifact_ref": "per_case/clean/v141_C01_post_this_time_only_handler_no_write_matches_contract.json",
-      "canonical_sha256": "4556a78d08e93b88475ceb5847dd165fa242c2464a387a9231484645fce36ee4",
+      "canonical_sha256": "5a0f1c27a745dacae912bc9815d830fed7706bf6ae96548e17070dcef402997b",
       "sample_projection_schema": "full_copy",
       "allowed_omitted_fields": []
     },
@@ -68,7 +68,7 @@
       "case_id": "v141_C03_post_remember_for_context_handler_routes_to_write_gate",
       "artifact_ref": "sample_artifacts/runtime_remember_for_context_handler.json",
       "source_artifact_ref": "per_case/clean/v141_C03_post_remember_for_context_handler_routes_to_write_gate.json",
-      "canonical_sha256": "4da3af99a56f85a1b7635fec6ed35c8783676c7dd11ad7d35e8988a75890085c",
+      "canonical_sha256": "06b9a7bd53b45faa7b1fe9ba83c1235f68459ebc1b4c516c8aea5d70352fbe43",
       "sample_projection_schema": "full_copy",
       "allowed_omitted_fields": []
     },
@@ -76,7 +76,7 @@
       "case_id": "v141_C04_duplicate_submission_handler_is_idempotent",
       "artifact_ref": "sample_artifacts/runtime_duplicate_submission_handler.json",
       "source_artifact_ref": "per_case/clean/v141_C04_duplicate_submission_handler_is_idempotent.json",
-      "canonical_sha256": "8911ac7ff2f81f0464d178376a2e1df31cc09c08643dae06f4a04c74c98274ad",
+      "canonical_sha256": "7d24ea54d17f46619234db53904073799fabb35ebe5e4a9ce852ae7e26b7e198",
       "sample_projection_schema": "full_copy",
       "allowed_omitted_fields": []
     },
@@ -84,7 +84,7 @@
       "case_id": "v141_A06_unsupported_route_handler_returns_safe_error",
       "artifact_ref": "sample_artifacts/runtime_safe_error_handler.json",
       "source_artifact_ref": "per_case/clean/v141_A06_unsupported_route_handler_returns_safe_error.json",
-      "canonical_sha256": "97da5132a5e44f702d2ceba9d79df68d933328728667ae8e72f5c591dfb90caf",
+      "canonical_sha256": "d9463a2008cf90a802d6659246ae38c8da6d1727c395e5a0d699b5e2b9427326",
       "sample_projection_schema": "full_copy",
       "allowed_omitted_fields": []
     },
@@ -92,7 +92,7 @@
       "case_id": "v141_E01_runtime_adapter_snapshot_hashes_reproducible",
       "artifact_ref": "sample_artifacts/runtime_snapshot.json",
       "source_artifact_ref": "per_case/clean/v141_E01_runtime_adapter_snapshot_hashes_reproducible.json",
-      "canonical_sha256": "6b732983dffee3a4c47b7bd052c4254605b4443880a79b69f43ba95e38fc62f3",
+      "canonical_sha256": "43119dc94d77ddd4acf16477afa43828b350a84acdec522a1707e57cd6e910a2",
       "sample_projection_schema": "full_copy",
       "allowed_omitted_fields": []
     },
@@ -100,7 +100,7 @@
       "case_id": "v141_G01_runtime_redacts_raw_human_review_evidence",
       "artifact_ref": "sample_artifacts/runtime_redaction_handler.json",
       "source_artifact_ref": "per_case/clean/v141_G01_runtime_redacts_raw_human_review_evidence.json",
-      "canonical_sha256": "a2f0f2facadee318020d977417c139f3287bc8d60255ea12501790ef95ccaf13",
+      "canonical_sha256": "e12c550e89e21e1e4edc577c528a67e0fc870ef2a2e0674095087cc20cb038ea",
       "sample_projection_schema": "full_copy",
       "allowed_omitted_fields": []
     }

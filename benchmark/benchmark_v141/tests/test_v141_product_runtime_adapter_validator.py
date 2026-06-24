@@ -27,6 +27,7 @@ def _load_module(name: str, path: Path):
 builder = _load_module("build_v141_release_candidate_evidence_pack", SCRIPT_DIR / "build_v141_release_candidate_evidence_pack.py")
 validator = _load_module("validate_v141_release_candidate", SCRIPT_DIR / "validate_v141_release_candidate.py")
 generator = _load_module("generate_v141_adversarial_cases", SCRIPT_DIR / "generate_v141_adversarial_cases.py")
+runtime = _load_module("product_runtime_adapter", REPO_ROOT / "benchmark" / "benchmark_v141" / "runtime" / "product_runtime_adapter.py")
 
 
 def _write_json(path: Path, data: dict) -> None:
@@ -51,10 +52,23 @@ class V141ProductRuntimeAdapterValidatorTests(unittest.TestCase):
             self.assertEqual(clean["suite_summary"]["passed_cases"], 43)
             self.assertEqual(clean["suite_summary"]["passed_checks"], 20)
             self.assertEqual(adversarial["suite_summary"]["passed_cases"], 0)
-            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 35)
-            self.assertEqual(adversarial["detected_defect_count"], 35)
+            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 40)
+            self.assertEqual(adversarial["detected_defect_count"], 40)
             self.assertTrue(sample["passed"], sample["failures"])
             self.assertTrue(consistency["passed"], consistency["failures"])
+
+    def test_declared_handlers_resolve_to_callables(self) -> None:
+        expected = {
+            "handle_get_daily_outfit",
+            "handle_get_action_surface",
+            "handle_post_action_submission",
+            "handle_get_action_result",
+            "handle_unsupported_route",
+        }
+        self.assertTrue(expected.issubset(runtime.HANDLER_CALLABLES))
+        for handler_name in expected:
+            self.assertTrue(callable(getattr(runtime, handler_name, None)))
+            self.assertTrue(callable(runtime.HANDLER_CALLABLES.get(handler_name)))
 
     def test_missing_supported_route_binding_is_detected(self) -> None:
         failed = self._mutate("*A02_route_registry_binds_each_supported_route_once.json", lambda case: case["product_route_registry"].__setitem__("routes", case["product_route_registry"]["routes"][:-1]))
@@ -123,6 +137,41 @@ class V141ProductRuntimeAdapterValidatorTests(unittest.TestCase):
         failed = self._mutate("*A06_unsupported_route_handler_returns_safe_error.json", lambda case: case["route_handler_result"]["output_envelope"]["error"].__setitem__("safe_message", "Traceback raw_evidence"))
         self.assertIn("runtime_error_safety_rate", failed["v141_A06_unsupported_route_handler_returns_safe_error"])
 
+    def test_missing_callable_handler_registry_entry_is_detected(self) -> None:
+        def mutate(case: dict) -> None:
+            case["product_runtime_adapter"]["callable_handler_registry"] = [
+                row for row in case["product_runtime_adapter"]["callable_handler_registry"] if row["handler_name"] != "handle_get_action_surface"
+            ]
+        failed = self._mutate("*A04_get_action_surface_handler_matches_v140_contract.json", mutate)
+        self.assertIn("adapter_route_registry_complete_rate", failed["v141_A04_get_action_surface_handler_matches_v140_contract"])
+
+    def test_registry_non_callable_handler_is_detected(self) -> None:
+        def mutate(case: dict) -> None:
+            for row in case["product_route_registry"]["routes"]:
+                if row["route"] == "GET /local/action-surface":
+                    row["handler_name"] = "not_a_callable_handler"
+            case["route_handler_invocation"]["handler_name"] = "not_a_callable_handler"
+            case["route_handler_invocation"]["resolved_callable_name"] = "not_a_callable_handler"
+            case["runtime_handler_execution_trace"]["handler_name"] = "not_a_callable_handler"
+        failed = self._mutate("*A04_get_action_surface_handler_matches_v140_contract.json", mutate)
+        self.assertIn("adapter_route_registry_complete_rate", failed["v141_A04_get_action_surface_handler_matches_v140_contract"])
+
+    def test_invocation_direct_copy_bypass_is_detected(self) -> None:
+        def mutate(case: dict) -> None:
+            case["route_handler_result"]["produced_by_callable"] = False
+            case["runtime_handler_execution_trace"]["callable_execution_proof"]["direct_source_output_copy"] = True
+            case["runtime_handler_execution_trace"]["callable_execution_proof"]["callable_invoked"] = False
+        failed = self._mutate("*A04_get_action_surface_handler_matches_v140_contract.json", mutate)
+        self.assertIn("handler_dispatch_trace_complete_rate", failed["v141_A04_get_action_surface_handler_matches_v140_contract"])
+
+    def test_unsupported_route_missing_callable_is_detected(self) -> None:
+        failed = self._mutate("*A06_unsupported_route_handler_returns_safe_error.json", lambda case: case["product_route_registry"]["unsupported_route_policy"].__setitem__("handler_name", "handle_missing_unsupported_route"))
+        self.assertIn("adapter_route_registry_complete_rate", failed["v141_A06_unsupported_route_handler_returns_safe_error"])
+
+    def test_invoke_handler_without_callable_execution_proof_is_detected(self) -> None:
+        failed = self._mutate("*B04_route_handler_trace_records_dispatch_steps.json", lambda case: case["runtime_handler_execution_trace"].pop("callable_execution_proof", None))
+        self.assertIn("handler_dispatch_trace_complete_rate", failed["v141_B04_route_handler_trace_records_dispatch_steps"])
+
     def test_adversarial_detection_does_not_depend_on_gate_assertions(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             result_dir = self._build(tmp)
@@ -134,8 +183,8 @@ class V141ProductRuntimeAdapterValidatorTests(unittest.TestCase):
                 _write_json(path, case)
             adversarial = validator.validate_directory(result_dir, "adversarial")
             self.assertEqual(adversarial["suite_summary"]["passed_cases"], 0)
-            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 35)
-            self.assertEqual(adversarial["detected_defect_count"], 35)
+            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 40)
+            self.assertEqual(adversarial["detected_defect_count"], 40)
 
     def _mutate(self, pattern: str, mutate) -> dict[str, list[str]]:
         with tempfile.TemporaryDirectory() as tmp:
