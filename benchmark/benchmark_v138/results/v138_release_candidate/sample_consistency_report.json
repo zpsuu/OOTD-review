@@ -21,9 +21,9 @@
       "source_artifact_ref": "per_case/clean/v138_C02_review_approve_write_still_uses_write_gate.json",
       "case_id": "v138_C02_review_approve_write_still_uses_write_gate",
       "exists": true,
-      "sample_hash": "88977300fc640ee38509432be4c18b4b3e9def35c962f6f5c3e6ba6dfc0b6a62",
-      "source_hash": "88977300fc640ee38509432be4c18b4b3e9def35c962f6f5c3e6ba6dfc0b6a62",
-      "manifest_hash": "88977300fc640ee38509432be4c18b4b3e9def35c962f6f5c3e6ba6dfc0b6a62",
+      "sample_hash": "714eeb8f7110b26ede46038904651d42a821394b233c8bfe9a45597f5e2d5283",
+      "source_hash": "714eeb8f7110b26ede46038904651d42a821394b233c8bfe9a45597f5e2d5283",
+      "manifest_hash": "714eeb8f7110b26ede46038904651d42a821394b233c8bfe9a45597f5e2d5283",
       "passed": true
     },
     {
@@ -31,9 +31,9 @@
       "source_artifact_ref": "per_case/clean/v138_C03_review_reject_no_write_preserves_memory_state.json",
       "case_id": "v138_C03_review_reject_no_write_preserves_memory_state",
       "exists": true,
-      "sample_hash": "30324e82b8f1daeac6a7b727563c1fa12b9280878fefc560d4867a50245fb0cf",
-      "source_hash": "30324e82b8f1daeac6a7b727563c1fa12b9280878fefc560d4867a50245fb0cf",
-      "manifest_hash": "30324e82b8f1daeac6a7b727563c1fa12b9280878fefc560d4867a50245fb0cf",
+      "sample_hash": "5d35d06115bb1ae9f7b11b5c52392c8d4c59f09643be56328c7ad274d84f85f2",
+      "source_hash": "5d35d06115bb1ae9f7b11b5c52392c8d4c59f09643be56328c7ad274d84f85f2",
+      "manifest_hash": "5d35d06115bb1ae9f7b11b5c52392c8d4c59f09643be56328c7ad274d84f85f2",
       "passed": true
     },
     {
@@ -61,11 +61,11 @@
       "source_artifact_ref": "per_case/clean/v138_H01_ledger_hash_chain_valid.json",
       "case_id": "v138_H01_ledger_hash_chain_valid",
       "exists": true,
-      "sample_hash": "1759f1f48930941ee83540c02f5efd9b43c388dfee040d54ba1db91e3c8dad0b",
-      "source_hash": "1759f1f48930941ee83540c02f5efd9b43c388dfee040d54ba1db91e3c8dad0b",
-      "manifest_hash": "1759f1f48930941ee83540c02f5efd9b43c388dfee040d54ba1db91e3c8dad0b",
+      "sample_hash": "28e1ba92336d935c63b941c19e833aad31e5e22ebe192186800c3a5c36aa0343",
+      "source_hash": "28e1ba92336d935c63b941c19e833aad31e5e22ebe192186800c3a5c36aa0343",
+      "manifest_hash": "28e1ba92336d935c63b941c19e833aad31e5e22ebe192186800c3a5c36aa0343",
       "passed": true
     }
   ],
-  "generated_at": "2026-06-24T07:06:17Z"
+  "generated_at": "2026-06-24T07:17:51Z"
 }

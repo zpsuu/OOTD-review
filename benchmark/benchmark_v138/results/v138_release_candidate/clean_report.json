@@ -1,7 +1,7 @@
 {
   "benchmark_id": "v1.38.runtime_governance_operations",
   "schema_version": "v1.38",
-  "generated_at": "2026-06-24T07:06:17Z",
+  "generated_at": "2026-06-24T07:17:51Z",
   "verdicts": {
     "clean_acceptance_verdict": "pass",
     "release_candidate_verdict": "pass_candidate"

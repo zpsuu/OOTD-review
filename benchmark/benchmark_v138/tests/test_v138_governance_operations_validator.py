@@ -52,8 +52,8 @@ class V138GovernanceOperationsValidatorTests(unittest.TestCase):
             self.assertEqual(clean["suite_summary"]["passed_cases"], 32)
             self.assertEqual(clean["suite_summary"]["passed_checks"], 23)
             self.assertEqual(adversarial["suite_summary"]["passed_cases"], 0)
-            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 20)
-            self.assertEqual(adversarial["detected_defect_count"], 20)
+            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 23)
+            self.assertEqual(adversarial["detected_defect_count"], 23)
             self.assertTrue(sample["passed"], sample["failures"])
             self.assertTrue(consistency["passed"], consistency["failures"])
 
@@ -138,6 +138,42 @@ class V138GovernanceOperationsValidatorTests(unittest.TestCase):
             failed = {case["case_id"]: case["failed_check_ids"] for case in report["case_results"] if not case["passed"]}
             self.assertIn("human_review_payload_has_raw_evidence_rate", failed["v138_A02_human_review_trigger_creates_open_queue_item"])
 
+    def test_resolved_clarification_item_requires_matching_request(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dir = self._build(tmp)
+            path = next((result_dir / "per_case" / "clean").glob("*B02_clarification_answer_this_time_only_no_write.json"))
+            case = json.loads(path.read_text(encoding="utf-8"))
+            case["clarification_request"] = None
+            case["clarification_requests"] = []
+            _write_json(path, case)
+            report = validator.validate_directory(result_dir, "clean")
+            failed = {case["case_id"]: case["failed_check_ids"] for case in report["case_results"] if not case["passed"]}
+            self.assertIn("clarification_request_trace_backed_rate", failed["v138_B02_clarification_answer_this_time_only_no_write"])
+
+    def test_resolved_review_rejection_requires_matching_payload(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dir = self._build(tmp)
+            path = next((result_dir / "per_case" / "clean").glob("*C03_review_reject_no_write_preserves_memory_state.json"))
+            case = json.loads(path.read_text(encoding="utf-8"))
+            case["human_review_payload"] = None
+            case["human_review_payloads"] = []
+            _write_json(path, case)
+            report = validator.validate_directory(result_dir, "clean")
+            failed = {case["case_id"]: case["failed_check_ids"] for case in report["case_results"] if not case["passed"]}
+            self.assertIn("human_review_payload_has_raw_evidence_rate", failed["v138_C03_review_reject_no_write_preserves_memory_state"])
+
+    def test_resolved_review_approval_requires_matching_payload(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dir = self._build(tmp)
+            path = next((result_dir / "per_case" / "clean").glob("*C02_review_approve_write_still_uses_write_gate.json"))
+            case = json.loads(path.read_text(encoding="utf-8"))
+            case["human_review_payload"] = None
+            case["human_review_payloads"] = []
+            _write_json(path, case)
+            report = validator.validate_directory(result_dir, "clean")
+            failed = {case["case_id"]: case["failed_check_ids"] for case in report["case_results"] if not case["passed"]}
+            self.assertIn("human_review_payload_has_raw_evidence_rate", failed["v138_C02_review_approve_write_still_uses_write_gate"])
+
     def test_expired_hold_write_is_detected(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             result_dir = self._build(tmp)
@@ -198,8 +234,8 @@ class V138GovernanceOperationsValidatorTests(unittest.TestCase):
                 _write_json(path, case)
             adversarial = validator.validate_directory(result_dir, "adversarial")
             self.assertEqual(adversarial["suite_summary"]["passed_cases"], 0)
-            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 20)
-            self.assertEqual(adversarial["detected_defect_count"], 20)
+            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 23)
+            self.assertEqual(adversarial["detected_defect_count"], 23)
 
 
 if __name__ == "__main__":

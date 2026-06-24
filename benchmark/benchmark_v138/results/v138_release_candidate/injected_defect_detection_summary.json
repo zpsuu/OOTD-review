@@ -1,9 +1,9 @@
 {
   "version": "v1.38",
-  "generated_at": "2026-06-24T07:06:17Z",
+  "generated_at": "2026-06-24T07:17:51Z",
   "verdict": "pass",
-  "seeded_defects": 20,
-  "detected_defects": 20,
+  "seeded_defects": 23,
+  "detected_defects": 23,
   "unexpected_injected_passes": [],
   "detected": [
     {
@@ -230,6 +230,39 @@
     {
       "case_id": "v138_ADV_L20_open_review_item_missing_payload",
       "defect_type": "open_review_item_missing_payload",
+      "expected_failed_check_ids": [
+        "human_review_payload_has_raw_evidence_rate"
+      ],
+      "failed_check_ids": [
+        "human_review_payload_has_raw_evidence_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v138_ADV_L21_resolved_clarification_item_missing_request",
+      "defect_type": "resolved_clarification_item_missing_request",
+      "expected_failed_check_ids": [
+        "clarification_request_trace_backed_rate"
+      ],
+      "failed_check_ids": [
+        "clarification_request_trace_backed_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v138_ADV_L22_resolved_review_rejection_missing_payload",
+      "defect_type": "resolved_review_rejection_missing_payload",
+      "expected_failed_check_ids": [
+        "human_review_payload_has_raw_evidence_rate"
+      ],
+      "failed_check_ids": [
+        "human_review_payload_has_raw_evidence_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v138_ADV_L23_resolved_review_approval_missing_payload",
+      "defect_type": "resolved_review_approval_missing_payload",
       "expected_failed_check_ids": [
         "human_review_payload_has_raw_evidence_rate"
       ],

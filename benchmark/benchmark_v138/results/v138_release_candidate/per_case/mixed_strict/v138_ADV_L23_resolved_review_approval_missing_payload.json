@@ -1,5 +1,5 @@
 {
-  "case_id": "v138_ADV_L09_review_approval_bypasses_write_gate",
+  "case_id": "v138_ADV_L23_resolved_review_approval_missing_payload",
   "version": "v1.38",
   "scenario_kind": "review_approve_write",
   "gate_assertions": {
@@ -28,7 +28,7 @@
     "v137_validation_replay_pass_rate": true
   },
   "runtime_trace": {
-    "runtime_trace_id": "rt_v138_909",
+    "runtime_trace_id": "rt_v138_923",
     "stage_order": [
       "runtime_trace",
       "governance_trigger",
@@ -39,54 +39,54 @@
       "multi_day_replay"
     ],
     "trace_refs": [
-      "tmp_v138_909",
-      "pmf_v138_909"
+      "tmp_v138_923",
+      "pmf_v138_923"
     ]
   },
   "governance_trigger": {
-    "governance_trigger_id": "gt_v138_909",
+    "governance_trigger_id": "gt_v138_923",
     "trigger_type": "human_review_required",
-    "source_runtime_trace_id": "rt_v138_909",
-    "source_task_memory_packet_id": "tmp_v138_909",
-    "source_feedback_event_id": "pmf_v138_909",
-    "target_memory_id": "mem_insp_v138_909",
+    "source_runtime_trace_id": "rt_v138_923",
+    "source_task_memory_packet_id": "tmp_v138_923",
+    "source_feedback_event_id": "pmf_v138_923",
+    "target_memory_id": "mem_insp_v138_923",
     "trace_refs": [
-      "rt_v138_909",
-      "tmp_v138_909",
-      "pmf_v138_909"
+      "rt_v138_923",
+      "tmp_v138_923",
+      "pmf_v138_923"
     ]
   },
   "runtime_governance_queue": {
-    "runtime_governance_queue_id": "rgq_v138_909",
-    "runtime_trace_id": "rt_v138_909",
+    "runtime_governance_queue_id": "rgq_v138_923",
+    "runtime_trace_id": "rt_v138_923",
     "created_at": "2026-06-24T00:00:00Z",
     "queue_items": [
       {
-        "governance_queue_item_id": "gqi_v138_909",
+        "governance_queue_item_id": "gqi_v138_923",
         "trigger_type": "human_review_required",
-        "trigger_ref": "gt_v138_909",
-        "target_memory_id": "mem_insp_v138_909",
+        "trigger_ref": "gt_v138_923",
+        "target_memory_id": "mem_insp_v138_923",
         "target_candidate_id": null,
-        "source_runtime_trace_id": "rt_v138_909",
-        "source_task_memory_packet_id": "tmp_v138_909",
-        "source_feedback_event_id": "pmf_v138_909",
+        "source_runtime_trace_id": "rt_v138_923",
+        "source_task_memory_packet_id": "tmp_v138_923",
+        "source_feedback_event_id": "pmf_v138_923",
         "status": "resolved",
         "priority": "medium",
         "risk_level": "high",
         "created_at": "2026-06-24T00:00:00Z",
-        "resolution_ref": "grd_v138_909",
+        "resolution_ref": "grd_v138_923",
         "trace_refs": [
-          "rt_v138_909",
-          "gt_v138_909",
-          "tmp_v138_909",
-          "pmf_v138_909"
+          "rt_v138_923",
+          "gt_v138_923",
+          "tmp_v138_923",
+          "pmf_v138_923"
         ]
       }
     ],
     "dedupe_index": [
       {
-        "dedupe_key": "human_review_required:mem_insp_v138_909:gt_v138_909",
-        "canonical_queue_item_id": "gqi_v138_909"
+        "dedupe_key": "human_review_required:mem_insp_v138_923:gt_v138_923",
+        "canonical_queue_item_id": "gqi_v138_923"
       }
     ],
     "open_item_count": 0,
@@ -96,100 +96,34 @@
   "clarification_request": null,
   "clarification_requests": [],
   "clarification_resolution": null,
-  "human_review_payload": {
-    "human_review_payload_id": "hrp_v138_909",
-    "governance_queue_item_id": "gqi_v138_909",
-    "risk_reasons": [
-      "context_scope_change_requires_review"
-    ],
-    "proposed_action_summary": "narrow context handling for a promoted inspiration memory",
-    "raw_evidence_refs": [
-      "rt_v138_909",
-      "tmp_v138_909",
-      "pmf_v138_909",
-      "state_before_v138_909"
-    ],
-    "trace_refs": [
-      "rt_v138_909",
-      "tmp_v138_909",
-      "pmf_v138_909",
-      "gqi_v138_909"
-    ],
-    "allowed_reviewer_actions": [
-      "approve_no_write",
-      "approve_write",
-      "reject",
-      "request_clarification",
-      "rollback"
-    ],
-    "forbidden_reviewer_actions": [
-      "globalize_memory",
-      "add_unconfirmed_aspect",
-      "infer_body_or_identity"
-    ],
-    "production_write_blocked_until_resolution": true
-  },
-  "human_review_payloads": [
-    {
-      "human_review_payload_id": "hrp_v138_909",
-      "governance_queue_item_id": "gqi_v138_909",
-      "risk_reasons": [
-        "context_scope_change_requires_review"
-      ],
-      "proposed_action_summary": "narrow context handling for a promoted inspiration memory",
-      "raw_evidence_refs": [
-        "rt_v138_909",
-        "tmp_v138_909",
-        "pmf_v138_909",
-        "state_before_v138_909"
-      ],
-      "trace_refs": [
-        "rt_v138_909",
-        "tmp_v138_909",
-        "pmf_v138_909",
-        "gqi_v138_909"
-      ],
-      "allowed_reviewer_actions": [
-        "approve_no_write",
-        "approve_write",
-        "reject",
-        "request_clarification",
-        "rollback"
-      ],
-      "forbidden_reviewer_actions": [
-        "globalize_memory",
-        "add_unconfirmed_aspect",
-        "infer_body_or_identity"
-      ],
-      "production_write_blocked_until_resolution": true
-    }
-  ],
+  "human_review_payload": null,
+  "human_review_payloads": [],
   "human_review_resolution": {
-    "human_review_resolution_id": "hrr_v138_909",
+    "human_review_resolution_id": "hrr_v138_923",
     "reviewer_action": "approve_write",
     "blocked_forbidden_action": false,
     "trace_refs": [
-      "gqi_v138_909",
-      "hrp_v138_909"
+      "gqi_v138_923",
+      "hrp_v138_923"
     ]
   },
   "temporary_hold_lifecycle": {
-    "temporary_hold_id": "th_v138_909",
-    "source_queue_item_id": "gqi_v138_909",
+    "temporary_hold_id": "th_v138_923",
+    "source_queue_item_id": "gqi_v138_923",
     "current_turn_scoped": true,
     "production_lifecycle_mutation": false,
     "status": "released",
-    "release_ref": "grd_v138_909",
+    "release_ref": "grd_v138_923",
     "expiry_ref": null
   },
   "governance_resolution_decision": {
-    "governance_resolution_decision_id": "grd_v138_909",
-    "governance_queue_item_id": "gqi_v138_909",
+    "governance_resolution_decision_id": "grd_v138_923",
+    "governance_queue_item_id": "gqi_v138_923",
     "resolution_type": "review_approved_write",
-    "resolution_input_ref": "resolution_input_v138_909",
-    "production_write_gate_ref": "pmwg_v138_909",
+    "resolution_input_ref": "resolution_input_v138_923",
+    "production_write_gate_ref": "pmwg_v138_923",
     "production_write_executed": true,
-    "memory_patch_ref": "patch_v138_909",
+    "memory_patch_ref": "patch_v138_923",
     "temporary_hold_released": true,
     "decision_reasons": [
       "review_approved_write"
@@ -197,16 +131,16 @@
     "created_at": "2026-06-24T00:00:00Z"
   },
   "production_memory_write_gate": {
-    "gate_id": "pmwg_v138_909",
-    "decision": "block",
+    "gate_id": "pmwg_v138_923",
+    "decision": "allow",
     "production_write_executed": true,
     "pre_resolution_write": false,
     "allowlist_checked": true,
     "environment": "deterministic_local_fixture"
   },
   "before_memory_lifecycle_state": {
-    "state_snapshot_id": "state_active_v138_909",
-    "memory_id": "mem_insp_v138_909",
+    "state_snapshot_id": "state_active_v138_923",
+    "memory_id": "mem_insp_v138_923",
     "current_status": "active",
     "contexts": [
       "office_daily"
@@ -215,15 +149,15 @@
       "color_palette"
     ],
     "active_memory_ids": [
-      "mem_insp_v138_909"
+      "mem_insp_v138_923"
     ],
     "blocked_memory_ids": [],
     "rolled_back_memory_ids": [],
     "context_exclusions": []
   },
   "after_memory_lifecycle_state": {
-    "state_snapshot_id": "state_review_write_v138_909",
-    "memory_id": "mem_insp_v138_909",
+    "state_snapshot_id": "state_review_write_v138_923",
+    "memory_id": "mem_insp_v138_923",
     "current_status": "active",
     "contexts": [
       "office_daily"
@@ -232,7 +166,7 @@
       "color_palette"
     ],
     "active_memory_ids": [
-      "mem_insp_v138_909"
+      "mem_insp_v138_923"
     ],
     "blocked_memory_ids": [],
     "rolled_back_memory_ids": [],
@@ -241,36 +175,36 @@
     ]
   },
   "post_resolution_task_memory_packet": {
-    "task_memory_packet_id": "tmp_post_resolution_v138_909",
+    "task_memory_packet_id": "tmp_post_resolution_v138_923",
     "request_context": "office_daily",
     "candidate_promoted_memory_ids": [
-      "mem_insp_v138_909"
+      "mem_insp_v138_923"
     ],
     "consumed_promoted_memory_ids": [
-      "mem_insp_v138_909"
+      "mem_insp_v138_923"
     ],
     "excluded_memory_ids": [],
     "expected_behavior": "active_consumption_after_resolution",
-    "resolution_ref": "grd_v138_909",
+    "resolution_ref": "grd_v138_923",
     "trace_refs": [
-      "grd_v138_909",
-      "mem_insp_v138_909"
+      "grd_v138_923",
+      "mem_insp_v138_923"
     ]
   },
   "governance_decision_ledger": {
-    "governance_decision_ledger_id": "gdl_rt_v138_909",
-    "runtime_trace_id": "rt_v138_909",
+    "governance_decision_ledger_id": "gdl_rt_v138_923",
+    "runtime_trace_id": "rt_v138_923",
     "ledger_entries": [
       {
-        "ledger_entry_id": "gle_grd_v138_909",
+        "ledger_entry_id": "gle_grd_v138_923",
         "previous_entry_hash": null,
-        "queue_item_id": "gqi_v138_909",
-        "resolution_decision_id": "grd_v138_909",
-        "before_state_ref": "state_active_v138_909",
-        "after_state_ref": "state_review_write_v138_909",
+        "queue_item_id": "gqi_v138_923",
+        "resolution_decision_id": "grd_v138_923",
+        "before_state_ref": "state_active_v138_923",
+        "after_state_ref": "state_review_write_v138_923",
         "before_state": {
-          "state_snapshot_id": "state_active_v138_909",
-          "memory_id": "mem_insp_v138_909",
+          "state_snapshot_id": "state_active_v138_923",
+          "memory_id": "mem_insp_v138_923",
           "current_status": "active",
           "contexts": [
             "office_daily"
@@ -279,15 +213,15 @@
             "color_palette"
           ],
           "active_memory_ids": [
-            "mem_insp_v138_909"
+            "mem_insp_v138_923"
           ],
           "blocked_memory_ids": [],
           "rolled_back_memory_ids": [],
           "context_exclusions": []
         },
         "after_state": {
-          "state_snapshot_id": "state_review_write_v138_909",
-          "memory_id": "mem_insp_v138_909",
+          "state_snapshot_id": "state_review_write_v138_923",
+          "memory_id": "mem_insp_v138_923",
           "current_status": "active",
           "contexts": [
             "office_daily"
@@ -296,7 +230,7 @@
             "color_palette"
           ],
           "active_memory_ids": [
-            "mem_insp_v138_909"
+            "mem_insp_v138_923"
           ],
           "blocked_memory_ids": [],
           "rolled_back_memory_ids": [],
@@ -306,20 +240,20 @@
         },
         "production_write_executed": true,
         "trace_refs": [
-          "rt_v138_909",
-          "gqi_v138_909",
-          "grd_v138_909"
+          "rt_v138_923",
+          "gqi_v138_923",
+          "grd_v138_923"
         ],
-        "entry_hash": "dc33ee4b5dce6ae5b8675bf5f8de297824bc5c243d9ac449ab70c0f9a66da701"
+        "entry_hash": "6fe6b0096187c4fa1ef0558e6680ae0a951f7aa2a7477ce127b26cede02c5536"
       }
     ],
     "append_only": true,
     "entry_hash_chain_valid": true,
-    "latest_entry_hash": "dc33ee4b5dce6ae5b8675bf5f8de297824bc5c243d9ac449ab70c0f9a66da701",
+    "latest_entry_hash": "6fe6b0096187c4fa1ef0558e6680ae0a951f7aa2a7477ce127b26cede02c5536",
     "append_only_replay": [
       {
-        "ledger_entry_id": "gle_grd_v138_909",
-        "entry_hash": "dc33ee4b5dce6ae5b8675bf5f8de297824bc5c243d9ac449ab70c0f9a66da701"
+        "ledger_entry_id": "gle_grd_v138_923",
+        "entry_hash": "6fe6b0096187c4fa1ef0558e6680ae0a951f7aa2a7477ce127b26cede02c5536"
       }
     ]
   },
@@ -327,29 +261,29 @@
   "blocked_memory_future_absence_proof": null,
   "visible_claims": [
     {
-      "claim_id": "claim_v138_909",
+      "claim_id": "claim_v138_923",
       "text": "I applied the resolved governance decision for this outfit packet.",
       "trace_refs": [
-        "grd_v138_909",
-        "tmp_post_resolution_v138_909"
+        "grd_v138_923",
+        "tmp_post_resolution_v138_923"
       ]
     }
   ],
   "multi_day_governance_replay": {
     "days": 3,
     "stable_queue_item_ids": [
-      "gqi_v138_909"
+      "gqi_v138_923"
     ],
-    "stable_ledger_hash": "dc33ee4b5dce6ae5b8675bf5f8de297824bc5c243d9ac449ab70c0f9a66da701",
+    "stable_ledger_hash": "6fe6b0096187c4fa1ef0558e6680ae0a951f7aa2a7477ce127b26cede02c5536",
     "no_silent_mutation": true
   },
   "forbidden_actions_blocked": true,
   "v137_replay_proof": {
     "run_v137_validation_suite": "PASS"
   },
-  "defect_type": "review_approval_bypasses_write_gate",
+  "defect_type": "resolved_review_approval_missing_payload",
   "expected_failure": true,
   "expected_failed_check_ids": [
-    "human_review_resolution_uses_write_gate_rate"
+    "human_review_payload_has_raw_evidence_rate"
   ]
 }

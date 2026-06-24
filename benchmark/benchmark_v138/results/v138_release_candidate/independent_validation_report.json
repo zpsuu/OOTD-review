@@ -1,6 +1,6 @@
 {
   "validator": "v1.38.independent.governance_operations_validator",
-  "generated_at": "2026-06-24T07:06:17Z",
+  "generated_at": "2026-06-24T07:17:51Z",
   "result_dir": "benchmark/benchmark_v138/results/v138_release_candidate",
   "subset": "clean",
   "suite_summary": {

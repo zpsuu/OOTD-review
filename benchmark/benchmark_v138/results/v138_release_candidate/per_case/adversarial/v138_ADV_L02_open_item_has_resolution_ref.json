@@ -109,6 +109,12 @@
       "pmf_v138_902",
       "state_before_v138_902"
     ],
+    "trace_refs": [
+      "rt_v138_902",
+      "tmp_v138_902",
+      "pmf_v138_902",
+      "gqi_v138_902"
+    ],
     "allowed_reviewer_actions": [
       "approve_no_write",
       "approve_write",
@@ -136,6 +142,12 @@
         "tmp_v138_902",
         "pmf_v138_902",
         "state_before_v138_902"
+      ],
+      "trace_refs": [
+        "rt_v138_902",
+        "tmp_v138_902",
+        "pmf_v138_902",
+        "gqi_v138_902"
       ],
       "allowed_reviewer_actions": [
         "approve_no_write",

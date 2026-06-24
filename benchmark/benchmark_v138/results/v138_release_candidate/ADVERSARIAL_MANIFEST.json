@@ -1,6 +1,6 @@
 {
   "version": "v1.38",
-  "generated_at": "2026-06-24T07:06:17Z",
+  "generated_at": "2026-06-24T07:17:51Z",
   "source_result_dir": "benchmark/benchmark_v138/results/v138_release_candidate",
   "cases": [
     {
@@ -160,6 +160,30 @@
       "case_id": "v138_ADV_L20_open_review_item_missing_payload",
       "artifact_ref": "per_case/adversarial/v138_ADV_L20_open_review_item_missing_payload.json",
       "defect_type": "open_review_item_missing_payload",
+      "expected_failed_check_ids": [
+        "human_review_payload_has_raw_evidence_rate"
+      ]
+    },
+    {
+      "case_id": "v138_ADV_L21_resolved_clarification_item_missing_request",
+      "artifact_ref": "per_case/adversarial/v138_ADV_L21_resolved_clarification_item_missing_request.json",
+      "defect_type": "resolved_clarification_item_missing_request",
+      "expected_failed_check_ids": [
+        "clarification_request_trace_backed_rate"
+      ]
+    },
+    {
+      "case_id": "v138_ADV_L22_resolved_review_rejection_missing_payload",
+      "artifact_ref": "per_case/adversarial/v138_ADV_L22_resolved_review_rejection_missing_payload.json",
+      "defect_type": "resolved_review_rejection_missing_payload",
+      "expected_failed_check_ids": [
+        "human_review_payload_has_raw_evidence_rate"
+      ]
+    },
+    {
+      "case_id": "v138_ADV_L23_resolved_review_approval_missing_payload",
+      "artifact_ref": "per_case/adversarial/v138_ADV_L23_resolved_review_approval_missing_payload.json",
+      "defect_type": "resolved_review_approval_missing_payload",
       "expected_failed_check_ids": [
         "human_review_payload_has_raw_evidence_rate"
       ]

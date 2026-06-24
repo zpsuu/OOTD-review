@@ -4,7 +4,7 @@
   "theme": "Runtime Governance Operations",
   "branch": "v138-runtime-governance-operations",
   "entrypoint": "benchmark/benchmark_v138/results/v138_release_candidate/REVIEW_MANIFEST.json",
-  "generated_at": "2026-06-24T07:06:17Z",
+  "generated_at": "2026-06-24T07:17:51Z",
   "builder_script": "benchmark/benchmark_v138/scripts/build_v138_release_candidate_evidence_pack.py",
   "validator_script": "benchmark/benchmark_v138/scripts/validate_v138_release_candidate.py",
   "runner_script": "benchmark/benchmark_v138/scripts/run_v138_validation_suite.py",
@@ -65,7 +65,7 @@
       "case_id": "v138_C02_review_approve_write_still_uses_write_gate",
       "artifact_ref": "sample_artifacts/review_approve_write_gate.json",
       "source_artifact_ref": "per_case/clean/v138_C02_review_approve_write_still_uses_write_gate.json",
-      "canonical_sha256": "88977300fc640ee38509432be4c18b4b3e9def35c962f6f5c3e6ba6dfc0b6a62",
+      "canonical_sha256": "714eeb8f7110b26ede46038904651d42a821394b233c8bfe9a45597f5e2d5283",
       "sample_projection_schema": "full_copy",
       "allowed_omitted_fields": []
     },
@@ -73,7 +73,7 @@
       "case_id": "v138_C03_review_reject_no_write_preserves_memory_state",
       "artifact_ref": "sample_artifacts/review_reject_no_write.json",
       "source_artifact_ref": "per_case/clean/v138_C03_review_reject_no_write_preserves_memory_state.json",
-      "canonical_sha256": "30324e82b8f1daeac6a7b727563c1fa12b9280878fefc560d4867a50245fb0cf",
+      "canonical_sha256": "5d35d06115bb1ae9f7b11b5c52392c8d4c59f09643be56328c7ad274d84f85f2",
       "sample_projection_schema": "full_copy",
       "allowed_omitted_fields": []
     },
@@ -97,7 +97,7 @@
       "case_id": "v138_H01_ledger_hash_chain_valid",
       "artifact_ref": "sample_artifacts/ledger_hash_chain_valid.json",
       "source_artifact_ref": "per_case/clean/v138_H01_ledger_hash_chain_valid.json",
-      "canonical_sha256": "1759f1f48930941ee83540c02f5efd9b43c388dfee040d54ba1db91e3c8dad0b",
+      "canonical_sha256": "28e1ba92336d935c63b941c19e833aad31e5e22ebe192186800c3a5c36aa0343",
       "sample_projection_schema": "full_copy",
       "allowed_omitted_fields": []
     }

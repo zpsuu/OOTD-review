@@ -101,6 +101,9 @@ DEFECTS = [
     ("ADV_L18", "clean_report_pass_but_independent_validator_fail", ["report_consistency_with_independent_validation_rate"]),
     ("ADV_L19", "open_clarification_item_missing_request", ["clarification_request_trace_backed_rate"]),
     ("ADV_L20", "open_review_item_missing_payload", ["human_review_payload_has_raw_evidence_rate"]),
+    ("ADV_L21", "resolved_clarification_item_missing_request", ["clarification_request_trace_backed_rate"]),
+    ("ADV_L22", "resolved_review_rejection_missing_payload", ["human_review_payload_has_raw_evidence_rate"]),
+    ("ADV_L23", "resolved_review_approval_missing_payload", ["human_review_payload_has_raw_evidence_rate"]),
 ]
 
 SAMPLE_CASES = {
@@ -283,6 +286,7 @@ def _case(case_code: str, scenario: str, kind: str, index: int) -> dict[str, Any
             "risk_reasons": ["context_scope_change_requires_review"],
             "proposed_action_summary": "narrow context handling for a promoted inspiration memory",
             "raw_evidence_refs": [runtime_trace_id, packet_id, feedback_id, f"state_before_{suffix}"],
+            "trace_refs": [runtime_trace_id, packet_id, feedback_id, item_id],
             "allowed_reviewer_actions": ["approve_no_write", "approve_write", "reject", "request_clarification", "rollback"],
             "forbidden_reviewer_actions": ["globalize_memory", "add_unconfirmed_aspect", "infer_body_or_identity"],
             "production_write_blocked_until_resolution": True,
@@ -557,6 +561,30 @@ def _defect(defect_id: str, defect_type: str, gates: list[str]) -> dict[str, Any
         artifact["clarification_request"] = artifact["clarification_requests"][0] if artifact["clarification_requests"] else None
     elif defect_type == "open_review_item_missing_payload":
         artifact.update(_case(defect_id, defect_type, "review_open", 900 + int(defect_id.split("_L")[-1])))
+        artifact["case_id"] = f"v138_{defect_id}_{defect_type}"
+        artifact["defect_type"] = defect_type
+        artifact["expected_failure"] = True
+        artifact["expected_failed_check_ids"] = gates
+        artifact["human_review_payload"] = None
+        artifact["human_review_payloads"] = []
+    elif defect_type == "resolved_clarification_item_missing_request":
+        artifact.update(_case(defect_id, defect_type, "clarification_this_time_only", 900 + int(defect_id.split("_L")[-1])))
+        artifact["case_id"] = f"v138_{defect_id}_{defect_type}"
+        artifact["defect_type"] = defect_type
+        artifact["expected_failure"] = True
+        artifact["expected_failed_check_ids"] = gates
+        artifact["clarification_request"] = None
+        artifact["clarification_requests"] = []
+    elif defect_type == "resolved_review_rejection_missing_payload":
+        artifact.update(_case(defect_id, defect_type, "review_reject", 900 + int(defect_id.split("_L")[-1])))
+        artifact["case_id"] = f"v138_{defect_id}_{defect_type}"
+        artifact["defect_type"] = defect_type
+        artifact["expected_failure"] = True
+        artifact["expected_failed_check_ids"] = gates
+        artifact["human_review_payload"] = None
+        artifact["human_review_payloads"] = []
+    elif defect_type == "resolved_review_approval_missing_payload":
+        artifact.update(_case(defect_id, defect_type, "review_approve_write", 900 + int(defect_id.split("_L")[-1])))
         artifact["case_id"] = f"v138_{defect_id}_{defect_type}"
         artifact["defect_type"] = defect_type
         artifact["expected_failure"] = True

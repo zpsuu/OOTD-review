@@ -104,6 +104,12 @@
     ],
     "proposed_action_summary": "narrow context handling for a promoted inspiration memory",
     "raw_evidence_refs": [],
+    "trace_refs": [
+      "rt_v138_908",
+      "tmp_v138_908",
+      "pmf_v138_908",
+      "gqi_v138_908"
+    ],
     "allowed_reviewer_actions": [
       "approve_no_write",
       "approve_write",
@@ -127,6 +133,12 @@
       ],
       "proposed_action_summary": "narrow context handling for a promoted inspiration memory",
       "raw_evidence_refs": [],
+      "trace_refs": [
+        "rt_v138_908",
+        "tmp_v138_908",
+        "pmf_v138_908",
+        "gqi_v138_908"
+      ],
       "allowed_reviewer_actions": [
         "approve_no_write",
         "approve_write",
