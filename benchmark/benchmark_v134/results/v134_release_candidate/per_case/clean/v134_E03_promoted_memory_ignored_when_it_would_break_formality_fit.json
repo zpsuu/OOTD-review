@@ -13,7 +13,7 @@
     "proof_refs": [
       "promoted_memory_atom",
       "task_memory_packet",
-      "promoted_memory_consumption_report"
+      "mismatch_exclusion_proof"
     ],
     "missing_preconditions": []
   },
@@ -58,127 +58,36 @@
     "candidate_promoted_memory_ids": [
       "mem_insp_v134_23"
     ],
-    "consumed_promoted_memory_ids": [
+    "consumed_promoted_memory_ids": [],
+    "excluded_memory_ids": [
       "mem_insp_v134_23"
     ],
-    "excluded_memory_ids": [],
-    "exclusion_reasons": {},
+    "exclusion_reasons": {
+      "mem_insp_v134_23": "context_mismatch"
+    },
     "context_match": {
-      "matched": true,
-      "matched_context": "formal_client_meeting"
+      "matched": false,
+      "matched_context": null
     },
     "explicit_reject": [],
     "commerce_targeting_memory_ids": [],
     "rolledback_memory_ids": [],
     "do_not_remember_memory_ids": []
   },
-  "promoted_memory_consumption_report": {
-    "consumption_report_id": "pmcr_v134_23",
-    "task_id": "task_v134_23",
-    "promoted_memory_id": "mem_insp_v134_23",
-    "memory_concept": "low saturation color palette",
-    "memory_source_type": "confirmed_external_inspiration",
-    "memory_scope": "contextual",
-    "memory_contexts": [
-      "office_daily"
+  "promoted_memory_consumption_report": null,
+  "consumption_report": null,
+  "mismatch_exclusion_proof": {
+    "excluded_memory_ids": [
+      "mem_insp_v134_23"
     ],
-    "current_task_context": {
-      "occasion": "formal_client_meeting",
-      "context_tags": [
-        "formal_client_meeting"
-      ]
+    "exclusion_reasons": {
+      "mem_insp_v134_23": "context_mismatch"
     },
     "context_match": {
-      "matched": true,
-      "matched_by": "occasion",
-      "matched_context": "formal_client_meeting"
-    },
-    "consumption_mode": "soft_bias",
-    "disallowed_consumption_modes": [
-      "hard_filter",
-      "global_style_identity",
-      "commerce_targeting",
-      "body_inference"
-    ],
-    "used_for": [
-      "candidate_ranking",
-      "color_palette_preference"
-    ],
-    "not_used_for": [
-      "body_inference",
-      "commerce_targeting",
-      "global_style_identity",
-      "silhouette_preference",
-      "item_preference"
-    ],
-    "confirmed_aspects_used": [
-      "color_palette"
-    ],
-    "excluded_aspects_not_used": [
-      "silhouette",
-      "exact_items",
-      "model_body",
-      "photo_lighting"
-    ],
-    "trace_refs": {
-      "task_memory_packet_id": "tmp_v134_23",
-      "planner_trace_id": "trace_v134_23"
+      "matched": false,
+      "matched_context": null
     }
   },
-  "consumption_report": {
-    "consumption_report_id": "pmcr_v134_23",
-    "task_id": "task_v134_23",
-    "promoted_memory_id": "mem_insp_v134_23",
-    "memory_concept": "low saturation color palette",
-    "memory_source_type": "confirmed_external_inspiration",
-    "memory_scope": "contextual",
-    "memory_contexts": [
-      "office_daily"
-    ],
-    "current_task_context": {
-      "occasion": "formal_client_meeting",
-      "context_tags": [
-        "formal_client_meeting"
-      ]
-    },
-    "context_match": {
-      "matched": true,
-      "matched_by": "occasion",
-      "matched_context": "formal_client_meeting"
-    },
-    "consumption_mode": "soft_bias",
-    "disallowed_consumption_modes": [
-      "hard_filter",
-      "global_style_identity",
-      "commerce_targeting",
-      "body_inference"
-    ],
-    "used_for": [
-      "candidate_ranking",
-      "color_palette_preference"
-    ],
-    "not_used_for": [
-      "body_inference",
-      "commerce_targeting",
-      "global_style_identity",
-      "silhouette_preference",
-      "item_preference"
-    ],
-    "confirmed_aspects_used": [
-      "color_palette"
-    ],
-    "excluded_aspects_not_used": [
-      "silhouette",
-      "exact_items",
-      "model_body",
-      "photo_lighting"
-    ],
-    "trace_refs": {
-      "task_memory_packet_id": "tmp_v134_23",
-      "planner_trace_id": "trace_v134_23"
-    }
-  },
-  "mismatch_exclusion_proof": null,
   "consumption_delta_proof": {
     "delta_proof_id": "delta_v134_23",
     "promoted_memory_id": "mem_insp_v134_23",
@@ -227,50 +136,22 @@
     "weather_fit": "pass",
     "formality_fit": "pass",
     "active_avoid_violations": [],
-    "used_for": [
-      "candidate_ranking",
-      "color_palette_preference"
-    ],
+    "used_for": [],
     "not_used_for": [
-      "body_inference",
       "commerce_targeting",
-      "global_style_identity",
-      "silhouette_preference",
-      "item_preference"
+      "body_inference"
     ]
   },
   "bridge_consumption_report": null,
   "multi_day_stability": {
     "days_checked": 3,
-    "matching_days_consumed": 2,
+    "matching_days_consumed": 0,
     "dominates_every_day": false,
     "variety_guardrail_active": true
   },
   "rollback_proof": null,
-  "response_claims": [
-    {
-      "claim_id": "claim_v134_23",
-      "text": "I used your confirmed low-saturation color preference as a soft context cue.",
-      "trace_refs": [
-        "mem_insp_v134_23",
-        "tmp_v134_23"
-      ]
-    }
-  ],
-  "response_claim_alignment": {
-    "claim_ref": "mem_insp_v134_23",
-    "promoted_memory_concept": "low saturation color palette",
-    "claim_text": "I used your confirmed low-saturation color preference as a soft context cue.",
-    "concept_terms_covered": [
-      "low-saturation",
-      "color",
-      "soft context"
-    ],
-    "generic_template_detected": false,
-    "matches_promoted_memory_concept": true,
-    "overstates_promoted_memory": false,
-    "claim_refs_subset_of_consumed_memory_ids": true
-  },
+  "response_claims": [],
+  "response_claim_alignment": null,
   "consumption_quality_scorecard": {
     "scorecard_id": "cq_E03_promoted_memory_ignored_when_it_would_break_formality_fit",
     "case_id": "v134_E03_promoted_memory_ignored_when_it_would_break_formality_fit",

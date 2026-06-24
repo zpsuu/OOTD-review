@@ -1,9 +1,9 @@
 {
   "total_cases": 40,
-  "consumption_report_count": 32,
-  "matching_context_consumption_count": 32,
-  "mismatching_context_exclusion_count": 8,
-  "soft_bias_consumption_count": 32,
+  "consumption_report_count": 30,
+  "matching_context_consumption_count": 30,
+  "mismatching_context_exclusion_count": 10,
+  "soft_bias_consumption_count": 30,
   "hard_filter_misuse_count": 0,
   "commerce_targeting_misuse_count": 0
 }

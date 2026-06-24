@@ -1,11 +1,8 @@
 {
-  "benchmark_id": "v1.34.inspiration_memory_consumption_quality",
-  "schema_version": "v1.34",
+  "validator": "v1.34.independent.raw_artifact_validator",
   "generated_at": "2026-06-24T02:43:17Z",
-  "verdicts": {
-    "clean_acceptance_verdict": "pass",
-    "release_candidate_verdict": "pass_candidate"
-  },
+  "result_dir": "benchmark/benchmark_v134/results/v134_release_candidate",
+  "subset": "clean",
   "suite_summary": {
     "total_cases": 40,
     "passed_cases": 40,
@@ -17,397 +14,416 @@
   "checks": [
     {
       "check_id": "promoted_memory_consumption_report_present_rate",
+      "applicable_cases": 30,
+      "passed_cases": 30,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
-      "failures": [],
-      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+      "failures": []
     },
     {
       "check_id": "promoted_memory_consumed_in_matching_context_rate",
+      "applicable_cases": 30,
+      "passed_cases": 30,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
-      "failures": [],
-      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+      "failures": []
     },
     {
       "check_id": "promoted_memory_excluded_in_mismatching_context_rate",
+      "applicable_cases": 7,
+      "passed_cases": 7,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
-      "failures": [],
-      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+      "failures": []
     },
     {
       "check_id": "promoted_memory_context_match_proof_present_rate",
+      "applicable_cases": 40,
+      "passed_cases": 40,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
-      "failures": [],
-      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+      "failures": []
     },
     {
       "check_id": "promoted_memory_aspect_use_matches_confirmed_aspects_rate",
+      "applicable_cases": 30,
+      "passed_cases": 30,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
-      "failures": [],
-      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+      "failures": []
     },
     {
       "check_id": "excluded_aspects_not_resurrected_rate",
+      "applicable_cases": 40,
+      "passed_cases": 40,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
-      "failures": [],
-      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+      "failures": []
     },
     {
       "check_id": "promoted_memory_used_as_soft_bias_only_rate",
+      "applicable_cases": 30,
+      "passed_cases": 30,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
-      "failures": [],
-      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+      "failures": []
     },
     {
       "check_id": "soft_prefer_not_used_as_hard_filter_rate",
+      "applicable_cases": 40,
+      "passed_cases": 40,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
-      "failures": [],
-      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+      "failures": []
     },
     {
       "check_id": "daily_outfit_quality_non_regression_with_promoted_memory_rate",
+      "applicable_cases": 40,
+      "passed_cases": 40,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
-      "failures": [],
-      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+      "failures": []
     },
     {
       "check_id": "promoted_memory_does_not_break_weather_fit_rate",
+      "applicable_cases": 40,
+      "passed_cases": 40,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
-      "failures": [],
-      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+      "failures": []
     },
     {
       "check_id": "promoted_memory_does_not_break_formality_fit_rate",
+      "applicable_cases": 40,
+      "passed_cases": 40,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
-      "failures": [],
-      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+      "failures": []
     },
     {
       "check_id": "promoted_memory_does_not_violate_active_avoid_rate",
+      "applicable_cases": 40,
+      "passed_cases": 40,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
-      "failures": [],
-      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+      "failures": []
     },
     {
       "check_id": "consumption_delta_self_proof_present_rate",
+      "applicable_cases": 40,
+      "passed_cases": 40,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
-      "failures": [],
-      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+      "failures": []
     },
     {
       "check_id": "targeted_promoted_memory_changes_visible_output_rate",
+      "applicable_cases": 27,
+      "passed_cases": 27,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
-      "failures": [],
-      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+      "failures": []
     },
     {
       "check_id": "bridge_match_score_not_overstated_by_promoted_memory_rate",
+      "applicable_cases": 25,
+      "passed_cases": 25,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
-      "failures": [],
-      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+      "failures": []
     },
     {
       "check_id": "response_claim_text_matches_promoted_memory_concept_rate",
+      "applicable_cases": 30,
+      "passed_cases": 30,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
-      "failures": [],
-      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+      "failures": []
     },
     {
       "check_id": "response_claim_does_not_overstate_promoted_memory_rate",
+      "applicable_cases": 30,
+      "passed_cases": 30,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
-      "failures": [],
-      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+      "failures": []
     },
     {
       "check_id": "rolledback_promoted_memory_not_consumed_rate",
+      "applicable_cases": 2,
+      "passed_cases": 2,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
-      "failures": [],
-      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+      "failures": []
     },
     {
       "check_id": "promoted_memory_not_used_for_commerce_targeting_rate",
+      "applicable_cases": 40,
+      "passed_cases": 40,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
-      "failures": [],
-      "evidence": "raw v1.34 consumption artifacts satisfy this gate"
+      "failures": []
     }
   ],
   "case_results": [
     {
       "case_id": "v134_A01_office_daily_low_saturation_memory_consumed_in_office_daily",
+      "artifact_ref": "per_case/clean/v134_A01_office_daily_low_saturation_memory_consumed_in_office_daily.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_A01_office_daily_low_saturation_memory_consumed_in_office_daily.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_A02_date_night_soft_presence_memory_consumed_in_date_night",
+      "artifact_ref": "per_case/clean/v134_A02_date_night_soft_presence_memory_consumed_in_date_night.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_A02_date_night_soft_presence_memory_consumed_in_date_night.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_A03_daily_city_walk_memory_consumed_in_daily_city_walk",
+      "artifact_ref": "per_case/clean/v134_A03_daily_city_walk_memory_consumed_in_daily_city_walk.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_A03_daily_city_walk_memory_consumed_in_daily_city_walk.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_A04_promoted_memory_appears_in_task_packet_for_matching_context",
+      "artifact_ref": "per_case/clean/v134_A04_promoted_memory_appears_in_task_packet_for_matching_context.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_A04_promoted_memory_appears_in_task_packet_for_matching_context.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_A05_response_claim_refs_consumed_promoted_memory",
+      "artifact_ref": "per_case/clean/v134_A05_response_claim_refs_consumed_promoted_memory.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_A05_response_claim_refs_consumed_promoted_memory.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_B01_office_daily_memory_excluded_in_date_night",
+      "artifact_ref": "per_case/clean/v134_B01_office_daily_memory_excluded_in_date_night.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_B01_office_daily_memory_excluded_in_date_night.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_B02_date_night_memory_excluded_in_office_daily",
+      "artifact_ref": "per_case/clean/v134_B02_date_night_memory_excluded_in_office_daily.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_B02_date_night_memory_excluded_in_office_daily.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_B03_daily_city_walk_memory_excluded_in_formal_client_meeting",
+      "artifact_ref": "per_case/clean/v134_B03_daily_city_walk_memory_excluded_in_formal_client_meeting.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_B03_daily_city_walk_memory_excluded_in_formal_client_meeting.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_B04_excluded_memory_not_referenced_in_response",
+      "artifact_ref": "per_case/clean/v134_B04_excluded_memory_not_referenced_in_response.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_B04_excluded_memory_not_referenced_in_response.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_B05_mismatch_exclusion_has_context_proof",
+      "artifact_ref": "per_case/clean/v134_B05_mismatch_exclusion_has_context_proof.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_B05_mismatch_exclusion_has_context_proof.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_C01_color_only_memory_affects_color_only",
+      "artifact_ref": "per_case/clean/v134_C01_color_only_memory_affects_color_only.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_C01_color_only_memory_affects_color_only.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_C02_silhouette_only_memory_affects_silhouette_only",
+      "artifact_ref": "per_case/clean/v134_C02_silhouette_only_memory_affects_silhouette_only.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_C02_silhouette_only_memory_affects_silhouette_only.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_C03_item_interest_memory_does_not_become_style_preference",
+      "artifact_ref": "per_case/clean/v134_C03_item_interest_memory_does_not_become_style_preference.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_C03_item_interest_memory_does_not_become_style_preference.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_C04_date_night_presence_memory_does_not_become_sweetness_preference",
+      "artifact_ref": "per_case/clean/v134_C04_date_night_presence_memory_does_not_become_sweetness_preference.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_C04_date_night_presence_memory_does_not_become_sweetness_preference.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_C05_excluded_aspects_not_resurrected",
+      "artifact_ref": "per_case/clean/v134_C05_excluded_aspects_not_resurrected.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_C05_excluded_aspects_not_resurrected.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_D01_low_saturation_soft_prefer_does_not_ban_all_saturated_items",
+      "artifact_ref": "per_case/clean/v134_D01_low_saturation_soft_prefer_does_not_ban_all_saturated_items.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_D01_low_saturation_soft_prefer_does_not_ban_all_saturated_items.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_D02_soft_preference_yields_to_weather_requirement",
+      "artifact_ref": "per_case/clean/v134_D02_soft_preference_yields_to_weather_requirement.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_D02_soft_preference_yields_to_weather_requirement.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_D03_soft_preference_yields_to_formal_requirement",
+      "artifact_ref": "per_case/clean/v134_D03_soft_preference_yields_to_formal_requirement.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_D03_soft_preference_yields_to_formal_requirement.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_D04_soft_preference_yields_to_closet_reliability",
+      "artifact_ref": "per_case/clean/v134_D04_soft_preference_yields_to_closet_reliability.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_D04_soft_preference_yields_to_closet_reliability.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_D05_soft_preference_not_used_as_explicit_reject",
+      "artifact_ref": "per_case/clean/v134_D05_soft_preference_not_used_as_explicit_reject.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_D05_soft_preference_not_used_as_explicit_reject.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_E01_promoted_memory_changes_outfit_without_quality_regression",
+      "artifact_ref": "per_case/clean/v134_E01_promoted_memory_changes_outfit_without_quality_regression.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_E01_promoted_memory_changes_outfit_without_quality_regression.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_E02_promoted_memory_ignored_when_it_would_break_weather_fit",
+      "artifact_ref": "per_case/clean/v134_E02_promoted_memory_ignored_when_it_would_break_weather_fit.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_E02_promoted_memory_ignored_when_it_would_break_weather_fit.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_E03_promoted_memory_ignored_when_it_would_break_formality_fit",
+      "artifact_ref": "per_case/clean/v134_E03_promoted_memory_ignored_when_it_would_break_formality_fit.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_E03_promoted_memory_ignored_when_it_would_break_formality_fit.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_E04_promoted_memory_does_not_cause_repetition",
+      "artifact_ref": "per_case/clean/v134_E04_promoted_memory_does_not_cause_repetition.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_E04_promoted_memory_does_not_cause_repetition.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_E05_promoted_memory_does_not_violate_active_avoid",
+      "artifact_ref": "per_case/clean/v134_E05_promoted_memory_does_not_violate_active_avoid.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_E05_promoted_memory_does_not_violate_active_avoid.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_F01_promoted_memory_supports_ideal_direction_fit",
+      "artifact_ref": "per_case/clean/v134_F01_promoted_memory_supports_ideal_direction_fit.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_F01_promoted_memory_supports_ideal_direction_fit.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_F02_promoted_memory_increases_color_component_only",
+      "artifact_ref": "per_case/clean/v134_F02_promoted_memory_increases_color_component_only.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_F02_promoted_memory_increases_color_component_only.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_F03_promoted_memory_does_not_inflate_overall_match_score",
+      "artifact_ref": "per_case/clean/v134_F03_promoted_memory_does_not_inflate_overall_match_score.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_F03_promoted_memory_does_not_inflate_overall_match_score.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_F04_gap_diagnosis_remains_specific",
+      "artifact_ref": "per_case/clean/v134_F04_gap_diagnosis_remains_specific.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_F04_gap_diagnosis_remains_specific.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_F05_no_buy_step_uses_confirmed_aspect_only",
+      "artifact_ref": "per_case/clean/v134_F05_no_buy_step_uses_confirmed_aspect_only.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_F05_no_buy_step_uses_confirmed_aspect_only.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_G01_promoted_memory_used_consistently_across_matching_days",
+      "artifact_ref": "per_case/clean/v134_G01_promoted_memory_used_consistently_across_matching_days.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_G01_promoted_memory_used_consistently_across_matching_days.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_G02_promoted_memory_does_not_dominate_every_day",
+      "artifact_ref": "per_case/clean/v134_G02_promoted_memory_does_not_dominate_every_day.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_G02_promoted_memory_does_not_dominate_every_day.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_G03_variety_guardrail_remains_active",
+      "artifact_ref": "per_case/clean/v134_G03_variety_guardrail_remains_active.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_G03_variety_guardrail_remains_active.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_G04_do_not_remember_later_blocks_claim",
+      "artifact_ref": "per_case/clean/v134_G04_do_not_remember_later_blocks_claim.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_G04_do_not_remember_later_blocks_claim.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_G05_rollback_removes_memory_from_later_consumption",
+      "artifact_ref": "per_case/clean/v134_G05_rollback_removes_memory_from_later_consumption.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_G05_rollback_removes_memory_from_later_consumption.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_H01_response_claim_matches_promoted_memory_concept",
+      "artifact_ref": "per_case/clean/v134_H01_response_claim_matches_promoted_memory_concept.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_H01_response_claim_matches_promoted_memory_concept.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_H02_response_does_not_claim_full_style_from_color_memory",
+      "artifact_ref": "per_case/clean/v134_H02_response_does_not_claim_full_style_from_color_memory.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_H02_response_does_not_claim_full_style_from_color_memory.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_H03_response_says_soft_bias_not_hard_rule",
+      "artifact_ref": "per_case/clean/v134_H03_response_says_soft_bias_not_hard_rule.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_H03_response_says_soft_bias_not_hard_rule.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_H04_response_does_not_cite_excluded_memory",
+      "artifact_ref": "per_case/clean/v134_H04_response_does_not_cite_excluded_memory.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_H04_response_does_not_cite_excluded_memory.json"
+      "failed_check_ids": []
     },
     {
       "case_id": "v134_H05_response_does_not_cite_rolled_back_memory",
+      "artifact_ref": "per_case/clean/v134_H05_response_does_not_cite_rolled_back_memory.json",
       "passed": true,
-      "failed_check_ids": [],
-      "artifact_ref": "per_case/clean/v134_H05_response_does_not_cite_rolled_back_memory.json"
+      "failed_check_ids": []
     }
   ]
 }

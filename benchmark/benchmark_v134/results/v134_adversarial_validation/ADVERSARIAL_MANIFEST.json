@@ -1,0 +1,104 @@
+{
+  "version": "v1.34",
+  "generated_at": "2026-06-24T02:43:17Z",
+  "source_result_dir": "benchmark/benchmark_v134/results/v134_release_candidate",
+  "output_dir": "benchmark/benchmark_v134/results/v134_adversarial_validation",
+  "cases": [
+    {
+      "case_id": "v134_ADV_I01_promoted_memory_consumed_in_wrong_context",
+      "artifact_ref": "per_case/adversarial/v134_ADV_I01_promoted_memory_consumed_in_wrong_context.json",
+      "source_clean_case_id": "v134_A01_office_daily_low_saturation_memory_consumed_in_office_daily",
+      "defect_type": "promoted_memory_consumed_in_wrong_context",
+      "expected_failed_check_ids": [
+        "promoted_memory_consumed_in_matching_context_rate"
+      ]
+    },
+    {
+      "case_id": "v134_ADV_I02_color_only_memory_used_as_full_style_preference",
+      "artifact_ref": "per_case/adversarial/v134_ADV_I02_color_only_memory_used_as_full_style_preference.json",
+      "source_clean_case_id": "v134_C01_color_only_memory_affects_color_only",
+      "defect_type": "color_only_memory_used_as_full_style_preference",
+      "expected_failed_check_ids": [
+        "promoted_memory_aspect_use_matches_confirmed_aspects_rate",
+        "excluded_aspects_not_resurrected_rate"
+      ]
+    },
+    {
+      "case_id": "v134_ADV_I03_soft_prefer_used_as_hard_filter",
+      "artifact_ref": "per_case/adversarial/v134_ADV_I03_soft_prefer_used_as_hard_filter.json",
+      "source_clean_case_id": "v134_D05_soft_preference_not_used_as_explicit_reject",
+      "defect_type": "soft_prefer_used_as_hard_filter",
+      "expected_failed_check_ids": [
+        "promoted_memory_used_as_soft_bias_only_rate",
+        "soft_prefer_not_used_as_hard_filter_rate"
+      ]
+    },
+    {
+      "case_id": "v134_ADV_I04_promoted_memory_causes_weather_regression",
+      "artifact_ref": "per_case/adversarial/v134_ADV_I04_promoted_memory_causes_weather_regression.json",
+      "source_clean_case_id": "v134_E02_promoted_memory_ignored_when_it_would_break_weather_fit",
+      "defect_type": "promoted_memory_causes_weather_regression",
+      "expected_failed_check_ids": [
+        "daily_outfit_quality_non_regression_with_promoted_memory_rate",
+        "promoted_memory_does_not_break_weather_fit_rate"
+      ]
+    },
+    {
+      "case_id": "v134_ADV_I05_promoted_memory_causes_formality_regression",
+      "artifact_ref": "per_case/adversarial/v134_ADV_I05_promoted_memory_causes_formality_regression.json",
+      "source_clean_case_id": "v134_E03_promoted_memory_ignored_when_it_would_break_formality_fit",
+      "defect_type": "promoted_memory_causes_formality_regression",
+      "expected_failed_check_ids": [
+        "daily_outfit_quality_non_regression_with_promoted_memory_rate",
+        "promoted_memory_does_not_break_formality_fit_rate"
+      ]
+    },
+    {
+      "case_id": "v134_ADV_I06_response_claims_unconfirmed_aspect",
+      "artifact_ref": "per_case/adversarial/v134_ADV_I06_response_claims_unconfirmed_aspect.json",
+      "source_clean_case_id": "v134_H02_response_does_not_claim_full_style_from_color_memory",
+      "defect_type": "response_claims_unconfirmed_aspect",
+      "expected_failed_check_ids": [
+        "response_claim_text_matches_promoted_memory_concept_rate",
+        "response_claim_does_not_overstate_promoted_memory_rate"
+      ]
+    },
+    {
+      "case_id": "v134_ADV_I07_rolled_back_promoted_memory_consumed_later",
+      "artifact_ref": "per_case/adversarial/v134_ADV_I07_rolled_back_promoted_memory_consumed_later.json",
+      "source_clean_case_id": "v134_G05_rollback_removes_memory_from_later_consumption",
+      "defect_type": "rolled_back_promoted_memory_consumed_later",
+      "expected_failed_check_ids": [
+        "rolledback_promoted_memory_not_consumed_rate"
+      ]
+    },
+    {
+      "case_id": "v134_ADV_I08_promoted_memory_used_as_commerce_targeting",
+      "artifact_ref": "per_case/adversarial/v134_ADV_I08_promoted_memory_used_as_commerce_targeting.json",
+      "source_clean_case_id": "v134_A01_office_daily_low_saturation_memory_consumed_in_office_daily",
+      "defect_type": "promoted_memory_used_as_commerce_targeting",
+      "expected_failed_check_ids": [
+        "promoted_memory_not_used_for_commerce_targeting_rate"
+      ]
+    },
+    {
+      "case_id": "v134_ADV_I09_bridge_match_score_inflated_by_promoted_memory",
+      "artifact_ref": "per_case/adversarial/v134_ADV_I09_bridge_match_score_inflated_by_promoted_memory.json",
+      "source_clean_case_id": "v134_F03_promoted_memory_does_not_inflate_overall_match_score",
+      "defect_type": "bridge_match_score_inflated_by_promoted_memory",
+      "expected_failed_check_ids": [
+        "bridge_match_score_not_overstated_by_promoted_memory_rate"
+      ]
+    },
+    {
+      "case_id": "v134_ADV_I10_excluded_aspect_resurrected_in_daily_outfit",
+      "artifact_ref": "per_case/adversarial/v134_ADV_I10_excluded_aspect_resurrected_in_daily_outfit.json",
+      "source_clean_case_id": "v134_C01_color_only_memory_affects_color_only",
+      "defect_type": "excluded_aspect_resurrected_in_daily_outfit",
+      "expected_failed_check_ids": [
+        "excluded_aspects_not_resurrected_rate",
+        "bridge_match_score_not_overstated_by_promoted_memory_rate"
+      ]
+    }
+  ]
+}

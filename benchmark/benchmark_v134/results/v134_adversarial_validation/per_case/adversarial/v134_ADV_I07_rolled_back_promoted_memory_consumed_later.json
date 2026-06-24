@@ -1,8 +1,8 @@
 {
-  "case_id": "v134_B01_office_daily_memory_excluded_in_date_night",
+  "case_id": "v134_ADV_I07_rolled_back_promoted_memory_consumed_later",
   "version": "v1.34",
-  "scenario": "B01_office_daily_memory_excluded_in_date_night",
-  "scenario_kind": "office_mismatch",
+  "scenario": "G05_rollback_removes_memory_from_later_consumption",
+  "scenario_kind": "rolledback",
   "scenario_preconditions": {
     "expected": [
       "promoted_memory_atom_present",
@@ -18,7 +18,7 @@
     "missing_preconditions": []
   },
   "promoted_memory_atom": {
-    "memory_id": "mem_insp_v134_06",
+    "memory_id": "mem_insp_v134_35",
     "concept": "low saturation color palette",
     "concept_type": "aesthetic_preference",
     "polarity": "soft_prefer",
@@ -48,40 +48,40 @@
       "body_inference"
     ],
     "evidence_refs": [
-      "promotion_plan_v134_06",
-      "confirmation_action_v134_06"
+      "promotion_plan_v134_35",
+      "confirmation_action_v134_35"
     ]
   },
   "task_memory_packet": {
-    "task_memory_packet_id": "tmp_v134_06",
+    "task_memory_packet_id": "tmp_v134_35",
     "request_context": "date_night",
     "candidate_promoted_memory_ids": [
-      "mem_insp_v134_06"
+      "mem_insp_v134_35"
     ],
-    "consumed_promoted_memory_ids": [],
-    "excluded_memory_ids": [
-      "mem_insp_v134_06"
+    "consumed_promoted_memory_ids": [
+      "mem_insp_v134_35"
     ],
-    "exclusion_reasons": {
-      "mem_insp_v134_06": "context_mismatch"
-    },
+    "excluded_memory_ids": [],
+    "exclusion_reasons": {},
     "context_match": {
       "matched": false,
       "matched_context": null
     },
     "explicit_reject": [],
     "commerce_targeting_memory_ids": [],
-    "rolledback_memory_ids": [],
+    "rolledback_memory_ids": [
+      "mem_insp_v134_35"
+    ],
     "do_not_remember_memory_ids": []
   },
   "promoted_memory_consumption_report": null,
   "consumption_report": null,
   "mismatch_exclusion_proof": {
     "excluded_memory_ids": [
-      "mem_insp_v134_06"
+      "mem_insp_v134_35"
     ],
     "exclusion_reasons": {
-      "mem_insp_v134_06": "context_mismatch"
+      "mem_insp_v134_35": "rolledback"
     },
     "context_match": {
       "matched": false,
@@ -89,8 +89,8 @@
     }
   },
   "consumption_delta_proof": {
-    "delta_proof_id": "delta_v134_06",
-    "promoted_memory_id": "mem_insp_v134_06",
+    "delta_proof_id": "delta_v134_35",
+    "promoted_memory_id": "mem_insp_v134_35",
     "baseline_without_promoted_memory": {
       "outfit_items": [
         "top_white_shirt",
@@ -149,12 +149,29 @@
     "dominates_every_day": false,
     "variety_guardrail_active": true
   },
-  "rollback_proof": null,
-  "response_claims": [],
+  "rollback_proof": {
+    "rolledback_memory_id": "mem_insp_v134_35",
+    "rollback_ref": "rollback_v134_35",
+    "read_after_rollback": {
+      "status": "not_found",
+      "memory_id": "mem_insp_v134_35",
+      "memory_present": false
+    },
+    "not_consumed_after_rollback": false
+  },
+  "response_claims": [
+    {
+      "claim_id": "claim_adv_rolledback",
+      "text": "I used your rolled-back low-saturation memory.",
+      "trace_refs": [
+        "mem_insp_v134_35"
+      ]
+    }
+  ],
   "response_claim_alignment": null,
   "consumption_quality_scorecard": {
-    "scorecard_id": "cq_B01_office_daily_memory_excluded_in_date_night",
-    "case_id": "v134_B01_office_daily_memory_excluded_in_date_night",
+    "scorecard_id": "cq_G05_rollback_removes_memory_from_later_consumption",
+    "case_id": "v134_G05_rollback_removes_memory_from_later_consumption",
     "scorecard_type": "promoted_memory_consumption",
     "scores": {
       "context_correct": 2,
@@ -167,5 +184,11 @@
     "total_score": 11,
     "max_score": 12,
     "reviewer_notes": "Promoted memory is consumed only as scoped soft bias without quality regression."
-  }
+  },
+  "source_clean_case_id": "v134_G05_rollback_removes_memory_from_later_consumption",
+  "adversarial_defect_type": "rolled_back_promoted_memory_consumed_later",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "rolledback_promoted_memory_not_consumed_rate"
+  ]
 }

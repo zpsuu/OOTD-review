@@ -13,7 +13,7 @@
     "proof_refs": [
       "promoted_memory_atom",
       "task_memory_packet",
-      "promoted_memory_consumption_report"
+      "mismatch_exclusion_proof"
     ],
     "missing_preconditions": []
   },

@@ -233,7 +233,7 @@ def _consumption_report(kind: str, suffix: str, memory: dict[str, Any]) -> dict[
         return None
     context = _request_context(kind)
     matched = context in memory["contexts"]
-    if kind in {"weather_yield", "formality_yield", "reliability_yield"}:
+    if kind in {"weather_yield", "reliability_yield"}:
         matched = True
     if not matched:
         return None
@@ -402,6 +402,8 @@ def _case_artifact(case_id: str, index: int) -> dict[str, Any]:
     delta = _delta(kind, suffix, memory, report is not None)
     bridge = _bridge(kind, suffix, memory, report)
     claims, alignment = _claims(kind, suffix, memory, packet)
+    proof_refs = ["promoted_memory_atom", "task_memory_packet"]
+    proof_refs.append("promoted_memory_consumption_report" if report else "mismatch_exclusion_proof")
     rollback_proof = None
     if kind == "rolledback":
         rollback_proof = {
@@ -418,7 +420,7 @@ def _case_artifact(case_id: str, index: int) -> dict[str, Any]:
         "scenario_preconditions": {
             "expected": ["promoted_memory_atom_present", "task_memory_packet_present", "context_or_exclusion_proof_present"],
             "satisfied": True,
-            "proof_refs": ["promoted_memory_atom", "task_memory_packet", "promoted_memory_consumption_report"],
+            "proof_refs": proof_refs,
             "missing_preconditions": [],
         },
         "promoted_memory_atom": memory,

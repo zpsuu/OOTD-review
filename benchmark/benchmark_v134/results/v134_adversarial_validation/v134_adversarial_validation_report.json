@@ -1,0 +1,467 @@
+{
+  "validator": "v1.34.independent.raw_artifact_validator",
+  "generated_at": "2026-06-24T02:43:17Z",
+  "result_dir": "benchmark/benchmark_v134/results/v134_adversarial_validation",
+  "subset": "adversarial",
+  "suite_summary": {
+    "total_cases": 10,
+    "passed_cases": 0,
+    "failed_cases": 10,
+    "total_checks": 19,
+    "passed_checks": 5,
+    "failed_checks": 14
+  },
+  "checks": [
+    {
+      "check_id": "promoted_memory_consumption_report_present_rate",
+      "applicable_cases": 9,
+      "passed_cases": 8,
+      "value": 0.8888888888888888,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v134_ADV_I07_rolled_back_promoted_memory_consumed_later",
+          "artifact_ref": "per_case/adversarial/v134_ADV_I07_rolled_back_promoted_memory_consumed_later.json",
+          "failures": [
+            "missing promoted_memory_consumption_report for consumed memory"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "promoted_memory_consumed_in_matching_context_rate",
+      "applicable_cases": 9,
+      "passed_cases": 7,
+      "value": 0.7777777777777778,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v134_ADV_I01_promoted_memory_consumed_in_wrong_context",
+          "artifact_ref": "per_case/adversarial/v134_ADV_I01_promoted_memory_consumed_in_wrong_context.json",
+          "failures": [
+            "matched_context is not included in memory contexts",
+            "packet request_context is outside promoted memory contexts"
+          ]
+        },
+        {
+          "case_id": "v134_ADV_I07_rolled_back_promoted_memory_consumed_later",
+          "artifact_ref": "per_case/adversarial/v134_ADV_I07_rolled_back_promoted_memory_consumed_later.json",
+          "failures": [
+            "missing consumption report"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "promoted_memory_excluded_in_mismatching_context_rate",
+      "applicable_cases": 1,
+      "passed_cases": 1,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "promoted_memory_context_match_proof_present_rate",
+      "applicable_cases": 10,
+      "passed_cases": 10,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "promoted_memory_aspect_use_matches_confirmed_aspects_rate",
+      "applicable_cases": 9,
+      "passed_cases": 6,
+      "value": 0.6666666666666666,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v134_ADV_I02_color_only_memory_used_as_full_style_preference",
+          "artifact_ref": "per_case/adversarial/v134_ADV_I02_color_only_memory_used_as_full_style_preference.json",
+          "failures": [
+            "confirmed_aspects_used ['color_palette', 'silhouette'] does not match memory confirmed_aspects ['color_palette']",
+            "excluded aspect silhouette appears in downstream used surfaces"
+          ]
+        },
+        {
+          "case_id": "v134_ADV_I07_rolled_back_promoted_memory_consumed_later",
+          "artifact_ref": "per_case/adversarial/v134_ADV_I07_rolled_back_promoted_memory_consumed_later.json",
+          "failures": [
+            "confirmed_aspects_used [] does not match memory confirmed_aspects ['color_palette']"
+          ]
+        },
+        {
+          "case_id": "v134_ADV_I10_excluded_aspect_resurrected_in_daily_outfit",
+          "artifact_ref": "per_case/adversarial/v134_ADV_I10_excluded_aspect_resurrected_in_daily_outfit.json",
+          "failures": [
+            "excluded aspect silhouette appears in downstream used surfaces"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "excluded_aspects_not_resurrected_rate",
+      "applicable_cases": 10,
+      "passed_cases": 8,
+      "value": 0.8,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v134_ADV_I02_color_only_memory_used_as_full_style_preference",
+          "artifact_ref": "per_case/adversarial/v134_ADV_I02_color_only_memory_used_as_full_style_preference.json",
+          "failures": [
+            "excluded aspect silhouette is resurrected in downstream artifact"
+          ]
+        },
+        {
+          "case_id": "v134_ADV_I10_excluded_aspect_resurrected_in_daily_outfit",
+          "artifact_ref": "per_case/adversarial/v134_ADV_I10_excluded_aspect_resurrected_in_daily_outfit.json",
+          "failures": [
+            "excluded aspect silhouette is resurrected in downstream artifact"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "promoted_memory_used_as_soft_bias_only_rate",
+      "applicable_cases": 9,
+      "passed_cases": 7,
+      "value": 0.7777777777777778,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v134_ADV_I03_soft_prefer_used_as_hard_filter",
+          "artifact_ref": "per_case/adversarial/v134_ADV_I03_soft_prefer_used_as_hard_filter.json",
+          "failures": [
+            "consumption_mode is not soft_bias",
+            "used_for contains hard filter behavior"
+          ]
+        },
+        {
+          "case_id": "v134_ADV_I07_rolled_back_promoted_memory_consumed_later",
+          "artifact_ref": "per_case/adversarial/v134_ADV_I07_rolled_back_promoted_memory_consumed_later.json",
+          "failures": [
+            "consumption_mode is not soft_bias"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "soft_prefer_not_used_as_hard_filter_rate",
+      "applicable_cases": 10,
+      "passed_cases": 9,
+      "value": 0.9,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v134_ADV_I03_soft_prefer_used_as_hard_filter",
+          "artifact_ref": "per_case/adversarial/v134_ADV_I03_soft_prefer_used_as_hard_filter.json",
+          "failures": [
+            "promoted soft_prefer memory appears in explicit_reject",
+            "soft_prefer memory is consumed as hard_filter",
+            "downstream surfaces contain hard filter semantics"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "daily_outfit_quality_non_regression_with_promoted_memory_rate",
+      "applicable_cases": 10,
+      "passed_cases": 8,
+      "value": 0.8,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v134_ADV_I04_promoted_memory_causes_weather_regression",
+          "artifact_ref": "per_case/adversarial/v134_ADV_I04_promoted_memory_causes_weather_regression.json",
+          "failures": [
+            "daily outfit weather_fit is not pass",
+            "quality_non_regression is not true",
+            "delta is marked harmful"
+          ]
+        },
+        {
+          "case_id": "v134_ADV_I05_promoted_memory_causes_formality_regression",
+          "artifact_ref": "per_case/adversarial/v134_ADV_I05_promoted_memory_causes_formality_regression.json",
+          "failures": [
+            "daily outfit formality_fit is not pass",
+            "quality_non_regression is not true",
+            "delta is marked harmful"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "promoted_memory_does_not_break_weather_fit_rate",
+      "applicable_cases": 10,
+      "passed_cases": 9,
+      "value": 0.9,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v134_ADV_I04_promoted_memory_causes_weather_regression",
+          "artifact_ref": "per_case/adversarial/v134_ADV_I04_promoted_memory_causes_weather_regression.json",
+          "failures": [
+            "daily weather_fit is not pass",
+            "delta quality weather_fit is not pass"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "promoted_memory_does_not_break_formality_fit_rate",
+      "applicable_cases": 10,
+      "passed_cases": 9,
+      "value": 0.9,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v134_ADV_I05_promoted_memory_causes_formality_regression",
+          "artifact_ref": "per_case/adversarial/v134_ADV_I05_promoted_memory_causes_formality_regression.json",
+          "failures": [
+            "daily formality_fit is not pass",
+            "delta quality formality_fit is not pass"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "promoted_memory_does_not_violate_active_avoid_rate",
+      "applicable_cases": 10,
+      "passed_cases": 10,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "consumption_delta_self_proof_present_rate",
+      "applicable_cases": 10,
+      "passed_cases": 10,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "targeted_promoted_memory_changes_visible_output_rate",
+      "applicable_cases": 7,
+      "passed_cases": 7,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "bridge_match_score_not_overstated_by_promoted_memory_rate",
+      "applicable_cases": 7,
+      "passed_cases": 5,
+      "value": 0.7142857142857143,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v134_ADV_I09_bridge_match_score_inflated_by_promoted_memory",
+          "artifact_ref": "per_case/adversarial/v134_ADV_I09_bridge_match_score_inflated_by_promoted_memory.json",
+          "failures": [
+            "overall score delta exceeds max_allowed_overall_delta"
+          ]
+        },
+        {
+          "case_id": "v134_ADV_I10_excluded_aspect_resurrected_in_daily_outfit",
+          "artifact_ref": "per_case/adversarial/v134_ADV_I10_excluded_aspect_resurrected_in_daily_outfit.json",
+          "failures": [
+            "bridge affected_component is not a confirmed aspect"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "response_claim_text_matches_promoted_memory_concept_rate",
+      "applicable_cases": 9,
+      "passed_cases": 7,
+      "value": 0.7777777777777778,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v134_ADV_I06_response_claims_unconfirmed_aspect",
+          "artifact_ref": "per_case/adversarial/v134_ADV_I06_response_claims_unconfirmed_aspect.json",
+          "failures": [
+            "claim alignment does not match promoted memory concept"
+          ]
+        },
+        {
+          "case_id": "v134_ADV_I07_rolled_back_promoted_memory_consumed_later",
+          "artifact_ref": "per_case/adversarial/v134_ADV_I07_rolled_back_promoted_memory_consumed_later.json",
+          "failures": [
+            "claim alignment does not match promoted memory concept",
+            "claim refs are not a subset of consumed memory ids",
+            "claim alignment lacks concept_terms_covered"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "response_claim_does_not_overstate_promoted_memory_rate",
+      "applicable_cases": 9,
+      "passed_cases": 8,
+      "value": 0.8888888888888888,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v134_ADV_I06_response_claims_unconfirmed_aspect",
+          "artifact_ref": "per_case/adversarial/v134_ADV_I06_response_claims_unconfirmed_aspect.json",
+          "failures": [
+            "claim alignment marks overstatement",
+            "claim text contains overstated or hard-rule wording"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "rolledback_promoted_memory_not_consumed_rate",
+      "applicable_cases": 1,
+      "passed_cases": 0,
+      "value": 0.0,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v134_ADV_I07_rolled_back_promoted_memory_consumed_later",
+          "artifact_ref": "per_case/adversarial/v134_ADV_I07_rolled_back_promoted_memory_consumed_later.json",
+          "failures": [
+            "rolled-back memory is consumed",
+            "rolled-back memory is cited in response claims",
+            "rollback proof does not mark not_consumed_after_rollback"
+          ]
+        }
+      ]
+    },
+    {
+      "check_id": "promoted_memory_not_used_for_commerce_targeting_rate",
+      "applicable_cases": 10,
+      "passed_cases": 9,
+      "value": 0.9,
+      "threshold": 1.0,
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v134_ADV_I08_promoted_memory_used_as_commerce_targeting",
+          "artifact_ref": "per_case/adversarial/v134_ADV_I08_promoted_memory_used_as_commerce_targeting.json",
+          "failures": [
+            "packet commerce_targeting_memory_ids is non-empty",
+            "consumption report used_for contains commerce targeting",
+            "daily card used_for contains commerce targeting"
+          ]
+        }
+      ]
+    }
+  ],
+  "case_results": [
+    {
+      "case_id": "v134_ADV_I01_promoted_memory_consumed_in_wrong_context",
+      "artifact_ref": "per_case/adversarial/v134_ADV_I01_promoted_memory_consumed_in_wrong_context.json",
+      "passed": false,
+      "failed_check_ids": [
+        "promoted_memory_consumed_in_matching_context_rate"
+      ]
+    },
+    {
+      "case_id": "v134_ADV_I02_color_only_memory_used_as_full_style_preference",
+      "artifact_ref": "per_case/adversarial/v134_ADV_I02_color_only_memory_used_as_full_style_preference.json",
+      "passed": false,
+      "failed_check_ids": [
+        "promoted_memory_aspect_use_matches_confirmed_aspects_rate",
+        "excluded_aspects_not_resurrected_rate"
+      ]
+    },
+    {
+      "case_id": "v134_ADV_I03_soft_prefer_used_as_hard_filter",
+      "artifact_ref": "per_case/adversarial/v134_ADV_I03_soft_prefer_used_as_hard_filter.json",
+      "passed": false,
+      "failed_check_ids": [
+        "promoted_memory_used_as_soft_bias_only_rate",
+        "soft_prefer_not_used_as_hard_filter_rate"
+      ]
+    },
+    {
+      "case_id": "v134_ADV_I04_promoted_memory_causes_weather_regression",
+      "artifact_ref": "per_case/adversarial/v134_ADV_I04_promoted_memory_causes_weather_regression.json",
+      "passed": false,
+      "failed_check_ids": [
+        "daily_outfit_quality_non_regression_with_promoted_memory_rate",
+        "promoted_memory_does_not_break_weather_fit_rate"
+      ]
+    },
+    {
+      "case_id": "v134_ADV_I05_promoted_memory_causes_formality_regression",
+      "artifact_ref": "per_case/adversarial/v134_ADV_I05_promoted_memory_causes_formality_regression.json",
+      "passed": false,
+      "failed_check_ids": [
+        "daily_outfit_quality_non_regression_with_promoted_memory_rate",
+        "promoted_memory_does_not_break_formality_fit_rate"
+      ]
+    },
+    {
+      "case_id": "v134_ADV_I06_response_claims_unconfirmed_aspect",
+      "artifact_ref": "per_case/adversarial/v134_ADV_I06_response_claims_unconfirmed_aspect.json",
+      "passed": false,
+      "failed_check_ids": [
+        "response_claim_text_matches_promoted_memory_concept_rate",
+        "response_claim_does_not_overstate_promoted_memory_rate"
+      ]
+    },
+    {
+      "case_id": "v134_ADV_I07_rolled_back_promoted_memory_consumed_later",
+      "artifact_ref": "per_case/adversarial/v134_ADV_I07_rolled_back_promoted_memory_consumed_later.json",
+      "passed": false,
+      "failed_check_ids": [
+        "promoted_memory_consumption_report_present_rate",
+        "promoted_memory_consumed_in_matching_context_rate",
+        "promoted_memory_aspect_use_matches_confirmed_aspects_rate",
+        "promoted_memory_used_as_soft_bias_only_rate",
+        "response_claim_text_matches_promoted_memory_concept_rate",
+        "rolledback_promoted_memory_not_consumed_rate"
+      ]
+    },
+    {
+      "case_id": "v134_ADV_I08_promoted_memory_used_as_commerce_targeting",
+      "artifact_ref": "per_case/adversarial/v134_ADV_I08_promoted_memory_used_as_commerce_targeting.json",
+      "passed": false,
+      "failed_check_ids": [
+        "promoted_memory_not_used_for_commerce_targeting_rate"
+      ]
+    },
+    {
+      "case_id": "v134_ADV_I09_bridge_match_score_inflated_by_promoted_memory",
+      "artifact_ref": "per_case/adversarial/v134_ADV_I09_bridge_match_score_inflated_by_promoted_memory.json",
+      "passed": false,
+      "failed_check_ids": [
+        "bridge_match_score_not_overstated_by_promoted_memory_rate"
+      ]
+    },
+    {
+      "case_id": "v134_ADV_I10_excluded_aspect_resurrected_in_daily_outfit",
+      "artifact_ref": "per_case/adversarial/v134_ADV_I10_excluded_aspect_resurrected_in_daily_outfit.json",
+      "passed": false,
+      "failed_check_ids": [
+        "promoted_memory_aspect_use_matches_confirmed_aspects_rate",
+        "excluded_aspects_not_resurrected_rate",
+        "bridge_match_score_not_overstated_by_promoted_memory_rate"
+      ]
+    }
+  ]
+}
