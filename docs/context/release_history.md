@@ -186,7 +186,7 @@ Focus:
 
 ## v1.36 - Promoted Inspiration Memory Feedback Lifecycle
 
-Status: PASS CANDIDATE pending manual review
+Status: PASS CANDIDATE confirmed after targeted P1 fix review, independent validation, adversarial validation, sample consistency, report consistency, v1.35 replay, and unit tests
 
 Focus:
 - feedback events for consumed promoted inspiration memory
@@ -195,4 +195,20 @@ Focus:
 - too-strong, wrong-aspect, wrong-context, do-not-use, forget, and undo behavior
 - post-feedback TaskMemoryPacket and response claim proof
 - rollback and multi-day lifecycle stability
+- wrong-context exclusion proof uses an actually excluded future context
+- review-pending feedback does not claim unapplied lifecycle effects
 - v1.35 validation replay, independent validation, adversarial detection, sample consistency, and report consistency
+
+## v1.37 - End-to-End Inspiration Memory Runtime Loop
+
+Status: PASS CANDIDATE pending manual review
+
+Focus:
+- deterministic local runtime harness from inspiration intake through feedback lifecycle
+- explicit state handoff between intake, confirmation, promotion, consumption, feedback, post-feedback consumption, and multi-day replay
+- canonical RuntimeTrace, StageEvent, StateSnapshot, HandoffProof, and RuntimeInvariantReport artifacts
+- no production memory write before confirmation and promotion gate
+- confirmed-aspect-only promotion and consumption
+- post-feedback TaskMemoryPacket rebuilt from updated lifecycle state
+- rollback and review-pending safety across future runtime packets
+- independent validation, adversarial detection, sample consistency, report consistency, and v1.36 replay

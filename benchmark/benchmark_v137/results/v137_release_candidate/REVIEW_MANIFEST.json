@@ -1,0 +1,110 @@
+{
+  "version": "v1.37",
+  "release_candidate_status": "pass_candidate_pending_manual_review",
+  "theme": "End-to-End Inspiration Memory Runtime Loop",
+  "branch": "v137-end-to-end-inspiration-memory-runtime-loop",
+  "entrypoint": "benchmark/benchmark_v137/results/v137_release_candidate/REVIEW_MANIFEST.json",
+  "generated_at": "2026-06-24T04:45:39Z",
+  "builder_script": "benchmark/benchmark_v137/scripts/build_v137_release_candidate_evidence_pack.py",
+  "validator_script": "benchmark/benchmark_v137/scripts/validate_v137_release_candidate.py",
+  "runner_script": "benchmark/benchmark_v137/scripts/run_v137_validation_suite.py",
+  "required_reports": [
+    "clean_report.json",
+    "mixed_strict_report.json",
+    "independent_validation_report.json",
+    "adversarial_validation_report.json",
+    "report_consistency_report.json",
+    "sample_consistency_report.json",
+    "injected_defect_detection_summary.json",
+    "runtime_trace_summary.json",
+    "handoff_integrity_summary.json",
+    "state_transition_summary.json"
+  ],
+  "required_gates": [
+    "runtime_trace_stage_order_complete_rate",
+    "runtime_trace_has_state_snapshots_rate",
+    "handoff_ids_match_across_stages_rate",
+    "no_pre_gate_production_write_rate",
+    "confirmed_aspects_only_rate",
+    "promotion_gate_required_before_memory_write_rate",
+    "downstream_consumption_requires_promoted_memory_rate",
+    "soft_prefer_not_hard_filter_rate",
+    "mismatching_context_exclusion_rate",
+    "feedback_event_refs_consumed_memory_rate",
+    "post_feedback_packet_uses_updated_lifecycle_state_rate",
+    "wrong_context_feedback_tests_excluded_context_rate",
+    "review_pending_does_not_claim_applied_effect_rate",
+    "rollback_removes_future_consumption_rate",
+    "blocked_memory_not_claimed_rate",
+    "trace_backed_visible_claims_rate",
+    "multi_day_state_hash_stability_rate",
+    "sample_artifacts_match_per_case_rate",
+    "report_consistency_with_independent_validation_rate",
+    "adversarial_detection_rate",
+    "v136_validation_replay_pass_rate"
+  ],
+  "validator_commands": [
+    "benchmark/benchmark_v135/scripts/validate_v135_release_candidate.py",
+    "python benchmark/benchmark_v136/scripts/run_v136_validation_suite.py",
+    "python benchmark/benchmark_v137/scripts/run_v137_validation_suite.py",
+    "python -m unittest discover -s benchmark/benchmark_v137/tests"
+  ],
+  "sample_artifacts": [
+    {
+      "case_id": "v137_A01_full_loop_low_risk_color_memory",
+      "artifact_ref": "sample_artifacts/full_loop_low_risk_color_memory.json",
+      "source_artifact_ref": "per_case/clean/v137_A01_full_loop_low_risk_color_memory.json",
+      "canonical_sha256": "de0ef85dfbc2699ea745a638346bd5b9c739a524e61039169a9a3843bf87fd54",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v137_B01_unconfirmed_candidate_never_promotes",
+      "artifact_ref": "sample_artifacts/unconfirmed_candidate_never_promotes.json",
+      "source_artifact_ref": "per_case/clean/v137_B01_unconfirmed_candidate_never_promotes.json",
+      "canonical_sha256": "eecb1aa19cc5eb32ea24db39cc1fff5be10c5118c0a60ff81aace1647c6be2e7",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v137_E03_wrong_context_adds_exclusion_and_tests_excluded_context",
+      "artifact_ref": "sample_artifacts/wrong_context_feedback_tests_excluded_context.json",
+      "source_artifact_ref": "per_case/clean/v137_E03_wrong_context_adds_exclusion_and_tests_excluded_context.json",
+      "canonical_sha256": "8f73308c3263f24eb3e0461d7597933b2f30a648ecbe924d476917ff01fc86fa",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v137_E04_review_pending_feedback_does_not_claim_applied_effect",
+      "artifact_ref": "sample_artifacts/review_pending_no_applied_effect_claim.json",
+      "source_artifact_ref": "per_case/clean/v137_E04_review_pending_feedback_does_not_claim_applied_effect.json",
+      "canonical_sha256": "6ea059626cc3ce38122ee7a0c61ea80837f6e8fb69b3e2bb3a30f31d20cbd3df",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v137_F03_rollback_removes_future_claims",
+      "artifact_ref": "sample_artifacts/rollback_removes_future_claims.json",
+      "source_artifact_ref": "per_case/clean/v137_F03_rollback_removes_future_claims.json",
+      "canonical_sha256": "539990242b3a79d466c1e5e49fc22ac672213d10d0f4941ddd3990484a56c464",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v137_H01_day1_to_day3_state_hash_stability",
+      "artifact_ref": "sample_artifacts/state_hash_stability.json",
+      "source_artifact_ref": "per_case/clean/v137_H01_day1_to_day3_state_hash_stability.json",
+      "canonical_sha256": "82815b5f80c1931324828165f70a8414b162a573e4cff54db07e33c7531236e8",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    }
+  ],
+  "non_goals": [
+    "No social platform integrations",
+    "No commerce, SKU, merchant, affiliate, or product links",
+    "No AIGC image generation",
+    "No full frontend UI",
+    "No expanded inspiration promotion allowlist",
+    "No production storage migration"
+  ]
+}

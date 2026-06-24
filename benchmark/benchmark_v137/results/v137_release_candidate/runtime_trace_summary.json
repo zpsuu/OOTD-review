@@ -1,0 +1,14 @@
+{
+  "total_cases": 30,
+  "runtime_trace_count": 30,
+  "stage_order": [
+    "intake",
+    "confirmation",
+    "promotion",
+    "consumption",
+    "feedback",
+    "post_feedback_consumption",
+    "multi_day_replay"
+  ],
+  "complete_stage_order_count": 30
+}

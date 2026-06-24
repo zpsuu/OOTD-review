@@ -1,0 +1,42 @@
+{
+  "validator": "benchmark.common.report_consistency",
+  "manifest_hash": "40d5b7f65cfd12dd7ac1d90c426bd00a9b2037a9326dc18486e22dd300ebef1d",
+  "required_reports": [
+    "clean_report.json",
+    "mixed_strict_report.json",
+    "independent_validation_report.json",
+    "adversarial_validation_report.json",
+    "report_consistency_report.json",
+    "sample_consistency_report.json",
+    "injected_defect_detection_summary.json",
+    "runtime_trace_summary.json",
+    "handoff_integrity_summary.json",
+    "state_transition_summary.json"
+  ],
+  "checked_gates": [
+    "runtime_trace_stage_order_complete_rate",
+    "runtime_trace_has_state_snapshots_rate",
+    "handoff_ids_match_across_stages_rate",
+    "no_pre_gate_production_write_rate",
+    "confirmed_aspects_only_rate",
+    "promotion_gate_required_before_memory_write_rate",
+    "downstream_consumption_requires_promoted_memory_rate",
+    "soft_prefer_not_hard_filter_rate",
+    "mismatching_context_exclusion_rate",
+    "feedback_event_refs_consumed_memory_rate",
+    "post_feedback_packet_uses_updated_lifecycle_state_rate",
+    "wrong_context_feedback_tests_excluded_context_rate",
+    "review_pending_does_not_claim_applied_effect_rate",
+    "rollback_removes_future_consumption_rate",
+    "blocked_memory_not_claimed_rate",
+    "trace_backed_visible_claims_rate",
+    "multi_day_state_hash_stability_rate",
+    "sample_artifacts_match_per_case_rate",
+    "report_consistency_with_independent_validation_rate",
+    "adversarial_detection_rate",
+    "v136_validation_replay_pass_rate"
+  ],
+  "passed": true,
+  "failures": [],
+  "generated_at": "2026-06-24T04:45:39Z"
+}

@@ -1,0 +1,124 @@
+{
+  "version": "v1.37",
+  "generated_at": "2026-06-24T04:45:39Z",
+  "verdict": "pass",
+  "seeded_defects": 14,
+  "detected_defects": 14,
+  "unexpected_clean_case_failures": [],
+  "unexpected_injected_passes": [],
+  "detected": [
+    {
+      "case_id": "v137_ADV_K01_stage_order_skips_confirmation",
+      "defect_type": "stage_order_skips_confirmation",
+      "detected": true,
+      "failed_check_ids": [
+        "runtime_trace_stage_order_complete_rate"
+      ]
+    },
+    {
+      "case_id": "v137_ADV_K02_candidate_promotes_before_user_confirmation",
+      "defect_type": "candidate_promotes_before_user_confirmation",
+      "detected": true,
+      "failed_check_ids": [
+        "no_pre_gate_production_write_rate",
+        "promotion_gate_required_before_memory_write_rate"
+      ]
+    },
+    {
+      "case_id": "v137_ADV_K03_unconfirmed_aspect_enters_promoted_memory",
+      "defect_type": "unconfirmed_aspect_enters_promoted_memory",
+      "detected": true,
+      "failed_check_ids": [
+        "confirmed_aspects_only_rate"
+      ]
+    },
+    {
+      "case_id": "v137_ADV_K04_downstream_consumes_memory_before_promotion",
+      "defect_type": "downstream_consumes_memory_before_promotion",
+      "detected": true,
+      "failed_check_ids": [
+        "downstream_consumption_requires_promoted_memory_rate"
+      ]
+    },
+    {
+      "case_id": "v137_ADV_K05_soft_prefer_becomes_hard_filter",
+      "defect_type": "soft_prefer_becomes_hard_filter",
+      "detected": true,
+      "failed_check_ids": [
+        "soft_prefer_not_hard_filter_rate"
+      ]
+    },
+    {
+      "case_id": "v137_ADV_K06_mismatching_context_consumes_memory",
+      "defect_type": "mismatching_context_consumes_memory",
+      "detected": true,
+      "failed_check_ids": [
+        "mismatching_context_exclusion_rate"
+      ]
+    },
+    {
+      "case_id": "v137_ADV_K07_feedback_targets_unconsumed_memory",
+      "defect_type": "feedback_targets_unconsumed_memory",
+      "detected": true,
+      "failed_check_ids": [
+        "feedback_event_refs_consumed_memory_rate"
+      ]
+    },
+    {
+      "case_id": "v137_ADV_K08_wrong_context_feedback_tests_non_excluded_context",
+      "defect_type": "wrong_context_feedback_tests_non_excluded_context",
+      "detected": true,
+      "failed_check_ids": [
+        "wrong_context_feedback_tests_excluded_context_rate"
+      ]
+    },
+    {
+      "case_id": "v137_ADV_K09_review_pending_claims_applied_effect",
+      "defect_type": "review_pending_claims_applied_effect",
+      "detected": true,
+      "failed_check_ids": [
+        "review_pending_does_not_claim_applied_effect_rate"
+      ]
+    },
+    {
+      "case_id": "v137_ADV_K10_rollback_memory_still_consumed_later",
+      "defect_type": "rollback_memory_still_consumed_later",
+      "detected": true,
+      "failed_check_ids": [
+        "rollback_removes_future_consumption_rate"
+      ]
+    },
+    {
+      "case_id": "v137_ADV_K11_visible_claim_without_trace_ref",
+      "defect_type": "visible_claim_without_trace_ref",
+      "detected": true,
+      "failed_check_ids": [
+        "trace_backed_visible_claims_rate"
+      ]
+    },
+    {
+      "case_id": "v137_ADV_K12_state_hash_changes_without_stage_event",
+      "defect_type": "state_hash_changes_without_stage_event",
+      "detected": true,
+      "failed_check_ids": [
+        "multi_day_state_hash_stability_rate"
+      ]
+    },
+    {
+      "case_id": "v137_ADV_K13_sample_artifact_stale_relative_to_per_case",
+      "defect_type": "sample_artifact_stale_relative_to_per_case",
+      "detected": true,
+      "failed_check_ids": [
+        "sample_artifacts_match_per_case_rate"
+      ]
+    },
+    {
+      "case_id": "v137_ADV_K14_clean_report_pass_but_independent_validator_fail",
+      "defect_type": "clean_report_pass_but_independent_validator_fail",
+      "detected": true,
+      "failed_check_ids": [
+        "report_consistency_with_independent_validation_rate"
+      ]
+    }
+  ]
+}

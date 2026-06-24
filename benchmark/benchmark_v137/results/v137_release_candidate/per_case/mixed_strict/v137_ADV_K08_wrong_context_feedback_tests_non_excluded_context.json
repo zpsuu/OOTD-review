@@ -1,0 +1,780 @@
+{
+  "case_id": "v137_ADV_K08_wrong_context_feedback_tests_non_excluded_context",
+  "version": "v1.37",
+  "scenario": "wrong_context_feedback_tests_non_excluded_context",
+  "scenario_kind": "happy_color",
+  "gate_assertions": {
+    "runtime_trace_stage_order_complete_rate": true,
+    "runtime_trace_has_state_snapshots_rate": true,
+    "handoff_ids_match_across_stages_rate": true,
+    "no_pre_gate_production_write_rate": true,
+    "confirmed_aspects_only_rate": true,
+    "promotion_gate_required_before_memory_write_rate": true,
+    "downstream_consumption_requires_promoted_memory_rate": true,
+    "soft_prefer_not_hard_filter_rate": true,
+    "mismatching_context_exclusion_rate": true,
+    "feedback_event_refs_consumed_memory_rate": true,
+    "post_feedback_packet_uses_updated_lifecycle_state_rate": true,
+    "wrong_context_feedback_tests_excluded_context_rate": false,
+    "review_pending_does_not_claim_applied_effect_rate": true,
+    "rollback_removes_future_consumption_rate": true,
+    "blocked_memory_not_claimed_rate": true,
+    "trace_backed_visible_claims_rate": true,
+    "multi_day_state_hash_stability_rate": true,
+    "sample_artifacts_match_per_case_rate": true,
+    "report_consistency_with_independent_validation_rate": true,
+    "adversarial_detection_rate": true,
+    "v136_validation_replay_pass_rate": true
+  },
+  "runtime_trace": {
+    "runtime_trace_id": "rt_v137_908",
+    "case_id": "v137_ADV_K08_wrong_context_feedback_tests_non_excluded_context",
+    "user_id": "fixture_user_001",
+    "trace_mode": "deterministic_local_harness",
+    "started_at": "2026-06-24T00:00:00Z",
+    "completed_at": "2026-06-24T00:00:01Z",
+    "stage_order": [
+      "intake",
+      "confirmation",
+      "promotion",
+      "consumption",
+      "feedback",
+      "post_feedback_consumption",
+      "multi_day_replay"
+    ],
+    "stage_events": [
+      {
+        "stage_event_id": "rte_v137_908_intake",
+        "stage": "intake",
+        "input_refs": [
+          "insp_v137_908"
+        ],
+        "output_refs": [
+          "signal_v137_908",
+          "cand_v137_908"
+        ],
+        "policy_refs": [
+          "privacy_rights_safe_local_fixture"
+        ],
+        "blocked_output_refs": [],
+        "visible_claim_refs": [],
+        "created_at": "2026-06-24T00:00:00Z"
+      },
+      {
+        "stage_event_id": "rte_v137_908_confirmation",
+        "stage": "confirmation",
+        "input_refs": [
+          "cand_v137_908"
+        ],
+        "output_refs": [
+          "confirmed_v137_908"
+        ],
+        "policy_refs": [
+          "user_confirmation_required"
+        ],
+        "blocked_output_refs": [],
+        "visible_claim_refs": [],
+        "created_at": "2026-06-24T00:00:00Z"
+      },
+      {
+        "stage_event_id": "rte_v137_908_promotion",
+        "stage": "promotion",
+        "input_refs": [
+          "confirmed_v137_908"
+        ],
+        "output_refs": [
+          "mem_insp_v137_908"
+        ],
+        "policy_refs": [
+          "promotion_eligibility_report",
+          "production_memory_write_gate"
+        ],
+        "blocked_output_refs": [],
+        "visible_claim_refs": [],
+        "created_at": "2026-06-24T00:00:00Z"
+      },
+      {
+        "stage_event_id": "rte_v137_908_consumption",
+        "stage": "consumption",
+        "input_refs": [
+          "mem_insp_v137_908"
+        ],
+        "output_refs": [
+          "tmp_v137_908"
+        ],
+        "policy_refs": [
+          "task_memory_packet_builder"
+        ],
+        "blocked_output_refs": [],
+        "visible_claim_refs": [
+          "claim_v137_908"
+        ],
+        "created_at": "2026-06-24T00:00:00Z"
+      },
+      {
+        "stage_event_id": "rte_v137_908_feedback",
+        "stage": "feedback",
+        "input_refs": [
+          "tmp_v137_908",
+          "mem_insp_v137_908"
+        ],
+        "output_refs": [
+          "pmf_v137_908"
+        ],
+        "policy_refs": [
+          "feedback_interpreter"
+        ],
+        "blocked_output_refs": [],
+        "visible_claim_refs": [],
+        "created_at": "2026-06-24T00:00:00Z"
+      },
+      {
+        "stage_event_id": "rte_v137_908_post",
+        "stage": "post_feedback_consumption",
+        "input_refs": [
+          "pmf_v137_908",
+          "mem_insp_v137_908"
+        ],
+        "output_refs": [
+          "tmp_post_v137_908"
+        ],
+        "policy_refs": [
+          "lifecycle_state_packet_rebuild"
+        ],
+        "blocked_output_refs": [],
+        "visible_claim_refs": [
+          "claim_v137_908"
+        ],
+        "created_at": "2026-06-24T00:00:00Z"
+      },
+      {
+        "stage_event_id": "rte_v137_908_multi_day",
+        "stage": "multi_day_replay",
+        "input_refs": [
+          "tmp_post_v137_908"
+        ],
+        "output_refs": [
+          "state_after_day3_v137_908"
+        ],
+        "policy_refs": [
+          "state_hash_replay"
+        ],
+        "blocked_output_refs": [],
+        "visible_claim_refs": [],
+        "created_at": "2026-06-24T00:00:00Z"
+      }
+    ],
+    "state_snapshots": [
+      {
+        "state_snapshot_id": "state_after_intake_v137_908",
+        "after_stage": "intake",
+        "confirmed_candidate_ids": [],
+        "promoted_memory_ids": [],
+        "active_memory_ids": [],
+        "blocked_memory_ids": [],
+        "rolled_back_memory_ids": [],
+        "review_pending_memory_ids": [],
+        "task_memory_packet_ids": [],
+        "claim_ids": [],
+        "state_hash": "c88cb095d8f3c09f7f0e17751665f2370467ff577f415095e87e438778b6a6a3"
+      },
+      {
+        "state_snapshot_id": "state_after_confirmation_v137_908",
+        "after_stage": "confirmation",
+        "confirmed_candidate_ids": [
+          "confirmed_v137_908"
+        ],
+        "promoted_memory_ids": [],
+        "active_memory_ids": [],
+        "blocked_memory_ids": [],
+        "rolled_back_memory_ids": [],
+        "review_pending_memory_ids": [],
+        "task_memory_packet_ids": [],
+        "claim_ids": [],
+        "state_hash": "d8c0d2e6fad13361a6ac4faeea53d98d3c28c261dd1433b89c2309187a54364e"
+      },
+      {
+        "state_snapshot_id": "state_after_promotion_v137_908",
+        "after_stage": "promotion",
+        "confirmed_candidate_ids": [
+          "confirmed_v137_908"
+        ],
+        "promoted_memory_ids": [
+          "mem_insp_v137_908"
+        ],
+        "active_memory_ids": [
+          "mem_insp_v137_908"
+        ],
+        "blocked_memory_ids": [],
+        "rolled_back_memory_ids": [],
+        "review_pending_memory_ids": [],
+        "task_memory_packet_ids": [],
+        "claim_ids": [],
+        "state_hash": "bf48dc71d59ecab6f4121929d385e5c13d35d449a61a20e61ccd7bc39b6ec4ec"
+      },
+      {
+        "state_snapshot_id": "state_after_consumption_v137_908",
+        "after_stage": "consumption",
+        "confirmed_candidate_ids": [
+          "confirmed_v137_908"
+        ],
+        "promoted_memory_ids": [
+          "mem_insp_v137_908"
+        ],
+        "active_memory_ids": [
+          "mem_insp_v137_908"
+        ],
+        "blocked_memory_ids": [],
+        "rolled_back_memory_ids": [],
+        "review_pending_memory_ids": [],
+        "task_memory_packet_ids": [
+          "tmp_v137_908"
+        ],
+        "claim_ids": [
+          "claim_v137_908"
+        ],
+        "state_hash": "a04f2c808abd217df010cf6341f0eb07718be8d074d5616707863365d3470240"
+      },
+      {
+        "state_snapshot_id": "state_after_feedback_v137_908",
+        "after_stage": "feedback",
+        "confirmed_candidate_ids": [
+          "confirmed_v137_908"
+        ],
+        "promoted_memory_ids": [
+          "mem_insp_v137_908"
+        ],
+        "active_memory_ids": [
+          "mem_insp_v137_908"
+        ],
+        "blocked_memory_ids": [],
+        "rolled_back_memory_ids": [],
+        "review_pending_memory_ids": [],
+        "task_memory_packet_ids": [
+          "tmp_v137_908"
+        ],
+        "claim_ids": [
+          "claim_v137_908"
+        ],
+        "state_hash": "47f4ea02d5ccc1d65571ec0838d1d2d54b47a0fcc8587f871f89f2be80551db4"
+      },
+      {
+        "state_snapshot_id": "state_after_post_feedback_v137_908",
+        "after_stage": "post_feedback_consumption",
+        "confirmed_candidate_ids": [
+          "confirmed_v137_908"
+        ],
+        "promoted_memory_ids": [
+          "mem_insp_v137_908"
+        ],
+        "active_memory_ids": [
+          "mem_insp_v137_908"
+        ],
+        "blocked_memory_ids": [],
+        "rolled_back_memory_ids": [],
+        "review_pending_memory_ids": [],
+        "task_memory_packet_ids": [
+          "tmp_v137_908",
+          "tmp_post_v137_908"
+        ],
+        "claim_ids": [
+          "claim_v137_908"
+        ],
+        "state_hash": "b464ab7e4cf53a4b2bbf8e029f4a1db9f0b5f2d6efa38e3553222ac8f555c3ef"
+      },
+      {
+        "state_snapshot_id": "state_after_day3_v137_908",
+        "after_stage": "multi_day_replay",
+        "confirmed_candidate_ids": [
+          "confirmed_v137_908"
+        ],
+        "promoted_memory_ids": [
+          "mem_insp_v137_908"
+        ],
+        "active_memory_ids": [
+          "mem_insp_v137_908"
+        ],
+        "blocked_memory_ids": [],
+        "rolled_back_memory_ids": [],
+        "review_pending_memory_ids": [],
+        "task_memory_packet_ids": [
+          "tmp_v137_908",
+          "tmp_post_v137_908"
+        ],
+        "claim_ids": [
+          "claim_v137_908"
+        ],
+        "state_hash": "ef89a463d2a9da3a6888ddf78b4067c426951c48aec91338c13a73e8b1cc0e81"
+      }
+    ],
+    "invariant_checks": [
+      {
+        "invariant": "runtime_trace_stage_order_complete_rate",
+        "passed": true,
+        "raw_proof_refs": [
+          "runtime_trace",
+          "handoff_proofs",
+          "runtime_invariant_report"
+        ]
+      },
+      {
+        "invariant": "runtime_trace_has_state_snapshots_rate",
+        "passed": true,
+        "raw_proof_refs": [
+          "runtime_trace",
+          "handoff_proofs",
+          "runtime_invariant_report"
+        ]
+      },
+      {
+        "invariant": "handoff_ids_match_across_stages_rate",
+        "passed": true,
+        "raw_proof_refs": [
+          "runtime_trace",
+          "handoff_proofs",
+          "runtime_invariant_report"
+        ]
+      },
+      {
+        "invariant": "no_pre_gate_production_write_rate",
+        "passed": true,
+        "raw_proof_refs": [
+          "runtime_trace",
+          "handoff_proofs",
+          "runtime_invariant_report"
+        ]
+      },
+      {
+        "invariant": "confirmed_aspects_only_rate",
+        "passed": true,
+        "raw_proof_refs": [
+          "runtime_trace",
+          "handoff_proofs",
+          "runtime_invariant_report"
+        ]
+      },
+      {
+        "invariant": "promotion_gate_required_before_memory_write_rate",
+        "passed": true,
+        "raw_proof_refs": [
+          "runtime_trace",
+          "handoff_proofs",
+          "runtime_invariant_report"
+        ]
+      },
+      {
+        "invariant": "downstream_consumption_requires_promoted_memory_rate",
+        "passed": true,
+        "raw_proof_refs": [
+          "runtime_trace",
+          "handoff_proofs",
+          "runtime_invariant_report"
+        ]
+      },
+      {
+        "invariant": "soft_prefer_not_hard_filter_rate",
+        "passed": true,
+        "raw_proof_refs": [
+          "runtime_trace",
+          "handoff_proofs",
+          "runtime_invariant_report"
+        ]
+      },
+      {
+        "invariant": "mismatching_context_exclusion_rate",
+        "passed": true,
+        "raw_proof_refs": [
+          "runtime_trace",
+          "handoff_proofs",
+          "runtime_invariant_report"
+        ]
+      },
+      {
+        "invariant": "feedback_event_refs_consumed_memory_rate",
+        "passed": true,
+        "raw_proof_refs": [
+          "runtime_trace",
+          "handoff_proofs",
+          "runtime_invariant_report"
+        ]
+      },
+      {
+        "invariant": "post_feedback_packet_uses_updated_lifecycle_state_rate",
+        "passed": true,
+        "raw_proof_refs": [
+          "runtime_trace",
+          "handoff_proofs",
+          "runtime_invariant_report"
+        ]
+      },
+      {
+        "invariant": "wrong_context_feedback_tests_excluded_context_rate",
+        "passed": true,
+        "raw_proof_refs": [
+          "runtime_trace",
+          "handoff_proofs",
+          "runtime_invariant_report"
+        ]
+      },
+      {
+        "invariant": "review_pending_does_not_claim_applied_effect_rate",
+        "passed": true,
+        "raw_proof_refs": [
+          "runtime_trace",
+          "handoff_proofs",
+          "runtime_invariant_report"
+        ]
+      },
+      {
+        "invariant": "rollback_removes_future_consumption_rate",
+        "passed": true,
+        "raw_proof_refs": [
+          "runtime_trace",
+          "handoff_proofs",
+          "runtime_invariant_report"
+        ]
+      },
+      {
+        "invariant": "blocked_memory_not_claimed_rate",
+        "passed": true,
+        "raw_proof_refs": [
+          "runtime_trace",
+          "handoff_proofs",
+          "runtime_invariant_report"
+        ]
+      },
+      {
+        "invariant": "trace_backed_visible_claims_rate",
+        "passed": true,
+        "raw_proof_refs": [
+          "runtime_trace",
+          "handoff_proofs",
+          "runtime_invariant_report"
+        ]
+      },
+      {
+        "invariant": "multi_day_state_hash_stability_rate",
+        "passed": true,
+        "raw_proof_refs": [
+          "runtime_trace",
+          "handoff_proofs",
+          "runtime_invariant_report"
+        ]
+      },
+      {
+        "invariant": "sample_artifacts_match_per_case_rate",
+        "passed": true,
+        "raw_proof_refs": [
+          "runtime_trace",
+          "handoff_proofs",
+          "runtime_invariant_report"
+        ]
+      },
+      {
+        "invariant": "report_consistency_with_independent_validation_rate",
+        "passed": true,
+        "raw_proof_refs": [
+          "runtime_trace",
+          "handoff_proofs",
+          "runtime_invariant_report"
+        ]
+      },
+      {
+        "invariant": "adversarial_detection_rate",
+        "passed": true,
+        "raw_proof_refs": [
+          "runtime_trace",
+          "handoff_proofs",
+          "runtime_invariant_report"
+        ]
+      },
+      {
+        "invariant": "v136_validation_replay_pass_rate",
+        "passed": true,
+        "raw_proof_refs": [
+          "runtime_trace",
+          "handoff_proofs",
+          "runtime_invariant_report"
+        ]
+      }
+    ],
+    "final_state_ref": "state_after_day3_v137_908"
+  },
+  "handoff_proofs": [
+    {
+      "handoff_proof_id": "hp_v137_908_intake_confirmation",
+      "from_stage": "intake",
+      "to_stage": "confirmation",
+      "source_output_ref": "cand_v137_908",
+      "target_input_ref": "cand_v137_908",
+      "source_artifact_ref": "inspiration_candidate.candidate_id",
+      "target_artifact_ref": "user_confirmation.candidate_id",
+      "same_id": true,
+      "policy_boundary_preserved": true
+    },
+    {
+      "handoff_proof_id": "hp_v137_908_confirmation_promotion",
+      "from_stage": "confirmation",
+      "to_stage": "promotion",
+      "source_output_ref": "confirmed_v137_908",
+      "target_input_ref": "confirmed_v137_908",
+      "source_artifact_ref": "confirmed_inspiration_candidate.confirmed_candidate_id",
+      "target_artifact_ref": "promotion_eligibility_report.confirmed_candidate_id",
+      "same_id": true,
+      "policy_boundary_preserved": true
+    },
+    {
+      "handoff_proof_id": "hp_v137_908_promotion_consumption",
+      "from_stage": "promotion",
+      "to_stage": "consumption",
+      "source_output_ref": "mem_insp_v137_908",
+      "target_input_ref": "mem_insp_v137_908",
+      "source_artifact_ref": "promoted_memory_atom.memory_id",
+      "target_artifact_ref": "task_memory_packet.candidate_promoted_memory_ids[0]",
+      "same_id": true,
+      "policy_boundary_preserved": true
+    },
+    {
+      "handoff_proof_id": "hp_v137_908_consumption_feedback",
+      "from_stage": "consumption",
+      "to_stage": "feedback",
+      "source_output_ref": "mem_insp_v137_908",
+      "target_input_ref": "mem_insp_v137_908",
+      "source_artifact_ref": "task_memory_packet.consumed_promoted_memory_ids[0]",
+      "target_artifact_ref": "promoted_memory_feedback_event.promoted_memory_id",
+      "same_id": true,
+      "policy_boundary_preserved": true
+    },
+    {
+      "handoff_proof_id": "hp_v137_908_feedback_post",
+      "from_stage": "feedback",
+      "to_stage": "post_feedback_consumption",
+      "source_output_ref": "mem_insp_v137_908",
+      "target_input_ref": "mem_insp_v137_908",
+      "source_artifact_ref": "updated_memory_lifecycle_state.memory_id",
+      "target_artifact_ref": "post_feedback_task_memory_packet.candidate_promoted_memory_ids[0]",
+      "same_id": true,
+      "policy_boundary_preserved": true
+    },
+    {
+      "handoff_proof_id": "hp_v137_908_post_multiday",
+      "from_stage": "post_feedback_consumption",
+      "to_stage": "multi_day_replay",
+      "source_output_ref": "state_after_post_feedback_v137_908",
+      "target_input_ref": "state_after_post_feedback_v137_908",
+      "source_artifact_ref": "post_feedback_state.state_snapshot_id",
+      "target_artifact_ref": "multi_day_runtime_trace.input_state_ref",
+      "same_id": true,
+      "policy_boundary_preserved": true
+    }
+  ],
+  "runtime_invariant_report": {
+    "runtime_invariant_report_id": "rir_v137_908",
+    "case_id": "v137_ADV_K08_wrong_context_feedback_tests_non_excluded_context",
+    "passed": true,
+    "checked_invariants": [
+      "no_pre_gate_production_write",
+      "confirmed_aspects_only",
+      "stable_memory_id_handoff",
+      "trace_backed_visible_claims",
+      "post_feedback_packet_uses_updated_lifecycle_state",
+      "no_report_only_pass"
+    ],
+    "failed_invariants": [],
+    "raw_proof_refs": [
+      "runtime_trace.stage_events",
+      "runtime_trace.state_snapshots",
+      "handoff_proofs"
+    ]
+  },
+  "inspiration_input": {
+    "inspiration_input_id": "insp_v137_908",
+    "source_kind": "local_fixture",
+    "raw_image_included": false
+  },
+  "shadow_signal_extraction": {
+    "shadow_signal_id": "signal_v137_908",
+    "production_write_executed": false,
+    "extracted_aspects": [
+      "color_palette"
+    ]
+  },
+  "inspiration_candidate": {
+    "candidate_id": "cand_v137_908",
+    "confirmed": false,
+    "candidate_aspects": [
+      "color_palette"
+    ]
+  },
+  "user_confirmation": {
+    "confirmation_id": "confirm_v137_908",
+    "candidate_id": "cand_v137_908",
+    "confirmed_aspects": [
+      "color_palette"
+    ],
+    "do_not_remember": false
+  },
+  "confirmed_inspiration_candidate": {
+    "confirmed_candidate_id": "confirmed_v137_908",
+    "source_candidate_id": "cand_v137_908",
+    "confirmed_aspects": [
+      "color_palette"
+    ]
+  },
+  "promotion_eligibility_report": {
+    "promotion_report_id": "per_v137_908",
+    "confirmed_candidate_id": "confirmed_v137_908",
+    "eligible": true,
+    "requires_review": false,
+    "blocked": false,
+    "risk_level": "low"
+  },
+  "production_memory_write_gate": {
+    "gate_id": "pmwg_v137_908",
+    "decision": "allow",
+    "production_write_executed": true,
+    "pre_gate_production_write": false
+  },
+  "promoted_memory_atom": {
+    "memory_id": "mem_insp_v137_908",
+    "confirmed_aspects": [
+      "color_palette"
+    ],
+    "contexts": [
+      "office_daily"
+    ],
+    "scope": "contextual",
+    "polarity": "soft_prefer",
+    "disallowed_downstream_use": [
+      "hard_filter",
+      "commerce_targeting",
+      "body_inference"
+    ]
+  },
+  "task_memory_packet": {
+    "task_memory_packet_id": "tmp_v137_908",
+    "candidate_promoted_memory_ids": [
+      "mem_insp_v137_908"
+    ],
+    "consumed_promoted_memory_ids": [
+      "mem_insp_v137_908"
+    ],
+    "excluded_memory_ids": [],
+    "request_context": "office_daily",
+    "consumption_mode": "soft_bias"
+  },
+  "daily_outfit_card": {
+    "daily_outfit_card_id": "card_v137_908",
+    "visible_claim_ids": [
+      "claim_v137_908"
+    ]
+  },
+  "bridge_consumption_report": {
+    "bridge_id": "bridge_v137_908",
+    "used_memory_ids": [
+      "mem_insp_v137_908"
+    ],
+    "used_as": "component_support_signal"
+  },
+  "visible_claims": [
+    {
+      "claim_id": "claim_v137_908",
+      "text": "I used your confirmed inspiration color cue as a soft bias.",
+      "trace_refs": [
+        "mem_insp_v137_908",
+        "tmp_v137_908"
+      ]
+    }
+  ],
+  "promoted_memory_feedback_event": {
+    "feedback_event_id": "pmf_v137_908",
+    "promoted_memory_id": "mem_insp_v137_908",
+    "consumption_report_id": "pmcr_v137_908",
+    "feedback_action": "use_was_right",
+    "trace_refs": {
+      "task_memory_packet_id": "tmp_v137_908",
+      "response_claim_ids": [
+        "claim_v137_908"
+      ],
+      "daily_outfit_card_id": "card_v137_908"
+    }
+  },
+  "feedback_interpretation": {
+    "feedback_interpretation_id": "fi_v137_908",
+    "interpreted_intent": "reinforce",
+    "requires_human_review": false
+  },
+  "memory_lifecycle_proposal": {
+    "lifecycle_proposal_id": "mlp_v137_908",
+    "proposal_type": "reinforce",
+    "target_memory_id": "mem_insp_v137_908",
+    "must_not_do": [
+      "expand_scope",
+      "create_global_memory",
+      "add_unconfirmed_aspect"
+    ]
+  },
+  "feedback_write_decision": {
+    "feedback_write_decision_id": "fwd_v137_908",
+    "gate_decision": "allow",
+    "production_write_executed": true,
+    "rollback_ref": null
+  },
+  "updated_memory_lifecycle_state": {
+    "memory_id": "mem_insp_v137_908",
+    "current_status": "active",
+    "contexts": [
+      "office_daily"
+    ],
+    "context_exclusions": [
+      "formal_client_meeting"
+    ],
+    "active_memory_ids": [
+      "mem_insp_v137_908"
+    ],
+    "blocked_memory_ids": [],
+    "rolled_back_memory_ids": [],
+    "review_pending_memory_ids": []
+  },
+  "post_feedback_task_memory_packet": {
+    "task_memory_packet_id": "tmp_post_v137_908",
+    "candidate_promoted_memory_ids": [
+      "mem_insp_v137_908"
+    ],
+    "consumed_promoted_memory_ids": [
+      "mem_insp_v137_908"
+    ],
+    "excluded_memory_ids": [],
+    "request_context": "office_daily",
+    "expected_behavior": "exclude_in_context"
+  },
+  "post_feedback_claims": [
+    {
+      "claim_id": "claim_post_v137_908",
+      "text": "I used your confirmed inspiration cue.",
+      "trace_refs": [
+        "mem_insp_v137_908",
+        "tmp_post_v137_908"
+      ]
+    }
+  ],
+  "multi_day_runtime_trace": {
+    "days": 3,
+    "input_state_ref": "state_after_post_feedback_v137_908",
+    "day_state_hashes": [
+      "ef89a463d2a9da3a6888ddf78b4067c426951c48aec91338c13a73e8b1cc0e81",
+      "ef89a463d2a9da3a6888ddf78b4067c426951c48aec91338c13a73e8b1cc0e81",
+      "ef89a463d2a9da3a6888ddf78b4067c426951c48aec91338c13a73e8b1cc0e81"
+    ],
+    "stable": true
+  },
+  "rollback_proof": null,
+  "v136_replay_proof": {
+    "run_v136_validation_suite": "PASS"
+  },
+  "defect_type": "wrong_context_feedback_tests_non_excluded_context",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "wrong_context_feedback_tests_excluded_context_rate"
+  ]
+}

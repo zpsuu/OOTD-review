@@ -1,0 +1,447 @@
+{
+  "validator": "v1.37.independent.runtime_loop_validator",
+  "generated_at": "2026-06-24T04:45:39Z",
+  "result_dir": "benchmark/benchmark_v137/results/v137_release_candidate",
+  "subset": "clean",
+  "suite_summary": {
+    "total_cases": 30,
+    "passed_cases": 30,
+    "failed_cases": 0,
+    "total_checks": 21,
+    "passed_checks": 21,
+    "failed_checks": 0
+  },
+  "checks": [
+    {
+      "check_id": "runtime_trace_stage_order_complete_rate",
+      "applicable_cases": 30,
+      "passed_cases": 30,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "runtime_trace_has_state_snapshots_rate",
+      "applicable_cases": 30,
+      "passed_cases": 30,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "handoff_ids_match_across_stages_rate",
+      "applicable_cases": 30,
+      "passed_cases": 30,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "no_pre_gate_production_write_rate",
+      "applicable_cases": 30,
+      "passed_cases": 30,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "confirmed_aspects_only_rate",
+      "applicable_cases": 30,
+      "passed_cases": 30,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "promotion_gate_required_before_memory_write_rate",
+      "applicable_cases": 30,
+      "passed_cases": 30,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "downstream_consumption_requires_promoted_memory_rate",
+      "applicable_cases": 30,
+      "passed_cases": 30,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "soft_prefer_not_hard_filter_rate",
+      "applicable_cases": 30,
+      "passed_cases": 30,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "mismatching_context_exclusion_rate",
+      "applicable_cases": 30,
+      "passed_cases": 30,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "feedback_event_refs_consumed_memory_rate",
+      "applicable_cases": 30,
+      "passed_cases": 30,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "post_feedback_packet_uses_updated_lifecycle_state_rate",
+      "applicable_cases": 30,
+      "passed_cases": 30,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "wrong_context_feedback_tests_excluded_context_rate",
+      "applicable_cases": 30,
+      "passed_cases": 30,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "review_pending_does_not_claim_applied_effect_rate",
+      "applicable_cases": 30,
+      "passed_cases": 30,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "rollback_removes_future_consumption_rate",
+      "applicable_cases": 30,
+      "passed_cases": 30,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "blocked_memory_not_claimed_rate",
+      "applicable_cases": 30,
+      "passed_cases": 30,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "trace_backed_visible_claims_rate",
+      "applicable_cases": 30,
+      "passed_cases": 30,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "multi_day_state_hash_stability_rate",
+      "applicable_cases": 30,
+      "passed_cases": 30,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "sample_artifacts_match_per_case_rate",
+      "applicable_cases": 30,
+      "passed_cases": 30,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "report_consistency_with_independent_validation_rate",
+      "applicable_cases": 30,
+      "passed_cases": 30,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "adversarial_detection_rate",
+      "applicable_cases": 30,
+      "passed_cases": 30,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "v136_validation_replay_pass_rate",
+      "applicable_cases": 30,
+      "passed_cases": 30,
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    }
+  ],
+  "case_results": [
+    {
+      "case_id": "v137_A01_full_loop_low_risk_color_memory",
+      "artifact_ref": "per_case/clean/v137_A01_full_loop_low_risk_color_memory.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v137_A02_full_loop_silhouette_memory",
+      "artifact_ref": "per_case/clean/v137_A02_full_loop_silhouette_memory.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v137_A03_full_loop_contextual_soft_prefer_memory",
+      "artifact_ref": "per_case/clean/v137_A03_full_loop_contextual_soft_prefer_memory.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v137_B01_unconfirmed_candidate_never_promotes",
+      "artifact_ref": "per_case/clean/v137_B01_unconfirmed_candidate_never_promotes.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v137_B02_confirmed_aspect_subset_only",
+      "artifact_ref": "per_case/clean/v137_B02_confirmed_aspect_subset_only.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v137_B03_do_not_remember_candidate_blocks_promotion",
+      "artifact_ref": "per_case/clean/v137_B03_do_not_remember_candidate_blocks_promotion.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v137_C01_low_risk_contextual_promotion_allowed",
+      "artifact_ref": "per_case/clean/v137_C01_low_risk_contextual_promotion_allowed.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v137_C02_conflict_requires_review_before_promotion",
+      "artifact_ref": "per_case/clean/v137_C02_conflict_requires_review_before_promotion.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v137_C03_global_scope_request_blocked",
+      "artifact_ref": "per_case/clean/v137_C03_global_scope_request_blocked.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v137_D01_matching_context_consumes_memory",
+      "artifact_ref": "per_case/clean/v137_D01_matching_context_consumes_memory.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v137_D02_mismatching_context_excludes_memory",
+      "artifact_ref": "per_case/clean/v137_D02_mismatching_context_excludes_memory.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v137_D03_no_hard_filter_from_soft_prefer",
+      "artifact_ref": "per_case/clean/v137_D03_no_hard_filter_from_soft_prefer.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v137_E01_too_strong_feedback_reduces_weight",
+      "artifact_ref": "per_case/clean/v137_E01_too_strong_feedback_reduces_weight.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v137_E02_wrong_aspect_preserves_other_confirmed_aspects",
+      "artifact_ref": "per_case/clean/v137_E02_wrong_aspect_preserves_other_confirmed_aspects.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v137_E03_wrong_context_adds_exclusion_and_tests_excluded_context",
+      "artifact_ref": "per_case/clean/v137_E03_wrong_context_adds_exclusion_and_tests_excluded_context.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v137_E04_review_pending_feedback_does_not_claim_applied_effect",
+      "artifact_ref": "per_case/clean/v137_E04_review_pending_feedback_does_not_claim_applied_effect.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v137_F01_do_not_use_blocks_future_consumption",
+      "artifact_ref": "per_case/clean/v137_F01_do_not_use_blocks_future_consumption.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v137_F02_forget_routes_through_rollback",
+      "artifact_ref": "per_case/clean/v137_F02_forget_routes_through_rollback.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v137_F03_rollback_removes_future_claims",
+      "artifact_ref": "per_case/clean/v137_F03_rollback_removes_future_claims.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v137_G01_ambiguous_feedback_requires_clarification",
+      "artifact_ref": "per_case/clean/v137_G01_ambiguous_feedback_requires_clarification.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v137_G02_high_risk_identity_or_body_inference_requires_review_or_block",
+      "artifact_ref": "per_case/clean/v137_G02_high_risk_identity_or_body_inference_requires_review_or_block.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v137_H01_day1_to_day3_state_hash_stability",
+      "artifact_ref": "per_case/clean/v137_H01_day1_to_day3_state_hash_stability.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v137_H02_feedback_lifecycle_survives_multiday_replay",
+      "artifact_ref": "per_case/clean/v137_H02_feedback_lifecycle_survives_multiday_replay.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v137_I01_sample_artifact_matches_per_case",
+      "artifact_ref": "per_case/clean/v137_I01_sample_artifact_matches_per_case.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v137_I02_clean_report_cannot_override_raw_failure",
+      "artifact_ref": "per_case/clean/v137_I02_clean_report_cannot_override_raw_failure.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v137_J01_v136_replay_passes_before_v137_validation",
+      "artifact_ref": "per_case/clean/v137_J01_v136_replay_passes_before_v137_validation.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v137_J02_promotion_to_consumption_handoff_same_id",
+      "artifact_ref": "per_case/clean/v137_J02_promotion_to_consumption_handoff_same_id.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v137_J03_post_feedback_packet_rebuilt_from_lifecycle_state",
+      "artifact_ref": "per_case/clean/v137_J03_post_feedback_packet_rebuilt_from_lifecycle_state.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v137_J04_visible_claims_trace_back_to_memory_and_card",
+      "artifact_ref": "per_case/clean/v137_J04_visible_claims_trace_back_to_memory_and_card.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    },
+    {
+      "case_id": "v137_J05_runtime_trace_invariants_are_raw_backed",
+      "artifact_ref": "per_case/clean/v137_J05_runtime_trace_invariants_are_raw_backed.json",
+      "passed": true,
+      "failed_check_ids": [],
+      "expected_failed_check_ids": [],
+      "defect_type": null
+    }
+  ]
+}

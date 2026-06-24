@@ -14,12 +14,12 @@ The private development repository remains private. This mirror only contains re
 
 ## Current Review Target
 
-v1.36 - Promoted Inspiration Memory Feedback Lifecycle
+v1.37 - End-to-End Inspiration Memory Runtime Loop
 
 Entrypoint:
 
-`benchmark/benchmark_v136/results/v136_release_candidate/REVIEW_MANIFEST.json`
+`benchmark/benchmark_v137/results/v137_release_candidate/REVIEW_MANIFEST.json`
 
 ## Status
 
-v1.36 Promoted Inspiration Memory Feedback Lifecycle is PASS CANDIDATE pending manual review.
+v1.37 End-to-End Inspiration Memory Runtime Loop is PASS CANDIDATE pending manual review.
