@@ -1,9 +1,9 @@
 {
   "version": "v1.39",
-  "generated_at": "2026-06-24T07:46:17Z",
+  "generated_at": "2026-06-24T07:55:30Z",
   "verdict": "pass",
-  "seeded_defects": 22,
-  "detected_defects": 22,
+  "seeded_defects": 29,
+  "detected_defects": 29,
   "unexpected_injected_passes": [],
   "detected": [
     {
@@ -257,6 +257,86 @@
       ],
       "failed_check_ids": [
         "report_consistency_with_independent_validation_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v139_ADV_M23_missing_idempotency_record",
+      "defect_type": "missing_idempotency_record",
+      "expected_failed_check_ids": [
+        "duplicate_submission_idempotent_rate"
+      ],
+      "failed_check_ids": [
+        "duplicate_submission_idempotent_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v139_ADV_M24_missing_stale_action_suppression_proof",
+      "defect_type": "missing_stale_action_suppression_proof",
+      "expected_failed_check_ids": [
+        "stale_action_suppressed_rate"
+      ],
+      "failed_check_ids": [
+        "stale_action_suppressed_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v139_ADV_M25_missing_action_submission_for_submitted_action",
+      "defect_type": "missing_action_submission_for_submitted_action",
+      "expected_failed_check_ids": [
+        "action_submission_allowed_and_active_rate"
+      ],
+      "failed_check_ids": [
+        "action_submission_allowed_and_active_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v139_ADV_M26_missing_action_result_for_submitted_action",
+      "defect_type": "missing_action_result_for_submitted_action",
+      "expected_failed_check_ids": [
+        "post_action_packet_matches_resolution_rate"
+      ],
+      "failed_check_ids": [
+        "post_action_packet_matches_resolution_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v139_ADV_M27_missing_action_result_for_expired_submission",
+      "defect_type": "missing_action_result_for_expired_submission",
+      "expected_failed_check_ids": [
+        "expired_action_disabled_noop_rate",
+        "post_action_packet_matches_resolution_rate"
+      ],
+      "failed_check_ids": [
+        "action_submission_allowed_and_active_rate",
+        "expired_action_disabled_noop_rate",
+        "post_action_packet_matches_resolution_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v139_ADV_M28_missing_response_claim_trace",
+      "defect_type": "missing_response_claim_trace",
+      "expected_failed_check_ids": [
+        "response_claims_trace_backed_rate"
+      ],
+      "failed_check_ids": [
+        "response_claims_trace_backed_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v139_ADV_M29_action_result_references_missing_response_block",
+      "defect_type": "action_result_references_missing_response_block",
+      "expected_failed_check_ids": [
+        "response_claims_trace_backed_rate"
+      ],
+      "failed_check_ids": [
+        "response_claims_trace_backed_rate"
       ],
       "detected": true
     }

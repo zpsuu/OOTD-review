@@ -41,6 +41,17 @@ GATES = [
 
 NO_WRITE_ACTIONS = {"this_time_only", "do_not_change_memory", "dismiss", "retry_after_review"}
 FORBIDDEN_TEXT = {"raw_evidence", "risk_reasons", "global memory", "globalize", "silhouette", "body", "identity", "attractive", "sku", "merchant", "affiliate", "aigc", "image generation"}
+SUBMITTED_ACTION_SCENARIOS = {
+    "this_time_only",
+    "do_not_change_memory",
+    "remember_for_context",
+    "post_this_time_only",
+    "post_write_candidate",
+    "expired_submission",
+    "duplicate_submission",
+}
+NO_RESULT_SCENARIOS = {"open_clarification", "open_review", "temporary_hold"}
+STALE_PROOF_SCENARIOS = {"stale_suppressed", "stale_hold_removed"}
 
 
 def _artifact_dir(result_dir: Path, subset: str) -> Path:
@@ -105,6 +116,19 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
     daily = artifact.get("daily_outfit_card_status_proof") or {}
     scenario = artifact.get("scenario_kind")
     memory_id = before.get("memory_id")
+
+    submitted_action_required = scenario in SUBMITTED_ACTION_SCENARIOS
+    result_required = scenario not in NO_RESULT_SCENARIOS
+    if submitted_action_required and not submission:
+        failures.append("action_submission_allowed_and_active_rate")
+    if result_required and not result:
+        failures.append("post_action_packet_matches_resolution_rate")
+        if scenario in {"expired_card", "expired_submission"}:
+            failures.append("expired_action_disabled_noop_rate")
+    if scenario == "duplicate_submission" and not idempotency:
+        failures.append("duplicate_submission_idempotent_rate")
+    if scenario in STALE_PROOF_SCENARIOS and not stale:
+        failures.append("stale_action_suppressed_rate")
 
     if surface.get("runtime_trace_id") != runtime.get("runtime_trace_id") or surface.get("source_governance_queue_ref") != queue.get("runtime_governance_queue_id"):
         failures.append("surface_created_from_governance_queue_rate")
@@ -226,17 +250,32 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
 
     result_id = (result or {}).get("action_result_packet_id")
     decision_id = (decision or {}).get("governance_resolution_decision_id")
+    block_ids = {block.get("response_block_id") for block in blocks}
+    claim_refs_by_block = [ref for block in blocks for ref in (block.get("claim_refs") or [])]
+    claims_by_id: dict[Any, list[dict[str, Any]]] = {}
+    for claim in claims:
+        claims_by_id.setdefault(claim.get("claim_id"), []).append(claim)
+    if result:
+        response_block_ids = result.get("user_visible_response_block_ids") or []
+        if not response_block_ids:
+            failures.append("response_claims_trace_backed_rate")
+        for response_block_id in response_block_ids:
+            if response_block_id not in block_ids:
+                failures.append("response_claims_trace_backed_rate")
     for claim in claims:
         refs = set(claim.get("trace_refs") or [])
         if result_id and result_id not in refs:
             failures.append("response_claims_trace_backed_rate")
         if decision_id and decision_id not in refs:
             failures.append("response_claims_trace_backed_rate")
-        if claim.get("claim_id") not in {ref for block in blocks for ref in (block.get("claim_refs") or [])}:
+        if claim.get("claim_id") not in claim_refs_by_block:
             failures.append("response_claims_trace_backed_rate")
     for block in blocks:
         if not block.get("trace_refs") or not block.get("claim_refs"):
             failures.append("response_claims_trace_backed_rate")
+        for claim_ref in block.get("claim_refs") or []:
+            if len(claims_by_id.get(claim_ref, [])) != 1:
+                failures.append("response_claims_trace_backed_rate")
 
     audit = artifact.get("policy_surface_audit") or {}
     if _has_forbidden_text(surface) or audit.get("no_internal_review_evidence_exposed") is not True or audit.get("no_global_memory_claim") is not True or audit.get("no_unconfirmed_aspect_claim") is not True or audit.get("no_sensitive_or_internal_data") is not True or audit.get("no_commerce_or_aigc") is not True:

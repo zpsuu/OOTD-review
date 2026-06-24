@@ -52,8 +52,8 @@ class V139GovernanceUserActionSurfaceValidatorTests(unittest.TestCase):
             self.assertEqual(clean["suite_summary"]["passed_cases"], 34)
             self.assertEqual(clean["suite_summary"]["passed_checks"], 20)
             self.assertEqual(adversarial["suite_summary"]["passed_cases"], 0)
-            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 22)
-            self.assertEqual(adversarial["detected_defect_count"], 22)
+            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 29)
+            self.assertEqual(adversarial["detected_defect_count"], 29)
             self.assertTrue(sample["passed"], sample["failures"])
             self.assertTrue(consistency["passed"], consistency["failures"])
 
@@ -149,6 +149,77 @@ class V139GovernanceUserActionSurfaceValidatorTests(unittest.TestCase):
             failed = self._failed(result_dir)
             self.assertIn("response_claims_trace_backed_rate", failed["v139_G01_response_claims_trace_to_action_result"])
 
+    def test_missing_idempotency_record_is_detected(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dir = self._build(tmp)
+            path = next((result_dir / "per_case" / "clean").glob("*D04_duplicate_action_submission_idempotent.json"))
+            case = json.loads(path.read_text(encoding="utf-8"))
+            case["action_idempotency_record"] = None
+            _write_json(path, case)
+            failed = self._failed(result_dir)
+            self.assertIn("duplicate_submission_idempotent_rate", failed["v139_D04_duplicate_action_submission_idempotent"])
+
+    def test_missing_stale_suppression_proof_is_detected(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dir = self._build(tmp)
+            path = next((result_dir / "per_case" / "clean").glob("*D05_stale_action_suppressed_after_resolution.json"))
+            case = json.loads(path.read_text(encoding="utf-8"))
+            case["stale_action_suppression_proof"] = None
+            _write_json(path, case)
+            failed = self._failed(result_dir)
+            self.assertIn("stale_action_suppressed_rate", failed["v139_D05_stale_action_suppressed_after_resolution"])
+
+    def test_missing_action_submission_is_detected(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dir = self._build(tmp)
+            path = next((result_dir / "per_case" / "clean").glob("*B02_this_time_only_submission_no_write_result.json"))
+            case = json.loads(path.read_text(encoding="utf-8"))
+            case["action_submission_envelope"] = None
+            _write_json(path, case)
+            failed = self._failed(result_dir)
+            self.assertIn("action_submission_allowed_and_active_rate", failed["v139_B02_this_time_only_submission_no_write_result"])
+
+    def test_missing_action_result_is_detected(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dir = self._build(tmp)
+            path = next((result_dir / "per_case" / "clean").glob("*B02_this_time_only_submission_no_write_result.json"))
+            case = json.loads(path.read_text(encoding="utf-8"))
+            case["action_result_packet"] = None
+            _write_json(path, case)
+            failed = self._failed(result_dir)
+            self.assertIn("post_action_packet_matches_resolution_rate", failed["v139_B02_this_time_only_submission_no_write_result"])
+
+    def test_missing_expired_action_result_is_detected(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dir = self._build(tmp)
+            path = next((result_dir / "per_case" / "clean").glob("*D03_expired_action_submission_noop.json"))
+            case = json.loads(path.read_text(encoding="utf-8"))
+            case["action_result_packet"] = None
+            _write_json(path, case)
+            failed = self._failed(result_dir)
+            self.assertIn("expired_action_disabled_noop_rate", failed["v139_D03_expired_action_submission_noop"])
+            self.assertIn("post_action_packet_matches_resolution_rate", failed["v139_D03_expired_action_submission_noop"])
+
+    def test_missing_response_claim_trace_is_detected(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dir = self._build(tmp)
+            path = next((result_dir / "per_case" / "clean").glob("*G01_response_claims_trace_to_action_result.json"))
+            case = json.loads(path.read_text(encoding="utf-8"))
+            case["response_claim_traces"] = []
+            _write_json(path, case)
+            failed = self._failed(result_dir)
+            self.assertIn("response_claims_trace_backed_rate", failed["v139_G01_response_claims_trace_to_action_result"])
+
+    def test_action_result_response_block_ids_must_resolve(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dir = self._build(tmp)
+            path = next((result_dir / "per_case" / "clean").glob("*G01_response_claims_trace_to_action_result.json"))
+            case = json.loads(path.read_text(encoding="utf-8"))
+            case["action_result_packet"]["user_visible_response_block_ids"] = ["urb_missing"]
+            _write_json(path, case)
+            failed = self._failed(result_dir)
+            self.assertIn("response_claims_trace_backed_rate", failed["v139_G01_response_claims_trace_to_action_result"])
+
     def test_adversarial_detection_does_not_depend_on_gate_assertions(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             result_dir = self._build(tmp)
@@ -160,8 +231,8 @@ class V139GovernanceUserActionSurfaceValidatorTests(unittest.TestCase):
                 _write_json(path, case)
             adversarial = validator.validate_directory(result_dir, "adversarial")
             self.assertEqual(adversarial["suite_summary"]["passed_cases"], 0)
-            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 22)
-            self.assertEqual(adversarial["detected_defect_count"], 22)
+            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 29)
+            self.assertEqual(adversarial["detected_defect_count"], 29)
 
     def _failed(self, result_dir: Path) -> dict[str, list[str]]:
         report = validator.validate_directory(result_dir, "clean")

@@ -103,6 +103,13 @@ DEFECTS = [
     ("ADV_M20", "response_adds_unconfirmed_aspect", ["policy_safe_user_visible_text_rate"]),
     ("ADV_M21", "sample_artifact_stale_relative_to_per_case", ["sample_artifacts_match_per_case_rate"]),
     ("ADV_M22", "clean_report_pass_but_independent_validator_fail", ["report_consistency_with_independent_validation_rate"]),
+    ("ADV_M23", "missing_idempotency_record", ["duplicate_submission_idempotent_rate"]),
+    ("ADV_M24", "missing_stale_action_suppression_proof", ["stale_action_suppressed_rate"]),
+    ("ADV_M25", "missing_action_submission_for_submitted_action", ["action_submission_allowed_and_active_rate"]),
+    ("ADV_M26", "missing_action_result_for_submitted_action", ["post_action_packet_matches_resolution_rate"]),
+    ("ADV_M27", "missing_action_result_for_expired_submission", ["expired_action_disabled_noop_rate", "post_action_packet_matches_resolution_rate"]),
+    ("ADV_M28", "missing_response_claim_trace", ["response_claims_trace_backed_rate"]),
+    ("ADV_M29", "action_result_references_missing_response_block", ["response_claims_trace_backed_rate"]),
 ]
 
 SAMPLE_CASES = {
@@ -622,6 +629,27 @@ def _defect(defect_id: str, defect_type: str, gates: list[str]) -> dict[str, Any
         artifact["sample_consistency_probe"] = {"sample_artifact_content": {"case_id": artifact["case_id"], "manual_only_patch": True}, "source_artifact_content": {"case_id": artifact["case_id"]}}
     elif defect_type == "clean_report_pass_but_independent_validator_fail":
         artifact["report_consistency_probe"] = {"clean_report_summary": {"passed_cases": 34, "failed_cases": 0}, "independent_validation_summary": {"passed_cases": 33, "failed_cases": 1}}
+    elif defect_type == "missing_idempotency_record":
+        artifact = _set_case_meta(_case(defect_id, defect_type, "duplicate_submission", idx), defect_id, defect_type, gates)
+        artifact["action_idempotency_record"] = None
+    elif defect_type == "missing_stale_action_suppression_proof":
+        artifact = _set_case_meta(_case(defect_id, defect_type, "stale_suppressed", idx), defect_id, defect_type, gates)
+        artifact["stale_action_suppression_proof"] = None
+    elif defect_type == "missing_action_submission_for_submitted_action":
+        artifact = _set_case_meta(_case(defect_id, defect_type, "this_time_only", idx), defect_id, defect_type, gates)
+        artifact["action_submission_envelope"] = None
+    elif defect_type == "missing_action_result_for_submitted_action":
+        artifact = _set_case_meta(_case(defect_id, defect_type, "this_time_only", idx), defect_id, defect_type, gates)
+        artifact["action_result_packet"] = None
+    elif defect_type == "missing_action_result_for_expired_submission":
+        artifact = _set_case_meta(_case(defect_id, defect_type, "expired_submission", idx), defect_id, defect_type, gates)
+        artifact["action_result_packet"] = None
+    elif defect_type == "missing_response_claim_trace":
+        artifact = _set_case_meta(_case(defect_id, defect_type, "claims_trace", idx), defect_id, defect_type, gates)
+        artifact["response_claim_traces"] = []
+    elif defect_type == "action_result_references_missing_response_block":
+        artifact = _set_case_meta(_case(defect_id, defect_type, "claims_trace", idx), defect_id, defect_type, gates)
+        artifact["action_result_packet"]["user_visible_response_block_ids"] = ["urb_missing"]
     return artifact
 
 
