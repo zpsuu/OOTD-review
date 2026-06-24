@@ -1,15 +1,15 @@
 {
   "benchmark_id": "v1.38.runtime_governance_operations.mixed_strict",
   "schema_version": "v1.38",
-  "generated_at": "2026-06-24T07:17:51Z",
+  "generated_at": "2026-06-24T07:29:30Z",
   "verdicts": {
     "mixed_strict_verdict": "fail",
     "injected_defect_detection_verdict": "pass"
   },
   "suite_summary": {
-    "total_cases": 23,
+    "total_cases": 26,
     "passed_cases": 0,
-    "failed_cases": 23,
+    "failed_cases": 26,
     "total_checks": 23,
     "passed_checks": 0,
     "failed_checks": 23
@@ -362,6 +362,30 @@
         "human_review_payload_has_raw_evidence_rate"
       ],
       "artifact_ref": "per_case/mixed_strict/v138_ADV_L23_resolved_review_approval_missing_payload.json"
+    },
+    {
+      "case_id": "v138_ADV_L24_open_review_payload_bogus_raw_evidence_refs",
+      "passed": false,
+      "failed_check_ids": [
+        "human_review_payload_has_raw_evidence_rate"
+      ],
+      "artifact_ref": "per_case/mixed_strict/v138_ADV_L24_open_review_payload_bogus_raw_evidence_refs.json"
+    },
+    {
+      "case_id": "v138_ADV_L25_resolved_review_approval_bogus_raw_evidence_refs",
+      "passed": false,
+      "failed_check_ids": [
+        "human_review_payload_has_raw_evidence_rate"
+      ],
+      "artifact_ref": "per_case/mixed_strict/v138_ADV_L25_resolved_review_approval_bogus_raw_evidence_refs.json"
+    },
+    {
+      "case_id": "v138_ADV_L26_resolved_review_rejection_bogus_raw_evidence_refs",
+      "passed": false,
+      "failed_check_ids": [
+        "human_review_payload_has_raw_evidence_rate"
+      ],
+      "artifact_ref": "per_case/mixed_strict/v138_ADV_L26_resolved_review_rejection_bogus_raw_evidence_refs.json"
     }
   ]
 }

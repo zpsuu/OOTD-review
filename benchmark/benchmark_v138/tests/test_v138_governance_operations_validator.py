@@ -52,8 +52,8 @@ class V138GovernanceOperationsValidatorTests(unittest.TestCase):
             self.assertEqual(clean["suite_summary"]["passed_cases"], 32)
             self.assertEqual(clean["suite_summary"]["passed_checks"], 23)
             self.assertEqual(adversarial["suite_summary"]["passed_cases"], 0)
-            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 23)
-            self.assertEqual(adversarial["detected_defect_count"], 23)
+            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 26)
+            self.assertEqual(adversarial["detected_defect_count"], 26)
             self.assertTrue(sample["passed"], sample["failures"])
             self.assertTrue(consistency["passed"], consistency["failures"])
 
@@ -138,6 +138,31 @@ class V138GovernanceOperationsValidatorTests(unittest.TestCase):
             failed = {case["case_id"]: case["failed_check_ids"] for case in report["case_results"] if not case["passed"]}
             self.assertIn("human_review_payload_has_raw_evidence_rate", failed["v138_A02_human_review_trigger_creates_open_queue_item"])
 
+    def test_open_human_review_payload_requires_raw_runtime_evidence_refs(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dir = self._build(tmp)
+            path = next((result_dir / "per_case" / "clean").glob("*A02_human_review_trigger_creates_open_queue_item.json"))
+            case = json.loads(path.read_text(encoding="utf-8"))
+            case["human_review_payload"]["raw_evidence_refs"] = ["not_runtime_evidence"]
+            case["human_review_payloads"][0]["raw_evidence_refs"] = ["not_runtime_evidence"]
+            _write_json(path, case)
+            report = validator.validate_directory(result_dir, "clean")
+            failed = {case["case_id"]: case["failed_check_ids"] for case in report["case_results"] if not case["passed"]}
+            self.assertIn("human_review_payload_has_raw_evidence_rate", failed["v138_A02_human_review_trigger_creates_open_queue_item"])
+
+    def test_open_human_review_item_rejects_duplicate_matching_payloads(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dir = self._build(tmp)
+            path = next((result_dir / "per_case" / "clean").glob("*A02_human_review_trigger_creates_open_queue_item.json"))
+            case = json.loads(path.read_text(encoding="utf-8"))
+            duplicate = copy.deepcopy(case["human_review_payloads"][0])
+            duplicate["human_review_payload_id"] = "hrp_duplicate"
+            case["human_review_payloads"].append(duplicate)
+            _write_json(path, case)
+            report = validator.validate_directory(result_dir, "clean")
+            failed = {case["case_id"]: case["failed_check_ids"] for case in report["case_results"] if not case["passed"]}
+            self.assertIn("human_review_payload_has_raw_evidence_rate", failed["v138_A02_human_review_trigger_creates_open_queue_item"])
+
     def test_resolved_clarification_item_requires_matching_request(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             result_dir = self._build(tmp)
@@ -162,6 +187,18 @@ class V138GovernanceOperationsValidatorTests(unittest.TestCase):
             failed = {case["case_id"]: case["failed_check_ids"] for case in report["case_results"] if not case["passed"]}
             self.assertIn("human_review_payload_has_raw_evidence_rate", failed["v138_C03_review_reject_no_write_preserves_memory_state"])
 
+    def test_resolved_review_rejection_payload_requires_raw_runtime_evidence_refs(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dir = self._build(tmp)
+            path = next((result_dir / "per_case" / "clean").glob("*C03_review_reject_no_write_preserves_memory_state.json"))
+            case = json.loads(path.read_text(encoding="utf-8"))
+            case["human_review_payload"]["raw_evidence_refs"] = ["not_runtime_evidence"]
+            case["human_review_payloads"][0]["raw_evidence_refs"] = ["not_runtime_evidence"]
+            _write_json(path, case)
+            report = validator.validate_directory(result_dir, "clean")
+            failed = {case["case_id"]: case["failed_check_ids"] for case in report["case_results"] if not case["passed"]}
+            self.assertIn("human_review_payload_has_raw_evidence_rate", failed["v138_C03_review_reject_no_write_preserves_memory_state"])
+
     def test_resolved_review_approval_requires_matching_payload(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             result_dir = self._build(tmp)
@@ -169,6 +206,31 @@ class V138GovernanceOperationsValidatorTests(unittest.TestCase):
             case = json.loads(path.read_text(encoding="utf-8"))
             case["human_review_payload"] = None
             case["human_review_payloads"] = []
+            _write_json(path, case)
+            report = validator.validate_directory(result_dir, "clean")
+            failed = {case["case_id"]: case["failed_check_ids"] for case in report["case_results"] if not case["passed"]}
+            self.assertIn("human_review_payload_has_raw_evidence_rate", failed["v138_C02_review_approve_write_still_uses_write_gate"])
+
+    def test_resolved_review_approval_payload_requires_raw_runtime_evidence_refs(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dir = self._build(tmp)
+            path = next((result_dir / "per_case" / "clean").glob("*C02_review_approve_write_still_uses_write_gate.json"))
+            case = json.loads(path.read_text(encoding="utf-8"))
+            case["human_review_payload"]["raw_evidence_refs"] = ["not_runtime_evidence"]
+            case["human_review_payloads"][0]["raw_evidence_refs"] = ["not_runtime_evidence"]
+            _write_json(path, case)
+            report = validator.validate_directory(result_dir, "clean")
+            failed = {case["case_id"]: case["failed_check_ids"] for case in report["case_results"] if not case["passed"]}
+            self.assertIn("human_review_payload_has_raw_evidence_rate", failed["v138_C02_review_approve_write_still_uses_write_gate"])
+
+    def test_resolved_human_review_item_rejects_duplicate_matching_payloads(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dir = self._build(tmp)
+            path = next((result_dir / "per_case" / "clean").glob("*C02_review_approve_write_still_uses_write_gate.json"))
+            case = json.loads(path.read_text(encoding="utf-8"))
+            duplicate = copy.deepcopy(case["human_review_payloads"][0])
+            duplicate["human_review_payload_id"] = "hrp_duplicate"
+            case["human_review_payloads"].append(duplicate)
             _write_json(path, case)
             report = validator.validate_directory(result_dir, "clean")
             failed = {case["case_id"]: case["failed_check_ids"] for case in report["case_results"] if not case["passed"]}
@@ -234,8 +296,8 @@ class V138GovernanceOperationsValidatorTests(unittest.TestCase):
                 _write_json(path, case)
             adversarial = validator.validate_directory(result_dir, "adversarial")
             self.assertEqual(adversarial["suite_summary"]["passed_cases"], 0)
-            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 23)
-            self.assertEqual(adversarial["detected_defect_count"], 23)
+            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 26)
+            self.assertEqual(adversarial["detected_defect_count"], 26)
 
 
 if __name__ == "__main__":

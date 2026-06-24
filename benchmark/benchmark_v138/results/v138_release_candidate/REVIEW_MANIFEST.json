@@ -4,7 +4,7 @@
   "theme": "Runtime Governance Operations",
   "branch": "v138-runtime-governance-operations",
   "entrypoint": "benchmark/benchmark_v138/results/v138_release_candidate/REVIEW_MANIFEST.json",
-  "generated_at": "2026-06-24T07:17:51Z",
+  "generated_at": "2026-06-24T07:29:30Z",
   "builder_script": "benchmark/benchmark_v138/scripts/build_v138_release_candidate_evidence_pack.py",
   "validator_script": "benchmark/benchmark_v138/scripts/validate_v138_release_candidate.py",
   "runner_script": "benchmark/benchmark_v138/scripts/run_v138_validation_suite.py",

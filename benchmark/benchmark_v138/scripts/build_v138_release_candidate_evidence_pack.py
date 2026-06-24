@@ -104,6 +104,9 @@ DEFECTS = [
     ("ADV_L21", "resolved_clarification_item_missing_request", ["clarification_request_trace_backed_rate"]),
     ("ADV_L22", "resolved_review_rejection_missing_payload", ["human_review_payload_has_raw_evidence_rate"]),
     ("ADV_L23", "resolved_review_approval_missing_payload", ["human_review_payload_has_raw_evidence_rate"]),
+    ("ADV_L24", "open_review_payload_bogus_raw_evidence_refs", ["human_review_payload_has_raw_evidence_rate"]),
+    ("ADV_L25", "resolved_review_approval_bogus_raw_evidence_refs", ["human_review_payload_has_raw_evidence_rate"]),
+    ("ADV_L26", "resolved_review_rejection_bogus_raw_evidence_refs", ["human_review_payload_has_raw_evidence_rate"]),
 ]
 
 SAMPLE_CASES = {
@@ -591,6 +594,27 @@ def _defect(defect_id: str, defect_type: str, gates: list[str]) -> dict[str, Any
         artifact["expected_failed_check_ids"] = gates
         artifact["human_review_payload"] = None
         artifact["human_review_payloads"] = []
+    elif defect_type == "open_review_payload_bogus_raw_evidence_refs":
+        artifact.update(_case(defect_id, defect_type, "review_open", 900 + int(defect_id.split("_L")[-1])))
+        artifact["case_id"] = f"v138_{defect_id}_{defect_type}"
+        artifact["defect_type"] = defect_type
+        artifact["expected_failure"] = True
+        artifact["expected_failed_check_ids"] = gates
+        artifact["human_review_payload"]["raw_evidence_refs"] = ["not_runtime_evidence"]
+    elif defect_type == "resolved_review_approval_bogus_raw_evidence_refs":
+        artifact.update(_case(defect_id, defect_type, "review_approve_write", 900 + int(defect_id.split("_L")[-1])))
+        artifact["case_id"] = f"v138_{defect_id}_{defect_type}"
+        artifact["defect_type"] = defect_type
+        artifact["expected_failure"] = True
+        artifact["expected_failed_check_ids"] = gates
+        artifact["human_review_payload"]["raw_evidence_refs"] = ["not_runtime_evidence"]
+    elif defect_type == "resolved_review_rejection_bogus_raw_evidence_refs":
+        artifact.update(_case(defect_id, defect_type, "review_reject", 900 + int(defect_id.split("_L")[-1])))
+        artifact["case_id"] = f"v138_{defect_id}_{defect_type}"
+        artifact["defect_type"] = defect_type
+        artifact["expected_failure"] = True
+        artifact["expected_failed_check_ids"] = gates
+        artifact["human_review_payload"]["raw_evidence_refs"] = ["not_runtime_evidence"]
     return artifact
 
 

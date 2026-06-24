@@ -1,12 +1,12 @@
 {
   "validator": "v1.38.independent.governance_operations_validator",
-  "generated_at": "2026-06-24T07:17:51Z",
+  "generated_at": "2026-06-24T07:29:31Z",
   "result_dir": "benchmark/benchmark_v138/results/v138_release_candidate",
   "subset": "adversarial",
   "suite_summary": {
-    "total_cases": 23,
+    "total_cases": 26,
     "passed_cases": 0,
-    "failed_cases": 23,
+    "failed_cases": 26,
     "total_checks": 23,
     "passed_checks": 4,
     "failed_checks": 19
@@ -14,9 +14,9 @@
   "checks": [
     {
       "check_id": "governance_queue_created_from_runtime_trigger_rate",
-      "applicable_cases": 23,
-      "passed_cases": 22,
-      "value": 0.9565217391304348,
+      "applicable_cases": 26,
+      "passed_cases": 25,
+      "value": 0.9615384615384616,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -31,9 +31,9 @@
     },
     {
       "check_id": "queue_item_status_consistency_rate",
-      "applicable_cases": 23,
-      "passed_cases": 20,
-      "value": 0.8695652173913043,
+      "applicable_cases": 26,
+      "passed_cases": 23,
+      "value": 0.8846153846153846,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -62,9 +62,9 @@
     },
     {
       "check_id": "queue_dedupe_blocks_duplicate_open_items_rate",
-      "applicable_cases": 23,
-      "passed_cases": 22,
-      "value": 0.9565217391304348,
+      "applicable_cases": 26,
+      "passed_cases": 25,
+      "value": 0.9615384615384616,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -79,9 +79,9 @@
     },
     {
       "check_id": "clarification_request_trace_backed_rate",
-      "applicable_cases": 23,
-      "passed_cases": 20,
-      "value": 0.8695652173913043,
+      "applicable_cases": 26,
+      "passed_cases": 23,
+      "value": 0.8846153846153846,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -110,9 +110,9 @@
     },
     {
       "check_id": "clarification_no_write_preserves_memory_state_rate",
-      "applicable_cases": 23,
-      "passed_cases": 22,
-      "value": 0.9565217391304348,
+      "applicable_cases": 26,
+      "passed_cases": 25,
+      "value": 0.9615384615384616,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -127,9 +127,9 @@
     },
     {
       "check_id": "clarification_write_candidate_routes_to_gate_rate",
-      "applicable_cases": 23,
-      "passed_cases": 22,
-      "value": 0.9565217391304348,
+      "applicable_cases": 26,
+      "passed_cases": 25,
+      "value": 0.9615384615384616,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -144,9 +144,9 @@
     },
     {
       "check_id": "human_review_payload_has_raw_evidence_rate",
-      "applicable_cases": 23,
+      "applicable_cases": 26,
       "passed_cases": 18,
-      "value": 0.782608695652174,
+      "value": 0.6923076923076923,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -184,14 +184,35 @@
           "failures": [
             "human_review_payload_has_raw_evidence_rate failed from raw governance validation"
           ]
+        },
+        {
+          "case_id": "v138_ADV_L24_open_review_payload_bogus_raw_evidence_refs",
+          "artifact_ref": "per_case/adversarial/v138_ADV_L24_open_review_payload_bogus_raw_evidence_refs.json",
+          "failures": [
+            "human_review_payload_has_raw_evidence_rate failed from raw governance validation"
+          ]
+        },
+        {
+          "case_id": "v138_ADV_L25_resolved_review_approval_bogus_raw_evidence_refs",
+          "artifact_ref": "per_case/adversarial/v138_ADV_L25_resolved_review_approval_bogus_raw_evidence_refs.json",
+          "failures": [
+            "human_review_payload_has_raw_evidence_rate failed from raw governance validation"
+          ]
+        },
+        {
+          "case_id": "v138_ADV_L26_resolved_review_rejection_bogus_raw_evidence_refs",
+          "artifact_ref": "per_case/adversarial/v138_ADV_L26_resolved_review_rejection_bogus_raw_evidence_refs.json",
+          "failures": [
+            "human_review_payload_has_raw_evidence_rate failed from raw governance validation"
+          ]
         }
       ]
     },
     {
       "check_id": "human_review_resolution_uses_write_gate_rate",
-      "applicable_cases": 23,
-      "passed_cases": 22,
-      "value": 0.9565217391304348,
+      "applicable_cases": 26,
+      "passed_cases": 25,
+      "value": 0.9615384615384616,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -206,9 +227,9 @@
     },
     {
       "check_id": "review_rejection_no_write_preserves_memory_state_rate",
-      "applicable_cases": 23,
-      "passed_cases": 22,
-      "value": 0.9565217391304348,
+      "applicable_cases": 26,
+      "passed_cases": 25,
+      "value": 0.9615384615384616,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -223,9 +244,9 @@
     },
     {
       "check_id": "temporary_hold_current_turn_only_rate",
-      "applicable_cases": 23,
-      "passed_cases": 22,
-      "value": 0.9565217391304348,
+      "applicable_cases": 26,
+      "passed_cases": 25,
+      "value": 0.9615384615384616,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -240,9 +261,9 @@
     },
     {
       "check_id": "temporary_hold_release_packet_rebuild_rate",
-      "applicable_cases": 23,
-      "passed_cases": 22,
-      "value": 0.9565217391304348,
+      "applicable_cases": 26,
+      "passed_cases": 25,
+      "value": 0.9615384615384616,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -257,9 +278,9 @@
     },
     {
       "check_id": "expired_item_no_write_rate",
-      "applicable_cases": 23,
-      "passed_cases": 22,
-      "value": 0.9565217391304348,
+      "applicable_cases": 26,
+      "passed_cases": 25,
+      "value": 0.9615384615384616,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -274,9 +295,9 @@
     },
     {
       "check_id": "post_resolution_packet_matches_resolution_rate",
-      "applicable_cases": 23,
-      "passed_cases": 18,
-      "value": 0.782608695652174,
+      "applicable_cases": 26,
+      "passed_cases": 21,
+      "value": 0.8076923076923077,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -319,9 +340,9 @@
     },
     {
       "check_id": "rollback_audit_absence_proof_rate",
-      "applicable_cases": 23,
-      "passed_cases": 22,
-      "value": 0.9565217391304348,
+      "applicable_cases": 26,
+      "passed_cases": 25,
+      "value": 0.9615384615384616,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -336,8 +357,8 @@
     },
     {
       "check_id": "blocked_memory_future_absence_proof_rate",
-      "applicable_cases": 23,
-      "passed_cases": 23,
+      "applicable_cases": 26,
+      "passed_cases": 26,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
@@ -345,9 +366,9 @@
     },
     {
       "check_id": "reviewer_forbidden_actions_blocked_rate",
-      "applicable_cases": 23,
-      "passed_cases": 22,
-      "value": 0.9565217391304348,
+      "applicable_cases": 26,
+      "passed_cases": 25,
+      "value": 0.9615384615384616,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -362,9 +383,9 @@
     },
     {
       "check_id": "ledger_hash_chain_valid_rate",
-      "applicable_cases": 23,
-      "passed_cases": 19,
-      "value": 0.8260869565217391,
+      "applicable_cases": 26,
+      "passed_cases": 22,
+      "value": 0.8461538461538461,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -400,9 +421,9 @@
     },
     {
       "check_id": "ledger_append_only_replay_rate",
-      "applicable_cases": 23,
-      "passed_cases": 22,
-      "value": 0.9565217391304348,
+      "applicable_cases": 26,
+      "passed_cases": 25,
+      "value": 0.9615384615384616,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -417,8 +438,8 @@
     },
     {
       "check_id": "trace_backed_resolution_claims_rate",
-      "applicable_cases": 23,
-      "passed_cases": 23,
+      "applicable_cases": 26,
+      "passed_cases": 26,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
@@ -426,9 +447,9 @@
     },
     {
       "check_id": "sample_artifacts_match_per_case_rate",
-      "applicable_cases": 23,
-      "passed_cases": 22,
-      "value": 0.9565217391304348,
+      "applicable_cases": 26,
+      "passed_cases": 25,
+      "value": 0.9615384615384616,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -443,9 +464,9 @@
     },
     {
       "check_id": "report_consistency_with_independent_validation_rate",
-      "applicable_cases": 23,
-      "passed_cases": 22,
-      "value": 0.9565217391304348,
+      "applicable_cases": 26,
+      "passed_cases": 25,
+      "value": 0.9615384615384616,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -460,8 +481,8 @@
     },
     {
       "check_id": "adversarial_detection_rate",
-      "applicable_cases": 23,
-      "passed_cases": 23,
+      "applicable_cases": 26,
+      "passed_cases": 26,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
@@ -469,8 +490,8 @@
     },
     {
       "check_id": "v137_validation_replay_pass_rate",
-      "applicable_cases": 23,
-      "passed_cases": 23,
+      "applicable_cases": 26,
+      "passed_cases": 26,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
@@ -765,6 +786,42 @@
         "human_review_payload_has_raw_evidence_rate"
       ],
       "defect_type": "resolved_review_approval_missing_payload"
+    },
+    {
+      "case_id": "v138_ADV_L24_open_review_payload_bogus_raw_evidence_refs",
+      "artifact_ref": "per_case/adversarial/v138_ADV_L24_open_review_payload_bogus_raw_evidence_refs.json",
+      "passed": false,
+      "failed_check_ids": [
+        "human_review_payload_has_raw_evidence_rate"
+      ],
+      "expected_failed_check_ids": [
+        "human_review_payload_has_raw_evidence_rate"
+      ],
+      "defect_type": "open_review_payload_bogus_raw_evidence_refs"
+    },
+    {
+      "case_id": "v138_ADV_L25_resolved_review_approval_bogus_raw_evidence_refs",
+      "artifact_ref": "per_case/adversarial/v138_ADV_L25_resolved_review_approval_bogus_raw_evidence_refs.json",
+      "passed": false,
+      "failed_check_ids": [
+        "human_review_payload_has_raw_evidence_rate"
+      ],
+      "expected_failed_check_ids": [
+        "human_review_payload_has_raw_evidence_rate"
+      ],
+      "defect_type": "resolved_review_approval_bogus_raw_evidence_refs"
+    },
+    {
+      "case_id": "v138_ADV_L26_resolved_review_rejection_bogus_raw_evidence_refs",
+      "artifact_ref": "per_case/adversarial/v138_ADV_L26_resolved_review_rejection_bogus_raw_evidence_refs.json",
+      "passed": false,
+      "failed_check_ids": [
+        "human_review_payload_has_raw_evidence_rate"
+      ],
+      "expected_failed_check_ids": [
+        "human_review_payload_has_raw_evidence_rate"
+      ],
+      "defect_type": "resolved_review_rejection_bogus_raw_evidence_refs"
     }
   ],
   "detected_defects": [
@@ -1032,7 +1089,40 @@
         "human_review_payload_has_raw_evidence_rate"
       ],
       "detected": true
+    },
+    {
+      "case_id": "v138_ADV_L24_open_review_payload_bogus_raw_evidence_refs",
+      "defect_type": "open_review_payload_bogus_raw_evidence_refs",
+      "expected_failed_check_ids": [
+        "human_review_payload_has_raw_evidence_rate"
+      ],
+      "failed_check_ids": [
+        "human_review_payload_has_raw_evidence_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v138_ADV_L25_resolved_review_approval_bogus_raw_evidence_refs",
+      "defect_type": "resolved_review_approval_bogus_raw_evidence_refs",
+      "expected_failed_check_ids": [
+        "human_review_payload_has_raw_evidence_rate"
+      ],
+      "failed_check_ids": [
+        "human_review_payload_has_raw_evidence_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v138_ADV_L26_resolved_review_rejection_bogus_raw_evidence_refs",
+      "defect_type": "resolved_review_rejection_bogus_raw_evidence_refs",
+      "expected_failed_check_ids": [
+        "human_review_payload_has_raw_evidence_rate"
+      ],
+      "failed_check_ids": [
+        "human_review_payload_has_raw_evidence_rate"
+      ],
+      "detected": true
     }
   ],
-  "detected_defect_count": 23
+  "detected_defect_count": 26
 }

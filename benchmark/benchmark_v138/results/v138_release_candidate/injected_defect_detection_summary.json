@@ -1,9 +1,9 @@
 {
   "version": "v1.38",
-  "generated_at": "2026-06-24T07:17:51Z",
+  "generated_at": "2026-06-24T07:29:31Z",
   "verdict": "pass",
-  "seeded_defects": 23,
-  "detected_defects": 23,
+  "seeded_defects": 26,
+  "detected_defects": 26,
   "unexpected_injected_passes": [],
   "detected": [
     {
@@ -263,6 +263,39 @@
     {
       "case_id": "v138_ADV_L23_resolved_review_approval_missing_payload",
       "defect_type": "resolved_review_approval_missing_payload",
+      "expected_failed_check_ids": [
+        "human_review_payload_has_raw_evidence_rate"
+      ],
+      "failed_check_ids": [
+        "human_review_payload_has_raw_evidence_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v138_ADV_L24_open_review_payload_bogus_raw_evidence_refs",
+      "defect_type": "open_review_payload_bogus_raw_evidence_refs",
+      "expected_failed_check_ids": [
+        "human_review_payload_has_raw_evidence_rate"
+      ],
+      "failed_check_ids": [
+        "human_review_payload_has_raw_evidence_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v138_ADV_L25_resolved_review_approval_bogus_raw_evidence_refs",
+      "defect_type": "resolved_review_approval_bogus_raw_evidence_refs",
+      "expected_failed_check_ids": [
+        "human_review_payload_has_raw_evidence_rate"
+      ],
+      "failed_check_ids": [
+        "human_review_payload_has_raw_evidence_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v138_ADV_L26_resolved_review_rejection_bogus_raw_evidence_refs",
+      "defect_type": "resolved_review_rejection_bogus_raw_evidence_refs",
       "expected_failed_check_ids": [
         "human_review_payload_has_raw_evidence_rate"
       ],

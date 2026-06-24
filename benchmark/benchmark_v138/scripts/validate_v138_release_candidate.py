@@ -78,6 +78,14 @@ def _has_runtime_evidence(refs: list[Any], trigger: dict[str, Any]) -> bool:
     return bool(ref_set & {ref for ref in runtime_evidence_refs if ref})
 
 
+def _has_raw_review_evidence(raw_refs: list[Any], trigger: dict[str, Any]) -> bool:
+    ref_set = set(raw_refs)
+    if trigger.get("source_runtime_trace_id") not in ref_set:
+        return False
+    source_refs = {trigger.get("source_task_memory_packet_id"), trigger.get("source_feedback_event_id")}
+    return bool(ref_set & {ref for ref in source_refs if ref})
+
+
 def _structural_failures(artifact: dict[str, Any]) -> list[str]:
     failures: list[str] = []
     trigger = artifact.get("governance_trigger") or {}
@@ -169,7 +177,8 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
             failures.append("clarification_write_candidate_routes_to_gate_rate")
 
     for review_payload in human_review_payloads:
-        if not review_payload.get("raw_evidence_refs") or review_payload.get("production_write_blocked_until_resolution") is not True:
+        raw_evidence_refs = review_payload.get("raw_evidence_refs") or []
+        if not raw_evidence_refs or not _has_raw_review_evidence(raw_evidence_refs, trigger) or review_payload.get("production_write_blocked_until_resolution") is not True:
             failures.append("human_review_payload_has_raw_evidence_rate")
         if not review_payload.get("forbidden_reviewer_actions"):
             failures.append("human_review_payload_has_raw_evidence_rate")
@@ -181,12 +190,13 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
                 failures.append("human_review_payload_has_raw_evidence_rate")
                 continue
             review_payload = matching_payloads[0]
-            trace_refs = set(review_payload.get("raw_evidence_refs") or []) | set(review_payload.get("trace_refs") or [])
+            raw_evidence_refs = review_payload.get("raw_evidence_refs") or []
+            trace_refs = set(review_payload.get("trace_refs") or [])
             if item_id not in trace_refs:
                 failures.append("human_review_payload_has_raw_evidence_rate")
             if not trace_refs or review_payload.get("production_write_blocked_until_resolution") is not True:
                 failures.append("human_review_payload_has_raw_evidence_rate")
-            if not _has_runtime_evidence(list(trace_refs), trigger):
+            if not _has_raw_review_evidence(raw_evidence_refs, trigger):
                 failures.append("human_review_payload_has_raw_evidence_rate")
     if decision and decision.get("resolution_type") == "review_approved_write":
         if not decision.get("production_write_gate_ref") or gate.get("decision") != "allow" or gate.get("production_write_executed") is not True:
