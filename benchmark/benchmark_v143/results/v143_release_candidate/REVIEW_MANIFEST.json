@@ -1,0 +1,131 @@
+{
+  "version": "v1.43",
+  "release_candidate_status": "pass_candidate_pending_manual_review",
+  "theme": "Product Conversation Runtime Loop",
+  "branch": "v143-product-conversation-runtime-loop",
+  "entrypoint": "benchmark/benchmark_v143/results/v143_release_candidate/REVIEW_MANIFEST.json",
+  "generated_at": "2026-06-24T11:58:54Z",
+  "builder_script": "benchmark/benchmark_v143/scripts/build_v143_release_candidate_evidence_pack.py",
+  "validator_script": "benchmark/benchmark_v143/scripts/validate_v143_release_candidate.py",
+  "adversarial_generator": "benchmark/benchmark_v143/scripts/generate_v143_adversarial_cases.py",
+  "runner_script": "benchmark/benchmark_v143/scripts/run_v143_validation_suite.py",
+  "source_v142_evidence_path": "benchmark/benchmark_v142/results/v142_release_candidate",
+  "required_reports": [
+    "clean_report.json",
+    "mixed_strict_report.json",
+    "independent_validation_report.json",
+    "adversarial_validation_report.json",
+    "report_consistency_report.json",
+    "sample_consistency_report.json",
+    "injected_defect_detection_summary.json"
+  ],
+  "required_gates": [
+    "conversation_script_scope_valid_rate",
+    "conversation_session_turn_order_valid_rate",
+    "turn_invocation_matches_v142_session_runtime_rate",
+    "turn_result_matches_v142_runtime_output_rate",
+    "conversation_state_transition_valid_rate",
+    "action_card_lifecycle_complete_rate",
+    "action_submission_result_notice_trace_rate",
+    "conversation_idempotency_scope_valid_rate",
+    "same_scope_duplicate_reuses_result_across_turns_rate",
+    "different_scope_duplicate_does_not_reuse_result_rate",
+    "expired_stale_card_no_write_rate",
+    "clarification_state_truthful_rate",
+    "review_pending_state_truthful_rate",
+    "feedback_state_transition_truthful_rate",
+    "next_turn_response_reflects_only_accepted_state_rate",
+    "visible_claims_trace_backed_rate",
+    "conversation_boundary_leakage_absent_rate",
+    "conversation_boundary_audit_self_scoped_rate",
+    "conversation_loop_snapshot_hash_reproducible_rate",
+    "sample_artifacts_match_per_case_rate",
+    "report_consistency_with_independent_validation_rate",
+    "adversarial_detection_rate",
+    "v142_validation_replay_pass_rate"
+  ],
+  "validator_commands": [
+    "benchmark/benchmark_v135/scripts/validate_v135_release_candidate.py",
+    "python benchmark/benchmark_v142/scripts/run_v142_validation_suite.py",
+    "python benchmark/benchmark_v143/scripts/run_v143_validation_suite.py",
+    "python -m unittest discover -s benchmark/benchmark_v143/tests"
+  ],
+  "sample_artifacts": [
+    {
+      "case_id": "v143_B01_get_daily_outfit_offers_trace_backed_action_cards",
+      "artifact_ref": "sample_artifacts/daily_outfit_conversation_loop.json",
+      "source_artifact_ref": "per_case/clean/v143_B01_get_daily_outfit_offers_trace_backed_action_cards.json",
+      "canonical_sha256": "f4392078d212ebccecd43e82d973dcb1ffb903c15e67351683e3de7442080d42",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v143_B03_submit_this_time_only_returns_no_write_result_notice",
+      "artifact_ref": "sample_artifacts/action_submission_result_notice.json",
+      "source_artifact_ref": "per_case/clean/v143_B03_submit_this_time_only_returns_no_write_result_notice.json",
+      "canonical_sha256": "5a20b3128cf7ed2e7f9c4cb91c802186673915be40e7911c34981d5bdffa23e3",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v143_C01_same_turn_duplicate_submission_reuses_result",
+      "artifact_ref": "sample_artifacts/same_scope_duplicate_across_turns.json",
+      "source_artifact_ref": "per_case/clean/v143_C01_same_turn_duplicate_submission_reuses_result.json",
+      "canonical_sha256": "a9333231f287532d5b8b7393008ca13a17e41744eaa24fa89ca2cd2e608634da",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v143_C03_same_raw_key_different_conversation_does_not_reuse_result",
+      "artifact_ref": "sample_artifacts/different_conversation_non_reuse.json",
+      "source_artifact_ref": "per_case/clean/v143_C03_same_raw_key_different_conversation_does_not_reuse_result.json",
+      "canonical_sha256": "5e894211d60566e8a97f188d030604896d98c99915923733a33f9c6ca1d36224",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v143_D01_expired_card_submission_returns_no_write_notice",
+      "artifact_ref": "sample_artifacts/expired_card_no_write_notice.json",
+      "source_artifact_ref": "per_case/clean/v143_D01_expired_card_submission_returns_no_write_notice.json",
+      "canonical_sha256": "5da8a05967df98ed4c1631a04b3b17c62e80275c08ac368c9f5959915ad15e5f",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v143_E03_review_pending_turn_has_pending_not_applied_claim",
+      "artifact_ref": "sample_artifacts/review_pending_truthful_turn.json",
+      "source_artifact_ref": "per_case/clean/v143_E03_review_pending_turn_has_pending_not_applied_claim.json",
+      "canonical_sha256": "c6e089b37c45caf56169371cff2d004a8a37488a062b0f67b97580bdb82c322e",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v143_G04_conversation_boundary_audit_scans_all_artifact_groups",
+      "artifact_ref": "sample_artifacts/conversation_boundary_audit.json",
+      "source_artifact_ref": "per_case/clean/v143_G04_conversation_boundary_audit_scans_all_artifact_groups.json",
+      "canonical_sha256": "4ffdcbba02cf087268e29d00e7c6bcaed1454515bbdda88932f9d89c3e252a77",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v143_A05_conversation_loop_snapshot_hashes_reproducible",
+      "artifact_ref": "sample_artifacts/conversation_loop_snapshot.json",
+      "source_artifact_ref": "per_case/clean/v143_A05_conversation_loop_snapshot_hashes_reproducible.json",
+      "canonical_sha256": "c6802a13611cce91dc0533983f29b4f3fc1990dd3e17bc2b6f3f92e1ac7d3bff",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    }
+  ],
+  "manual_reviewer_checklist_refs": [
+    "reviewer_checklist.md"
+  ],
+  "non_goals": [
+    "No frontend",
+    "No HTTP server",
+    "No production auth",
+    "No production DB",
+    "No commerce",
+    "No AIGC",
+    "No global memory writes"
+  ]
+}

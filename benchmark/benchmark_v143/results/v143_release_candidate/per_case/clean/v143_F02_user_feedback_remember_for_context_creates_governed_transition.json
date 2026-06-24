@@ -1,0 +1,1401 @@
+{
+  "case_id": "v143_F02_user_feedback_remember_for_context_creates_governed_transition",
+  "version": "v1.43",
+  "scenario_kind": "user_feedback_remember_for_context_creates_governed_transition",
+  "scenario_mode": "feedback_remember",
+  "scenario_preconditions": {
+    "source_v142_case_refs": [
+      "per_case/clean/v142_B01_user_A_get_daily_outfit_does_not_include_user_B_refs.json",
+      "per_case/clean/v142_B02_user_A_get_action_surface_does_not_include_user_B_refs.json",
+      "per_case/clean/v142_C03_user_A_remember_for_context_write_gate_is_user_scoped.json",
+      "per_case/clean/v142_B03_user_A_get_action_result_does_not_include_user_B_refs.json",
+      "per_case/clean/v142_B01_user_A_get_daily_outfit_does_not_include_user_B_refs.json"
+    ],
+    "conversation_turn_count": 5,
+    "raw_proof": true
+  },
+  "gate_assertions": {
+    "conversation_script_scope_valid_rate": true,
+    "conversation_session_turn_order_valid_rate": true,
+    "turn_invocation_matches_v142_session_runtime_rate": true,
+    "turn_result_matches_v142_runtime_output_rate": true,
+    "conversation_state_transition_valid_rate": true,
+    "action_card_lifecycle_complete_rate": true,
+    "action_submission_result_notice_trace_rate": true,
+    "conversation_idempotency_scope_valid_rate": true,
+    "same_scope_duplicate_reuses_result_across_turns_rate": true,
+    "different_scope_duplicate_does_not_reuse_result_rate": true,
+    "expired_stale_card_no_write_rate": true,
+    "clarification_state_truthful_rate": true,
+    "review_pending_state_truthful_rate": true,
+    "feedback_state_transition_truthful_rate": true,
+    "next_turn_response_reflects_only_accepted_state_rate": true,
+    "visible_claims_trace_backed_rate": true,
+    "conversation_boundary_leakage_absent_rate": true,
+    "conversation_boundary_audit_self_scoped_rate": true,
+    "conversation_loop_snapshot_hash_reproducible_rate": true,
+    "sample_artifacts_match_per_case_rate": true,
+    "report_consistency_with_independent_validation_rate": true,
+    "adversarial_detection_rate": true,
+    "v142_validation_replay_pass_rate": true
+  },
+  "product_conversation_script": {
+    "product_conversation_script_id": "pcs_v143_F02_user_feedback_remember_for_context_creates_governed_transition",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "conversation_id": "conv_A_001",
+    "script_kind": "daily_outfit_action_feedback_loop",
+    "turn_plan": [
+      {
+        "planned_turn_id": "turn_001",
+        "user_intent": "intent_1",
+        "route": "GET /local/daily-outfit",
+        "expected_visible_state": "trace_backed_conversation_state"
+      },
+      {
+        "planned_turn_id": "turn_002",
+        "user_intent": "intent_2",
+        "route": "GET /local/action-surface",
+        "expected_visible_state": "trace_backed_conversation_state"
+      },
+      {
+        "planned_turn_id": "turn_003",
+        "user_intent": "intent_3",
+        "route": "POST /local/action-submission",
+        "expected_visible_state": "trace_backed_conversation_state"
+      },
+      {
+        "planned_turn_id": "turn_004",
+        "user_intent": "intent_4",
+        "route": "GET /local/action-result",
+        "expected_visible_state": "trace_backed_conversation_state"
+      },
+      {
+        "planned_turn_id": "turn_005",
+        "user_intent": "intent_5",
+        "route": "GET /local/daily-outfit",
+        "expected_visible_state": "trace_backed_conversation_state"
+      }
+    ],
+    "source_v142_case_refs": [
+      "per_case/clean/v142_B01_user_A_get_daily_outfit_does_not_include_user_B_refs.json",
+      "per_case/clean/v142_B02_user_A_get_action_surface_does_not_include_user_B_refs.json",
+      "per_case/clean/v142_C03_user_A_remember_for_context_write_gate_is_user_scoped.json",
+      "per_case/clean/v142_B03_user_A_get_action_result_does_not_include_user_B_refs.json",
+      "per_case/clean/v142_B01_user_A_get_daily_outfit_does_not_include_user_B_refs.json"
+    ],
+    "trace_refs": [
+      "local_user_A",
+      "sess_A_001",
+      "conv_A_001",
+      "turn_001",
+      "turn_002",
+      "turn_003",
+      "turn_004",
+      "turn_005"
+    ]
+  },
+  "product_conversation_session": {
+    "product_conversation_session_id": "pcsess_v143_F02_user_feedback_remember_for_context_creates_governed_transition",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "conversation_id": "conv_A_001",
+    "session_state_version_start": 1,
+    "session_state_version_end": 3,
+    "conversation_status": "active",
+    "turn_ids": [
+      "turn_001",
+      "turn_002",
+      "turn_003",
+      "turn_004",
+      "turn_005"
+    ],
+    "trace_refs": [
+      "local_user_A",
+      "sess_A_001",
+      "conv_A_001",
+      "session_state_v1",
+      "session_state_v3"
+    ]
+  },
+  "conversation_turn_invocations": [
+    {
+      "conversation_turn_invocation_id": "cti_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_001",
+      "local_user_id": "local_user_A",
+      "local_session_id": "sess_A_001",
+      "conversation_id": "conv_A_001",
+      "turn_id": "turn_001",
+      "turn_index": 1,
+      "route": "GET /local/daily-outfit",
+      "input_envelope": {
+        "api_request_id": "api_req_v140_A01_get_daily_outfit_returns_contract_envelope",
+        "contract_version": "v1.40",
+        "schema_version": "product_api.v1",
+        "route": "GET /local/daily-outfit",
+        "method": "GET",
+        "request_context": "office_daily",
+        "query": {},
+        "body": {},
+        "idempotency_key": null,
+        "trace_refs": [
+          "rt_v139_001",
+          "gas_v139_001"
+        ]
+      },
+      "source_v142_artifact_ref": "per_case/clean/v142_B01_user_A_get_daily_outfit_does_not_include_user_B_refs.json",
+      "source_v142_artifact_hash": "1ede6a942c3bea6492f4fd2381cf4792bfee3b16b71a0e0dae3a54fe5533fdb2",
+      "source_v142_runtime_invocation_ref": "ssri_v142_B01_user_A_get_daily_outfit_does_not_include_user_B_refs",
+      "source_v142_boundary_audit_ref": "cula_v142_B01_user_A_get_daily_outfit_does_not_include_user_B_refs",
+      "trace_refs": [
+        "local_user_A",
+        "sess_A_001",
+        "conv_A_001",
+        "turn_001",
+        "ssri_v142_B01_user_A_get_daily_outfit_does_not_include_user_B_refs"
+      ]
+    },
+    {
+      "conversation_turn_invocation_id": "cti_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_002",
+      "local_user_id": "local_user_A",
+      "local_session_id": "sess_A_001",
+      "conversation_id": "conv_A_001",
+      "turn_id": "turn_002",
+      "turn_index": 2,
+      "route": "GET /local/action-surface",
+      "input_envelope": {
+        "api_request_id": "api_req_v140_A02_get_action_surface_returns_cards_and_response_blocks",
+        "contract_version": "v1.40",
+        "schema_version": "product_api.v1",
+        "route": "GET /local/action-surface",
+        "method": "GET",
+        "request_context": "office_daily",
+        "query": {},
+        "body": {},
+        "idempotency_key": null,
+        "trace_refs": [
+          "rt_v139_001",
+          "gas_v139_001"
+        ]
+      },
+      "source_v142_artifact_ref": "per_case/clean/v142_B02_user_A_get_action_surface_does_not_include_user_B_refs.json",
+      "source_v142_artifact_hash": "5f7685b5b3d8a1a17da97a4a1ea039365619bcf9737108664081d01f755136b7",
+      "source_v142_runtime_invocation_ref": "ssri_v142_B02_user_A_get_action_surface_does_not_include_user_B_refs",
+      "source_v142_boundary_audit_ref": "cula_v142_B02_user_A_get_action_surface_does_not_include_user_B_refs",
+      "trace_refs": [
+        "local_user_A",
+        "sess_A_001",
+        "conv_A_001",
+        "turn_002",
+        "ssri_v142_B02_user_A_get_action_surface_does_not_include_user_B_refs"
+      ]
+    },
+    {
+      "conversation_turn_invocation_id": "cti_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_003",
+      "local_user_id": "local_user_A",
+      "local_session_id": "sess_A_001",
+      "conversation_id": "conv_A_001",
+      "turn_id": "turn_003",
+      "turn_index": 3,
+      "route": "POST /local/action-submission",
+      "input_envelope": {
+        "api_request_id": "api_req_v140_C03_post_remember_for_context_routes_to_write_gate",
+        "contract_version": "v1.40",
+        "schema_version": "product_api.v1",
+        "route": "POST /local/action-submission",
+        "method": "POST",
+        "request_context": "office_daily",
+        "query": {},
+        "body": {
+          "submitted_action": "remember_for_context",
+          "user_action_card_id": "uac_v139_008"
+        },
+        "idempotency_key": "idem_v140_C03_post_remember_for_context_routes_to_write_gate",
+        "trace_refs": [
+          "rt_v139_008",
+          "gas_v139_008"
+        ]
+      },
+      "source_v142_artifact_ref": "per_case/clean/v142_C03_user_A_remember_for_context_write_gate_is_user_scoped.json",
+      "source_v142_artifact_hash": "ae4eeb3953c075126d03c93c20ffd188a2975ca5a0a760c76e05db66d89f89ce",
+      "source_v142_runtime_invocation_ref": "ssri_v142_C03_user_A_remember_for_context_write_gate_is_user_scoped",
+      "source_v142_boundary_audit_ref": "cula_v142_C03_user_A_remember_for_context_write_gate_is_user_scoped",
+      "trace_refs": [
+        "local_user_A",
+        "sess_A_001",
+        "conv_A_001",
+        "turn_003",
+        "ssri_v142_C03_user_A_remember_for_context_write_gate_is_user_scoped"
+      ]
+    },
+    {
+      "conversation_turn_invocation_id": "cti_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_004",
+      "local_user_id": "local_user_A",
+      "local_session_id": "sess_A_001",
+      "conversation_id": "conv_A_001",
+      "turn_id": "turn_004",
+      "turn_index": 4,
+      "route": "GET /local/action-result",
+      "input_envelope": {
+        "api_request_id": "api_req_v140_A03_get_action_result_returns_result_packet",
+        "contract_version": "v1.40",
+        "schema_version": "product_api.v1",
+        "route": "GET /local/action-result",
+        "method": "GET",
+        "request_context": "office_daily",
+        "query": {},
+        "body": {},
+        "idempotency_key": null,
+        "trace_refs": [
+          "rt_v139_006",
+          "gas_v139_006"
+        ]
+      },
+      "source_v142_artifact_ref": "per_case/clean/v142_B03_user_A_get_action_result_does_not_include_user_B_refs.json",
+      "source_v142_artifact_hash": "6f3970d88ea7a0d991074b8b9b592cc2b194ea69bd989c551639e0a8904026db",
+      "source_v142_runtime_invocation_ref": "ssri_v142_B03_user_A_get_action_result_does_not_include_user_B_refs",
+      "source_v142_boundary_audit_ref": "cula_v142_B03_user_A_get_action_result_does_not_include_user_B_refs",
+      "trace_refs": [
+        "local_user_A",
+        "sess_A_001",
+        "conv_A_001",
+        "turn_004",
+        "ssri_v142_B03_user_A_get_action_result_does_not_include_user_B_refs"
+      ]
+    },
+    {
+      "conversation_turn_invocation_id": "cti_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_005",
+      "local_user_id": "local_user_A",
+      "local_session_id": "sess_A_001",
+      "conversation_id": "conv_A_001",
+      "turn_id": "turn_005",
+      "turn_index": 5,
+      "route": "GET /local/daily-outfit",
+      "input_envelope": {
+        "api_request_id": "api_req_v140_A01_get_daily_outfit_returns_contract_envelope",
+        "contract_version": "v1.40",
+        "schema_version": "product_api.v1",
+        "route": "GET /local/daily-outfit",
+        "method": "GET",
+        "request_context": "office_daily",
+        "query": {},
+        "body": {},
+        "idempotency_key": null,
+        "trace_refs": [
+          "rt_v139_001",
+          "gas_v139_001"
+        ]
+      },
+      "source_v142_artifact_ref": "per_case/clean/v142_B01_user_A_get_daily_outfit_does_not_include_user_B_refs.json",
+      "source_v142_artifact_hash": "1ede6a942c3bea6492f4fd2381cf4792bfee3b16b71a0e0dae3a54fe5533fdb2",
+      "source_v142_runtime_invocation_ref": "ssri_v142_B01_user_A_get_daily_outfit_does_not_include_user_B_refs",
+      "source_v142_boundary_audit_ref": "cula_v142_B01_user_A_get_daily_outfit_does_not_include_user_B_refs",
+      "trace_refs": [
+        "local_user_A",
+        "sess_A_001",
+        "conv_A_001",
+        "turn_005",
+        "ssri_v142_B01_user_A_get_daily_outfit_does_not_include_user_B_refs"
+      ]
+    }
+  ],
+  "conversation_turn_runtime_results": [
+    {
+      "conversation_turn_runtime_result_id": "ctrr_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_001",
+      "conversation_turn_invocation_id": "cti_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_001",
+      "local_user_id": "local_user_A",
+      "local_session_id": "sess_A_001",
+      "conversation_id": "conv_A_001",
+      "turn_id": "turn_001",
+      "response_type": "daily_outfit",
+      "output_envelope": {
+        "api_response_id": "api_res_v140_A01_get_daily_outfit_returns_contract_envelope",
+        "api_request_id": "api_req_v140_A01_get_daily_outfit_returns_contract_envelope",
+        "contract_version": "v1.40",
+        "schema_version": "product_api.v1",
+        "status_code": 200,
+        "response_type": "daily_outfit",
+        "body": {
+          "contract_version": "v1.40",
+          "schema_version": "product_api.v1",
+          "daily_outfit_card": {
+            "request_context": "office_daily",
+            "action_surface_ref": "asr_v139_A01_open_clarification_queue_item_creates_active_action_card",
+            "cards": [
+              {
+                "card_id": "uac_v139_001",
+                "governance_queue_item_id": "gqi_v139_001",
+                "card_type": "clarification",
+                "display_state": "active",
+                "title": "Clarify this preference",
+                "body": "Which outfit context should this apply to?",
+                "allowed_actions": [
+                  "this_time_only",
+                  "do_not_change_memory",
+                  "remember_for_context"
+                ],
+                "disabled_reason": null,
+                "trace_refs": [
+                  "rt_v139_001",
+                  "gqi_v139_001",
+                  "cr_v139_001"
+                ]
+              }
+            ],
+            "response_blocks": [
+              {
+                "response_block_id": "urb_v139_001",
+                "block_type": "clarification_prompt",
+                "text": "Please clarify how to use this preference for this outfit.",
+                "claim_refs": [
+                  "claim_v139_001"
+                ],
+                "trace_refs": [
+                  "rt_v139_001",
+                  "gqi_v139_001",
+                  "gqi_v139_001"
+                ]
+              }
+            ]
+          },
+          "conversation_visible_blocks": [
+            {
+              "visible_response_block_id": "vrb_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_001",
+              "text": "Conversation turn is trace-backed to the local runtime result.",
+              "claim_refs": [
+                "claim_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_001"
+              ]
+            }
+          ]
+        },
+        "error": null,
+        "trace_refs": [
+          "api_req_v140_A01_get_daily_outfit_returns_contract_envelope",
+          "rt_v139_001",
+          "gas_v139_001"
+        ]
+      },
+      "visible_response_block_ids": [
+        "vrb_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_001"
+      ],
+      "offered_action_card_ids": [
+        "card_v143_F02_user_feedback_remember_for_context_creates_governed_transition_primary"
+      ],
+      "result_notice_ids": [],
+      "production_write_executed": false,
+      "source_v142_route_handler_result_ref": "ssrhr_v142_B01_user_A_get_daily_outfit_does_not_include_user_B_refs",
+      "source_v142_artifact_ref": "per_case/clean/v142_B01_user_A_get_daily_outfit_does_not_include_user_B_refs.json",
+      "trace_refs": [
+        "local_user_A",
+        "sess_A_001",
+        "conv_A_001",
+        "turn_001",
+        "ssrhr_v142_B01_user_A_get_daily_outfit_does_not_include_user_B_refs"
+      ],
+      "user_visible_claims": [
+        {
+          "claim_id": "claim_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_001",
+          "text": "Conversation turn is trace-backed to the local runtime result.",
+          "trace_refs": [
+            "ctrr_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_001"
+          ]
+        }
+      ]
+    },
+    {
+      "conversation_turn_runtime_result_id": "ctrr_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_002",
+      "conversation_turn_invocation_id": "cti_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_002",
+      "local_user_id": "local_user_A",
+      "local_session_id": "sess_A_001",
+      "conversation_id": "conv_A_001",
+      "turn_id": "turn_002",
+      "response_type": "action_surface",
+      "output_envelope": {
+        "api_response_id": "api_res_v140_A02_get_action_surface_returns_cards_and_response_blocks",
+        "api_request_id": "api_req_v140_A02_get_action_surface_returns_cards_and_response_blocks",
+        "contract_version": "v1.40",
+        "schema_version": "product_api.v1",
+        "status_code": 200,
+        "response_type": "action_surface",
+        "body": {
+          "contract_version": "v1.40",
+          "schema_version": "product_api.v1",
+          "action_surface": {
+            "action_surface_api_resource_id": "asr_v139_A01_open_clarification_queue_item_creates_active_action_card",
+            "source_governance_action_surface_id": "gas_v139_001",
+            "cards": [
+              {
+                "card_id": "uac_v139_001",
+                "governance_queue_item_id": "gqi_v139_001",
+                "card_type": "clarification",
+                "display_state": "active",
+                "title": "Clarify this preference",
+                "body": "Which outfit context should this apply to?",
+                "allowed_actions": [
+                  "this_time_only",
+                  "do_not_change_memory",
+                  "remember_for_context"
+                ],
+                "disabled_reason": null,
+                "trace_refs": [
+                  "rt_v139_001",
+                  "gqi_v139_001",
+                  "cr_v139_001"
+                ]
+              }
+            ],
+            "response_blocks": [
+              {
+                "response_block_id": "urb_v139_001",
+                "block_type": "clarification_prompt",
+                "text": "Please clarify how to use this preference for this outfit.",
+                "claim_refs": [
+                  "claim_v139_001"
+                ],
+                "trace_refs": [
+                  "rt_v139_001",
+                  "gqi_v139_001",
+                  "gqi_v139_001"
+                ]
+              }
+            ],
+            "trace_refs": [
+              "gas_v139_001",
+              "v139_A01_open_clarification_queue_item_creates_active_action_card",
+              "rt_v139_001"
+            ]
+          },
+          "response_blocks": [
+            {
+              "response_block_id": "urb_v139_001",
+              "block_type": "clarification_prompt",
+              "text": "Please clarify how to use this preference for this outfit.",
+              "claim_refs": [
+                "claim_v139_001"
+              ],
+              "trace_refs": [
+                "rt_v139_001",
+                "gqi_v139_001",
+                "gqi_v139_001"
+              ]
+            }
+          ],
+          "conversation_visible_blocks": [
+            {
+              "visible_response_block_id": "vrb_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_002",
+              "text": "Conversation turn is trace-backed to the local runtime result.",
+              "claim_refs": [
+                "claim_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_002"
+              ]
+            }
+          ]
+        },
+        "error": null,
+        "trace_refs": [
+          "api_req_v140_A02_get_action_surface_returns_cards_and_response_blocks",
+          "rt_v139_001",
+          "gas_v139_001"
+        ]
+      },
+      "visible_response_block_ids": [
+        "vrb_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_002"
+      ],
+      "offered_action_card_ids": [
+        "card_v143_F02_user_feedback_remember_for_context_creates_governed_transition_primary"
+      ],
+      "result_notice_ids": [],
+      "production_write_executed": false,
+      "source_v142_route_handler_result_ref": "ssrhr_v142_B02_user_A_get_action_surface_does_not_include_user_B_refs",
+      "source_v142_artifact_ref": "per_case/clean/v142_B02_user_A_get_action_surface_does_not_include_user_B_refs.json",
+      "trace_refs": [
+        "local_user_A",
+        "sess_A_001",
+        "conv_A_001",
+        "turn_002",
+        "ssrhr_v142_B02_user_A_get_action_surface_does_not_include_user_B_refs"
+      ],
+      "user_visible_claims": [
+        {
+          "claim_id": "claim_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_002",
+          "text": "Conversation turn is trace-backed to the local runtime result.",
+          "trace_refs": [
+            "ctrr_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_002"
+          ]
+        }
+      ]
+    },
+    {
+      "conversation_turn_runtime_result_id": "ctrr_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_003",
+      "conversation_turn_invocation_id": "cti_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_003",
+      "local_user_id": "local_user_A",
+      "local_session_id": "sess_A_001",
+      "conversation_id": "conv_A_001",
+      "turn_id": "turn_003",
+      "response_type": "action_submission_result",
+      "output_envelope": {
+        "api_response_id": "api_res_v140_C03_post_remember_for_context_routes_to_write_gate",
+        "api_request_id": "api_req_v140_C03_post_remember_for_context_routes_to_write_gate",
+        "contract_version": "v1.40",
+        "schema_version": "product_api.v1",
+        "status_code": 200,
+        "response_type": "action_submission_result",
+        "body": {
+          "contract_version": "v1.40",
+          "schema_version": "product_api.v1",
+          "action_submission": {
+            "action_submission_api_resource_id": "sub_api_v140_C03_post_remember_for_context_routes_to_write_gate",
+            "accepted": true,
+            "submitted_action": "remember_for_context",
+            "idempotency_key": "idem_v140_C03_post_remember_for_context_routes_to_write_gate",
+            "user_action_card_id": "uac_v139_008",
+            "governance_queue_item_id": "gqi_v139_008",
+            "allowed_actions_at_submission": [
+              "this_time_only",
+              "do_not_change_memory",
+              "remember_for_context"
+            ],
+            "card_display_state_at_submission": "resolved",
+            "production_write_executed": true,
+            "trace_refs": [
+              "rt_v139_008",
+              "uac_v139_008",
+              "gqi_v139_008"
+            ]
+          },
+          "action_result": {
+            "action_result_api_resource_id": "res_api_v140_C03_post_remember_for_context_routes_to_write_gate",
+            "action_result_packet_id": "arp_v139_008",
+            "result_type": "write_candidate_submitted",
+            "production_write_executed": true,
+            "post_action_task_memory_packet_id": "tmp_post_action_v139_008",
+            "user_visible_response_block_ids": [
+              "urb_v139_008"
+            ],
+            "response_block_refs": [
+              "urb_v139_008"
+            ],
+            "governance_resolution_decision_id": "grd_v139_008",
+            "trace_refs": [
+              "rt_v139_008",
+              "uas_v139_008",
+              "grd_v139_008"
+            ]
+          },
+          "response_blocks": [
+            {
+              "response_block_id": "urb_v139_008",
+              "block_type": "action_result_notice",
+              "text": "I saved this as a context-specific outfit preference.",
+              "claim_refs": [
+                "claim_v139_008"
+              ],
+              "trace_refs": [
+                "rt_v139_008",
+                "arp_v139_008",
+                "grd_v139_008"
+              ]
+            }
+          ],
+          "conversation_visible_blocks": [
+            {
+              "visible_response_block_id": "vrb_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_003",
+              "text": "Conversation turn is trace-backed to the local runtime result.",
+              "claim_refs": [
+                "claim_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_003"
+              ]
+            }
+          ]
+        },
+        "error": null,
+        "trace_refs": [
+          "api_req_v140_C03_post_remember_for_context_routes_to_write_gate",
+          "rt_v139_008",
+          "gas_v139_008"
+        ]
+      },
+      "visible_response_block_ids": [
+        "vrb_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_003"
+      ],
+      "offered_action_card_ids": [],
+      "result_notice_ids": [],
+      "production_write_executed": false,
+      "source_v142_route_handler_result_ref": "ssrhr_v142_C03_user_A_remember_for_context_write_gate_is_user_scoped",
+      "source_v142_artifact_ref": "per_case/clean/v142_C03_user_A_remember_for_context_write_gate_is_user_scoped.json",
+      "trace_refs": [
+        "local_user_A",
+        "sess_A_001",
+        "conv_A_001",
+        "turn_003",
+        "ssrhr_v142_C03_user_A_remember_for_context_write_gate_is_user_scoped"
+      ],
+      "user_visible_claims": [
+        {
+          "claim_id": "claim_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_003",
+          "text": "Conversation turn is trace-backed to the local runtime result.",
+          "trace_refs": [
+            "ctrr_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_003"
+          ]
+        }
+      ]
+    },
+    {
+      "conversation_turn_runtime_result_id": "ctrr_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_004",
+      "conversation_turn_invocation_id": "cti_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_004",
+      "local_user_id": "local_user_A",
+      "local_session_id": "sess_A_001",
+      "conversation_id": "conv_A_001",
+      "turn_id": "turn_004",
+      "response_type": "action_result",
+      "output_envelope": {
+        "api_response_id": "api_res_v140_A03_get_action_result_returns_result_packet",
+        "api_request_id": "api_req_v140_A03_get_action_result_returns_result_packet",
+        "contract_version": "v1.40",
+        "schema_version": "product_api.v1",
+        "status_code": 200,
+        "response_type": "action_result",
+        "body": {
+          "contract_version": "v1.40",
+          "schema_version": "product_api.v1",
+          "action_result": {
+            "action_result_api_resource_id": "res_api_v140_A03_get_action_result_returns_result_packet",
+            "action_result_packet_id": "arp_v139_006",
+            "result_type": "no_write_current_turn",
+            "production_write_executed": false,
+            "post_action_task_memory_packet_id": "tmp_post_action_v139_006",
+            "user_visible_response_block_ids": [
+              "urb_v139_006"
+            ],
+            "response_block_refs": [
+              "urb_v139_006"
+            ],
+            "governance_resolution_decision_id": "grd_v139_006",
+            "trace_refs": [
+              "rt_v139_006",
+              "uas_v139_006",
+              "grd_v139_006"
+            ]
+          },
+          "response_blocks": [
+            {
+              "response_block_id": "urb_v139_006",
+              "block_type": "action_result_notice",
+              "text": "I will use that only for this outfit.",
+              "claim_refs": [
+                "claim_v139_006"
+              ],
+              "trace_refs": [
+                "rt_v139_006",
+                "arp_v139_006",
+                "grd_v139_006"
+              ]
+            }
+          ],
+          "conversation_visible_blocks": [
+            {
+              "visible_response_block_id": "vrb_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_004",
+              "text": "The accepted result is available for this conversation only after governance approval.",
+              "claim_refs": [
+                "claim_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_004"
+              ]
+            }
+          ]
+        },
+        "error": null,
+        "trace_refs": [
+          "api_req_v140_A03_get_action_result_returns_result_packet",
+          "rt_v139_006",
+          "gas_v139_006"
+        ]
+      },
+      "visible_response_block_ids": [
+        "vrb_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_004"
+      ],
+      "offered_action_card_ids": [],
+      "result_notice_ids": [
+        "notice_v143_F02_user_feedback_remember_for_context_creates_governed_transition"
+      ],
+      "production_write_executed": false,
+      "source_v142_route_handler_result_ref": "ssrhr_v142_B03_user_A_get_action_result_does_not_include_user_B_refs",
+      "source_v142_artifact_ref": "per_case/clean/v142_B03_user_A_get_action_result_does_not_include_user_B_refs.json",
+      "trace_refs": [
+        "local_user_A",
+        "sess_A_001",
+        "conv_A_001",
+        "turn_004",
+        "ssrhr_v142_B03_user_A_get_action_result_does_not_include_user_B_refs"
+      ],
+      "user_visible_claims": [
+        {
+          "claim_id": "claim_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_004",
+          "text": "The accepted result is available for this conversation only after governance approval.",
+          "trace_refs": [
+            "ctrr_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_004"
+          ]
+        }
+      ]
+    },
+    {
+      "conversation_turn_runtime_result_id": "ctrr_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_005",
+      "conversation_turn_invocation_id": "cti_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_005",
+      "local_user_id": "local_user_A",
+      "local_session_id": "sess_A_001",
+      "conversation_id": "conv_A_001",
+      "turn_id": "turn_005",
+      "response_type": "daily_outfit",
+      "output_envelope": {
+        "api_response_id": "api_res_v140_A01_get_daily_outfit_returns_contract_envelope",
+        "api_request_id": "api_req_v140_A01_get_daily_outfit_returns_contract_envelope",
+        "contract_version": "v1.40",
+        "schema_version": "product_api.v1",
+        "status_code": 200,
+        "response_type": "daily_outfit",
+        "body": {
+          "contract_version": "v1.40",
+          "schema_version": "product_api.v1",
+          "daily_outfit_card": {
+            "request_context": "office_daily",
+            "action_surface_ref": "asr_v139_A01_open_clarification_queue_item_creates_active_action_card",
+            "cards": [
+              {
+                "card_id": "uac_v139_001",
+                "governance_queue_item_id": "gqi_v139_001",
+                "card_type": "clarification",
+                "display_state": "active",
+                "title": "Clarify this preference",
+                "body": "Which outfit context should this apply to?",
+                "allowed_actions": [
+                  "this_time_only",
+                  "do_not_change_memory",
+                  "remember_for_context"
+                ],
+                "disabled_reason": null,
+                "trace_refs": [
+                  "rt_v139_001",
+                  "gqi_v139_001",
+                  "cr_v139_001"
+                ]
+              }
+            ],
+            "response_blocks": [
+              {
+                "response_block_id": "urb_v139_001",
+                "block_type": "clarification_prompt",
+                "text": "Please clarify how to use this preference for this outfit.",
+                "claim_refs": [
+                  "claim_v139_001"
+                ],
+                "trace_refs": [
+                  "rt_v139_001",
+                  "gqi_v139_001",
+                  "gqi_v139_001"
+                ]
+              }
+            ]
+          },
+          "conversation_visible_blocks": [
+            {
+              "visible_response_block_id": "vrb_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_005",
+              "text": "Conversation turn is trace-backed to the local runtime result.",
+              "claim_refs": [
+                "claim_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_005"
+              ]
+            }
+          ]
+        },
+        "error": null,
+        "trace_refs": [
+          "api_req_v140_A01_get_daily_outfit_returns_contract_envelope",
+          "rt_v139_001",
+          "gas_v139_001"
+        ]
+      },
+      "visible_response_block_ids": [
+        "vrb_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_005"
+      ],
+      "offered_action_card_ids": [],
+      "result_notice_ids": [],
+      "production_write_executed": false,
+      "source_v142_route_handler_result_ref": "ssrhr_v142_B01_user_A_get_daily_outfit_does_not_include_user_B_refs",
+      "source_v142_artifact_ref": "per_case/clean/v142_B01_user_A_get_daily_outfit_does_not_include_user_B_refs.json",
+      "trace_refs": [
+        "local_user_A",
+        "sess_A_001",
+        "conv_A_001",
+        "turn_005",
+        "ssrhr_v142_B01_user_A_get_daily_outfit_does_not_include_user_B_refs"
+      ],
+      "user_visible_claims": [
+        {
+          "claim_id": "claim_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_005",
+          "text": "Conversation turn is trace-backed to the local runtime result.",
+          "trace_refs": [
+            "ctrr_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_005",
+            "conv_action_result_local_user_A_sess_A_001_conv_A_001_49f346df4848"
+          ]
+        }
+      ]
+    }
+  ],
+  "conversation_state_transitions": [
+    {
+      "conversation_state_transition_id": "cst_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_001_turn_002",
+      "local_user_id": "local_user_A",
+      "local_session_id": "sess_A_001",
+      "conversation_id": "conv_A_001",
+      "from_turn_id": "turn_001",
+      "to_turn_id": "turn_002",
+      "transition_kind": "next_response",
+      "pre_state": {
+        "local_user_id": "local_user_A",
+        "local_session_id": "sess_A_001",
+        "conversation_id": "conv_A_001",
+        "turn_id": "turn_001",
+        "memory_namespace_id": "mem_ns_local_user_A",
+        "governance_namespace_id": "gov_ns_local_user_A",
+        "accepted_action_result_refs": []
+      },
+      "post_state": {
+        "local_user_id": "local_user_A",
+        "local_session_id": "sess_A_001",
+        "conversation_id": "conv_A_001",
+        "turn_id": "turn_002",
+        "memory_namespace_id": "mem_ns_local_user_A",
+        "governance_namespace_id": "gov_ns_local_user_A",
+        "accepted_action_result_refs": []
+      },
+      "pre_state_hash": "c26914a37f905289fa91c5d7977ed340492651531a4f6d825d37cd62d0b5e776",
+      "post_state_hash": "02ae121df3981bb14b16af3317b586d10b7c946e366ab9a544e6d02b8960f6cf",
+      "accepted_action_result_ref": null,
+      "no_write_reason": null,
+      "trace_refs": [
+        "local_user_A",
+        "sess_A_001",
+        "conv_A_001",
+        "turn_001",
+        "turn_002"
+      ]
+    },
+    {
+      "conversation_state_transition_id": "cst_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_002_turn_003",
+      "local_user_id": "local_user_A",
+      "local_session_id": "sess_A_001",
+      "conversation_id": "conv_A_001",
+      "from_turn_id": "turn_002",
+      "to_turn_id": "turn_003",
+      "transition_kind": "submit_action",
+      "pre_state": {
+        "local_user_id": "local_user_A",
+        "local_session_id": "sess_A_001",
+        "conversation_id": "conv_A_001",
+        "turn_id": "turn_002",
+        "memory_namespace_id": "mem_ns_local_user_A",
+        "governance_namespace_id": "gov_ns_local_user_A",
+        "accepted_action_result_refs": []
+      },
+      "post_state": {
+        "local_user_id": "local_user_A",
+        "local_session_id": "sess_A_001",
+        "conversation_id": "conv_A_001",
+        "turn_id": "turn_003",
+        "memory_namespace_id": "mem_ns_local_user_A",
+        "governance_namespace_id": "gov_ns_local_user_A",
+        "accepted_action_result_refs": []
+      },
+      "pre_state_hash": "02ae121df3981bb14b16af3317b586d10b7c946e366ab9a544e6d02b8960f6cf",
+      "post_state_hash": "3ef849f936eea28d259124776e6ee47558f68e213ab8fb85db3a50999bc6a915",
+      "accepted_action_result_ref": null,
+      "no_write_reason": null,
+      "trace_refs": [
+        "local_user_A",
+        "sess_A_001",
+        "conv_A_001",
+        "turn_002",
+        "turn_003"
+      ]
+    },
+    {
+      "conversation_state_transition_id": "cst_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_003_turn_004",
+      "local_user_id": "local_user_A",
+      "local_session_id": "sess_A_001",
+      "conversation_id": "conv_A_001",
+      "from_turn_id": "turn_003",
+      "to_turn_id": "turn_004",
+      "transition_kind": "result_notice",
+      "pre_state": {
+        "local_user_id": "local_user_A",
+        "local_session_id": "sess_A_001",
+        "conversation_id": "conv_A_001",
+        "turn_id": "turn_003",
+        "memory_namespace_id": "mem_ns_local_user_A",
+        "governance_namespace_id": "gov_ns_local_user_A",
+        "accepted_action_result_refs": []
+      },
+      "post_state": {
+        "local_user_id": "local_user_A",
+        "local_session_id": "sess_A_001",
+        "conversation_id": "conv_A_001",
+        "turn_id": "turn_004",
+        "memory_namespace_id": "mem_ns_local_user_A",
+        "governance_namespace_id": "gov_ns_local_user_A",
+        "accepted_action_result_refs": [
+          "conv_action_result_local_user_A_sess_A_001_conv_A_001_49f346df4848"
+        ]
+      },
+      "pre_state_hash": "3ef849f936eea28d259124776e6ee47558f68e213ab8fb85db3a50999bc6a915",
+      "post_state_hash": "1e25ccbcc7eff2b7178750fc293994b0b6d3c39d345969d72f01939484a84f6d",
+      "accepted_action_result_ref": "conv_action_result_local_user_A_sess_A_001_conv_A_001_49f346df4848",
+      "no_write_reason": null,
+      "trace_refs": [
+        "local_user_A",
+        "sess_A_001",
+        "conv_A_001",
+        "turn_003",
+        "turn_004"
+      ]
+    },
+    {
+      "conversation_state_transition_id": "cst_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_004_turn_005",
+      "local_user_id": "local_user_A",
+      "local_session_id": "sess_A_001",
+      "conversation_id": "conv_A_001",
+      "from_turn_id": "turn_004",
+      "to_turn_id": "turn_005",
+      "transition_kind": "next_response",
+      "pre_state": {
+        "local_user_id": "local_user_A",
+        "local_session_id": "sess_A_001",
+        "conversation_id": "conv_A_001",
+        "turn_id": "turn_004",
+        "memory_namespace_id": "mem_ns_local_user_A",
+        "governance_namespace_id": "gov_ns_local_user_A",
+        "accepted_action_result_refs": [
+          "conv_action_result_local_user_A_sess_A_001_conv_A_001_49f346df4848"
+        ]
+      },
+      "post_state": {
+        "local_user_id": "local_user_A",
+        "local_session_id": "sess_A_001",
+        "conversation_id": "conv_A_001",
+        "turn_id": "turn_005",
+        "memory_namespace_id": "mem_ns_local_user_A",
+        "governance_namespace_id": "gov_ns_local_user_A",
+        "accepted_action_result_refs": [
+          "conv_action_result_local_user_A_sess_A_001_conv_A_001_49f346df4848"
+        ]
+      },
+      "pre_state_hash": "1e25ccbcc7eff2b7178750fc293994b0b6d3c39d345969d72f01939484a84f6d",
+      "post_state_hash": "1ab434cd3b22b918ec6519a00698155c5893e79d7f135fb4f8c2dff8f4f833fe",
+      "accepted_action_result_ref": null,
+      "no_write_reason": null,
+      "trace_refs": [
+        "local_user_A",
+        "sess_A_001",
+        "conv_A_001",
+        "turn_004",
+        "turn_005"
+      ]
+    }
+  ],
+  "conversation_action_card_lifecycles": [
+    {
+      "conversation_action_card_lifecycle_id": "cacl_v143_F02_user_feedback_remember_for_context_creates_governed_transition",
+      "local_user_id": "local_user_A",
+      "local_session_id": "sess_A_001",
+      "conversation_id": "conv_A_001",
+      "action_card_id": "card_v143_F02_user_feedback_remember_for_context_creates_governed_transition_primary",
+      "offered_turn_id": "turn_001",
+      "submitted_turn_id": "turn_003",
+      "resolved_turn_id": "turn_004",
+      "card_state": "accepted",
+      "source_v142_action_result_ref": "conv_action_result_local_user_A_sess_A_001_conv_A_001_49f346df4848",
+      "idempotency_scope_key": "local_user_A:sess_A_001:conv_A_001:card_v143_F02_user_feedback_remember_for_context_creates_governed_transition_primary:raw_feedback_key_001",
+      "trace_refs": [
+        "local_user_A",
+        "sess_A_001",
+        "conv_A_001",
+        "card_v143_F02_user_feedback_remember_for_context_creates_governed_transition_primary",
+        "local_user_A:sess_A_001:conv_A_001:card_v143_F02_user_feedback_remember_for_context_creates_governed_transition_primary:raw_feedback_key_001"
+      ]
+    }
+  ],
+  "conversation_action_submission_proofs": [
+    {
+      "conversation_action_submission_proof_id": "casp_v143_F02_user_feedback_remember_for_context_creates_governed_transition",
+      "local_user_id": "local_user_A",
+      "local_session_id": "sess_A_001",
+      "conversation_id": "conv_A_001",
+      "turn_id": "turn_003",
+      "action_card_id": "card_v143_F02_user_feedback_remember_for_context_creates_governed_transition_primary",
+      "idempotency_scope_key": "local_user_A:sess_A_001:conv_A_001:card_v143_F02_user_feedback_remember_for_context_creates_governed_transition_primary:raw_feedback_key_001",
+      "source_v142_action_result_ref": "conv_action_result_local_user_A_sess_A_001_conv_A_001_49f346df4848",
+      "accepted": true,
+      "no_write_reason": null,
+      "trace_refs": [
+        "local_user_A",
+        "sess_A_001",
+        "conv_A_001",
+        "turn_003",
+        "card_v143_F02_user_feedback_remember_for_context_creates_governed_transition_primary"
+      ]
+    }
+  ],
+  "conversation_action_result_notices": [
+    {
+      "conversation_action_result_notice_id": "notice_v143_F02_user_feedback_remember_for_context_creates_governed_transition",
+      "local_user_id": "local_user_A",
+      "local_session_id": "sess_A_001",
+      "conversation_id": "conv_A_001",
+      "turn_id": "turn_004",
+      "notice_kind": "accepted_result",
+      "source_action_result_ref": "conv_action_result_local_user_A_sess_A_001_conv_A_001_49f346df4848",
+      "visible_claim_refs": [
+        "claim_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_004"
+      ],
+      "trace_refs": [
+        "local_user_A",
+        "sess_A_001",
+        "conv_A_001",
+        "turn_004",
+        "conv_action_result_local_user_A_sess_A_001_conv_A_001_49f346df4848"
+      ]
+    }
+  ],
+  "conversation_idempotency_replay_proofs": [
+    {
+      "conversation_idempotency_replay_proof_id": "cirp_v143_F02_user_feedback_remember_for_context_creates_governed_transition",
+      "local_user_id": "local_user_A",
+      "local_session_id": "sess_A_001",
+      "conversation_id": "conv_A_001",
+      "raw_idempotency_key": "raw_feedback_key_001",
+      "idempotency_scope_key": "local_user_A:sess_A_001:conv_A_001:card_v143_F02_user_feedback_remember_for_context_creates_governed_transition_primary:raw_feedback_key_001",
+      "canonical_action_result_ref": "conv_action_result_local_user_A_sess_A_001_conv_A_001_49f346df4848",
+      "duplicate_action_result_ref": null,
+      "different_scope_action_result_ref": null,
+      "same_scope_reused": false,
+      "different_scope_reused": false,
+      "trace_refs": [
+        "local_user_A",
+        "sess_A_001",
+        "conv_A_001",
+        "local_user_A:sess_A_001:conv_A_001:card_v143_F02_user_feedback_remember_for_context_creates_governed_transition_primary:raw_feedback_key_001",
+        "conv_action_result_local_user_A_sess_A_001_conv_A_001_49f346df4848"
+      ]
+    }
+  ],
+  "conversation_clarification_states": [
+    {
+      "conversation_clarification_state_id": "ccs_v143_F02_user_feedback_remember_for_context_creates_governed_transition",
+      "local_user_id": "local_user_A",
+      "local_session_id": "sess_A_001",
+      "conversation_id": "conv_A_001",
+      "turn_id": "turn_003",
+      "clarification_required": false,
+      "memory_write_claimed": false,
+      "resumed_turn_id": null,
+      "trace_refs": [
+        "local_user_A",
+        "sess_A_001",
+        "conv_A_001",
+        "turn_003"
+      ]
+    }
+  ],
+  "conversation_review_pending_states": [
+    {
+      "conversation_review_pending_state_id": "crps_v143_F02_user_feedback_remember_for_context_creates_governed_transition",
+      "local_user_id": "local_user_A",
+      "local_session_id": "sess_A_001",
+      "conversation_id": "conv_A_001",
+      "turn_id": "turn_003",
+      "review_pending": false,
+      "memory_applied_claimed": false,
+      "governance_decision_ref": "gov_decision_v143_F02_user_feedback_remember_for_context_creates_governed_transition",
+      "trace_refs": [
+        "local_user_A",
+        "sess_A_001",
+        "conv_A_001",
+        "turn_003",
+        "gov_decision_v143_F02_user_feedback_remember_for_context_creates_governed_transition"
+      ]
+    }
+  ],
+  "conversation_feedback_states": [
+    {
+      "conversation_feedback_state_id": "cfs_v143_F02_user_feedback_remember_for_context_creates_governed_transition",
+      "local_user_id": "local_user_A",
+      "local_session_id": "sess_A_001",
+      "conversation_id": "conv_A_001",
+      "turn_id": "turn_003",
+      "feedback_kind": "feedback_remember",
+      "memory_mutated": true,
+      "governed_transition_ref": "cst_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_003_turn_004",
+      "trace_refs": [
+        "local_user_A",
+        "sess_A_001",
+        "conv_A_001",
+        "turn_003"
+      ]
+    }
+  ],
+  "conversation_turn_claim_trace_audits": [
+    {
+      "conversation_turn_claim_trace_audit_id": "ctcta_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_001",
+      "local_user_id": "local_user_A",
+      "local_session_id": "sess_A_001",
+      "conversation_id": "conv_A_001",
+      "turn_id": "turn_001",
+      "visible_claim_refs": [
+        "claim_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_001"
+      ],
+      "required_source_refs": [
+        "ctrr_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_001"
+      ],
+      "missing_trace_refs": [],
+      "foreign_user_refs_detected": [],
+      "foreign_session_refs_detected": [],
+      "forbidden_visible_terms_detected": [],
+      "passed": true,
+      "trace_refs": [
+        "local_user_A",
+        "sess_A_001",
+        "conv_A_001",
+        "turn_001",
+        "ctrr_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_001"
+      ]
+    },
+    {
+      "conversation_turn_claim_trace_audit_id": "ctcta_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_002",
+      "local_user_id": "local_user_A",
+      "local_session_id": "sess_A_001",
+      "conversation_id": "conv_A_001",
+      "turn_id": "turn_002",
+      "visible_claim_refs": [
+        "claim_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_002"
+      ],
+      "required_source_refs": [
+        "ctrr_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_002"
+      ],
+      "missing_trace_refs": [],
+      "foreign_user_refs_detected": [],
+      "foreign_session_refs_detected": [],
+      "forbidden_visible_terms_detected": [],
+      "passed": true,
+      "trace_refs": [
+        "local_user_A",
+        "sess_A_001",
+        "conv_A_001",
+        "turn_002",
+        "ctrr_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_002"
+      ]
+    },
+    {
+      "conversation_turn_claim_trace_audit_id": "ctcta_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_003",
+      "local_user_id": "local_user_A",
+      "local_session_id": "sess_A_001",
+      "conversation_id": "conv_A_001",
+      "turn_id": "turn_003",
+      "visible_claim_refs": [
+        "claim_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_003"
+      ],
+      "required_source_refs": [
+        "ctrr_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_003"
+      ],
+      "missing_trace_refs": [],
+      "foreign_user_refs_detected": [],
+      "foreign_session_refs_detected": [],
+      "forbidden_visible_terms_detected": [],
+      "passed": true,
+      "trace_refs": [
+        "local_user_A",
+        "sess_A_001",
+        "conv_A_001",
+        "turn_003",
+        "ctrr_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_003"
+      ]
+    },
+    {
+      "conversation_turn_claim_trace_audit_id": "ctcta_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_004",
+      "local_user_id": "local_user_A",
+      "local_session_id": "sess_A_001",
+      "conversation_id": "conv_A_001",
+      "turn_id": "turn_004",
+      "visible_claim_refs": [
+        "claim_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_004"
+      ],
+      "required_source_refs": [
+        "ctrr_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_004"
+      ],
+      "missing_trace_refs": [],
+      "foreign_user_refs_detected": [],
+      "foreign_session_refs_detected": [],
+      "forbidden_visible_terms_detected": [],
+      "passed": true,
+      "trace_refs": [
+        "local_user_A",
+        "sess_A_001",
+        "conv_A_001",
+        "turn_004",
+        "ctrr_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_004"
+      ]
+    },
+    {
+      "conversation_turn_claim_trace_audit_id": "ctcta_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_005",
+      "local_user_id": "local_user_A",
+      "local_session_id": "sess_A_001",
+      "conversation_id": "conv_A_001",
+      "turn_id": "turn_005",
+      "visible_claim_refs": [
+        "claim_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_005"
+      ],
+      "required_source_refs": [
+        "ctrr_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_005"
+      ],
+      "missing_trace_refs": [],
+      "foreign_user_refs_detected": [],
+      "foreign_session_refs_detected": [],
+      "forbidden_visible_terms_detected": [],
+      "passed": true,
+      "trace_refs": [
+        "local_user_A",
+        "sess_A_001",
+        "conv_A_001",
+        "turn_005",
+        "ctrr_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_005"
+      ]
+    }
+  ],
+  "trace_safe_debug_refs": [
+    {
+      "trace_safe_debug_ref_id": "debug_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_001",
+      "local_user_id": "local_user_A",
+      "local_session_id": "sess_A_001",
+      "conversation_id": "conv_A_001",
+      "debug_ref": "trace:v143:local_user_A:sess_A_001:conv_A_001:turn_001",
+      "trace_refs": [
+        "local_user_A",
+        "sess_A_001",
+        "conv_A_001",
+        "turn_001"
+      ]
+    },
+    {
+      "trace_safe_debug_ref_id": "debug_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_002",
+      "local_user_id": "local_user_A",
+      "local_session_id": "sess_A_001",
+      "conversation_id": "conv_A_001",
+      "debug_ref": "trace:v143:local_user_A:sess_A_001:conv_A_001:turn_002",
+      "trace_refs": [
+        "local_user_A",
+        "sess_A_001",
+        "conv_A_001",
+        "turn_002"
+      ]
+    },
+    {
+      "trace_safe_debug_ref_id": "debug_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_003",
+      "local_user_id": "local_user_A",
+      "local_session_id": "sess_A_001",
+      "conversation_id": "conv_A_001",
+      "debug_ref": "trace:v143:local_user_A:sess_A_001:conv_A_001:turn_003",
+      "trace_refs": [
+        "local_user_A",
+        "sess_A_001",
+        "conv_A_001",
+        "turn_003"
+      ]
+    },
+    {
+      "trace_safe_debug_ref_id": "debug_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_004",
+      "local_user_id": "local_user_A",
+      "local_session_id": "sess_A_001",
+      "conversation_id": "conv_A_001",
+      "debug_ref": "trace:v143:local_user_A:sess_A_001:conv_A_001:turn_004",
+      "trace_refs": [
+        "local_user_A",
+        "sess_A_001",
+        "conv_A_001",
+        "turn_004"
+      ]
+    },
+    {
+      "trace_safe_debug_ref_id": "debug_v143_F02_user_feedback_remember_for_context_creates_governed_transition_turn_005",
+      "local_user_id": "local_user_A",
+      "local_session_id": "sess_A_001",
+      "conversation_id": "conv_A_001",
+      "debug_ref": "trace:v143:local_user_A:sess_A_001:conv_A_001:turn_005",
+      "trace_refs": [
+        "local_user_A",
+        "sess_A_001",
+        "conv_A_001",
+        "turn_005"
+      ]
+    }
+  ],
+  "source_v142_artifact_hashes": {
+    "per_case/clean/v142_B01_user_A_get_daily_outfit_does_not_include_user_B_refs.json": "1ede6a942c3bea6492f4fd2381cf4792bfee3b16b71a0e0dae3a54fe5533fdb2",
+    "per_case/clean/v142_B02_user_A_get_action_surface_does_not_include_user_B_refs.json": "5f7685b5b3d8a1a17da97a4a1ea039365619bcf9737108664081d01f755136b7",
+    "per_case/clean/v142_C03_user_A_remember_for_context_write_gate_is_user_scoped.json": "ae4eeb3953c075126d03c93c20ffd188a2975ca5a0a760c76e05db66d89f89ce",
+    "per_case/clean/v142_B03_user_A_get_action_result_does_not_include_user_B_refs.json": "6f3970d88ea7a0d991074b8b9b592cc2b194ea69bd989c551639e0a8904026db"
+  },
+  "v142_replay_proof": {
+    "run_v142_validation_suite": "PASS"
+  },
+  "runner_reproducibility_proof": {},
+  "reviewer_checklist_refs": [],
+  "conversation_boundary_audit": {
+    "conversation_boundary_audit_id": "cba_v143_F02_user_feedback_remember_for_context_creates_governed_transition",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "conversation_id": "conv_A_001",
+    "audited_artifact_refs": [
+      "product_conversation_script",
+      "product_conversation_session",
+      "conversation_turn_invocations",
+      "conversation_turn_runtime_results",
+      "conversation_state_transitions",
+      "conversation_action_card_lifecycles",
+      "conversation_action_submission_proofs",
+      "conversation_action_result_notices",
+      "conversation_idempotency_replay_proofs",
+      "conversation_clarification_states",
+      "conversation_review_pending_states",
+      "conversation_feedback_states",
+      "conversation_turn_claim_trace_audits",
+      "trace_safe_debug_refs",
+      "conversation_loop_snapshot"
+    ],
+    "foreign_user_refs_detected": [],
+    "foreign_session_refs_detected": [],
+    "foreign_conversation_refs_detected": [],
+    "foreign_namespace_refs_detected": [],
+    "passed": true,
+    "trace_refs": [
+      "local_user_A",
+      "sess_A_001",
+      "conv_A_001",
+      "cba_trace"
+    ]
+  },
+  "conversation_loop_snapshot": {
+    "conversation_loop_snapshot_id": "cls_v143_F02_user_feedback_remember_for_context_creates_governed_transition",
+    "local_user_id": "local_user_A",
+    "local_session_id": "sess_A_001",
+    "conversation_id": "conv_A_001",
+    "canonical_script_hash": "3e825924ecce69cc8e3193ce0ddc0e99735841e0cf6f39588706c7de979080a1",
+    "canonical_session_hash": "7c54d668eeca411ee02f903db55115dae28b0bd63ae9b92f83c99347c3f7a744",
+    "canonical_turn_sequence_hash": "fd119d2e07c91c859e89a9afef23ba9a85bc7f5d7819aabd24c514e366d28acc",
+    "canonical_state_transition_hash": "0aa507d755afe6e602d913d2fd981ea54a96b7ce1d6e09ef42d7562bf5170257",
+    "canonical_boundary_audit_hash": "a87b61156cb7a5aa577da8832693a58b9bc63bd7d6c1645d4917f1adaaa2a6a4",
+    "source_artifact_hashes": {
+      "per_case/clean/v142_B01_user_A_get_daily_outfit_does_not_include_user_B_refs.json": "1ede6a942c3bea6492f4fd2381cf4792bfee3b16b71a0e0dae3a54fe5533fdb2",
+      "per_case/clean/v142_B02_user_A_get_action_surface_does_not_include_user_B_refs.json": "5f7685b5b3d8a1a17da97a4a1ea039365619bcf9737108664081d01f755136b7",
+      "per_case/clean/v142_C03_user_A_remember_for_context_write_gate_is_user_scoped.json": "ae4eeb3953c075126d03c93c20ffd188a2975ca5a0a760c76e05db66d89f89ce",
+      "per_case/clean/v142_B03_user_A_get_action_result_does_not_include_user_B_refs.json": "6f3970d88ea7a0d991074b8b9b592cc2b194ea69bd989c551639e0a8904026db"
+    },
+    "trace_refs": [
+      "local_user_A",
+      "sess_A_001",
+      "conv_A_001",
+      "cls_trace"
+    ]
+  }
+}

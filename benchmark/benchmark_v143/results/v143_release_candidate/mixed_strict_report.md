@@ -1,0 +1,25 @@
+# v1.43 Mixed Strict Report
+
+- EXPECTED FAIL `conversation_script_scope_valid_rate`
+- EXPECTED FAIL `conversation_session_turn_order_valid_rate`
+- EXPECTED FAIL `turn_invocation_matches_v142_session_runtime_rate`
+- EXPECTED FAIL `turn_result_matches_v142_runtime_output_rate`
+- EXPECTED FAIL `conversation_state_transition_valid_rate`
+- EXPECTED FAIL `action_card_lifecycle_complete_rate`
+- EXPECTED FAIL `action_submission_result_notice_trace_rate`
+- EXPECTED FAIL `conversation_idempotency_scope_valid_rate`
+- EXPECTED FAIL `same_scope_duplicate_reuses_result_across_turns_rate`
+- EXPECTED FAIL `different_scope_duplicate_does_not_reuse_result_rate`
+- EXPECTED FAIL `expired_stale_card_no_write_rate`
+- EXPECTED FAIL `clarification_state_truthful_rate`
+- EXPECTED FAIL `review_pending_state_truthful_rate`
+- EXPECTED FAIL `feedback_state_transition_truthful_rate`
+- EXPECTED FAIL `next_turn_response_reflects_only_accepted_state_rate`
+- EXPECTED FAIL `visible_claims_trace_backed_rate`
+- EXPECTED FAIL `conversation_boundary_leakage_absent_rate`
+- EXPECTED FAIL `conversation_boundary_audit_self_scoped_rate`
+- EXPECTED FAIL `conversation_loop_snapshot_hash_reproducible_rate`
+- EXPECTED FAIL `sample_artifacts_match_per_case_rate`
+- EXPECTED FAIL `report_consistency_with_independent_validation_rate`
+- EXPECTED FAIL `adversarial_detection_rate`
+- EXPECTED FAIL `v142_validation_replay_pass_rate`

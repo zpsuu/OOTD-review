@@ -1,0 +1,476 @@
+{
+  "benchmark_id": "v1.43.product_conversation_runtime_loop",
+  "schema_version": "v1.43",
+  "generated_at": "2026-06-24T11:58:54Z",
+  "verdicts": {
+    "clean_acceptance_verdict": "pass",
+    "release_candidate_verdict": "pass_candidate"
+  },
+  "suite_summary": {
+    "total_cases": 49,
+    "passed_cases": 49,
+    "failed_cases": 0,
+    "total_checks": 23,
+    "passed_checks": 23,
+    "failed_checks": 0
+  },
+  "checks": [
+    {
+      "check_id": "conversation_script_scope_valid_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "conversation_session_turn_order_valid_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "turn_invocation_matches_v142_session_runtime_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "turn_result_matches_v142_runtime_output_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "conversation_state_transition_valid_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "action_card_lifecycle_complete_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "action_submission_result_notice_trace_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "conversation_idempotency_scope_valid_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "same_scope_duplicate_reuses_result_across_turns_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "different_scope_duplicate_does_not_reuse_result_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "expired_stale_card_no_write_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "clarification_state_truthful_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "review_pending_state_truthful_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "feedback_state_transition_truthful_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "next_turn_response_reflects_only_accepted_state_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "visible_claims_trace_backed_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "conversation_boundary_leakage_absent_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "conversation_boundary_audit_self_scoped_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "conversation_loop_snapshot_hash_reproducible_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "sample_artifacts_match_per_case_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "report_consistency_with_independent_validation_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "adversarial_detection_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check_id": "v142_validation_replay_pass_rate",
+      "value": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "failures": []
+    }
+  ],
+  "case_results": [
+    {
+      "case_id": "v143_A01_conversation_script_binds_user_session_conversation",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_A01_conversation_script_binds_user_session_conversation.json"
+    },
+    {
+      "case_id": "v143_A02_conversation_session_has_ordered_turns",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_A02_conversation_session_has_ordered_turns.json"
+    },
+    {
+      "case_id": "v143_A03_turn_invocations_preserve_v142_session_scope",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_A03_turn_invocations_preserve_v142_session_scope.json"
+    },
+    {
+      "case_id": "v143_A04_turn_results_match_v142_runtime_outputs",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_A04_turn_results_match_v142_runtime_outputs.json"
+    },
+    {
+      "case_id": "v143_A05_conversation_loop_snapshot_hashes_reproducible",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_A05_conversation_loop_snapshot_hashes_reproducible.json"
+    },
+    {
+      "case_id": "v143_B01_get_daily_outfit_offers_trace_backed_action_cards",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_B01_get_daily_outfit_offers_trace_backed_action_cards.json"
+    },
+    {
+      "case_id": "v143_B02_action_surface_turn_reuses_current_conversation_state",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_B02_action_surface_turn_reuses_current_conversation_state.json"
+    },
+    {
+      "case_id": "v143_B03_submit_this_time_only_returns_no_write_result_notice",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_B03_submit_this_time_only_returns_no_write_result_notice.json"
+    },
+    {
+      "case_id": "v143_B04_next_daily_outfit_response_reflects_this_time_only_only_in_conversation",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_B04_next_daily_outfit_response_reflects_this_time_only_only_in_conversation.json"
+    },
+    {
+      "case_id": "v143_B05_do_not_change_memory_preserves_state_across_next_turn",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_B05_do_not_change_memory_preserves_state_across_next_turn.json"
+    },
+    {
+      "case_id": "v143_B06_remember_for_context_routes_to_governance_write_gate",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_B06_remember_for_context_routes_to_governance_write_gate.json"
+    },
+    {
+      "case_id": "v143_B07_review_pending_notice_does_not_claim_memory_applied",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_B07_review_pending_notice_does_not_claim_memory_applied.json"
+    },
+    {
+      "case_id": "v143_B08_action_result_notice_traces_to_session_action_result",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_B08_action_result_notice_traces_to_session_action_result.json"
+    },
+    {
+      "case_id": "v143_C01_same_turn_duplicate_submission_reuses_result",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_C01_same_turn_duplicate_submission_reuses_result.json"
+    },
+    {
+      "case_id": "v143_C02_next_turn_duplicate_submission_reuses_same_scope_result",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_C02_next_turn_duplicate_submission_reuses_same_scope_result.json"
+    },
+    {
+      "case_id": "v143_C03_same_raw_key_different_conversation_does_not_reuse_result",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_C03_same_raw_key_different_conversation_does_not_reuse_result.json"
+    },
+    {
+      "case_id": "v143_C04_same_raw_key_different_user_does_not_reuse_result",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_C04_same_raw_key_different_user_does_not_reuse_result.json"
+    },
+    {
+      "case_id": "v143_C05_duplicate_result_notice_is_not_rendered_twice",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_C05_duplicate_result_notice_is_not_rendered_twice.json"
+    },
+    {
+      "case_id": "v143_D01_expired_card_submission_returns_no_write_notice",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_D01_expired_card_submission_returns_no_write_notice.json"
+    },
+    {
+      "case_id": "v143_D02_stale_card_after_session_advance_returns_no_write_notice",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_D02_stale_card_after_session_advance_returns_no_write_notice.json"
+    },
+    {
+      "case_id": "v143_D03_expired_conversation_next_turn_returns_safe_error",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_D03_expired_conversation_next_turn_returns_safe_error.json"
+    },
+    {
+      "case_id": "v143_D04_stale_result_notice_does_not_mutate_state",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_D04_stale_result_notice_does_not_mutate_state.json"
+    },
+    {
+      "case_id": "v143_D05_hidden_or_expired_cards_not_visible_in_next_action_surface",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_D05_hidden_or_expired_cards_not_visible_in_next_action_surface.json"
+    },
+    {
+      "case_id": "v143_E01_clarification_turn_has_no_memory_write_claim",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_E01_clarification_turn_has_no_memory_write_claim.json"
+    },
+    {
+      "case_id": "v143_E02_clarification_answer_resumes_correct_conversation",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_E02_clarification_answer_resumes_correct_conversation.json"
+    },
+    {
+      "case_id": "v143_E03_review_pending_turn_has_pending_not_applied_claim",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_E03_review_pending_turn_has_pending_not_applied_claim.json"
+    },
+    {
+      "case_id": "v143_E04_review_resolution_notice_traces_to_governance_decision",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_E04_review_resolution_notice_traces_to_governance_decision.json"
+    },
+    {
+      "case_id": "v143_E05_review_pending_state_survives_next_action_surface",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_E05_review_pending_state_survives_next_action_surface.json"
+    },
+    {
+      "case_id": "v143_F01_user_feedback_this_time_only_stays_conversation_scoped",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_F01_user_feedback_this_time_only_stays_conversation_scoped.json"
+    },
+    {
+      "case_id": "v143_F02_user_feedback_remember_for_context_creates_governed_transition",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_F02_user_feedback_remember_for_context_creates_governed_transition.json"
+    },
+    {
+      "case_id": "v143_F03_user_feedback_do_not_change_memory_preserves_memory_state",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_F03_user_feedback_do_not_change_memory_preserves_memory_state.json"
+    },
+    {
+      "case_id": "v143_F04_feedback_result_notice_traces_to_prior_turn_and_action_result",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_F04_feedback_result_notice_traces_to_prior_turn_and_action_result.json"
+    },
+    {
+      "case_id": "v143_F05_feedback_correction_does_not_leak_raw_review_evidence",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_F05_feedback_correction_does_not_leak_raw_review_evidence.json"
+    },
+    {
+      "case_id": "v143_G01_no_foreign_user_refs_across_all_turn_artifacts",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_G01_no_foreign_user_refs_across_all_turn_artifacts.json"
+    },
+    {
+      "case_id": "v143_G02_no_foreign_session_refs_across_all_turn_artifacts",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_G02_no_foreign_session_refs_across_all_turn_artifacts.json"
+    },
+    {
+      "case_id": "v143_G03_no_foreign_conversation_refs_across_all_turn_artifacts",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_G03_no_foreign_conversation_refs_across_all_turn_artifacts.json"
+    },
+    {
+      "case_id": "v143_G04_conversation_boundary_audit_scans_all_artifact_groups",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_G04_conversation_boundary_audit_scans_all_artifact_groups.json"
+    },
+    {
+      "case_id": "v143_G05_conversation_boundary_audit_self_is_scoped",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_G05_conversation_boundary_audit_self_is_scoped.json"
+    },
+    {
+      "case_id": "v143_G06_debug_refs_are_trace_safe_across_turns",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_G06_debug_refs_are_trace_safe_across_turns.json"
+    },
+    {
+      "case_id": "v143_H01_every_visible_claim_traces_to_turn_result_or_state_transition",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_H01_every_visible_claim_traces_to_turn_result_or_state_transition.json"
+    },
+    {
+      "case_id": "v143_H02_result_notice_claims_trace_to_action_result",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_H02_result_notice_claims_trace_to_action_result.json"
+    },
+    {
+      "case_id": "v143_H03_next_response_claims_trace_to_accepted_prior_transition",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_H03_next_response_claims_trace_to_accepted_prior_transition.json"
+    },
+    {
+      "case_id": "v143_H04_review_pending_claims_not_applied",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_H04_review_pending_claims_not_applied.json"
+    },
+    {
+      "case_id": "v143_H05_no_raw_review_evidence_internal_path_sensitive_commerce_or_aigc_terms",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_H05_no_raw_review_evidence_internal_path_sensitive_commerce_or_aigc_terms.json"
+    },
+    {
+      "case_id": "v143_I01_sample_artifacts_match_per_case",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_I01_sample_artifacts_match_per_case.json"
+    },
+    {
+      "case_id": "v143_I02_clean_report_cannot_override_raw_failure",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_I02_clean_report_cannot_override_raw_failure.json"
+    },
+    {
+      "case_id": "v143_I03_reviewer_checklist_refs_raw_conversation_cases",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_I03_reviewer_checklist_refs_raw_conversation_cases.json"
+    },
+    {
+      "case_id": "v143_I04_v142_replay_passes_before_v143_validation",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_I04_v142_replay_passes_before_v143_validation.json"
+    },
+    {
+      "case_id": "v143_I05_v143_runner_is_one_command_reproducible",
+      "passed": true,
+      "failed_check_ids": [],
+      "artifact_ref": "per_case/clean/v143_I05_v143_runner_is_one_command_reproducible.json"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+# v1.43 Clean Acceptance Report
+
+- PASS `conversation_script_scope_valid_rate`
+- PASS `conversation_session_turn_order_valid_rate`
+- PASS `turn_invocation_matches_v142_session_runtime_rate`
+- PASS `turn_result_matches_v142_runtime_output_rate`
+- PASS `conversation_state_transition_valid_rate`
+- PASS `action_card_lifecycle_complete_rate`
+- PASS `action_submission_result_notice_trace_rate`
+- PASS `conversation_idempotency_scope_valid_rate`
+- PASS `same_scope_duplicate_reuses_result_across_turns_rate`
+- PASS `different_scope_duplicate_does_not_reuse_result_rate`
+- PASS `expired_stale_card_no_write_rate`
+- PASS `clarification_state_truthful_rate`
+- PASS `review_pending_state_truthful_rate`
+- PASS `feedback_state_transition_truthful_rate`
+- PASS `next_turn_response_reflects_only_accepted_state_rate`
+- PASS `visible_claims_trace_backed_rate`
+- PASS `conversation_boundary_leakage_absent_rate`
+- PASS `conversation_boundary_audit_self_scoped_rate`
+- PASS `conversation_loop_snapshot_hash_reproducible_rate`
+- PASS `sample_artifacts_match_per_case_rate`
+- PASS `report_consistency_with_independent_validation_rate`
+- PASS `adversarial_detection_rate`
+- PASS `v142_validation_replay_pass_rate`

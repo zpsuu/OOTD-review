@@ -1,0 +1,41 @@
+{
+  "validator": "benchmark.common.report_consistency",
+  "manifest_hash": "49c295b26f1f180e420d66bb36a8945c77f03e709fa523ba86d8f78bdc709c6e",
+  "required_reports": [
+    "clean_report.json",
+    "mixed_strict_report.json",
+    "independent_validation_report.json",
+    "adversarial_validation_report.json",
+    "report_consistency_report.json",
+    "sample_consistency_report.json",
+    "injected_defect_detection_summary.json"
+  ],
+  "checked_gates": [
+    "conversation_script_scope_valid_rate",
+    "conversation_session_turn_order_valid_rate",
+    "turn_invocation_matches_v142_session_runtime_rate",
+    "turn_result_matches_v142_runtime_output_rate",
+    "conversation_state_transition_valid_rate",
+    "action_card_lifecycle_complete_rate",
+    "action_submission_result_notice_trace_rate",
+    "conversation_idempotency_scope_valid_rate",
+    "same_scope_duplicate_reuses_result_across_turns_rate",
+    "different_scope_duplicate_does_not_reuse_result_rate",
+    "expired_stale_card_no_write_rate",
+    "clarification_state_truthful_rate",
+    "review_pending_state_truthful_rate",
+    "feedback_state_transition_truthful_rate",
+    "next_turn_response_reflects_only_accepted_state_rate",
+    "visible_claims_trace_backed_rate",
+    "conversation_boundary_leakage_absent_rate",
+    "conversation_boundary_audit_self_scoped_rate",
+    "conversation_loop_snapshot_hash_reproducible_rate",
+    "sample_artifacts_match_per_case_rate",
+    "report_consistency_with_independent_validation_rate",
+    "adversarial_detection_rate",
+    "v142_validation_replay_pass_rate"
+  ],
+  "passed": true,
+  "failures": [],
+  "generated_at": "2026-06-24T11:58:55Z"
+}

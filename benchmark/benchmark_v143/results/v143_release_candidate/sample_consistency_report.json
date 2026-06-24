@@ -1,0 +1,91 @@
+{
+  "validator": "benchmark.common.sample_consistency",
+  "total_samples": 8,
+  "passed_samples": 8,
+  "failed_samples": 0,
+  "passed": true,
+  "failures": [],
+  "samples": [
+    {
+      "artifact_ref": "sample_artifacts/daily_outfit_conversation_loop.json",
+      "source_artifact_ref": "per_case/clean/v143_B01_get_daily_outfit_offers_trace_backed_action_cards.json",
+      "case_id": "v143_B01_get_daily_outfit_offers_trace_backed_action_cards",
+      "exists": true,
+      "sample_hash": "f4392078d212ebccecd43e82d973dcb1ffb903c15e67351683e3de7442080d42",
+      "source_hash": "f4392078d212ebccecd43e82d973dcb1ffb903c15e67351683e3de7442080d42",
+      "manifest_hash": "f4392078d212ebccecd43e82d973dcb1ffb903c15e67351683e3de7442080d42",
+      "passed": true
+    },
+    {
+      "artifact_ref": "sample_artifacts/action_submission_result_notice.json",
+      "source_artifact_ref": "per_case/clean/v143_B03_submit_this_time_only_returns_no_write_result_notice.json",
+      "case_id": "v143_B03_submit_this_time_only_returns_no_write_result_notice",
+      "exists": true,
+      "sample_hash": "5a20b3128cf7ed2e7f9c4cb91c802186673915be40e7911c34981d5bdffa23e3",
+      "source_hash": "5a20b3128cf7ed2e7f9c4cb91c802186673915be40e7911c34981d5bdffa23e3",
+      "manifest_hash": "5a20b3128cf7ed2e7f9c4cb91c802186673915be40e7911c34981d5bdffa23e3",
+      "passed": true
+    },
+    {
+      "artifact_ref": "sample_artifacts/same_scope_duplicate_across_turns.json",
+      "source_artifact_ref": "per_case/clean/v143_C01_same_turn_duplicate_submission_reuses_result.json",
+      "case_id": "v143_C01_same_turn_duplicate_submission_reuses_result",
+      "exists": true,
+      "sample_hash": "a9333231f287532d5b8b7393008ca13a17e41744eaa24fa89ca2cd2e608634da",
+      "source_hash": "a9333231f287532d5b8b7393008ca13a17e41744eaa24fa89ca2cd2e608634da",
+      "manifest_hash": "a9333231f287532d5b8b7393008ca13a17e41744eaa24fa89ca2cd2e608634da",
+      "passed": true
+    },
+    {
+      "artifact_ref": "sample_artifacts/different_conversation_non_reuse.json",
+      "source_artifact_ref": "per_case/clean/v143_C03_same_raw_key_different_conversation_does_not_reuse_result.json",
+      "case_id": "v143_C03_same_raw_key_different_conversation_does_not_reuse_result",
+      "exists": true,
+      "sample_hash": "5e894211d60566e8a97f188d030604896d98c99915923733a33f9c6ca1d36224",
+      "source_hash": "5e894211d60566e8a97f188d030604896d98c99915923733a33f9c6ca1d36224",
+      "manifest_hash": "5e894211d60566e8a97f188d030604896d98c99915923733a33f9c6ca1d36224",
+      "passed": true
+    },
+    {
+      "artifact_ref": "sample_artifacts/expired_card_no_write_notice.json",
+      "source_artifact_ref": "per_case/clean/v143_D01_expired_card_submission_returns_no_write_notice.json",
+      "case_id": "v143_D01_expired_card_submission_returns_no_write_notice",
+      "exists": true,
+      "sample_hash": "5da8a05967df98ed4c1631a04b3b17c62e80275c08ac368c9f5959915ad15e5f",
+      "source_hash": "5da8a05967df98ed4c1631a04b3b17c62e80275c08ac368c9f5959915ad15e5f",
+      "manifest_hash": "5da8a05967df98ed4c1631a04b3b17c62e80275c08ac368c9f5959915ad15e5f",
+      "passed": true
+    },
+    {
+      "artifact_ref": "sample_artifacts/review_pending_truthful_turn.json",
+      "source_artifact_ref": "per_case/clean/v143_E03_review_pending_turn_has_pending_not_applied_claim.json",
+      "case_id": "v143_E03_review_pending_turn_has_pending_not_applied_claim",
+      "exists": true,
+      "sample_hash": "c6e089b37c45caf56169371cff2d004a8a37488a062b0f67b97580bdb82c322e",
+      "source_hash": "c6e089b37c45caf56169371cff2d004a8a37488a062b0f67b97580bdb82c322e",
+      "manifest_hash": "c6e089b37c45caf56169371cff2d004a8a37488a062b0f67b97580bdb82c322e",
+      "passed": true
+    },
+    {
+      "artifact_ref": "sample_artifacts/conversation_boundary_audit.json",
+      "source_artifact_ref": "per_case/clean/v143_G04_conversation_boundary_audit_scans_all_artifact_groups.json",
+      "case_id": "v143_G04_conversation_boundary_audit_scans_all_artifact_groups",
+      "exists": true,
+      "sample_hash": "4ffdcbba02cf087268e29d00e7c6bcaed1454515bbdda88932f9d89c3e252a77",
+      "source_hash": "4ffdcbba02cf087268e29d00e7c6bcaed1454515bbdda88932f9d89c3e252a77",
+      "manifest_hash": "4ffdcbba02cf087268e29d00e7c6bcaed1454515bbdda88932f9d89c3e252a77",
+      "passed": true
+    },
+    {
+      "artifact_ref": "sample_artifacts/conversation_loop_snapshot.json",
+      "source_artifact_ref": "per_case/clean/v143_A05_conversation_loop_snapshot_hashes_reproducible.json",
+      "case_id": "v143_A05_conversation_loop_snapshot_hashes_reproducible",
+      "exists": true,
+      "sample_hash": "c6802a13611cce91dc0533983f29b4f3fc1990dd3e17bc2b6f3f92e1ac7d3bff",
+      "source_hash": "c6802a13611cce91dc0533983f29b4f3fc1990dd3e17bc2b6f3f92e1ac7d3bff",
+      "manifest_hash": "c6802a13611cce91dc0533983f29b4f3fc1990dd3e17bc2b6f3f92e1ac7d3bff",
+      "passed": true
+    }
+  ],
+  "generated_at": "2026-06-24T11:58:55Z"
+}
