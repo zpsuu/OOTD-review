@@ -1,0 +1,121 @@
+{
+  "version": "v1.39",
+  "release_candidate_status": "pass_candidate_pending_manual_review",
+  "theme": "Governance User Action Surface",
+  "branch": "v139-governance-user-action-surface",
+  "entrypoint": "benchmark/benchmark_v139/results/v139_release_candidate/REVIEW_MANIFEST.json",
+  "generated_at": "2026-06-24T07:46:17Z",
+  "builder_script": "benchmark/benchmark_v139/scripts/build_v139_release_candidate_evidence_pack.py",
+  "validator_script": "benchmark/benchmark_v139/scripts/validate_v139_release_candidate.py",
+  "runner_script": "benchmark/benchmark_v139/scripts/run_v139_validation_suite.py",
+  "required_reports": [
+    "clean_report.json",
+    "mixed_strict_report.json",
+    "independent_validation_report.json",
+    "adversarial_validation_report.json",
+    "report_consistency_report.json",
+    "sample_consistency_report.json",
+    "injected_defect_detection_summary.json"
+  ],
+  "required_gates": [
+    "surface_created_from_governance_queue_rate",
+    "action_card_matches_queue_item_rate",
+    "clarification_card_trace_backed_rate",
+    "action_submission_allowed_and_active_rate",
+    "no_write_action_preserves_memory_state_rate",
+    "remember_for_context_routes_to_write_gate_rate",
+    "review_pending_notice_hides_internal_evidence_rate",
+    "review_resolution_response_truthful_rate",
+    "expired_action_disabled_noop_rate",
+    "duplicate_submission_idempotent_rate",
+    "stale_action_suppressed_rate",
+    "post_action_packet_matches_resolution_rate",
+    "daily_outfit_status_rebuild_rate",
+    "rollback_blocked_status_absence_proof_rate",
+    "response_claims_trace_backed_rate",
+    "policy_safe_user_visible_text_rate",
+    "sample_artifacts_match_per_case_rate",
+    "report_consistency_with_independent_validation_rate",
+    "adversarial_detection_rate",
+    "v138_validation_replay_pass_rate"
+  ],
+  "validator_commands": [
+    "benchmark/benchmark_v135/scripts/validate_v135_release_candidate.py",
+    "python benchmark/benchmark_v138/scripts/run_v138_validation_suite.py",
+    "python benchmark/benchmark_v139/scripts/run_v139_validation_suite.py",
+    "python -m unittest discover -s benchmark/benchmark_v139/tests"
+  ],
+  "sample_artifacts": [
+    {
+      "case_id": "v139_A01_open_clarification_queue_item_creates_active_action_card",
+      "artifact_ref": "sample_artifacts/open_clarification_action_card.json",
+      "source_artifact_ref": "per_case/clean/v139_A01_open_clarification_queue_item_creates_active_action_card.json",
+      "canonical_sha256": "9894318b460deb221bf1ccfe307a488491e0bc1aebe011ba9c17b3b9bd763cab",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v139_B02_this_time_only_submission_no_write_result",
+      "artifact_ref": "sample_artifacts/this_time_only_no_write_result.json",
+      "source_artifact_ref": "per_case/clean/v139_B02_this_time_only_submission_no_write_result.json",
+      "canonical_sha256": "d589033e39b1470eba426e2ce75085592512d540e06c26fe0c79b2acfd50e70f",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v139_B04_remember_for_context_submission_routes_to_write_gate",
+      "artifact_ref": "sample_artifacts/remember_for_context_write_gate.json",
+      "source_artifact_ref": "per_case/clean/v139_B04_remember_for_context_submission_routes_to_write_gate.json",
+      "canonical_sha256": "cc0363f695f8d78e492dc65b2ba3d0d9f02c4324374c74653cc1d6eed59d2f3e",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v139_C01_review_pending_notice_hides_raw_review_evidence",
+      "artifact_ref": "sample_artifacts/review_pending_notice.json",
+      "source_artifact_ref": "per_case/clean/v139_C01_review_pending_notice_hides_raw_review_evidence.json",
+      "canonical_sha256": "db4de7f4111ca586b5f7b4034f9eb4057671c4f13d9287463b18eed99ebc13e3",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v139_D03_expired_action_submission_noop",
+      "artifact_ref": "sample_artifacts/expired_action_noop.json",
+      "source_artifact_ref": "per_case/clean/v139_D03_expired_action_submission_noop.json",
+      "canonical_sha256": "807e0866200d1ddc8f01a9625cbfb77667e69af6349af2785046e3a8225fa668",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v139_D04_duplicate_action_submission_idempotent",
+      "artifact_ref": "sample_artifacts/duplicate_submission_idempotency.json",
+      "source_artifact_ref": "per_case/clean/v139_D04_duplicate_action_submission_idempotent.json",
+      "canonical_sha256": "94cfea6b2027318cab7698660dd4b6d4b26f79eccd0a4aeeb00de937e1876bec",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v139_D05_stale_action_suppressed_after_resolution",
+      "artifact_ref": "sample_artifacts/stale_action_suppression.json",
+      "source_artifact_ref": "per_case/clean/v139_D05_stale_action_suppressed_after_resolution.json",
+      "canonical_sha256": "9e67488f73837f41d6e0e296ab3c0b785a27f205af7c1f8909ae920ce2046a04",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v139_F01_rollback_status_excludes_memory_from_future_packet",
+      "artifact_ref": "sample_artifacts/rollback_status_surface.json",
+      "source_artifact_ref": "per_case/clean/v139_F01_rollback_status_excludes_memory_from_future_packet.json",
+      "canonical_sha256": "cd8208767cb425d1991ef62fa683adb47815655ef7363a2bdfd6770753d4a2e9",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    }
+  ],
+  "non_goals": [
+    "No full frontend UI",
+    "No production service",
+    "No commerce, SKU, merchant, affiliate, or product links",
+    "No AIGC image generation",
+    "No global memory writes"
+  ]
+}

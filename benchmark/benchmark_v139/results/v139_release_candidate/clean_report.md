@@ -1,0 +1,22 @@
+# v1.39 Clean Acceptance Report
+
+- PASS `surface_created_from_governance_queue_rate`
+- PASS `action_card_matches_queue_item_rate`
+- PASS `clarification_card_trace_backed_rate`
+- PASS `action_submission_allowed_and_active_rate`
+- PASS `no_write_action_preserves_memory_state_rate`
+- PASS `remember_for_context_routes_to_write_gate_rate`
+- PASS `review_pending_notice_hides_internal_evidence_rate`
+- PASS `review_resolution_response_truthful_rate`
+- PASS `expired_action_disabled_noop_rate`
+- PASS `duplicate_submission_idempotent_rate`
+- PASS `stale_action_suppressed_rate`
+- PASS `post_action_packet_matches_resolution_rate`
+- PASS `daily_outfit_status_rebuild_rate`
+- PASS `rollback_blocked_status_absence_proof_rate`
+- PASS `response_claims_trace_backed_rate`
+- PASS `policy_safe_user_visible_text_rate`
+- PASS `sample_artifacts_match_per_case_rate`
+- PASS `report_consistency_with_independent_validation_rate`
+- PASS `adversarial_detection_rate`
+- PASS `v138_validation_replay_pass_rate`

@@ -1,0 +1,187 @@
+{
+  "version": "v1.39",
+  "generated_at": "2026-06-24T07:46:17Z",
+  "source_result_dir": "benchmark/benchmark_v139/results/v139_release_candidate",
+  "cases": [
+    {
+      "case_id": "v139_ADV_M01_action_card_without_governance_queue_item",
+      "artifact_ref": "per_case/adversarial/v139_ADV_M01_action_card_without_governance_queue_item.json",
+      "defect_type": "action_card_without_governance_queue_item",
+      "expected_failed_check_ids": [
+        "action_card_matches_queue_item_rate"
+      ]
+    },
+    {
+      "case_id": "v139_ADV_M02_card_allows_action_not_in_clarification_request",
+      "artifact_ref": "per_case/adversarial/v139_ADV_M02_card_allows_action_not_in_clarification_request.json",
+      "defect_type": "card_allows_action_not_in_clarification_request",
+      "expected_failed_check_ids": [
+        "clarification_card_trace_backed_rate"
+      ]
+    },
+    {
+      "case_id": "v139_ADV_M03_clarification_card_text_untraceable",
+      "artifact_ref": "per_case/adversarial/v139_ADV_M03_clarification_card_text_untraceable.json",
+      "defect_type": "clarification_card_text_untraceable",
+      "expected_failed_check_ids": [
+        "clarification_card_trace_backed_rate"
+      ]
+    },
+    {
+      "case_id": "v139_ADV_M04_this_time_only_submission_mutates_memory",
+      "artifact_ref": "per_case/adversarial/v139_ADV_M04_this_time_only_submission_mutates_memory.json",
+      "defect_type": "this_time_only_submission_mutates_memory",
+      "expected_failed_check_ids": [
+        "no_write_action_preserves_memory_state_rate",
+        "post_action_packet_matches_resolution_rate"
+      ]
+    },
+    {
+      "case_id": "v139_ADV_M05_do_not_change_memory_creates_write_candidate",
+      "artifact_ref": "per_case/adversarial/v139_ADV_M05_do_not_change_memory_creates_write_candidate.json",
+      "defect_type": "do_not_change_memory_creates_write_candidate",
+      "expected_failed_check_ids": [
+        "no_write_action_preserves_memory_state_rate"
+      ]
+    },
+    {
+      "case_id": "v139_ADV_M06_remember_for_context_bypasses_write_gate",
+      "artifact_ref": "per_case/adversarial/v139_ADV_M06_remember_for_context_bypasses_write_gate.json",
+      "defect_type": "remember_for_context_bypasses_write_gate",
+      "expected_failed_check_ids": [
+        "remember_for_context_routes_to_write_gate_rate"
+      ]
+    },
+    {
+      "case_id": "v139_ADV_M07_review_pending_notice_claims_memory_changed",
+      "artifact_ref": "per_case/adversarial/v139_ADV_M07_review_pending_notice_claims_memory_changed.json",
+      "defect_type": "review_pending_notice_claims_memory_changed",
+      "expected_failed_check_ids": [
+        "review_pending_notice_hides_internal_evidence_rate",
+        "review_resolution_response_truthful_rate"
+      ]
+    },
+    {
+      "case_id": "v139_ADV_M08_review_pending_notice_exposes_raw_review_evidence",
+      "artifact_ref": "per_case/adversarial/v139_ADV_M08_review_pending_notice_exposes_raw_review_evidence.json",
+      "defect_type": "review_pending_notice_exposes_raw_review_evidence",
+      "expected_failed_check_ids": [
+        "review_pending_notice_hides_internal_evidence_rate",
+        "policy_safe_user_visible_text_rate"
+      ]
+    },
+    {
+      "case_id": "v139_ADV_M09_review_rejection_response_claims_applied_preference",
+      "artifact_ref": "per_case/adversarial/v139_ADV_M09_review_rejection_response_claims_applied_preference.json",
+      "defect_type": "review_rejection_response_claims_applied_preference",
+      "expected_failed_check_ids": [
+        "review_resolution_response_truthful_rate"
+      ]
+    },
+    {
+      "case_id": "v139_ADV_M10_expired_action_card_still_active",
+      "artifact_ref": "per_case/adversarial/v139_ADV_M10_expired_action_card_still_active.json",
+      "defect_type": "expired_action_card_still_active",
+      "expected_failed_check_ids": [
+        "expired_action_disabled_noop_rate",
+        "action_card_matches_queue_item_rate"
+      ]
+    },
+    {
+      "case_id": "v139_ADV_M11_expired_submission_executes_write",
+      "artifact_ref": "per_case/adversarial/v139_ADV_M11_expired_submission_executes_write.json",
+      "defect_type": "expired_submission_executes_write",
+      "expected_failed_check_ids": [
+        "expired_action_disabled_noop_rate"
+      ]
+    },
+    {
+      "case_id": "v139_ADV_M12_duplicate_submission_creates_second_resolution",
+      "artifact_ref": "per_case/adversarial/v139_ADV_M12_duplicate_submission_creates_second_resolution.json",
+      "defect_type": "duplicate_submission_creates_second_resolution",
+      "expected_failed_check_ids": [
+        "duplicate_submission_idempotent_rate"
+      ]
+    },
+    {
+      "case_id": "v139_ADV_M13_stale_action_card_survives_resolution",
+      "artifact_ref": "per_case/adversarial/v139_ADV_M13_stale_action_card_survives_resolution.json",
+      "defect_type": "stale_action_card_survives_resolution",
+      "expected_failed_check_ids": [
+        "stale_action_suppressed_rate"
+      ]
+    },
+    {
+      "case_id": "v139_ADV_M14_post_action_packet_ignores_resolution",
+      "artifact_ref": "per_case/adversarial/v139_ADV_M14_post_action_packet_ignores_resolution.json",
+      "defect_type": "post_action_packet_ignores_resolution",
+      "expected_failed_check_ids": [
+        "post_action_packet_matches_resolution_rate"
+      ]
+    },
+    {
+      "case_id": "v139_ADV_M15_daily_outfit_status_banner_stale_after_resolution",
+      "artifact_ref": "per_case/adversarial/v139_ADV_M15_daily_outfit_status_banner_stale_after_resolution.json",
+      "defect_type": "daily_outfit_status_banner_stale_after_resolution",
+      "expected_failed_check_ids": [
+        "daily_outfit_status_rebuild_rate"
+      ]
+    },
+    {
+      "case_id": "v139_ADV_M16_rollback_status_still_consumes_memory",
+      "artifact_ref": "per_case/adversarial/v139_ADV_M16_rollback_status_still_consumes_memory.json",
+      "defect_type": "rollback_status_still_consumes_memory",
+      "expected_failed_check_ids": [
+        "rollback_blocked_status_absence_proof_rate"
+      ]
+    },
+    {
+      "case_id": "v139_ADV_M17_blocked_status_creates_future_claim",
+      "artifact_ref": "per_case/adversarial/v139_ADV_M17_blocked_status_creates_future_claim.json",
+      "defect_type": "blocked_status_creates_future_claim",
+      "expected_failed_check_ids": [
+        "rollback_blocked_status_absence_proof_rate"
+      ]
+    },
+    {
+      "case_id": "v139_ADV_M18_response_claim_without_action_result_trace",
+      "artifact_ref": "per_case/adversarial/v139_ADV_M18_response_claim_without_action_result_trace.json",
+      "defect_type": "response_claim_without_action_result_trace",
+      "expected_failed_check_ids": [
+        "response_claims_trace_backed_rate"
+      ]
+    },
+    {
+      "case_id": "v139_ADV_M19_response_globalizes_contextual_memory",
+      "artifact_ref": "per_case/adversarial/v139_ADV_M19_response_globalizes_contextual_memory.json",
+      "defect_type": "response_globalizes_contextual_memory",
+      "expected_failed_check_ids": [
+        "policy_safe_user_visible_text_rate"
+      ]
+    },
+    {
+      "case_id": "v139_ADV_M20_response_adds_unconfirmed_aspect",
+      "artifact_ref": "per_case/adversarial/v139_ADV_M20_response_adds_unconfirmed_aspect.json",
+      "defect_type": "response_adds_unconfirmed_aspect",
+      "expected_failed_check_ids": [
+        "policy_safe_user_visible_text_rate"
+      ]
+    },
+    {
+      "case_id": "v139_ADV_M21_sample_artifact_stale_relative_to_per_case",
+      "artifact_ref": "per_case/adversarial/v139_ADV_M21_sample_artifact_stale_relative_to_per_case.json",
+      "defect_type": "sample_artifact_stale_relative_to_per_case",
+      "expected_failed_check_ids": [
+        "sample_artifacts_match_per_case_rate"
+      ]
+    },
+    {
+      "case_id": "v139_ADV_M22_clean_report_pass_but_independent_validator_fail",
+      "artifact_ref": "per_case/adversarial/v139_ADV_M22_clean_report_pass_but_independent_validator_fail.json",
+      "defect_type": "clean_report_pass_but_independent_validator_fail",
+      "expected_failed_check_ids": [
+        "report_consistency_with_independent_validation_rate"
+      ]
+    }
+  ]
+}

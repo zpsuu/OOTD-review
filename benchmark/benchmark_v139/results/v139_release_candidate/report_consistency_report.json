@@ -1,0 +1,38 @@
+{
+  "validator": "benchmark.common.report_consistency",
+  "manifest_hash": "63d62ceab8254fd8f9599c4acb81b78273f69aae67b42899c25b264b39d3b65e",
+  "required_reports": [
+    "clean_report.json",
+    "mixed_strict_report.json",
+    "independent_validation_report.json",
+    "adversarial_validation_report.json",
+    "report_consistency_report.json",
+    "sample_consistency_report.json",
+    "injected_defect_detection_summary.json"
+  ],
+  "checked_gates": [
+    "surface_created_from_governance_queue_rate",
+    "action_card_matches_queue_item_rate",
+    "clarification_card_trace_backed_rate",
+    "action_submission_allowed_and_active_rate",
+    "no_write_action_preserves_memory_state_rate",
+    "remember_for_context_routes_to_write_gate_rate",
+    "review_pending_notice_hides_internal_evidence_rate",
+    "review_resolution_response_truthful_rate",
+    "expired_action_disabled_noop_rate",
+    "duplicate_submission_idempotent_rate",
+    "stale_action_suppressed_rate",
+    "post_action_packet_matches_resolution_rate",
+    "daily_outfit_status_rebuild_rate",
+    "rollback_blocked_status_absence_proof_rate",
+    "response_claims_trace_backed_rate",
+    "policy_safe_user_visible_text_rate",
+    "sample_artifacts_match_per_case_rate",
+    "report_consistency_with_independent_validation_rate",
+    "adversarial_detection_rate",
+    "v138_validation_replay_pass_rate"
+  ],
+  "passed": true,
+  "failures": [],
+  "generated_at": "2026-06-24T07:46:17Z"
+}

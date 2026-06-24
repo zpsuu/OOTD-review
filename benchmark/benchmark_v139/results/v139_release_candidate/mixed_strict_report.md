@@ -1,0 +1,22 @@
+# v1.39 Mixed Strict Report
+
+- EXPECTED FAIL `surface_created_from_governance_queue_rate`
+- EXPECTED FAIL `action_card_matches_queue_item_rate`
+- EXPECTED FAIL `clarification_card_trace_backed_rate`
+- EXPECTED FAIL `action_submission_allowed_and_active_rate`
+- EXPECTED FAIL `no_write_action_preserves_memory_state_rate`
+- EXPECTED FAIL `remember_for_context_routes_to_write_gate_rate`
+- EXPECTED FAIL `review_pending_notice_hides_internal_evidence_rate`
+- EXPECTED FAIL `review_resolution_response_truthful_rate`
+- EXPECTED FAIL `expired_action_disabled_noop_rate`
+- EXPECTED FAIL `duplicate_submission_idempotent_rate`
+- EXPECTED FAIL `stale_action_suppressed_rate`
+- EXPECTED FAIL `post_action_packet_matches_resolution_rate`
+- EXPECTED FAIL `daily_outfit_status_rebuild_rate`
+- EXPECTED FAIL `rollback_blocked_status_absence_proof_rate`
+- EXPECTED FAIL `response_claims_trace_backed_rate`
+- EXPECTED FAIL `policy_safe_user_visible_text_rate`
+- EXPECTED FAIL `sample_artifacts_match_per_case_rate`
+- EXPECTED FAIL `report_consistency_with_independent_validation_rate`
+- EXPECTED FAIL `adversarial_detection_rate`
+- EXPECTED FAIL `v138_validation_replay_pass_rate`
