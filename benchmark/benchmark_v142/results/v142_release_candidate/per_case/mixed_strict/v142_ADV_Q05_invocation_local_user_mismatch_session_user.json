@@ -324,7 +324,9 @@
         "output_ref": "rhr_v141_A04_get_action_surface_handler_matches_v140_contract"
       }
     ],
-    "cross_user_refs_observed": [],
+    "cross_user_refs_observed": [
+      "local_user_B"
+    ],
     "session_mismatch_refs_observed": [],
     "trace_safe_debug_refs": [
       "trace:v142:local_user_A:sess_A_001:v142_ADV_Q05_invocation_local_user_mismatch_session_user"
@@ -342,18 +344,25 @@
     "local_user_id": "local_user_A",
     "local_session_id": "sess_A_001",
     "audited_artifact_refs": [
-      "output_envelope",
-      "session_action_result",
-      "idempotency_record",
-      "memory_ref",
-      "governance_ref",
-      "snapshot_refs",
-      "debug_ref"
+      "user_state_namespace",
+      "session_scoped_runtime_invocation",
+      "session_scoped_route_handler_result",
+      "session_scoped_idempotency_record",
+      "session_scoped_action_result",
+      "session_scoped_memory_state_ref",
+      "session_scoped_governance_ref",
+      "session_boundary_trace",
+      "session_boundary_snapshot",
+      "session_expiry_and_stale_action_proof",
+      "conversation_turn_state",
+      "trace_safe_debug_ref"
     ],
-    "foreign_user_refs_detected": [],
+    "foreign_user_refs_detected": [
+      "local_user_B"
+    ],
     "foreign_session_refs_detected": [],
     "foreign_namespace_refs_detected": [],
-    "passed": true,
+    "passed": false,
     "trace_refs": [
       "local_user_A",
       "sess_A_001",

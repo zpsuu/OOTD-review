@@ -51,8 +51,8 @@ class V142LocalSessionUserStateBoundaryValidatorTests(unittest.TestCase):
             self.assertEqual(clean["suite_summary"]["passed_cases"], 44)
             self.assertEqual(clean["suite_summary"]["passed_checks"], 21)
             self.assertEqual(adversarial["suite_summary"]["passed_cases"], 0)
-            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 40)
-            self.assertEqual(adversarial["detected_defect_count"], 40)
+            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 47)
+            self.assertEqual(adversarial["detected_defect_count"], 47)
             self.assertTrue(sample["passed"], sample["failures"])
             self.assertTrue(consistency["passed"], consistency["failures"])
 
@@ -101,6 +101,40 @@ class V142LocalSessionUserStateBoundaryValidatorTests(unittest.TestCase):
         failed = self._mutate("*F05_session_boundary_snapshot_hashes_reproducible.json", lambda case: case["session_boundary_snapshot"].__setitem__("canonical_boundary_trace_hash", "bogus"))
         self.assertIn("session_boundary_snapshot_hash_reproducible_rate", failed["v142_F05_session_boundary_snapshot_hashes_reproducible"])
 
+    def test_foreign_snapshot_trace_ref_is_detected(self) -> None:
+        failed = self._mutate("*B02_user_A_get_action_surface_does_not_include_user_B_refs.json", lambda case: case["session_boundary_snapshot"].setdefault("trace_refs", []).append("local_user_B"))
+        self.assertIn("cross_user_leakage_absent_rate", failed["v142_B02_user_A_get_action_surface_does_not_include_user_B_refs"])
+
+    def test_foreign_boundary_trace_trace_ref_is_detected(self) -> None:
+        failed = self._mutate("*F01_session_boundary_trace_records_user_namespace_resolution.json", lambda case: case["session_boundary_trace"].setdefault("trace_refs", []).append("local_user_B"))
+        self.assertIn("cross_user_leakage_absent_rate", failed["v142_F01_session_boundary_trace_records_user_namespace_resolution"])
+
+    def test_foreign_boundary_step_ref_is_detected(self) -> None:
+        def mutate(case: dict) -> None:
+            case["session_boundary_trace"]["boundary_steps"][0]["output_ref"] += ":sess_B_001"
+        failed = self._mutate("*F01_session_boundary_trace_records_user_namespace_resolution.json", mutate)
+        self.assertIn("cross_user_leakage_absent_rate", failed["v142_F01_session_boundary_trace_records_user_namespace_resolution"])
+
+    def test_foreign_invocation_trace_ref_is_detected(self) -> None:
+        failed = self._mutate("*A04_adapter_invocation_preserves_user_session_scope.json", lambda case: case["session_scoped_runtime_invocation"].setdefault("trace_refs", []).append("sess_B_001"))
+        self.assertIn("cross_user_leakage_absent_rate", failed["v142_A04_adapter_invocation_preserves_user_session_scope"])
+
+    def test_foreign_route_handler_result_trace_ref_is_detected(self) -> None:
+        failed = self._mutate("*B02_user_A_get_action_surface_does_not_include_user_B_refs.json", lambda case: case["session_scoped_route_handler_result"].setdefault("trace_refs", []).append("local_user_B"))
+        self.assertIn("cross_user_leakage_absent_rate", failed["v142_B02_user_A_get_action_surface_does_not_include_user_B_refs"])
+
+    def test_foreign_expiry_proof_trace_ref_is_detected(self) -> None:
+        failed = self._mutate("*E01_expired_session_rejects_action_no_write.json", lambda case: case["session_expiry_and_stale_action_proof"].setdefault("trace_refs", []).append("sess_B_001"))
+        self.assertIn("cross_user_leakage_absent_rate", failed["v142_E01_expired_session_rejects_action_no_write"])
+
+    def test_audit_coverage_omission_is_detected(self) -> None:
+        def mutate(case: dict) -> None:
+            case["cross_user_leakage_audit"]["audited_artifact_refs"] = [
+                ref for ref in case["cross_user_leakage_audit"]["audited_artifact_refs"] if ref != "session_boundary_snapshot"
+            ]
+        failed = self._mutate("*B05_cross_user_leakage_audit_scans_output_and_refs.json", mutate)
+        self.assertIn("cross_user_leakage_absent_rate", failed["v142_B05_cross_user_leakage_audit_scans_output_and_refs"])
+
     def test_debug_path_is_detected(self) -> None:
         failed = self._mutate("*H01_debug_refs_do_not_expose_filesystem_paths.json", lambda case: case["trace_safe_debug_ref"].__setitem__("debug_ref", "/ssd2/private/session.log"))
         self.assertIn("trace_safe_debug_refs_rate", failed["v142_H01_debug_refs_do_not_expose_filesystem_paths"])
@@ -120,8 +154,8 @@ class V142LocalSessionUserStateBoundaryValidatorTests(unittest.TestCase):
                 _write_json(path, case)
             adversarial = validator.validate_directory(result_dir, "adversarial")
             self.assertEqual(adversarial["suite_summary"]["passed_cases"], 0)
-            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 40)
-            self.assertEqual(adversarial["detected_defect_count"], 40)
+            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 47)
+            self.assertEqual(adversarial["detected_defect_count"], 47)
 
     def _mutate(self, pattern: str, mutate) -> dict[str, list[str]]:
         with tempfile.TemporaryDirectory() as tmp:

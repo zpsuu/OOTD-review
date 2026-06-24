@@ -1,9 +1,9 @@
 {
   "version": "v1.42",
-  "generated_at": "2026-06-24T10:56:44Z",
+  "generated_at": "2026-06-24T11:16:08Z",
   "verdict": "pass",
-  "seeded_defects": 40,
-  "detected_defects": 40,
+  "seeded_defects": 47,
+  "detected_defects": 47,
   "unexpected_injected_passes": [],
   "detected": [
     {
@@ -68,6 +68,7 @@
         "session_envelope_valid_rate"
       ],
       "failed_check_ids": [
+        "cross_user_leakage_absent_rate",
         "session_boundary_snapshot_hash_reproducible_rate",
         "session_envelope_valid_rate",
         "session_scoped_invocation_matches_v141_adapter_rate"
@@ -81,6 +82,7 @@
         "session_scoped_invocation_matches_v141_adapter_rate"
       ],
       "failed_check_ids": [
+        "cross_user_leakage_absent_rate",
         "session_boundary_snapshot_hash_reproducible_rate",
         "session_envelope_valid_rate",
         "session_scoped_invocation_matches_v141_adapter_rate"
@@ -394,7 +396,8 @@
       ],
       "failed_check_ids": [
         "conversation_claims_user_session_scoped_rate",
-        "cross_user_leakage_absent_rate"
+        "cross_user_leakage_absent_rate",
+        "session_boundary_snapshot_hash_reproducible_rate"
       ],
       "detected": true
     },
@@ -407,7 +410,8 @@
       ],
       "failed_check_ids": [
         "conversation_claims_user_session_scoped_rate",
-        "cross_user_leakage_absent_rate"
+        "cross_user_leakage_absent_rate",
+        "session_boundary_snapshot_hash_reproducible_rate"
       ],
       "detected": true
     },
@@ -420,7 +424,8 @@
       ],
       "failed_check_ids": [
         "conversation_claims_user_session_scoped_rate",
-        "cross_user_leakage_absent_rate"
+        "cross_user_leakage_absent_rate",
+        "session_boundary_snapshot_hash_reproducible_rate"
       ],
       "detected": true
     },
@@ -506,6 +511,89 @@
       ],
       "failed_check_ids": [
         "v141_validation_replay_pass_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v142_ADV_Q41_snapshot_trace_refs_contains_foreign_user",
+      "defect_type": "snapshot_trace_refs_contains_foreign_user",
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate",
+        "session_boundary_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v142_ADV_Q42_boundary_trace_trace_refs_contains_foreign_user",
+      "defect_type": "boundary_trace_trace_refs_contains_foreign_user",
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate",
+        "session_boundary_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v142_ADV_Q43_boundary_trace_step_ref_contains_foreign_session",
+      "defect_type": "boundary_trace_step_ref_contains_foreign_session",
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate",
+        "session_boundary_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v142_ADV_Q44_invocation_trace_refs_contains_foreign_session",
+      "defect_type": "invocation_trace_refs_contains_foreign_session",
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate",
+        "session_boundary_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v142_ADV_Q45_route_handler_result_trace_refs_contains_foreign_user",
+      "defect_type": "route_handler_result_trace_refs_contains_foreign_user",
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate",
+        "session_boundary_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v142_ADV_Q46_expiry_proof_trace_refs_contains_foreign_session",
+      "defect_type": "expiry_proof_trace_refs_contains_foreign_session",
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate",
+        "session_boundary_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v142_ADV_Q47_cross_user_leakage_audit_omits_required_artifact_coverage",
+      "defect_type": "cross_user_leakage_audit_omits_required_artifact_coverage",
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate"
       ],
       "detected": true
     }

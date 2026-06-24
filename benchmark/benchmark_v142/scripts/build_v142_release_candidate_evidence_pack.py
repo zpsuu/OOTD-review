@@ -53,6 +53,20 @@ GATES = [
     "adversarial_detection_rate",
     "v141_validation_replay_pass_rate",
 ]
+REQUIRED_AUDITED_ARTIFACT_REFS = [
+    "user_state_namespace",
+    "session_scoped_runtime_invocation",
+    "session_scoped_route_handler_result",
+    "session_scoped_idempotency_record",
+    "session_scoped_action_result",
+    "session_scoped_memory_state_ref",
+    "session_scoped_governance_ref",
+    "session_boundary_trace",
+    "session_boundary_snapshot",
+    "session_expiry_and_stale_action_proof",
+    "conversation_turn_state",
+    "trace_safe_debug_ref",
+]
 
 CLEAN_CASES = [
     ("A01", "two_local_users_have_distinct_namespaces", "v141_A04_get_action_surface_handler_matches_v140_contract", "local_user_A", "sess_A_001", "active", "baseline"),
@@ -142,6 +156,13 @@ DEFECTS = [
     ("ADV_Q38", "sample_artifact_stale_relative_to_per_case", ["sample_artifacts_match_per_case_rate"]),
     ("ADV_Q39", "clean_report_pass_but_independent_validator_fail", ["report_consistency_with_independent_validation_rate"]),
     ("ADV_Q40", "v141_replay_missing_or_failed", ["v141_validation_replay_pass_rate"]),
+    ("ADV_Q41", "snapshot_trace_refs_contains_foreign_user", ["cross_user_leakage_absent_rate"]),
+    ("ADV_Q42", "boundary_trace_trace_refs_contains_foreign_user", ["cross_user_leakage_absent_rate"]),
+    ("ADV_Q43", "boundary_trace_step_ref_contains_foreign_session", ["cross_user_leakage_absent_rate"]),
+    ("ADV_Q44", "invocation_trace_refs_contains_foreign_session", ["cross_user_leakage_absent_rate"]),
+    ("ADV_Q45", "route_handler_result_trace_refs_contains_foreign_user", ["cross_user_leakage_absent_rate"]),
+    ("ADV_Q46", "expiry_proof_trace_refs_contains_foreign_session", ["cross_user_leakage_absent_rate"]),
+    ("ADV_Q47", "cross_user_leakage_audit_omits_required_artifact_coverage", ["cross_user_leakage_absent_rate"]),
 ]
 
 SAMPLE_CASES = {
@@ -251,25 +272,7 @@ def _case(case_code: str, scenario: str, source_case_id: str, user_id: str, sess
     memory_ref = {"session_scoped_memory_state_ref_id": f"mem_ref_{case_id}", "local_user_id": user_id, "memory_namespace_id": USERS[user_id]["memory_namespace_id"], "before_state": before, "after_state": after, "trace_refs": [user_id, USERS[user_id]["memory_namespace_id"]]}
     governance_ref = {"session_scoped_governance_ref_id": f"gov_ref_{case_id}", "local_user_id": user_id, "governance_namespace_id": USERS[user_id]["governance_namespace_id"], "source_v141_gate_ref": (source.get("production_memory_write_gate") or {}).get("decision"), "trace_refs": [user_id, USERS[user_id]["governance_namespace_id"]]}
     debug_ref = trace_safe_debug_ref(user_id, session_id, case_id)
-    audited_payload = {
-        "output_envelope": response,
-        "session_action_result": session_action_result,
-        "idempotency_record": idempotency_record,
-        "memory_ref": memory_ref,
-        "governance_ref": governance_ref,
-        "snapshot_refs": namespace,
-        "debug_ref": debug_ref,
-    }
-    leakage = leakage_scan(audited_payload, user_id, session_id)
-    audit = {
-        "cross_user_leakage_audit_id": f"cula_{case_id}",
-        "local_user_id": user_id,
-        "local_session_id": session_id,
-        "audited_artifact_refs": list(audited_payload),
-        **leakage,
-        "passed": not any(leakage.values()),
-        "trace_refs": [user_id, session_id, result_id, action_result_id],
-    }
+    audit_id = f"cula_{case_id}"
     boundary_trace = {
         "session_boundary_trace_id": f"sbt_{case_id}",
         "local_user_id": user_id,
@@ -278,14 +281,14 @@ def _case(case_code: str, scenario: str, source_case_id: str, user_id: str, sess
             {"step_id": "boundary_001", "operation": "resolve_user_namespace", "input_ref": user_id, "output_ref": namespace["user_state_namespace_id"]},
             {"step_id": "boundary_002", "operation": "validate_session", "input_ref": session_id, "output_ref": session["session_status"]},
             {"step_id": "boundary_003", "operation": "resolve_idempotency_scope", "input_ref": idem or "no_idempotency_key", "output_ref": scope_key},
-            {"step_id": "boundary_004", "operation": "run_cross_user_leakage_audit", "input_ref": result_id, "output_ref": audit["cross_user_leakage_audit_id"]},
+            {"step_id": "boundary_004", "operation": "run_cross_user_leakage_audit", "input_ref": result_id, "output_ref": audit_id},
             {"step_id": "boundary_005", "operation": "invoke_v141_callable_adapter", "input_ref": source["route_handler_invocation"]["route_handler_invocation_id"], "output_ref": source["route_handler_result"]["route_handler_result_id"]},
         ],
-        "cross_user_refs_observed": leakage["foreign_user_refs_detected"],
-        "session_mismatch_refs_observed": leakage["foreign_session_refs_detected"],
+        "cross_user_refs_observed": [],
+        "session_mismatch_refs_observed": [],
         "trace_safe_debug_refs": [debug_ref["debug_ref"]],
         "v141_callable_execution_ref": session_invocation["v141_callable_execution_ref"],
-        "trace_refs": [user_id, session_id, namespace["user_state_namespace_id"], audit["cross_user_leakage_audit_id"]],
+        "trace_refs": [user_id, session_id, namespace["user_state_namespace_id"], audit_id],
     }
     expiry_proof = {
         "session_expiry_and_stale_action_proof_id": f"expiry_{case_id}",
@@ -314,6 +317,32 @@ def _case(case_code: str, scenario: str, source_case_id: str, user_id: str, sess
         "source_artifact_hashes": {k: v for k, v in source_hashes.items() if k and v},
         "trace_refs": [user_id, session_id, invocation_id, result_id, boundary_trace["session_boundary_trace_id"]],
     }
+    audited_payload = {
+        "user_state_namespace": namespace,
+        "session_scoped_runtime_invocation": session_invocation,
+        "session_scoped_route_handler_result": session_result,
+        "session_scoped_idempotency_record": idempotency_record,
+        "session_scoped_action_result": session_action_result,
+        "session_scoped_memory_state_ref": memory_ref,
+        "session_scoped_governance_ref": governance_ref,
+        "session_boundary_trace": boundary_trace,
+        "session_boundary_snapshot": snapshot,
+        "session_expiry_and_stale_action_proof": expiry_proof,
+        "conversation_turn_state": copy.deepcopy(source.get("conversation_turn_state")),
+        "trace_safe_debug_ref": debug_ref,
+    }
+    leakage = leakage_scan(audited_payload, user_id, session_id)
+    audit = {
+        "cross_user_leakage_audit_id": audit_id,
+        "local_user_id": user_id,
+        "local_session_id": session_id,
+        "audited_artifact_refs": list(REQUIRED_AUDITED_ARTIFACT_REFS),
+        **leakage,
+        "passed": not any(leakage.values()),
+        "trace_refs": [user_id, session_id, result_id, action_result_id],
+    }
+    boundary_trace["cross_user_refs_observed"] = leakage["foreign_user_refs_detected"]
+    boundary_trace["session_mismatch_refs_observed"] = leakage["foreign_session_refs_detected"]
     return {
         "case_id": case_id,
         "version": VERSION,
@@ -364,16 +393,22 @@ def _refresh_audit(artifact: dict[str, Any]) -> None:
     user_id = artifact["local_session_envelope"]["local_user_id"]
     session_id = artifact["local_session_envelope"]["local_session_id"]
     payload = {
-        "output_envelope": artifact["session_scoped_route_handler_result"]["output_envelope"],
-        "session_action_result": artifact["session_scoped_action_result"],
-        "idempotency_record": artifact["session_scoped_idempotency_record"],
-        "memory_ref": artifact["session_scoped_memory_state_ref"],
-        "governance_ref": artifact["session_scoped_governance_ref"],
-        "snapshot_refs": artifact["user_state_namespace"],
-        "debug_ref": artifact["trace_safe_debug_ref"],
+        "user_state_namespace": artifact.get("user_state_namespace"),
+        "session_scoped_runtime_invocation": artifact.get("session_scoped_runtime_invocation"),
+        "session_scoped_route_handler_result": artifact.get("session_scoped_route_handler_result"),
+        "session_scoped_idempotency_record": artifact.get("session_scoped_idempotency_record"),
+        "session_scoped_action_result": artifact.get("session_scoped_action_result"),
+        "session_scoped_memory_state_ref": artifact.get("session_scoped_memory_state_ref"),
+        "session_scoped_governance_ref": artifact.get("session_scoped_governance_ref"),
+        "session_boundary_trace": artifact.get("session_boundary_trace"),
+        "session_boundary_snapshot": artifact.get("session_boundary_snapshot"),
+        "session_expiry_and_stale_action_proof": artifact.get("session_expiry_and_stale_action_proof"),
+        "conversation_turn_state": artifact.get("conversation_turn_state"),
+        "trace_safe_debug_ref": artifact.get("trace_safe_debug_ref"),
     }
     leakage = leakage_scan(payload, user_id, session_id)
     artifact["cross_user_leakage_audit"].update(leakage)
+    artifact["cross_user_leakage_audit"]["audited_artifact_refs"] = list(REQUIRED_AUDITED_ARTIFACT_REFS)
     artifact["cross_user_leakage_audit"]["passed"] = not any(leakage.values())
     artifact["session_boundary_trace"]["cross_user_refs_observed"] = leakage["foreign_user_refs_detected"]
     artifact["session_boundary_trace"]["session_mismatch_refs_observed"] = leakage["foreign_session_refs_detected"]
@@ -486,8 +521,28 @@ def _defect(defect_id: str, defect_type: str, gates: list[str]) -> dict[str, Any
         a["report_consistency_probe"] = {"clean_report_summary": {"passed_cases": len(CLEAN_CASES), "failed_cases": 0}, "independent_validation_summary": {"passed_cases": len(CLEAN_CASES) - 1, "failed_cases": 1}}
     elif defect_type == "v141_replay_missing_or_failed":
         a["v141_replay_proof"]["run_v141_validation_suite"] = "FAIL"
+    elif defect_type == "snapshot_trace_refs_contains_foreign_user":
+        a["session_boundary_snapshot"].setdefault("trace_refs", []).append("local_user_B")
+    elif defect_type == "boundary_trace_trace_refs_contains_foreign_user":
+        a["session_boundary_trace"].setdefault("trace_refs", []).append("local_user_B")
+    elif defect_type == "boundary_trace_step_ref_contains_foreign_session":
+        a["session_boundary_trace"]["boundary_steps"][0]["output_ref"] += ":sess_B_001"
+    elif defect_type == "invocation_trace_refs_contains_foreign_session":
+        a["session_scoped_runtime_invocation"].setdefault("trace_refs", []).append("sess_B_001")
+    elif defect_type == "route_handler_result_trace_refs_contains_foreign_user":
+        a["session_scoped_route_handler_result"].setdefault("trace_refs", []).append("local_user_B")
+    elif defect_type == "expiry_proof_trace_refs_contains_foreign_session":
+        a["session_expiry_and_stale_action_proof"].setdefault("trace_refs", []).append("sess_B_001")
+    elif defect_type == "cross_user_leakage_audit_omits_required_artifact_coverage":
+        a["cross_user_leakage_audit"]["audited_artifact_refs"] = [
+            ref for ref in a["cross_user_leakage_audit"].get("audited_artifact_refs", []) if ref != "session_boundary_snapshot"
+        ]
     if defect_type not in {"cross_user_leakage_audit_missing", "cross_user_leakage_audit_ignores_output"}:
         _refresh_audit(a)
+    if defect_type == "cross_user_leakage_audit_omits_required_artifact_coverage":
+        a["cross_user_leakage_audit"]["audited_artifact_refs"] = [
+            ref for ref in a["cross_user_leakage_audit"].get("audited_artifact_refs", []) if ref != "session_boundary_snapshot"
+        ]
     return a
 
 

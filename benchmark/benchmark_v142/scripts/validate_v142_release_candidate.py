@@ -46,6 +46,20 @@ GATES = [
 ]
 FORBIDDEN_SOURCE_NAMES = {"clean_report.json", "mixed_strict_report.json", "independent_validation_report.json", "adversarial_validation_report.json", "README.md", "RELEASE_NOTE.md"}
 FORBIDDEN_TERMS = {"raw_evidence", "risk_reasons", "internal_only", "/ssd2/", "traceback", "global memory", "globalize", "body", "identity", "attractive", "sku", "merchant", "affiliate", "aigc", "image generation"}
+REQUIRED_AUDITED_ARTIFACT_REFS = {
+    "user_state_namespace",
+    "session_scoped_runtime_invocation",
+    "session_scoped_route_handler_result",
+    "session_scoped_idempotency_record",
+    "session_scoped_action_result",
+    "session_scoped_memory_state_ref",
+    "session_scoped_governance_ref",
+    "session_boundary_trace",
+    "session_boundary_snapshot",
+    "session_expiry_and_stale_action_proof",
+    "conversation_turn_state",
+    "trace_safe_debug_ref",
+}
 
 
 def _artifact_dir(result_dir: Path, subset: str) -> Path:
@@ -104,14 +118,18 @@ def _source_artifact(artifact: dict[str, Any]) -> tuple[Path | None, dict[str, A
 
 def _audit_payload(artifact: dict[str, Any]) -> dict[str, Any]:
     return {
-        "output_envelope": (artifact.get("session_scoped_route_handler_result") or {}).get("output_envelope"),
-        "session_action_result": artifact.get("session_scoped_action_result"),
-        "idempotency_record": artifact.get("session_scoped_idempotency_record"),
-        "memory_ref": artifact.get("session_scoped_memory_state_ref"),
-        "governance_ref": artifact.get("session_scoped_governance_ref"),
-        "snapshot_refs": artifact.get("user_state_namespace"),
-        "debug_ref": artifact.get("trace_safe_debug_ref"),
+        "user_state_namespace": artifact.get("user_state_namespace"),
+        "session_scoped_runtime_invocation": artifact.get("session_scoped_runtime_invocation"),
+        "session_scoped_route_handler_result": artifact.get("session_scoped_route_handler_result"),
+        "session_scoped_idempotency_record": artifact.get("session_scoped_idempotency_record"),
+        "session_scoped_action_result": artifact.get("session_scoped_action_result"),
+        "session_scoped_memory_state_ref": artifact.get("session_scoped_memory_state_ref"),
+        "session_scoped_governance_ref": artifact.get("session_scoped_governance_ref"),
+        "session_boundary_trace": artifact.get("session_boundary_trace"),
+        "session_boundary_snapshot": artifact.get("session_boundary_snapshot"),
+        "session_expiry_and_stale_action_proof": artifact.get("session_expiry_and_stale_action_proof"),
         "conversation_turn_state": artifact.get("conversation_turn_state"),
+        "trace_safe_debug_ref": artifact.get("trace_safe_debug_ref"),
     }
 
 
@@ -196,7 +214,7 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
     leakage = leakage_scan(_audit_payload(artifact), user_id or "", session_id or "")
     if audit is None or audit.get("passed") is not True or audit.get("foreign_user_refs_detected") != leakage["foreign_user_refs_detected"] or audit.get("foreign_session_refs_detected") != leakage["foreign_session_refs_detected"] or audit.get("foreign_namespace_refs_detected") != leakage["foreign_namespace_refs_detected"] or any(leakage.values()):
         failures.append("cross_user_leakage_absent_rate")
-    if audit and not {"output_envelope", "session_action_result", "idempotency_record", "memory_ref", "governance_ref", "snapshot_refs", "debug_ref"}.issubset(set(audit.get("audited_artifact_refs") or [])):
+    if audit and not REQUIRED_AUDITED_ARTIFACT_REFS.issubset(set(audit.get("audited_artifact_refs") or [])):
         failures.append("cross_user_leakage_absent_rate")
 
     scope_key = idem.get("idempotency_scope_key")

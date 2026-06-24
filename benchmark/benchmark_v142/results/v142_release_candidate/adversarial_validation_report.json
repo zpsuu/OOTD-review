@@ -1,12 +1,12 @@
 {
   "validator": "v1.42.independent.local_session_user_state_boundary_validator",
-  "generated_at": "2026-06-24T10:56:44Z",
+  "generated_at": "2026-06-24T11:16:08Z",
   "result_dir": "benchmark/benchmark_v142/results/v142_release_candidate",
   "subset": "adversarial",
   "suite_summary": {
-    "total_cases": 40,
+    "total_cases": 47,
     "passed_cases": 0,
-    "failed_cases": 40,
+    "failed_cases": 47,
     "total_checks": 21,
     "passed_checks": 1,
     "failed_checks": 20
@@ -14,9 +14,9 @@
   "checks": [
     {
       "check_id": "local_user_fixture_namespace_complete_rate",
-      "applicable_cases": 40,
-      "passed_cases": 38,
-      "value": 0.95,
+      "applicable_cases": 47,
+      "passed_cases": 45,
+      "value": 0.9574468085106383,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -38,9 +38,9 @@
     },
     {
       "check_id": "session_envelope_valid_rate",
-      "applicable_cases": 40,
-      "passed_cases": 37,
-      "value": 0.925,
+      "applicable_cases": 47,
+      "passed_cases": 44,
+      "value": 0.9361702127659575,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -69,9 +69,9 @@
     },
     {
       "check_id": "user_state_namespace_isolation_rate",
-      "applicable_cases": 40,
-      "passed_cases": 36,
-      "value": 0.9,
+      "applicable_cases": 47,
+      "passed_cases": 43,
+      "value": 0.9148936170212766,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -107,9 +107,9 @@
     },
     {
       "check_id": "session_scoped_invocation_matches_v141_adapter_rate",
-      "applicable_cases": 40,
-      "passed_cases": 31,
-      "value": 0.775,
+      "applicable_cases": 47,
+      "passed_cases": 38,
+      "value": 0.8085106382978723,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -180,9 +180,9 @@
     },
     {
       "check_id": "cross_user_leakage_absent_rate",
-      "applicable_cases": 40,
-      "passed_cases": 26,
-      "value": 0.65,
+      "applicable_cases": 47,
+      "passed_cases": 24,
+      "value": 0.5106382978723404,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -196,6 +196,20 @@
         {
           "case_id": "v142_ADV_Q04_user_state_namespace_contains_foreign_user_ref",
           "artifact_ref": "per_case/adversarial/v142_ADV_Q04_user_state_namespace_contains_foreign_user_ref.json",
+          "failures": [
+            "cross_user_leakage_absent_rate failed from raw v1.42 session boundary validation"
+          ]
+        },
+        {
+          "case_id": "v142_ADV_Q05_invocation_local_user_mismatch_session_user",
+          "artifact_ref": "per_case/adversarial/v142_ADV_Q05_invocation_local_user_mismatch_session_user.json",
+          "failures": [
+            "cross_user_leakage_absent_rate failed from raw v1.42 session boundary validation"
+          ]
+        },
+        {
+          "case_id": "v142_ADV_Q06_invocation_uses_foreign_session_id",
+          "artifact_ref": "per_case/adversarial/v142_ADV_Q06_invocation_uses_foreign_session_id.json",
           "failures": [
             "cross_user_leakage_absent_rate failed from raw v1.42 session boundary validation"
           ]
@@ -283,14 +297,63 @@
           "failures": [
             "cross_user_leakage_absent_rate failed from raw v1.42 session boundary validation"
           ]
+        },
+        {
+          "case_id": "v142_ADV_Q41_snapshot_trace_refs_contains_foreign_user",
+          "artifact_ref": "per_case/adversarial/v142_ADV_Q41_snapshot_trace_refs_contains_foreign_user.json",
+          "failures": [
+            "cross_user_leakage_absent_rate failed from raw v1.42 session boundary validation"
+          ]
+        },
+        {
+          "case_id": "v142_ADV_Q42_boundary_trace_trace_refs_contains_foreign_user",
+          "artifact_ref": "per_case/adversarial/v142_ADV_Q42_boundary_trace_trace_refs_contains_foreign_user.json",
+          "failures": [
+            "cross_user_leakage_absent_rate failed from raw v1.42 session boundary validation"
+          ]
+        },
+        {
+          "case_id": "v142_ADV_Q43_boundary_trace_step_ref_contains_foreign_session",
+          "artifact_ref": "per_case/adversarial/v142_ADV_Q43_boundary_trace_step_ref_contains_foreign_session.json",
+          "failures": [
+            "cross_user_leakage_absent_rate failed from raw v1.42 session boundary validation"
+          ]
+        },
+        {
+          "case_id": "v142_ADV_Q44_invocation_trace_refs_contains_foreign_session",
+          "artifact_ref": "per_case/adversarial/v142_ADV_Q44_invocation_trace_refs_contains_foreign_session.json",
+          "failures": [
+            "cross_user_leakage_absent_rate failed from raw v1.42 session boundary validation"
+          ]
+        },
+        {
+          "case_id": "v142_ADV_Q45_route_handler_result_trace_refs_contains_foreign_user",
+          "artifact_ref": "per_case/adversarial/v142_ADV_Q45_route_handler_result_trace_refs_contains_foreign_user.json",
+          "failures": [
+            "cross_user_leakage_absent_rate failed from raw v1.42 session boundary validation"
+          ]
+        },
+        {
+          "case_id": "v142_ADV_Q46_expiry_proof_trace_refs_contains_foreign_session",
+          "artifact_ref": "per_case/adversarial/v142_ADV_Q46_expiry_proof_trace_refs_contains_foreign_session.json",
+          "failures": [
+            "cross_user_leakage_absent_rate failed from raw v1.42 session boundary validation"
+          ]
+        },
+        {
+          "case_id": "v142_ADV_Q47_cross_user_leakage_audit_omits_required_artifact_coverage",
+          "artifact_ref": "per_case/adversarial/v142_ADV_Q47_cross_user_leakage_audit_omits_required_artifact_coverage.json",
+          "failures": [
+            "cross_user_leakage_absent_rate failed from raw v1.42 session boundary validation"
+          ]
         }
       ]
     },
     {
       "check_id": "idempotency_scope_is_user_session_bound_rate",
-      "applicable_cases": 40,
-      "passed_cases": 35,
-      "value": 0.875,
+      "applicable_cases": 47,
+      "passed_cases": 42,
+      "value": 0.8936170212765957,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -333,9 +396,9 @@
     },
     {
       "check_id": "same_scope_duplicate_reuses_result_rate",
-      "applicable_cases": 40,
-      "passed_cases": 39,
-      "value": 0.975,
+      "applicable_cases": 47,
+      "passed_cases": 46,
+      "value": 0.9787234042553191,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -350,9 +413,9 @@
     },
     {
       "check_id": "different_scope_duplicate_does_not_reuse_result_rate",
-      "applicable_cases": 40,
-      "passed_cases": 38,
-      "value": 0.95,
+      "applicable_cases": 47,
+      "passed_cases": 45,
+      "value": 0.9574468085106383,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -374,9 +437,9 @@
     },
     {
       "check_id": "expired_session_no_write_error_rate",
-      "applicable_cases": 40,
-      "passed_cases": 38,
-      "value": 0.95,
+      "applicable_cases": 47,
+      "passed_cases": 45,
+      "value": 0.9574468085106383,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -398,9 +461,9 @@
     },
     {
       "check_id": "stale_session_action_no_write_rate",
-      "applicable_cases": 40,
-      "passed_cases": 38,
-      "value": 0.95,
+      "applicable_cases": 47,
+      "passed_cases": 45,
+      "value": 0.9574468085106383,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -422,9 +485,9 @@
     },
     {
       "check_id": "session_no_write_preserves_user_state_rate",
-      "applicable_cases": 40,
-      "passed_cases": 37,
-      "value": 0.925,
+      "applicable_cases": 47,
+      "passed_cases": 44,
+      "value": 0.9361702127659575,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -453,9 +516,9 @@
     },
     {
       "check_id": "session_boundary_trace_complete_rate",
-      "applicable_cases": 40,
-      "passed_cases": 34,
-      "value": 0.85,
+      "applicable_cases": 47,
+      "passed_cases": 41,
+      "value": 0.8723404255319149,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -505,9 +568,9 @@
     },
     {
       "check_id": "session_boundary_snapshot_hash_reproducible_rate",
-      "applicable_cases": 40,
-      "passed_cases": 13,
-      "value": 0.325,
+      "applicable_cases": 47,
+      "passed_cases": 11,
+      "value": 0.23404255319148937,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -673,6 +736,27 @@
           ]
         },
         {
+          "case_id": "v142_ADV_Q31_conversation_claim_references_foreign_action_result",
+          "artifact_ref": "per_case/adversarial/v142_ADV_Q31_conversation_claim_references_foreign_action_result.json",
+          "failures": [
+            "session_boundary_snapshot_hash_reproducible_rate failed from raw v1.42 session boundary validation"
+          ]
+        },
+        {
+          "case_id": "v142_ADV_Q32_visible_response_block_ids_reference_foreign_session",
+          "artifact_ref": "per_case/adversarial/v142_ADV_Q32_visible_response_block_ids_reference_foreign_session.json",
+          "failures": [
+            "session_boundary_snapshot_hash_reproducible_rate failed from raw v1.42 session boundary validation"
+          ]
+        },
+        {
+          "case_id": "v142_ADV_Q33_review_pending_claims_foreign_memory_change",
+          "artifact_ref": "per_case/adversarial/v142_ADV_Q33_review_pending_claims_foreign_memory_change.json",
+          "failures": [
+            "session_boundary_snapshot_hash_reproducible_rate failed from raw v1.42 session boundary validation"
+          ]
+        },
+        {
           "case_id": "v142_ADV_Q34_response_exposes_raw_review_evidence_under_session_wrapper",
           "artifact_ref": "per_case/adversarial/v142_ADV_Q34_response_exposes_raw_review_evidence_under_session_wrapper.json",
           "failures": [
@@ -699,14 +783,56 @@
           "failures": [
             "session_boundary_snapshot_hash_reproducible_rate failed from raw v1.42 session boundary validation"
           ]
+        },
+        {
+          "case_id": "v142_ADV_Q41_snapshot_trace_refs_contains_foreign_user",
+          "artifact_ref": "per_case/adversarial/v142_ADV_Q41_snapshot_trace_refs_contains_foreign_user.json",
+          "failures": [
+            "session_boundary_snapshot_hash_reproducible_rate failed from raw v1.42 session boundary validation"
+          ]
+        },
+        {
+          "case_id": "v142_ADV_Q42_boundary_trace_trace_refs_contains_foreign_user",
+          "artifact_ref": "per_case/adversarial/v142_ADV_Q42_boundary_trace_trace_refs_contains_foreign_user.json",
+          "failures": [
+            "session_boundary_snapshot_hash_reproducible_rate failed from raw v1.42 session boundary validation"
+          ]
+        },
+        {
+          "case_id": "v142_ADV_Q43_boundary_trace_step_ref_contains_foreign_session",
+          "artifact_ref": "per_case/adversarial/v142_ADV_Q43_boundary_trace_step_ref_contains_foreign_session.json",
+          "failures": [
+            "session_boundary_snapshot_hash_reproducible_rate failed from raw v1.42 session boundary validation"
+          ]
+        },
+        {
+          "case_id": "v142_ADV_Q44_invocation_trace_refs_contains_foreign_session",
+          "artifact_ref": "per_case/adversarial/v142_ADV_Q44_invocation_trace_refs_contains_foreign_session.json",
+          "failures": [
+            "session_boundary_snapshot_hash_reproducible_rate failed from raw v1.42 session boundary validation"
+          ]
+        },
+        {
+          "case_id": "v142_ADV_Q45_route_handler_result_trace_refs_contains_foreign_user",
+          "artifact_ref": "per_case/adversarial/v142_ADV_Q45_route_handler_result_trace_refs_contains_foreign_user.json",
+          "failures": [
+            "session_boundary_snapshot_hash_reproducible_rate failed from raw v1.42 session boundary validation"
+          ]
+        },
+        {
+          "case_id": "v142_ADV_Q46_expiry_proof_trace_refs_contains_foreign_session",
+          "artifact_ref": "per_case/adversarial/v142_ADV_Q46_expiry_proof_trace_refs_contains_foreign_session.json",
+          "failures": [
+            "session_boundary_snapshot_hash_reproducible_rate failed from raw v1.42 session boundary validation"
+          ]
         }
       ]
     },
     {
       "check_id": "session_source_hashes_match_raw_rate",
-      "applicable_cases": 40,
-      "passed_cases": 39,
-      "value": 0.975,
+      "applicable_cases": 47,
+      "passed_cases": 46,
+      "value": 0.9787234042553191,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -721,9 +847,9 @@
     },
     {
       "check_id": "trace_safe_debug_refs_rate",
-      "applicable_cases": 40,
-      "passed_cases": 37,
-      "value": 0.925,
+      "applicable_cases": 47,
+      "passed_cases": 44,
+      "value": 0.9361702127659575,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -752,9 +878,9 @@
     },
     {
       "check_id": "conversation_claims_user_session_scoped_rate",
-      "applicable_cases": 40,
-      "passed_cases": 37,
-      "value": 0.925,
+      "applicable_cases": 47,
+      "passed_cases": 44,
+      "value": 0.9361702127659575,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -783,9 +909,9 @@
     },
     {
       "check_id": "runtime_redaction_policy_safe_under_session_rate",
-      "applicable_cases": 40,
-      "passed_cases": 38,
-      "value": 0.95,
+      "applicable_cases": 47,
+      "passed_cases": 45,
+      "value": 0.9574468085106383,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -807,9 +933,9 @@
     },
     {
       "check_id": "sample_artifacts_match_per_case_rate",
-      "applicable_cases": 40,
-      "passed_cases": 39,
-      "value": 0.975,
+      "applicable_cases": 47,
+      "passed_cases": 46,
+      "value": 0.9787234042553191,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -824,9 +950,9 @@
     },
     {
       "check_id": "report_consistency_with_independent_validation_rate",
-      "applicable_cases": 40,
-      "passed_cases": 39,
-      "value": 0.975,
+      "applicable_cases": 47,
+      "passed_cases": 46,
+      "value": 0.9787234042553191,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -841,8 +967,8 @@
     },
     {
       "check_id": "adversarial_detection_rate",
-      "applicable_cases": 40,
-      "passed_cases": 40,
+      "applicable_cases": 47,
+      "passed_cases": 47,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
@@ -850,9 +976,9 @@
     },
     {
       "check_id": "v141_validation_replay_pass_rate",
-      "applicable_cases": 40,
-      "passed_cases": 39,
-      "value": 0.975,
+      "applicable_cases": 47,
+      "passed_cases": 46,
+      "value": 0.9787234042553191,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -930,6 +1056,7 @@
       "artifact_ref": "per_case/adversarial/v142_ADV_Q05_invocation_local_user_mismatch_session_user.json",
       "passed": false,
       "failed_check_ids": [
+        "cross_user_leakage_absent_rate",
         "session_boundary_snapshot_hash_reproducible_rate",
         "session_envelope_valid_rate",
         "session_scoped_invocation_matches_v141_adapter_rate"
@@ -945,6 +1072,7 @@
       "artifact_ref": "per_case/adversarial/v142_ADV_Q06_invocation_uses_foreign_session_id.json",
       "passed": false,
       "failed_check_ids": [
+        "cross_user_leakage_absent_rate",
         "session_boundary_snapshot_hash_reproducible_rate",
         "session_envelope_valid_rate",
         "session_scoped_invocation_matches_v141_adapter_rate"
@@ -1282,7 +1410,8 @@
       "passed": false,
       "failed_check_ids": [
         "conversation_claims_user_session_scoped_rate",
-        "cross_user_leakage_absent_rate"
+        "cross_user_leakage_absent_rate",
+        "session_boundary_snapshot_hash_reproducible_rate"
       ],
       "expected_failed_check_ids": [
         "conversation_claims_user_session_scoped_rate",
@@ -1296,7 +1425,8 @@
       "passed": false,
       "failed_check_ids": [
         "conversation_claims_user_session_scoped_rate",
-        "cross_user_leakage_absent_rate"
+        "cross_user_leakage_absent_rate",
+        "session_boundary_snapshot_hash_reproducible_rate"
       ],
       "expected_failed_check_ids": [
         "conversation_claims_user_session_scoped_rate",
@@ -1310,7 +1440,8 @@
       "passed": false,
       "failed_check_ids": [
         "conversation_claims_user_session_scoped_rate",
-        "cross_user_leakage_absent_rate"
+        "cross_user_leakage_absent_rate",
+        "session_boundary_snapshot_hash_reproducible_rate"
       ],
       "expected_failed_check_ids": [
         "conversation_claims_user_session_scoped_rate",
@@ -1409,6 +1540,96 @@
         "v141_validation_replay_pass_rate"
       ],
       "defect_type": "v141_replay_missing_or_failed"
+    },
+    {
+      "case_id": "v142_ADV_Q41_snapshot_trace_refs_contains_foreign_user",
+      "artifact_ref": "per_case/adversarial/v142_ADV_Q41_snapshot_trace_refs_contains_foreign_user.json",
+      "passed": false,
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate",
+        "session_boundary_snapshot_hash_reproducible_rate"
+      ],
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "defect_type": "snapshot_trace_refs_contains_foreign_user"
+    },
+    {
+      "case_id": "v142_ADV_Q42_boundary_trace_trace_refs_contains_foreign_user",
+      "artifact_ref": "per_case/adversarial/v142_ADV_Q42_boundary_trace_trace_refs_contains_foreign_user.json",
+      "passed": false,
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate",
+        "session_boundary_snapshot_hash_reproducible_rate"
+      ],
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "defect_type": "boundary_trace_trace_refs_contains_foreign_user"
+    },
+    {
+      "case_id": "v142_ADV_Q43_boundary_trace_step_ref_contains_foreign_session",
+      "artifact_ref": "per_case/adversarial/v142_ADV_Q43_boundary_trace_step_ref_contains_foreign_session.json",
+      "passed": false,
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate",
+        "session_boundary_snapshot_hash_reproducible_rate"
+      ],
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "defect_type": "boundary_trace_step_ref_contains_foreign_session"
+    },
+    {
+      "case_id": "v142_ADV_Q44_invocation_trace_refs_contains_foreign_session",
+      "artifact_ref": "per_case/adversarial/v142_ADV_Q44_invocation_trace_refs_contains_foreign_session.json",
+      "passed": false,
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate",
+        "session_boundary_snapshot_hash_reproducible_rate"
+      ],
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "defect_type": "invocation_trace_refs_contains_foreign_session"
+    },
+    {
+      "case_id": "v142_ADV_Q45_route_handler_result_trace_refs_contains_foreign_user",
+      "artifact_ref": "per_case/adversarial/v142_ADV_Q45_route_handler_result_trace_refs_contains_foreign_user.json",
+      "passed": false,
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate",
+        "session_boundary_snapshot_hash_reproducible_rate"
+      ],
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "defect_type": "route_handler_result_trace_refs_contains_foreign_user"
+    },
+    {
+      "case_id": "v142_ADV_Q46_expiry_proof_trace_refs_contains_foreign_session",
+      "artifact_ref": "per_case/adversarial/v142_ADV_Q46_expiry_proof_trace_refs_contains_foreign_session.json",
+      "passed": false,
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate",
+        "session_boundary_snapshot_hash_reproducible_rate"
+      ],
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "defect_type": "expiry_proof_trace_refs_contains_foreign_session"
+    },
+    {
+      "case_id": "v142_ADV_Q47_cross_user_leakage_audit_omits_required_artifact_coverage",
+      "artifact_ref": "per_case/adversarial/v142_ADV_Q47_cross_user_leakage_audit_omits_required_artifact_coverage.json",
+      "passed": false,
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "defect_type": "cross_user_leakage_audit_omits_required_artifact_coverage"
     }
   ],
   "detected_defects": [
@@ -1474,6 +1695,7 @@
         "session_envelope_valid_rate"
       ],
       "failed_check_ids": [
+        "cross_user_leakage_absent_rate",
         "session_boundary_snapshot_hash_reproducible_rate",
         "session_envelope_valid_rate",
         "session_scoped_invocation_matches_v141_adapter_rate"
@@ -1487,6 +1709,7 @@
         "session_scoped_invocation_matches_v141_adapter_rate"
       ],
       "failed_check_ids": [
+        "cross_user_leakage_absent_rate",
         "session_boundary_snapshot_hash_reproducible_rate",
         "session_envelope_valid_rate",
         "session_scoped_invocation_matches_v141_adapter_rate"
@@ -1800,7 +2023,8 @@
       ],
       "failed_check_ids": [
         "conversation_claims_user_session_scoped_rate",
-        "cross_user_leakage_absent_rate"
+        "cross_user_leakage_absent_rate",
+        "session_boundary_snapshot_hash_reproducible_rate"
       ],
       "detected": true
     },
@@ -1813,7 +2037,8 @@
       ],
       "failed_check_ids": [
         "conversation_claims_user_session_scoped_rate",
-        "cross_user_leakage_absent_rate"
+        "cross_user_leakage_absent_rate",
+        "session_boundary_snapshot_hash_reproducible_rate"
       ],
       "detected": true
     },
@@ -1826,7 +2051,8 @@
       ],
       "failed_check_ids": [
         "conversation_claims_user_session_scoped_rate",
-        "cross_user_leakage_absent_rate"
+        "cross_user_leakage_absent_rate",
+        "session_boundary_snapshot_hash_reproducible_rate"
       ],
       "detected": true
     },
@@ -1914,7 +2140,90 @@
         "v141_validation_replay_pass_rate"
       ],
       "detected": true
+    },
+    {
+      "case_id": "v142_ADV_Q41_snapshot_trace_refs_contains_foreign_user",
+      "defect_type": "snapshot_trace_refs_contains_foreign_user",
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate",
+        "session_boundary_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v142_ADV_Q42_boundary_trace_trace_refs_contains_foreign_user",
+      "defect_type": "boundary_trace_trace_refs_contains_foreign_user",
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate",
+        "session_boundary_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v142_ADV_Q43_boundary_trace_step_ref_contains_foreign_session",
+      "defect_type": "boundary_trace_step_ref_contains_foreign_session",
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate",
+        "session_boundary_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v142_ADV_Q44_invocation_trace_refs_contains_foreign_session",
+      "defect_type": "invocation_trace_refs_contains_foreign_session",
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate",
+        "session_boundary_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v142_ADV_Q45_route_handler_result_trace_refs_contains_foreign_user",
+      "defect_type": "route_handler_result_trace_refs_contains_foreign_user",
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate",
+        "session_boundary_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v142_ADV_Q46_expiry_proof_trace_refs_contains_foreign_session",
+      "defect_type": "expiry_proof_trace_refs_contains_foreign_session",
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate",
+        "session_boundary_snapshot_hash_reproducible_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v142_ADV_Q47_cross_user_leakage_audit_omits_required_artifact_coverage",
+      "defect_type": "cross_user_leakage_audit_omits_required_artifact_coverage",
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "detected": true
     }
   ],
-  "detected_defect_count": 40
+  "detected_defect_count": 47
 }
