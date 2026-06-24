@@ -53,8 +53,8 @@ class V137RuntimeLoopValidatorTests(unittest.TestCase):
             self.assertEqual(clean["suite_summary"]["passed_cases"], 30)
             self.assertEqual(clean["suite_summary"]["passed_checks"], 21)
             self.assertEqual(adversarial["suite_summary"]["passed_cases"], 0)
-            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 20)
-            self.assertEqual(adversarial["detected_defect_count"], 20)
+            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 23)
+            self.assertEqual(adversarial["detected_defect_count"], 23)
             self.assertTrue(sample["passed"], sample["failures"])
             self.assertTrue(consistency["passed"], consistency["failures"])
 
@@ -166,6 +166,46 @@ class V137RuntimeLoopValidatorTests(unittest.TestCase):
             failed = {case["case_id"]: case["failed_check_ids"] for case in report["case_results"] if not case["passed"]}
             self.assertIn("review_pending_does_not_claim_applied_effect_rate", failed["v137_G01_ambiguous_feedback_requires_clarification"])
 
+    def test_active_matching_context_excluded_without_hold_is_detected(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dir = self._build(tmp)
+            path = next((result_dir / "per_case" / "clean").glob("*A01_full_loop_low_risk_color_memory.json"))
+            case = json.loads(path.read_text(encoding="utf-8"))
+            memory_id = case["promoted_memory_atom"]["memory_id"]
+            case["post_feedback_task_memory_packet"]["consumed_promoted_memory_ids"] = []
+            case["post_feedback_task_memory_packet"]["excluded_memory_ids"] = [memory_id]
+            case["post_feedback_task_memory_packet"]["temporary_hold_reason"] = None
+            case["post_feedback_task_memory_packet"]["exclusion_reason"] = None
+            _write_json(path, case)
+            report = validator.validate_directory(result_dir, "clean")
+            failed = {case["case_id"]: case["failed_check_ids"] for case in report["case_results"] if not case["passed"]}
+            self.assertIn("post_feedback_packet_uses_updated_lifecycle_state_rate", failed["v137_A01_full_loop_low_risk_color_memory"])
+
+    def test_clarification_hold_requires_explicit_temporary_reason(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dir = self._build(tmp)
+            path = next((result_dir / "per_case" / "clean").glob("*G01_ambiguous_feedback_requires_clarification.json"))
+            case = json.loads(path.read_text(encoding="utf-8"))
+            case["post_feedback_task_memory_packet"]["temporary_hold_reason"] = None
+            _write_json(path, case)
+            report = validator.validate_directory(result_dir, "clean")
+            failed = {case["case_id"]: case["failed_check_ids"] for case in report["case_results"] if not case["passed"]}
+            self.assertIn("post_feedback_packet_uses_updated_lifecycle_state_rate", failed["v137_G01_ambiguous_feedback_requires_clarification"])
+
+    def test_unchanged_expected_behavior_requires_consumption(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dir = self._build(tmp)
+            path = next((result_dir / "per_case" / "clean").glob("*A01_full_loop_low_risk_color_memory.json"))
+            case = json.loads(path.read_text(encoding="utf-8"))
+            memory_id = case["promoted_memory_atom"]["memory_id"]
+            case["post_feedback_task_memory_packet"]["expected_behavior"] = "unchanged_active_consumption"
+            case["post_feedback_task_memory_packet"]["consumed_promoted_memory_ids"] = []
+            case["post_feedback_task_memory_packet"]["excluded_memory_ids"] = [memory_id]
+            _write_json(path, case)
+            report = validator.validate_directory(result_dir, "clean")
+            failed = {case["case_id"]: case["failed_check_ids"] for case in report["case_results"] if not case["passed"]}
+            self.assertIn("post_feedback_packet_uses_updated_lifecycle_state_rate", failed["v137_A01_full_loop_low_risk_color_memory"])
+
     def test_review_pending_applied_claim_is_detected(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             result_dir = self._build(tmp)
@@ -214,8 +254,8 @@ class V137RuntimeLoopValidatorTests(unittest.TestCase):
                 _write_json(path, case)
             adversarial = validator.validate_directory(result_dir, "adversarial")
             self.assertEqual(adversarial["suite_summary"]["passed_cases"], 0)
-            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 20)
-            self.assertEqual(adversarial["detected_defect_count"], 20)
+            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 23)
+            self.assertEqual(adversarial["detected_defect_count"], 23)
 
 
 if __name__ == "__main__":

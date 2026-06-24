@@ -1,9 +1,9 @@
 {
   "version": "v1.37",
-  "generated_at": "2026-06-24T05:11:18Z",
+  "generated_at": "2026-06-24T05:38:09Z",
   "verdict": "pass",
-  "seeded_defects": 20,
-  "detected_defects": 20,
+  "seeded_defects": 23,
+  "detected_defects": 23,
   "unexpected_clean_case_failures": [],
   "unexpected_injected_passes": [],
   "detected": [
@@ -231,6 +231,39 @@
       ],
       "failed_check_ids": [
         "review_pending_does_not_claim_applied_effect_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v137_ADV_K21_active_matching_context_excluded_without_hold_reason",
+      "defect_type": "active_matching_context_excluded_without_hold_reason",
+      "expected_failed_check_ids": [
+        "post_feedback_packet_uses_updated_lifecycle_state_rate"
+      ],
+      "failed_check_ids": [
+        "post_feedback_packet_uses_updated_lifecycle_state_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v137_ADV_K22_clarification_required_missing_temporary_hold_reason",
+      "defect_type": "clarification_required_missing_temporary_hold_reason",
+      "expected_failed_check_ids": [
+        "post_feedback_packet_uses_updated_lifecycle_state_rate"
+      ],
+      "failed_check_ids": [
+        "post_feedback_packet_uses_updated_lifecycle_state_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v137_ADV_K23_expected_behavior_unchanged_but_packet_excludes_memory",
+      "defect_type": "expected_behavior_unchanged_but_packet_excludes_memory",
+      "expected_failed_check_ids": [
+        "post_feedback_packet_uses_updated_lifecycle_state_rate"
+      ],
+      "failed_check_ids": [
+        "post_feedback_packet_uses_updated_lifecycle_state_rate"
       ],
       "detected": true
     }

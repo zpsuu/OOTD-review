@@ -661,8 +661,10 @@
     "excluded_memory_ids": [
       "mem_insp_v137_011"
     ],
-    "request_context": "office_daily",
-    "expected_behavior": "unchanged_reinforced"
+    "request_context": "date_night",
+    "expected_behavior": "excluded_by_mismatching_context",
+    "temporary_hold_reason": null,
+    "exclusion_reason": "request_context_not_in_memory_contexts"
   },
   "post_feedback_claims": [],
   "multi_day_runtime_trace": {

@@ -722,7 +722,9 @@
       "mem_insp_v137_017"
     ],
     "request_context": "office_daily",
-    "expected_behavior": "block_consumption"
+    "expected_behavior": "excluded_by_lifecycle_state",
+    "temporary_hold_reason": null,
+    "exclusion_reason": "blocked_lifecycle_state"
   },
   "post_feedback_claims": [],
   "multi_day_runtime_trace": {

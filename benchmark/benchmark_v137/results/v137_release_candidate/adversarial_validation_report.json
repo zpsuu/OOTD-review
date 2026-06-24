@@ -1,12 +1,12 @@
 {
   "validator": "v1.37.independent.runtime_loop_validator",
-  "generated_at": "2026-06-24T05:11:18Z",
+  "generated_at": "2026-06-24T05:38:09Z",
   "result_dir": "benchmark/benchmark_v137/results/v137_release_candidate",
   "subset": "adversarial",
   "suite_summary": {
-    "total_cases": 20,
+    "total_cases": 23,
     "passed_cases": 0,
-    "failed_cases": 20,
+    "failed_cases": 23,
     "total_checks": 21,
     "passed_checks": 3,
     "failed_checks": 18
@@ -14,9 +14,9 @@
   "checks": [
     {
       "check_id": "runtime_trace_stage_order_complete_rate",
-      "applicable_cases": 20,
-      "passed_cases": 19,
-      "value": 0.95,
+      "applicable_cases": 23,
+      "passed_cases": 22,
+      "value": 0.9565217391304348,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -31,8 +31,8 @@
     },
     {
       "check_id": "runtime_trace_has_state_snapshots_rate",
-      "applicable_cases": 20,
-      "passed_cases": 20,
+      "applicable_cases": 23,
+      "passed_cases": 23,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
@@ -40,9 +40,9 @@
     },
     {
       "check_id": "handoff_ids_match_across_stages_rate",
-      "applicable_cases": 20,
-      "passed_cases": 16,
-      "value": 0.8,
+      "applicable_cases": 23,
+      "passed_cases": 19,
+      "value": 0.8260869565217391,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -78,9 +78,9 @@
     },
     {
       "check_id": "no_pre_gate_production_write_rate",
-      "applicable_cases": 20,
-      "passed_cases": 19,
-      "value": 0.95,
+      "applicable_cases": 23,
+      "passed_cases": 22,
+      "value": 0.9565217391304348,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -95,9 +95,9 @@
     },
     {
       "check_id": "confirmed_aspects_only_rate",
-      "applicable_cases": 20,
-      "passed_cases": 19,
-      "value": 0.95,
+      "applicable_cases": 23,
+      "passed_cases": 22,
+      "value": 0.9565217391304348,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -112,9 +112,9 @@
     },
     {
       "check_id": "promotion_gate_required_before_memory_write_rate",
-      "applicable_cases": 20,
-      "passed_cases": 18,
-      "value": 0.9,
+      "applicable_cases": 23,
+      "passed_cases": 21,
+      "value": 0.9130434782608695,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -136,9 +136,9 @@
     },
     {
       "check_id": "downstream_consumption_requires_promoted_memory_rate",
-      "applicable_cases": 20,
-      "passed_cases": 18,
-      "value": 0.9,
+      "applicable_cases": 23,
+      "passed_cases": 21,
+      "value": 0.9130434782608695,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -160,9 +160,9 @@
     },
     {
       "check_id": "soft_prefer_not_hard_filter_rate",
-      "applicable_cases": 20,
-      "passed_cases": 19,
-      "value": 0.95,
+      "applicable_cases": 23,
+      "passed_cases": 22,
+      "value": 0.9565217391304348,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -177,9 +177,9 @@
     },
     {
       "check_id": "mismatching_context_exclusion_rate",
-      "applicable_cases": 20,
-      "passed_cases": 19,
-      "value": 0.95,
+      "applicable_cases": 23,
+      "passed_cases": 22,
+      "value": 0.9565217391304348,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -194,9 +194,9 @@
     },
     {
       "check_id": "feedback_event_refs_consumed_memory_rate",
-      "applicable_cases": 20,
-      "passed_cases": 18,
-      "value": 0.9,
+      "applicable_cases": 23,
+      "passed_cases": 21,
+      "value": 0.9130434782608695,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -218,9 +218,9 @@
     },
     {
       "check_id": "post_feedback_packet_uses_updated_lifecycle_state_rate",
-      "applicable_cases": 20,
+      "applicable_cases": 23,
       "passed_cases": 18,
-      "value": 0.9,
+      "value": 0.782608695652174,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -237,14 +237,35 @@
           "failures": [
             "post_feedback_packet_uses_updated_lifecycle_state_rate failed from raw runtime trace validation"
           ]
+        },
+        {
+          "case_id": "v137_ADV_K21_active_matching_context_excluded_without_hold_reason",
+          "artifact_ref": "per_case/adversarial/v137_ADV_K21_active_matching_context_excluded_without_hold_reason.json",
+          "failures": [
+            "post_feedback_packet_uses_updated_lifecycle_state_rate failed from raw runtime trace validation"
+          ]
+        },
+        {
+          "case_id": "v137_ADV_K22_clarification_required_missing_temporary_hold_reason",
+          "artifact_ref": "per_case/adversarial/v137_ADV_K22_clarification_required_missing_temporary_hold_reason.json",
+          "failures": [
+            "post_feedback_packet_uses_updated_lifecycle_state_rate failed from raw runtime trace validation"
+          ]
+        },
+        {
+          "case_id": "v137_ADV_K23_expected_behavior_unchanged_but_packet_excludes_memory",
+          "artifact_ref": "per_case/adversarial/v137_ADV_K23_expected_behavior_unchanged_but_packet_excludes_memory.json",
+          "failures": [
+            "post_feedback_packet_uses_updated_lifecycle_state_rate failed from raw runtime trace validation"
+          ]
         }
       ]
     },
     {
       "check_id": "wrong_context_feedback_tests_excluded_context_rate",
-      "applicable_cases": 20,
-      "passed_cases": 19,
-      "value": 0.95,
+      "applicable_cases": 23,
+      "passed_cases": 22,
+      "value": 0.9565217391304348,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -259,9 +280,9 @@
     },
     {
       "check_id": "review_pending_does_not_claim_applied_effect_rate",
-      "applicable_cases": 20,
-      "passed_cases": 18,
-      "value": 0.9,
+      "applicable_cases": 23,
+      "passed_cases": 21,
+      "value": 0.9130434782608695,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -283,9 +304,9 @@
     },
     {
       "check_id": "rollback_removes_future_consumption_rate",
-      "applicable_cases": 20,
-      "passed_cases": 19,
-      "value": 0.95,
+      "applicable_cases": 23,
+      "passed_cases": 22,
+      "value": 0.9565217391304348,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -300,9 +321,9 @@
     },
     {
       "check_id": "blocked_memory_not_claimed_rate",
-      "applicable_cases": 20,
-      "passed_cases": 19,
-      "value": 0.95,
+      "applicable_cases": 23,
+      "passed_cases": 22,
+      "value": 0.9565217391304348,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -317,9 +338,9 @@
     },
     {
       "check_id": "trace_backed_visible_claims_rate",
-      "applicable_cases": 20,
-      "passed_cases": 19,
-      "value": 0.95,
+      "applicable_cases": 23,
+      "passed_cases": 22,
+      "value": 0.9565217391304348,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -334,9 +355,9 @@
     },
     {
       "check_id": "multi_day_state_hash_stability_rate",
-      "applicable_cases": 20,
-      "passed_cases": 19,
-      "value": 0.95,
+      "applicable_cases": 23,
+      "passed_cases": 22,
+      "value": 0.9565217391304348,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -351,9 +372,9 @@
     },
     {
       "check_id": "sample_artifacts_match_per_case_rate",
-      "applicable_cases": 20,
-      "passed_cases": 19,
-      "value": 0.95,
+      "applicable_cases": 23,
+      "passed_cases": 22,
+      "value": 0.9565217391304348,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -368,9 +389,9 @@
     },
     {
       "check_id": "report_consistency_with_independent_validation_rate",
-      "applicable_cases": 20,
-      "passed_cases": 19,
-      "value": 0.95,
+      "applicable_cases": 23,
+      "passed_cases": 22,
+      "value": 0.9565217391304348,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -385,8 +406,8 @@
     },
     {
       "check_id": "adversarial_detection_rate",
-      "applicable_cases": 20,
-      "passed_cases": 20,
+      "applicable_cases": 23,
+      "passed_cases": 23,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
@@ -394,8 +415,8 @@
     },
     {
       "check_id": "v136_validation_replay_pass_rate",
-      "applicable_cases": 20,
-      "passed_cases": 20,
+      "applicable_cases": 23,
+      "passed_cases": 23,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
@@ -649,6 +670,42 @@
         "review_pending_does_not_claim_applied_effect_rate"
       ],
       "defect_type": "ambiguous_feedback_routed_to_human_review"
+    },
+    {
+      "case_id": "v137_ADV_K21_active_matching_context_excluded_without_hold_reason",
+      "artifact_ref": "per_case/adversarial/v137_ADV_K21_active_matching_context_excluded_without_hold_reason.json",
+      "passed": false,
+      "failed_check_ids": [
+        "post_feedback_packet_uses_updated_lifecycle_state_rate"
+      ],
+      "expected_failed_check_ids": [
+        "post_feedback_packet_uses_updated_lifecycle_state_rate"
+      ],
+      "defect_type": "active_matching_context_excluded_without_hold_reason"
+    },
+    {
+      "case_id": "v137_ADV_K22_clarification_required_missing_temporary_hold_reason",
+      "artifact_ref": "per_case/adversarial/v137_ADV_K22_clarification_required_missing_temporary_hold_reason.json",
+      "passed": false,
+      "failed_check_ids": [
+        "post_feedback_packet_uses_updated_lifecycle_state_rate"
+      ],
+      "expected_failed_check_ids": [
+        "post_feedback_packet_uses_updated_lifecycle_state_rate"
+      ],
+      "defect_type": "clarification_required_missing_temporary_hold_reason"
+    },
+    {
+      "case_id": "v137_ADV_K23_expected_behavior_unchanged_but_packet_excludes_memory",
+      "artifact_ref": "per_case/adversarial/v137_ADV_K23_expected_behavior_unchanged_but_packet_excludes_memory.json",
+      "passed": false,
+      "failed_check_ids": [
+        "post_feedback_packet_uses_updated_lifecycle_state_rate"
+      ],
+      "expected_failed_check_ids": [
+        "post_feedback_packet_uses_updated_lifecycle_state_rate"
+      ],
+      "defect_type": "expected_behavior_unchanged_but_packet_excludes_memory"
     }
   ],
   "detected_defects": [
@@ -878,7 +935,40 @@
         "review_pending_does_not_claim_applied_effect_rate"
       ],
       "detected": true
+    },
+    {
+      "case_id": "v137_ADV_K21_active_matching_context_excluded_without_hold_reason",
+      "defect_type": "active_matching_context_excluded_without_hold_reason",
+      "expected_failed_check_ids": [
+        "post_feedback_packet_uses_updated_lifecycle_state_rate"
+      ],
+      "failed_check_ids": [
+        "post_feedback_packet_uses_updated_lifecycle_state_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v137_ADV_K22_clarification_required_missing_temporary_hold_reason",
+      "defect_type": "clarification_required_missing_temporary_hold_reason",
+      "expected_failed_check_ids": [
+        "post_feedback_packet_uses_updated_lifecycle_state_rate"
+      ],
+      "failed_check_ids": [
+        "post_feedback_packet_uses_updated_lifecycle_state_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v137_ADV_K23_expected_behavior_unchanged_but_packet_excludes_memory",
+      "defect_type": "expected_behavior_unchanged_but_packet_excludes_memory",
+      "expected_failed_check_ids": [
+        "post_feedback_packet_uses_updated_lifecycle_state_rate"
+      ],
+      "failed_check_ids": [
+        "post_feedback_packet_uses_updated_lifecycle_state_rate"
+      ],
+      "detected": true
     }
   ],
-  "detected_defect_count": 20
+  "detected_defect_count": 23
 }

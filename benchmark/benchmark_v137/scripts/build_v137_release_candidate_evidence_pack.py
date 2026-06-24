@@ -106,6 +106,9 @@ DEFECTS = [
     ("ADV_K18", "handoff_references_missing_state_snapshot", ["handoff_ids_match_across_stages_rate"]),
     ("ADV_K19", "fake_feedback_on_nonexistent_promoted_memory", ["feedback_event_refs_consumed_memory_rate"]),
     ("ADV_K20", "ambiguous_feedback_routed_to_human_review", ["review_pending_does_not_claim_applied_effect_rate"]),
+    ("ADV_K21", "active_matching_context_excluded_without_hold_reason", ["post_feedback_packet_uses_updated_lifecycle_state_rate"]),
+    ("ADV_K22", "clarification_required_missing_temporary_hold_reason", ["post_feedback_packet_uses_updated_lifecycle_state_rate"]),
+    ("ADV_K23", "expected_behavior_unchanged_but_packet_excludes_memory", ["post_feedback_packet_uses_updated_lifecycle_state_rate"]),
 ]
 
 SAMPLE_CASES = {
@@ -231,7 +234,9 @@ def _case(case_id: str, scenario: str, kind: str, index: int) -> dict[str, Any]:
     context_exclusions: list[str] = []
     request_context = "office_daily"
     post_request_context = "office_daily"
-    expected_post = "unchanged_reinforced"
+    expected_post = "unchanged_active_consumption"
+    temporary_hold_reason = None
+    post_exclusion_reason = None
     review_pending = False
     clarification_required = False
     rolled_back = False
@@ -242,36 +247,49 @@ def _case(case_id: str, scenario: str, kind: str, index: int) -> dict[str, Any]:
     elif kind == "wrong_aspect":
         feedback_action = "wrong_aspect"
         expected_post = "consume_less_strongly"
+    elif kind == "mismatch_exclusion":
+        post_request_context = "date_night"
+        expected_post = "excluded_by_mismatching_context"
+        post_exclusion_reason = "request_context_not_in_memory_contexts"
     elif kind == "wrong_context":
         feedback_action = "wrong_context"
         context_exclusions = ["formal_client_meeting"]
         post_request_context = "formal_client_meeting"
-        expected_post = "exclude_in_context"
+        expected_post = "excluded_by_context_exclusion"
+        post_exclusion_reason = "context_exclusion"
         post_consumed = False
         post_claims = []
     elif kind == "do_not_use":
         feedback_action = "do_not_use_this_inspiration"
         lifecycle_status = "blocked"
         blocked = True
-        expected_post = "block_consumption"
+        expected_post = "excluded_by_lifecycle_state"
+        post_exclusion_reason = "blocked_lifecycle_state"
         post_consumed = False
         post_claims = []
     elif kind == "rollback":
         feedback_action = "forget_this_inspiration_memory"
         lifecycle_status = "rolled_back"
         rolled_back = True
-        expected_post = "rollback_absent"
+        expected_post = "excluded_by_lifecycle_state"
+        post_exclusion_reason = "rolled_back_lifecycle_state"
         post_consumed = False
         post_claims = []
     elif kind == "feedback_review_pending":
         feedback_action = "wrong_context"
         lifecycle_status = "review_pending"
         review_pending = True
+        expected_post = "temporary_hold_pending_review"
+        temporary_hold_reason = "human_review_required_current_turn_only"
+        post_exclusion_reason = "temporary_hold_pending_review"
         post_consumed = False
         post_claims = []
     elif kind == "clarification":
         feedback_action = "ambiguous_feedback"
         clarification_required = True
+        expected_post = "temporary_hold_pending_clarification"
+        temporary_hold_reason = "clarification_required_current_turn_only"
+        post_exclusion_reason = "temporary_hold_pending_clarification"
         post_consumed = False
         post_claims = []
 
@@ -379,7 +397,7 @@ def _case(case_id: str, scenario: str, kind: str, index: int) -> dict[str, Any]:
         "memory_lifecycle_proposal": {"lifecycle_proposal_id": f"mlp_{suffix}", "proposal_type": "clarification_required" if clarification_required else "no_op_no_consumed_memory" if not has_real_feedback else "review_required" if review_pending else "rollback_memory" if rolled_back else "block_future_consumption" if blocked else "add_context_exclusion" if kind == "wrong_context" else "reduce_confidence" if kind == "too_strong" else "reinforce", "target_memory_id": memory_id if has_real_feedback else None, "must_not_do": ["expand_scope", "create_global_memory", "add_unconfirmed_aspect"]},
         "feedback_write_decision": {"feedback_write_decision_id": f"fwd_{suffix}", "gate_decision": "clarification_required" if clarification_required else "no_op_no_consumed_memory" if not has_real_feedback else "human_review_required" if review_pending else "allow", "production_write_executed": has_real_feedback and not review_pending and not clarification_required, "rollback_ref": rollback_ref if rolled_back else None},
         "updated_memory_lifecycle_state": {"memory_id": memory_id, "current_status": lifecycle_status, "contexts": ["office_daily"], "context_exclusions": context_exclusions, "active_memory_ids": active_ids, "blocked_memory_ids": blocked_ids, "rolled_back_memory_ids": rolled_ids, "review_pending_memory_ids": review_ids} if has_real_feedback else None,
-        "post_feedback_task_memory_packet": {"task_memory_packet_id": post_packet_id, "candidate_promoted_memory_ids": promoted_ids, "consumed_promoted_memory_ids": post_consumed_ids, "excluded_memory_ids": post_excluded_ids, "request_context": post_request_context, "expected_behavior": expected_post},
+        "post_feedback_task_memory_packet": {"task_memory_packet_id": post_packet_id, "candidate_promoted_memory_ids": promoted_ids, "consumed_promoted_memory_ids": post_consumed_ids, "excluded_memory_ids": post_excluded_ids, "request_context": post_request_context, "expected_behavior": expected_post, "temporary_hold_reason": temporary_hold_reason, "exclusion_reason": post_exclusion_reason},
         "post_feedback_claims": [{"claim_id": f"claim_post_{suffix}", "text": "I used your confirmed inspiration cue.", "trace_refs": [memory_id, post_packet_id]}] if post_claims else [],
         "multi_day_runtime_trace": {"days": 3, "input_state_ref": snapshots[-2]["state_snapshot_id"], "day_state_hashes": [snapshots[-1]["state_hash"], snapshots[-1]["state_hash"], snapshots[-1]["state_hash"]], "stable": True},
         "rollback_proof": {"rollback_ref": rollback_ref, "read_after_rollback": {"status": "not_found", "memory_id": memory_id, "memory_present": False}, "future_claims_absent": True} if rolled_back else None,
@@ -412,7 +430,7 @@ def _defect(defect_id: str, defect_type: str, failed_gates: list[str]) -> dict[s
         artifact["task_memory_packet"]["consumed_promoted_memory_ids"] = []
     elif defect_type == "wrong_context_feedback_tests_non_excluded_context":
         artifact["updated_memory_lifecycle_state"]["context_exclusions"] = ["formal_client_meeting"]
-        artifact["post_feedback_task_memory_packet"]["expected_behavior"] = "exclude_in_context"
+        artifact["post_feedback_task_memory_packet"]["expected_behavior"] = "excluded_by_context_exclusion"
         artifact["post_feedback_task_memory_packet"]["request_context"] = "office_daily"
     elif defect_type == "review_pending_claims_applied_effect":
         artifact["feedback_write_decision"]["gate_decision"] = "human_review_required"
@@ -459,6 +477,35 @@ def _defect(defect_id: str, defect_type: str, failed_gates: list[str]) -> dict[s
         artifact["feedback_interpretation"]["interpreted_intent"] = "review_required"
         artifact["feedback_interpretation"]["requires_human_review"] = True
         artifact["feedback_write_decision"]["gate_decision"] = "human_review_required"
+    elif defect_type == "active_matching_context_excluded_without_hold_reason":
+        memory_id = artifact["promoted_memory_atom"]["memory_id"]
+        artifact["post_feedback_task_memory_packet"]["consumed_promoted_memory_ids"] = []
+        artifact["post_feedback_task_memory_packet"]["excluded_memory_ids"] = [memory_id]
+        artifact["post_feedback_task_memory_packet"]["expected_behavior"] = "temporary_hold_pending_clarification"
+        artifact["post_feedback_task_memory_packet"]["temporary_hold_reason"] = None
+        artifact["post_feedback_task_memory_packet"]["exclusion_reason"] = None
+    elif defect_type == "clarification_required_missing_temporary_hold_reason":
+        memory_id = artifact["promoted_memory_atom"]["memory_id"]
+        artifact["scenario_kind"] = "clarification"
+        artifact["feedback_interpretation"]["interpreted_intent"] = "clarification_required"
+        artifact["feedback_interpretation"]["requires_human_review"] = False
+        artifact["feedback_write_decision"]["gate_decision"] = "clarification_required"
+        artifact["feedback_write_decision"]["production_write_executed"] = False
+        artifact["updated_memory_lifecycle_state"]["current_status"] = "active"
+        artifact["updated_memory_lifecycle_state"]["context_exclusions"] = []
+        artifact["post_feedback_task_memory_packet"]["request_context"] = "office_daily"
+        artifact["post_feedback_task_memory_packet"]["consumed_promoted_memory_ids"] = []
+        artifact["post_feedback_task_memory_packet"]["excluded_memory_ids"] = [memory_id]
+        artifact["post_feedback_task_memory_packet"]["expected_behavior"] = "temporary_hold_pending_clarification"
+        artifact["post_feedback_task_memory_packet"]["temporary_hold_reason"] = None
+        artifact["post_feedback_task_memory_packet"]["exclusion_reason"] = "temporary_hold_pending_clarification"
+    elif defect_type == "expected_behavior_unchanged_but_packet_excludes_memory":
+        memory_id = artifact["promoted_memory_atom"]["memory_id"]
+        artifact["post_feedback_task_memory_packet"]["consumed_promoted_memory_ids"] = []
+        artifact["post_feedback_task_memory_packet"]["excluded_memory_ids"] = [memory_id]
+        artifact["post_feedback_task_memory_packet"]["expected_behavior"] = "unchanged_active_consumption"
+        artifact["post_feedback_task_memory_packet"]["temporary_hold_reason"] = None
+        artifact["post_feedback_task_memory_packet"]["exclusion_reason"] = None
     return artifact
 
 

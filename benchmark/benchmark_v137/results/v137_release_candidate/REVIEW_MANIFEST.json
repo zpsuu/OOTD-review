@@ -4,7 +4,7 @@
   "theme": "End-to-End Inspiration Memory Runtime Loop",
   "branch": "v137-end-to-end-inspiration-memory-runtime-loop",
   "entrypoint": "benchmark/benchmark_v137/results/v137_release_candidate/REVIEW_MANIFEST.json",
-  "generated_at": "2026-06-24T05:11:17Z",
+  "generated_at": "2026-06-24T05:38:09Z",
   "builder_script": "benchmark/benchmark_v137/scripts/build_v137_release_candidate_evidence_pack.py",
   "validator_script": "benchmark/benchmark_v137/scripts/validate_v137_release_candidate.py",
   "runner_script": "benchmark/benchmark_v137/scripts/run_v137_validation_suite.py",
@@ -54,7 +54,7 @@
       "case_id": "v137_A01_full_loop_low_risk_color_memory",
       "artifact_ref": "sample_artifacts/full_loop_low_risk_color_memory.json",
       "source_artifact_ref": "per_case/clean/v137_A01_full_loop_low_risk_color_memory.json",
-      "canonical_sha256": "7656b96b0e42bb7bfb67524027ae4b42580f9ac2e233b79b1334d22efb14a941",
+      "canonical_sha256": "f0549572cbced4eeec3e8bd10bb0c35a2f00436482886364e20b337afcb1254c",
       "sample_projection_schema": "full_copy",
       "allowed_omitted_fields": []
     },
@@ -62,7 +62,7 @@
       "case_id": "v137_B01_unconfirmed_candidate_never_promotes",
       "artifact_ref": "sample_artifacts/unconfirmed_candidate_never_promotes.json",
       "source_artifact_ref": "per_case/clean/v137_B01_unconfirmed_candidate_never_promotes.json",
-      "canonical_sha256": "bdc036c37da89a8cdf95fe20787f0db1c9992a552b80c2cae9f06da02f7f1803",
+      "canonical_sha256": "7d293ae59af8e3c00f344636b3ef4c56467b8baad7e3de95183f9a864d23ed1e",
       "sample_projection_schema": "full_copy",
       "allowed_omitted_fields": []
     },
@@ -70,7 +70,7 @@
       "case_id": "v137_E03_wrong_context_adds_exclusion_and_tests_excluded_context",
       "artifact_ref": "sample_artifacts/wrong_context_feedback_tests_excluded_context.json",
       "source_artifact_ref": "per_case/clean/v137_E03_wrong_context_adds_exclusion_and_tests_excluded_context.json",
-      "canonical_sha256": "3d4916e1050181da60be84c201486bde5c12cd0fb151609313e9f4dffa93f609",
+      "canonical_sha256": "4c7323c4119a30898f2735a28dd339f914a9d98277594d23848972d8939e8344",
       "sample_projection_schema": "full_copy",
       "allowed_omitted_fields": []
     },
@@ -78,7 +78,7 @@
       "case_id": "v137_E04_review_pending_feedback_does_not_claim_applied_effect",
       "artifact_ref": "sample_artifacts/review_pending_no_applied_effect_claim.json",
       "source_artifact_ref": "per_case/clean/v137_E04_review_pending_feedback_does_not_claim_applied_effect.json",
-      "canonical_sha256": "9a5e37fbf2c2d834e9afa62de925a0e28d9a8b229abb7478af117fb1345de3f9",
+      "canonical_sha256": "3701e54c09fe1b6ce46464c63af2ca7d46b7248e785e1bf1a061be98109f6087",
       "sample_projection_schema": "full_copy",
       "allowed_omitted_fields": []
     },
@@ -86,7 +86,7 @@
       "case_id": "v137_F03_rollback_removes_future_claims",
       "artifact_ref": "sample_artifacts/rollback_removes_future_claims.json",
       "source_artifact_ref": "per_case/clean/v137_F03_rollback_removes_future_claims.json",
-      "canonical_sha256": "02a4a35f606c651afdcdc9582f0bea7534858a31adcb0006077068a96d3ab6df",
+      "canonical_sha256": "dfd1715b830f4cd23407bc46ff58e0d8940123f8d2288c0b7e486a990d70e43d",
       "sample_projection_schema": "full_copy",
       "allowed_omitted_fields": []
     },
@@ -94,7 +94,7 @@
       "case_id": "v137_H01_day1_to_day3_state_hash_stability",
       "artifact_ref": "sample_artifacts/state_hash_stability.json",
       "source_artifact_ref": "per_case/clean/v137_H01_day1_to_day3_state_hash_stability.json",
-      "canonical_sha256": "66773103aad6e8cf58b8512df04eefb0619027c83e9237b48ea94da007fcd2c4",
+      "canonical_sha256": "7fd81d1ba131f5b04102c247bbe338dd38742027ae32360742c58c7b23bef211",
       "sample_projection_schema": "full_copy",
       "allowed_omitted_fields": []
     }

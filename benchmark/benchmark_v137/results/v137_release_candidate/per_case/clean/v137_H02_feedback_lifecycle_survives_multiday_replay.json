@@ -724,7 +724,9 @@
       "mem_insp_v137_023"
     ],
     "request_context": "formal_client_meeting",
-    "expected_behavior": "exclude_in_context"
+    "expected_behavior": "excluded_by_context_exclusion",
+    "temporary_hold_reason": null,
+    "exclusion_reason": "context_exclusion"
   },
   "post_feedback_claims": [],
   "multi_day_runtime_trace": {

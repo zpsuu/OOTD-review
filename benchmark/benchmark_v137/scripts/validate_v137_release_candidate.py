@@ -70,6 +70,11 @@ def _text_claims(claims: list[dict[str, Any]]) -> str:
 
 
 GENERIC_PROOF_REFS = {"runtime_trace", "handoff_proofs", "runtime_invariant_report"}
+CONSUMPTION_EXPECTED_BEHAVIORS = {"unchanged_active_consumption", "consume_less_strongly"}
+SUPPORTED_TEMPORARY_HOLDS = {
+    "temporary_hold_pending_clarification": ("clarification_required_current_turn_only", "clarification_required"),
+    "temporary_hold_pending_review": ("human_review_required_current_turn_only", "human_review_required"),
+}
 
 
 def _structural_failures(artifact: dict[str, Any]) -> list[str]:
@@ -161,11 +166,48 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
 
     if state.get("current_status") in {"blocked", "rolled_back"} and memory_id in (post_packet.get("consumed_promoted_memory_ids") or []):
         failures.append("post_feedback_packet_uses_updated_lifecycle_state_rate")
-    if post_packet.get("expected_behavior") == "exclude_in_context":
+    if post_packet.get("expected_behavior") == "excluded_by_context_exclusion":
         if post_packet.get("request_context") not in (state.get("context_exclusions") or []):
             failures.append("wrong_context_feedback_tests_excluded_context_rate")
         if memory_id in (post_packet.get("consumed_promoted_memory_ids") or []):
             failures.append("wrong_context_feedback_tests_excluded_context_rate")
+
+    if memory:
+        post_consumed = post_packet.get("consumed_promoted_memory_ids") or []
+        post_excluded = post_packet.get("excluded_memory_ids") or []
+        expected_behavior = post_packet.get("expected_behavior")
+        request_context = post_packet.get("request_context")
+        contexts = state.get("contexts") or []
+        exclusions = state.get("context_exclusions") or []
+        current_status = state.get("current_status")
+        temporary_hold_reason = post_packet.get("temporary_hold_reason")
+        exclusion_reason = post_packet.get("exclusion_reason")
+        matching_context = request_context in contexts
+        context_excluded = request_context in exclusions
+        supported_hold = False
+        if expected_behavior in SUPPORTED_TEMPORARY_HOLDS:
+            required_reason, required_decision = SUPPORTED_TEMPORARY_HOLDS[expected_behavior]
+            supported_hold = temporary_hold_reason == required_reason and decision.get("gate_decision") == required_decision and decision.get("production_write_executed") is not True
+            if not supported_hold:
+                failures.append("post_feedback_packet_uses_updated_lifecycle_state_rate")
+        if expected_behavior in CONSUMPTION_EXPECTED_BEHAVIORS and memory_id not in post_consumed:
+            failures.append("post_feedback_packet_uses_updated_lifecycle_state_rate")
+        if memory_id in post_excluded:
+            allowed_exclusion = False
+            if expected_behavior == "excluded_by_mismatching_context" and not matching_context and exclusion_reason == "request_context_not_in_memory_contexts":
+                allowed_exclusion = True
+            if expected_behavior == "excluded_by_context_exclusion" and context_excluded and exclusion_reason == "context_exclusion":
+                allowed_exclusion = True
+            if expected_behavior == "excluded_by_lifecycle_state" and current_status in {"blocked", "rolled_back"} and exclusion_reason in {"blocked_lifecycle_state", "rolled_back_lifecycle_state"}:
+                allowed_exclusion = True
+            if expected_behavior in SUPPORTED_TEMPORARY_HOLDS and supported_hold and exclusion_reason == expected_behavior:
+                allowed_exclusion = True
+            if not allowed_exclusion:
+                failures.append("post_feedback_packet_uses_updated_lifecycle_state_rate")
+        if current_status == "active" and matching_context and not context_excluded and memory_id not in post_consumed and not supported_hold:
+            failures.append("post_feedback_packet_uses_updated_lifecycle_state_rate")
+        if expected_behavior in CONSUMPTION_EXPECTED_BEHAVIORS and memory_id in post_excluded:
+            failures.append("post_feedback_packet_uses_updated_lifecycle_state_rate")
 
     if decision.get("gate_decision") == "human_review_required":
         applied_terms = ["softened", "narrowed", "blocked", "rolled back", "reinforced", "changed", "reduced"]

@@ -730,7 +730,9 @@
     ],
     "excluded_memory_ids": [],
     "request_context": "office_daily",
-    "expected_behavior": "exclude_in_context"
+    "expected_behavior": "excluded_by_context_exclusion",
+    "temporary_hold_reason": null,
+    "exclusion_reason": null
   },
   "post_feedback_claims": [
     {

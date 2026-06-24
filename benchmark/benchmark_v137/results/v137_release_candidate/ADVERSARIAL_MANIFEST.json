@@ -1,6 +1,6 @@
 {
   "version": "v1.37",
-  "generated_at": "2026-06-24T05:11:18Z",
+  "generated_at": "2026-06-24T05:38:09Z",
   "source_result_dir": "benchmark/benchmark_v137/results/v137_release_candidate",
   "cases": [
     {
@@ -162,6 +162,30 @@
       "defect_type": "ambiguous_feedback_routed_to_human_review",
       "expected_failed_check_ids": [
         "review_pending_does_not_claim_applied_effect_rate"
+      ]
+    },
+    {
+      "case_id": "v137_ADV_K21_active_matching_context_excluded_without_hold_reason",
+      "artifact_ref": "per_case/adversarial/v137_ADV_K21_active_matching_context_excluded_without_hold_reason.json",
+      "defect_type": "active_matching_context_excluded_without_hold_reason",
+      "expected_failed_check_ids": [
+        "post_feedback_packet_uses_updated_lifecycle_state_rate"
+      ]
+    },
+    {
+      "case_id": "v137_ADV_K22_clarification_required_missing_temporary_hold_reason",
+      "artifact_ref": "per_case/adversarial/v137_ADV_K22_clarification_required_missing_temporary_hold_reason.json",
+      "defect_type": "clarification_required_missing_temporary_hold_reason",
+      "expected_failed_check_ids": [
+        "post_feedback_packet_uses_updated_lifecycle_state_rate"
+      ]
+    },
+    {
+      "case_id": "v137_ADV_K23_expected_behavior_unchanged_but_packet_excludes_memory",
+      "artifact_ref": "per_case/adversarial/v137_ADV_K23_expected_behavior_unchanged_but_packet_excludes_memory.json",
+      "defect_type": "expected_behavior_unchanged_but_packet_excludes_memory",
+      "expected_failed_check_ids": [
+        "post_feedback_packet_uses_updated_lifecycle_state_rate"
       ]
     }
   ]

@@ -1,15 +1,15 @@
 {
   "benchmark_id": "v1.37.end_to_end_inspiration_memory_runtime_loop.mixed_strict",
   "schema_version": "v1.37",
-  "generated_at": "2026-06-24T05:11:17Z",
+  "generated_at": "2026-06-24T05:38:09Z",
   "verdicts": {
     "mixed_strict_verdict": "fail",
     "injected_defect_detection_verdict": "pass"
   },
   "suite_summary": {
-    "total_cases": 50,
+    "total_cases": 53,
     "passed_cases": 30,
-    "failed_cases": 20,
+    "failed_cases": 23,
     "total_checks": 21,
     "passed_checks": 21,
     "failed_checks": 0
@@ -324,6 +324,30 @@
         "review_pending_does_not_claim_applied_effect_rate"
       ],
       "artifact_ref": "per_case/mixed_strict/v137_ADV_K20_ambiguous_feedback_routed_to_human_review.json"
+    },
+    {
+      "case_id": "v137_ADV_K21_active_matching_context_excluded_without_hold_reason",
+      "passed": false,
+      "failed_check_ids": [
+        "post_feedback_packet_uses_updated_lifecycle_state_rate"
+      ],
+      "artifact_ref": "per_case/mixed_strict/v137_ADV_K21_active_matching_context_excluded_without_hold_reason.json"
+    },
+    {
+      "case_id": "v137_ADV_K22_clarification_required_missing_temporary_hold_reason",
+      "passed": false,
+      "failed_check_ids": [
+        "post_feedback_packet_uses_updated_lifecycle_state_rate"
+      ],
+      "artifact_ref": "per_case/mixed_strict/v137_ADV_K22_clarification_required_missing_temporary_hold_reason.json"
+    },
+    {
+      "case_id": "v137_ADV_K23_expected_behavior_unchanged_but_packet_excludes_memory",
+      "passed": false,
+      "failed_check_ids": [
+        "post_feedback_packet_uses_updated_lifecycle_state_rate"
+      ],
+      "artifact_ref": "per_case/mixed_strict/v137_ADV_K23_expected_behavior_unchanged_but_packet_excludes_memory.json"
     }
   ]
 }

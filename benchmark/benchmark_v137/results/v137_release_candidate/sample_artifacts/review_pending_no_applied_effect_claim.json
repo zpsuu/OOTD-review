@@ -722,7 +722,9 @@
       "mem_insp_v137_016"
     ],
     "request_context": "office_daily",
-    "expected_behavior": "unchanged_reinforced"
+    "expected_behavior": "temporary_hold_pending_review",
+    "temporary_hold_reason": "human_review_required_current_turn_only",
+    "exclusion_reason": "temporary_hold_pending_review"
   },
   "post_feedback_claims": [],
   "multi_day_runtime_trace": {
