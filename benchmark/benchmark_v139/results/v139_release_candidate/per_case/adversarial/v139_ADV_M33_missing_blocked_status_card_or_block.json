@@ -1,7 +1,7 @@
 {
-  "case_id": "v139_F03_blocked_or_rolled_back_memory_has_no_active_action_card",
+  "case_id": "v139_ADV_M33_missing_blocked_status_card_or_block",
   "version": "v1.39",
-  "scenario_kind": "no_active_blocked",
+  "scenario_kind": "blocked_absence",
   "gate_assertions": {
     "surface_created_from_governance_queue_rate": true,
     "action_card_matches_queue_item_rate": true,
@@ -25,55 +25,55 @@
     "v138_validation_replay_pass_rate": true
   },
   "runtime_trace": {
-    "runtime_trace_id": "rt_v139_025",
+    "runtime_trace_id": "rt_v139_933",
     "trace_refs": [
-      "tmp_v139_025",
-      "pmf_v139_025"
+      "tmp_v139_933",
+      "pmf_v139_933"
     ]
   },
   "governance_trigger": {
-    "governance_trigger_id": "gt_v139_025",
+    "governance_trigger_id": "gt_v139_933",
     "trigger_type": "blocked_memory_audit",
-    "source_runtime_trace_id": "rt_v139_025",
-    "source_task_memory_packet_id": "tmp_v139_025",
-    "source_feedback_event_id": "pmf_v139_025",
-    "target_memory_id": "mem_v139_025",
+    "source_runtime_trace_id": "rt_v139_933",
+    "source_task_memory_packet_id": "tmp_v139_933",
+    "source_feedback_event_id": "pmf_v139_933",
+    "target_memory_id": "mem_v139_933",
     "trace_refs": [
-      "rt_v139_025",
-      "tmp_v139_025",
-      "pmf_v139_025"
+      "rt_v139_933",
+      "tmp_v139_933",
+      "pmf_v139_933"
     ]
   },
   "runtime_governance_queue": {
-    "runtime_governance_queue_id": "rgq_v139_025",
-    "runtime_trace_id": "rt_v139_025",
+    "runtime_governance_queue_id": "rgq_v139_933",
+    "runtime_trace_id": "rt_v139_933",
     "created_at": "2026-06-24T00:00:00Z",
     "queue_items": [
       {
-        "governance_queue_item_id": "gqi_v139_025",
+        "governance_queue_item_id": "gqi_v139_933",
         "trigger_type": "blocked_memory_audit",
-        "trigger_ref": "gt_v139_025",
-        "target_memory_id": "mem_v139_025",
-        "source_runtime_trace_id": "rt_v139_025",
-        "source_task_memory_packet_id": "tmp_v139_025",
-        "source_feedback_event_id": "pmf_v139_025",
+        "trigger_ref": "gt_v139_933",
+        "target_memory_id": "mem_v139_933",
+        "source_runtime_trace_id": "rt_v139_933",
+        "source_task_memory_packet_id": "tmp_v139_933",
+        "source_feedback_event_id": "pmf_v139_933",
         "status": "resolved",
         "priority": "medium",
         "risk_level": "medium",
         "created_at": "2026-06-24T00:00:00Z",
-        "resolution_ref": "grd_v139_025",
+        "resolution_ref": "grd_v139_933",
         "trace_refs": [
-          "rt_v139_025",
-          "gt_v139_025",
-          "tmp_v139_025",
-          "pmf_v139_025"
+          "rt_v139_933",
+          "gt_v139_933",
+          "tmp_v139_933",
+          "pmf_v139_933"
         ]
       }
     ],
     "dedupe_index": [
       {
-        "dedupe_key": "blocked_memory_audit:mem_v139_025:gt_v139_025",
-        "canonical_queue_item_id": "gqi_v139_025"
+        "dedupe_key": "blocked_memory_audit:mem_v139_933:gt_v139_933",
+        "canonical_queue_item_id": "gqi_v139_933"
       }
     ],
     "open_item_count": 0,
@@ -84,25 +84,25 @@
   "human_review_payloads": [],
   "human_review_resolution": null,
   "governance_resolution_decision": {
-    "governance_resolution_decision_id": "grd_v139_025",
-    "governance_queue_item_id": "gqi_v139_025",
+    "governance_resolution_decision_id": "grd_v139_933",
+    "governance_queue_item_id": "gqi_v139_933",
     "resolution_type": "clarified_no_write",
     "production_write_gate_ref": null,
     "production_write_executed": false,
     "trace_refs": [
-      "rt_v139_025",
-      "gqi_v139_025"
+      "rt_v139_933",
+      "gqi_v139_933"
     ]
   },
   "production_memory_write_gate": {
-    "gate_id": "pmwg_v139_025",
+    "gate_id": "pmwg_v139_933",
     "decision": "block",
     "production_write_executed": false,
     "environment": "deterministic_local_fixture"
   },
   "before_memory_lifecycle_state": {
-    "memory_id": "mem_v139_025",
-    "state_snapshot_id": "state_blocked_v139_025",
+    "memory_id": "mem_v139_933",
+    "state_snapshot_id": "state_blocked_v139_933",
     "current_status": "blocked",
     "contexts": [
       "office_daily"
@@ -115,8 +115,8 @@
     "global_memory_write": false
   },
   "after_memory_lifecycle_state": {
-    "memory_id": "mem_v139_025",
-    "state_snapshot_id": "state_blocked_v139_025",
+    "memory_id": "mem_v139_933",
+    "state_snapshot_id": "state_blocked_v139_933",
     "current_status": "blocked",
     "contexts": [
       "office_daily"
@@ -129,84 +129,77 @@
     "global_memory_write": false
   },
   "governance_action_surface": {
-    "governance_action_surface_id": "gas_v139_025",
-    "runtime_trace_id": "rt_v139_025",
-    "source_governance_queue_ref": "rgq_v139_025",
-    "surface_context": "post_resolution_response",
+    "governance_action_surface_id": "gas_v139_933",
+    "runtime_trace_id": "rt_v139_933",
+    "source_governance_queue_ref": "rgq_v139_933",
+    "surface_context": "daily_outfit_card",
     "cards": [],
     "response_blocks": [
       {
-        "response_block_id": "urb_v139_025",
+        "response_block_id": "urb_v139_933",
         "block_type": "memory_state_notice",
         "text": "This blocked memory is excluded from future outfit claims.",
         "claim_refs": [
-          "claim_v139_025"
+          "claim_v139_933"
         ],
-        "trace_refs": [
-          "rt_v139_025",
-          "arp_v139_025",
-          "grd_v139_025",
-          "gqi_v139_025",
-          "mem_v139_025"
-        ],
-        "status_queue_item_id": "gqi_v139_025"
+        "trace_refs": []
       }
     ],
     "trace_refs": [
-      "rt_v139_025",
-      "rgq_v139_025",
-      "gqi_v139_025"
+      "rt_v139_933",
+      "rgq_v139_933",
+      "gqi_v139_933"
     ]
   },
   "action_submission_envelope": null,
   "action_result_packet": {
-    "action_result_packet_id": "arp_v139_025",
+    "action_result_packet_id": "arp_v139_933",
     "action_submission_id": null,
-    "governance_resolution_decision_id": "grd_v139_025",
+    "governance_resolution_decision_id": "grd_v139_933",
     "result_type": "resolved_applied",
     "production_write_executed": false,
-    "post_action_task_memory_packet_id": "tmp_post_action_v139_025",
+    "post_action_task_memory_packet_id": "tmp_post_action_v139_933",
     "user_visible_response_block_ids": [
-      "urb_v139_025"
+      "urb_v139_933"
     ],
     "trace_refs": [
-      "rt_v139_025",
-      "gqi_v139_025",
-      "grd_v139_025"
+      "rt_v139_933",
+      "gqi_v139_933",
+      "grd_v139_933"
     ]
   },
   "post_action_task_memory_packet": {
-    "post_action_task_memory_packet_id": "tmp_post_action_v139_025",
+    "post_action_task_memory_packet_id": "tmp_post_action_v139_933",
     "request_context": "office_daily",
     "candidate_promoted_memory_ids": [
-      "mem_v139_025"
+      "mem_v139_933"
     ],
     "consumed_promoted_memory_ids": [],
     "excluded_memory_ids": [
-      "mem_v139_025"
+      "mem_v139_933"
     ],
     "expected_behavior": "excluded_by_blocked_state",
     "daily_outfit_card_status": "resolved",
     "stale_hold_banner_present": false,
-    "resolution_ref": "grd_v139_025",
+    "resolution_ref": "grd_v139_933",
     "trace_refs": [
-      "rt_v139_025",
-      "arp_v139_025",
-      "grd_v139_025"
+      "rt_v139_933",
+      "arp_v139_933",
+      "grd_v139_933"
     ]
   },
   "action_idempotency_record": null,
   "stale_action_suppression_proof": null,
   "response_claim_traces": [
     {
-      "claim_id": "claim_v139_025",
+      "claim_id": "claim_v139_933",
       "text": "This blocked memory is excluded from future outfit claims.",
-      "action_result_packet_id": "arp_v139_025",
-      "governance_resolution_decision_id": "grd_v139_025",
+      "action_result_packet_id": "arp_v139_933",
+      "governance_resolution_decision_id": "grd_v139_933",
       "trace_refs": [
-        "urb_v139_025",
-        "arp_v139_025",
-        "grd_v139_025"
+        "urb_v139_933",
+        "arp_v139_933",
+        "grd_v139_933"
       ]
     }
   ],
@@ -223,16 +216,16 @@
     "future_claims_absent": true,
     "no_active_action_for_memory": true,
     "trace_refs": [
-      "mem_v139_025",
-      "tmp_post_action_v139_025"
+      "mem_v139_933",
+      "tmp_post_action_v139_933"
     ]
   },
   "daily_outfit_card_status_proof": {
     "status": "resolved",
     "stale_hold_banner_present": false,
     "trace_refs": [
-      "tmp_post_action_v139_025",
-      "urb_v139_025"
+      "tmp_post_action_v139_933",
+      "urb_v139_933"
     ]
   },
   "reviewer_checklist_refs": [],
@@ -241,7 +234,13 @@
     "run_v138_validation_suite": "PASS"
   },
   "state_hashes": {
-    "before": "039261334e0ae17d457437b2d5d389ec940a85f45a69daefda8c6d39104ceecc",
-    "after": "039261334e0ae17d457437b2d5d389ec940a85f45a69daefda8c6d39104ceecc"
-  }
+    "before": "56d6b960d57f5d1c6173acfaa74d89831bf3eaa3bbb2a76da6b1c62c0047e75f",
+    "after": "56d6b960d57f5d1c6173acfaa74d89831bf3eaa3bbb2a76da6b1c62c0047e75f"
+  },
+  "defect_type": "missing_blocked_status_card_or_block",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "action_card_matches_queue_item_rate",
+    "rollback_blocked_status_absence_proof_rate"
+  ]
 }

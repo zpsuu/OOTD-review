@@ -1,7 +1,7 @@
 {
-  "case_id": "v139_F03_blocked_or_rolled_back_memory_has_no_active_action_card",
+  "case_id": "v139_ADV_M32_missing_rollback_status_card_or_block",
   "version": "v1.39",
-  "scenario_kind": "no_active_blocked",
+  "scenario_kind": "rollback_absence",
   "gate_assertions": {
     "surface_created_from_governance_queue_rate": true,
     "action_card_matches_queue_item_rate": true,
@@ -25,55 +25,55 @@
     "v138_validation_replay_pass_rate": true
   },
   "runtime_trace": {
-    "runtime_trace_id": "rt_v139_025",
+    "runtime_trace_id": "rt_v139_932",
     "trace_refs": [
-      "tmp_v139_025",
-      "pmf_v139_025"
+      "tmp_v139_932",
+      "pmf_v139_932"
     ]
   },
   "governance_trigger": {
-    "governance_trigger_id": "gt_v139_025",
-    "trigger_type": "blocked_memory_audit",
-    "source_runtime_trace_id": "rt_v139_025",
-    "source_task_memory_packet_id": "tmp_v139_025",
-    "source_feedback_event_id": "pmf_v139_025",
-    "target_memory_id": "mem_v139_025",
+    "governance_trigger_id": "gt_v139_932",
+    "trigger_type": "rollback_audit",
+    "source_runtime_trace_id": "rt_v139_932",
+    "source_task_memory_packet_id": "tmp_v139_932",
+    "source_feedback_event_id": "pmf_v139_932",
+    "target_memory_id": "mem_v139_932",
     "trace_refs": [
-      "rt_v139_025",
-      "tmp_v139_025",
-      "pmf_v139_025"
+      "rt_v139_932",
+      "tmp_v139_932",
+      "pmf_v139_932"
     ]
   },
   "runtime_governance_queue": {
-    "runtime_governance_queue_id": "rgq_v139_025",
-    "runtime_trace_id": "rt_v139_025",
+    "runtime_governance_queue_id": "rgq_v139_932",
+    "runtime_trace_id": "rt_v139_932",
     "created_at": "2026-06-24T00:00:00Z",
     "queue_items": [
       {
-        "governance_queue_item_id": "gqi_v139_025",
-        "trigger_type": "blocked_memory_audit",
-        "trigger_ref": "gt_v139_025",
-        "target_memory_id": "mem_v139_025",
-        "source_runtime_trace_id": "rt_v139_025",
-        "source_task_memory_packet_id": "tmp_v139_025",
-        "source_feedback_event_id": "pmf_v139_025",
+        "governance_queue_item_id": "gqi_v139_932",
+        "trigger_type": "rollback_audit",
+        "trigger_ref": "gt_v139_932",
+        "target_memory_id": "mem_v139_932",
+        "source_runtime_trace_id": "rt_v139_932",
+        "source_task_memory_packet_id": "tmp_v139_932",
+        "source_feedback_event_id": "pmf_v139_932",
         "status": "resolved",
         "priority": "medium",
         "risk_level": "medium",
         "created_at": "2026-06-24T00:00:00Z",
-        "resolution_ref": "grd_v139_025",
+        "resolution_ref": "grd_v139_932",
         "trace_refs": [
-          "rt_v139_025",
-          "gt_v139_025",
-          "tmp_v139_025",
-          "pmf_v139_025"
+          "rt_v139_932",
+          "gt_v139_932",
+          "tmp_v139_932",
+          "pmf_v139_932"
         ]
       }
     ],
     "dedupe_index": [
       {
-        "dedupe_key": "blocked_memory_audit:mem_v139_025:gt_v139_025",
-        "canonical_queue_item_id": "gqi_v139_025"
+        "dedupe_key": "rollback_audit:mem_v139_932:gt_v139_932",
+        "canonical_queue_item_id": "gqi_v139_932"
       }
     ],
     "open_item_count": 0,
@@ -84,26 +84,26 @@
   "human_review_payloads": [],
   "human_review_resolution": null,
   "governance_resolution_decision": {
-    "governance_resolution_decision_id": "grd_v139_025",
-    "governance_queue_item_id": "gqi_v139_025",
+    "governance_resolution_decision_id": "grd_v139_932",
+    "governance_queue_item_id": "gqi_v139_932",
     "resolution_type": "clarified_no_write",
     "production_write_gate_ref": null,
     "production_write_executed": false,
     "trace_refs": [
-      "rt_v139_025",
-      "gqi_v139_025"
+      "rt_v139_932",
+      "gqi_v139_932"
     ]
   },
   "production_memory_write_gate": {
-    "gate_id": "pmwg_v139_025",
+    "gate_id": "pmwg_v139_932",
     "decision": "block",
     "production_write_executed": false,
     "environment": "deterministic_local_fixture"
   },
   "before_memory_lifecycle_state": {
-    "memory_id": "mem_v139_025",
-    "state_snapshot_id": "state_blocked_v139_025",
-    "current_status": "blocked",
+    "memory_id": "mem_v139_932",
+    "state_snapshot_id": "state_active_v139_932",
+    "current_status": "active",
     "contexts": [
       "office_daily"
     ],
@@ -115,9 +115,9 @@
     "global_memory_write": false
   },
   "after_memory_lifecycle_state": {
-    "memory_id": "mem_v139_025",
-    "state_snapshot_id": "state_blocked_v139_025",
-    "current_status": "blocked",
+    "memory_id": "mem_v139_932",
+    "state_snapshot_id": "state_rolled_back_v139_932",
+    "current_status": "rolled_back",
     "contexts": [
       "office_daily"
     ],
@@ -129,84 +129,77 @@
     "global_memory_write": false
   },
   "governance_action_surface": {
-    "governance_action_surface_id": "gas_v139_025",
-    "runtime_trace_id": "rt_v139_025",
-    "source_governance_queue_ref": "rgq_v139_025",
-    "surface_context": "post_resolution_response",
+    "governance_action_surface_id": "gas_v139_932",
+    "runtime_trace_id": "rt_v139_932",
+    "source_governance_queue_ref": "rgq_v139_932",
+    "surface_context": "daily_outfit_card",
     "cards": [],
     "response_blocks": [
       {
-        "response_block_id": "urb_v139_025",
+        "response_block_id": "urb_v139_932",
         "block_type": "memory_state_notice",
-        "text": "This blocked memory is excluded from future outfit claims.",
+        "text": "This memory was rolled back and will not be used for future outfit packets.",
         "claim_refs": [
-          "claim_v139_025"
+          "claim_v139_932"
         ],
-        "trace_refs": [
-          "rt_v139_025",
-          "arp_v139_025",
-          "grd_v139_025",
-          "gqi_v139_025",
-          "mem_v139_025"
-        ],
-        "status_queue_item_id": "gqi_v139_025"
+        "trace_refs": []
       }
     ],
     "trace_refs": [
-      "rt_v139_025",
-      "rgq_v139_025",
-      "gqi_v139_025"
+      "rt_v139_932",
+      "rgq_v139_932",
+      "gqi_v139_932"
     ]
   },
   "action_submission_envelope": null,
   "action_result_packet": {
-    "action_result_packet_id": "arp_v139_025",
+    "action_result_packet_id": "arp_v139_932",
     "action_submission_id": null,
-    "governance_resolution_decision_id": "grd_v139_025",
+    "governance_resolution_decision_id": "grd_v139_932",
     "result_type": "resolved_applied",
     "production_write_executed": false,
-    "post_action_task_memory_packet_id": "tmp_post_action_v139_025",
+    "post_action_task_memory_packet_id": "tmp_post_action_v139_932",
     "user_visible_response_block_ids": [
-      "urb_v139_025"
+      "urb_v139_932"
     ],
     "trace_refs": [
-      "rt_v139_025",
-      "gqi_v139_025",
-      "grd_v139_025"
+      "rt_v139_932",
+      "gqi_v139_932",
+      "grd_v139_932"
     ]
   },
   "post_action_task_memory_packet": {
-    "post_action_task_memory_packet_id": "tmp_post_action_v139_025",
+    "post_action_task_memory_packet_id": "tmp_post_action_v139_932",
     "request_context": "office_daily",
     "candidate_promoted_memory_ids": [
-      "mem_v139_025"
+      "mem_v139_932"
     ],
     "consumed_promoted_memory_ids": [],
     "excluded_memory_ids": [
-      "mem_v139_025"
+      "mem_v139_932"
     ],
-    "expected_behavior": "excluded_by_blocked_state",
+    "expected_behavior": "excluded_by_rollback",
     "daily_outfit_card_status": "resolved",
     "stale_hold_banner_present": false,
-    "resolution_ref": "grd_v139_025",
+    "resolution_ref": "grd_v139_932",
     "trace_refs": [
-      "rt_v139_025",
-      "arp_v139_025",
-      "grd_v139_025"
+      "rt_v139_932",
+      "arp_v139_932",
+      "grd_v139_932"
     ]
   },
   "action_idempotency_record": null,
   "stale_action_suppression_proof": null,
   "response_claim_traces": [
     {
-      "claim_id": "claim_v139_025",
-      "text": "This blocked memory is excluded from future outfit claims.",
-      "action_result_packet_id": "arp_v139_025",
-      "governance_resolution_decision_id": "grd_v139_025",
+      "claim_id": "claim_v139_932",
+      "text": "This memory was rolled back and will not be used for future outfit packets.",
+      "action_result_packet_id": "arp_v139_932",
+      "governance_resolution_decision_id": "grd_v139_932",
       "trace_refs": [
-        "urb_v139_025",
-        "arp_v139_025",
-        "grd_v139_025"
+        "urb_v139_932",
+        "arp_v139_932",
+        "grd_v139_932"
       ]
     }
   ],
@@ -220,19 +213,19 @@
   },
   "rollback_blocked_absence_proof": {
     "future_consumption_absent": true,
-    "future_claims_absent": true,
+    "future_claims_absent": false,
     "no_active_action_for_memory": true,
     "trace_refs": [
-      "mem_v139_025",
-      "tmp_post_action_v139_025"
+      "mem_v139_932",
+      "tmp_post_action_v139_932"
     ]
   },
   "daily_outfit_card_status_proof": {
     "status": "resolved",
     "stale_hold_banner_present": false,
     "trace_refs": [
-      "tmp_post_action_v139_025",
-      "urb_v139_025"
+      "tmp_post_action_v139_932",
+      "urb_v139_932"
     ]
   },
   "reviewer_checklist_refs": [],
@@ -241,7 +234,13 @@
     "run_v138_validation_suite": "PASS"
   },
   "state_hashes": {
-    "before": "039261334e0ae17d457437b2d5d389ec940a85f45a69daefda8c6d39104ceecc",
-    "after": "039261334e0ae17d457437b2d5d389ec940a85f45a69daefda8c6d39104ceecc"
-  }
+    "before": "a2183ec8f1f0feba0d608ce5e8ccf689b206968b3e5aef33e551ab10d0855d50",
+    "after": "db2e1d19552fe9e3a553e41c5935124f89da7a50e11f738f7c4b5180ce53c6cf"
+  },
+  "defect_type": "missing_rollback_status_card_or_block",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "action_card_matches_queue_item_rate",
+    "rollback_blocked_status_absence_proof_rate"
+  ]
 }

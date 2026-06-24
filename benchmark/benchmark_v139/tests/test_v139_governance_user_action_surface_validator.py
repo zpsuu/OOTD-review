@@ -52,8 +52,8 @@ class V139GovernanceUserActionSurfaceValidatorTests(unittest.TestCase):
             self.assertEqual(clean["suite_summary"]["passed_cases"], 34)
             self.assertEqual(clean["suite_summary"]["passed_checks"], 20)
             self.assertEqual(adversarial["suite_summary"]["passed_cases"], 0)
-            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 29)
-            self.assertEqual(adversarial["detected_defect_count"], 29)
+            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 36)
+            self.assertEqual(adversarial["detected_defect_count"], 36)
             self.assertTrue(sample["passed"], sample["failures"])
             self.assertTrue(consistency["passed"], consistency["failures"])
 
@@ -220,6 +220,88 @@ class V139GovernanceUserActionSurfaceValidatorTests(unittest.TestCase):
             failed = self._failed(result_dir)
             self.assertIn("response_claims_trace_backed_rate", failed["v139_G01_response_claims_trace_to_action_result"])
 
+    def test_missing_open_clarification_card_is_detected(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dir = self._build(tmp)
+            path = next((result_dir / "per_case" / "clean").glob("*A01_open_clarification_queue_item_creates_active_action_card.json"))
+            case = json.loads(path.read_text(encoding="utf-8"))
+            case["governance_action_surface"]["cards"] = []
+            _write_json(path, case)
+            failed = self._failed(result_dir)
+            self.assertIn("action_card_matches_queue_item_rate", failed["v139_A01_open_clarification_queue_item_creates_active_action_card"])
+            self.assertIn("clarification_card_trace_backed_rate", failed["v139_A01_open_clarification_queue_item_creates_active_action_card"])
+
+    def test_missing_open_review_pending_card_is_detected(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dir = self._build(tmp)
+            path = next((result_dir / "per_case" / "clean").glob("*C01_review_pending_notice_hides_raw_review_evidence.json"))
+            case = json.loads(path.read_text(encoding="utf-8"))
+            case["governance_action_surface"]["cards"] = []
+            _write_json(path, case)
+            failed = self._failed(result_dir)
+            self.assertIn("action_card_matches_queue_item_rate", failed["v139_C01_review_pending_notice_hides_raw_review_evidence"])
+            self.assertIn("review_pending_notice_hides_internal_evidence_rate", failed["v139_C01_review_pending_notice_hides_raw_review_evidence"])
+
+    def test_missing_rollback_status_card_or_block_is_detected(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dir = self._build(tmp)
+            path = next((result_dir / "per_case" / "clean").glob("*F01_rollback_status_excludes_memory_from_future_packet.json"))
+            case = json.loads(path.read_text(encoding="utf-8"))
+            case["governance_action_surface"]["cards"] = []
+            _write_json(path, case)
+            failed = self._failed(result_dir)
+            self.assertIn("action_card_matches_queue_item_rate", failed["v139_F01_rollback_status_excludes_memory_from_future_packet"])
+            self.assertIn("rollback_blocked_status_absence_proof_rate", failed["v139_F01_rollback_status_excludes_memory_from_future_packet"])
+
+    def test_missing_blocked_status_card_or_block_is_detected(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dir = self._build(tmp)
+            path = next((result_dir / "per_case" / "clean").glob("*F02_blocked_status_excludes_memory_from_future_claims.json"))
+            case = json.loads(path.read_text(encoding="utf-8"))
+            case["governance_action_surface"]["cards"] = []
+            _write_json(path, case)
+            failed = self._failed(result_dir)
+            self.assertIn("action_card_matches_queue_item_rate", failed["v139_F02_blocked_status_excludes_memory_from_future_claims"])
+            self.assertIn("rollback_blocked_status_absence_proof_rate", failed["v139_F02_blocked_status_excludes_memory_from_future_claims"])
+
+    def test_missing_expired_disabled_card_is_detected(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dir = self._build(tmp)
+            path = next((result_dir / "per_case" / "clean").glob("*D02_expired_action_card_disabled.json"))
+            case = json.loads(path.read_text(encoding="utf-8"))
+            case["governance_action_surface"]["cards"] = []
+            _write_json(path, case)
+            failed = self._failed(result_dir)
+            self.assertIn("action_card_matches_queue_item_rate", failed["v139_D02_expired_action_card_disabled"])
+            self.assertIn("expired_action_disabled_noop_rate", failed["v139_D02_expired_action_card_disabled"])
+
+    def test_missing_review_request_followup_card_is_detected(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dir = self._build(tmp)
+            path = next((result_dir / "per_case" / "clean").glob("*C04_review_request_clarification_surfaces_followup_card.json"))
+            case = json.loads(path.read_text(encoding="utf-8"))
+            case["governance_action_surface"]["cards"] = [
+                card for card in case["governance_action_surface"]["cards"]
+                if not str(card.get("governance_queue_item_id") or "").startswith("gqi_followup_")
+            ]
+            _write_json(path, case)
+            failed = self._failed(result_dir)
+            self.assertIn("action_card_matches_queue_item_rate", failed["v139_C04_review_request_clarification_surfaces_followup_card"])
+            self.assertIn("clarification_card_trace_backed_rate", failed["v139_C04_review_request_clarification_surfaces_followup_card"])
+
+    def test_duplicate_active_clarification_cards_are_detected(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dir = self._build(tmp)
+            path = next((result_dir / "per_case" / "clean").glob("*A01_open_clarification_queue_item_creates_active_action_card.json"))
+            case = json.loads(path.read_text(encoding="utf-8"))
+            duplicate = dict(case["governance_action_surface"]["cards"][0])
+            duplicate["user_action_card_id"] = f"{duplicate['user_action_card_id']}_duplicate"
+            case["governance_action_surface"]["cards"].append(duplicate)
+            _write_json(path, case)
+            failed = self._failed(result_dir)
+            self.assertIn("action_card_matches_queue_item_rate", failed["v139_A01_open_clarification_queue_item_creates_active_action_card"])
+            self.assertIn("clarification_card_trace_backed_rate", failed["v139_A01_open_clarification_queue_item_creates_active_action_card"])
+
     def test_adversarial_detection_does_not_depend_on_gate_assertions(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             result_dir = self._build(tmp)
@@ -231,8 +313,8 @@ class V139GovernanceUserActionSurfaceValidatorTests(unittest.TestCase):
                 _write_json(path, case)
             adversarial = validator.validate_directory(result_dir, "adversarial")
             self.assertEqual(adversarial["suite_summary"]["passed_cases"], 0)
-            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 29)
-            self.assertEqual(adversarial["detected_defect_count"], 29)
+            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 36)
+            self.assertEqual(adversarial["detected_defect_count"], 36)
 
     def _failed(self, result_dir: Path) -> dict[str, list[str]]:
         report = validator.validate_directory(result_dir, "clean")

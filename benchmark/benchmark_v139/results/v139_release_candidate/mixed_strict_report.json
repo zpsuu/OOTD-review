@@ -1,15 +1,15 @@
 {
   "benchmark_id": "v1.39.governance_user_action_surface.mixed_strict",
   "schema_version": "v1.39",
-  "generated_at": "2026-06-24T07:55:30Z",
+  "generated_at": "2026-06-24T08:10:36Z",
   "verdicts": {
     "mixed_strict_verdict": "fail",
     "injected_defect_detection_verdict": "pass"
   },
   "suite_summary": {
-    "total_cases": 29,
+    "total_cases": 36,
     "passed_cases": 0,
-    "failed_cases": 29,
+    "failed_cases": 36,
     "total_checks": 20,
     "passed_checks": 0,
     "failed_checks": 20
@@ -393,6 +393,69 @@
         "response_claims_trace_backed_rate"
       ],
       "artifact_ref": "per_case/mixed_strict/v139_ADV_M29_action_result_references_missing_response_block.json"
+    },
+    {
+      "case_id": "v139_ADV_M30_missing_open_clarification_card",
+      "passed": false,
+      "failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "clarification_card_trace_backed_rate"
+      ],
+      "artifact_ref": "per_case/mixed_strict/v139_ADV_M30_missing_open_clarification_card.json"
+    },
+    {
+      "case_id": "v139_ADV_M31_missing_open_review_pending_card",
+      "passed": false,
+      "failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "review_pending_notice_hides_internal_evidence_rate"
+      ],
+      "artifact_ref": "per_case/mixed_strict/v139_ADV_M31_missing_open_review_pending_card.json"
+    },
+    {
+      "case_id": "v139_ADV_M32_missing_rollback_status_card_or_block",
+      "passed": false,
+      "failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "rollback_blocked_status_absence_proof_rate"
+      ],
+      "artifact_ref": "per_case/mixed_strict/v139_ADV_M32_missing_rollback_status_card_or_block.json"
+    },
+    {
+      "case_id": "v139_ADV_M33_missing_blocked_status_card_or_block",
+      "passed": false,
+      "failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "rollback_blocked_status_absence_proof_rate"
+      ],
+      "artifact_ref": "per_case/mixed_strict/v139_ADV_M33_missing_blocked_status_card_or_block.json"
+    },
+    {
+      "case_id": "v139_ADV_M34_missing_expired_disabled_card",
+      "passed": false,
+      "failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "expired_action_disabled_noop_rate"
+      ],
+      "artifact_ref": "per_case/mixed_strict/v139_ADV_M34_missing_expired_disabled_card.json"
+    },
+    {
+      "case_id": "v139_ADV_M35_missing_review_request_followup_clarification_card",
+      "passed": false,
+      "failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "clarification_card_trace_backed_rate"
+      ],
+      "artifact_ref": "per_case/mixed_strict/v139_ADV_M35_missing_review_request_followup_clarification_card.json"
+    },
+    {
+      "case_id": "v139_ADV_M36_duplicate_active_clarification_cards",
+      "passed": false,
+      "failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "clarification_card_trace_backed_rate"
+      ],
+      "artifact_ref": "per_case/mixed_strict/v139_ADV_M36_duplicate_active_clarification_cards.json"
     }
   ]
 }

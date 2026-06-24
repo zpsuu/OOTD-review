@@ -1,12 +1,12 @@
 {
   "validator": "v1.39.independent.governance_user_action_surface_validator",
-  "generated_at": "2026-06-24T07:55:30Z",
+  "generated_at": "2026-06-24T08:10:37Z",
   "result_dir": "benchmark/benchmark_v139/results/v139_release_candidate",
   "subset": "adversarial",
   "suite_summary": {
-    "total_cases": 29,
+    "total_cases": 36,
     "passed_cases": 0,
-    "failed_cases": 29,
+    "failed_cases": 36,
     "total_checks": 20,
     "passed_checks": 3,
     "failed_checks": 17
@@ -14,8 +14,8 @@
   "checks": [
     {
       "check_id": "surface_created_from_governance_queue_rate",
-      "applicable_cases": 29,
-      "passed_cases": 29,
+      "applicable_cases": 36,
+      "passed_cases": 36,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
@@ -23,9 +23,9 @@
     },
     {
       "check_id": "action_card_matches_queue_item_rate",
-      "applicable_cases": 29,
+      "applicable_cases": 36,
       "passed_cases": 27,
-      "value": 0.9310344827586207,
+      "value": 0.75,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -42,14 +42,63 @@
           "failures": [
             "action_card_matches_queue_item_rate failed from raw v1.39 action-surface validation"
           ]
+        },
+        {
+          "case_id": "v139_ADV_M30_missing_open_clarification_card",
+          "artifact_ref": "per_case/adversarial/v139_ADV_M30_missing_open_clarification_card.json",
+          "failures": [
+            "action_card_matches_queue_item_rate failed from raw v1.39 action-surface validation"
+          ]
+        },
+        {
+          "case_id": "v139_ADV_M31_missing_open_review_pending_card",
+          "artifact_ref": "per_case/adversarial/v139_ADV_M31_missing_open_review_pending_card.json",
+          "failures": [
+            "action_card_matches_queue_item_rate failed from raw v1.39 action-surface validation"
+          ]
+        },
+        {
+          "case_id": "v139_ADV_M32_missing_rollback_status_card_or_block",
+          "artifact_ref": "per_case/adversarial/v139_ADV_M32_missing_rollback_status_card_or_block.json",
+          "failures": [
+            "action_card_matches_queue_item_rate failed from raw v1.39 action-surface validation"
+          ]
+        },
+        {
+          "case_id": "v139_ADV_M33_missing_blocked_status_card_or_block",
+          "artifact_ref": "per_case/adversarial/v139_ADV_M33_missing_blocked_status_card_or_block.json",
+          "failures": [
+            "action_card_matches_queue_item_rate failed from raw v1.39 action-surface validation"
+          ]
+        },
+        {
+          "case_id": "v139_ADV_M34_missing_expired_disabled_card",
+          "artifact_ref": "per_case/adversarial/v139_ADV_M34_missing_expired_disabled_card.json",
+          "failures": [
+            "action_card_matches_queue_item_rate failed from raw v1.39 action-surface validation"
+          ]
+        },
+        {
+          "case_id": "v139_ADV_M35_missing_review_request_followup_clarification_card",
+          "artifact_ref": "per_case/adversarial/v139_ADV_M35_missing_review_request_followup_clarification_card.json",
+          "failures": [
+            "action_card_matches_queue_item_rate failed from raw v1.39 action-surface validation"
+          ]
+        },
+        {
+          "case_id": "v139_ADV_M36_duplicate_active_clarification_cards",
+          "artifact_ref": "per_case/adversarial/v139_ADV_M36_duplicate_active_clarification_cards.json",
+          "failures": [
+            "action_card_matches_queue_item_rate failed from raw v1.39 action-surface validation"
+          ]
         }
       ]
     },
     {
       "check_id": "clarification_card_trace_backed_rate",
-      "applicable_cases": 29,
-      "passed_cases": 26,
-      "value": 0.896551724137931,
+      "applicable_cases": 36,
+      "passed_cases": 30,
+      "value": 0.8333333333333334,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -73,14 +122,35 @@
           "failures": [
             "clarification_card_trace_backed_rate failed from raw v1.39 action-surface validation"
           ]
+        },
+        {
+          "case_id": "v139_ADV_M30_missing_open_clarification_card",
+          "artifact_ref": "per_case/adversarial/v139_ADV_M30_missing_open_clarification_card.json",
+          "failures": [
+            "clarification_card_trace_backed_rate failed from raw v1.39 action-surface validation"
+          ]
+        },
+        {
+          "case_id": "v139_ADV_M35_missing_review_request_followup_clarification_card",
+          "artifact_ref": "per_case/adversarial/v139_ADV_M35_missing_review_request_followup_clarification_card.json",
+          "failures": [
+            "clarification_card_trace_backed_rate failed from raw v1.39 action-surface validation"
+          ]
+        },
+        {
+          "case_id": "v139_ADV_M36_duplicate_active_clarification_cards",
+          "artifact_ref": "per_case/adversarial/v139_ADV_M36_duplicate_active_clarification_cards.json",
+          "failures": [
+            "clarification_card_trace_backed_rate failed from raw v1.39 action-surface validation"
+          ]
         }
       ]
     },
     {
       "check_id": "action_submission_allowed_and_active_rate",
-      "applicable_cases": 29,
-      "passed_cases": 27,
-      "value": 0.9310344827586207,
+      "applicable_cases": 36,
+      "passed_cases": 34,
+      "value": 0.9444444444444444,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -102,9 +172,9 @@
     },
     {
       "check_id": "no_write_action_preserves_memory_state_rate",
-      "applicable_cases": 29,
-      "passed_cases": 26,
-      "value": 0.896551724137931,
+      "applicable_cases": 36,
+      "passed_cases": 33,
+      "value": 0.9166666666666666,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -133,9 +203,9 @@
     },
     {
       "check_id": "remember_for_context_routes_to_write_gate_rate",
-      "applicable_cases": 29,
-      "passed_cases": 28,
-      "value": 0.9655172413793104,
+      "applicable_cases": 36,
+      "passed_cases": 35,
+      "value": 0.9722222222222222,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -150,9 +220,9 @@
     },
     {
       "check_id": "review_pending_notice_hides_internal_evidence_rate",
-      "applicable_cases": 29,
-      "passed_cases": 27,
-      "value": 0.9310344827586207,
+      "applicable_cases": 36,
+      "passed_cases": 33,
+      "value": 0.9166666666666666,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -169,14 +239,21 @@
           "failures": [
             "review_pending_notice_hides_internal_evidence_rate failed from raw v1.39 action-surface validation"
           ]
+        },
+        {
+          "case_id": "v139_ADV_M31_missing_open_review_pending_card",
+          "artifact_ref": "per_case/adversarial/v139_ADV_M31_missing_open_review_pending_card.json",
+          "failures": [
+            "review_pending_notice_hides_internal_evidence_rate failed from raw v1.39 action-surface validation"
+          ]
         }
       ]
     },
     {
       "check_id": "review_resolution_response_truthful_rate",
-      "applicable_cases": 29,
-      "passed_cases": 26,
-      "value": 0.896551724137931,
+      "applicable_cases": 36,
+      "passed_cases": 33,
+      "value": 0.9166666666666666,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -205,9 +282,9 @@
     },
     {
       "check_id": "expired_action_disabled_noop_rate",
-      "applicable_cases": 29,
-      "passed_cases": 26,
-      "value": 0.896551724137931,
+      "applicable_cases": 36,
+      "passed_cases": 32,
+      "value": 0.8888888888888888,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -231,14 +308,21 @@
           "failures": [
             "expired_action_disabled_noop_rate failed from raw v1.39 action-surface validation"
           ]
+        },
+        {
+          "case_id": "v139_ADV_M34_missing_expired_disabled_card",
+          "artifact_ref": "per_case/adversarial/v139_ADV_M34_missing_expired_disabled_card.json",
+          "failures": [
+            "expired_action_disabled_noop_rate failed from raw v1.39 action-surface validation"
+          ]
         }
       ]
     },
     {
       "check_id": "duplicate_submission_idempotent_rate",
-      "applicable_cases": 29,
-      "passed_cases": 27,
-      "value": 0.9310344827586207,
+      "applicable_cases": 36,
+      "passed_cases": 34,
+      "value": 0.9444444444444444,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -260,9 +344,9 @@
     },
     {
       "check_id": "stale_action_suppressed_rate",
-      "applicable_cases": 29,
-      "passed_cases": 27,
-      "value": 0.9310344827586207,
+      "applicable_cases": 36,
+      "passed_cases": 34,
+      "value": 0.9444444444444444,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -284,9 +368,9 @@
     },
     {
       "check_id": "post_action_packet_matches_resolution_rate",
-      "applicable_cases": 29,
-      "passed_cases": 24,
-      "value": 0.8275862068965517,
+      "applicable_cases": 36,
+      "passed_cases": 31,
+      "value": 0.8611111111111112,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -329,9 +413,9 @@
     },
     {
       "check_id": "daily_outfit_status_rebuild_rate",
-      "applicable_cases": 29,
-      "passed_cases": 28,
-      "value": 0.9655172413793104,
+      "applicable_cases": 36,
+      "passed_cases": 35,
+      "value": 0.9722222222222222,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -346,9 +430,9 @@
     },
     {
       "check_id": "rollback_blocked_status_absence_proof_rate",
-      "applicable_cases": 29,
-      "passed_cases": 27,
-      "value": 0.9310344827586207,
+      "applicable_cases": 36,
+      "passed_cases": 32,
+      "value": 0.8888888888888888,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -365,14 +449,28 @@
           "failures": [
             "rollback_blocked_status_absence_proof_rate failed from raw v1.39 action-surface validation"
           ]
+        },
+        {
+          "case_id": "v139_ADV_M32_missing_rollback_status_card_or_block",
+          "artifact_ref": "per_case/adversarial/v139_ADV_M32_missing_rollback_status_card_or_block.json",
+          "failures": [
+            "rollback_blocked_status_absence_proof_rate failed from raw v1.39 action-surface validation"
+          ]
+        },
+        {
+          "case_id": "v139_ADV_M33_missing_blocked_status_card_or_block",
+          "artifact_ref": "per_case/adversarial/v139_ADV_M33_missing_blocked_status_card_or_block.json",
+          "failures": [
+            "rollback_blocked_status_absence_proof_rate failed from raw v1.39 action-surface validation"
+          ]
         }
       ]
     },
     {
       "check_id": "response_claims_trace_backed_rate",
-      "applicable_cases": 29,
-      "passed_cases": 26,
-      "value": 0.896551724137931,
+      "applicable_cases": 36,
+      "passed_cases": 31,
+      "value": 0.8611111111111112,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -396,14 +494,28 @@
           "failures": [
             "response_claims_trace_backed_rate failed from raw v1.39 action-surface validation"
           ]
+        },
+        {
+          "case_id": "v139_ADV_M32_missing_rollback_status_card_or_block",
+          "artifact_ref": "per_case/adversarial/v139_ADV_M32_missing_rollback_status_card_or_block.json",
+          "failures": [
+            "response_claims_trace_backed_rate failed from raw v1.39 action-surface validation"
+          ]
+        },
+        {
+          "case_id": "v139_ADV_M33_missing_blocked_status_card_or_block",
+          "artifact_ref": "per_case/adversarial/v139_ADV_M33_missing_blocked_status_card_or_block.json",
+          "failures": [
+            "response_claims_trace_backed_rate failed from raw v1.39 action-surface validation"
+          ]
         }
       ]
     },
     {
       "check_id": "policy_safe_user_visible_text_rate",
-      "applicable_cases": 29,
-      "passed_cases": 26,
-      "value": 0.896551724137931,
+      "applicable_cases": 36,
+      "passed_cases": 33,
+      "value": 0.9166666666666666,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -432,9 +544,9 @@
     },
     {
       "check_id": "sample_artifacts_match_per_case_rate",
-      "applicable_cases": 29,
-      "passed_cases": 28,
-      "value": 0.9655172413793104,
+      "applicable_cases": 36,
+      "passed_cases": 35,
+      "value": 0.9722222222222222,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -449,9 +561,9 @@
     },
     {
       "check_id": "report_consistency_with_independent_validation_rate",
-      "applicable_cases": 29,
-      "passed_cases": 28,
-      "value": 0.9655172413793104,
+      "applicable_cases": 36,
+      "passed_cases": 35,
+      "value": 0.9722222222222222,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -466,8 +578,8 @@
     },
     {
       "check_id": "adversarial_detection_rate",
-      "applicable_cases": 29,
-      "passed_cases": 29,
+      "applicable_cases": 36,
+      "passed_cases": 36,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
@@ -475,8 +587,8 @@
     },
     {
       "check_id": "v138_validation_replay_pass_rate",
-      "applicable_cases": 29,
-      "passed_cases": 29,
+      "applicable_cases": 36,
+      "passed_cases": 36,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
@@ -846,6 +958,106 @@
         "response_claims_trace_backed_rate"
       ],
       "defect_type": "action_result_references_missing_response_block"
+    },
+    {
+      "case_id": "v139_ADV_M30_missing_open_clarification_card",
+      "artifact_ref": "per_case/adversarial/v139_ADV_M30_missing_open_clarification_card.json",
+      "passed": false,
+      "failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "clarification_card_trace_backed_rate"
+      ],
+      "expected_failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "clarification_card_trace_backed_rate"
+      ],
+      "defect_type": "missing_open_clarification_card"
+    },
+    {
+      "case_id": "v139_ADV_M31_missing_open_review_pending_card",
+      "artifact_ref": "per_case/adversarial/v139_ADV_M31_missing_open_review_pending_card.json",
+      "passed": false,
+      "failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "review_pending_notice_hides_internal_evidence_rate"
+      ],
+      "expected_failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "review_pending_notice_hides_internal_evidence_rate"
+      ],
+      "defect_type": "missing_open_review_pending_card"
+    },
+    {
+      "case_id": "v139_ADV_M32_missing_rollback_status_card_or_block",
+      "artifact_ref": "per_case/adversarial/v139_ADV_M32_missing_rollback_status_card_or_block.json",
+      "passed": false,
+      "failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "response_claims_trace_backed_rate",
+        "rollback_blocked_status_absence_proof_rate"
+      ],
+      "expected_failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "rollback_blocked_status_absence_proof_rate"
+      ],
+      "defect_type": "missing_rollback_status_card_or_block"
+    },
+    {
+      "case_id": "v139_ADV_M33_missing_blocked_status_card_or_block",
+      "artifact_ref": "per_case/adversarial/v139_ADV_M33_missing_blocked_status_card_or_block.json",
+      "passed": false,
+      "failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "response_claims_trace_backed_rate",
+        "rollback_blocked_status_absence_proof_rate"
+      ],
+      "expected_failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "rollback_blocked_status_absence_proof_rate"
+      ],
+      "defect_type": "missing_blocked_status_card_or_block"
+    },
+    {
+      "case_id": "v139_ADV_M34_missing_expired_disabled_card",
+      "artifact_ref": "per_case/adversarial/v139_ADV_M34_missing_expired_disabled_card.json",
+      "passed": false,
+      "failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "expired_action_disabled_noop_rate"
+      ],
+      "expected_failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "expired_action_disabled_noop_rate"
+      ],
+      "defect_type": "missing_expired_disabled_card"
+    },
+    {
+      "case_id": "v139_ADV_M35_missing_review_request_followup_clarification_card",
+      "artifact_ref": "per_case/adversarial/v139_ADV_M35_missing_review_request_followup_clarification_card.json",
+      "passed": false,
+      "failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "clarification_card_trace_backed_rate"
+      ],
+      "expected_failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "clarification_card_trace_backed_rate"
+      ],
+      "defect_type": "missing_review_request_followup_clarification_card"
+    },
+    {
+      "case_id": "v139_ADV_M36_duplicate_active_clarification_cards",
+      "artifact_ref": "per_case/adversarial/v139_ADV_M36_duplicate_active_clarification_cards.json",
+      "passed": false,
+      "failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "clarification_card_trace_backed_rate"
+      ],
+      "expected_failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "clarification_card_trace_backed_rate"
+      ],
+      "defect_type": "duplicate_active_clarification_cards"
     }
   ],
   "detected_defects": [
@@ -1182,7 +1394,100 @@
         "response_claims_trace_backed_rate"
       ],
       "detected": true
+    },
+    {
+      "case_id": "v139_ADV_M30_missing_open_clarification_card",
+      "defect_type": "missing_open_clarification_card",
+      "expected_failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "clarification_card_trace_backed_rate"
+      ],
+      "failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "clarification_card_trace_backed_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v139_ADV_M31_missing_open_review_pending_card",
+      "defect_type": "missing_open_review_pending_card",
+      "expected_failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "review_pending_notice_hides_internal_evidence_rate"
+      ],
+      "failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "review_pending_notice_hides_internal_evidence_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v139_ADV_M32_missing_rollback_status_card_or_block",
+      "defect_type": "missing_rollback_status_card_or_block",
+      "expected_failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "rollback_blocked_status_absence_proof_rate"
+      ],
+      "failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "response_claims_trace_backed_rate",
+        "rollback_blocked_status_absence_proof_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v139_ADV_M33_missing_blocked_status_card_or_block",
+      "defect_type": "missing_blocked_status_card_or_block",
+      "expected_failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "rollback_blocked_status_absence_proof_rate"
+      ],
+      "failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "response_claims_trace_backed_rate",
+        "rollback_blocked_status_absence_proof_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v139_ADV_M34_missing_expired_disabled_card",
+      "defect_type": "missing_expired_disabled_card",
+      "expected_failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "expired_action_disabled_noop_rate"
+      ],
+      "failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "expired_action_disabled_noop_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v139_ADV_M35_missing_review_request_followup_clarification_card",
+      "defect_type": "missing_review_request_followup_clarification_card",
+      "expected_failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "clarification_card_trace_backed_rate"
+      ],
+      "failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "clarification_card_trace_backed_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v139_ADV_M36_duplicate_active_clarification_cards",
+      "defect_type": "duplicate_active_clarification_cards",
+      "expected_failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "clarification_card_trace_backed_rate"
+      ],
+      "failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "clarification_card_trace_backed_rate"
+      ],
+      "detected": true
     }
   ],
-  "detected_defect_count": 29
+  "detected_defect_count": 36
 }

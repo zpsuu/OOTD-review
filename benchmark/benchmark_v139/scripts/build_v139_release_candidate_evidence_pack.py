@@ -110,6 +110,13 @@ DEFECTS = [
     ("ADV_M27", "missing_action_result_for_expired_submission", ["expired_action_disabled_noop_rate", "post_action_packet_matches_resolution_rate"]),
     ("ADV_M28", "missing_response_claim_trace", ["response_claims_trace_backed_rate"]),
     ("ADV_M29", "action_result_references_missing_response_block", ["response_claims_trace_backed_rate"]),
+    ("ADV_M30", "missing_open_clarification_card", ["action_card_matches_queue_item_rate", "clarification_card_trace_backed_rate"]),
+    ("ADV_M31", "missing_open_review_pending_card", ["action_card_matches_queue_item_rate", "review_pending_notice_hides_internal_evidence_rate"]),
+    ("ADV_M32", "missing_rollback_status_card_or_block", ["action_card_matches_queue_item_rate", "rollback_blocked_status_absence_proof_rate"]),
+    ("ADV_M33", "missing_blocked_status_card_or_block", ["action_card_matches_queue_item_rate", "rollback_blocked_status_absence_proof_rate"]),
+    ("ADV_M34", "missing_expired_disabled_card", ["action_card_matches_queue_item_rate", "expired_action_disabled_noop_rate"]),
+    ("ADV_M35", "missing_review_request_followup_clarification_card", ["action_card_matches_queue_item_rate", "clarification_card_trace_backed_rate"]),
+    ("ADV_M36", "duplicate_active_clarification_cards", ["action_card_matches_queue_item_rate", "clarification_card_trace_backed_rate"]),
 ]
 
 SAMPLE_CASES = {
@@ -494,6 +501,9 @@ def _case(case_code: str, scenario: str, kind: str, index: int) -> dict[str, Any
         "claim_refs": [f"claim_{suffix}"],
         "trace_refs": [runtime_trace_id, result_id if result_packet else item_id, decision_id if decision else item_id],
     }
+    if kind == "no_active_blocked":
+        response_block["status_queue_item_id"] = item_id
+        response_block["trace_refs"].extend([item_id, memory_id])
     response_blocks.append(response_block)
     surface = {
         "governance_action_surface_id": surface_id,
@@ -650,6 +660,36 @@ def _defect(defect_id: str, defect_type: str, gates: list[str]) -> dict[str, Any
     elif defect_type == "action_result_references_missing_response_block":
         artifact = _set_case_meta(_case(defect_id, defect_type, "claims_trace", idx), defect_id, defect_type, gates)
         artifact["action_result_packet"]["user_visible_response_block_ids"] = ["urb_missing"]
+    elif defect_type == "missing_open_clarification_card":
+        artifact = _set_case_meta(_case(defect_id, defect_type, "open_clarification", idx), defect_id, defect_type, gates)
+        artifact["governance_action_surface"]["cards"] = []
+    elif defect_type == "missing_open_review_pending_card":
+        artifact = _set_case_meta(_case(defect_id, defect_type, "open_review", idx), defect_id, defect_type, gates)
+        artifact["governance_action_surface"]["cards"] = []
+    elif defect_type == "missing_rollback_status_card_or_block":
+        artifact = _set_case_meta(_case(defect_id, defect_type, "rollback_absence", idx), defect_id, defect_type, gates)
+        artifact["governance_action_surface"]["cards"] = []
+        artifact["governance_action_surface"]["response_blocks"][0]["trace_refs"] = []
+        artifact["governance_action_surface"]["response_blocks"][0].pop("status_queue_item_id", None)
+    elif defect_type == "missing_blocked_status_card_or_block":
+        artifact = _set_case_meta(_case(defect_id, defect_type, "blocked_absence", idx), defect_id, defect_type, gates)
+        artifact["governance_action_surface"]["cards"] = []
+        artifact["governance_action_surface"]["response_blocks"][0]["trace_refs"] = []
+        artifact["governance_action_surface"]["response_blocks"][0].pop("status_queue_item_id", None)
+    elif defect_type == "missing_expired_disabled_card":
+        artifact = _set_case_meta(_case(defect_id, defect_type, "expired_card", idx), defect_id, defect_type, gates)
+        artifact["governance_action_surface"]["cards"] = []
+    elif defect_type == "missing_review_request_followup_clarification_card":
+        artifact = _set_case_meta(_case(defect_id, defect_type, "review_request_clarification", idx), defect_id, defect_type, gates)
+        artifact["governance_action_surface"]["cards"] = [
+            card for card in artifact["governance_action_surface"]["cards"]
+            if not str(card.get("governance_queue_item_id") or "").startswith("gqi_followup_")
+        ]
+    elif defect_type == "duplicate_active_clarification_cards":
+        artifact = _set_case_meta(_case(defect_id, defect_type, "open_clarification", idx), defect_id, defect_type, gates)
+        duplicate = dict(artifact["governance_action_surface"]["cards"][0])
+        duplicate["user_action_card_id"] = f"{duplicate['user_action_card_id']}_duplicate"
+        artifact["governance_action_surface"]["cards"].append(duplicate)
     return artifact
 
 

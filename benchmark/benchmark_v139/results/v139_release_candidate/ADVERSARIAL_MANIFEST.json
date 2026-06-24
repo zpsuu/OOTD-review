@@ -1,6 +1,6 @@
 {
   "version": "v1.39",
-  "generated_at": "2026-06-24T07:55:30Z",
+  "generated_at": "2026-06-24T08:10:37Z",
   "source_result_dir": "benchmark/benchmark_v139/results/v139_release_candidate",
   "cases": [
     {
@@ -238,6 +238,69 @@
       "defect_type": "action_result_references_missing_response_block",
       "expected_failed_check_ids": [
         "response_claims_trace_backed_rate"
+      ]
+    },
+    {
+      "case_id": "v139_ADV_M30_missing_open_clarification_card",
+      "artifact_ref": "per_case/adversarial/v139_ADV_M30_missing_open_clarification_card.json",
+      "defect_type": "missing_open_clarification_card",
+      "expected_failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "clarification_card_trace_backed_rate"
+      ]
+    },
+    {
+      "case_id": "v139_ADV_M31_missing_open_review_pending_card",
+      "artifact_ref": "per_case/adversarial/v139_ADV_M31_missing_open_review_pending_card.json",
+      "defect_type": "missing_open_review_pending_card",
+      "expected_failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "review_pending_notice_hides_internal_evidence_rate"
+      ]
+    },
+    {
+      "case_id": "v139_ADV_M32_missing_rollback_status_card_or_block",
+      "artifact_ref": "per_case/adversarial/v139_ADV_M32_missing_rollback_status_card_or_block.json",
+      "defect_type": "missing_rollback_status_card_or_block",
+      "expected_failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "rollback_blocked_status_absence_proof_rate"
+      ]
+    },
+    {
+      "case_id": "v139_ADV_M33_missing_blocked_status_card_or_block",
+      "artifact_ref": "per_case/adversarial/v139_ADV_M33_missing_blocked_status_card_or_block.json",
+      "defect_type": "missing_blocked_status_card_or_block",
+      "expected_failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "rollback_blocked_status_absence_proof_rate"
+      ]
+    },
+    {
+      "case_id": "v139_ADV_M34_missing_expired_disabled_card",
+      "artifact_ref": "per_case/adversarial/v139_ADV_M34_missing_expired_disabled_card.json",
+      "defect_type": "missing_expired_disabled_card",
+      "expected_failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "expired_action_disabled_noop_rate"
+      ]
+    },
+    {
+      "case_id": "v139_ADV_M35_missing_review_request_followup_clarification_card",
+      "artifact_ref": "per_case/adversarial/v139_ADV_M35_missing_review_request_followup_clarification_card.json",
+      "defect_type": "missing_review_request_followup_clarification_card",
+      "expected_failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "clarification_card_trace_backed_rate"
+      ]
+    },
+    {
+      "case_id": "v139_ADV_M36_duplicate_active_clarification_cards",
+      "artifact_ref": "per_case/adversarial/v139_ADV_M36_duplicate_active_clarification_cards.json",
+      "defect_type": "duplicate_active_clarification_cards",
+      "expected_failed_check_ids": [
+        "action_card_matches_queue_item_rate",
+        "clarification_card_trace_backed_rate"
       ]
     }
   ]

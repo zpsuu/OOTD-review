@@ -4,7 +4,7 @@
   "theme": "Governance User Action Surface",
   "branch": "v139-governance-user-action-surface",
   "entrypoint": "benchmark/benchmark_v139/results/v139_release_candidate/REVIEW_MANIFEST.json",
-  "generated_at": "2026-06-24T07:55:30Z",
+  "generated_at": "2026-06-24T08:10:36Z",
   "builder_script": "benchmark/benchmark_v139/scripts/build_v139_release_candidate_evidence_pack.py",
   "validator_script": "benchmark/benchmark_v139/scripts/validate_v139_release_candidate.py",
   "runner_script": "benchmark/benchmark_v139/scripts/run_v139_validation_suite.py",

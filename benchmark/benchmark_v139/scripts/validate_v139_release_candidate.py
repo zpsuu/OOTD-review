@@ -94,6 +94,9 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
     cards = surface.get("cards") or []
     blocks = surface.get("response_blocks") or []
     cards_by_id = {card.get("user_action_card_id"): card for card in cards}
+    cards_by_item: dict[Any, list[dict[str, Any]]] = {}
+    for card in cards:
+        cards_by_item.setdefault(card.get("governance_queue_item_id"), []).append(card)
     clarification_requests = artifact.get("clarification_requests") or []
     requests_by_item: dict[Any, list[dict[str, Any]]] = {}
     for request in clarification_requests:
@@ -134,6 +137,56 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
         failures.append("surface_created_from_governance_queue_rate")
     if not set([runtime.get("runtime_trace_id"), queue.get("runtime_governance_queue_id")]).issubset(set(surface.get("trace_refs") or [])):
         failures.append("surface_created_from_governance_queue_rate")
+
+    for item in items:
+        item_id = item.get("governance_queue_item_id")
+        item_cards = cards_by_item.get(item_id, [])
+        item_trace_refs = set(item.get("trace_refs") or [])
+        trigger_type = item.get("trigger_type")
+        status = item.get("status")
+        if trigger_type == "clarification_required" and status == "open":
+            active = [card for card in item_cards if card.get("card_type") == "clarification" and card.get("display_state") == "active"]
+            if len(item_cards) != 1 or len(active) != 1:
+                failures.append("action_card_matches_queue_item_rate")
+                failures.append("clarification_card_trace_backed_rate")
+        if trigger_type == "human_review_required" and status == "open":
+            pending = [card for card in item_cards if card.get("card_type") == "review_pending" and card.get("display_state") == "pending"]
+            if len(item_cards) != 1 or len(pending) != 1:
+                failures.append("action_card_matches_queue_item_rate")
+                failures.append("review_pending_notice_hides_internal_evidence_rate")
+        if status == "expired":
+            expired = [
+                card for card in item_cards
+                if card.get("card_type") == "expired_action"
+                and card.get("display_state") in {"expired", "disabled"}
+                and card.get("disabled_reason") == "expired"
+                and not (card.get("allowed_actions") or [])
+            ]
+            if len(item_cards) != 1 or len(expired) != 1:
+                failures.append("action_card_matches_queue_item_rate")
+                failures.append("expired_action_disabled_noop_rate")
+        if trigger_type in {"rollback_audit", "blocked_memory_audit"} and status == "resolved":
+            expected_card_type = "rollback_status" if trigger_type == "rollback_audit" else "blocked_status"
+            status_cards = [
+                card for card in item_cards
+                if card.get("card_type") == expected_card_type
+                and card.get("display_state") == "resolved"
+                and not (card.get("allowed_actions") or [])
+            ]
+            trace_backed_blocks = [
+                block for block in blocks
+                if block.get("block_type") == "memory_state_notice"
+                and block.get("status_queue_item_id") == item_id
+                and item_id in (block.get("trace_refs") or [])
+                and item.get("target_memory_id") in (block.get("trace_refs") or [])
+                and item_trace_refs.intersection(set(block.get("trace_refs") or []))
+            ]
+            has_card_status = len(item_cards) == 1 and len(status_cards) == 1
+            has_block_status = len(trace_backed_blocks) == 1 and not item_cards
+            if not has_card_status and not has_block_status:
+                failures.append("action_card_matches_queue_item_rate")
+                failures.append("rollback_blocked_status_absence_proof_rate")
+
     for card in cards:
         if card.get("governance_queue_item_id") not in item_by_id:
             failures.append("action_card_matches_queue_item_rate")
