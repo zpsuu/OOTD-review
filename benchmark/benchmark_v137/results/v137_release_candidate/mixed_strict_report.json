@@ -1,15 +1,15 @@
 {
   "benchmark_id": "v1.37.end_to_end_inspiration_memory_runtime_loop.mixed_strict",
   "schema_version": "v1.37",
-  "generated_at": "2026-06-24T04:45:39Z",
+  "generated_at": "2026-06-24T05:11:17Z",
   "verdicts": {
     "mixed_strict_verdict": "fail",
     "injected_defect_detection_verdict": "pass"
   },
   "suite_summary": {
-    "total_cases": 44,
+    "total_cases": 50,
     "passed_cases": 30,
-    "failed_cases": 14,
+    "failed_cases": 20,
     "total_checks": 21,
     "passed_checks": 21,
     "failed_checks": 0
@@ -276,6 +276,54 @@
         "report_consistency_with_independent_validation_rate"
       ],
       "artifact_ref": "per_case/mixed_strict/v137_ADV_K14_clean_report_pass_but_independent_validator_fail.json"
+    },
+    {
+      "case_id": "v137_ADV_K15_handoff_source_ref_not_from_stage_output",
+      "passed": false,
+      "failed_check_ids": [
+        "handoff_ids_match_across_stages_rate"
+      ],
+      "artifact_ref": "per_case/mixed_strict/v137_ADV_K15_handoff_source_ref_not_from_stage_output.json"
+    },
+    {
+      "case_id": "v137_ADV_K16_handoff_target_ref_not_to_stage_input",
+      "passed": false,
+      "failed_check_ids": [
+        "handoff_ids_match_across_stages_rate"
+      ],
+      "artifact_ref": "per_case/mixed_strict/v137_ADV_K16_handoff_target_ref_not_to_stage_input.json"
+    },
+    {
+      "case_id": "v137_ADV_K17_blocked_ref_claimed_as_successful_handoff",
+      "passed": false,
+      "failed_check_ids": [
+        "handoff_ids_match_across_stages_rate"
+      ],
+      "artifact_ref": "per_case/mixed_strict/v137_ADV_K17_blocked_ref_claimed_as_successful_handoff.json"
+    },
+    {
+      "case_id": "v137_ADV_K18_handoff_references_missing_state_snapshot",
+      "passed": false,
+      "failed_check_ids": [
+        "handoff_ids_match_across_stages_rate"
+      ],
+      "artifact_ref": "per_case/mixed_strict/v137_ADV_K18_handoff_references_missing_state_snapshot.json"
+    },
+    {
+      "case_id": "v137_ADV_K19_fake_feedback_on_nonexistent_promoted_memory",
+      "passed": false,
+      "failed_check_ids": [
+        "feedback_event_refs_consumed_memory_rate"
+      ],
+      "artifact_ref": "per_case/mixed_strict/v137_ADV_K19_fake_feedback_on_nonexistent_promoted_memory.json"
+    },
+    {
+      "case_id": "v137_ADV_K20_ambiguous_feedback_routed_to_human_review",
+      "passed": false,
+      "failed_check_ids": [
+        "review_pending_does_not_claim_applied_effect_rate"
+      ],
+      "artifact_ref": "per_case/mixed_strict/v137_ADV_K20_ambiguous_feedback_routed_to_human_review.json"
     }
   ]
 }

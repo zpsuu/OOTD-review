@@ -100,7 +100,8 @@
           "mem_insp_v137_914"
         ],
         "output_refs": [
-          "tmp_v137_914"
+          "tmp_v137_914",
+          "mem_insp_v137_914"
         ],
         "policy_refs": [
           "task_memory_packet_builder"
@@ -119,7 +120,8 @@
           "mem_insp_v137_914"
         ],
         "output_refs": [
-          "pmf_v137_914"
+          "pmf_v137_914",
+          "mem_insp_v137_914"
         ],
         "policy_refs": [
           "feedback_interpreter"
@@ -136,7 +138,8 @@
           "mem_insp_v137_914"
         ],
         "output_refs": [
-          "tmp_post_v137_914"
+          "tmp_post_v137_914",
+          "state_after_post_feedback_v137_914"
         ],
         "policy_refs": [
           "lifecycle_state_packet_rebuild"
@@ -151,7 +154,8 @@
         "stage_event_id": "rte_v137_914_multi_day",
         "stage": "multi_day_replay",
         "input_refs": [
-          "tmp_post_v137_914"
+          "tmp_post_v137_914",
+          "state_after_post_feedback_v137_914"
         ],
         "output_refs": [
           "state_after_day3_v137_914"
@@ -312,189 +316,169 @@
         "invariant": "runtime_trace_stage_order_complete_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "runtime_trace.stage_order",
+          "runtime_trace.stage_events[*].stage"
         ]
       },
       {
         "invariant": "runtime_trace_has_state_snapshots_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "runtime_trace.state_snapshots[*].state_snapshot_id",
+          "runtime_trace.final_state_ref"
         ]
       },
       {
         "invariant": "handoff_ids_match_across_stages_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "runtime_trace.stage_events[*].input_refs",
+          "runtime_trace.stage_events[*].output_refs",
+          "handoff_proofs"
         ]
       },
       {
         "invariant": "no_pre_gate_production_write_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "production_memory_write_gate.pre_gate_production_write"
         ]
       },
       {
         "invariant": "confirmed_aspects_only_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "confirmed_inspiration_candidate.confirmed_aspects",
+          "promoted_memory_atom.confirmed_aspects"
         ]
       },
       {
         "invariant": "promotion_gate_required_before_memory_write_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "promotion_eligibility_report",
+          "production_memory_write_gate",
+          "promoted_memory_atom"
         ]
       },
       {
         "invariant": "downstream_consumption_requires_promoted_memory_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "promoted_memory_atom.memory_id",
+          "task_memory_packet.consumed_promoted_memory_ids"
         ]
       },
       {
         "invariant": "soft_prefer_not_hard_filter_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "promoted_memory_atom.polarity",
+          "task_memory_packet.consumption_mode"
         ]
       },
       {
         "invariant": "mismatching_context_exclusion_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "task_memory_packet.request_context",
+          "task_memory_packet.excluded_memory_ids"
         ]
       },
       {
         "invariant": "feedback_event_refs_consumed_memory_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "task_memory_packet.consumed_promoted_memory_ids",
+          "promoted_memory_feedback_event.promoted_memory_id"
         ]
       },
       {
         "invariant": "post_feedback_packet_uses_updated_lifecycle_state_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "updated_memory_lifecycle_state",
+          "post_feedback_task_memory_packet"
         ]
       },
       {
         "invariant": "wrong_context_feedback_tests_excluded_context_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "updated_memory_lifecycle_state.context_exclusions",
+          "post_feedback_task_memory_packet.request_context"
         ]
       },
       {
         "invariant": "review_pending_does_not_claim_applied_effect_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "feedback_write_decision.gate_decision",
+          "post_feedback_claims"
         ]
       },
       {
         "invariant": "rollback_removes_future_consumption_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "rollback_proof.read_after_rollback",
+          "post_feedback_task_memory_packet.consumed_promoted_memory_ids"
         ]
       },
       {
         "invariant": "blocked_memory_not_claimed_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "updated_memory_lifecycle_state.blocked_memory_ids",
+          "post_feedback_claims"
         ]
       },
       {
         "invariant": "trace_backed_visible_claims_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "visible_claims[*].trace_refs",
+          "post_feedback_claims[*].trace_refs"
         ]
       },
       {
         "invariant": "multi_day_state_hash_stability_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "runtime_trace.state_snapshots[*].state_hash",
+          "multi_day_runtime_trace.day_state_hashes"
         ]
       },
       {
         "invariant": "sample_artifacts_match_per_case_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "REVIEW_MANIFEST.sample_artifacts",
+          "sample_consistency_report"
         ]
       },
       {
         "invariant": "report_consistency_with_independent_validation_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "clean_report",
+          "independent_validation_report",
+          "report_consistency_report"
         ]
       },
       {
         "invariant": "adversarial_detection_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "per_case/adversarial",
+          "adversarial_validation_report"
         ]
       },
       {
         "invariant": "v136_validation_replay_pass_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "v136_replay_proof.run_v136_validation_suite"
         ]
       }
     ],
@@ -774,5 +758,15 @@
   "expected_failure": true,
   "expected_failed_check_ids": [
     "report_consistency_with_independent_validation_rate"
-  ]
+  ],
+  "report_consistency_probe": {
+    "clean_report_summary": {
+      "passed_cases": 30,
+      "failed_cases": 0
+    },
+    "independent_validation_summary": {
+      "passed_cases": 29,
+      "failed_cases": 1
+    }
+  }
 }

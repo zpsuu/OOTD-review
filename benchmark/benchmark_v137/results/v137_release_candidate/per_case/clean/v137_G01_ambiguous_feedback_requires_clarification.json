@@ -100,7 +100,8 @@
           "mem_insp_v137_020"
         ],
         "output_refs": [
-          "tmp_v137_020"
+          "tmp_v137_020",
+          "mem_insp_v137_020"
         ],
         "policy_refs": [
           "task_memory_packet_builder"
@@ -119,7 +120,8 @@
           "mem_insp_v137_020"
         ],
         "output_refs": [
-          "pmf_v137_020"
+          "pmf_v137_020",
+          "mem_insp_v137_020"
         ],
         "policy_refs": [
           "feedback_interpreter"
@@ -136,7 +138,8 @@
           "mem_insp_v137_020"
         ],
         "output_refs": [
-          "tmp_post_v137_020"
+          "tmp_post_v137_020",
+          "state_after_post_feedback_v137_020"
         ],
         "policy_refs": [
           "lifecycle_state_packet_rebuild"
@@ -149,7 +152,8 @@
         "stage_event_id": "rte_v137_020_multi_day",
         "stage": "multi_day_replay",
         "input_refs": [
-          "tmp_post_v137_020"
+          "tmp_post_v137_020",
+          "state_after_post_feedback_v137_020"
         ],
         "output_refs": [
           "state_after_day3_v137_020"
@@ -242,19 +246,19 @@
         "promoted_memory_ids": [
           "mem_insp_v137_020"
         ],
-        "active_memory_ids": [],
-        "blocked_memory_ids": [],
-        "rolled_back_memory_ids": [],
-        "review_pending_memory_ids": [
+        "active_memory_ids": [
           "mem_insp_v137_020"
         ],
+        "blocked_memory_ids": [],
+        "rolled_back_memory_ids": [],
+        "review_pending_memory_ids": [],
         "task_memory_packet_ids": [
           "tmp_v137_020"
         ],
         "claim_ids": [
           "claim_v137_020"
         ],
-        "state_hash": "8be806d91ff076131ae52f9fbc733b526312dfed5e136518527a4eecb3e38623"
+        "state_hash": "07a5ab1880aeb55403b542393bfdea2d99779c009ee6cbf955954d21b1661b53"
       },
       {
         "state_snapshot_id": "state_after_post_feedback_v137_020",
@@ -265,18 +269,18 @@
         "promoted_memory_ids": [
           "mem_insp_v137_020"
         ],
-        "active_memory_ids": [],
-        "blocked_memory_ids": [],
-        "rolled_back_memory_ids": [],
-        "review_pending_memory_ids": [
+        "active_memory_ids": [
           "mem_insp_v137_020"
         ],
+        "blocked_memory_ids": [],
+        "rolled_back_memory_ids": [],
+        "review_pending_memory_ids": [],
         "task_memory_packet_ids": [
           "tmp_v137_020",
           "tmp_post_v137_020"
         ],
         "claim_ids": [],
-        "state_hash": "9f34217642713fec52763081c2bd96422896c91c2a8e2cb5be1c244b12af7717"
+        "state_hash": "b598c959135804e8699053deea270abc11da51461ccbc270c5decf50da1cd883"
       },
       {
         "state_snapshot_id": "state_after_day3_v137_020",
@@ -287,18 +291,18 @@
         "promoted_memory_ids": [
           "mem_insp_v137_020"
         ],
-        "active_memory_ids": [],
-        "blocked_memory_ids": [],
-        "rolled_back_memory_ids": [],
-        "review_pending_memory_ids": [
+        "active_memory_ids": [
           "mem_insp_v137_020"
         ],
+        "blocked_memory_ids": [],
+        "rolled_back_memory_ids": [],
+        "review_pending_memory_ids": [],
         "task_memory_packet_ids": [
           "tmp_v137_020",
           "tmp_post_v137_020"
         ],
         "claim_ids": [],
-        "state_hash": "bb800fa4a20352971a7f70864e2bc6d37ceee194f36e14130c736c8ec262ac6d"
+        "state_hash": "120d2eaa0979ba39eb246fe57597ebe8a98e5acdf60e6ad40566025e4a4b8a30"
       }
     ],
     "invariant_checks": [
@@ -306,189 +310,169 @@
         "invariant": "runtime_trace_stage_order_complete_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "runtime_trace.stage_order",
+          "runtime_trace.stage_events[*].stage"
         ]
       },
       {
         "invariant": "runtime_trace_has_state_snapshots_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "runtime_trace.state_snapshots[*].state_snapshot_id",
+          "runtime_trace.final_state_ref"
         ]
       },
       {
         "invariant": "handoff_ids_match_across_stages_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "runtime_trace.stage_events[*].input_refs",
+          "runtime_trace.stage_events[*].output_refs",
+          "handoff_proofs"
         ]
       },
       {
         "invariant": "no_pre_gate_production_write_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "production_memory_write_gate.pre_gate_production_write"
         ]
       },
       {
         "invariant": "confirmed_aspects_only_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "confirmed_inspiration_candidate.confirmed_aspects",
+          "promoted_memory_atom.confirmed_aspects"
         ]
       },
       {
         "invariant": "promotion_gate_required_before_memory_write_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "promotion_eligibility_report",
+          "production_memory_write_gate",
+          "promoted_memory_atom"
         ]
       },
       {
         "invariant": "downstream_consumption_requires_promoted_memory_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "promoted_memory_atom.memory_id",
+          "task_memory_packet.consumed_promoted_memory_ids"
         ]
       },
       {
         "invariant": "soft_prefer_not_hard_filter_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "promoted_memory_atom.polarity",
+          "task_memory_packet.consumption_mode"
         ]
       },
       {
         "invariant": "mismatching_context_exclusion_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "task_memory_packet.request_context",
+          "task_memory_packet.excluded_memory_ids"
         ]
       },
       {
         "invariant": "feedback_event_refs_consumed_memory_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "task_memory_packet.consumed_promoted_memory_ids",
+          "promoted_memory_feedback_event.promoted_memory_id"
         ]
       },
       {
         "invariant": "post_feedback_packet_uses_updated_lifecycle_state_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "updated_memory_lifecycle_state",
+          "post_feedback_task_memory_packet"
         ]
       },
       {
         "invariant": "wrong_context_feedback_tests_excluded_context_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "updated_memory_lifecycle_state.context_exclusions",
+          "post_feedback_task_memory_packet.request_context"
         ]
       },
       {
         "invariant": "review_pending_does_not_claim_applied_effect_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "feedback_write_decision.gate_decision",
+          "post_feedback_claims"
         ]
       },
       {
         "invariant": "rollback_removes_future_consumption_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "rollback_proof.read_after_rollback",
+          "post_feedback_task_memory_packet.consumed_promoted_memory_ids"
         ]
       },
       {
         "invariant": "blocked_memory_not_claimed_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "updated_memory_lifecycle_state.blocked_memory_ids",
+          "post_feedback_claims"
         ]
       },
       {
         "invariant": "trace_backed_visible_claims_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "visible_claims[*].trace_refs",
+          "post_feedback_claims[*].trace_refs"
         ]
       },
       {
         "invariant": "multi_day_state_hash_stability_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "runtime_trace.state_snapshots[*].state_hash",
+          "multi_day_runtime_trace.day_state_hashes"
         ]
       },
       {
         "invariant": "sample_artifacts_match_per_case_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "REVIEW_MANIFEST.sample_artifacts",
+          "sample_consistency_report"
         ]
       },
       {
         "invariant": "report_consistency_with_independent_validation_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "clean_report",
+          "independent_validation_report",
+          "report_consistency_report"
         ]
       },
       {
         "invariant": "adversarial_detection_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "per_case/adversarial",
+          "adversarial_validation_report"
         ]
       },
       {
         "invariant": "v136_validation_replay_pass_rate",
         "passed": true,
         "raw_proof_refs": [
-          "runtime_trace",
-          "handoff_proofs",
-          "runtime_invariant_report"
+          "v136_replay_proof.run_v136_validation_suite"
         ]
       }
     ],
@@ -684,7 +668,7 @@
     "feedback_event_id": "pmf_v137_020",
     "promoted_memory_id": "mem_insp_v137_020",
     "consumption_report_id": "pmcr_v137_020",
-    "feedback_action": "wrong_aspect",
+    "feedback_action": "ambiguous_feedback",
     "trace_refs": {
       "task_memory_packet_id": "tmp_v137_020",
       "response_claim_ids": [
@@ -695,12 +679,12 @@
   },
   "feedback_interpretation": {
     "feedback_interpretation_id": "fi_v137_020",
-    "interpreted_intent": "review_required",
-    "requires_human_review": true
+    "interpreted_intent": "clarification_required",
+    "requires_human_review": false
   },
   "memory_lifecycle_proposal": {
     "lifecycle_proposal_id": "mlp_v137_020",
-    "proposal_type": "review_required",
+    "proposal_type": "clarification_required",
     "target_memory_id": "mem_insp_v137_020",
     "must_not_do": [
       "expand_scope",
@@ -710,23 +694,23 @@
   },
   "feedback_write_decision": {
     "feedback_write_decision_id": "fwd_v137_020",
-    "gate_decision": "human_review_required",
+    "gate_decision": "clarification_required",
     "production_write_executed": false,
     "rollback_ref": null
   },
   "updated_memory_lifecycle_state": {
     "memory_id": "mem_insp_v137_020",
-    "current_status": "review_pending",
+    "current_status": "active",
     "contexts": [
       "office_daily"
     ],
     "context_exclusions": [],
-    "active_memory_ids": [],
+    "active_memory_ids": [
+      "mem_insp_v137_020"
+    ],
     "blocked_memory_ids": [],
     "rolled_back_memory_ids": [],
-    "review_pending_memory_ids": [
-      "mem_insp_v137_020"
-    ]
+    "review_pending_memory_ids": []
   },
   "post_feedback_task_memory_packet": {
     "task_memory_packet_id": "tmp_post_v137_020",
@@ -745,9 +729,9 @@
     "days": 3,
     "input_state_ref": "state_after_post_feedback_v137_020",
     "day_state_hashes": [
-      "bb800fa4a20352971a7f70864e2bc6d37ceee194f36e14130c736c8ec262ac6d",
-      "bb800fa4a20352971a7f70864e2bc6d37ceee194f36e14130c736c8ec262ac6d",
-      "bb800fa4a20352971a7f70864e2bc6d37ceee194f36e14130c736c8ec262ac6d"
+      "120d2eaa0979ba39eb246fe57597ebe8a98e5acdf60e6ad40566025e4a4b8a30",
+      "120d2eaa0979ba39eb246fe57597ebe8a98e5acdf60e6ad40566025e4a4b8a30",
+      "120d2eaa0979ba39eb246fe57597ebe8a98e5acdf60e6ad40566025e4a4b8a30"
     ],
     "stable": true
   },

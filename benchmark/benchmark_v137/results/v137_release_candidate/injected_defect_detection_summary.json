@@ -1,124 +1,238 @@
 {
   "version": "v1.37",
-  "generated_at": "2026-06-24T04:45:39Z",
+  "generated_at": "2026-06-24T05:11:18Z",
   "verdict": "pass",
-  "seeded_defects": 14,
-  "detected_defects": 14,
+  "seeded_defects": 20,
+  "detected_defects": 20,
   "unexpected_clean_case_failures": [],
   "unexpected_injected_passes": [],
   "detected": [
     {
       "case_id": "v137_ADV_K01_stage_order_skips_confirmation",
       "defect_type": "stage_order_skips_confirmation",
-      "detected": true,
+      "expected_failed_check_ids": [
+        "runtime_trace_stage_order_complete_rate"
+      ],
       "failed_check_ids": [
         "runtime_trace_stage_order_complete_rate"
-      ]
+      ],
+      "detected": true
     },
     {
       "case_id": "v137_ADV_K02_candidate_promotes_before_user_confirmation",
       "defect_type": "candidate_promotes_before_user_confirmation",
-      "detected": true,
+      "expected_failed_check_ids": [
+        "no_pre_gate_production_write_rate",
+        "promotion_gate_required_before_memory_write_rate"
+      ],
       "failed_check_ids": [
         "no_pre_gate_production_write_rate",
         "promotion_gate_required_before_memory_write_rate"
-      ]
+      ],
+      "detected": true
     },
     {
       "case_id": "v137_ADV_K03_unconfirmed_aspect_enters_promoted_memory",
       "defect_type": "unconfirmed_aspect_enters_promoted_memory",
-      "detected": true,
+      "expected_failed_check_ids": [
+        "confirmed_aspects_only_rate"
+      ],
       "failed_check_ids": [
         "confirmed_aspects_only_rate"
-      ]
+      ],
+      "detected": true
     },
     {
       "case_id": "v137_ADV_K04_downstream_consumes_memory_before_promotion",
       "defect_type": "downstream_consumes_memory_before_promotion",
-      "detected": true,
-      "failed_check_ids": [
+      "expected_failed_check_ids": [
         "downstream_consumption_requires_promoted_memory_rate"
-      ]
+      ],
+      "failed_check_ids": [
+        "downstream_consumption_requires_promoted_memory_rate",
+        "promotion_gate_required_before_memory_write_rate"
+      ],
+      "detected": true
     },
     {
       "case_id": "v137_ADV_K05_soft_prefer_becomes_hard_filter",
       "defect_type": "soft_prefer_becomes_hard_filter",
-      "detected": true,
+      "expected_failed_check_ids": [
+        "soft_prefer_not_hard_filter_rate"
+      ],
       "failed_check_ids": [
         "soft_prefer_not_hard_filter_rate"
-      ]
+      ],
+      "detected": true
     },
     {
       "case_id": "v137_ADV_K06_mismatching_context_consumes_memory",
       "defect_type": "mismatching_context_consumes_memory",
-      "detected": true,
+      "expected_failed_check_ids": [
+        "mismatching_context_exclusion_rate"
+      ],
       "failed_check_ids": [
         "mismatching_context_exclusion_rate"
-      ]
+      ],
+      "detected": true
     },
     {
       "case_id": "v137_ADV_K07_feedback_targets_unconsumed_memory",
       "defect_type": "feedback_targets_unconsumed_memory",
-      "detected": true,
+      "expected_failed_check_ids": [
+        "feedback_event_refs_consumed_memory_rate"
+      ],
       "failed_check_ids": [
         "feedback_event_refs_consumed_memory_rate"
-      ]
+      ],
+      "detected": true
     },
     {
       "case_id": "v137_ADV_K08_wrong_context_feedback_tests_non_excluded_context",
       "defect_type": "wrong_context_feedback_tests_non_excluded_context",
-      "detected": true,
+      "expected_failed_check_ids": [
+        "wrong_context_feedback_tests_excluded_context_rate"
+      ],
       "failed_check_ids": [
         "wrong_context_feedback_tests_excluded_context_rate"
-      ]
+      ],
+      "detected": true
     },
     {
       "case_id": "v137_ADV_K09_review_pending_claims_applied_effect",
       "defect_type": "review_pending_claims_applied_effect",
-      "detected": true,
+      "expected_failed_check_ids": [
+        "review_pending_does_not_claim_applied_effect_rate"
+      ],
       "failed_check_ids": [
         "review_pending_does_not_claim_applied_effect_rate"
-      ]
+      ],
+      "detected": true
     },
     {
       "case_id": "v137_ADV_K10_rollback_memory_still_consumed_later",
       "defect_type": "rollback_memory_still_consumed_later",
-      "detected": true,
-      "failed_check_ids": [
+      "expected_failed_check_ids": [
         "rollback_removes_future_consumption_rate"
-      ]
+      ],
+      "failed_check_ids": [
+        "blocked_memory_not_claimed_rate",
+        "post_feedback_packet_uses_updated_lifecycle_state_rate",
+        "rollback_removes_future_consumption_rate"
+      ],
+      "detected": true
     },
     {
       "case_id": "v137_ADV_K11_visible_claim_without_trace_ref",
       "defect_type": "visible_claim_without_trace_ref",
-      "detected": true,
+      "expected_failed_check_ids": [
+        "trace_backed_visible_claims_rate"
+      ],
       "failed_check_ids": [
         "trace_backed_visible_claims_rate"
-      ]
+      ],
+      "detected": true
     },
     {
       "case_id": "v137_ADV_K12_state_hash_changes_without_stage_event",
       "defect_type": "state_hash_changes_without_stage_event",
-      "detected": true,
+      "expected_failed_check_ids": [
+        "multi_day_state_hash_stability_rate"
+      ],
       "failed_check_ids": [
         "multi_day_state_hash_stability_rate"
-      ]
+      ],
+      "detected": true
     },
     {
       "case_id": "v137_ADV_K13_sample_artifact_stale_relative_to_per_case",
       "defect_type": "sample_artifact_stale_relative_to_per_case",
-      "detected": true,
+      "expected_failed_check_ids": [
+        "sample_artifacts_match_per_case_rate"
+      ],
       "failed_check_ids": [
         "sample_artifacts_match_per_case_rate"
-      ]
+      ],
+      "detected": true
     },
     {
       "case_id": "v137_ADV_K14_clean_report_pass_but_independent_validator_fail",
       "defect_type": "clean_report_pass_but_independent_validator_fail",
-      "detected": true,
+      "expected_failed_check_ids": [
+        "report_consistency_with_independent_validation_rate"
+      ],
       "failed_check_ids": [
         "report_consistency_with_independent_validation_rate"
-      ]
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v137_ADV_K15_handoff_source_ref_not_from_stage_output",
+      "defect_type": "handoff_source_ref_not_from_stage_output",
+      "expected_failed_check_ids": [
+        "handoff_ids_match_across_stages_rate"
+      ],
+      "failed_check_ids": [
+        "handoff_ids_match_across_stages_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v137_ADV_K16_handoff_target_ref_not_to_stage_input",
+      "defect_type": "handoff_target_ref_not_to_stage_input",
+      "expected_failed_check_ids": [
+        "handoff_ids_match_across_stages_rate"
+      ],
+      "failed_check_ids": [
+        "handoff_ids_match_across_stages_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v137_ADV_K17_blocked_ref_claimed_as_successful_handoff",
+      "defect_type": "blocked_ref_claimed_as_successful_handoff",
+      "expected_failed_check_ids": [
+        "handoff_ids_match_across_stages_rate"
+      ],
+      "failed_check_ids": [
+        "handoff_ids_match_across_stages_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v137_ADV_K18_handoff_references_missing_state_snapshot",
+      "defect_type": "handoff_references_missing_state_snapshot",
+      "expected_failed_check_ids": [
+        "handoff_ids_match_across_stages_rate"
+      ],
+      "failed_check_ids": [
+        "handoff_ids_match_across_stages_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v137_ADV_K19_fake_feedback_on_nonexistent_promoted_memory",
+      "defect_type": "fake_feedback_on_nonexistent_promoted_memory",
+      "expected_failed_check_ids": [
+        "feedback_event_refs_consumed_memory_rate"
+      ],
+      "failed_check_ids": [
+        "downstream_consumption_requires_promoted_memory_rate",
+        "feedback_event_refs_consumed_memory_rate",
+        "post_feedback_packet_uses_updated_lifecycle_state_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v137_ADV_K20_ambiguous_feedback_routed_to_human_review",
+      "defect_type": "ambiguous_feedback_routed_to_human_review",
+      "expected_failed_check_ids": [
+        "review_pending_does_not_claim_applied_effect_rate"
+      ],
+      "failed_check_ids": [
+        "review_pending_does_not_claim_applied_effect_rate"
+      ],
+      "detected": true
     }
   ]
 }

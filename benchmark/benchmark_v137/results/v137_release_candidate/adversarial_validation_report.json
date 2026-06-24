@@ -1,22 +1,22 @@
 {
   "validator": "v1.37.independent.runtime_loop_validator",
-  "generated_at": "2026-06-24T04:45:39Z",
+  "generated_at": "2026-06-24T05:11:18Z",
   "result_dir": "benchmark/benchmark_v137/results/v137_release_candidate",
   "subset": "adversarial",
   "suite_summary": {
-    "total_cases": 14,
+    "total_cases": 20,
     "passed_cases": 0,
-    "failed_cases": 14,
+    "failed_cases": 20,
     "total_checks": 21,
-    "passed_checks": 6,
-    "failed_checks": 15
+    "passed_checks": 3,
+    "failed_checks": 18
   },
   "checks": [
     {
       "check_id": "runtime_trace_stage_order_complete_rate",
-      "applicable_cases": 14,
-      "passed_cases": 13,
-      "value": 0.9285714285714286,
+      "applicable_cases": 20,
+      "passed_cases": 19,
+      "value": 0.95,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -31,8 +31,8 @@
     },
     {
       "check_id": "runtime_trace_has_state_snapshots_rate",
-      "applicable_cases": 14,
-      "passed_cases": 14,
+      "applicable_cases": 20,
+      "passed_cases": 20,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
@@ -40,18 +40,47 @@
     },
     {
       "check_id": "handoff_ids_match_across_stages_rate",
-      "applicable_cases": 14,
-      "passed_cases": 14,
-      "value": 1.0,
+      "applicable_cases": 20,
+      "passed_cases": 16,
+      "value": 0.8,
       "threshold": 1.0,
-      "passed": true,
-      "failures": []
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v137_ADV_K15_handoff_source_ref_not_from_stage_output",
+          "artifact_ref": "per_case/adversarial/v137_ADV_K15_handoff_source_ref_not_from_stage_output.json",
+          "failures": [
+            "handoff_ids_match_across_stages_rate failed from raw runtime trace validation"
+          ]
+        },
+        {
+          "case_id": "v137_ADV_K16_handoff_target_ref_not_to_stage_input",
+          "artifact_ref": "per_case/adversarial/v137_ADV_K16_handoff_target_ref_not_to_stage_input.json",
+          "failures": [
+            "handoff_ids_match_across_stages_rate failed from raw runtime trace validation"
+          ]
+        },
+        {
+          "case_id": "v137_ADV_K17_blocked_ref_claimed_as_successful_handoff",
+          "artifact_ref": "per_case/adversarial/v137_ADV_K17_blocked_ref_claimed_as_successful_handoff.json",
+          "failures": [
+            "handoff_ids_match_across_stages_rate failed from raw runtime trace validation"
+          ]
+        },
+        {
+          "case_id": "v137_ADV_K18_handoff_references_missing_state_snapshot",
+          "artifact_ref": "per_case/adversarial/v137_ADV_K18_handoff_references_missing_state_snapshot.json",
+          "failures": [
+            "handoff_ids_match_across_stages_rate failed from raw runtime trace validation"
+          ]
+        }
+      ]
     },
     {
       "check_id": "no_pre_gate_production_write_rate",
-      "applicable_cases": 14,
-      "passed_cases": 13,
-      "value": 0.9285714285714286,
+      "applicable_cases": 20,
+      "passed_cases": 19,
+      "value": 0.95,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -66,9 +95,9 @@
     },
     {
       "check_id": "confirmed_aspects_only_rate",
-      "applicable_cases": 14,
-      "passed_cases": 13,
-      "value": 0.9285714285714286,
+      "applicable_cases": 20,
+      "passed_cases": 19,
+      "value": 0.95,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -83,9 +112,9 @@
     },
     {
       "check_id": "promotion_gate_required_before_memory_write_rate",
-      "applicable_cases": 14,
-      "passed_cases": 13,
-      "value": 0.9285714285714286,
+      "applicable_cases": 20,
+      "passed_cases": 18,
+      "value": 0.9,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -95,14 +124,21 @@
           "failures": [
             "promotion_gate_required_before_memory_write_rate failed from raw runtime trace validation"
           ]
+        },
+        {
+          "case_id": "v137_ADV_K04_downstream_consumes_memory_before_promotion",
+          "artifact_ref": "per_case/adversarial/v137_ADV_K04_downstream_consumes_memory_before_promotion.json",
+          "failures": [
+            "promotion_gate_required_before_memory_write_rate failed from raw runtime trace validation"
+          ]
         }
       ]
     },
     {
       "check_id": "downstream_consumption_requires_promoted_memory_rate",
-      "applicable_cases": 14,
-      "passed_cases": 13,
-      "value": 0.9285714285714286,
+      "applicable_cases": 20,
+      "passed_cases": 18,
+      "value": 0.9,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -112,14 +148,21 @@
           "failures": [
             "downstream_consumption_requires_promoted_memory_rate failed from raw runtime trace validation"
           ]
+        },
+        {
+          "case_id": "v137_ADV_K19_fake_feedback_on_nonexistent_promoted_memory",
+          "artifact_ref": "per_case/adversarial/v137_ADV_K19_fake_feedback_on_nonexistent_promoted_memory.json",
+          "failures": [
+            "downstream_consumption_requires_promoted_memory_rate failed from raw runtime trace validation"
+          ]
         }
       ]
     },
     {
       "check_id": "soft_prefer_not_hard_filter_rate",
-      "applicable_cases": 14,
-      "passed_cases": 13,
-      "value": 0.9285714285714286,
+      "applicable_cases": 20,
+      "passed_cases": 19,
+      "value": 0.95,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -134,9 +177,9 @@
     },
     {
       "check_id": "mismatching_context_exclusion_rate",
-      "applicable_cases": 14,
-      "passed_cases": 13,
-      "value": 0.9285714285714286,
+      "applicable_cases": 20,
+      "passed_cases": 19,
+      "value": 0.95,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -151,9 +194,9 @@
     },
     {
       "check_id": "feedback_event_refs_consumed_memory_rate",
-      "applicable_cases": 14,
-      "passed_cases": 13,
-      "value": 0.9285714285714286,
+      "applicable_cases": 20,
+      "passed_cases": 18,
+      "value": 0.9,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -163,23 +206,45 @@
           "failures": [
             "feedback_event_refs_consumed_memory_rate failed from raw runtime trace validation"
           ]
+        },
+        {
+          "case_id": "v137_ADV_K19_fake_feedback_on_nonexistent_promoted_memory",
+          "artifact_ref": "per_case/adversarial/v137_ADV_K19_fake_feedback_on_nonexistent_promoted_memory.json",
+          "failures": [
+            "feedback_event_refs_consumed_memory_rate failed from raw runtime trace validation"
+          ]
         }
       ]
     },
     {
       "check_id": "post_feedback_packet_uses_updated_lifecycle_state_rate",
-      "applicable_cases": 14,
-      "passed_cases": 14,
-      "value": 1.0,
+      "applicable_cases": 20,
+      "passed_cases": 18,
+      "value": 0.9,
       "threshold": 1.0,
-      "passed": true,
-      "failures": []
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v137_ADV_K10_rollback_memory_still_consumed_later",
+          "artifact_ref": "per_case/adversarial/v137_ADV_K10_rollback_memory_still_consumed_later.json",
+          "failures": [
+            "post_feedback_packet_uses_updated_lifecycle_state_rate failed from raw runtime trace validation"
+          ]
+        },
+        {
+          "case_id": "v137_ADV_K19_fake_feedback_on_nonexistent_promoted_memory",
+          "artifact_ref": "per_case/adversarial/v137_ADV_K19_fake_feedback_on_nonexistent_promoted_memory.json",
+          "failures": [
+            "post_feedback_packet_uses_updated_lifecycle_state_rate failed from raw runtime trace validation"
+          ]
+        }
+      ]
     },
     {
       "check_id": "wrong_context_feedback_tests_excluded_context_rate",
-      "applicable_cases": 14,
-      "passed_cases": 13,
-      "value": 0.9285714285714286,
+      "applicable_cases": 20,
+      "passed_cases": 19,
+      "value": 0.95,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -194,9 +259,9 @@
     },
     {
       "check_id": "review_pending_does_not_claim_applied_effect_rate",
-      "applicable_cases": 14,
-      "passed_cases": 13,
-      "value": 0.9285714285714286,
+      "applicable_cases": 20,
+      "passed_cases": 18,
+      "value": 0.9,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -206,14 +271,21 @@
           "failures": [
             "review_pending_does_not_claim_applied_effect_rate failed from raw runtime trace validation"
           ]
+        },
+        {
+          "case_id": "v137_ADV_K20_ambiguous_feedback_routed_to_human_review",
+          "artifact_ref": "per_case/adversarial/v137_ADV_K20_ambiguous_feedback_routed_to_human_review.json",
+          "failures": [
+            "review_pending_does_not_claim_applied_effect_rate failed from raw runtime trace validation"
+          ]
         }
       ]
     },
     {
       "check_id": "rollback_removes_future_consumption_rate",
-      "applicable_cases": 14,
-      "passed_cases": 13,
-      "value": 0.9285714285714286,
+      "applicable_cases": 20,
+      "passed_cases": 19,
+      "value": 0.95,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -228,18 +300,26 @@
     },
     {
       "check_id": "blocked_memory_not_claimed_rate",
-      "applicable_cases": 14,
-      "passed_cases": 14,
-      "value": 1.0,
+      "applicable_cases": 20,
+      "passed_cases": 19,
+      "value": 0.95,
       "threshold": 1.0,
-      "passed": true,
-      "failures": []
+      "passed": false,
+      "failures": [
+        {
+          "case_id": "v137_ADV_K10_rollback_memory_still_consumed_later",
+          "artifact_ref": "per_case/adversarial/v137_ADV_K10_rollback_memory_still_consumed_later.json",
+          "failures": [
+            "blocked_memory_not_claimed_rate failed from raw runtime trace validation"
+          ]
+        }
+      ]
     },
     {
       "check_id": "trace_backed_visible_claims_rate",
-      "applicable_cases": 14,
-      "passed_cases": 13,
-      "value": 0.9285714285714286,
+      "applicable_cases": 20,
+      "passed_cases": 19,
+      "value": 0.95,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -254,9 +334,9 @@
     },
     {
       "check_id": "multi_day_state_hash_stability_rate",
-      "applicable_cases": 14,
-      "passed_cases": 13,
-      "value": 0.9285714285714286,
+      "applicable_cases": 20,
+      "passed_cases": 19,
+      "value": 0.95,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -271,9 +351,9 @@
     },
     {
       "check_id": "sample_artifacts_match_per_case_rate",
-      "applicable_cases": 14,
-      "passed_cases": 13,
-      "value": 0.9285714285714286,
+      "applicable_cases": 20,
+      "passed_cases": 19,
+      "value": 0.95,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -288,9 +368,9 @@
     },
     {
       "check_id": "report_consistency_with_independent_validation_rate",
-      "applicable_cases": 14,
-      "passed_cases": 13,
-      "value": 0.9285714285714286,
+      "applicable_cases": 20,
+      "passed_cases": 19,
+      "value": 0.95,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -305,8 +385,8 @@
     },
     {
       "check_id": "adversarial_detection_rate",
-      "applicable_cases": 14,
-      "passed_cases": 14,
+      "applicable_cases": 20,
+      "passed_cases": 20,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
@@ -314,8 +394,8 @@
     },
     {
       "check_id": "v136_validation_replay_pass_rate",
-      "applicable_cases": 14,
-      "passed_cases": 14,
+      "applicable_cases": 20,
+      "passed_cases": 20,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
@@ -366,7 +446,8 @@
       "artifact_ref": "per_case/adversarial/v137_ADV_K04_downstream_consumes_memory_before_promotion.json",
       "passed": false,
       "failed_check_ids": [
-        "downstream_consumption_requires_promoted_memory_rate"
+        "downstream_consumption_requires_promoted_memory_rate",
+        "promotion_gate_required_before_memory_write_rate"
       ],
       "expected_failed_check_ids": [
         "downstream_consumption_requires_promoted_memory_rate"
@@ -438,6 +519,8 @@
       "artifact_ref": "per_case/adversarial/v137_ADV_K10_rollback_memory_still_consumed_later.json",
       "passed": false,
       "failed_check_ids": [
+        "blocked_memory_not_claimed_rate",
+        "post_feedback_packet_uses_updated_lifecycle_state_rate",
         "rollback_removes_future_consumption_rate"
       ],
       "expected_failed_check_ids": [
@@ -492,6 +575,80 @@
         "report_consistency_with_independent_validation_rate"
       ],
       "defect_type": "clean_report_pass_but_independent_validator_fail"
+    },
+    {
+      "case_id": "v137_ADV_K15_handoff_source_ref_not_from_stage_output",
+      "artifact_ref": "per_case/adversarial/v137_ADV_K15_handoff_source_ref_not_from_stage_output.json",
+      "passed": false,
+      "failed_check_ids": [
+        "handoff_ids_match_across_stages_rate"
+      ],
+      "expected_failed_check_ids": [
+        "handoff_ids_match_across_stages_rate"
+      ],
+      "defect_type": "handoff_source_ref_not_from_stage_output"
+    },
+    {
+      "case_id": "v137_ADV_K16_handoff_target_ref_not_to_stage_input",
+      "artifact_ref": "per_case/adversarial/v137_ADV_K16_handoff_target_ref_not_to_stage_input.json",
+      "passed": false,
+      "failed_check_ids": [
+        "handoff_ids_match_across_stages_rate"
+      ],
+      "expected_failed_check_ids": [
+        "handoff_ids_match_across_stages_rate"
+      ],
+      "defect_type": "handoff_target_ref_not_to_stage_input"
+    },
+    {
+      "case_id": "v137_ADV_K17_blocked_ref_claimed_as_successful_handoff",
+      "artifact_ref": "per_case/adversarial/v137_ADV_K17_blocked_ref_claimed_as_successful_handoff.json",
+      "passed": false,
+      "failed_check_ids": [
+        "handoff_ids_match_across_stages_rate"
+      ],
+      "expected_failed_check_ids": [
+        "handoff_ids_match_across_stages_rate"
+      ],
+      "defect_type": "blocked_ref_claimed_as_successful_handoff"
+    },
+    {
+      "case_id": "v137_ADV_K18_handoff_references_missing_state_snapshot",
+      "artifact_ref": "per_case/adversarial/v137_ADV_K18_handoff_references_missing_state_snapshot.json",
+      "passed": false,
+      "failed_check_ids": [
+        "handoff_ids_match_across_stages_rate"
+      ],
+      "expected_failed_check_ids": [
+        "handoff_ids_match_across_stages_rate"
+      ],
+      "defect_type": "handoff_references_missing_state_snapshot"
+    },
+    {
+      "case_id": "v137_ADV_K19_fake_feedback_on_nonexistent_promoted_memory",
+      "artifact_ref": "per_case/adversarial/v137_ADV_K19_fake_feedback_on_nonexistent_promoted_memory.json",
+      "passed": false,
+      "failed_check_ids": [
+        "downstream_consumption_requires_promoted_memory_rate",
+        "feedback_event_refs_consumed_memory_rate",
+        "post_feedback_packet_uses_updated_lifecycle_state_rate"
+      ],
+      "expected_failed_check_ids": [
+        "feedback_event_refs_consumed_memory_rate"
+      ],
+      "defect_type": "fake_feedback_on_nonexistent_promoted_memory"
+    },
+    {
+      "case_id": "v137_ADV_K20_ambiguous_feedback_routed_to_human_review",
+      "artifact_ref": "per_case/adversarial/v137_ADV_K20_ambiguous_feedback_routed_to_human_review.json",
+      "passed": false,
+      "failed_check_ids": [
+        "review_pending_does_not_claim_applied_effect_rate"
+      ],
+      "expected_failed_check_ids": [
+        "review_pending_does_not_claim_applied_effect_rate"
+      ],
+      "defect_type": "ambiguous_feedback_routed_to_human_review"
     }
   ],
   "detected_defects": [
@@ -537,7 +694,8 @@
         "downstream_consumption_requires_promoted_memory_rate"
       ],
       "failed_check_ids": [
-        "downstream_consumption_requires_promoted_memory_rate"
+        "downstream_consumption_requires_promoted_memory_rate",
+        "promotion_gate_required_before_memory_write_rate"
       ],
       "detected": true
     },
@@ -603,6 +761,8 @@
         "rollback_removes_future_consumption_rate"
       ],
       "failed_check_ids": [
+        "blocked_memory_not_claimed_rate",
+        "post_feedback_packet_uses_updated_lifecycle_state_rate",
         "rollback_removes_future_consumption_rate"
       ],
       "detected": true
@@ -650,7 +810,75 @@
         "report_consistency_with_independent_validation_rate"
       ],
       "detected": true
+    },
+    {
+      "case_id": "v137_ADV_K15_handoff_source_ref_not_from_stage_output",
+      "defect_type": "handoff_source_ref_not_from_stage_output",
+      "expected_failed_check_ids": [
+        "handoff_ids_match_across_stages_rate"
+      ],
+      "failed_check_ids": [
+        "handoff_ids_match_across_stages_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v137_ADV_K16_handoff_target_ref_not_to_stage_input",
+      "defect_type": "handoff_target_ref_not_to_stage_input",
+      "expected_failed_check_ids": [
+        "handoff_ids_match_across_stages_rate"
+      ],
+      "failed_check_ids": [
+        "handoff_ids_match_across_stages_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v137_ADV_K17_blocked_ref_claimed_as_successful_handoff",
+      "defect_type": "blocked_ref_claimed_as_successful_handoff",
+      "expected_failed_check_ids": [
+        "handoff_ids_match_across_stages_rate"
+      ],
+      "failed_check_ids": [
+        "handoff_ids_match_across_stages_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v137_ADV_K18_handoff_references_missing_state_snapshot",
+      "defect_type": "handoff_references_missing_state_snapshot",
+      "expected_failed_check_ids": [
+        "handoff_ids_match_across_stages_rate"
+      ],
+      "failed_check_ids": [
+        "handoff_ids_match_across_stages_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v137_ADV_K19_fake_feedback_on_nonexistent_promoted_memory",
+      "defect_type": "fake_feedback_on_nonexistent_promoted_memory",
+      "expected_failed_check_ids": [
+        "feedback_event_refs_consumed_memory_rate"
+      ],
+      "failed_check_ids": [
+        "downstream_consumption_requires_promoted_memory_rate",
+        "feedback_event_refs_consumed_memory_rate",
+        "post_feedback_packet_uses_updated_lifecycle_state_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v137_ADV_K20_ambiguous_feedback_routed_to_human_review",
+      "defect_type": "ambiguous_feedback_routed_to_human_review",
+      "expected_failed_check_ids": [
+        "review_pending_does_not_claim_applied_effect_rate"
+      ],
+      "failed_check_ids": [
+        "review_pending_does_not_claim_applied_effect_rate"
+      ],
+      "detected": true
     }
   ],
-  "detected_defect_count": 14
+  "detected_defect_count": 20
 }

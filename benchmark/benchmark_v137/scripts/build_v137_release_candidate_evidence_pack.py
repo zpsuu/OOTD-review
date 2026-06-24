@@ -100,6 +100,12 @@ DEFECTS = [
     ("ADV_K12", "state_hash_changes_without_stage_event", ["multi_day_state_hash_stability_rate"]),
     ("ADV_K13", "sample_artifact_stale_relative_to_per_case", ["sample_artifacts_match_per_case_rate"]),
     ("ADV_K14", "clean_report_pass_but_independent_validator_fail", ["report_consistency_with_independent_validation_rate"]),
+    ("ADV_K15", "handoff_source_ref_not_from_stage_output", ["handoff_ids_match_across_stages_rate"]),
+    ("ADV_K16", "handoff_target_ref_not_to_stage_input", ["handoff_ids_match_across_stages_rate"]),
+    ("ADV_K17", "blocked_ref_claimed_as_successful_handoff", ["handoff_ids_match_across_stages_rate"]),
+    ("ADV_K18", "handoff_references_missing_state_snapshot", ["handoff_ids_match_across_stages_rate"]),
+    ("ADV_K19", "fake_feedback_on_nonexistent_promoted_memory", ["feedback_event_refs_consumed_memory_rate"]),
+    ("ADV_K20", "ambiguous_feedback_routed_to_human_review", ["review_pending_does_not_claim_applied_effect_rate"]),
 ]
 
 SAMPLE_CASES = {
@@ -170,6 +176,31 @@ def _gate_assertions() -> dict[str, bool]:
     return {gate: True for gate in GATES}
 
 
+GATE_PROOF_REFS = {
+    "runtime_trace_stage_order_complete_rate": ["runtime_trace.stage_order", "runtime_trace.stage_events[*].stage"],
+    "runtime_trace_has_state_snapshots_rate": ["runtime_trace.state_snapshots[*].state_snapshot_id", "runtime_trace.final_state_ref"],
+    "handoff_ids_match_across_stages_rate": ["runtime_trace.stage_events[*].input_refs", "runtime_trace.stage_events[*].output_refs", "handoff_proofs"],
+    "no_pre_gate_production_write_rate": ["production_memory_write_gate.pre_gate_production_write"],
+    "confirmed_aspects_only_rate": ["confirmed_inspiration_candidate.confirmed_aspects", "promoted_memory_atom.confirmed_aspects"],
+    "promotion_gate_required_before_memory_write_rate": ["promotion_eligibility_report", "production_memory_write_gate", "promoted_memory_atom"],
+    "downstream_consumption_requires_promoted_memory_rate": ["promoted_memory_atom.memory_id", "task_memory_packet.consumed_promoted_memory_ids"],
+    "soft_prefer_not_hard_filter_rate": ["promoted_memory_atom.polarity", "task_memory_packet.consumption_mode"],
+    "mismatching_context_exclusion_rate": ["task_memory_packet.request_context", "task_memory_packet.excluded_memory_ids"],
+    "feedback_event_refs_consumed_memory_rate": ["task_memory_packet.consumed_promoted_memory_ids", "promoted_memory_feedback_event.promoted_memory_id"],
+    "post_feedback_packet_uses_updated_lifecycle_state_rate": ["updated_memory_lifecycle_state", "post_feedback_task_memory_packet"],
+    "wrong_context_feedback_tests_excluded_context_rate": ["updated_memory_lifecycle_state.context_exclusions", "post_feedback_task_memory_packet.request_context"],
+    "review_pending_does_not_claim_applied_effect_rate": ["feedback_write_decision.gate_decision", "post_feedback_claims"],
+    "rollback_removes_future_consumption_rate": ["rollback_proof.read_after_rollback", "post_feedback_task_memory_packet.consumed_promoted_memory_ids"],
+    "blocked_memory_not_claimed_rate": ["updated_memory_lifecycle_state.blocked_memory_ids", "post_feedback_claims"],
+    "trace_backed_visible_claims_rate": ["visible_claims[*].trace_refs", "post_feedback_claims[*].trace_refs"],
+    "multi_day_state_hash_stability_rate": ["runtime_trace.state_snapshots[*].state_hash", "multi_day_runtime_trace.day_state_hashes"],
+    "sample_artifacts_match_per_case_rate": ["REVIEW_MANIFEST.sample_artifacts", "sample_consistency_report"],
+    "report_consistency_with_independent_validation_rate": ["clean_report", "independent_validation_report", "report_consistency_report"],
+    "adversarial_detection_rate": ["per_case/adversarial", "adversarial_validation_report"],
+    "v136_validation_replay_pass_rate": ["v136_replay_proof.run_v136_validation_suite"],
+}
+
+
 def _case(case_id: str, scenario: str, kind: str, index: int) -> dict[str, Any]:
     suffix = f"v137_{index:03d}"
     full_case_id = f"v137_{case_id}_{scenario}"
@@ -183,6 +214,8 @@ def _case(case_id: str, scenario: str, kind: str, index: int) -> dict[str, Any]:
     claim_id = f"claim_{suffix}"
     feedback_id = f"pmf_{suffix}"
     rollback_ref = f"rollback_{suffix}"
+    state_after_post_id = f"state_after_post_feedback_{suffix}"
+    state_after_day3_id = f"state_after_day3_{suffix}"
 
     confirmed_aspects = ["color_palette"] if "silhouette" not in kind else ["silhouette"]
     extracted_aspects = confirmed_aspects + (["silhouette"] if kind == "aspect_subset" else [])
@@ -200,6 +233,7 @@ def _case(case_id: str, scenario: str, kind: str, index: int) -> dict[str, Any]:
     post_request_context = "office_daily"
     expected_post = "unchanged_reinforced"
     review_pending = False
+    clarification_required = False
     rolled_back = False
     blocked = False
     if kind == "too_strong":
@@ -236,9 +270,8 @@ def _case(case_id: str, scenario: str, kind: str, index: int) -> dict[str, Any]:
         post_consumed = False
         post_claims = []
     elif kind == "clarification":
-        feedback_action = "wrong_aspect"
-        lifecycle_status = "review_pending"
-        review_pending = True
+        feedback_action = "ambiguous_feedback"
+        clarification_required = True
         post_consumed = False
         post_claims = []
 
@@ -251,15 +284,16 @@ def _case(case_id: str, scenario: str, kind: str, index: int) -> dict[str, Any]:
     excluded_ids = [memory_id] if promotion_allowed and not consumed else []
     post_consumed_ids = [memory_id] if post_consumed else []
     post_excluded_ids = [memory_id] if promotion_allowed and not post_consumed else []
+    has_real_feedback = bool(consumed_ids)
 
     stage_events = [
         _event(f"rte_{suffix}_intake", "intake", [input_id], [signal_id, candidate_id], ["privacy_rights_safe_local_fixture"]),
         _event(f"rte_{suffix}_confirmation", "confirmation", [candidate_id], [confirmed_id] if not promotion_blocked else [], ["user_confirmation_required"], [candidate_id] if promotion_blocked else []),
         _event(f"rte_{suffix}_promotion", "promotion", [confirmed_id] if not promotion_blocked else [], [memory_id] if promotion_allowed else [], ["promotion_eligibility_report", "production_memory_write_gate"], [confirmed_id] if promotion_review or promotion_blocked else []),
-        _event(f"rte_{suffix}_consumption", "consumption", [memory_id] if promotion_allowed else [], [packet_id], ["task_memory_packet_builder"], claims=[claim_id] if consumed else []),
-        _event(f"rte_{suffix}_feedback", "feedback", [packet_id, memory_id] if consumed else [packet_id], [feedback_id], ["feedback_interpreter"]),
-        _event(f"rte_{suffix}_post", "post_feedback_consumption", [feedback_id, memory_id] if promotion_allowed else [feedback_id], [post_packet_id], ["lifecycle_state_packet_rebuild"], claims=post_claims),
-        _event(f"rte_{suffix}_multi_day", "multi_day_replay", [post_packet_id], [f"state_after_day3_{suffix}"], ["state_hash_replay"]),
+        _event(f"rte_{suffix}_consumption", "consumption", [memory_id] if promotion_allowed else [], [packet_id] + consumed_ids, ["task_memory_packet_builder"], claims=[claim_id] if consumed else []),
+        _event(f"rte_{suffix}_feedback", "feedback", [packet_id] + consumed_ids, [feedback_id] + consumed_ids, ["feedback_interpreter"] if has_real_feedback else ["feedback_noop_no_consumed_promoted_memory"]),
+        _event(f"rte_{suffix}_post", "post_feedback_consumption", [feedback_id] + consumed_ids, [post_packet_id, state_after_post_id], ["lifecycle_state_packet_rebuild"] if has_real_feedback else ["post_feedback_noop_no_lifecycle_write"], claims=post_claims),
+        _event(f"rte_{suffix}_multi_day", "multi_day_replay", [post_packet_id, state_after_post_id], [state_after_day3_id], ["state_hash_replay"]),
     ]
 
     snapshots = [
@@ -268,18 +302,21 @@ def _case(case_id: str, scenario: str, kind: str, index: int) -> dict[str, Any]:
         _snapshot(f"state_after_promotion_{suffix}", "promotion", [confirmed_id] if not promotion_blocked else [], promoted_ids, [memory_id] if promotion_allowed else [], [], [], [], [], []),
         _snapshot(f"state_after_consumption_{suffix}", "consumption", [confirmed_id] if not promotion_blocked else [], promoted_ids, [memory_id] if promotion_allowed else [], [], [], [], [packet_id], [claim_id] if consumed else []),
         _snapshot(f"state_after_feedback_{suffix}", "feedback", [confirmed_id] if not promotion_blocked else [], promoted_ids, active_ids, blocked_ids, rolled_ids, review_ids, [packet_id], [claim_id] if consumed else []),
-        _snapshot(f"state_after_post_feedback_{suffix}", "post_feedback_consumption", [confirmed_id] if not promotion_blocked else [], promoted_ids, active_ids, blocked_ids, rolled_ids, review_ids, [packet_id, post_packet_id], post_claims),
-        _snapshot(f"state_after_day3_{suffix}", "multi_day_replay", [confirmed_id] if not promotion_blocked else [], promoted_ids, active_ids, blocked_ids, rolled_ids, review_ids, [packet_id, post_packet_id], post_claims),
+        _snapshot(state_after_post_id, "post_feedback_consumption", [confirmed_id] if not promotion_blocked else [], promoted_ids, active_ids, blocked_ids, rolled_ids, review_ids, [packet_id, post_packet_id], post_claims),
+        _snapshot(state_after_day3_id, "multi_day_replay", [confirmed_id] if not promotion_blocked else [], promoted_ids, active_ids, blocked_ids, rolled_ids, review_ids, [packet_id, post_packet_id], post_claims),
     ]
 
-    handoffs = [
-        _handoff(f"hp_{suffix}_intake_confirmation", "intake", "confirmation", candidate_id, "inspiration_candidate.candidate_id", "user_confirmation.candidate_id"),
-        _handoff(f"hp_{suffix}_confirmation_promotion", "confirmation", "promotion", confirmed_id, "confirmed_inspiration_candidate.confirmed_candidate_id", "promotion_eligibility_report.confirmed_candidate_id"),
-        _handoff(f"hp_{suffix}_promotion_consumption", "promotion", "consumption", memory_id, "promoted_memory_atom.memory_id", "task_memory_packet.candidate_promoted_memory_ids[0]"),
-        _handoff(f"hp_{suffix}_consumption_feedback", "consumption", "feedback", memory_id, "task_memory_packet.consumed_promoted_memory_ids[0]", "promoted_memory_feedback_event.promoted_memory_id"),
-        _handoff(f"hp_{suffix}_feedback_post", "feedback", "post_feedback_consumption", memory_id, "updated_memory_lifecycle_state.memory_id", "post_feedback_task_memory_packet.candidate_promoted_memory_ids[0]"),
-        _handoff(f"hp_{suffix}_post_multiday", "post_feedback_consumption", "multi_day_replay", snapshots[-2]["state_snapshot_id"], "post_feedback_state.state_snapshot_id", "multi_day_runtime_trace.input_state_ref"),
-    ]
+    handoffs = []
+    if not promotion_blocked:
+        handoffs.append(_handoff(f"hp_{suffix}_intake_confirmation", "intake", "confirmation", candidate_id, "inspiration_candidate.candidate_id", "user_confirmation.candidate_id"))
+    if not promotion_blocked and not promotion_review:
+        handoffs.append(_handoff(f"hp_{suffix}_confirmation_promotion", "confirmation", "promotion", confirmed_id, "confirmed_inspiration_candidate.confirmed_candidate_id", "promotion_eligibility_report.confirmed_candidate_id"))
+    if promotion_allowed:
+        handoffs.append(_handoff(f"hp_{suffix}_promotion_consumption", "promotion", "consumption", memory_id, "promoted_memory_atom.memory_id", "task_memory_packet.candidate_promoted_memory_ids[0]"))
+    if has_real_feedback:
+        handoffs.append(_handoff(f"hp_{suffix}_consumption_feedback", "consumption", "feedback", memory_id, "task_memory_packet.consumed_promoted_memory_ids[0]", "promoted_memory_feedback_event.promoted_memory_id"))
+        handoffs.append(_handoff(f"hp_{suffix}_feedback_post", "feedback", "post_feedback_consumption", memory_id, "updated_memory_lifecycle_state.memory_id", "post_feedback_task_memory_packet.candidate_promoted_memory_ids[0]"))
+    handoffs.append(_handoff(f"hp_{suffix}_post_multiday", "post_feedback_consumption", "multi_day_replay", state_after_post_id, "post_feedback_state.state_snapshot_id", "multi_day_runtime_trace.input_state_ref"))
 
     visible_claims = []
     if consumed:
@@ -296,7 +333,7 @@ def _case(case_id: str, scenario: str, kind: str, index: int) -> dict[str, Any]:
         "stage_events": stage_events,
         "state_snapshots": snapshots,
         "invariant_checks": [
-            {"invariant": gate, "passed": True, "raw_proof_refs": ["runtime_trace", "handoff_proofs", "runtime_invariant_report"]}
+            {"invariant": gate, "passed": True, "raw_proof_refs": GATE_PROOF_REFS[gate]}
             for gate in GATES
         ],
         "final_state_ref": snapshots[-1]["state_snapshot_id"],
@@ -326,22 +363,22 @@ def _case(case_id: str, scenario: str, kind: str, index: int) -> dict[str, Any]:
             "raw_proof_refs": ["runtime_trace.stage_events", "runtime_trace.state_snapshots", "handoff_proofs"],
         },
         "inspiration_input": {"inspiration_input_id": input_id, "source_kind": "local_fixture", "raw_image_included": False},
-        "shadow_signal_extraction": {"shadow_signal_id": signal_id, "production_write_executed": False, "extracted_aspects": extracted_aspects},
-        "inspiration_candidate": {"candidate_id": candidate_id, "confirmed": False, "candidate_aspects": extracted_aspects},
-        "user_confirmation": {"confirmation_id": f"confirm_{suffix}", "candidate_id": candidate_id, "confirmed_aspects": confirmed_aspects, "do_not_remember": kind == "do_not_remember_candidate"},
-        "confirmed_inspiration_candidate": {"confirmed_candidate_id": confirmed_id, "source_candidate_id": candidate_id, "confirmed_aspects": confirmed_aspects} if not promotion_blocked else None,
+        "shadow_signal_extraction": {"shadow_signal_id": signal_id, "production_write_executed": False, "extracted_aspects": list(extracted_aspects)},
+        "inspiration_candidate": {"candidate_id": candidate_id, "confirmed": False, "candidate_aspects": list(extracted_aspects)},
+        "user_confirmation": {"confirmation_id": f"confirm_{suffix}", "candidate_id": candidate_id, "confirmed_aspects": list(confirmed_aspects), "do_not_remember": kind == "do_not_remember_candidate"},
+        "confirmed_inspiration_candidate": {"confirmed_candidate_id": confirmed_id, "source_candidate_id": candidate_id, "confirmed_aspects": list(confirmed_aspects)} if not promotion_blocked else None,
         "promotion_eligibility_report": {"promotion_report_id": f"per_{suffix}", "confirmed_candidate_id": confirmed_id, "eligible": promotion_allowed, "requires_review": promotion_review, "blocked": promotion_blocked, "risk_level": "low" if promotion_allowed else "medium"},
         "production_memory_write_gate": {"gate_id": f"pmwg_{suffix}", "decision": "allow" if promotion_allowed else "human_review_required" if promotion_review else "block", "production_write_executed": promotion_allowed, "pre_gate_production_write": False},
-        "promoted_memory_atom": {"memory_id": memory_id, "confirmed_aspects": confirmed_aspects, "contexts": ["office_daily"], "scope": "contextual", "polarity": "soft_prefer", "disallowed_downstream_use": ["hard_filter", "commerce_targeting", "body_inference"]} if promotion_allowed else None,
+        "promoted_memory_atom": {"memory_id": memory_id, "confirmed_aspects": list(confirmed_aspects), "contexts": ["office_daily"], "scope": "contextual", "polarity": "soft_prefer", "disallowed_downstream_use": ["hard_filter", "commerce_targeting", "body_inference"]} if promotion_allowed else None,
         "task_memory_packet": {"task_memory_packet_id": packet_id, "candidate_promoted_memory_ids": promoted_ids, "consumed_promoted_memory_ids": consumed_ids, "excluded_memory_ids": excluded_ids, "request_context": "date_night" if mismatching else request_context, "consumption_mode": "soft_bias"},
         "daily_outfit_card": {"daily_outfit_card_id": f"card_{suffix}", "visible_claim_ids": [claim_id] if consumed else []},
         "bridge_consumption_report": {"bridge_id": f"bridge_{suffix}", "used_memory_ids": consumed_ids, "used_as": "component_support_signal" if consumed else None},
         "visible_claims": visible_claims,
-        "promoted_memory_feedback_event": {"feedback_event_id": feedback_id, "promoted_memory_id": memory_id, "consumption_report_id": f"pmcr_{suffix}" if consumed else None, "feedback_action": feedback_action, "trace_refs": {"task_memory_packet_id": packet_id, "response_claim_ids": [claim_id] if consumed else [], "daily_outfit_card_id": f"card_{suffix}"}},
-        "feedback_interpretation": {"feedback_interpretation_id": f"fi_{suffix}", "interpreted_intent": "review_required" if review_pending else "rollback_request" if rolled_back else "future_consumption_block" if blocked else "scope_narrowing" if kind == "wrong_context" else "reduce_strength" if kind == "too_strong" else "reinforce", "requires_human_review": review_pending},
-        "memory_lifecycle_proposal": {"lifecycle_proposal_id": f"mlp_{suffix}", "proposal_type": "review_required" if review_pending else "rollback_memory" if rolled_back else "block_future_consumption" if blocked else "add_context_exclusion" if kind == "wrong_context" else "reduce_confidence" if kind == "too_strong" else "reinforce", "target_memory_id": memory_id, "must_not_do": ["expand_scope", "create_global_memory", "add_unconfirmed_aspect"]},
-        "feedback_write_decision": {"feedback_write_decision_id": f"fwd_{suffix}", "gate_decision": "human_review_required" if review_pending else "allow", "production_write_executed": not review_pending and promotion_allowed, "rollback_ref": rollback_ref if rolled_back else None},
-        "updated_memory_lifecycle_state": {"memory_id": memory_id, "current_status": lifecycle_status, "contexts": ["office_daily"], "context_exclusions": context_exclusions, "active_memory_ids": active_ids, "blocked_memory_ids": blocked_ids, "rolled_back_memory_ids": rolled_ids, "review_pending_memory_ids": review_ids},
+        "promoted_memory_feedback_event": {"feedback_event_id": feedback_id, "promoted_memory_id": memory_id if has_real_feedback else None, "consumption_report_id": f"pmcr_{suffix}" if consumed else None, "feedback_action": feedback_action if has_real_feedback else "no_consumed_promoted_memory_noop", "trace_refs": {"task_memory_packet_id": packet_id, "response_claim_ids": [claim_id] if consumed else [], "daily_outfit_card_id": f"card_{suffix}"}},
+        "feedback_interpretation": {"feedback_interpretation_id": f"fi_{suffix}", "interpreted_intent": "clarification_required" if clarification_required else "no_consumed_memory_noop" if not has_real_feedback else "review_required" if review_pending else "rollback_request" if rolled_back else "future_consumption_block" if blocked else "scope_narrowing" if kind == "wrong_context" else "reduce_strength" if kind == "too_strong" else "reinforce", "requires_human_review": review_pending},
+        "memory_lifecycle_proposal": {"lifecycle_proposal_id": f"mlp_{suffix}", "proposal_type": "clarification_required" if clarification_required else "no_op_no_consumed_memory" if not has_real_feedback else "review_required" if review_pending else "rollback_memory" if rolled_back else "block_future_consumption" if blocked else "add_context_exclusion" if kind == "wrong_context" else "reduce_confidence" if kind == "too_strong" else "reinforce", "target_memory_id": memory_id if has_real_feedback else None, "must_not_do": ["expand_scope", "create_global_memory", "add_unconfirmed_aspect"]},
+        "feedback_write_decision": {"feedback_write_decision_id": f"fwd_{suffix}", "gate_decision": "clarification_required" if clarification_required else "no_op_no_consumed_memory" if not has_real_feedback else "human_review_required" if review_pending else "allow", "production_write_executed": has_real_feedback and not review_pending and not clarification_required, "rollback_ref": rollback_ref if rolled_back else None},
+        "updated_memory_lifecycle_state": {"memory_id": memory_id, "current_status": lifecycle_status, "contexts": ["office_daily"], "context_exclusions": context_exclusions, "active_memory_ids": active_ids, "blocked_memory_ids": blocked_ids, "rolled_back_memory_ids": rolled_ids, "review_pending_memory_ids": review_ids} if has_real_feedback else None,
         "post_feedback_task_memory_packet": {"task_memory_packet_id": post_packet_id, "candidate_promoted_memory_ids": promoted_ids, "consumed_promoted_memory_ids": post_consumed_ids, "excluded_memory_ids": post_excluded_ids, "request_context": post_request_context, "expected_behavior": expected_post},
         "post_feedback_claims": [{"claim_id": f"claim_post_{suffix}", "text": "I used your confirmed inspiration cue.", "trace_refs": [memory_id, post_packet_id]}] if post_claims else [],
         "multi_day_runtime_trace": {"days": 3, "input_state_ref": snapshots[-2]["state_snapshot_id"], "day_state_hashes": [snapshots[-1]["state_hash"], snapshots[-1]["state_hash"], snapshots[-1]["state_hash"]], "stable": True},
@@ -387,6 +424,41 @@ def _defect(defect_id: str, defect_type: str, failed_gates: list[str]) -> dict[s
         artifact["visible_claims"] = [{"claim_id": "bad_visible_claim", "text": "I used your memory.", "trace_refs": []}]
     elif defect_type == "state_hash_changes_without_stage_event":
         artifact["multi_day_runtime_trace"]["day_state_hashes"][1] = "sha256-bad"
+    elif defect_type == "sample_artifact_stale_relative_to_per_case":
+        artifact["sample_consistency_probe"] = {
+            "sample_artifact_content": {"case_id": artifact["case_id"], "manual_only_patch": True},
+            "source_artifact_content": {"case_id": artifact["case_id"]},
+        }
+    elif defect_type == "clean_report_pass_but_independent_validator_fail":
+        artifact["report_consistency_probe"] = {
+            "clean_report_summary": {"passed_cases": 30, "failed_cases": 0},
+            "independent_validation_summary": {"passed_cases": 29, "failed_cases": 1},
+        }
+    elif defect_type == "handoff_source_ref_not_from_stage_output":
+        artifact["handoff_proofs"][0]["source_output_ref"] = "ghost_candidate_ref"
+        artifact["handoff_proofs"][0]["target_input_ref"] = "ghost_candidate_ref"
+    elif defect_type == "handoff_target_ref_not_to_stage_input":
+        artifact["runtime_trace"]["stage_events"][0]["output_refs"].append("ghost_candidate_ref")
+        artifact["handoff_proofs"][0]["source_output_ref"] = "ghost_candidate_ref"
+        artifact["handoff_proofs"][0]["target_input_ref"] = "ghost_candidate_ref"
+    elif defect_type == "blocked_ref_claimed_as_successful_handoff":
+        candidate_id = artifact["inspiration_candidate"]["candidate_id"]
+        artifact["runtime_trace"]["stage_events"][0]["blocked_output_refs"].append(candidate_id)
+    elif defect_type == "handoff_references_missing_state_snapshot":
+        artifact["handoff_proofs"][-1]["source_output_ref"] = "missing_state_snapshot"
+        artifact["handoff_proofs"][-1]["target_input_ref"] = "missing_state_snapshot"
+        artifact["runtime_trace"]["stage_events"][-2]["output_refs"].append("missing_state_snapshot")
+        artifact["runtime_trace"]["stage_events"][-1]["input_refs"].append("missing_state_snapshot")
+    elif defect_type == "fake_feedback_on_nonexistent_promoted_memory":
+        memory_id = artifact["promoted_memory_atom"]["memory_id"]
+        artifact["promoted_memory_atom"] = None
+        artifact["promoted_memory_feedback_event"]["promoted_memory_id"] = memory_id
+        artifact["promoted_memory_feedback_event"]["consumption_report_id"] = "pmcr_fake"
+    elif defect_type == "ambiguous_feedback_routed_to_human_review":
+        artifact["scenario_kind"] = "clarification"
+        artifact["feedback_interpretation"]["interpreted_intent"] = "review_required"
+        artifact["feedback_interpretation"]["requires_human_review"] = True
+        artifact["feedback_write_decision"]["gate_decision"] = "human_review_required"
     return artifact
 
 

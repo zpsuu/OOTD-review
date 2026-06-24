@@ -53,7 +53,8 @@ class V137RuntimeLoopValidatorTests(unittest.TestCase):
             self.assertEqual(clean["suite_summary"]["passed_cases"], 30)
             self.assertEqual(clean["suite_summary"]["passed_checks"], 21)
             self.assertEqual(adversarial["suite_summary"]["passed_cases"], 0)
-            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 14)
+            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 20)
+            self.assertEqual(adversarial["detected_defect_count"], 20)
             self.assertTrue(sample["passed"], sample["failures"])
             self.assertTrue(consistency["passed"], consistency["failures"])
 
@@ -89,6 +90,81 @@ class V137RuntimeLoopValidatorTests(unittest.TestCase):
             report = validator.validate_directory(result_dir, "clean")
             failed = {case["case_id"]: case["failed_check_ids"] for case in report["case_results"] if not case["passed"]}
             self.assertIn("handoff_ids_match_across_stages_rate", failed["v137_J02_promotion_to_consumption_handoff_same_id"])
+
+    def test_handoff_missing_source_output_is_detected(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dir = self._build(tmp)
+            path = next((result_dir / "per_case" / "clean").glob("*A01_full_loop_low_risk_color_memory.json"))
+            case = json.loads(path.read_text(encoding="utf-8"))
+            case["handoff_proofs"][0]["source_output_ref"] = "ghost_ref"
+            case["handoff_proofs"][0]["target_input_ref"] = "ghost_ref"
+            _write_json(path, case)
+            report = validator.validate_directory(result_dir, "clean")
+            failed = {case["case_id"]: case["failed_check_ids"] for case in report["case_results"] if not case["passed"]}
+            self.assertIn("handoff_ids_match_across_stages_rate", failed["v137_A01_full_loop_low_risk_color_memory"])
+
+    def test_handoff_missing_target_input_is_detected(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dir = self._build(tmp)
+            path = next((result_dir / "per_case" / "clean").glob("*A01_full_loop_low_risk_color_memory.json"))
+            case = json.loads(path.read_text(encoding="utf-8"))
+            case["runtime_trace"]["stage_events"][0]["output_refs"].append("ghost_ref")
+            case["handoff_proofs"][0]["source_output_ref"] = "ghost_ref"
+            case["handoff_proofs"][0]["target_input_ref"] = "ghost_ref"
+            _write_json(path, case)
+            report = validator.validate_directory(result_dir, "clean")
+            failed = {case["case_id"]: case["failed_check_ids"] for case in report["case_results"] if not case["passed"]}
+            self.assertIn("handoff_ids_match_across_stages_rate", failed["v137_A01_full_loop_low_risk_color_memory"])
+
+    def test_blocked_handoff_ref_is_detected(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dir = self._build(tmp)
+            path = next((result_dir / "per_case" / "clean").glob("*A01_full_loop_low_risk_color_memory.json"))
+            case = json.loads(path.read_text(encoding="utf-8"))
+            candidate_id = case["inspiration_candidate"]["candidate_id"]
+            case["runtime_trace"]["stage_events"][0]["blocked_output_refs"].append(candidate_id)
+            _write_json(path, case)
+            report = validator.validate_directory(result_dir, "clean")
+            failed = {case["case_id"]: case["failed_check_ids"] for case in report["case_results"] if not case["passed"]}
+            self.assertIn("handoff_ids_match_across_stages_rate", failed["v137_A01_full_loop_low_risk_color_memory"])
+
+    def test_missing_state_snapshot_handoff_is_detected(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dir = self._build(tmp)
+            path = next((result_dir / "per_case" / "clean").glob("*A01_full_loop_low_risk_color_memory.json"))
+            case = json.loads(path.read_text(encoding="utf-8"))
+            case["handoff_proofs"][-1]["source_output_ref"] = "state_missing"
+            case["handoff_proofs"][-1]["target_input_ref"] = "state_missing"
+            case["runtime_trace"]["stage_events"][-2]["output_refs"].append("state_missing")
+            case["runtime_trace"]["stage_events"][-1]["input_refs"].append("state_missing")
+            _write_json(path, case)
+            report = validator.validate_directory(result_dir, "clean")
+            failed = {case["case_id"]: case["failed_check_ids"] for case in report["case_results"] if not case["passed"]}
+            self.assertIn("handoff_ids_match_across_stages_rate", failed["v137_A01_full_loop_low_risk_color_memory"])
+
+    def test_fake_feedback_without_promoted_memory_is_detected(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dir = self._build(tmp)
+            path = next((result_dir / "per_case" / "clean").glob("*B01_unconfirmed_candidate_never_promotes.json"))
+            case = json.loads(path.read_text(encoding="utf-8"))
+            case["promoted_memory_feedback_event"]["promoted_memory_id"] = "mem_fake"
+            case["promoted_memory_feedback_event"]["consumption_report_id"] = "pmcr_fake"
+            _write_json(path, case)
+            report = validator.validate_directory(result_dir, "clean")
+            failed = {case["case_id"]: case["failed_check_ids"] for case in report["case_results"] if not case["passed"]}
+            self.assertIn("feedback_event_refs_consumed_memory_rate", failed["v137_B01_unconfirmed_candidate_never_promotes"])
+
+    def test_clarification_misrouting_is_detected(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dir = self._build(tmp)
+            path = next((result_dir / "per_case" / "clean").glob("*G01_ambiguous_feedback_requires_clarification.json"))
+            case = json.loads(path.read_text(encoding="utf-8"))
+            case["feedback_interpretation"]["interpreted_intent"] = "review_required"
+            case["feedback_write_decision"]["gate_decision"] = "human_review_required"
+            _write_json(path, case)
+            report = validator.validate_directory(result_dir, "clean")
+            failed = {case["case_id"]: case["failed_check_ids"] for case in report["case_results"] if not case["passed"]}
+            self.assertIn("review_pending_does_not_claim_applied_effect_rate", failed["v137_G01_ambiguous_feedback_requires_clarification"])
 
     def test_review_pending_applied_claim_is_detected(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -127,7 +203,20 @@ class V137RuntimeLoopValidatorTests(unittest.TestCase):
             self.assertFalse(sample_report["passed"])
             self.assertEqual(sample_report["failed_samples"], 1)
 
+    def test_adversarial_detection_does_not_depend_on_gate_assertions(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dir = self._build(tmp)
+            generator.build(result_dir)
+            for path in (result_dir / "per_case" / "adversarial").glob("*.json"):
+                case = json.loads(path.read_text(encoding="utf-8"))
+                for key in list((case.get("gate_assertions") or {}).keys()):
+                    case["gate_assertions"][key] = True
+                _write_json(path, case)
+            adversarial = validator.validate_directory(result_dir, "adversarial")
+            self.assertEqual(adversarial["suite_summary"]["passed_cases"], 0)
+            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 20)
+            self.assertEqual(adversarial["detected_defect_count"], 20)
+
 
 if __name__ == "__main__":
     unittest.main()
-

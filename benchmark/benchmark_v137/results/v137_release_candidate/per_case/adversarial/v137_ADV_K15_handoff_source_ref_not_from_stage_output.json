@@ -1,12 +1,12 @@
 {
-  "case_id": "v137_D03_no_hard_filter_from_soft_prefer",
+  "case_id": "v137_ADV_K15_handoff_source_ref_not_from_stage_output",
   "version": "v1.37",
-  "scenario": "no_hard_filter_from_soft_prefer",
+  "scenario": "handoff_source_ref_not_from_stage_output",
   "scenario_kind": "happy_color",
   "gate_assertions": {
     "runtime_trace_stage_order_complete_rate": true,
     "runtime_trace_has_state_snapshots_rate": true,
-    "handoff_ids_match_across_stages_rate": true,
+    "handoff_ids_match_across_stages_rate": false,
     "no_pre_gate_production_write_rate": true,
     "confirmed_aspects_only_rate": true,
     "promotion_gate_required_before_memory_write_rate": true,
@@ -27,8 +27,8 @@
     "v136_validation_replay_pass_rate": true
   },
   "runtime_trace": {
-    "runtime_trace_id": "rt_v137_012",
-    "case_id": "v137_D03_no_hard_filter_from_soft_prefer",
+    "runtime_trace_id": "rt_v137_915",
+    "case_id": "v137_ADV_K15_handoff_source_ref_not_from_stage_output",
     "user_id": "fixture_user_001",
     "trace_mode": "deterministic_local_harness",
     "started_at": "2026-06-24T00:00:00Z",
@@ -44,14 +44,14 @@
     ],
     "stage_events": [
       {
-        "stage_event_id": "rte_v137_012_intake",
+        "stage_event_id": "rte_v137_915_intake",
         "stage": "intake",
         "input_refs": [
-          "insp_v137_012"
+          "insp_v137_915"
         ],
         "output_refs": [
-          "signal_v137_012",
-          "cand_v137_012"
+          "signal_v137_915",
+          "cand_v137_915"
         ],
         "policy_refs": [
           "privacy_rights_safe_local_fixture"
@@ -61,13 +61,13 @@
         "created_at": "2026-06-24T00:00:00Z"
       },
       {
-        "stage_event_id": "rte_v137_012_confirmation",
+        "stage_event_id": "rte_v137_915_confirmation",
         "stage": "confirmation",
         "input_refs": [
-          "cand_v137_012"
+          "cand_v137_915"
         ],
         "output_refs": [
-          "confirmed_v137_012"
+          "confirmed_v137_915"
         ],
         "policy_refs": [
           "user_confirmation_required"
@@ -77,13 +77,13 @@
         "created_at": "2026-06-24T00:00:00Z"
       },
       {
-        "stage_event_id": "rte_v137_012_promotion",
+        "stage_event_id": "rte_v137_915_promotion",
         "stage": "promotion",
         "input_refs": [
-          "confirmed_v137_012"
+          "confirmed_v137_915"
         ],
         "output_refs": [
-          "mem_insp_v137_012"
+          "mem_insp_v137_915"
         ],
         "policy_refs": [
           "promotion_eligibility_report",
@@ -94,34 +94,34 @@
         "created_at": "2026-06-24T00:00:00Z"
       },
       {
-        "stage_event_id": "rte_v137_012_consumption",
+        "stage_event_id": "rte_v137_915_consumption",
         "stage": "consumption",
         "input_refs": [
-          "mem_insp_v137_012"
+          "mem_insp_v137_915"
         ],
         "output_refs": [
-          "tmp_v137_012",
-          "mem_insp_v137_012"
+          "tmp_v137_915",
+          "mem_insp_v137_915"
         ],
         "policy_refs": [
           "task_memory_packet_builder"
         ],
         "blocked_output_refs": [],
         "visible_claim_refs": [
-          "claim_v137_012"
+          "claim_v137_915"
         ],
         "created_at": "2026-06-24T00:00:00Z"
       },
       {
-        "stage_event_id": "rte_v137_012_feedback",
+        "stage_event_id": "rte_v137_915_feedback",
         "stage": "feedback",
         "input_refs": [
-          "tmp_v137_012",
-          "mem_insp_v137_012"
+          "tmp_v137_915",
+          "mem_insp_v137_915"
         ],
         "output_refs": [
-          "pmf_v137_012",
-          "mem_insp_v137_012"
+          "pmf_v137_915",
+          "mem_insp_v137_915"
         ],
         "policy_refs": [
           "feedback_interpreter"
@@ -131,34 +131,34 @@
         "created_at": "2026-06-24T00:00:00Z"
       },
       {
-        "stage_event_id": "rte_v137_012_post",
+        "stage_event_id": "rte_v137_915_post",
         "stage": "post_feedback_consumption",
         "input_refs": [
-          "pmf_v137_012",
-          "mem_insp_v137_012"
+          "pmf_v137_915",
+          "mem_insp_v137_915"
         ],
         "output_refs": [
-          "tmp_post_v137_012",
-          "state_after_post_feedback_v137_012"
+          "tmp_post_v137_915",
+          "state_after_post_feedback_v137_915"
         ],
         "policy_refs": [
           "lifecycle_state_packet_rebuild"
         ],
         "blocked_output_refs": [],
         "visible_claim_refs": [
-          "claim_v137_012"
+          "claim_v137_915"
         ],
         "created_at": "2026-06-24T00:00:00Z"
       },
       {
-        "stage_event_id": "rte_v137_012_multi_day",
+        "stage_event_id": "rte_v137_915_multi_day",
         "stage": "multi_day_replay",
         "input_refs": [
-          "tmp_post_v137_012",
-          "state_after_post_feedback_v137_012"
+          "tmp_post_v137_915",
+          "state_after_post_feedback_v137_915"
         ],
         "output_refs": [
-          "state_after_day3_v137_012"
+          "state_after_day3_v137_915"
         ],
         "policy_refs": [
           "state_hash_replay"
@@ -170,7 +170,7 @@
     ],
     "state_snapshots": [
       {
-        "state_snapshot_id": "state_after_intake_v137_012",
+        "state_snapshot_id": "state_after_intake_v137_915",
         "after_stage": "intake",
         "confirmed_candidate_ids": [],
         "promoted_memory_ids": [],
@@ -180,13 +180,13 @@
         "review_pending_memory_ids": [],
         "task_memory_packet_ids": [],
         "claim_ids": [],
-        "state_hash": "21f97ab121ee663bf8fde5693f63cfa3e0af9669d8276b9fa60e5f62485cde39"
+        "state_hash": "8c5c90d5ac2ddf5867d5652c9303638806f5981cfa1d8bfe2eba8f7a87b987f9"
       },
       {
-        "state_snapshot_id": "state_after_confirmation_v137_012",
+        "state_snapshot_id": "state_after_confirmation_v137_915",
         "after_stage": "confirmation",
         "confirmed_candidate_ids": [
-          "confirmed_v137_012"
+          "confirmed_v137_915"
         ],
         "promoted_memory_ids": [],
         "active_memory_ids": [],
@@ -195,120 +195,120 @@
         "review_pending_memory_ids": [],
         "task_memory_packet_ids": [],
         "claim_ids": [],
-        "state_hash": "e15e22bc3a212f6e687ee44892efc2e868d98e7cb6535ce2751594e657479aa7"
+        "state_hash": "bbe10149d7c42c1ce709c0f949054431874222bab3070bda8558b90b2252d75c"
       },
       {
-        "state_snapshot_id": "state_after_promotion_v137_012",
+        "state_snapshot_id": "state_after_promotion_v137_915",
         "after_stage": "promotion",
         "confirmed_candidate_ids": [
-          "confirmed_v137_012"
+          "confirmed_v137_915"
         ],
         "promoted_memory_ids": [
-          "mem_insp_v137_012"
+          "mem_insp_v137_915"
         ],
         "active_memory_ids": [
-          "mem_insp_v137_012"
+          "mem_insp_v137_915"
         ],
         "blocked_memory_ids": [],
         "rolled_back_memory_ids": [],
         "review_pending_memory_ids": [],
         "task_memory_packet_ids": [],
         "claim_ids": [],
-        "state_hash": "6911b71745977a97514b569e0861770c6cd13491e1e4ba73b870ec3bd5a46bf8"
+        "state_hash": "06cd905586188db82e4d0be2beea71bf3c885b050c733bfffebfd7f01e66ddde"
       },
       {
-        "state_snapshot_id": "state_after_consumption_v137_012",
+        "state_snapshot_id": "state_after_consumption_v137_915",
         "after_stage": "consumption",
         "confirmed_candidate_ids": [
-          "confirmed_v137_012"
+          "confirmed_v137_915"
         ],
         "promoted_memory_ids": [
-          "mem_insp_v137_012"
+          "mem_insp_v137_915"
         ],
         "active_memory_ids": [
-          "mem_insp_v137_012"
+          "mem_insp_v137_915"
         ],
         "blocked_memory_ids": [],
         "rolled_back_memory_ids": [],
         "review_pending_memory_ids": [],
         "task_memory_packet_ids": [
-          "tmp_v137_012"
+          "tmp_v137_915"
         ],
         "claim_ids": [
-          "claim_v137_012"
+          "claim_v137_915"
         ],
-        "state_hash": "700c7ecd070ad9b1a9a57b196037a9e4eec2a6abeac0cc1b455611738323b7a8"
+        "state_hash": "0717a25d73b7e377ec7cb92049c1cbfe951657c65031a05ddc384f8e879d322f"
       },
       {
-        "state_snapshot_id": "state_after_feedback_v137_012",
+        "state_snapshot_id": "state_after_feedback_v137_915",
         "after_stage": "feedback",
         "confirmed_candidate_ids": [
-          "confirmed_v137_012"
+          "confirmed_v137_915"
         ],
         "promoted_memory_ids": [
-          "mem_insp_v137_012"
+          "mem_insp_v137_915"
         ],
         "active_memory_ids": [
-          "mem_insp_v137_012"
+          "mem_insp_v137_915"
         ],
         "blocked_memory_ids": [],
         "rolled_back_memory_ids": [],
         "review_pending_memory_ids": [],
         "task_memory_packet_ids": [
-          "tmp_v137_012"
+          "tmp_v137_915"
         ],
         "claim_ids": [
-          "claim_v137_012"
+          "claim_v137_915"
         ],
-        "state_hash": "c835e1a73ee5c6fba196405da7a3c239bf6c371cad0f5ea1933a55e79775d760"
+        "state_hash": "963b4130e95662978c3aae724eaa44ac87928b5efabd4738835334b7f2dd0439"
       },
       {
-        "state_snapshot_id": "state_after_post_feedback_v137_012",
+        "state_snapshot_id": "state_after_post_feedback_v137_915",
         "after_stage": "post_feedback_consumption",
         "confirmed_candidate_ids": [
-          "confirmed_v137_012"
+          "confirmed_v137_915"
         ],
         "promoted_memory_ids": [
-          "mem_insp_v137_012"
+          "mem_insp_v137_915"
         ],
         "active_memory_ids": [
-          "mem_insp_v137_012"
+          "mem_insp_v137_915"
         ],
         "blocked_memory_ids": [],
         "rolled_back_memory_ids": [],
         "review_pending_memory_ids": [],
         "task_memory_packet_ids": [
-          "tmp_v137_012",
-          "tmp_post_v137_012"
+          "tmp_v137_915",
+          "tmp_post_v137_915"
         ],
         "claim_ids": [
-          "claim_v137_012"
+          "claim_v137_915"
         ],
-        "state_hash": "60512c92eff964c088a90acbe8d8a94dfc6a0c5b805dc8e7f0749f562d06be73"
+        "state_hash": "177c9b6a99c3a7c878e1eb1cacb4bc6b60a290c749175e7a476f1081a2a6b21e"
       },
       {
-        "state_snapshot_id": "state_after_day3_v137_012",
+        "state_snapshot_id": "state_after_day3_v137_915",
         "after_stage": "multi_day_replay",
         "confirmed_candidate_ids": [
-          "confirmed_v137_012"
+          "confirmed_v137_915"
         ],
         "promoted_memory_ids": [
-          "mem_insp_v137_012"
+          "mem_insp_v137_915"
         ],
         "active_memory_ids": [
-          "mem_insp_v137_012"
+          "mem_insp_v137_915"
         ],
         "blocked_memory_ids": [],
         "rolled_back_memory_ids": [],
         "review_pending_memory_ids": [],
         "task_memory_packet_ids": [
-          "tmp_v137_012",
-          "tmp_post_v137_012"
+          "tmp_v137_915",
+          "tmp_post_v137_915"
         ],
         "claim_ids": [
-          "claim_v137_012"
+          "claim_v137_915"
         ],
-        "state_hash": "73dc35ddbc9f301ebe8146a440a85b05118ef4d4ae0c721d07c81f30aa636c06"
+        "state_hash": "7ad295530cb8d6800b5ffd77c10dce71b55d10b358740f57bf32dfb02e681cfa"
       }
     ],
     "invariant_checks": [
@@ -482,70 +482,70 @@
         ]
       }
     ],
-    "final_state_ref": "state_after_day3_v137_012"
+    "final_state_ref": "state_after_day3_v137_915"
   },
   "handoff_proofs": [
     {
-      "handoff_proof_id": "hp_v137_012_intake_confirmation",
+      "handoff_proof_id": "hp_v137_915_intake_confirmation",
       "from_stage": "intake",
       "to_stage": "confirmation",
-      "source_output_ref": "cand_v137_012",
-      "target_input_ref": "cand_v137_012",
+      "source_output_ref": "ghost_candidate_ref",
+      "target_input_ref": "ghost_candidate_ref",
       "source_artifact_ref": "inspiration_candidate.candidate_id",
       "target_artifact_ref": "user_confirmation.candidate_id",
       "same_id": true,
       "policy_boundary_preserved": true
     },
     {
-      "handoff_proof_id": "hp_v137_012_confirmation_promotion",
+      "handoff_proof_id": "hp_v137_915_confirmation_promotion",
       "from_stage": "confirmation",
       "to_stage": "promotion",
-      "source_output_ref": "confirmed_v137_012",
-      "target_input_ref": "confirmed_v137_012",
+      "source_output_ref": "confirmed_v137_915",
+      "target_input_ref": "confirmed_v137_915",
       "source_artifact_ref": "confirmed_inspiration_candidate.confirmed_candidate_id",
       "target_artifact_ref": "promotion_eligibility_report.confirmed_candidate_id",
       "same_id": true,
       "policy_boundary_preserved": true
     },
     {
-      "handoff_proof_id": "hp_v137_012_promotion_consumption",
+      "handoff_proof_id": "hp_v137_915_promotion_consumption",
       "from_stage": "promotion",
       "to_stage": "consumption",
-      "source_output_ref": "mem_insp_v137_012",
-      "target_input_ref": "mem_insp_v137_012",
+      "source_output_ref": "mem_insp_v137_915",
+      "target_input_ref": "mem_insp_v137_915",
       "source_artifact_ref": "promoted_memory_atom.memory_id",
       "target_artifact_ref": "task_memory_packet.candidate_promoted_memory_ids[0]",
       "same_id": true,
       "policy_boundary_preserved": true
     },
     {
-      "handoff_proof_id": "hp_v137_012_consumption_feedback",
+      "handoff_proof_id": "hp_v137_915_consumption_feedback",
       "from_stage": "consumption",
       "to_stage": "feedback",
-      "source_output_ref": "mem_insp_v137_012",
-      "target_input_ref": "mem_insp_v137_012",
+      "source_output_ref": "mem_insp_v137_915",
+      "target_input_ref": "mem_insp_v137_915",
       "source_artifact_ref": "task_memory_packet.consumed_promoted_memory_ids[0]",
       "target_artifact_ref": "promoted_memory_feedback_event.promoted_memory_id",
       "same_id": true,
       "policy_boundary_preserved": true
     },
     {
-      "handoff_proof_id": "hp_v137_012_feedback_post",
+      "handoff_proof_id": "hp_v137_915_feedback_post",
       "from_stage": "feedback",
       "to_stage": "post_feedback_consumption",
-      "source_output_ref": "mem_insp_v137_012",
-      "target_input_ref": "mem_insp_v137_012",
+      "source_output_ref": "mem_insp_v137_915",
+      "target_input_ref": "mem_insp_v137_915",
       "source_artifact_ref": "updated_memory_lifecycle_state.memory_id",
       "target_artifact_ref": "post_feedback_task_memory_packet.candidate_promoted_memory_ids[0]",
       "same_id": true,
       "policy_boundary_preserved": true
     },
     {
-      "handoff_proof_id": "hp_v137_012_post_multiday",
+      "handoff_proof_id": "hp_v137_915_post_multiday",
       "from_stage": "post_feedback_consumption",
       "to_stage": "multi_day_replay",
-      "source_output_ref": "state_after_post_feedback_v137_012",
-      "target_input_ref": "state_after_post_feedback_v137_012",
+      "source_output_ref": "state_after_post_feedback_v137_915",
+      "target_input_ref": "state_after_post_feedback_v137_915",
       "source_artifact_ref": "post_feedback_state.state_snapshot_id",
       "target_artifact_ref": "multi_day_runtime_trace.input_state_ref",
       "same_id": true,
@@ -553,8 +553,8 @@
     }
   ],
   "runtime_invariant_report": {
-    "runtime_invariant_report_id": "rir_v137_012",
-    "case_id": "v137_D03_no_hard_filter_from_soft_prefer",
+    "runtime_invariant_report_id": "rir_v137_915",
+    "case_id": "v137_ADV_K15_handoff_source_ref_not_from_stage_output",
     "passed": true,
     "checked_invariants": [
       "no_pre_gate_production_write",
@@ -572,55 +572,55 @@
     ]
   },
   "inspiration_input": {
-    "inspiration_input_id": "insp_v137_012",
+    "inspiration_input_id": "insp_v137_915",
     "source_kind": "local_fixture",
     "raw_image_included": false
   },
   "shadow_signal_extraction": {
-    "shadow_signal_id": "signal_v137_012",
+    "shadow_signal_id": "signal_v137_915",
     "production_write_executed": false,
     "extracted_aspects": [
       "color_palette"
     ]
   },
   "inspiration_candidate": {
-    "candidate_id": "cand_v137_012",
+    "candidate_id": "cand_v137_915",
     "confirmed": false,
     "candidate_aspects": [
       "color_palette"
     ]
   },
   "user_confirmation": {
-    "confirmation_id": "confirm_v137_012",
-    "candidate_id": "cand_v137_012",
+    "confirmation_id": "confirm_v137_915",
+    "candidate_id": "cand_v137_915",
     "confirmed_aspects": [
       "color_palette"
     ],
     "do_not_remember": false
   },
   "confirmed_inspiration_candidate": {
-    "confirmed_candidate_id": "confirmed_v137_012",
-    "source_candidate_id": "cand_v137_012",
+    "confirmed_candidate_id": "confirmed_v137_915",
+    "source_candidate_id": "cand_v137_915",
     "confirmed_aspects": [
       "color_palette"
     ]
   },
   "promotion_eligibility_report": {
-    "promotion_report_id": "per_v137_012",
-    "confirmed_candidate_id": "confirmed_v137_012",
+    "promotion_report_id": "per_v137_915",
+    "confirmed_candidate_id": "confirmed_v137_915",
     "eligible": true,
     "requires_review": false,
     "blocked": false,
     "risk_level": "low"
   },
   "production_memory_write_gate": {
-    "gate_id": "pmwg_v137_012",
+    "gate_id": "pmwg_v137_915",
     "decision": "allow",
     "production_write_executed": true,
     "pre_gate_production_write": false
   },
   "promoted_memory_atom": {
-    "memory_id": "mem_insp_v137_012",
+    "memory_id": "mem_insp_v137_915",
     "confirmed_aspects": [
       "color_palette"
     ],
@@ -636,62 +636,62 @@
     ]
   },
   "task_memory_packet": {
-    "task_memory_packet_id": "tmp_v137_012",
+    "task_memory_packet_id": "tmp_v137_915",
     "candidate_promoted_memory_ids": [
-      "mem_insp_v137_012"
+      "mem_insp_v137_915"
     ],
     "consumed_promoted_memory_ids": [
-      "mem_insp_v137_012"
+      "mem_insp_v137_915"
     ],
     "excluded_memory_ids": [],
     "request_context": "office_daily",
     "consumption_mode": "soft_bias"
   },
   "daily_outfit_card": {
-    "daily_outfit_card_id": "card_v137_012",
+    "daily_outfit_card_id": "card_v137_915",
     "visible_claim_ids": [
-      "claim_v137_012"
+      "claim_v137_915"
     ]
   },
   "bridge_consumption_report": {
-    "bridge_id": "bridge_v137_012",
+    "bridge_id": "bridge_v137_915",
     "used_memory_ids": [
-      "mem_insp_v137_012"
+      "mem_insp_v137_915"
     ],
     "used_as": "component_support_signal"
   },
   "visible_claims": [
     {
-      "claim_id": "claim_v137_012",
+      "claim_id": "claim_v137_915",
       "text": "I used your confirmed inspiration color cue as a soft bias.",
       "trace_refs": [
-        "mem_insp_v137_012",
-        "tmp_v137_012"
+        "mem_insp_v137_915",
+        "tmp_v137_915"
       ]
     }
   ],
   "promoted_memory_feedback_event": {
-    "feedback_event_id": "pmf_v137_012",
-    "promoted_memory_id": "mem_insp_v137_012",
-    "consumption_report_id": "pmcr_v137_012",
+    "feedback_event_id": "pmf_v137_915",
+    "promoted_memory_id": "mem_insp_v137_915",
+    "consumption_report_id": "pmcr_v137_915",
     "feedback_action": "use_was_right",
     "trace_refs": {
-      "task_memory_packet_id": "tmp_v137_012",
+      "task_memory_packet_id": "tmp_v137_915",
       "response_claim_ids": [
-        "claim_v137_012"
+        "claim_v137_915"
       ],
-      "daily_outfit_card_id": "card_v137_012"
+      "daily_outfit_card_id": "card_v137_915"
     }
   },
   "feedback_interpretation": {
-    "feedback_interpretation_id": "fi_v137_012",
+    "feedback_interpretation_id": "fi_v137_915",
     "interpreted_intent": "reinforce",
     "requires_human_review": false
   },
   "memory_lifecycle_proposal": {
-    "lifecycle_proposal_id": "mlp_v137_012",
+    "lifecycle_proposal_id": "mlp_v137_915",
     "proposal_type": "reinforce",
-    "target_memory_id": "mem_insp_v137_012",
+    "target_memory_id": "mem_insp_v137_915",
     "must_not_do": [
       "expand_scope",
       "create_global_memory",
@@ -699,32 +699,32 @@
     ]
   },
   "feedback_write_decision": {
-    "feedback_write_decision_id": "fwd_v137_012",
+    "feedback_write_decision_id": "fwd_v137_915",
     "gate_decision": "allow",
     "production_write_executed": true,
     "rollback_ref": null
   },
   "updated_memory_lifecycle_state": {
-    "memory_id": "mem_insp_v137_012",
+    "memory_id": "mem_insp_v137_915",
     "current_status": "active",
     "contexts": [
       "office_daily"
     ],
     "context_exclusions": [],
     "active_memory_ids": [
-      "mem_insp_v137_012"
+      "mem_insp_v137_915"
     ],
     "blocked_memory_ids": [],
     "rolled_back_memory_ids": [],
     "review_pending_memory_ids": []
   },
   "post_feedback_task_memory_packet": {
-    "task_memory_packet_id": "tmp_post_v137_012",
+    "task_memory_packet_id": "tmp_post_v137_915",
     "candidate_promoted_memory_ids": [
-      "mem_insp_v137_012"
+      "mem_insp_v137_915"
     ],
     "consumed_promoted_memory_ids": [
-      "mem_insp_v137_012"
+      "mem_insp_v137_915"
     ],
     "excluded_memory_ids": [],
     "request_context": "office_daily",
@@ -732,26 +732,31 @@
   },
   "post_feedback_claims": [
     {
-      "claim_id": "claim_post_v137_012",
+      "claim_id": "claim_post_v137_915",
       "text": "I used your confirmed inspiration cue.",
       "trace_refs": [
-        "mem_insp_v137_012",
-        "tmp_post_v137_012"
+        "mem_insp_v137_915",
+        "tmp_post_v137_915"
       ]
     }
   ],
   "multi_day_runtime_trace": {
     "days": 3,
-    "input_state_ref": "state_after_post_feedback_v137_012",
+    "input_state_ref": "state_after_post_feedback_v137_915",
     "day_state_hashes": [
-      "73dc35ddbc9f301ebe8146a440a85b05118ef4d4ae0c721d07c81f30aa636c06",
-      "73dc35ddbc9f301ebe8146a440a85b05118ef4d4ae0c721d07c81f30aa636c06",
-      "73dc35ddbc9f301ebe8146a440a85b05118ef4d4ae0c721d07c81f30aa636c06"
+      "7ad295530cb8d6800b5ffd77c10dce71b55d10b358740f57bf32dfb02e681cfa",
+      "7ad295530cb8d6800b5ffd77c10dce71b55d10b358740f57bf32dfb02e681cfa",
+      "7ad295530cb8d6800b5ffd77c10dce71b55d10b358740f57bf32dfb02e681cfa"
     ],
     "stable": true
   },
   "rollback_proof": null,
   "v136_replay_proof": {
     "run_v136_validation_suite": "PASS"
-  }
+  },
+  "defect_type": "handoff_source_ref_not_from_stage_output",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "handoff_ids_match_across_stages_rate"
+  ]
 }

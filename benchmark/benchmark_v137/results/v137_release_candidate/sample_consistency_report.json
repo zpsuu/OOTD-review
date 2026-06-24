@@ -11,9 +11,9 @@
       "source_artifact_ref": "per_case/clean/v137_A01_full_loop_low_risk_color_memory.json",
       "case_id": "v137_A01_full_loop_low_risk_color_memory",
       "exists": true,
-      "sample_hash": "de0ef85dfbc2699ea745a638346bd5b9c739a524e61039169a9a3843bf87fd54",
-      "source_hash": "de0ef85dfbc2699ea745a638346bd5b9c739a524e61039169a9a3843bf87fd54",
-      "manifest_hash": "de0ef85dfbc2699ea745a638346bd5b9c739a524e61039169a9a3843bf87fd54",
+      "sample_hash": "7656b96b0e42bb7bfb67524027ae4b42580f9ac2e233b79b1334d22efb14a941",
+      "source_hash": "7656b96b0e42bb7bfb67524027ae4b42580f9ac2e233b79b1334d22efb14a941",
+      "manifest_hash": "7656b96b0e42bb7bfb67524027ae4b42580f9ac2e233b79b1334d22efb14a941",
       "passed": true
     },
     {
@@ -21,9 +21,9 @@
       "source_artifact_ref": "per_case/clean/v137_B01_unconfirmed_candidate_never_promotes.json",
       "case_id": "v137_B01_unconfirmed_candidate_never_promotes",
       "exists": true,
-      "sample_hash": "eecb1aa19cc5eb32ea24db39cc1fff5be10c5118c0a60ff81aace1647c6be2e7",
-      "source_hash": "eecb1aa19cc5eb32ea24db39cc1fff5be10c5118c0a60ff81aace1647c6be2e7",
-      "manifest_hash": "eecb1aa19cc5eb32ea24db39cc1fff5be10c5118c0a60ff81aace1647c6be2e7",
+      "sample_hash": "bdc036c37da89a8cdf95fe20787f0db1c9992a552b80c2cae9f06da02f7f1803",
+      "source_hash": "bdc036c37da89a8cdf95fe20787f0db1c9992a552b80c2cae9f06da02f7f1803",
+      "manifest_hash": "bdc036c37da89a8cdf95fe20787f0db1c9992a552b80c2cae9f06da02f7f1803",
       "passed": true
     },
     {
@@ -31,9 +31,9 @@
       "source_artifact_ref": "per_case/clean/v137_E03_wrong_context_adds_exclusion_and_tests_excluded_context.json",
       "case_id": "v137_E03_wrong_context_adds_exclusion_and_tests_excluded_context",
       "exists": true,
-      "sample_hash": "8f73308c3263f24eb3e0461d7597933b2f30a648ecbe924d476917ff01fc86fa",
-      "source_hash": "8f73308c3263f24eb3e0461d7597933b2f30a648ecbe924d476917ff01fc86fa",
-      "manifest_hash": "8f73308c3263f24eb3e0461d7597933b2f30a648ecbe924d476917ff01fc86fa",
+      "sample_hash": "3d4916e1050181da60be84c201486bde5c12cd0fb151609313e9f4dffa93f609",
+      "source_hash": "3d4916e1050181da60be84c201486bde5c12cd0fb151609313e9f4dffa93f609",
+      "manifest_hash": "3d4916e1050181da60be84c201486bde5c12cd0fb151609313e9f4dffa93f609",
       "passed": true
     },
     {
@@ -41,9 +41,9 @@
       "source_artifact_ref": "per_case/clean/v137_E04_review_pending_feedback_does_not_claim_applied_effect.json",
       "case_id": "v137_E04_review_pending_feedback_does_not_claim_applied_effect",
       "exists": true,
-      "sample_hash": "6ea059626cc3ce38122ee7a0c61ea80837f6e8fb69b3e2bb3a30f31d20cbd3df",
-      "source_hash": "6ea059626cc3ce38122ee7a0c61ea80837f6e8fb69b3e2bb3a30f31d20cbd3df",
-      "manifest_hash": "6ea059626cc3ce38122ee7a0c61ea80837f6e8fb69b3e2bb3a30f31d20cbd3df",
+      "sample_hash": "9a5e37fbf2c2d834e9afa62de925a0e28d9a8b229abb7478af117fb1345de3f9",
+      "source_hash": "9a5e37fbf2c2d834e9afa62de925a0e28d9a8b229abb7478af117fb1345de3f9",
+      "manifest_hash": "9a5e37fbf2c2d834e9afa62de925a0e28d9a8b229abb7478af117fb1345de3f9",
       "passed": true
     },
     {
@@ -51,9 +51,9 @@
       "source_artifact_ref": "per_case/clean/v137_F03_rollback_removes_future_claims.json",
       "case_id": "v137_F03_rollback_removes_future_claims",
       "exists": true,
-      "sample_hash": "539990242b3a79d466c1e5e49fc22ac672213d10d0f4941ddd3990484a56c464",
-      "source_hash": "539990242b3a79d466c1e5e49fc22ac672213d10d0f4941ddd3990484a56c464",
-      "manifest_hash": "539990242b3a79d466c1e5e49fc22ac672213d10d0f4941ddd3990484a56c464",
+      "sample_hash": "02a4a35f606c651afdcdc9582f0bea7534858a31adcb0006077068a96d3ab6df",
+      "source_hash": "02a4a35f606c651afdcdc9582f0bea7534858a31adcb0006077068a96d3ab6df",
+      "manifest_hash": "02a4a35f606c651afdcdc9582f0bea7534858a31adcb0006077068a96d3ab6df",
       "passed": true
     },
     {
@@ -61,11 +61,11 @@
       "source_artifact_ref": "per_case/clean/v137_H01_day1_to_day3_state_hash_stability.json",
       "case_id": "v137_H01_day1_to_day3_state_hash_stability",
       "exists": true,
-      "sample_hash": "82815b5f80c1931324828165f70a8414b162a573e4cff54db07e33c7531236e8",
-      "source_hash": "82815b5f80c1931324828165f70a8414b162a573e4cff54db07e33c7531236e8",
-      "manifest_hash": "82815b5f80c1931324828165f70a8414b162a573e4cff54db07e33c7531236e8",
+      "sample_hash": "66773103aad6e8cf58b8512df04eefb0619027c83e9237b48ea94da007fcd2c4",
+      "source_hash": "66773103aad6e8cf58b8512df04eefb0619027c83e9237b48ea94da007fcd2c4",
+      "manifest_hash": "66773103aad6e8cf58b8512df04eefb0619027c83e9237b48ea94da007fcd2c4",
       "passed": true
     }
   ],
-  "generated_at": "2026-06-24T04:45:39Z"
+  "generated_at": "2026-06-24T05:11:18Z"
 }

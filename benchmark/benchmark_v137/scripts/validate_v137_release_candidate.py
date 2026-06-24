@@ -69,6 +69,9 @@ def _text_claims(claims: list[dict[str, Any]]) -> str:
     return " ".join(str(claim.get("text", "")) for claim in claims if isinstance(claim, dict)).lower()
 
 
+GENERIC_PROOF_REFS = {"runtime_trace", "handoff_proofs", "runtime_invariant_report"}
+
+
 def _structural_failures(artifact: dict[str, Any]) -> list[str]:
     failures: list[str] = []
     trace = artifact.get("runtime_trace") or {}
@@ -87,6 +90,11 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
     claims = artifact.get("visible_claims") or []
     post_claims = artifact.get("post_feedback_claims") or []
     memory_id = (memory or {}).get("memory_id")
+    by_stage = {event.get("stage"): event for event in events if isinstance(event, dict)}
+    blocked_refs = set()
+    for event in events:
+        blocked_refs.update(event.get("blocked_output_refs") or [])
+    snapshot_ids = {snapshot.get("state_snapshot_id") for snapshot in snapshots if isinstance(snapshot, dict)}
 
     if trace.get("stage_order") != STAGE_ORDER:
         failures.append("runtime_trace_stage_order_complete_rate")
@@ -102,12 +110,28 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
         failures.append("multi_day_state_hash_stability_rate")
 
     for handoff in handoffs:
-        if handoff.get("same_id") is not True or handoff.get("source_output_ref") != handoff.get("target_input_ref"):
+        from_event = by_stage.get(handoff.get("from_stage")) or {}
+        to_event = by_stage.get(handoff.get("to_stage")) or {}
+        source_ref = handoff.get("source_output_ref")
+        target_ref = handoff.get("target_input_ref")
+        source_outputs = set(from_event.get("output_refs") or [])
+        target_inputs = set(to_event.get("input_refs") or [])
+        if handoff.get("same_id") is not True or source_ref != target_ref:
+            failures.append("handoff_ids_match_across_stages_rate")
+            break
+        if source_ref not in source_outputs or target_ref not in target_inputs:
+            failures.append("handoff_ids_match_across_stages_rate")
+            break
+        if source_ref in blocked_refs or target_ref in blocked_refs:
+            failures.append("handoff_ids_match_across_stages_rate")
+            break
+        if (str(source_ref).startswith("state_") or "state_snapshot_id" in str(handoff.get("source_artifact_ref", ""))) and source_ref not in snapshot_ids:
             failures.append("handoff_ids_match_across_stages_rate")
             break
 
     if gate.get("pre_gate_production_write") is True:
         failures.append("no_pre_gate_production_write_rate")
+        failures.append("promotion_gate_required_before_memory_write_rate")
     if memory and gate.get("decision") != "allow":
         failures.append("promotion_gate_required_before_memory_write_rate")
     if memory and not gate.get("production_write_executed"):
@@ -128,9 +152,12 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
     if packet.get("request_context") not in {"office_daily", None} and consumed:
         failures.append("mismatching_context_exclusion_rate")
 
-    if feedback.get("promoted_memory_id") and feedback.get("promoted_memory_id") not in consumed:
-        if feedback.get("consumption_report_id") is not None:
-            failures.append("feedback_event_refs_consumed_memory_rate")
+    if feedback.get("promoted_memory_id") and (not memory or feedback.get("promoted_memory_id") != memory_id):
+        failures.append("feedback_event_refs_consumed_memory_rate")
+    elif feedback.get("promoted_memory_id") and feedback.get("promoted_memory_id") not in consumed:
+        failures.append("feedback_event_refs_consumed_memory_rate")
+    if not memory and state.get("memory_id"):
+        failures.append("post_feedback_packet_uses_updated_lifecycle_state_rate")
 
     if state.get("current_status") in {"blocked", "rolled_back"} and memory_id in (post_packet.get("consumed_promoted_memory_ids") or []):
         failures.append("post_feedback_packet_uses_updated_lifecycle_state_rate")
@@ -143,6 +170,16 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
     if decision.get("gate_decision") == "human_review_required":
         applied_terms = ["softened", "narrowed", "blocked", "rolled back", "reinforced", "changed", "reduced"]
         if any(term in _text_claims(post_claims) for term in applied_terms):
+            failures.append("review_pending_does_not_claim_applied_effect_rate")
+    if artifact.get("scenario_kind") == "clarification" or "clarification" in str(artifact.get("case_id", "")):
+        interpretation = artifact.get("feedback_interpretation") or {}
+        if interpretation.get("interpreted_intent") != "clarification_required":
+            failures.append("review_pending_does_not_claim_applied_effect_rate")
+        if decision.get("gate_decision") != "clarification_required":
+            failures.append("review_pending_does_not_claim_applied_effect_rate")
+        if decision.get("production_write_executed") is True:
+            failures.append("review_pending_does_not_claim_applied_effect_rate")
+        if state.get("current_status") == "review_pending":
             failures.append("review_pending_does_not_claim_applied_effect_rate")
 
     if state.get("current_status") == "rolled_back":
@@ -161,6 +198,24 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
             failures.append("trace_backed_visible_claims_rate")
             break
 
+    for invariant in trace.get("invariant_checks") or []:
+        refs = set(invariant.get("raw_proof_refs") or [])
+        if not refs or refs == GENERIC_PROOF_REFS:
+            failures.append("report_consistency_with_independent_validation_rate")
+            break
+
+    sample_probe = artifact.get("sample_consistency_probe") or {}
+    if sample_probe:
+        if canonical_json_hash(sample_probe.get("sample_artifact_content")) != canonical_json_hash(sample_probe.get("source_artifact_content")):
+            failures.append("sample_artifacts_match_per_case_rate")
+
+    report_probe = artifact.get("report_consistency_probe") or {}
+    if report_probe:
+        clean_summary = report_probe.get("clean_report_summary") or {}
+        independent_summary = report_probe.get("independent_validation_summary") or {}
+        if clean_summary.get("passed_cases") != independent_summary.get("passed_cases") or clean_summary.get("failed_cases") != independent_summary.get("failed_cases"):
+            failures.append("report_consistency_with_independent_validation_rate")
+
     if (artifact.get("runtime_invariant_report") or {}).get("passed") is not True:
         failures.append("report_consistency_with_independent_validation_rate")
     if (artifact.get("v136_replay_proof") or {}).get("run_v136_validation_suite") != "PASS":
@@ -170,9 +225,7 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
 
 def validate_case(path: Path, subset: str, base_dir: Path) -> dict[str, Any]:
     artifact = read_json(path)
-    failed = [gate for gate in GATES if (artifact.get("gate_assertions") or {}).get(gate) is not True]
-    if subset == "clean":
-        failed.extend(_structural_failures(artifact))
+    failed = _structural_failures(artifact)
     return {
         "case_id": artifact.get("case_id") or path.stem,
         "artifact_ref": str(path.relative_to(base_dir)),
@@ -233,6 +286,23 @@ def main() -> None:
     report = validate_directory(result_dir, args.subset)
     if args.output:
         write_json(Path(args.output), report)
+    if args.subset == "adversarial":
+        rows = report.get("detected_defects", [])
+        seeded = len(rows)
+        detected = sum(1 for row in rows if row.get("detected"))
+        write_json(
+            result_dir / "injected_defect_detection_summary.json",
+            {
+                "version": "v1.37",
+                "generated_at": now_iso(),
+                "verdict": "pass" if detected == seeded else "fail",
+                "seeded_defects": seeded,
+                "detected_defects": detected,
+                "unexpected_clean_case_failures": [],
+                "unexpected_injected_passes": [row for row in rows if not row.get("detected")],
+                "detected": rows,
+            },
+        )
     if args.write_consistency:
         write_consistency_reports(result_dir)
     print(json.dumps(report["suite_summary"], ensure_ascii=False, indent=2))
@@ -240,8 +310,9 @@ def main() -> None:
         raise SystemExit(1)
     if args.subset in {"adversarial", "mixed_strict"} and report["suite_summary"]["passed_cases"]:
         raise SystemExit(1)
+    if args.subset == "adversarial" and report.get("detected_defect_count") != report["suite_summary"]["total_cases"]:
+        raise SystemExit(1)
 
 
 if __name__ == "__main__":
     main()
-
