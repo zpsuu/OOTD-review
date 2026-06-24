@@ -1,0 +1,112 @@
+{
+  "version": "v1.38",
+  "release_candidate_status": "pass_candidate_pending_manual_review",
+  "theme": "Runtime Governance Operations",
+  "branch": "v138-runtime-governance-operations",
+  "entrypoint": "benchmark/benchmark_v138/results/v138_release_candidate/REVIEW_MANIFEST.json",
+  "generated_at": "2026-06-24T06:53:16Z",
+  "builder_script": "benchmark/benchmark_v138/scripts/build_v138_release_candidate_evidence_pack.py",
+  "validator_script": "benchmark/benchmark_v138/scripts/validate_v138_release_candidate.py",
+  "runner_script": "benchmark/benchmark_v138/scripts/run_v138_validation_suite.py",
+  "required_reports": [
+    "clean_report.json",
+    "mixed_strict_report.json",
+    "independent_validation_report.json",
+    "adversarial_validation_report.json",
+    "report_consistency_report.json",
+    "sample_consistency_report.json",
+    "injected_defect_detection_summary.json",
+    "governance_queue_summary.json",
+    "resolution_decision_summary.json",
+    "governance_ledger_summary.json",
+    "post_resolution_packet_summary.json"
+  ],
+  "required_gates": [
+    "governance_queue_created_from_runtime_trigger_rate",
+    "queue_item_status_consistency_rate",
+    "queue_dedupe_blocks_duplicate_open_items_rate",
+    "clarification_request_trace_backed_rate",
+    "clarification_no_write_preserves_memory_state_rate",
+    "clarification_write_candidate_routes_to_gate_rate",
+    "human_review_payload_has_raw_evidence_rate",
+    "human_review_resolution_uses_write_gate_rate",
+    "review_rejection_no_write_preserves_memory_state_rate",
+    "temporary_hold_current_turn_only_rate",
+    "temporary_hold_release_packet_rebuild_rate",
+    "expired_item_no_write_rate",
+    "post_resolution_packet_matches_resolution_rate",
+    "rollback_audit_absence_proof_rate",
+    "blocked_memory_future_absence_proof_rate",
+    "reviewer_forbidden_actions_blocked_rate",
+    "ledger_hash_chain_valid_rate",
+    "ledger_append_only_replay_rate",
+    "trace_backed_resolution_claims_rate",
+    "sample_artifacts_match_per_case_rate",
+    "report_consistency_with_independent_validation_rate",
+    "adversarial_detection_rate",
+    "v137_validation_replay_pass_rate"
+  ],
+  "validator_commands": [
+    "benchmark/benchmark_v135/scripts/validate_v135_release_candidate.py",
+    "python benchmark/benchmark_v137/scripts/run_v137_validation_suite.py",
+    "python benchmark/benchmark_v138/scripts/run_v138_validation_suite.py",
+    "python -m unittest discover -s benchmark/benchmark_v138/tests"
+  ],
+  "sample_artifacts": [
+    {
+      "case_id": "v138_B02_clarification_answer_this_time_only_no_write",
+      "artifact_ref": "sample_artifacts/clarification_this_time_only_no_write.json",
+      "source_artifact_ref": "per_case/clean/v138_B02_clarification_answer_this_time_only_no_write.json",
+      "canonical_sha256": "93e19d2e052661356a68f91148a746c76f84f943a2dd1366c89670266c5f0253",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v138_C02_review_approve_write_still_uses_write_gate",
+      "artifact_ref": "sample_artifacts/review_approve_write_gate.json",
+      "source_artifact_ref": "per_case/clean/v138_C02_review_approve_write_still_uses_write_gate.json",
+      "canonical_sha256": "9ccacc3cfeed76f693a65f38d413f0cb65331a2fcfd5aa7676eec30b330208c8",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v138_C03_review_reject_no_write_preserves_memory_state",
+      "artifact_ref": "sample_artifacts/review_reject_no_write.json",
+      "source_artifact_ref": "per_case/clean/v138_C03_review_reject_no_write_preserves_memory_state.json",
+      "canonical_sha256": "51e3e29f830e45b4a06148072fc89509306725c84d9634ac6bad40c6e25e4f89",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v138_D03_temporary_hold_expiry_no_write",
+      "artifact_ref": "sample_artifacts/temporary_hold_expiry.json",
+      "source_artifact_ref": "per_case/clean/v138_D03_temporary_hold_expiry_no_write.json",
+      "canonical_sha256": "83dc82785d9a732c0db9f20cd9b93fea89dc323291be97920f6d7ea534d54a29",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v138_G01_rollback_audit_absence_proof",
+      "artifact_ref": "sample_artifacts/rollback_audit_absence_proof.json",
+      "source_artifact_ref": "per_case/clean/v138_G01_rollback_audit_absence_proof.json",
+      "canonical_sha256": "8557dd5a5524c8f19165d6c0c5e5c571edadc24d1b7f7db8792905544ae0cd29",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    },
+    {
+      "case_id": "v138_H01_ledger_hash_chain_valid",
+      "artifact_ref": "sample_artifacts/ledger_hash_chain_valid.json",
+      "source_artifact_ref": "per_case/clean/v138_H01_ledger_hash_chain_valid.json",
+      "canonical_sha256": "5ec9cca41b1bef82eb549ffcb2274f1c872c8f21a353b83574877f5b34195b29",
+      "sample_projection_schema": "full_copy",
+      "allowed_omitted_fields": []
+    }
+  ],
+  "non_goals": [
+    "No real human review service",
+    "No full review UI",
+    "No commerce, SKU, merchant, affiliate, or product links",
+    "No AIGC image generation",
+    "No production storage migration"
+  ]
+}

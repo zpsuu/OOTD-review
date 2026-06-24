@@ -14,12 +14,12 @@ The private development repository remains private. This mirror only contains re
 
 ## Current Review Target
 
-v1.37 - End-to-End Inspiration Memory Runtime Loop
+v1.38 - Runtime Governance Operations
 
 Entrypoint:
 
-`benchmark/benchmark_v137/results/v137_release_candidate/REVIEW_MANIFEST.json`
+`benchmark/benchmark_v138/results/v138_release_candidate/REVIEW_MANIFEST.json`
 
 ## Status
 
-v1.37 End-to-End Inspiration Memory Runtime Loop is PASS CANDIDATE pending manual review.
+v1.38 Runtime Governance Operations is PASS CANDIDATE pending manual review.

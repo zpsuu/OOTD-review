@@ -1,0 +1,219 @@
+{
+  "version": "v1.38",
+  "generated_at": "2026-06-24T06:53:16Z",
+  "verdict": "pass",
+  "seeded_defects": 18,
+  "detected_defects": 18,
+  "unexpected_injected_passes": [],
+  "detected": [
+    {
+      "case_id": "v138_ADV_L01_queue_item_without_runtime_trigger",
+      "defect_type": "queue_item_without_runtime_trigger",
+      "expected_failed_check_ids": [
+        "governance_queue_created_from_runtime_trigger_rate"
+      ],
+      "failed_check_ids": [
+        "governance_queue_created_from_runtime_trigger_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v138_ADV_L02_open_item_has_resolution_ref",
+      "defect_type": "open_item_has_resolution_ref",
+      "expected_failed_check_ids": [
+        "queue_item_status_consistency_rate"
+      ],
+      "failed_check_ids": [
+        "queue_item_status_consistency_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v138_ADV_L03_resolved_item_missing_resolution",
+      "defect_type": "resolved_item_missing_resolution",
+      "expected_failed_check_ids": [
+        "queue_item_status_consistency_rate"
+      ],
+      "failed_check_ids": [
+        "queue_item_status_consistency_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v138_ADV_L04_duplicate_open_items_not_deduped",
+      "defect_type": "duplicate_open_items_not_deduped",
+      "expected_failed_check_ids": [
+        "queue_dedupe_blocks_duplicate_open_items_rate"
+      ],
+      "failed_check_ids": [
+        "queue_dedupe_blocks_duplicate_open_items_rate",
+        "queue_item_status_consistency_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v138_ADV_L05_clarification_request_claims_memory_changed",
+      "defect_type": "clarification_request_claims_memory_changed",
+      "expected_failed_check_ids": [
+        "clarification_request_trace_backed_rate"
+      ],
+      "failed_check_ids": [
+        "clarification_request_trace_backed_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v138_ADV_L06_clarification_no_write_mutates_memory",
+      "defect_type": "clarification_no_write_mutates_memory",
+      "expected_failed_check_ids": [
+        "clarification_no_write_preserves_memory_state_rate"
+      ],
+      "failed_check_ids": [
+        "clarification_no_write_preserves_memory_state_rate",
+        "ledger_hash_chain_valid_rate",
+        "post_resolution_packet_matches_resolution_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v138_ADV_L07_clarification_write_candidate_bypasses_gate",
+      "defect_type": "clarification_write_candidate_bypasses_gate",
+      "expected_failed_check_ids": [
+        "clarification_write_candidate_routes_to_gate_rate"
+      ],
+      "failed_check_ids": [
+        "clarification_write_candidate_routes_to_gate_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v138_ADV_L08_review_payload_missing_raw_evidence",
+      "defect_type": "review_payload_missing_raw_evidence",
+      "expected_failed_check_ids": [
+        "human_review_payload_has_raw_evidence_rate"
+      ],
+      "failed_check_ids": [
+        "human_review_payload_has_raw_evidence_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v138_ADV_L09_review_approval_bypasses_write_gate",
+      "defect_type": "review_approval_bypasses_write_gate",
+      "expected_failed_check_ids": [
+        "human_review_resolution_uses_write_gate_rate"
+      ],
+      "failed_check_ids": [
+        "human_review_resolution_uses_write_gate_rate",
+        "post_resolution_packet_matches_resolution_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v138_ADV_L10_review_rejection_mutates_memory",
+      "defect_type": "review_rejection_mutates_memory",
+      "expected_failed_check_ids": [
+        "review_rejection_no_write_preserves_memory_state_rate"
+      ],
+      "failed_check_ids": [
+        "ledger_hash_chain_valid_rate",
+        "post_resolution_packet_matches_resolution_rate",
+        "review_rejection_no_write_preserves_memory_state_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v138_ADV_L11_temporary_hold_globalizes_into_lifecycle_state",
+      "defect_type": "temporary_hold_globalizes_into_lifecycle_state",
+      "expected_failed_check_ids": [
+        "temporary_hold_current_turn_only_rate"
+      ],
+      "failed_check_ids": [
+        "ledger_hash_chain_valid_rate",
+        "temporary_hold_current_turn_only_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v138_ADV_L12_expired_item_executes_write",
+      "defect_type": "expired_item_executes_write",
+      "expected_failed_check_ids": [
+        "expired_item_no_write_rate"
+      ],
+      "failed_check_ids": [
+        "expired_item_no_write_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v138_ADV_L13_post_resolution_packet_ignores_resolution",
+      "defect_type": "post_resolution_packet_ignores_resolution",
+      "expected_failed_check_ids": [
+        "post_resolution_packet_matches_resolution_rate"
+      ],
+      "failed_check_ids": [
+        "post_resolution_packet_matches_resolution_rate",
+        "temporary_hold_release_packet_rebuild_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v138_ADV_L14_rollback_audit_memory_still_consumed",
+      "defect_type": "rollback_audit_memory_still_consumed",
+      "expected_failed_check_ids": [
+        "rollback_audit_absence_proof_rate",
+        "post_resolution_packet_matches_resolution_rate"
+      ],
+      "failed_check_ids": [
+        "post_resolution_packet_matches_resolution_rate",
+        "rollback_audit_absence_proof_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v138_ADV_L15_reviewer_adds_unconfirmed_aspect",
+      "defect_type": "reviewer_adds_unconfirmed_aspect",
+      "expected_failed_check_ids": [
+        "reviewer_forbidden_actions_blocked_rate"
+      ],
+      "failed_check_ids": [
+        "reviewer_forbidden_actions_blocked_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v138_ADV_L16_ledger_hash_chain_broken",
+      "defect_type": "ledger_hash_chain_broken",
+      "expected_failed_check_ids": [
+        "ledger_hash_chain_valid_rate"
+      ],
+      "failed_check_ids": [
+        "ledger_append_only_replay_rate",
+        "ledger_hash_chain_valid_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v138_ADV_L17_sample_artifact_stale_relative_to_per_case",
+      "defect_type": "sample_artifact_stale_relative_to_per_case",
+      "expected_failed_check_ids": [
+        "sample_artifacts_match_per_case_rate"
+      ],
+      "failed_check_ids": [
+        "sample_artifacts_match_per_case_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v138_ADV_L18_clean_report_pass_but_independent_validator_fail",
+      "defect_type": "clean_report_pass_but_independent_validator_fail",
+      "expected_failed_check_ids": [
+        "report_consistency_with_independent_validation_rate"
+      ],
+      "failed_check_ids": [
+        "report_consistency_with_independent_validation_rate"
+      ],
+      "detected": true
+    }
+  ]
+}

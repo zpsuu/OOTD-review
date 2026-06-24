@@ -1,0 +1,71 @@
+{
+  "validator": "benchmark.common.sample_consistency",
+  "total_samples": 6,
+  "passed_samples": 6,
+  "failed_samples": 0,
+  "passed": true,
+  "failures": [],
+  "samples": [
+    {
+      "artifact_ref": "sample_artifacts/clarification_this_time_only_no_write.json",
+      "source_artifact_ref": "per_case/clean/v138_B02_clarification_answer_this_time_only_no_write.json",
+      "case_id": "v138_B02_clarification_answer_this_time_only_no_write",
+      "exists": true,
+      "sample_hash": "93e19d2e052661356a68f91148a746c76f84f943a2dd1366c89670266c5f0253",
+      "source_hash": "93e19d2e052661356a68f91148a746c76f84f943a2dd1366c89670266c5f0253",
+      "manifest_hash": "93e19d2e052661356a68f91148a746c76f84f943a2dd1366c89670266c5f0253",
+      "passed": true
+    },
+    {
+      "artifact_ref": "sample_artifacts/review_approve_write_gate.json",
+      "source_artifact_ref": "per_case/clean/v138_C02_review_approve_write_still_uses_write_gate.json",
+      "case_id": "v138_C02_review_approve_write_still_uses_write_gate",
+      "exists": true,
+      "sample_hash": "9ccacc3cfeed76f693a65f38d413f0cb65331a2fcfd5aa7676eec30b330208c8",
+      "source_hash": "9ccacc3cfeed76f693a65f38d413f0cb65331a2fcfd5aa7676eec30b330208c8",
+      "manifest_hash": "9ccacc3cfeed76f693a65f38d413f0cb65331a2fcfd5aa7676eec30b330208c8",
+      "passed": true
+    },
+    {
+      "artifact_ref": "sample_artifacts/review_reject_no_write.json",
+      "source_artifact_ref": "per_case/clean/v138_C03_review_reject_no_write_preserves_memory_state.json",
+      "case_id": "v138_C03_review_reject_no_write_preserves_memory_state",
+      "exists": true,
+      "sample_hash": "51e3e29f830e45b4a06148072fc89509306725c84d9634ac6bad40c6e25e4f89",
+      "source_hash": "51e3e29f830e45b4a06148072fc89509306725c84d9634ac6bad40c6e25e4f89",
+      "manifest_hash": "51e3e29f830e45b4a06148072fc89509306725c84d9634ac6bad40c6e25e4f89",
+      "passed": true
+    },
+    {
+      "artifact_ref": "sample_artifacts/temporary_hold_expiry.json",
+      "source_artifact_ref": "per_case/clean/v138_D03_temporary_hold_expiry_no_write.json",
+      "case_id": "v138_D03_temporary_hold_expiry_no_write",
+      "exists": true,
+      "sample_hash": "83dc82785d9a732c0db9f20cd9b93fea89dc323291be97920f6d7ea534d54a29",
+      "source_hash": "83dc82785d9a732c0db9f20cd9b93fea89dc323291be97920f6d7ea534d54a29",
+      "manifest_hash": "83dc82785d9a732c0db9f20cd9b93fea89dc323291be97920f6d7ea534d54a29",
+      "passed": true
+    },
+    {
+      "artifact_ref": "sample_artifacts/rollback_audit_absence_proof.json",
+      "source_artifact_ref": "per_case/clean/v138_G01_rollback_audit_absence_proof.json",
+      "case_id": "v138_G01_rollback_audit_absence_proof",
+      "exists": true,
+      "sample_hash": "8557dd5a5524c8f19165d6c0c5e5c571edadc24d1b7f7db8792905544ae0cd29",
+      "source_hash": "8557dd5a5524c8f19165d6c0c5e5c571edadc24d1b7f7db8792905544ae0cd29",
+      "manifest_hash": "8557dd5a5524c8f19165d6c0c5e5c571edadc24d1b7f7db8792905544ae0cd29",
+      "passed": true
+    },
+    {
+      "artifact_ref": "sample_artifacts/ledger_hash_chain_valid.json",
+      "source_artifact_ref": "per_case/clean/v138_H01_ledger_hash_chain_valid.json",
+      "case_id": "v138_H01_ledger_hash_chain_valid",
+      "exists": true,
+      "sample_hash": "5ec9cca41b1bef82eb549ffcb2274f1c872c8f21a353b83574877f5b34195b29",
+      "source_hash": "5ec9cca41b1bef82eb549ffcb2274f1c872c8f21a353b83574877f5b34195b29",
+      "manifest_hash": "5ec9cca41b1bef82eb549ffcb2274f1c872c8f21a353b83574877f5b34195b29",
+      "passed": true
+    }
+  ],
+  "generated_at": "2026-06-24T06:53:16Z"
+}

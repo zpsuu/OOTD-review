@@ -1,0 +1,313 @@
+{
+  "case_id": "v138_ADV_L10_review_rejection_mutates_memory",
+  "version": "v1.38",
+  "scenario_kind": "review_reject",
+  "gate_assertions": {
+    "governance_queue_created_from_runtime_trigger_rate": true,
+    "queue_item_status_consistency_rate": true,
+    "queue_dedupe_blocks_duplicate_open_items_rate": true,
+    "clarification_request_trace_backed_rate": true,
+    "clarification_no_write_preserves_memory_state_rate": true,
+    "clarification_write_candidate_routes_to_gate_rate": true,
+    "human_review_payload_has_raw_evidence_rate": true,
+    "human_review_resolution_uses_write_gate_rate": true,
+    "review_rejection_no_write_preserves_memory_state_rate": true,
+    "temporary_hold_current_turn_only_rate": true,
+    "temporary_hold_release_packet_rebuild_rate": true,
+    "expired_item_no_write_rate": true,
+    "post_resolution_packet_matches_resolution_rate": true,
+    "rollback_audit_absence_proof_rate": true,
+    "blocked_memory_future_absence_proof_rate": true,
+    "reviewer_forbidden_actions_blocked_rate": true,
+    "ledger_hash_chain_valid_rate": true,
+    "ledger_append_only_replay_rate": true,
+    "trace_backed_resolution_claims_rate": true,
+    "sample_artifacts_match_per_case_rate": true,
+    "report_consistency_with_independent_validation_rate": true,
+    "adversarial_detection_rate": true,
+    "v137_validation_replay_pass_rate": true
+  },
+  "runtime_trace": {
+    "runtime_trace_id": "rt_v138_910",
+    "stage_order": [
+      "runtime_trace",
+      "governance_trigger",
+      "queue",
+      "resolution",
+      "ledger",
+      "post_resolution_packet",
+      "multi_day_replay"
+    ],
+    "trace_refs": [
+      "tmp_v138_910",
+      "pmf_v138_910"
+    ]
+  },
+  "governance_trigger": {
+    "governance_trigger_id": "gt_v138_910",
+    "trigger_type": "human_review_required",
+    "source_runtime_trace_id": "rt_v138_910",
+    "source_task_memory_packet_id": "tmp_v138_910",
+    "source_feedback_event_id": "pmf_v138_910",
+    "target_memory_id": "mem_insp_v138_910",
+    "trace_refs": [
+      "rt_v138_910",
+      "tmp_v138_910",
+      "pmf_v138_910"
+    ]
+  },
+  "runtime_governance_queue": {
+    "runtime_governance_queue_id": "rgq_v138_910",
+    "runtime_trace_id": "rt_v138_910",
+    "created_at": "2026-06-24T00:00:00Z",
+    "queue_items": [
+      {
+        "governance_queue_item_id": "gqi_v138_910",
+        "trigger_type": "human_review_required",
+        "trigger_ref": "gt_v138_910",
+        "target_memory_id": "mem_insp_v138_910",
+        "target_candidate_id": null,
+        "source_runtime_trace_id": "rt_v138_910",
+        "source_task_memory_packet_id": "tmp_v138_910",
+        "source_feedback_event_id": "pmf_v138_910",
+        "status": "resolved",
+        "priority": "medium",
+        "risk_level": "high",
+        "created_at": "2026-06-24T00:00:00Z",
+        "resolution_ref": "grd_v138_910",
+        "trace_refs": [
+          "rt_v138_910",
+          "gt_v138_910",
+          "tmp_v138_910",
+          "pmf_v138_910"
+        ]
+      }
+    ],
+    "dedupe_index": [
+      {
+        "dedupe_key": "human_review_required:mem_insp_v138_910:gt_v138_910",
+        "canonical_queue_item_id": "gqi_v138_910"
+      }
+    ],
+    "open_item_count": 0,
+    "resolved_item_count": 1,
+    "expired_item_count": 0
+  },
+  "clarification_request": null,
+  "clarification_resolution": null,
+  "human_review_payload": {
+    "human_review_payload_id": "hrp_v138_910",
+    "governance_queue_item_id": "gqi_v138_910",
+    "risk_reasons": [
+      "context_scope_change_requires_review"
+    ],
+    "proposed_action_summary": "narrow context handling for a promoted inspiration memory",
+    "raw_evidence_refs": [
+      "rt_v138_910",
+      "tmp_v138_910",
+      "pmf_v138_910",
+      "state_before_v138_910"
+    ],
+    "allowed_reviewer_actions": [
+      "approve_no_write",
+      "approve_write",
+      "reject",
+      "request_clarification",
+      "rollback"
+    ],
+    "forbidden_reviewer_actions": [
+      "globalize_memory",
+      "add_unconfirmed_aspect",
+      "infer_body_or_identity"
+    ],
+    "production_write_blocked_until_resolution": true
+  },
+  "human_review_resolution": {
+    "human_review_resolution_id": "hrr_v138_910",
+    "reviewer_action": "reject",
+    "blocked_forbidden_action": false,
+    "trace_refs": [
+      "gqi_v138_910",
+      "hrp_v138_910"
+    ]
+  },
+  "temporary_hold_lifecycle": {
+    "temporary_hold_id": "th_v138_910",
+    "source_queue_item_id": "gqi_v138_910",
+    "current_turn_scoped": true,
+    "production_lifecycle_mutation": false,
+    "status": "released",
+    "release_ref": "grd_v138_910",
+    "expiry_ref": null
+  },
+  "governance_resolution_decision": {
+    "governance_resolution_decision_id": "grd_v138_910",
+    "governance_queue_item_id": "gqi_v138_910",
+    "resolution_type": "review_rejected_no_write",
+    "resolution_input_ref": "resolution_input_v138_910",
+    "production_write_gate_ref": null,
+    "production_write_executed": false,
+    "memory_patch_ref": null,
+    "temporary_hold_released": true,
+    "decision_reasons": [
+      "review_rejected_no_write"
+    ],
+    "created_at": "2026-06-24T00:00:00Z"
+  },
+  "production_memory_write_gate": {
+    "gate_id": "pmwg_v138_910",
+    "decision": "not_applicable_no_write",
+    "production_write_executed": false,
+    "pre_resolution_write": false,
+    "allowlist_checked": true,
+    "environment": "deterministic_local_fixture"
+  },
+  "before_memory_lifecycle_state": {
+    "state_snapshot_id": "state_active_v138_910",
+    "memory_id": "mem_insp_v138_910",
+    "current_status": "active",
+    "contexts": [
+      "office_daily"
+    ],
+    "confirmed_aspects": [
+      "color_palette"
+    ],
+    "active_memory_ids": [
+      "mem_insp_v138_910"
+    ],
+    "blocked_memory_ids": [],
+    "rolled_back_memory_ids": [],
+    "context_exclusions": []
+  },
+  "after_memory_lifecycle_state": {
+    "state_snapshot_id": "state_active_v138_910",
+    "memory_id": "mem_insp_v138_910",
+    "current_status": "active",
+    "contexts": [
+      "office_daily"
+    ],
+    "confirmed_aspects": [
+      "color_palette"
+    ],
+    "active_memory_ids": [
+      "mem_insp_v138_910"
+    ],
+    "blocked_memory_ids": [],
+    "rolled_back_memory_ids": [],
+    "context_exclusions": [
+      "formal_client_meeting"
+    ]
+  },
+  "post_resolution_task_memory_packet": {
+    "task_memory_packet_id": "tmp_post_resolution_v138_910",
+    "request_context": "office_daily",
+    "candidate_promoted_memory_ids": [
+      "mem_insp_v138_910"
+    ],
+    "consumed_promoted_memory_ids": [
+      "mem_insp_v138_910"
+    ],
+    "excluded_memory_ids": [],
+    "expected_behavior": "active_consumption_after_resolution",
+    "resolution_ref": "grd_v138_910",
+    "trace_refs": [
+      "grd_v138_910",
+      "mem_insp_v138_910"
+    ]
+  },
+  "governance_decision_ledger": {
+    "governance_decision_ledger_id": "gdl_rt_v138_910",
+    "runtime_trace_id": "rt_v138_910",
+    "ledger_entries": [
+      {
+        "ledger_entry_id": "gle_grd_v138_910",
+        "previous_entry_hash": null,
+        "queue_item_id": "gqi_v138_910",
+        "resolution_decision_id": "grd_v138_910",
+        "before_state_ref": "state_active_v138_910",
+        "after_state_ref": "state_active_v138_910",
+        "before_state": {
+          "state_snapshot_id": "state_active_v138_910",
+          "memory_id": "mem_insp_v138_910",
+          "current_status": "active",
+          "contexts": [
+            "office_daily"
+          ],
+          "confirmed_aspects": [
+            "color_palette"
+          ],
+          "active_memory_ids": [
+            "mem_insp_v138_910"
+          ],
+          "blocked_memory_ids": [],
+          "rolled_back_memory_ids": [],
+          "context_exclusions": []
+        },
+        "after_state": {
+          "state_snapshot_id": "state_active_v138_910",
+          "memory_id": "mem_insp_v138_910",
+          "current_status": "active",
+          "contexts": [
+            "office_daily"
+          ],
+          "confirmed_aspects": [
+            "color_palette"
+          ],
+          "active_memory_ids": [
+            "mem_insp_v138_910"
+          ],
+          "blocked_memory_ids": [],
+          "rolled_back_memory_ids": [],
+          "context_exclusions": [
+            "formal_client_meeting"
+          ]
+        },
+        "production_write_executed": false,
+        "trace_refs": [
+          "rt_v138_910",
+          "gqi_v138_910",
+          "grd_v138_910"
+        ],
+        "entry_hash": "6aa402917ff8f5180a4d7ae95abb376a18b438c4e5a7ddf189a08c4004d85e9a"
+      }
+    ],
+    "append_only": true,
+    "entry_hash_chain_valid": true,
+    "latest_entry_hash": "6aa402917ff8f5180a4d7ae95abb376a18b438c4e5a7ddf189a08c4004d85e9a",
+    "append_only_replay": [
+      {
+        "ledger_entry_id": "gle_grd_v138_910",
+        "entry_hash": "6aa402917ff8f5180a4d7ae95abb376a18b438c4e5a7ddf189a08c4004d85e9a"
+      }
+    ]
+  },
+  "rollback_audit_absence_proof": null,
+  "blocked_memory_future_absence_proof": null,
+  "visible_claims": [
+    {
+      "claim_id": "claim_v138_910",
+      "text": "I applied the resolved governance decision for this outfit packet.",
+      "trace_refs": [
+        "grd_v138_910",
+        "tmp_post_resolution_v138_910"
+      ]
+    }
+  ],
+  "multi_day_governance_replay": {
+    "days": 3,
+    "stable_queue_item_ids": [
+      "gqi_v138_910"
+    ],
+    "stable_ledger_hash": "6aa402917ff8f5180a4d7ae95abb376a18b438c4e5a7ddf189a08c4004d85e9a",
+    "no_silent_mutation": true
+  },
+  "forbidden_actions_blocked": true,
+  "v137_replay_proof": {
+    "run_v137_validation_suite": "PASS"
+  },
+  "defect_type": "review_rejection_mutates_memory",
+  "expected_failure": true,
+  "expected_failed_check_ids": [
+    "review_rejection_no_write_preserves_memory_state_rate"
+  ]
+}

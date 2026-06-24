@@ -1,0 +1,25 @@
+# v1.38 Mixed Strict Report
+
+- EXPECTED FAIL `governance_queue_created_from_runtime_trigger_rate`
+- EXPECTED FAIL `queue_item_status_consistency_rate`
+- EXPECTED FAIL `queue_dedupe_blocks_duplicate_open_items_rate`
+- EXPECTED FAIL `clarification_request_trace_backed_rate`
+- EXPECTED FAIL `clarification_no_write_preserves_memory_state_rate`
+- EXPECTED FAIL `clarification_write_candidate_routes_to_gate_rate`
+- EXPECTED FAIL `human_review_payload_has_raw_evidence_rate`
+- EXPECTED FAIL `human_review_resolution_uses_write_gate_rate`
+- EXPECTED FAIL `review_rejection_no_write_preserves_memory_state_rate`
+- EXPECTED FAIL `temporary_hold_current_turn_only_rate`
+- EXPECTED FAIL `temporary_hold_release_packet_rebuild_rate`
+- EXPECTED FAIL `expired_item_no_write_rate`
+- EXPECTED FAIL `post_resolution_packet_matches_resolution_rate`
+- EXPECTED FAIL `rollback_audit_absence_proof_rate`
+- EXPECTED FAIL `blocked_memory_future_absence_proof_rate`
+- EXPECTED FAIL `reviewer_forbidden_actions_blocked_rate`
+- EXPECTED FAIL `ledger_hash_chain_valid_rate`
+- EXPECTED FAIL `ledger_append_only_replay_rate`
+- EXPECTED FAIL `trace_backed_resolution_claims_rate`
+- EXPECTED FAIL `sample_artifacts_match_per_case_rate`
+- EXPECTED FAIL `report_consistency_with_independent_validation_rate`
+- EXPECTED FAIL `adversarial_detection_rate`
+- EXPECTED FAIL `v137_validation_replay_pass_rate`

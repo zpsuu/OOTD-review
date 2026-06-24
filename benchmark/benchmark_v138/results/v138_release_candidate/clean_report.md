@@ -1,0 +1,25 @@
+# v1.38 Clean Acceptance Report
+
+- PASS `governance_queue_created_from_runtime_trigger_rate`
+- PASS `queue_item_status_consistency_rate`
+- PASS `queue_dedupe_blocks_duplicate_open_items_rate`
+- PASS `clarification_request_trace_backed_rate`
+- PASS `clarification_no_write_preserves_memory_state_rate`
+- PASS `clarification_write_candidate_routes_to_gate_rate`
+- PASS `human_review_payload_has_raw_evidence_rate`
+- PASS `human_review_resolution_uses_write_gate_rate`
+- PASS `review_rejection_no_write_preserves_memory_state_rate`
+- PASS `temporary_hold_current_turn_only_rate`
+- PASS `temporary_hold_release_packet_rebuild_rate`
+- PASS `expired_item_no_write_rate`
+- PASS `post_resolution_packet_matches_resolution_rate`
+- PASS `rollback_audit_absence_proof_rate`
+- PASS `blocked_memory_future_absence_proof_rate`
+- PASS `reviewer_forbidden_actions_blocked_rate`
+- PASS `ledger_hash_chain_valid_rate`
+- PASS `ledger_append_only_replay_rate`
+- PASS `trace_backed_resolution_claims_rate`
+- PASS `sample_artifacts_match_per_case_rate`
+- PASS `report_consistency_with_independent_validation_rate`
+- PASS `adversarial_detection_rate`
+- PASS `v137_validation_replay_pass_rate`

@@ -201,7 +201,7 @@ Focus:
 
 ## v1.37 - End-to-End Inspiration Memory Runtime Loop
 
-Status: PASS CANDIDATE pending manual review
+Status: PASS CANDIDATE confirmed after targeted HOLD fix review, independent validation, adversarial validation, sample consistency, report consistency, v1.36 replay, and unit tests
 
 Focus:
 - deterministic local runtime harness from inspiration intake through feedback lifecycle
@@ -210,5 +210,20 @@ Focus:
 - no production memory write before confirmation and promotion gate
 - confirmed-aspect-only promotion and consumption
 - post-feedback TaskMemoryPacket rebuilt from updated lifecycle state
+- temporary clarification/review holds are explicit non-production packet behavior, not lifecycle mutations
 - rollback and review-pending safety across future runtime packets
 - independent validation, adversarial detection, sample consistency, report consistency, and v1.36 replay
+
+## v1.38 - Runtime Governance Operations
+
+Status: PASS CANDIDATE pending manual review
+
+Focus:
+- deterministic local governance queue for clarification, human review, rollback audit, blocked-memory audit, and temporary-hold expiry
+- clarification requests and resolutions without hidden memory mutation
+- human review payloads with raw evidence refs and constrained reviewer actions
+- reviewer approval still routed through ProductionMemoryWriteGate
+- reviewer rejection / expiry / no-write paths preserve memory state
+- temporary hold release and post-resolution TaskMemoryPacket rebuild
+- append-only GovernanceDecisionLedger with reproducible hash chain
+- independent validation, adversarial detection, sample consistency, report consistency, and v1.37 replay

@@ -1,0 +1,303 @@
+{
+  "case_id": "v138_B03_clarification_answer_remember_for_context_routes_to_write_gate",
+  "version": "v1.38",
+  "scenario_kind": "clarification_write_candidate",
+  "gate_assertions": {
+    "governance_queue_created_from_runtime_trigger_rate": true,
+    "queue_item_status_consistency_rate": true,
+    "queue_dedupe_blocks_duplicate_open_items_rate": true,
+    "clarification_request_trace_backed_rate": true,
+    "clarification_no_write_preserves_memory_state_rate": true,
+    "clarification_write_candidate_routes_to_gate_rate": true,
+    "human_review_payload_has_raw_evidence_rate": true,
+    "human_review_resolution_uses_write_gate_rate": true,
+    "review_rejection_no_write_preserves_memory_state_rate": true,
+    "temporary_hold_current_turn_only_rate": true,
+    "temporary_hold_release_packet_rebuild_rate": true,
+    "expired_item_no_write_rate": true,
+    "post_resolution_packet_matches_resolution_rate": true,
+    "rollback_audit_absence_proof_rate": true,
+    "blocked_memory_future_absence_proof_rate": true,
+    "reviewer_forbidden_actions_blocked_rate": true,
+    "ledger_hash_chain_valid_rate": true,
+    "ledger_append_only_replay_rate": true,
+    "trace_backed_resolution_claims_rate": true,
+    "sample_artifacts_match_per_case_rate": true,
+    "report_consistency_with_independent_validation_rate": true,
+    "adversarial_detection_rate": true,
+    "v137_validation_replay_pass_rate": true
+  },
+  "runtime_trace": {
+    "runtime_trace_id": "rt_v138_007",
+    "stage_order": [
+      "runtime_trace",
+      "governance_trigger",
+      "queue",
+      "resolution",
+      "ledger",
+      "post_resolution_packet",
+      "multi_day_replay"
+    ],
+    "trace_refs": [
+      "tmp_v138_007",
+      "pmf_v138_007"
+    ]
+  },
+  "governance_trigger": {
+    "governance_trigger_id": "gt_v138_007",
+    "trigger_type": "clarification_required",
+    "source_runtime_trace_id": "rt_v138_007",
+    "source_task_memory_packet_id": "tmp_v138_007",
+    "source_feedback_event_id": "pmf_v138_007",
+    "target_memory_id": "mem_insp_v138_007",
+    "trace_refs": [
+      "rt_v138_007",
+      "tmp_v138_007",
+      "pmf_v138_007"
+    ]
+  },
+  "runtime_governance_queue": {
+    "runtime_governance_queue_id": "rgq_v138_007",
+    "runtime_trace_id": "rt_v138_007",
+    "created_at": "2026-06-24T00:00:00Z",
+    "queue_items": [
+      {
+        "governance_queue_item_id": "gqi_v138_007",
+        "trigger_type": "clarification_required",
+        "trigger_ref": "gt_v138_007",
+        "target_memory_id": "mem_insp_v138_007",
+        "target_candidate_id": null,
+        "source_runtime_trace_id": "rt_v138_007",
+        "source_task_memory_packet_id": "tmp_v138_007",
+        "source_feedback_event_id": "pmf_v138_007",
+        "status": "resolved",
+        "priority": "low",
+        "risk_level": "low",
+        "created_at": "2026-06-24T00:00:00Z",
+        "resolution_ref": "grd_v138_007",
+        "trace_refs": [
+          "rt_v138_007",
+          "gt_v138_007",
+          "tmp_v138_007",
+          "pmf_v138_007"
+        ]
+      }
+    ],
+    "dedupe_index": [
+      {
+        "dedupe_key": "clarification_required:mem_insp_v138_007:gt_v138_007",
+        "canonical_queue_item_id": "gqi_v138_007"
+      }
+    ],
+    "open_item_count": 0,
+    "resolved_item_count": 1,
+    "expired_item_count": 0
+  },
+  "clarification_request": {
+    "clarification_request_id": "cr_v138_007",
+    "governance_queue_item_id": "gqi_v138_007",
+    "question_type": "ambiguity",
+    "question_text": "Which aspect should I adjust for future outfits?",
+    "allowed_response_kinds": [
+      "choose_aspect",
+      "this_time_only",
+      "do_not_change_memory",
+      "remember_for_context"
+    ],
+    "must_not_suggest": [
+      "global_memory",
+      "body_inference",
+      "commerce_targeting"
+    ],
+    "current_turn_hold_ref": "th_v138_007",
+    "memory_changed_claim": false,
+    "trace_refs": [
+      "rt_v138_007",
+      "pmf_v138_007",
+      "gqi_v138_007"
+    ]
+  },
+  "clarification_resolution": {
+    "clarification_resolution_id": "cra_v138_007",
+    "answer_kind": "remember_for_context",
+    "production_write_requested": true,
+    "trace_refs": [
+      "gqi_v138_007",
+      "cr_v138_007"
+    ]
+  },
+  "human_review_payload": null,
+  "human_review_resolution": null,
+  "temporary_hold_lifecycle": {
+    "temporary_hold_id": "th_v138_007",
+    "source_queue_item_id": "gqi_v138_007",
+    "current_turn_scoped": true,
+    "production_lifecycle_mutation": false,
+    "status": "released",
+    "release_ref": "grd_v138_007",
+    "expiry_ref": null
+  },
+  "governance_resolution_decision": {
+    "governance_resolution_decision_id": "grd_v138_007",
+    "governance_queue_item_id": "gqi_v138_007",
+    "resolution_type": "clarified_write_candidate",
+    "resolution_input_ref": "resolution_input_v138_007",
+    "production_write_gate_ref": "pmwg_v138_007",
+    "production_write_executed": true,
+    "memory_patch_ref": "patch_v138_007",
+    "temporary_hold_released": true,
+    "decision_reasons": [
+      "clarified_write_candidate"
+    ],
+    "created_at": "2026-06-24T00:00:00Z"
+  },
+  "production_memory_write_gate": {
+    "gate_id": "pmwg_v138_007",
+    "decision": "allow",
+    "production_write_executed": true,
+    "pre_resolution_write": false,
+    "allowlist_checked": true,
+    "environment": "deterministic_local_fixture"
+  },
+  "before_memory_lifecycle_state": {
+    "state_snapshot_id": "state_active_v138_007",
+    "memory_id": "mem_insp_v138_007",
+    "current_status": "active",
+    "contexts": [
+      "office_daily"
+    ],
+    "confirmed_aspects": [
+      "color_palette"
+    ],
+    "active_memory_ids": [
+      "mem_insp_v138_007"
+    ],
+    "blocked_memory_ids": [],
+    "rolled_back_memory_ids": [],
+    "context_exclusions": []
+  },
+  "after_memory_lifecycle_state": {
+    "state_snapshot_id": "state_after_write_v138_007",
+    "memory_id": "mem_insp_v138_007",
+    "current_status": "active",
+    "contexts": [
+      "office_daily"
+    ],
+    "confirmed_aspects": [
+      "color_palette"
+    ],
+    "active_memory_ids": [
+      "mem_insp_v138_007"
+    ],
+    "blocked_memory_ids": [],
+    "rolled_back_memory_ids": [],
+    "context_exclusions": [],
+    "confidence_delta": -0.1
+  },
+  "post_resolution_task_memory_packet": {
+    "task_memory_packet_id": "tmp_post_resolution_v138_007",
+    "request_context": "office_daily",
+    "candidate_promoted_memory_ids": [
+      "mem_insp_v138_007"
+    ],
+    "consumed_promoted_memory_ids": [
+      "mem_insp_v138_007"
+    ],
+    "excluded_memory_ids": [],
+    "expected_behavior": "active_consumption_after_resolution",
+    "resolution_ref": "grd_v138_007",
+    "trace_refs": [
+      "grd_v138_007",
+      "mem_insp_v138_007"
+    ]
+  },
+  "governance_decision_ledger": {
+    "governance_decision_ledger_id": "gdl_rt_v138_007",
+    "runtime_trace_id": "rt_v138_007",
+    "ledger_entries": [
+      {
+        "ledger_entry_id": "gle_grd_v138_007",
+        "previous_entry_hash": null,
+        "queue_item_id": "gqi_v138_007",
+        "resolution_decision_id": "grd_v138_007",
+        "before_state_ref": "state_active_v138_007",
+        "after_state_ref": "state_after_write_v138_007",
+        "before_state": {
+          "state_snapshot_id": "state_active_v138_007",
+          "memory_id": "mem_insp_v138_007",
+          "current_status": "active",
+          "contexts": [
+            "office_daily"
+          ],
+          "confirmed_aspects": [
+            "color_palette"
+          ],
+          "active_memory_ids": [
+            "mem_insp_v138_007"
+          ],
+          "blocked_memory_ids": [],
+          "rolled_back_memory_ids": [],
+          "context_exclusions": []
+        },
+        "after_state": {
+          "state_snapshot_id": "state_after_write_v138_007",
+          "memory_id": "mem_insp_v138_007",
+          "current_status": "active",
+          "contexts": [
+            "office_daily"
+          ],
+          "confirmed_aspects": [
+            "color_palette"
+          ],
+          "active_memory_ids": [
+            "mem_insp_v138_007"
+          ],
+          "blocked_memory_ids": [],
+          "rolled_back_memory_ids": [],
+          "context_exclusions": [],
+          "confidence_delta": -0.1
+        },
+        "production_write_executed": true,
+        "trace_refs": [
+          "rt_v138_007",
+          "gqi_v138_007",
+          "grd_v138_007"
+        ],
+        "entry_hash": "1be355e60774c0e288ed95c70450102c1e41bae7358227a06f0526f565d115aa"
+      }
+    ],
+    "append_only": true,
+    "entry_hash_chain_valid": true,
+    "latest_entry_hash": "1be355e60774c0e288ed95c70450102c1e41bae7358227a06f0526f565d115aa",
+    "append_only_replay": [
+      {
+        "ledger_entry_id": "gle_grd_v138_007",
+        "entry_hash": "1be355e60774c0e288ed95c70450102c1e41bae7358227a06f0526f565d115aa"
+      }
+    ]
+  },
+  "rollback_audit_absence_proof": null,
+  "blocked_memory_future_absence_proof": null,
+  "visible_claims": [
+    {
+      "claim_id": "claim_v138_007",
+      "text": "I applied the resolved governance decision for this outfit packet.",
+      "trace_refs": [
+        "grd_v138_007",
+        "tmp_post_resolution_v138_007"
+      ]
+    }
+  ],
+  "multi_day_governance_replay": {
+    "days": 3,
+    "stable_queue_item_ids": [
+      "gqi_v138_007"
+    ],
+    "stable_ledger_hash": "1be355e60774c0e288ed95c70450102c1e41bae7358227a06f0526f565d115aa",
+    "no_silent_mutation": true
+  },
+  "forbidden_actions_blocked": true,
+  "v137_replay_proof": {
+    "run_v137_validation_suite": "PASS"
+  }
+}

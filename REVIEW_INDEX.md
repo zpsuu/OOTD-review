@@ -2,49 +2,65 @@
 
 ## Current Active Version
 
-v1.37 - End-to-End Inspiration Memory Runtime Loop
+v1.38 - Runtime Governance Operations
 
 Current branch:
-`v137-end-to-end-inspiration-memory-runtime-loop`
+`v138-runtime-governance-operations`
 
 Current status:
 `PASS CANDIDATE pending manual review`
 
 ## Current Review Focus
 
-This iteration verifies the deterministic end-to-end inspiration memory runtime loop across:
+This iteration verifies deterministic local runtime governance operations across:
 
-- runtime handoff from intake, confirmation, promotion, consumption, feedback, post-feedback consumption, and multi-day replay
-- RuntimeTrace, StageEvent, StateSnapshot, HandoffProof, and RuntimeInvariantReport artifacts
-- no production memory write before user confirmation and promotion gate
-- confirmed-aspect-only promotion and downstream consumption
-- soft preference consumption without hard-filter misuse
-- wrong-context, review-pending, blocked, and rollback future-packet safety
-- independent validation, adversarial detection, sample consistency, report consistency, and v1.36 replay
+- RuntimeGovernanceQueue and GovernanceQueueItem derivation from runtime triggers
+- clarification requests and resolutions without hidden memory mutation
+- human review payloads with raw evidence refs and constrained reviewer actions
+- reviewer approval still routed through ProductionMemoryWriteGate
+- temporary hold expiry/release and post-resolution TaskMemoryPacket rebuild
+- rollback and blocked-memory audit absence proofs
+- append-only GovernanceDecisionLedger hash-chain replay
+- independent validation, adversarial detection, sample consistency, report consistency, and v1.37 replay
 
 ## Latest Evidence Pack
 
-`benchmark/benchmark_v137/results/v137_release_candidate/`
+`benchmark/benchmark_v138/results/v138_release_candidate/`
 
 ## Key Files To Review
 
-- `benchmark/benchmark_v137/results/v137_release_candidate/REVIEW_MANIFEST.json`
-- `benchmark/benchmark_v137/results/v137_release_candidate/clean_report.json`
-- `benchmark/benchmark_v137/results/v137_release_candidate/independent_validation_report.json`
-- `benchmark/benchmark_v137/results/v137_release_candidate/adversarial_validation_report.json`
-- `benchmark/benchmark_v137/results/v137_release_candidate/report_consistency_report.json`
-- `benchmark/benchmark_v137/results/v137_release_candidate/sample_consistency_report.json`
-- `benchmark/benchmark_v137/results/v137_release_candidate/runtime_trace_summary.json`
-- `benchmark/benchmark_v137/results/v137_release_candidate/handoff_integrity_summary.json`
-- `benchmark/benchmark_v137/results/v137_release_candidate/state_transition_summary.json`
-- `benchmark/benchmark_v137/results/v137_release_candidate/per_case/clean/v137_A01_full_loop_low_risk_color_memory.json`
-- `benchmark/benchmark_v137/results/v137_release_candidate/per_case/clean/v137_E03_wrong_context_adds_exclusion_and_tests_excluded_context.json`
-- `benchmark/benchmark_v137/results/v137_release_candidate/per_case/adversarial/v137_ADV_K10_rollback_memory_still_consumed_later.json`
-- `benchmark/benchmark_v137/results/v137_release_candidate/sample_artifacts/state_hash_stability.json`
+- `benchmark/benchmark_v138/results/v138_release_candidate/REVIEW_MANIFEST.json`
+- `benchmark/benchmark_v138/results/v138_release_candidate/clean_report.json`
+- `benchmark/benchmark_v138/results/v138_release_candidate/independent_validation_report.json`
+- `benchmark/benchmark_v138/results/v138_release_candidate/adversarial_validation_report.json`
+- `benchmark/benchmark_v138/results/v138_release_candidate/report_consistency_report.json`
+- `benchmark/benchmark_v138/results/v138_release_candidate/sample_consistency_report.json`
+- `benchmark/benchmark_v138/results/v138_release_candidate/governance_queue_summary.json`
+- `benchmark/benchmark_v138/results/v138_release_candidate/resolution_decision_summary.json`
+- `benchmark/benchmark_v138/results/v138_release_candidate/governance_ledger_summary.json`
+- `benchmark/benchmark_v138/results/v138_release_candidate/post_resolution_packet_summary.json`
+- `benchmark/benchmark_v138/results/v138_release_candidate/per_case/clean/v138_B02_clarification_answer_this_time_only_no_write.json`
+- `benchmark/benchmark_v138/results/v138_release_candidate/per_case/clean/v138_C02_review_approve_write_still_uses_write_gate.json`
+- `benchmark/benchmark_v138/results/v138_release_candidate/per_case/adversarial/v138_ADV_L16_ledger_hash_chain_broken.json`
+- `benchmark/benchmark_v138/results/v138_release_candidate/sample_artifacts/ledger_hash_chain_valid.json`
+
+## v1.38 - Runtime Governance Operations
+
+Status: PASS CANDIDATE pending manual review
+
+Current review focus:
+- queue items derive from runtime governance triggers
+- clarification and review no-write paths preserve memory state
+- write resolutions route through ProductionMemoryWriteGate
+- temporary holds remain current-turn scoped unless resolved or expired
+- post-resolution packets match resolved lifecycle state
+- rollback and blocked audit proofs prevent future consumption
+- ledger hash-chain replay remains valid
+- v1.37 validation replay remains passing
 
 ## v1.37 - End-to-End Inspiration Memory Runtime Loop
 
-Status: PASS CANDIDATE pending manual review
+Status: PASS CANDIDATE confirmed after targeted HOLD fix review, independent validation, adversarial validation, sample consistency, report consistency, v1.36 replay, and unit tests
 
 Current review focus:
 - stage order and state snapshots are complete and hash-backed
