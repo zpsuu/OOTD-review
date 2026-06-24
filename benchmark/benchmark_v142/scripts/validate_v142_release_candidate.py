@@ -133,6 +133,18 @@ def _audit_payload(artifact: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def _audit_self_payload(audit: dict[str, Any] | None) -> dict[str, Any]:
+    if not audit:
+        return {}
+    return {
+        "cross_user_leakage_audit_id": audit.get("cross_user_leakage_audit_id"),
+        "local_user_id": audit.get("local_user_id"),
+        "local_session_id": audit.get("local_session_id"),
+        "audited_artifact_refs": audit.get("audited_artifact_refs"),
+        "trace_refs": audit.get("trace_refs"),
+    }
+
+
 def _structural_failures(artifact: dict[str, Any]) -> list[str]:
     failures: list[str] = []
     fixtures = artifact.get("local_user_fixtures") or []
@@ -212,7 +224,10 @@ def _structural_failures(artifact: dict[str, Any]) -> list[str]:
                 failures.append("session_source_hashes_match_raw_rate")
 
     leakage = leakage_scan(_audit_payload(artifact), user_id or "", session_id or "")
+    audit_self_leakage = leakage_scan(_audit_self_payload(audit), user_id or "", session_id or "")
     if audit is None or audit.get("passed") is not True or audit.get("foreign_user_refs_detected") != leakage["foreign_user_refs_detected"] or audit.get("foreign_session_refs_detected") != leakage["foreign_session_refs_detected"] or audit.get("foreign_namespace_refs_detected") != leakage["foreign_namespace_refs_detected"] or any(leakage.values()):
+        failures.append("cross_user_leakage_absent_rate")
+    if audit and (audit.get("local_user_id") != user_id or audit.get("local_session_id") != session_id or any(audit_self_leakage.values())):
         failures.append("cross_user_leakage_absent_rate")
     if audit and not REQUIRED_AUDITED_ARTIFACT_REFS.issubset(set(audit.get("audited_artifact_refs") or [])):
         failures.append("cross_user_leakage_absent_rate")

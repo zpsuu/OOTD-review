@@ -51,8 +51,8 @@ class V142LocalSessionUserStateBoundaryValidatorTests(unittest.TestCase):
             self.assertEqual(clean["suite_summary"]["passed_cases"], 44)
             self.assertEqual(clean["suite_summary"]["passed_checks"], 21)
             self.assertEqual(adversarial["suite_summary"]["passed_cases"], 0)
-            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 47)
-            self.assertEqual(adversarial["detected_defect_count"], 47)
+            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 52)
+            self.assertEqual(adversarial["detected_defect_count"], 52)
             self.assertTrue(sample["passed"], sample["failures"])
             self.assertTrue(consistency["passed"], consistency["failures"])
 
@@ -135,6 +135,26 @@ class V142LocalSessionUserStateBoundaryValidatorTests(unittest.TestCase):
         failed = self._mutate("*B05_cross_user_leakage_audit_scans_output_and_refs.json", mutate)
         self.assertIn("cross_user_leakage_absent_rate", failed["v142_B05_cross_user_leakage_audit_scans_output_and_refs"])
 
+    def test_foreign_audit_trace_user_ref_is_detected(self) -> None:
+        failed = self._mutate("*B05_cross_user_leakage_audit_scans_output_and_refs.json", lambda case: case["cross_user_leakage_audit"].setdefault("trace_refs", []).append("local_user_B"))
+        self.assertIn("cross_user_leakage_absent_rate", failed["v142_B05_cross_user_leakage_audit_scans_output_and_refs"])
+
+    def test_foreign_audit_trace_session_ref_is_detected(self) -> None:
+        failed = self._mutate("*B05_cross_user_leakage_audit_scans_output_and_refs.json", lambda case: case["cross_user_leakage_audit"].setdefault("trace_refs", []).append("sess_B_001"))
+        self.assertIn("cross_user_leakage_absent_rate", failed["v142_B05_cross_user_leakage_audit_scans_output_and_refs"])
+
+    def test_audit_local_user_mismatch_is_detected(self) -> None:
+        failed = self._mutate("*B05_cross_user_leakage_audit_scans_output_and_refs.json", lambda case: case["cross_user_leakage_audit"].__setitem__("local_user_id", "local_user_B"))
+        self.assertIn("cross_user_leakage_absent_rate", failed["v142_B05_cross_user_leakage_audit_scans_output_and_refs"])
+
+    def test_audit_local_session_mismatch_is_detected(self) -> None:
+        failed = self._mutate("*B05_cross_user_leakage_audit_scans_output_and_refs.json", lambda case: case["cross_user_leakage_audit"].__setitem__("local_session_id", "sess_B_001"))
+        self.assertIn("cross_user_leakage_absent_rate", failed["v142_B05_cross_user_leakage_audit_scans_output_and_refs"])
+
+    def test_foreign_audit_audited_artifact_ref_is_detected(self) -> None:
+        failed = self._mutate("*B05_cross_user_leakage_audit_scans_output_and_refs.json", lambda case: case["cross_user_leakage_audit"].setdefault("audited_artifact_refs", []).append("mem_ns_local_user_B"))
+        self.assertIn("cross_user_leakage_absent_rate", failed["v142_B05_cross_user_leakage_audit_scans_output_and_refs"])
+
     def test_debug_path_is_detected(self) -> None:
         failed = self._mutate("*H01_debug_refs_do_not_expose_filesystem_paths.json", lambda case: case["trace_safe_debug_ref"].__setitem__("debug_ref", "/ssd2/private/session.log"))
         self.assertIn("trace_safe_debug_refs_rate", failed["v142_H01_debug_refs_do_not_expose_filesystem_paths"])
@@ -154,8 +174,8 @@ class V142LocalSessionUserStateBoundaryValidatorTests(unittest.TestCase):
                 _write_json(path, case)
             adversarial = validator.validate_directory(result_dir, "adversarial")
             self.assertEqual(adversarial["suite_summary"]["passed_cases"], 0)
-            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 47)
-            self.assertEqual(adversarial["detected_defect_count"], 47)
+            self.assertEqual(adversarial["suite_summary"]["failed_cases"], 52)
+            self.assertEqual(adversarial["detected_defect_count"], 52)
 
     def _mutate(self, pattern: str, mutate) -> dict[str, list[str]]:
         with tempfile.TemporaryDirectory() as tmp:

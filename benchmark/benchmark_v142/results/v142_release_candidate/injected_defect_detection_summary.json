@@ -1,9 +1,9 @@
 {
   "version": "v1.42",
-  "generated_at": "2026-06-24T11:16:08Z",
+  "generated_at": "2026-06-24T11:27:45Z",
   "verdict": "pass",
-  "seeded_defects": 47,
-  "detected_defects": 47,
+  "seeded_defects": 52,
+  "detected_defects": 52,
   "unexpected_injected_passes": [],
   "detected": [
     {
@@ -589,6 +589,61 @@
     {
       "case_id": "v142_ADV_Q47_cross_user_leakage_audit_omits_required_artifact_coverage",
       "defect_type": "cross_user_leakage_audit_omits_required_artifact_coverage",
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v142_ADV_Q48_audit_trace_refs_contains_foreign_user",
+      "defect_type": "audit_trace_refs_contains_foreign_user",
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v142_ADV_Q49_audit_trace_refs_contains_foreign_session",
+      "defect_type": "audit_trace_refs_contains_foreign_session",
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v142_ADV_Q50_audit_local_user_id_mismatch",
+      "defect_type": "audit_local_user_id_mismatch",
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v142_ADV_Q51_audit_local_session_id_mismatch",
+      "defect_type": "audit_local_session_id_mismatch",
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v142_ADV_Q52_audit_audited_artifact_refs_contain_foreign_token",
+      "defect_type": "audit_audited_artifact_refs_contain_foreign_token",
       "expected_failed_check_ids": [
         "cross_user_leakage_absent_rate"
       ],

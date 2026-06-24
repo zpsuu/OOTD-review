@@ -1,15 +1,15 @@
 {
   "benchmark_id": "v1.42.local_session_user_state_boundary.mixed_strict",
   "schema_version": "v1.42",
-  "generated_at": "2026-06-24T11:16:07Z",
+  "generated_at": "2026-06-24T11:27:45Z",
   "verdicts": {
     "mixed_strict_verdict": "fail",
     "injected_defect_detection_verdict": "pass"
   },
   "suite_summary": {
-    "total_cases": 47,
+    "total_cases": 52,
     "passed_cases": 0,
-    "failed_cases": 47,
+    "failed_cases": 52,
     "total_checks": 21,
     "passed_checks": 0,
     "failed_checks": 21
@@ -550,6 +550,46 @@
         "cross_user_leakage_absent_rate"
       ],
       "artifact_ref": "per_case/mixed_strict/v142_ADV_Q47_cross_user_leakage_audit_omits_required_artifact_coverage.json"
+    },
+    {
+      "case_id": "v142_ADV_Q48_audit_trace_refs_contains_foreign_user",
+      "passed": false,
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "artifact_ref": "per_case/mixed_strict/v142_ADV_Q48_audit_trace_refs_contains_foreign_user.json"
+    },
+    {
+      "case_id": "v142_ADV_Q49_audit_trace_refs_contains_foreign_session",
+      "passed": false,
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "artifact_ref": "per_case/mixed_strict/v142_ADV_Q49_audit_trace_refs_contains_foreign_session.json"
+    },
+    {
+      "case_id": "v142_ADV_Q50_audit_local_user_id_mismatch",
+      "passed": false,
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "artifact_ref": "per_case/mixed_strict/v142_ADV_Q50_audit_local_user_id_mismatch.json"
+    },
+    {
+      "case_id": "v142_ADV_Q51_audit_local_session_id_mismatch",
+      "passed": false,
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "artifact_ref": "per_case/mixed_strict/v142_ADV_Q51_audit_local_session_id_mismatch.json"
+    },
+    {
+      "case_id": "v142_ADV_Q52_audit_audited_artifact_refs_contain_foreign_token",
+      "passed": false,
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "artifact_ref": "per_case/mixed_strict/v142_ADV_Q52_audit_audited_artifact_refs_contain_foreign_token.json"
     }
   ]
 }

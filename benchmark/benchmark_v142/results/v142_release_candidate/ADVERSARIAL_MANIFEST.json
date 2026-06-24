@@ -1,6 +1,6 @@
 {
   "version": "v1.42",
-  "generated_at": "2026-06-24T11:16:08Z",
+  "generated_at": "2026-06-24T11:27:45Z",
   "source_result_dir": "benchmark/benchmark_v142/results/v142_release_candidate",
   "cases": [
     {
@@ -386,6 +386,46 @@
       "case_id": "v142_ADV_Q47_cross_user_leakage_audit_omits_required_artifact_coverage",
       "artifact_ref": "per_case/adversarial/v142_ADV_Q47_cross_user_leakage_audit_omits_required_artifact_coverage.json",
       "defect_type": "cross_user_leakage_audit_omits_required_artifact_coverage",
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ]
+    },
+    {
+      "case_id": "v142_ADV_Q48_audit_trace_refs_contains_foreign_user",
+      "artifact_ref": "per_case/adversarial/v142_ADV_Q48_audit_trace_refs_contains_foreign_user.json",
+      "defect_type": "audit_trace_refs_contains_foreign_user",
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ]
+    },
+    {
+      "case_id": "v142_ADV_Q49_audit_trace_refs_contains_foreign_session",
+      "artifact_ref": "per_case/adversarial/v142_ADV_Q49_audit_trace_refs_contains_foreign_session.json",
+      "defect_type": "audit_trace_refs_contains_foreign_session",
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ]
+    },
+    {
+      "case_id": "v142_ADV_Q50_audit_local_user_id_mismatch",
+      "artifact_ref": "per_case/adversarial/v142_ADV_Q50_audit_local_user_id_mismatch.json",
+      "defect_type": "audit_local_user_id_mismatch",
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ]
+    },
+    {
+      "case_id": "v142_ADV_Q51_audit_local_session_id_mismatch",
+      "artifact_ref": "per_case/adversarial/v142_ADV_Q51_audit_local_session_id_mismatch.json",
+      "defect_type": "audit_local_session_id_mismatch",
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ]
+    },
+    {
+      "case_id": "v142_ADV_Q52_audit_audited_artifact_refs_contain_foreign_token",
+      "artifact_ref": "per_case/adversarial/v142_ADV_Q52_audit_audited_artifact_refs_contain_foreign_token.json",
+      "defect_type": "audit_audited_artifact_refs_contain_foreign_token",
       "expected_failed_check_ids": [
         "cross_user_leakage_absent_rate"
       ]

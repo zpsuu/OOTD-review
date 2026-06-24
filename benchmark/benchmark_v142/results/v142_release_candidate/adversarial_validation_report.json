@@ -1,12 +1,12 @@
 {
   "validator": "v1.42.independent.local_session_user_state_boundary_validator",
-  "generated_at": "2026-06-24T11:16:08Z",
+  "generated_at": "2026-06-24T11:27:45Z",
   "result_dir": "benchmark/benchmark_v142/results/v142_release_candidate",
   "subset": "adversarial",
   "suite_summary": {
-    "total_cases": 47,
+    "total_cases": 52,
     "passed_cases": 0,
-    "failed_cases": 47,
+    "failed_cases": 52,
     "total_checks": 21,
     "passed_checks": 1,
     "failed_checks": 20
@@ -14,9 +14,9 @@
   "checks": [
     {
       "check_id": "local_user_fixture_namespace_complete_rate",
-      "applicable_cases": 47,
-      "passed_cases": 45,
-      "value": 0.9574468085106383,
+      "applicable_cases": 52,
+      "passed_cases": 50,
+      "value": 0.9615384615384616,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -38,9 +38,9 @@
     },
     {
       "check_id": "session_envelope_valid_rate",
-      "applicable_cases": 47,
-      "passed_cases": 44,
-      "value": 0.9361702127659575,
+      "applicable_cases": 52,
+      "passed_cases": 49,
+      "value": 0.9423076923076923,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -69,9 +69,9 @@
     },
     {
       "check_id": "user_state_namespace_isolation_rate",
-      "applicable_cases": 47,
-      "passed_cases": 43,
-      "value": 0.9148936170212766,
+      "applicable_cases": 52,
+      "passed_cases": 48,
+      "value": 0.9230769230769231,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -107,9 +107,9 @@
     },
     {
       "check_id": "session_scoped_invocation_matches_v141_adapter_rate",
-      "applicable_cases": 47,
-      "passed_cases": 38,
-      "value": 0.8085106382978723,
+      "applicable_cases": 52,
+      "passed_cases": 43,
+      "value": 0.8269230769230769,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -180,9 +180,9 @@
     },
     {
       "check_id": "cross_user_leakage_absent_rate",
-      "applicable_cases": 47,
+      "applicable_cases": 52,
       "passed_cases": 24,
-      "value": 0.5106382978723404,
+      "value": 0.46153846153846156,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -346,14 +346,49 @@
           "failures": [
             "cross_user_leakage_absent_rate failed from raw v1.42 session boundary validation"
           ]
+        },
+        {
+          "case_id": "v142_ADV_Q48_audit_trace_refs_contains_foreign_user",
+          "artifact_ref": "per_case/adversarial/v142_ADV_Q48_audit_trace_refs_contains_foreign_user.json",
+          "failures": [
+            "cross_user_leakage_absent_rate failed from raw v1.42 session boundary validation"
+          ]
+        },
+        {
+          "case_id": "v142_ADV_Q49_audit_trace_refs_contains_foreign_session",
+          "artifact_ref": "per_case/adversarial/v142_ADV_Q49_audit_trace_refs_contains_foreign_session.json",
+          "failures": [
+            "cross_user_leakage_absent_rate failed from raw v1.42 session boundary validation"
+          ]
+        },
+        {
+          "case_id": "v142_ADV_Q50_audit_local_user_id_mismatch",
+          "artifact_ref": "per_case/adversarial/v142_ADV_Q50_audit_local_user_id_mismatch.json",
+          "failures": [
+            "cross_user_leakage_absent_rate failed from raw v1.42 session boundary validation"
+          ]
+        },
+        {
+          "case_id": "v142_ADV_Q51_audit_local_session_id_mismatch",
+          "artifact_ref": "per_case/adversarial/v142_ADV_Q51_audit_local_session_id_mismatch.json",
+          "failures": [
+            "cross_user_leakage_absent_rate failed from raw v1.42 session boundary validation"
+          ]
+        },
+        {
+          "case_id": "v142_ADV_Q52_audit_audited_artifact_refs_contain_foreign_token",
+          "artifact_ref": "per_case/adversarial/v142_ADV_Q52_audit_audited_artifact_refs_contain_foreign_token.json",
+          "failures": [
+            "cross_user_leakage_absent_rate failed from raw v1.42 session boundary validation"
+          ]
         }
       ]
     },
     {
       "check_id": "idempotency_scope_is_user_session_bound_rate",
-      "applicable_cases": 47,
-      "passed_cases": 42,
-      "value": 0.8936170212765957,
+      "applicable_cases": 52,
+      "passed_cases": 47,
+      "value": 0.9038461538461539,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -396,9 +431,9 @@
     },
     {
       "check_id": "same_scope_duplicate_reuses_result_rate",
-      "applicable_cases": 47,
-      "passed_cases": 46,
-      "value": 0.9787234042553191,
+      "applicable_cases": 52,
+      "passed_cases": 51,
+      "value": 0.9807692307692307,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -413,9 +448,9 @@
     },
     {
       "check_id": "different_scope_duplicate_does_not_reuse_result_rate",
-      "applicable_cases": 47,
-      "passed_cases": 45,
-      "value": 0.9574468085106383,
+      "applicable_cases": 52,
+      "passed_cases": 50,
+      "value": 0.9615384615384616,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -437,9 +472,9 @@
     },
     {
       "check_id": "expired_session_no_write_error_rate",
-      "applicable_cases": 47,
-      "passed_cases": 45,
-      "value": 0.9574468085106383,
+      "applicable_cases": 52,
+      "passed_cases": 50,
+      "value": 0.9615384615384616,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -461,9 +496,9 @@
     },
     {
       "check_id": "stale_session_action_no_write_rate",
-      "applicable_cases": 47,
-      "passed_cases": 45,
-      "value": 0.9574468085106383,
+      "applicable_cases": 52,
+      "passed_cases": 50,
+      "value": 0.9615384615384616,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -485,9 +520,9 @@
     },
     {
       "check_id": "session_no_write_preserves_user_state_rate",
-      "applicable_cases": 47,
-      "passed_cases": 44,
-      "value": 0.9361702127659575,
+      "applicable_cases": 52,
+      "passed_cases": 49,
+      "value": 0.9423076923076923,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -516,9 +551,9 @@
     },
     {
       "check_id": "session_boundary_trace_complete_rate",
-      "applicable_cases": 47,
-      "passed_cases": 41,
-      "value": 0.8723404255319149,
+      "applicable_cases": 52,
+      "passed_cases": 46,
+      "value": 0.8846153846153846,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -568,9 +603,9 @@
     },
     {
       "check_id": "session_boundary_snapshot_hash_reproducible_rate",
-      "applicable_cases": 47,
-      "passed_cases": 11,
-      "value": 0.23404255319148937,
+      "applicable_cases": 52,
+      "passed_cases": 16,
+      "value": 0.3076923076923077,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -830,9 +865,9 @@
     },
     {
       "check_id": "session_source_hashes_match_raw_rate",
-      "applicable_cases": 47,
-      "passed_cases": 46,
-      "value": 0.9787234042553191,
+      "applicable_cases": 52,
+      "passed_cases": 51,
+      "value": 0.9807692307692307,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -847,9 +882,9 @@
     },
     {
       "check_id": "trace_safe_debug_refs_rate",
-      "applicable_cases": 47,
-      "passed_cases": 44,
-      "value": 0.9361702127659575,
+      "applicable_cases": 52,
+      "passed_cases": 49,
+      "value": 0.9423076923076923,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -878,9 +913,9 @@
     },
     {
       "check_id": "conversation_claims_user_session_scoped_rate",
-      "applicable_cases": 47,
-      "passed_cases": 44,
-      "value": 0.9361702127659575,
+      "applicable_cases": 52,
+      "passed_cases": 49,
+      "value": 0.9423076923076923,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -909,9 +944,9 @@
     },
     {
       "check_id": "runtime_redaction_policy_safe_under_session_rate",
-      "applicable_cases": 47,
-      "passed_cases": 45,
-      "value": 0.9574468085106383,
+      "applicable_cases": 52,
+      "passed_cases": 50,
+      "value": 0.9615384615384616,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -933,9 +968,9 @@
     },
     {
       "check_id": "sample_artifacts_match_per_case_rate",
-      "applicable_cases": 47,
-      "passed_cases": 46,
-      "value": 0.9787234042553191,
+      "applicable_cases": 52,
+      "passed_cases": 51,
+      "value": 0.9807692307692307,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -950,9 +985,9 @@
     },
     {
       "check_id": "report_consistency_with_independent_validation_rate",
-      "applicable_cases": 47,
-      "passed_cases": 46,
-      "value": 0.9787234042553191,
+      "applicable_cases": 52,
+      "passed_cases": 51,
+      "value": 0.9807692307692307,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -967,8 +1002,8 @@
     },
     {
       "check_id": "adversarial_detection_rate",
-      "applicable_cases": 47,
-      "passed_cases": 47,
+      "applicable_cases": 52,
+      "passed_cases": 52,
       "value": 1.0,
       "threshold": 1.0,
       "passed": true,
@@ -976,9 +1011,9 @@
     },
     {
       "check_id": "v141_validation_replay_pass_rate",
-      "applicable_cases": 47,
-      "passed_cases": 46,
-      "value": 0.9787234042553191,
+      "applicable_cases": 52,
+      "passed_cases": 51,
+      "value": 0.9807692307692307,
       "threshold": 1.0,
       "passed": false,
       "failures": [
@@ -1630,6 +1665,66 @@
         "cross_user_leakage_absent_rate"
       ],
       "defect_type": "cross_user_leakage_audit_omits_required_artifact_coverage"
+    },
+    {
+      "case_id": "v142_ADV_Q48_audit_trace_refs_contains_foreign_user",
+      "artifact_ref": "per_case/adversarial/v142_ADV_Q48_audit_trace_refs_contains_foreign_user.json",
+      "passed": false,
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "defect_type": "audit_trace_refs_contains_foreign_user"
+    },
+    {
+      "case_id": "v142_ADV_Q49_audit_trace_refs_contains_foreign_session",
+      "artifact_ref": "per_case/adversarial/v142_ADV_Q49_audit_trace_refs_contains_foreign_session.json",
+      "passed": false,
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "defect_type": "audit_trace_refs_contains_foreign_session"
+    },
+    {
+      "case_id": "v142_ADV_Q50_audit_local_user_id_mismatch",
+      "artifact_ref": "per_case/adversarial/v142_ADV_Q50_audit_local_user_id_mismatch.json",
+      "passed": false,
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "defect_type": "audit_local_user_id_mismatch"
+    },
+    {
+      "case_id": "v142_ADV_Q51_audit_local_session_id_mismatch",
+      "artifact_ref": "per_case/adversarial/v142_ADV_Q51_audit_local_session_id_mismatch.json",
+      "passed": false,
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "defect_type": "audit_local_session_id_mismatch"
+    },
+    {
+      "case_id": "v142_ADV_Q52_audit_audited_artifact_refs_contain_foreign_token",
+      "artifact_ref": "per_case/adversarial/v142_ADV_Q52_audit_audited_artifact_refs_contain_foreign_token.json",
+      "passed": false,
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "defect_type": "audit_audited_artifact_refs_contain_foreign_token"
     }
   ],
   "detected_defects": [
@@ -2223,7 +2318,62 @@
         "cross_user_leakage_absent_rate"
       ],
       "detected": true
+    },
+    {
+      "case_id": "v142_ADV_Q48_audit_trace_refs_contains_foreign_user",
+      "defect_type": "audit_trace_refs_contains_foreign_user",
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v142_ADV_Q49_audit_trace_refs_contains_foreign_session",
+      "defect_type": "audit_trace_refs_contains_foreign_session",
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v142_ADV_Q50_audit_local_user_id_mismatch",
+      "defect_type": "audit_local_user_id_mismatch",
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v142_ADV_Q51_audit_local_session_id_mismatch",
+      "defect_type": "audit_local_session_id_mismatch",
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "detected": true
+    },
+    {
+      "case_id": "v142_ADV_Q52_audit_audited_artifact_refs_contain_foreign_token",
+      "defect_type": "audit_audited_artifact_refs_contain_foreign_token",
+      "expected_failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "failed_check_ids": [
+        "cross_user_leakage_absent_rate"
+      ],
+      "detected": true
     }
   ],
-  "detected_defect_count": 47
+  "detected_defect_count": 52
 }

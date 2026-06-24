@@ -163,6 +163,11 @@ DEFECTS = [
     ("ADV_Q45", "route_handler_result_trace_refs_contains_foreign_user", ["cross_user_leakage_absent_rate"]),
     ("ADV_Q46", "expiry_proof_trace_refs_contains_foreign_session", ["cross_user_leakage_absent_rate"]),
     ("ADV_Q47", "cross_user_leakage_audit_omits_required_artifact_coverage", ["cross_user_leakage_absent_rate"]),
+    ("ADV_Q48", "audit_trace_refs_contains_foreign_user", ["cross_user_leakage_absent_rate"]),
+    ("ADV_Q49", "audit_trace_refs_contains_foreign_session", ["cross_user_leakage_absent_rate"]),
+    ("ADV_Q50", "audit_local_user_id_mismatch", ["cross_user_leakage_absent_rate"]),
+    ("ADV_Q51", "audit_local_session_id_mismatch", ["cross_user_leakage_absent_rate"]),
+    ("ADV_Q52", "audit_audited_artifact_refs_contain_foreign_token", ["cross_user_leakage_absent_rate"]),
 ]
 
 SAMPLE_CASES = {
@@ -537,12 +542,24 @@ def _defect(defect_id: str, defect_type: str, gates: list[str]) -> dict[str, Any
         a["cross_user_leakage_audit"]["audited_artifact_refs"] = [
             ref for ref in a["cross_user_leakage_audit"].get("audited_artifact_refs", []) if ref != "session_boundary_snapshot"
         ]
+    elif defect_type == "audit_trace_refs_contains_foreign_user":
+        a["cross_user_leakage_audit"].setdefault("trace_refs", []).append("local_user_B")
+    elif defect_type == "audit_trace_refs_contains_foreign_session":
+        a["cross_user_leakage_audit"].setdefault("trace_refs", []).append("sess_B_001")
+    elif defect_type == "audit_local_user_id_mismatch":
+        a["cross_user_leakage_audit"]["local_user_id"] = "local_user_B"
+    elif defect_type == "audit_local_session_id_mismatch":
+        a["cross_user_leakage_audit"]["local_session_id"] = "sess_B_001"
+    elif defect_type == "audit_audited_artifact_refs_contain_foreign_token":
+        a["cross_user_leakage_audit"].setdefault("audited_artifact_refs", []).append("mem_ns_local_user_B")
     if defect_type not in {"cross_user_leakage_audit_missing", "cross_user_leakage_audit_ignores_output"}:
         _refresh_audit(a)
     if defect_type == "cross_user_leakage_audit_omits_required_artifact_coverage":
         a["cross_user_leakage_audit"]["audited_artifact_refs"] = [
             ref for ref in a["cross_user_leakage_audit"].get("audited_artifact_refs", []) if ref != "session_boundary_snapshot"
         ]
+    elif defect_type == "audit_audited_artifact_refs_contain_foreign_token":
+        a["cross_user_leakage_audit"].setdefault("audited_artifact_refs", []).append("mem_ns_local_user_B")
     return a
 
 
